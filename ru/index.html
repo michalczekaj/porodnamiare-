@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>План родов в Польше — на русском языке (PDF)</title>
+<meta name="description" content="Рожаете в Польше? Персональный план родов: интерфейс на русском, документ на польском — понятный персоналу больницы. Стандарт перинатальной помощи Польши.">
+<link rel="canonical" href="https://porodnamiare.pl/ru">
+<link rel="alternate" hreflang="pl" href="https://porodnamiare.pl/">
+<link rel="alternate" hreflang="de" href="https://porodnamiare.pl/de">
+<link rel="alternate" hreflang="uk" href="https://porodnamiare.pl/ua">
+<link rel="alternate" hreflang="ru" href="https://porodnamiare.pl/ru">
+<link rel="alternate" hreflang="x-default" href="https://porodnamiare.pl/">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#FAF5EF">
+<meta property="og:title" content="План родов в Польше — на русском языке (PDF)"><meta property="og:description" content="Рожаете в Польше? Персональный план родов: интерфейс на русском, документ на польском — понятный персоналу больницы. Стандарт перинатальной помощи Польши.">
+<meta property="og:image" content="https://porodnamiare.pl/img/og.png"><meta property="og:type" content="website">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>tailwind.config={theme:{extend:{colors:{ink:'#3A3341',deep:'#3E3852',teal:'#B4636F',tealsoft:'#F7E9E7',sand:'#FAF5EF',sanddark:'#EDDFD3'},fontFamily:{display:['Fraunces','serif'],body:['Figtree','sans-serif']}}}}</script>
+<style>input,button{font-size:16px}input[type=checkbox]{accent-color:#B4636F;width:1.05rem;height:1.05rem}.plan-doc{box-shadow:0 20px 50px -20px rgba(62,56,82,.35)}</style>
+</head>
+<body class="font-body bg-sand text-ink antialiased">
+<header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
+  <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+    <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.png" alt="" width="34" height="32" class="w-8 h-auto">PoródNaMiarę.pl · План родов</a>
+    <div class="flex items-center gap-2 text-xs font-semibold">
+      <a href="/" class="border border-deep/30 rounded-full px-3 py-1.5 hover:bg-sanddark">PL</a>
+      <a href="/de" class="border border-deep/30 rounded-full px-3 py-1.5 hover:bg-sanddark">DE</a>
+      <a href="/ua" class="border border-deep/30 rounded-full px-3 py-1.5 hover:bg-sanddark">UA</a>
+      <a href="/ru" class="border border-deep/30 rounded-full px-3 py-1.5 hover:bg-sanddark bg-sanddark">RU</a>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="max-w-5xl mx-auto px-4 pt-12 pb-10 grid md:grid-cols-2 gap-8 items-center">
+  <div>
+    <h1 class="font-display text-3xl md:text-4xl leading-tight text-deep font-semibold mb-5">Рожаете в Польше? Ваш план родов — на русском, документ — на польском</h1>
+    <p class="text-lg leading-relaxed mb-6">Создано будущим папой. Интерфейс на русском языке, а готовый документ — на польском, чтобы персонал польской больницы мог полностью его использовать. Это ваше преимущество в общении с врачами.</p>
+    <a href="#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">Создать план родов</a>
+  </div>
+  <img src="/img/hero.webp" alt="" width="900" height="1125" class="rounded-3xl plan-doc object-cover aspect-[4/5]" fetchpriority="high" decoding="async">
+</section>
+<div class="border-y border-sanddark bg-white/60"><div class="max-w-5xl mx-auto px-4 py-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-2 text-sm font-medium text-ink/80"><span>✓ Предпросмотр бесплатно — платите, когда видите ценность</span><span>✓ Безопасная оплата Stripe (карты, BLIK, Apple/Google Pay)</span><span>✓ 30 дней гарантии возврата денег</span><span>✓ Создано папой для собственного ребёнка</span></div></div>
+
+<section id="kreator" class="bg-tealsoft py-14">
+  <div class="max-w-5xl mx-auto px-4">
+    <p class="text-sm font-semibold text-teal mb-6">Документ создаётся на польском языке — для персонала польской больницы.</p>
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <form id="planForm" class="bg-white rounded-3xl p-6 md:p-8 border border-sanddark space-y-7">
+        <div><label for="parents" class="font-semibold block mb-2">Имена родителей</label>
+        <input id="parents" type="text" placeholder="напр. Анна и Михаил" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/50"></div>
+        <fieldset><legend class="font-display text-lg font-semibold text-deep mb-3">Условия родов и сопровождение</legend><div class="space-y-2.5 text-[15px]"><label class="flex gap-3 items-start"><input type="checkbox" value="Партнёрские роды — присутствие близкого человека" class="mt-0.5"><span>Партнёрские роды — присутствие близкого человека</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Спокойная атмосфера, приглушённый свет, своя музыка" class="mt-0.5"><span>Спокойная атмосфера, приглушённый свет, своя музыка</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Только необходимый персонал; студенты — с нашего согласия" class="mt-0.5"><span>Только необходимый персонал; студенты — с нашего согласия</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="По возможности одна и та же акушерка на всех этапах" class="mt-0.5"><span>По возможности одна и та же акушерка на всех этапах</span></label></div></fieldset>
+<fieldset><legend class="font-display text-lg font-semibold text-deep mb-3">Обезболивание</legend><div class="space-y-2.5 text-[15px]"><label class="flex gap-3 items-start"><input type="checkbox" value="Сначала немедикаментозные методы (движение, вода, дыхание, TENS)" class="mt-0.5"><span>Сначала немедикаментозные методы (движение, вода, дыхание, TENS)</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Эпидуральная анестезия — по моей просьбе" class="mt-0.5"><span>Эпидуральная анестезия — по моей просьбе</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Ремифентанил (PCA) — там, где доступен" class="mt-0.5"><span>Ремифентанил (PCA) — там, где доступен</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Прошу не предлагать препараты, пока я не попрошу" class="mt-0.5"><span>Прошу не предлагать препараты, пока я не попрошу</span></label></div></fieldset>
+<fieldset><legend class="font-display text-lg font-semibold text-deep mb-3">Течение родов</legend><div class="space-y-2.5 text-[15px]"><label class="flex gap-3 items-start"><input type="checkbox" value="Объяснение и согласие перед каждым вмешательством (кроме экстренных)" class="mt-0.5"><span>Объяснение и согласие перед каждым вмешательством (кроме экстренных)</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Свободный выбор позиций" class="mt-0.5"><span>Свободный выбор позиций</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Эпизиотомия только по чётким медицинским показаниям" class="mt-0.5"><span>Эпизиотомия только по чётким медицинским показаниям</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Окситоцин/амниотомия только после объяснения и согласия" class="mt-0.5"><span>Окситоцин/амниотомия только после объяснения и согласия</span></label></div></fieldset>
+<fieldset><legend class="font-display text-lg font-semibold text-deep mb-3">Ваш новорождённый</legend><div class="space-y-2.5 text-[15px]"><label class="flex gap-3 items-start"><input type="checkbox" value="Контакт «кожа к коже» минимум 2 часа (гарантирован стандартом)" class="mt-0.5"><span>Контакт «кожа к коже» минимум 2 часа (гарантирован стандартом)</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Отсроченное пережатие пуповины" class="mt-0.5"><span>Отсроченное пережатие пуповины</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Первое прикладывание к груди в родовом зале, поддержка лактации" class="mt-0.5"><span>Первое прикладывание к груди в родовом зале, поддержка лактации</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Витамин K и профилактика — в нашем присутствии" class="mt-0.5"><span>Витамин K и профилактика — в нашем присутствии</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Прививки в роддоме (гепатит B, БЦЖ) — по нашему информированному решению; возможна реализация у педиатра после выписки" class="mt-0.5"><span>Прививки в роддоме (гепатит B, БЦЖ) — по нашему информированному решению; возможна реализация у педиатра после выписки</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Без докорма смесью и пустышки без нашего согласия" class="mt-0.5"><span>Без докорма смесью и пустышки без нашего согласия</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Совместное пребывание 24/7, скрининги в присутствии родителей" class="mt-0.5"><span>Совместное пребывание 24/7, скрининги в присутствии родителей</span></label></div></fieldset>
+<fieldset><legend class="font-display text-lg font-semibold text-deep mb-3">Если потребуется кесарево сечение</legend><div class="space-y-2.5 text-[15px]"><label class="flex gap-3 items-start"><input type="checkbox" value="Объяснение причин и наше согласие (кроме экстренных)" class="mt-0.5"><span>Объяснение причин и наше согласие (кроме экстренных)</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Присутствие папы в операционной, если возможно" class="mt-0.5"><span>Присутствие папы в операционной, если возможно</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Контакт «кожа к коже» в операционной — с мамой или папой" class="mt-0.5"><span>Контакт «кожа к коже» в операционной — с мамой или папой</span></label>
+<label class="flex gap-3 items-start"><input type="checkbox" value="Раннее прикладывание после операции" class="mt-0.5"><span>Раннее прикладывание после операции</span></label></div></fieldset>
+
+        <div class="flex flex-wrap gap-3"><button type="button" id="generateBtn" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep">Создать предпросмотр</button>
+        <button type="reset" class="border border-deep/30 font-semibold px-6 py-3 rounded-full hover:bg-sand">Очистить</button></div>
+      </form>
+      <div><div id="planPreview" class="bg-white plan-doc p-8 min-h-[380px] border-t-8 border-teal"></div>
+      <a href="#cennik" id="buyBtn" class="hidden mt-5 w-full text-center bg-deep text-white font-semibold px-6 py-4 rounded-full hover:bg-teal transition-colors block">Купить этот план →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="cennik" class="max-w-5xl mx-auto px-4 py-14">
+  <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+    <a href="https://buy.stripe.com/TWOJ_LINK_PODSTAWOWY" target="_blank" rel="noopener" class="block text-center border-2 border-deep/20 font-semibold px-6 py-5 rounded-2xl hover:bg-sanddark text-lg">Базовый — 49 zł</a>
+    <a href="https://buy.stripe.com/TWOJ_LINK_PREMIUM" target="_blank" rel="noopener" class="block text-center bg-teal text-white font-semibold px-6 py-5 rounded-2xl hover:bg-deep text-lg">Премиум — 99 zł</a>
+  </div>
+  <p class="text-sm text-ink/60 mt-6 text-center max-w-2xl mx-auto">Внимание: план носит организационный характер и не заменяет медицинскую консультацию. Обсудите его с врачом или акушеркой. План соответствует польскому Стандарту перинатальной помощи.</p>
+</section>
+</main>
+<footer class="bg-deep text-sand/80 py-8 text-sm"><div class="max-w-5xl mx-auto px-4 text-center space-y-2">
+<p>Действуют <a href="/regulamin" class="underline">Условия</a> и <a href="/polityka-prywatnosci" class="underline">Политика конфиденциальности</a>.</p><p>kontakt@porodnamiare.pl · © 2026 PoródNaMiarę.pl</p></div></footer>
+<script>
+(function(){
+const form=document.getElementById('planForm'),preview=document.getElementById('planPreview'),buyBtn=document.getElementById('buyBtn');
+document.getElementById('generateBtn').addEventListener('click',function(){
+ const parents=(document.getElementById('parents').value.trim()||'').replace(/</g,'&lt;');
+ let html='',any=false;
+ form.querySelectorAll('fieldset').forEach(fs=>{
+  const items=[...fs.querySelectorAll('input:checked')].map(i=>'<li>'+i.value+'</li>').join('');
+  if(items){any=true;html+='<h3 class="font-display text-deep font-semibold mt-5 mb-2 text-lg">'+fs.querySelector('legend').textContent+'</h3><ul class="list-disc pl-5 space-y-1.5 text-[15px]">'+items+'</ul>';}
+ });
+ preview.innerHTML=any?('<h2 class="font-display text-2xl font-semibold text-deep">'+parents+'</h2>'+html):'<p class="text-ink/60 italic">…</p>';
+ buyBtn.classList.toggle('hidden',!any);
+});
+form.addEventListener('reset',()=>setTimeout(()=>{preview.innerHTML='';buyBtn.classList.add('hidden');},0));
+})();
+</script>
+</body></html>

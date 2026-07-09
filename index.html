@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PoródNaMiarę.pl — Spersonalizowany plan porodu i produkty dla rodziców</title>
+<meta name="description" content="Pierwszy w Polsce interaktywny, spersonalizowany plan porodu tworzony z perspektywy taty. Wyczerpujący dokument PDF: znieczulenie (w tym remifentanyl PCA), opieka nad noworodkiem, szczepienia, połóg. Poród na miarę Waszych potrzeb.">
+<meta name="keywords" content="spersonalizowany plan porodu, plan porodu na zamówienie, plan porodu wzór, plan porodu pdf, bezpieczny poród dziecko, plan porodu noworodek, kreator planu porodu, poród na miarę">
+<meta name="geo.region" content="PL"><meta name="geo.placename" content="Polska">
+<meta property="og:title" content="PoródNaMiarę.pl — Twój poród. Twój plan.">
+<meta property="og:description" content="Interaktywny kreator planu porodu z najbardziej rozbudowaną sekcją noworodkową. Stworzony przez tatę, dla rodziców.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://porodnamiare.pl/">
+<meta property="og:image" content="https://porodnamiare.pl/img/og.png">
+<meta property="og:locale" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://porodnamiare.pl/">
+<link rel="alternate" hreflang="pl" href="https://porodnamiare.pl/">
+<link rel="alternate" hreflang="de" href="https://porodnamiare.pl/de">
+<link rel="alternate" hreflang="uk" href="https://porodnamiare.pl/ua">
+<link rel="alternate" hreflang="ru" href="https://porodnamiare.pl/ru">
+<link rel="alternate" hreflang="x-default" href="https://porodnamiare.pl/">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#FAF5EF">
+<!-- Bing Webmaster: wklej swój kod z bing.com/webmasters -->
+<meta name="msvalidate.01" content="TODO_KOD_WERYFIKACJI_BING">
+<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Person","name":"Michał","description":"Tata i twórca serwisu PoródNaMiarę.pl","url":"https://porodnamiare.pl"},
+{"@type":"Organization","name":"PoródNaMiarę.pl","url":"https://porodnamiare.pl","email":"kontakt@porodnamiare.pl","description":"Spersonalizowane plany porodu z naciskiem na bezpieczeństwo noworodka."},
+{"@type":"Product","name":"Spersonalizowany plan porodu","description":"Interaktywny plan porodu PDF z rozbudowaną sekcją noworodkową.","offers":[{"@type":"Offer","name":"Podstawowy","price":"49","priceCurrency":"PLN"},{"@type":"Offer","name":"Premium","price":"99","priceCurrency":"PLN"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Czy plan porodu jest wiążący dla szpitala?","acceptedAnswer":{"@type":"Answer","text":"Plan porodu jest elementem dokumentacji przewidzianym w Standardzie Organizacyjnym Opieki Okołoporodowej. Personel ma obowiązek się z nim zapoznać i omówić go z Wami, choć decyzje medyczne zawsze zależą od sytuacji klinicznej."}},
+{"@type":"Question","name":"Kiedy przygotować plan porodu?","acceptedAnswer":{"@type":"Answer","text":"Najlepiej między 30. a 36. tygodniem ciąży — jest czas na omówienie planu z lekarzem prowadzącym i położną."}},
+{"@type":"Question","name":"Czym różni się Wasz plan od darmowych szablonów?","acceptedAnswer":{"@type":"Answer","text":"Darmowe szablony są ogólne. Nasz plan jest spersonalizowany, oparty na aktualnej wiedzy, z najbardziej rozbudowaną na rynku sekcją noworodkową i checklistą dla taty."}}
+]}]}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#3A3341',        /* głęboki granat-teal (tekst) */
+        deep: '#3E3852',       /* granat/teal (tła ciemne) */
+        teal: '#B4636F',       /* akcent teal */
+        tealsoft: '#F7E9E7',   /* jasny teal (tła kart) */
+        sand: '#FAF5EF',       /* ciepły beż (tło strony) */
+        sanddark: '#EDDFD3',   /* beż akcentowy */
+      },
+      fontFamily: {
+        display: ['Fraunces', 'serif'],
+        body: ['Figtree', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+  a, button, summary, label { touch-action: manipulation; }
+  input, button, select, textarea { font-size: 16px; } /* iOS: bez auto-zoom */
+  .safe-b { padding-bottom: calc(0.75rem + env(safe-area-inset-bottom)); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  .plan-doc { box-shadow: 0 20px 50px -20px rgba(62,56,82,.35); }
+  input[type=checkbox], input[type=radio] { accent-color: #B4636F; width: 1.05rem; height: 1.05rem; }
+  :focus-visible { outline: 3px solid #B4636F; outline-offset: 2px; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(22px) } to { opacity:1; transform:none } }
+  @keyframes floaty { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-14px) } }
+  @keyframes heartbeat { 0%,100% { transform:scale(1) } 15% { transform:scale(1.25) } 30% { transform:scale(1) } }
+  .au { animation: fadeUp .8s ease-out both }
+  .au-1{animation-delay:.05s}.au-2{animation-delay:.18s}.au-3{animation-delay:.32s}.au-4{animation-delay:.46s}.au-5{animation-delay:.6s}
+  .floaty { animation: floaty 7s ease-in-out infinite }
+  .beat { display:inline-block; animation: heartbeat 2.6s ease-in-out infinite }
+  @media (prefers-reduced-motion: reduce) { .au,.floaty,.beat { animation:none } }
+</style>
+</head>
+<body class="font-body bg-sand text-ink antialiased">
+
+<!-- ===== NAVBAR ===== -->
+<header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
+  <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
+    <a href="#top" class="flex items-center gap-2 font-display text-xl text-deep font-semibold"><img src="img/logo-mark.png" alt="" width="36" height="34" class="w-9 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
+    <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+      <a href="#dlaczego" data-i18n="navWhy" class="hover:text-teal">Dlaczego my</a>
+      <a href="#jak" data-i18n="navHow" class="hover:text-teal">Jak to działa</a>
+      <a href="#kreator" data-i18n="navCreator" class="hover:text-teal">Kreator planu</a>
+      <a href="#cennik" data-i18n="navPricing" class="hover:text-teal">Cennik</a>
+      <a href="#blog" data-i18n="navBlog" class="hover:text-teal">Wiedza</a>
+      <a href="#faq" class="hover:text-teal">FAQ</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
+        <option value="pl">PL</option><option value="en">EN</option><option value="uk">UA</option><option value="ru">RU</option>
+      </select>
+      <a href="#kreator" data-i18n="ctaTop" class="hidden sm:inline-block bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors">Stwórz plan</a>
+      <button id="menuBtn" class="md:hidden p-2 -mr-1" aria-label="Menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3E3852" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobileMenu" class="hidden md:hidden border-t border-sanddark bg-sand px-4 py-4 space-y-1 text-[15px] font-medium">
+    <a href="#dlaczego" data-i18n="navWhy" class="block py-2.5 border-b border-sanddark/60">Dlaczego my</a>
+    <a href="#jak" data-i18n="navHow" class="block py-2.5 border-b border-sanddark/60">Jak to działa</a>
+    <a href="#kreator" data-i18n="navCreator" class="block py-2.5 border-b border-sanddark/60">Kreator planu</a>
+    <a href="#cennik" data-i18n="navPricing" class="block py-2.5 border-b border-sanddark/60">Cennik</a>
+    <a href="#blog" data-i18n="navBlog" class="block py-2.5 border-b border-sanddark/60">Wiedza</a>
+    <a href="#faq" class="block py-2.5">FAQ</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== HERO ===== -->
+<section class="max-w-6xl mx-auto px-4 pt-12 pb-16 md:pt-20 md:pb-24 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
+  <div aria-hidden="true" class="absolute -top-20 -right-24 w-96 h-96 bg-teal/10 rounded-full blur-3xl floaty"></div>
+  <div class="relative">
+    <p class="text-teal font-semibold text-sm uppercase tracking-widest mb-4 au au-1"><span class="beat mr-1">♥</span><span data-i18n="heroBadge">Pierwszy taki w Polsce</span></p>
+    <h1 data-i18n="heroH1" class="font-display text-4xl md:text-5xl leading-tight text-deep font-semibold mb-6 au au-2">Spersonalizowany plan porodu, który stawia bezpieczeństwo Waszego dziecka na pierwszym miejscu</h1>
+    <p data-i18n="heroP1" class="text-lg leading-relaxed mb-4 au au-3">Nazywam się Michał i za kilka miesięcy zostanę tatą. Kiedy szukałem planu porodu dla nas, znajdowałem tylko darmowe szablony albo drogie konsultacje. Żaden nie odpowiadał na moje najważniejsze pytanie: <strong>co realnie zwiększa bezpieczeństwo noworodka?</strong></p>
+    <p data-i18n="heroP2" class="text-lg leading-relaxed mb-8 au au-4">Dlatego stworzyłem to narzędzie — interaktywny plan porodu oparty na aktualnej wiedzy medycznej, pisany z perspektywy taty, który chce dla swojego dziecka maksimum bezpieczeństwa.</p>
+    <div class="flex flex-wrap gap-4 au au-5">
+      <a href="#kreator" data-i18n="heroCta1" class="bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">Stwórz swój plan porodu</a>
+      <a href="#jak" data-i18n="heroCta2" class="border border-deep/30 font-semibold px-7 py-3.5 rounded-full hover:bg-sanddark transition-colors">Zobacz, jak to działa</a>
+    </div>
+  </div>
+  <figure class="rounded-3xl overflow-hidden plan-doc au au-3 relative">
+    <!-- ZDJĘCIE: Unsplash/Pexels — "father holding newborn baby skin to skin, warm light" -->
+    <img src="img/hero.webp" alt="Tata trzymający noworodka w kontakcie skóra do skóry — bezpieczny poród" width="900" height="1125" fetchpriority="high" decoding="async" class="w-full h-full object-cover aspect-[4/5]">
+    <figcaption class="sr-only">Kontakt skóra do skóry taty z noworodkiem</figcaption>
+  </figure>
+</section>
+
+<!-- ===== PASEK ZAUFANIA ===== -->
+<div class="border-y border-sanddark bg-white/60">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm font-medium text-ink/80">
+    <span>✓ Zgodny ze Standardem Opieki Okołoporodowej</span>
+    <span>✓ 30 dni gwarancji zwrotu pieniędzy</span>
+    <span>✓ Dane nie opuszczają Twojej przeglądarki</span>
+    <span>✓ Gotowy PDF w 24 h</span>
+  </div>
+  <div class="border-t border-sanddark bg-tealsoft/50">
+    <p class="max-w-6xl mx-auto px-4 py-2.5 text-center text-sm">🌍 Rodzisz za granicą? Wersje krajowe:
+      <a href="/de" class="font-semibold text-teal underline mx-1">🇩🇪 Deutschland</a> ·
+      <a href="/ua" class="font-semibold text-teal underline mx-1">🇺🇦 Україна</a> ·
+      <a href="/ru" class="font-semibold text-teal underline mx-1">🇷🇺 по-русски (roды в Польше)</a>
+    </p>
+  </div>
+</div>
+
+<!-- ===== DLACZEGO MY ===== -->
+<section id="dlaczego" class="bg-deep text-sand py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 data-i18n="whyH" class="font-display text-3xl md:text-4xl font-semibold mb-3">Dlaczego PoródNaMiarę.pl?</h2>
+    <p class="max-w-2xl text-sand/80 mb-12">W Polsce dostaniesz darmowy szablon urzędowy. Za granicą — konsultację z doulą za kilkaset euro. My wypełniamy lukę pomiędzy: samodzielny, interaktywny produkt cyfrowy oparty na dowodach naukowych.</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="bg-white/5 border border-white/10 rounded-2xl p-7">
+        <h3 class="font-display text-xl font-semibold mb-3 text-white">Perspektywa taty</h3>
+        <p class="text-sand/80 leading-relaxed">Większość materiałów pomija partnera. U nas tata jest aktywnym uczestnikiem porodu: wie, o co pytać, czego pilnować i jak realnie wspierać mamę i dziecko.</p>
+      </article>
+      <article class="bg-white/5 border border-white/10 rounded-2xl p-7">
+        <h3 class="font-display text-xl font-semibold mb-3 text-white">Bezpieczeństwo noworodka</h3>
+        <p class="text-sand/80 leading-relaxed">Najbardziej rozbudowana sekcja planu dotyczy pierwszych godzin życia dziecka: kontakt skóra do skóry, opóźnione odpępnienie, laktacja, profilaktyka i badania przesiewowe.</p>
+      </article>
+      <article class="bg-white/5 border border-white/10 rounded-2xl p-7">
+        <h3 class="font-display text-xl font-semibold mb-3 text-white">Evidence-based</h3>
+        <p class="text-sand/80 leading-relaxed">Każda opcja w kreatorze opiera się na aktualnych rekomendacjach i standardach opieki okołoporodowej — w tym nowoczesnych metodach analgezji, jak remifentanyl (PCA).</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JAK TO DZIAŁA ===== -->
+<section id="jak" class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+  <h2 data-i18n="howH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-12">Jak to działa — 4 proste kroki</h2>
+  <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <li class="bg-white rounded-2xl p-7 border border-sanddark">
+      <span class="font-display text-teal text-3xl font-semibold">1</span>
+      <h3 class="font-semibold mt-3 mb-2">Wybierasz opcje</h3>
+      <p class="text-sm leading-relaxed text-ink/80">Przechodzisz przez kreator: znieczulenie, przebieg porodu, opieka nad noworodkiem, szczepienia.</p>
+    </li>
+    <li class="bg-white rounded-2xl p-7 border border-sanddark">
+      <span class="font-display text-teal text-3xl font-semibold">2</span>
+      <h3 class="font-semibold mt-3 mb-2">Generujesz podgląd</h3>
+      <p class="text-sm leading-relaxed text-ink/80">Jednym kliknięciem widzisz sformatowany, czytelny plan — dokładnie taki, jaki trafi do szpitala.</p>
+    </li>
+    <li class="bg-white rounded-2xl p-7 border border-sanddark">
+      <span class="font-display text-teal text-3xl font-semibold">3</span>
+      <h3 class="font-semibold mt-3 mb-2">Kupujesz plan</h3>
+      <p class="text-sm leading-relaxed text-ink/80">Wybierasz pakiet i otrzymujesz profesjonalny dokument PDF gotowy do druku i rozmowy z lekarzem.</p>
+    </li>
+    <li class="bg-white rounded-2xl p-7 border border-sanddark">
+      <span class="font-display text-teal text-3xl font-semibold">4</span>
+      <h3 class="font-semibold mt-3 mb-2">Idziecie przygotowani</h3>
+      <p class="text-sm leading-relaxed text-ink/80">Zabieracie plan do szpitala. Personel wie, czego chcecie — Wy wiecie, czego pilnować.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ===== KREATOR PLANU PORODU ===== -->
+<section id="kreator" class="bg-tealsoft py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 data-i18n="creatorH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-3">Interaktywny kreator planu porodu</h2>
+    <div class="grid md:grid-cols-[1fr_260px] gap-6 items-center mb-10 max-w-4xl"><p>Zaznacz opcje, które są dla Was ważne, a następnie wygeneruj podgląd planu. Podgląd jest bezpłatny — pełny, spersonalizowany dokument PDF otrzymasz po zakupie. Plan obejmuje 8 obszarów — od warunków porodu po połóg — wzorowany na najbardziej wyczerpujących planach zgodnych ze Standardem Opieki Okołoporodowej. <span data-i18n="creatorNote" class="block mt-2 text-sm text-ink/70">Interfejs dostępny w 4 językach; sam dokument planu generowany jest po polsku — tak, aby personel szpitala w Polsce mógł go w pełni wykorzystać.</span></p><img src="img/kreator.webp" alt="Przyszła mama przygotowująca plan porodu w notesie" class="hidden md:block rounded-2xl" loading="lazy"></div>
+
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <form id="planForm" class="bg-white rounded-3xl p-6 md:p-8 border border-sanddark space-y-8">
+
+        <div>
+          <label for="parents" class="font-semibold block mb-2">Imiona rodziców</label>
+          <input id="parents" type="text" placeholder="np. Anna i Michał" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/50">
+        </div>
+
+        <fieldset>
+          <legend class="font-display text-lg font-semibold text-deep mb-3">Warunki porodu i osoby obecne</legend>
+          <div class="space-y-2.5 text-[15px]">
+            <label class="flex gap-3 items-start"><input type="checkbox" name="setting" value="Prośba o salę pojedynczą z dostępem do prysznica/wanny, jeśli dostępna" class="mt-0.5"><span>Sala pojedyncza z prysznicem/wanną (jeśli dostępna)</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="setting" value="Przyciemnione światło, cisza i możliwość słuchania własnej muzyki" class="mt-0.5"><span>Przyciemnione światło, cisza, własna muzyka</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="setting" value="Obecne tylko niezbędne osoby z personelu; bez studentów bez naszej zgody" class="mt-0.5"><span>Tylko niezbędny personel; studenci za naszą zgodą</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="setting" value="W miarę możliwości opieka tej samej położnej przez cały poród" class="mt-0.5"><span>Ta sama położna przez cały poród (w miarę możliwości)</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="setting" value="Możliwość robienia zdjęć po narodzinach dziecka" class="mt-0.5"><span>Możliwość zdjęć po narodzinach</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="font-display text-lg font-semibold text-deep mb-3">Łagodzenie bólu i znieczulenie</legend>
+          <div class="space-y-2.5 text-[15px]">
+            <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Metody niefarmakologiczne: piłka, prysznic, immersja wodna, TENS, masaż" class="mt-0.5"><span>Metody niefarmakologiczne (piłka, prysznic, immersja wodna, TENS)</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Znieczulenie zewnątrzoponowe — decyzja mamy w trakcie porodu" class="mt-0.5"><span>Znieczulenie zewnątrzoponowe (decyzja w trakcie porodu)</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Analgezja remifentanylem (PCA) — nowoczesna metoda kontrolowana przez pacjentkę, dostępna m.in. w szpitalu w Przemyślu; prosimy o informację o dostępności" class="mt-0.5"><span><strong>Remifentanyl (PCA)</strong> — analgezja kontrolowana przez pacjentkę, dostępna m.in. w szpitalu w Przemyślu</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Gaz wziewny (Entonox)" class="mt-0.5"><span>Gaz wziewny (Entonox)</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="font-display text-lg font-semibold text-deep mb-3">Przebieg porodu</legend>
+          <div class="space-y-2.5 text-[15px]">
+            <label class="flex gap-3 items-start"><input type="checkbox" name="labor" value="Obecność taty przez cały poród, także przy zabiegach" class="mt-0.5"><span>Obecność taty przez cały poród</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="labor" value="Swoboda ruchu i wybór pozycji w I i II okresie porodu" class="mt-0.5"><span>Swoboda ruchu i wybór pozycji</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="labor" value="Nacięcie krocza wyłącznie ze wskazań medycznych, po poinformowaniu" class="mt-0.5"><span>Nacięcie krocza tylko ze wskazań medycznych</span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend class="font-display text-lg font-semibold text-deep mb-3">Indukcja i III okres porodu</legend>
+          <div class="space-y-2.5 text-[15px]">
+            <label class="flex gap-3 items-start"><input type="checkbox" name="induction" value="Bez wywoływania porodu (w tym amniotomii) bez wyraźnych wskazań medycznych" class="mt-0.5"><span>Bez indukcji bez wyraźnych wskazań</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="induction" value="Oksytocyna / amniotomia wyłącznie po wyjaśnieniu wskazań i naszej świadomej zgodzie" class="mt-0.5"><span>Oksytocyna/amniotomia po wyjaśnieniu wskazań i zgodzie</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="induction" value="Możliwość fizjologicznego urodzenia łożyska, jeśli brak czynników ryzyka krwotoku" class="mt-0.5"><span>Fizjologiczne urodzenie łożyska (jeśli brak ryzyka)</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="font-display text-lg font-semibold text-deep mb-3">Gdyby konieczne było cięcie cesarskie</legend>
+          <div class="space-y-2.5 text-[15px]">
+            <label class="flex gap-3 items-start"><input type="checkbox" name="csection" value="Dokładna informacja o powodach cięcia i nasza świadoma zgoda (poza sytuacją nagłą)" class="mt-0.5"><span>Informacja o powodach + świadoma zgoda (poza nagłymi)</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="csection" value="Obecność taty na sali operacyjnej, jeśli to możliwe" class="mt-0.5"><span>Obecność taty na sali operacyjnej</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="csection" value="Kontakt skóra do skóry na sali operacyjnej; jeśli mama nie może — kontakt z tatą" class="mt-0.5"><span>Skóra do skóry na sali operacyjnej (z mamą lub tatą)</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="csection" value="Jak najszybsze przystawienie dziecka do piersi po cięciu" class="mt-0.5"><span>Jak najszybsze przystawienie do piersi po cięciu</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="bg-tealsoft/60 rounded-2xl p-4 -mx-1">
+          <legend class="font-display text-lg font-semibold text-deep mb-3 px-1">Opieka nad noworodkiem <span class="text-teal text-sm font-body">(najważniejsza sekcja)</span></legend>
+          <div class="space-y-2.5 text-[15px]">
+            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Nieprzerwany kontakt skóra do skóry min. 2 godziny po porodzie (także z tatą przy cięciu cesarskim)" checked class="mt-0.5"><span>Kontakt skóra do skóry min. 2 h (także z tatą przy cesarskim cięciu)</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Opóźnione odpępnienie — przecięcie pępowiny po ustaniu tętnienia (min. 1–3 min)" checked class="mt-0.5"><span>Opóźnione odpępnienie (po ustaniu tętnienia)</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Wsparcie laktacyjne: pierwsze przystawienie w ciągu 1 h, pomoc położnej laktacyjnej" checked class="mt-0.5"><span>Wsparcie laktacji — pierwsze przystawienie w ciągu 1 h</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Bez dokarmiania mlekiem modyfikowanym i bez smoczka bez zgody rodziców" class="mt-0.5"><span>Bez dokarmiania i smoczka bez zgody rodziców</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Profilaktyka (wit. K, zabieg Credégo) — po rozmowie z rodzicami, w obecności rodzica" checked class="mt-0.5"><span>Profilaktyka (wit. K, zabieg Credégo) w obecności rodzica</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Badania przesiewowe noworodka (słuch, badania metaboliczne, pulsoksymetria) — tak, w obecności rodzica" checked class="mt-0.5"><span>Badania przesiewowe — tak, w obecności rodzica</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Wszystkie zabiegi i badania dziecka wykonywane w obecności mamy lub taty" checked class="mt-0.5"><span>Każdy zabieg przy dziecku w obecności rodzica</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="font-display text-lg font-semibold text-deep mb-3">Szczepienia noworodka</legend>
+          <div class="space-y-2.5 text-[15px]">
+            <label class="flex gap-3 items-start"><input type="radio" name="vacc" value="Chcemy zaszczepić dziecko zgodnie z kalendarzem szczepień, jednak planujemy zrealizować szczepienia we własnym zakresie i według własnego harmonogramu po wypisie ze szpitala. Prosimy o odnotowanie tej decyzji." checked class="mt-0.5"><span><strong>Zaszczepimy dziecko we własnym zakresie</strong>, według własnego harmonogramu po wypisie</span></label>
+            <label class="flex gap-3 items-start"><input type="radio" name="vacc" value="Wyrażamy zgodę na szczepienia (WZW B, BCG) zgodnie ze standardem szpitalnym, w obecności rodzica." class="mt-0.5"><span>Szczepienia w szpitalu, zgodnie ze standardem, w obecności rodzica</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend class="font-display text-lg font-semibold text-deep mb-3">Połóg i oddział położniczy</legend>
+          <div class="space-y-2.5 text-[15px]">
+            <label class="flex gap-3 items-start"><input type="checkbox" name="postpartum" value="Rooming-in 24 h — bez rozdzielania mamy i dziecka bez wskazań medycznych" class="mt-0.5"><span>Rooming-in 24 h, bez separacji bez wskazań</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="postpartum" value="Wsparcie laktacyjne podczas całego pobytu na oddziale" class="mt-0.5"><span>Wsparcie laktacyjne podczas pobytu</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="postpartum" value="Informacja o każdym leku lub suplemencie podawanym mamie lub dziecku" class="mt-0.5"><span>Informacja o każdym podawanym leku</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="postpartum" value="Wypis do domu możliwie szybko, jeśli stan mamy i dziecka jest dobry" class="mt-0.5"><span>Możliwie szybki wypis przy dobrym stanie</span></label>
+          </div>
+        </fieldset>
+
+        <div class="flex flex-wrap gap-3 pt-1">
+          <button type="button" id="generateBtn" data-i18n="btnGenerate" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors">Wygeneruj podgląd</button>
+          <button type="reset" data-i18n="btnReset" class="border border-deep/30 font-semibold px-6 py-3 rounded-full hover:bg-sand">Wyczyść</button>
+        </div>
+      </form>
+
+      <div>
+        <div id="planPreview" class="bg-white rounded-none plan-doc p-8 md:p-10 min-h-[420px] border-t-8 border-teal" aria-live="polite">
+          <p class="text-ink/60 italic">Tutaj pojawi się podgląd Waszego planu porodu. Zaznacz opcje po lewej stronie i kliknij „Wygeneruj podgląd”.</p>
+        </div>
+        <button id="copyBtn" class="hidden mt-5 w-full border-2 border-teal text-teal font-semibold px-6 py-3 rounded-full hover:bg-tealsoft transition-colors" type="button">📋 Kopiuj podsumowanie planu</button>
+        <p id="copyHint" class="hidden mt-2 text-xs text-ink/60 text-center">Skopiowane! Wklej je w polu „Podsumowanie planu” podczas płatności lub w odpowiedzi na e-mail po zakupie.</p>
+        <a href="#cennik" id="buyBtn" target="_blank" class="hidden mt-6 w-full text-center bg-deep text-white font-semibold px-6 py-4 rounded-full hover:bg-teal transition-colors block">Kup ten spersonalizowany plan →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CENNIK ===== -->
+<section id="cennik" class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+  <h2 data-i18n="pricingH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-6">Pakiety i cennik</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mb-12 text-sm">
+    <div class="bg-white border border-sanddark rounded-2xl p-5"><p class="text-2xl mb-1">👀</p><p data-i18n="trustA" class="font-semibold">Podgląd planu za darmo — płacisz dopiero, gdy widzisz wartość</p></div>
+    <div class="bg-white border border-sanddark rounded-2xl p-5"><p class="text-2xl mb-1">🔒</p><p data-i18n="trustB" class="font-semibold">Bezpieczne płatności Stripe — karta, BLIK, Apple i Google Pay</p></div>
+    <div class="bg-white border border-sanddark rounded-2xl p-5"><p class="text-2xl mb-1">↩️</p><p data-i18n="trustC" class="font-semibold">30 dni gwarancji zwrotu — bez pytań, bez formularzy</p></div>
+    <div class="bg-white border border-sanddark rounded-2xl p-5"><p class="text-2xl mb-1">🤍</p><p data-i18n="trustD" class="font-semibold">Tworzone przez tatę dla własnego dziecka — nie przez korporację</p></div>
+  </div>
+  <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
+    <article class="bg-white rounded-3xl border border-sanddark p-8">
+      <h3 class="font-display text-2xl font-semibold text-deep">Podstawowy</h3>
+      <p class="text-4xl font-display font-semibold my-4">49 zł</p>
+      <ul class="space-y-2.5 text-[15px] mb-8">
+        <li>✓ Spersonalizowany plan porodu (PDF)</li>
+        <li>✓ Pełna sekcja noworodkowa</li>
+        <li>✓ Format gotowy do druku i wpięcia do dokumentacji</li>
+      </ul>
+      <a href="https://buy.stripe.com/TWOJ_LINK_PODSTAWOWY" target="_blank" rel="noopener" class="block text-center border border-deep/30 font-semibold px-6 py-3 rounded-full hover:bg-sanddark">Kup Podstawowy — 49 zł</a>
+    </article>
+    <article class="bg-deep text-sand rounded-3xl p-8 relative">
+      <span class="absolute -top-3 left-8 bg-teal text-white text-xs font-bold px-3 py-1 rounded-full">NAJCZĘŚCIEJ WYBIERANY</span>
+      <h3 class="font-display text-2xl font-semibold text-white">Premium</h3>
+      <p class="text-4xl font-display font-semibold my-4 text-white">99 zł</p>
+      <ul class="space-y-2.5 text-[15px] mb-8 text-sand/90">
+        <li>✓ Wszystko z pakietu Podstawowego</li>
+        <li>✓ Wersja skrócona „na drzwi sali porodowej”</li>
+        <li>✓ Checklist dla taty: torba, pytania do personelu, sygnały alarmowe</li>
+        <li>✓ Przewodnik „Pierwsze 24 godziny życia dziecka”</li>
+        <li>✓ Bezpłatna aktualizacja planu do dnia porodu</li>
+      </ul>
+      <a href="https://buy.stripe.com/TWOJ_LINK_PREMIUM" target="_blank" rel="noopener" class="block text-center bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors">Kup Premium — 99 zł</a>
+    </article>
+  </div>
+  <div class="mt-8 max-w-4xl bg-tealsoft rounded-2xl p-6 flex flex-wrap items-center gap-4 justify-between">
+    <p class="font-semibold text-deep"><span data-i18n="guarantee">Gwarancja spokojnej głowy: jeśli w ciągu 30 dni uznacie, że plan Wam nie pomógł — zwracamy 100% ceny. Bez pytań.</span><span class="block mt-2 font-display text-teal">— Michał, tata i założyciel</span></p>
+    <p class="text-sm text-ink/70">Bezpieczne płatności Stripe (karta, BLIK, Apple/Google Pay). Pytania: <a href="mailto:kontakt@porodnamiare.pl" class="text-teal font-semibold underline">kontakt@porodnamiare.pl</a></p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="max-w-6xl mx-auto px-4 pb-16 md:pb-24">
+  <h2 data-i18n="faqH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-10">Najczęstsze pytania</h2>
+  <div class="max-w-3xl space-y-4">
+    <details class="bg-white rounded-2xl border border-sanddark p-6">
+      <summary class="font-semibold cursor-pointer">Czy plan porodu jest wiążący dla szpitala?</summary>
+      <p class="mt-3 text-[15px] leading-relaxed text-ink/80">Plan porodu jest elementem dokumentacji przewidzianym w Standardzie Organizacyjnym Opieki Okołoporodowej. Personel ma obowiązek się z nim zapoznać i omówić go z Wami. Decyzje medyczne zawsze zależą od sytuacji klinicznej — ale dobrze przygotowany plan sprawia, że Wasze priorytety są znane od pierwszej minuty.</p>
+    </details>
+    <details class="bg-white rounded-2xl border border-sanddark p-6">
+      <summary class="font-semibold cursor-pointer">Kiedy najlepiej przygotować plan porodu?</summary>
+      <p class="mt-3 text-[15px] leading-relaxed text-ink/80">Między 30. a 36. tygodniem ciąży. Zostaje wtedy czas, by omówić plan z lekarzem prowadzącym i położną oraz sprawdzić, co oferuje Wasz szpital (np. dostępność remifentanylu PCA).</p>
+    </details>
+    <details class="bg-white rounded-2xl border border-sanddark p-6">
+      <summary class="font-semibold cursor-pointer">Czym różnicie się od darmowych szablonów?</summary>
+      <p class="mt-3 text-[15px] leading-relaxed text-ink/80">Szablony są ogólne i często przestarzałe. Nasz plan jest spersonalizowany, oparty na aktualnych rekomendacjach, z najbardziej rozbudowaną sekcją noworodkową na rynku i praktyczną checklistą dla taty. To dokument, który personel czyta z szacunkiem.</p>
+    </details>
+    <details class="bg-white rounded-2xl border border-sanddark p-6">
+      <summary class="font-semibold cursor-pointer">Szczepienia noworodka w szpitalu — jak zapisać naszą decyzję w planie?</summary>
+      <p class="mt-3 text-[15px] leading-relaxed text-ink/80">Szczepienia budzą emocje, ale fakty są proste: szczepienia przeciw WZW B i gruźlicy (BCG) chronią dziecko i są w Polsce standardem pierwszej doby. Rodzice mają jednocześnie prawo do świadomej zgody — część rodzin decyduje się np. zrealizować szczepienia u wybranego pediatry po wypisie, według ustalonego z nim harmonogramu. Nasz kreator pozwala zapisać obie decyzje jasno i kulturalnie, wraz z ważnym zastrzeżeniem bezpieczeństwa (np. szczepienie WZW B w szpitalu, gdy wynik HBsAg mamy jest dodatni lub nieznany). Dzięki temu rozmowa z personelem opiera się na dokumencie, a nie na dyskusji na korytarzu. Niezależnie od decyzji zachęcamy: porozmawiajcie o szczepieniach z lekarzem — plan porodu ma tę rozmowę ułatwić, nie zastąpić.</p>
+    </details>
+    <details class="bg-white rounded-2xl border border-sanddark p-6">
+      <summary class="font-semibold cursor-pointer">Co jeśli poród pójdzie inaczej niż w planie?</summary>
+      <p class="mt-3 text-[15px] leading-relaxed text-ink/80">Plan to nie scenariusz, tylko mapa Waszych priorytetów. W pakiecie Premium znajdziecie sekcję „plan B” — cięcie cesarskie, indukcja, nieprzewidziane sytuacje — żebyście byli przygotowani na każdy wariant.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ===== SZKOŁA RODZENIA ===== -->
+<section class="max-w-6xl mx-auto px-4 py-16 md:py-20 grid md:grid-cols-2 gap-10 items-center">
+  <img src="img/rodzina.webp" alt="Rodzice z noworodkiem — przygotowanie w szkole rodzenia" width="600" height="900" loading="lazy" decoding="async" class="rounded-3xl plan-doc w-full object-cover aspect-[4/5] max-h-[480px]">
+  <div>
+    <p class="text-teal font-semibold text-sm uppercase tracking-widest mb-3">Edukacja przedporodowa</p>
+    <h2 class="font-display text-3xl md:text-4xl font-semibold text-deep mb-5">Idziecie do szkoły rodzenia? Świetna decyzja — zabierzcie tam swój plan</h2>
+    <p class="leading-relaxed mb-4">Szkoła rodzenia to najlepsza inwestycja w spokojny poród: oddech i pozycje porodowe, laktacja, pierwsza pomoc niemowlęcia, rola taty przy porodzie. Zajęcia w ramach edukacji przedporodowej są dostępne bezpłatnie u wielu położnych POZ — warto zapytać swoją położną.</p>
+    <p class="leading-relaxed mb-6">Plan porodu i szkoła rodzenia działają najlepiej razem: na zajęciach zdobywacie wiedzę, a plan zamienia ją w konkretne, zapisane decyzje. Wygenerujcie podgląd planu i omówcie go z prowadzącą położną — to najlepsza recenzja, jaką możecie dostać przed porodem.</p>
+    <a href="#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">Przygotujcie plan na zajęcia</a>
+  </div>
+</section>
+
+<!-- ===== BLOG ===== -->
+<section id="blog" class="bg-sanddark/40 py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 data-i18n="blogH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-12">Wiedza dla świadomych rodziców</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="bg-white rounded-2xl overflow-hidden border border-sanddark flex flex-col">
+        <!-- ZDJĘCIE: "newborn baby hand holding parent finger, soft light" -->
+        <img src="img/noworodek.webp" alt="Dłoń noworodka trzymająca palec rodzica" width="600" height="400" loading="lazy" decoding="async" class="h-44 w-full object-cover">
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-lg font-semibold text-deep mb-2">Bezpieczeństwo noworodka podczas porodu — co naprawdę ma znaczenie</h3>
+          <p class="text-sm text-ink/80 leading-relaxed flex-1">Kontakt skóra do skóry, opóźnione odpępnienie i stała obecność rodzica przy zabiegach to interwencje o udokumentowanym wpływie na zdrowie dziecka. Wyjaśniamy, o co pytać personel i jak zapisać to w planie porodu.</p>
+          <a href="blog/bezpieczenstwo-noworodka-pierwsze-godziny.html" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</a>
+        </div>
+      </article>
+      <article class="bg-white rounded-2xl overflow-hidden border border-sanddark flex flex-col">
+        <!-- ZDJĘCIE: "calm pregnant couple at home, warm natural light" -->
+        <img src="img/mama.webp" alt="Spokojna para w ciąży rozmawiająca o decyzjach dotyczących dziecka" width="600" height="400" loading="lazy" decoding="async" class="h-44 w-full object-cover">
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-lg font-semibold text-deep mb-2">Szczepienia noworodka — fakty, wybór rodziców i aktualne rekomendacje</h3>
+          <p class="text-sm text-ink/80 leading-relaxed flex-1">Szczepienia chronią dziecko — a rodzice mają prawo świadomie zdecydować, gdzie i kiedy je zrealizują. Omawiamy aktualny kalendarz szczepień, opcję realizacji we własnym zakresie i jak zapisać tę decyzję w planie porodu.</p>
+          <a href="blog/szczepienia-noworodka-w-szpitalu.html" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</a>
+        </div>
+      </article>
+      <article class="bg-white rounded-2xl overflow-hidden border border-sanddark flex flex-col">
+        <!-- ZDJĘCIE: "modern hospital corridor / maternity ward, clean bright" -->
+        <img src="img/szpital.webp" alt="Nowoczesny oddział szpitalny — opieka okołoporodowa w Polsce" width="600" height="400" loading="lazy" decoding="async" class="h-44 w-full object-cover">
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-lg font-semibold text-deep mb-2">Jak napisać plan porodu — wzór, 8 sekcji i najczęstsze błędy</h3>
+          <p class="text-sm text-ink/80 leading-relaxed flex-1">Kompletny przewodnik: co musi zawierać skuteczny plan porodu, jak formułować oczekiwania, by personel czytał je z szacunkiem, i jakich zapisów unikać. Z przykładami z prawdziwych planów.</p>
+          <a href="blog/jak-napisac-plan-porodu.html" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NADCHODZĄCE USŁUGI ===== -->
+<section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+  <h2 class="font-display text-3xl md:text-4xl font-semibold text-deep mb-3">Wkrótce na PoródNaMiarę.pl</h2>
+  <p class="max-w-2xl mb-10">Plan porodu to dopiero początek. Pracujemy nad kolejnymi narzędziami dla rodziców, którzy chcą być przygotowani na wszystko.</p>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="bg-tealsoft rounded-2xl p-6"><h3 class="font-semibold mb-2">Plan połogu</h3><p class="text-sm text-ink/80">Pierwsze tygodnie w domu: opieka nad mamą i dzieckiem, wizyty patronażowe, sygnały alarmowe.</p></div>
+    <div class="bg-tealsoft rounded-2xl p-6"><h3 class="font-semibold mb-2">Checklist dla taty</h3><p class="text-sm text-ink/80">Kompletny przewodnik: co spakować, o co pytać, jak wspierać — od pierwszego skurczu do wypisu.</p></div>
+    <div class="bg-tealsoft rounded-2xl p-6"><h3 class="font-semibold mb-2">Kursy online</h3><p class="text-sm text-ink/80">Krótkie, konkretne moduły wideo o porodzie, laktacji i pierwszej pomocy niemowlęcia.</p></div>
+    <div class="bg-tealsoft rounded-2xl p-6"><h3 class="font-semibold mb-2">Wersja angielska</h3><p class="text-sm text-ink/80">Pełne tłumaczenie serwisu i planów dla rodziców anglojęzycznych rodzących w Polsce.</p></div>
+  </div>
+</section>
+
+<!-- ===== LEAD MAGNET ===== -->
+<section class="bg-deep text-sand py-16">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <img src="img/brand.webp" alt="Mama z noworodkiem i tabliczką porodnamiare.pl" class="w-40 mx-auto rounded-2xl mb-6" loading="lazy">
+    <h2 class="font-display text-3xl font-semibold text-white mb-3">Bezpłatna mini-checklista: „7 pytań o bezpieczeństwo dziecka, które warto zadać w szpitalu”</h2>
+    <p class="text-sand/80 mb-8">Konkretna, jednostronicowa lista od Michała. Zostaw adres — wyślemy PDF i damy znać, gdy wystartują nowe narzędzia.</p>
+    <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="mailto:kontakt@porodnamiare.pl" method="post" enctype="text/plain">
+      <label for="lead" class="sr-only">Adres e-mail</label>
+      <input id="lead" name="email" type="email" required placeholder="Twój e-mail" class="flex-1 rounded-full px-5 py-3 text-ink">
+      <button type="submit" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors">Wyślij checklistę</button>
+    </form>
+    <p class="text-xs text-sand/50 mt-4">Zero spamu. Wypisujesz się jednym kliknięciem. <!-- TODO: podłączyć MailerLite/ConvertKit zamiast mailto --></p>
+  </div>
+</section>
+
+<!-- ===== POPUP (exit-intent / czas) ===== -->
+<div id="popup" class="hidden fixed inset-0 z-[60] bg-deep/60 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+  <div class="bg-white rounded-3xl max-w-md w-full p-8 relative plan-doc">
+    <button id="popupClose" class="absolute top-4 right-4 text-ink/50 hover:text-ink text-2xl leading-none" aria-label="Zamknij">×</button>
+    <p data-i18n="popupPre" class="text-teal font-semibold text-xs uppercase tracking-widest mb-2">Zanim wyjdziesz…</p>
+    <h3 id="popupTitle" data-i18n="popupH" class="font-display text-2xl font-semibold text-deep mb-3">Odbierz bezpłatną checklistę „7 pytań o bezpieczeństwo dziecka”</h3>
+    <p class="text-[15px] text-ink/80 mb-5">Jedna strona konkretów od taty dla rodziców — co sprawdzić w szpitalu, zanim urodzi się Wasze dziecko.</p>
+    <form class="flex flex-col gap-3" action="mailto:kontakt@porodnamiare.pl" method="post" enctype="text/plain">
+      <input name="email" type="email" required placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3">
+      <button type="submit" class="bg-teal text-white font-semibold py-3 rounded-full hover:bg-deep transition-colors">Wyślij checklistę</button>
+    </form>
+    <p class="text-xs text-ink/50 mt-3">Zero spamu. Szczegóły w <a href="polityka-prywatnosci.html" class="underline">polityce prywatności</a>.</p>
+  </div>
+</div>
+
+</main>
+
+<!-- ===== STICKY CTA (mobile) ===== -->
+<nav class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-white/95 backdrop-blur border-t border-sanddark safe-b" aria-label="Menu dolne">
+  <div class="grid grid-cols-4 text-[11px] font-semibold text-deep">
+    <a href="#kreator" class="flex flex-col items-center gap-0.5 py-2 text-teal"><span class="text-xl leading-none">📝</span><span data-i18n="bnCreator">Kreator</span></a>
+    <a href="#cennik" class="flex flex-col items-center gap-0.5 py-2"><span class="text-xl leading-none">💳</span><span data-i18n="bnPricing">Cennik</span></a>
+    <a href="#faq" class="flex flex-col items-center gap-0.5 py-2"><span class="text-xl leading-none">❓</span><span>FAQ</span></a>
+    <button id="musicBtn" class="flex flex-col items-center gap-0.5 py-2" aria-pressed="false"><span class="text-xl leading-none" id="musicIcon">🎵</span><span data-i18n="bnMusic">Kołysanka</span></button>
+  </div>
+</nav>
+<div class="h-16 md:hidden"></div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-deep text-sand/80 py-12">
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+    <div>
+      <div class="flex items-center gap-3 mb-3"><span class="bg-sand rounded-full p-1.5 inline-flex"><img src="img/logo-mark.png" alt="Logo PoródNaMiarę.pl" width="40" height="38" class="w-10 h-auto"></span><p class="font-display text-lg text-white font-semibold">Poród<span class="text-teal">NaMiarę</span>.pl</p></div>
+      <p class="leading-relaxed">Spersonalizowane plany porodu tworzone z myślą o bezpieczeństwie dziecka. Od taty — dla rodziców.</p>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Informacje prawne</p>
+      <ul class="space-y-1.5">
+        <li><a href="regulamin.html" class="underline hover:text-white">Regulamin</a></li>
+        <li><a href="polityka-prywatnosci.html" class="underline hover:text-white">Polityka prywatności</a></li>
+        <li>kontakt@porodnamiare.pl</li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-semibold text-white mb-3">Ważne zastrzeżenie</p>
+      <p class="leading-relaxed">Serwis prowadzi tata przygotowujący się do narodzin dziecka — nie lekarz. Treści i plany mają charakter edukacyjno-organizacyjny i nie stanowią porady medycznej ani jej nie zastępują. Wszystkie decyzje dotyczące porodu i dziecka skonsultuj z lekarzem lub położną. W nagłych przypadkach dzwoń pod 112 lub 999.</p>
+    </div>
+  </div>
+  <p class="text-center text-xs text-sand/50 mt-10">© 2026 PoródNaMiarę.pl · Twój poród. Twój plan. · #planporodu #porodnamiare #swiadomyporod</p>
+</footer>
+
+<script>
+(function () {
+  const form = document.getElementById('planForm');
+  const preview = document.getElementById('planPreview');
+  const buyBtn = document.getElementById('buyBtn');
+
+  function esc(t){return t.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function collect(name) {
+    return [...form.querySelectorAll('input[name="' + name + '"]:checked')].map(i => i.value);
+  }
+
+  function section(title, items) {
+    if (!items.length) return '';
+    return '<h3 class="font-display text-deep font-semibold mt-6 mb-2 text-lg">' + title + '</h3><ul class="list-disc pl-5 space-y-1.5 text-[15px] leading-relaxed">'
+      + items.map(i => '<li>' + i + '</li>').join('') + '</ul>';
+  }
+
+  document.getElementById('generateBtn').addEventListener('click', function () {
+    const parents = document.getElementById('parents').value.trim() || 'Rodzice';
+    const setting = collect('setting');
+    const pain = collect('pain');
+    const labor = collect('labor');
+    const induction = collect('induction');
+    const csection = collect('csection');
+    const newborn = collect('newborn');
+    const vacc = collect('vacc');
+    const postpartum = collect('postpartum');
+    const groups = [setting, pain, labor, induction, csection, newborn, postpartum];
+
+    if (!groups.some(g => g.length)) {
+      preview.innerHTML = '<p class="text-ink/70">Zaznacz przynajmniej jedną opcję, aby wygenerować podgląd planu.</p>';
+      buyBtn.classList.add('hidden'); copyBtn.classList.add('hidden');
+      return;
+    }
+
+    preview.innerHTML =
+      '<p class="text-xs uppercase tracking-widest text-teal font-semibold">Plan porodu — podgląd</p>' +
+      '<h2 class="font-display text-2xl font-semibold text-deep mt-1">' + esc(parents) + '</h2>' +
+      '<p class="text-sm text-ink/60 mt-1">Dokument przygotowany w serwisie PoródNaMiarę.pl</p>' +
+      '<div class="mt-5 bg-tealsoft rounded-xl p-4 text-[14px] leading-relaxed"><strong>Priorytet nadrzędny:</strong> zdrowie i życie dziecka oraz mamy są dla nas bezwzględnym priorytetem, nadrzędnym wobec każdego punktu tego planu. W sytuacji zagrożenia akceptujemy wszystkie niezbędne interwencje medyczne — prosimy jedynie o możliwie szybkie poinformowanie nas o sytuacji.</div>' +
+      section('Warunki porodu i osoby obecne', setting) +
+      section('Łagodzenie bólu i znieczulenie', pain) +
+      section('Przebieg porodu', labor) +
+      section('Indukcja i III okres porodu', induction) +
+      section('Cięcie cesarskie (gdyby było konieczne)', csection) +
+      section('Opieka nad noworodkiem', newborn) +
+      section('Szczepienia', vacc) +
+      section('Połóg i oddział położniczy', postpartum) +
+      '<p class="mt-8 pt-4 border-t border-sanddark text-xs text-ink/50">Pełna wersja planu (PDF do druku, z danymi medycznymi, miejscem na podpisy i datę) dostępna po zakupie.</p>';
+    // Zamówienie mailem z gotowym podsumowaniem wyborów (do czasu uruchomienia płatności online)
+    const all = [].concat(setting, pain, labor, induction, csection, newborn, vacc, postpartum).map(v => '- ' + v).join('\n');
+    buyBtn.href = 'mailto:kontakt@porodnamiare.pl?subject=' + encodeURIComponent('Zamówienie planu porodu — ' + parents)
+      + '&body=' + encodeURIComponent('Dzień dobry,\nchcemy zamówić spersonalizowany plan porodu.\n\nWybrane opcje:\n' + all + '\n\nPakiet (Podstawowy 49 zł / Premium 99 zł): ');
+    buyBtn.classList.remove('hidden');
+    window.PLAN_SUMMARY = 'PLAN PORODU — ' + parents + '\n' + all;
+    copyBtn.classList.remove('hidden');
+    preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  const copyBtn = document.getElementById('copyBtn');
+  copyBtn.addEventListener('click', function(){
+    navigator.clipboard.writeText(window.PLAN_SUMMARY || '').then(()=>{
+      document.getElementById('copyHint').classList.remove('hidden');
+      copyBtn.textContent = '✓ Skopiowano';
+      setTimeout(()=>{ copyBtn.textContent = '📋 Kopiuj podsumowanie planu'; }, 2500);
+    });
+  });
+  form.addEventListener('reset', function () {
+    setTimeout(function () {
+      preview.innerHTML = '<p class="text-ink/60 italic">Tutaj pojawi się podgląd Waszego planu porodu. Zaznacz opcje po lewej stronie i kliknij „Wygeneruj podgląd”.</p>';
+      buyBtn.classList.add('hidden');
+    }, 0);
+  });
+
+  // Popup: exit-intent (desktop) lub po 30 s (mobile), raz na sesję
+  const popup = document.getElementById('popup');
+  function showPopup() {
+    if (sessionStorage.getItem('popupShown')) return;
+    if (document.getElementById('planForm').contains(document.activeElement)) return;
+    if (!document.getElementById('buyBtn').classList.contains('hidden')) return;
+    sessionStorage.setItem('popupShown', '1');
+    popup.classList.remove('hidden');
+  }
+  document.addEventListener('mouseout', function (e) {
+    if (!e.relatedTarget && e.clientY <= 0) showPopup();
+  });
+  setTimeout(showPopup, 30000);
+  document.getElementById('popupClose').addEventListener('click', () => popup.classList.add('hidden'));
+  popup.addEventListener('click', (e) => { if (e.target === popup) popup.classList.add('hidden'); });
+
+
+  // ===== i18n (PL/EN/UA/RU) — warstwa marketingowa; dokument planu zawsze po polsku =====
+  const I18N = {
+    en: {
+      ctaTop: 'Create your plan', navWhy: 'Why us', navHow: 'How it works', navCreator: 'Plan creator', navPricing: 'Pricing', navBlog: 'Articles',
+      heroBadge: 'Made in Poland, for parents',
+      heroH1: 'A personalised birth plan that puts your baby\u2019s safety first',
+      heroP1: 'My name is Micha\u0142 and I\u2019m about to become a dad. Looking for a birth plan, I only found free templates or expensive consultations. None answered my key question: <strong>what actually makes a newborn safer?</strong>',
+      heroP2: 'So I built this tool — an interactive birth plan based on current medical standards, written from the perspective of a dad who wants maximum safety for his child.',
+      heroCta1: 'Create your birth plan', heroCta2: 'See how it works',
+      whyH: 'Why Por\u00f3dNaMiar\u0119.pl?', howH: 'How it works — 4 simple steps', creatorH: 'Interactive birth plan creator',
+      creatorNote: 'The interface is available in 4 languages; the plan document itself is generated in Polish, so hospital staff in Poland can fully use it.',
+      btnGenerate: 'Generate preview', btnReset: 'Clear',
+      pricingH: 'Packages & pricing', faqH: 'FAQ', blogH: 'Knowledge for conscious parents (in Polish)',
+      trustA: 'Free plan preview — you pay only when you see the value', trustB: 'Secure Stripe payments — cards, BLIK, Apple & Google Pay',
+      trustC: '30-day money-back guarantee — no questions asked', trustD: 'Made by a dad for his own child — not by a corporation',
+      guarantee: 'Peace-of-mind guarantee: if within 30 days you feel the plan didn\u2019t help you — we refund 100% of the price. No questions asked.',
+      bnCreator: 'Creator', bnPricing: 'Pricing', bnMusic: 'Lullaby',
+      popupPre: 'Before you go\u2026', popupH: 'Get the free checklist \u201c7 safety questions to ask at the hospital\u201d'
+    },
+    uk: {
+      ctaTop: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u043b\u0430\u043d', navWhy: '\u0427\u043e\u043c\u0443 \u043c\u0438', navHow: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454', navCreator: '\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440', navPricing: '\u0426\u0456\u043d\u0438', navBlog: '\u0421\u0442\u0430\u0442\u0442\u0456',
+      heroBadge: '\u0421\u0442\u0432\u043e\u0440\u0435\u043d\u043e \u0432 \u041f\u043e\u043b\u044c\u0449\u0456 \u0434\u043b\u044f \u0431\u0430\u0442\u044c\u043a\u0456\u0432',
+      heroH1: '\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u0456\u0437\u043e\u0432\u0430\u043d\u0438\u0439 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432, \u0434\u0435 \u0431\u0435\u0437\u043f\u0435\u043a\u0430 \u0432\u0430\u0448\u043e\u0457 \u0434\u0438\u0442\u0438\u043d\u0438 — \u043d\u0430 \u043f\u0435\u0440\u0448\u043e\u043c\u0443 \u043c\u0456\u0441\u0446\u0456',
+      heroP1: '\u041c\u0435\u043d\u0435 \u0437\u0432\u0430\u0442\u0438 \u041c\u0456\u0445\u0430\u043b, \u0456 \u044f \u043d\u0435\u0437\u0430\u0431\u0430\u0440\u043e\u043c \u0441\u0442\u0430\u043d\u0443 \u0442\u0430\u0442\u043e\u043c. \u0428\u0443\u043a\u0430\u044e\u0447\u0438 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432, \u044f \u0437\u043d\u0430\u0445\u043e\u0434\u0438\u0432 \u043b\u0438\u0448\u0435 \u0448\u0430\u0431\u043b\u043e\u043d\u0438 \u0430\u0431\u043e \u0434\u043e\u0440\u043e\u0433\u0456 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0456\u0457. \u0416\u043e\u0434\u0435\u043d \u043d\u0435 \u0432\u0456\u0434\u043f\u043e\u0432\u0456\u0434\u0430\u0432 \u043d\u0430 \u0433\u043e\u043b\u043e\u0432\u043d\u0435: <strong>\u0449\u043e \u0440\u0435\u0430\u043b\u044c\u043d\u043e \u043f\u0456\u0434\u0432\u0438\u0449\u0443\u0454 \u0431\u0435\u0437\u043f\u0435\u043a\u0443 \u043d\u043e\u0432\u043e\u043d\u0430\u0440\u043e\u0434\u0436\u0435\u043d\u043e\u0433\u043e?</strong>',
+      heroP2: '\u0422\u043e\u043c\u0443 \u044f \u0441\u0442\u0432\u043e\u0440\u0438\u0432 \u0446\u0435\u0439 \u0456\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 — \u0456\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u0438\u0439 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0456 \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u0438\u0445 \u043c\u0435\u0434\u0438\u0447\u043d\u0438\u0445 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u0456\u0432 \u041f\u043e\u043b\u044c\u0449\u0456. \u0406\u0434\u0435\u0430\u043b\u044c\u043d\u043e \u0434\u043b\u044f \u0440\u043e\u0434\u0438\u043d, \u044f\u043a\u0456 \u043d\u0430\u0440\u043e\u0434\u0436\u0443\u044e\u0442\u044c \u0443 \u043f\u043e\u043b\u044c\u0441\u044c\u043a\u0438\u0445 \u043b\u0456\u043a\u0430\u0440\u043d\u044f\u0445.',
+      heroCta1: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432', heroCta2: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454',
+      whyH: '\u0427\u043e\u043c\u0443 Por\u00f3dNaMiar\u0119.pl?', howH: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454 — 4 \u043a\u0440\u043e\u043a\u0438', creatorH: '\u0406\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u0438\u0439 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440 \u043f\u043b\u0430\u043d\u0443 \u043f\u043e\u043b\u043e\u0433\u0456\u0432',
+      creatorNote: '\u0406\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u0438\u0439 4 \u043c\u043e\u0432\u0430\u043c\u0438; \u0441\u0430\u043c \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0433\u0435\u043d\u0435\u0440\u0443\u0454\u0442\u044c\u0441\u044f \u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u044e — \u0449\u043e\u0431 \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b \u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u0457 \u043b\u0456\u043a\u0430\u0440\u043d\u0456 \u043c\u0456\u0433 \u043d\u0438\u043c \u043f\u043e\u0432\u043d\u043e\u0446\u0456\u043d\u043d\u043e \u043a\u043e\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0442\u0438\u0441\u044f. \u0426\u0435 \u0432\u0430\u0448\u0430 \u043f\u0435\u0440\u0435\u0432\u0430\u0433\u0430 \u0443 \u0441\u043f\u0456\u043b\u043a\u0443\u0432\u0430\u043d\u043d\u0456 \u0437 \u043b\u0456\u043a\u0430\u0440\u044f\u043c\u0438.',
+      btnGenerate: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u0435\u0440\u0435\u0433\u043b\u044f\u0434', btnReset: '\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u0438',
+      pricingH: '\u041f\u0430\u043a\u0435\u0442\u0438 \u0442\u0430 \u0446\u0456\u043d\u0438', faqH: '\u0427\u0430\u0441\u0442\u0456 \u0437\u0430\u043f\u0438\u0442\u0430\u043d\u043d\u044f', blogH: '\u0417\u043d\u0430\u043d\u043d\u044f \u0434\u043b\u044f \u0441\u0432\u0456\u0434\u043e\u043c\u0438\u0445 \u0431\u0430\u0442\u044c\u043a\u0456\u0432 (\u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u044e)',
+      trustA: '\u041f\u0435\u0440\u0435\u0433\u043b\u044f\u0434 \u043f\u043b\u0430\u043d\u0443 \u0431\u0435\u0437\u043a\u043e\u0448\u0442\u043e\u0432\u043d\u043e — \u043f\u043b\u0430\u0442\u0438\u0442\u0435, \u043a\u043e\u043b\u0438 \u0431\u0430\u0447\u0438\u0442\u0435 \u0446\u0456\u043d\u043d\u0456\u0441\u0442\u044c', trustB: '\u0411\u0435\u0437\u043f\u0435\u0447\u043d\u0430 \u043e\u043f\u043b\u0430\u0442\u0430 Stripe — \u043a\u0430\u0440\u0442\u043a\u0438, BLIK, Apple \u0442\u0430 Google Pay',
+      trustC: '30 \u0434\u043d\u0456\u0432 \u0433\u0430\u0440\u0430\u043d\u0442\u0456\u0457 \u043f\u043e\u0432\u0435\u0440\u043d\u0435\u043d\u043d\u044f \u043a\u043e\u0448\u0442\u0456\u0432 — \u0431\u0435\u0437 \u0437\u0430\u043f\u0438\u0442\u0430\u043d\u044c', trustD: '\u0421\u0442\u0432\u043e\u0440\u0435\u043d\u043e \u0442\u0430\u0442\u043e\u043c \u0434\u043b\u044f \u0432\u043b\u0430\u0441\u043d\u043e\u0457 \u0434\u0438\u0442\u0438\u043d\u0438 — \u043d\u0435 \u043a\u043e\u0440\u043f\u043e\u0440\u0430\u0446\u0456\u0454\u044e',
+      guarantee: '\u0413\u0430\u0440\u0430\u043d\u0442\u0456\u044f \u0441\u043f\u043e\u043a\u043e\u044e: \u044f\u043a\u0449\u043e \u043f\u0440\u043e\u0442\u044f\u0433\u043e\u043c 30 \u0434\u043d\u0456\u0432 \u0432\u0438 \u0432\u0438\u0440\u0456\u0448\u0438\u0442\u0435, \u0449\u043e \u043f\u043b\u0430\u043d \u0432\u0430\u043c \u043d\u0435 \u0434\u043e\u043f\u043e\u043c\u0456\u0433 — \u043f\u043e\u0432\u0435\u0440\u043d\u0435\u043c\u043e 100% \u0432\u0430\u0440\u0442\u043e\u0441\u0442\u0456.',
+      bnCreator: '\u041f\u043b\u0430\u043d', bnPricing: '\u0426\u0456\u043d\u0438', bnMusic: '\u041a\u043e\u043b\u0438\u0441\u043a\u043e\u0432\u0430',
+      popupPre: '\u041f\u0435\u0440\u0448 \u043d\u0456\u0436 \u043f\u0456\u0442\u0438\u2026', popupH: '\u041e\u0442\u0440\u0438\u043c\u0430\u0439\u0442\u0435 \u0431\u0435\u0437\u043a\u043e\u0448\u0442\u043e\u0432\u043d\u0438\u0439 \u0447\u0435\u043a-\u043b\u0438\u0441\u0442 \u00ab7 \u043f\u0438\u0442\u0430\u043d\u044c \u043f\u0440\u043e \u0431\u0435\u0437\u043f\u0435\u043a\u0443 \u0434\u0438\u0442\u0438\u043d\u0438 \u0432 \u043b\u0456\u043a\u0430\u0440\u043d\u0456\u00bb'
+    },
+    ru: {
+      ctaTop: '\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u043b\u0430\u043d', navWhy: '\u041f\u043e\u0447\u0435\u043c\u0443 \u043c\u044b', navHow: '\u041a\u0430\u043a \u044d\u0442\u043e \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442', navCreator: '\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440', navPricing: '\u0426\u0435\u043d\u044b', navBlog: '\u0421\u0442\u0430\u0442\u044c\u0438',
+      heroBadge: '\u0421\u043e\u0437\u0434\u0430\u043d\u043e \u0432 \u041f\u043e\u043b\u044c\u0448\u0435 \u0434\u043b\u044f \u0440\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439',
+      heroH1: '\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u043b\u0430\u043d \u0440\u043e\u0434\u043e\u0432, \u0433\u0434\u0435 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u044c \u0432\u0430\u0448\u0435\u0433\u043e \u0440\u0435\u0431\u0451\u043d\u043a\u0430 — \u043d\u0430 \u043f\u0435\u0440\u0432\u043e\u043c \u043c\u0435\u0441\u0442\u0435',
+      heroP1: '\u041c\u0435\u043d\u044f \u0437\u043e\u0432\u0443\u0442 \u041c\u0438\u0445\u0430\u043b, \u0438 \u0441\u043a\u043e\u0440\u043e \u044f \u0441\u0442\u0430\u043d\u0443 \u043f\u0430\u043f\u043e\u0439. \u0418\u0449\u0430 \u043f\u043b\u0430\u043d \u0440\u043e\u0434\u043e\u0432, \u044f \u043d\u0430\u0445\u043e\u0434\u0438\u043b \u0442\u043e\u043b\u044c\u043a\u043e \u0448\u0430\u0431\u043b\u043e\u043d\u044b \u0438\u043b\u0438 \u0434\u043e\u0440\u043e\u0433\u0438\u0435 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u0438. \u041d\u0438 \u043e\u0434\u0438\u043d \u043d\u0435 \u043e\u0442\u0432\u0435\u0447\u0430\u043b \u043d\u0430 \u0433\u043b\u0430\u0432\u043d\u043e\u0435: <strong>\u0447\u0442\u043e \u0440\u0435\u0430\u043b\u044c\u043d\u043e \u043f\u043e\u0432\u044b\u0448\u0430\u0435\u0442 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u044c \u043d\u043e\u0432\u043e\u0440\u043e\u0436\u0434\u0451\u043d\u043d\u043e\u0433\u043e?</strong>',
+      heroP2: '\u041f\u043e\u044d\u0442\u043e\u043c\u0443 \u044f \u0441\u043e\u0437\u0434\u0430\u043b \u044d\u0442\u043e\u0442 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 — \u0438\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u044b\u0439 \u043f\u043b\u0430\u043d \u0440\u043e\u0434\u043e\u0432 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u044b\u0445 \u043c\u0435\u0434\u0438\u0446\u0438\u043d\u0441\u043a\u0438\u0445 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043e\u0432 \u041f\u043e\u043b\u044c\u0448\u0438. \u0418\u0434\u0435\u0430\u043b\u044c\u043d\u043e \u0434\u043b\u044f \u0441\u0435\u043c\u0435\u0439, \u0440\u043e\u0436\u0430\u044e\u0449\u0438\u0445 \u0432 \u043f\u043e\u043b\u044c\u0441\u043a\u0438\u0445 \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0430\u0445.',
+      heroCta1: '\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u043b\u0430\u043d \u0440\u043e\u0434\u043e\u0432', heroCta2: '\u041a\u0430\u043a \u044d\u0442\u043e \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442',
+      whyH: '\u041f\u043e\u0447\u0435\u043c\u0443 Por\u00f3dNaMiar\u0119.pl?', howH: '\u041a\u0430\u043a \u044d\u0442\u043e \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442 — 4 \u0448\u0430\u0433\u0430', creatorH: '\u0418\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u044b\u0439 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440 \u043f\u043b\u0430\u043d\u0430 \u0440\u043e\u0434\u043e\u0432',
+      creatorNote: '\u0418\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043e\u0441\u0442\u0443\u043f\u0435\u043d \u043d\u0430 4 \u044f\u0437\u044b\u043a\u0430\u0445; \u0441\u0430\u043c \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0433\u0435\u043d\u0435\u0440\u0438\u0440\u0443\u0435\u0442\u0441\u044f \u043d\u0430 \u043f\u043e\u043b\u044c\u0441\u043a\u043e\u043c — \u0447\u0442\u043e\u0431\u044b \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b \u043f\u043e\u043b\u044c\u0441\u043a\u043e\u0439 \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u044b \u043c\u043e\u0433 \u0438\u043c \u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c\u0441\u044f. \u042d\u0442\u043e \u0432\u0430\u0448\u0435 \u043f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u043e \u0432 \u043e\u0431\u0449\u0435\u043d\u0438\u0438 \u0441 \u0432\u0440\u0430\u0447\u0430\u043c\u0438.',
+      btnGenerate: '\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u0440\u0435\u0434\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440', btnReset: '\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u044c',
+      pricingH: '\u041f\u0430\u043a\u0435\u0442\u044b \u0438 \u0446\u0435\u043d\u044b', faqH: '\u0427\u0430\u0441\u0442\u044b\u0435 \u0432\u043e\u043f\u0440\u043e\u0441\u044b', blogH: '\u0417\u043d\u0430\u043d\u0438\u044f \u0434\u043b\u044f \u043e\u0441\u043e\u0437\u043d\u0430\u043d\u043d\u044b\u0445 \u0440\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439 (\u043d\u0430 \u043f\u043e\u043b\u044c\u0441\u043a\u043e\u043c)',
+      trustA: '\u041f\u0440\u0435\u0434\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u043f\u043b\u0430\u043d\u0430 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e — \u043f\u043b\u0430\u0442\u0438\u0442\u0435, \u043a\u043e\u0433\u0434\u0430 \u0432\u0438\u0434\u0438\u0442\u0435 \u0446\u0435\u043d\u043d\u043e\u0441\u0442\u044c', trustB: '\u0411\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u0430\u044f \u043e\u043f\u043b\u0430\u0442\u0430 Stripe — \u043a\u0430\u0440\u0442\u044b, BLIK, Apple \u0438 Google Pay',
+      trustC: '30 \u0434\u043d\u0435\u0439 \u0433\u0430\u0440\u0430\u043d\u0442\u0438\u0438 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 — \u0431\u0435\u0437 \u0432\u043e\u043f\u0440\u043e\u0441\u043e\u0432', trustD: '\u0421\u043e\u0437\u0434\u0430\u043d\u043e \u043f\u0430\u043f\u043e\u0439 \u0434\u043b\u044f \u0441\u0432\u043e\u0435\u0433\u043e \u0440\u0435\u0431\u0451\u043d\u043a\u0430 — \u043d\u0435 \u043a\u043e\u0440\u043f\u043e\u0440\u0430\u0446\u0438\u0435\u0439',
+      guarantee: '\u0413\u0430\u0440\u0430\u043d\u0442\u0438\u044f \u0441\u043f\u043e\u043a\u043e\u0439\u0441\u0442\u0432\u0438\u044f: \u0435\u0441\u043b\u0438 \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 30 \u0434\u043d\u0435\u0439 \u0432\u044b \u0440\u0435\u0448\u0438\u0442\u0435, \u0447\u0442\u043e \u043f\u043b\u0430\u043d \u0432\u0430\u043c \u043d\u0435 \u043f\u043e\u043c\u043e\u0433 — \u0432\u0435\u0440\u043d\u0451\u043c 100% \u0441\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u0438.',
+      bnCreator: '\u041f\u043b\u0430\u043d', bnPricing: '\u0426\u0435\u043d\u044b', bnMusic: '\u041a\u043e\u043b\u044b\u0431\u0435\u043b\u044c\u043d\u0430\u044f',
+      popupPre: '\u041f\u0440\u0435\u0436\u0434\u0435 \u0447\u0435\u043c \u0443\u0439\u0442\u0438\u2026', popupH: '\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u0435 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u044b\u0439 \u0447\u0435\u043a-\u043b\u0438\u0441\u0442 \u00ab7 \u0432\u043e\u043f\u0440\u043e\u0441\u043e\u0432 \u043e \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u0440\u0435\u0431\u0451\u043d\u043a\u0430 \u0432 \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0435\u00bb'
+    }
+  };
+  const PL_DEFAULTS = {};
+  document.querySelectorAll('[data-i18n]').forEach(el => { PL_DEFAULTS[el.dataset.i18n] = el.innerHTML; });
+  function setLang(l) {
+    document.documentElement.lang = l === 'uk' ? 'uk' : l;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.dataset.i18n;
+      el.innerHTML = (l === 'pl') ? PL_DEFAULTS[k] : (I18N[l] && I18N[l][k]) || PL_DEFAULTS[k];
+    });
+    localStorage.setItem('lang', l);
+  }
+  const langSel = document.getElementById('langSwitch');
+  const saved = localStorage.getItem('lang') || 'pl';
+  langSel.value = saved; if (saved !== 'pl') setLang(saved);
+  langSel.addEventListener('change', e => setLang(e.target.value));
+
+  // ===== Menu mobilne =====
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  // ===== Kołysanka (WebAudio — autorska melodia pozytywki, zero plików) =====
+  let audioCtx = null, musicTimer = null, playing = false;
+  const NOTES = [659.25, 783.99, 880, 783.99, 659.25, 587.33, 523.25, 587.33, 659.25, 659.25, 587.33, 523.25, 493.88, 523.25, 587.33, 0];
+  let ni = 0;
+  function pluck(freq) {
+    if (!freq) return;
+    const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+    o.type = 'triangle'; o.frequency.value = freq;
+    g.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.55);
+    o.connect(g).connect(audioCtx.destination);
+    o.start(); o.stop(audioCtx.currentTime + 0.6);
+  }
+  const musicBtn = document.getElementById('musicBtn');
+  if (musicBtn) musicBtn.addEventListener('click', () => {
+    if (!playing) {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      audioCtx.resume();
+      musicTimer = setInterval(() => { pluck(NOTES[ni % NOTES.length]); ni++; }, 420);
+      playing = true; document.getElementById('musicIcon').textContent = '⏸';
+    } else {
+      clearInterval(musicTimer); playing = false;
+      document.getElementById('musicIcon').textContent = '🎵';
+    }
+    musicBtn.setAttribute('aria-pressed', playing);
+  });
+
+  // Przełącznik języka — placeholder pod przyszłą wersję EN.
+})();
+</script>
+</body>
+</html>

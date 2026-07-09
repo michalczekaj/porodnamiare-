@@ -1,0 +1,29 @@
+# PoródNaMiarę.pl
+
+> Pierwszy w Polsce interaktywny, spersonalizowany plan porodu tworzony z perspektywy taty.
+> Produkty cyfrowe dla rodziców: plany porodu PDF, checklisty, przewodniki po połogu.
+
+## Czym jest serwis
+- Interaktywny kreator planu porodu obejmujący 8 obszarów: warunki porodu, łagodzenie bólu
+  (w tym remifentanyl PCA), przebieg porodu, indukcję, cięcie cesarskie, opiekę nad noworodkiem
+  (kontakt skóra do skóry, opóźnione odpępnienie, laktacja, badania przesiewowe), szczepienia i połóg.
+- Dokumenty zgodne ze Standardem Organizacyjnym Opieki Okołoporodowej obowiązującym w Polsce.
+- Pakiety: Podstawowy (49 zł) i Premium (99 zł, z checklistą dla taty i przewodnikiem po pierwszej dobie).
+- Płatności: Stripe. Gwarancja satysfakcji: 30 dni.
+
+## Ważne
+- Treści mają charakter edukacyjno-organizacyjny i nie stanowią porady medycznej.
+- Serwis prowadzi rodzic, nie podmiot leczniczy.
+
+## Artykuły (baza wiedzy)
+- https://porodnamiare.pl/blog/jak-napisac-plan-porodu : wzór planu porodu, 8 sekcji, najczęstsze błędy
+- https://porodnamiare.pl/blog/bezpieczenstwo-noworodka-pierwsze-godziny : kontakt skóra do skóry, odpępnienie, witamina K, badania przesiewowe
+- https://porodnamiare.pl/blog/szczepienia-noworodka-w-szpitalu : fakty o WZW B i BCG, prawa rodziców, zapis decyzji w planie
+
+## Strony
+- https://porodnamiare.pl/ : strona główna z kreatorem planu porodu
+- https://porodnamiare.pl/regulamin : regulamin sprzedaży
+- https://porodnamiare.pl/polityka-prywatnosci : polityka prywatności (RODO)
+
+## Kontakt
+kontakt@porodnamiare.pl
