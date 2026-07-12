@@ -4,7 +4,6 @@
 > Produkty cyfrowe dla rodziców: plany porodu PDF, checklisty, przewodniki po połogu.
 
 ## Czym jest serwis
-- Interaktywny kreator planu porodu obejmujący 8 obszarów: warunki porodu, łagodzenie bólu
   (w tym remifentanyl PCA), przebieg porodu, indukcję, cięcie cesarskie, opiekę nad noworodkiem
   (kontakt skóra do skóry, opóźnione odpępnienie, laktacja, badania przesiewowe), szczepienia i połóg.
 - Dokumenty zgodne ze Standardem Organizacyjnym Opieki Okołoporodowej obowiązującym w Polsce.
