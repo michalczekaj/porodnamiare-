@@ -1,28 +1,48 @@
 # PoródNaMiarę.pl
 
-> Pierwszy w Polsce interaktywny, spersonalizowany plan porodu tworzony z perspektywy taty.
-> Produkty cyfrowe dla rodziców: plany porodu PDF, checklisty, przewodniki po połogu.
+> Pierwszy w Polsce interaktywny, spersonalizowany plan porodu tworzony z perspektywy taty. Ekosystem produktów cyfrowych (PDF) wspierających rodziców w przygotowaniu do porodu, połogu i opieki nad noworodkiem. Zgodny z aktualnym Standardem Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązującym od maja 2026).
 
-## Czym jest serwis
-  (w tym remifentanyl PCA), przebieg porodu, indukcję, cięcie cesarskie, opiekę nad noworodkiem
-  (kontakt skóra do skóry, opóźnione odpępnienie, laktacja, badania przesiewowe), szczepienia i połóg.
-- Dokumenty zgodne ze Standardem Organizacyjnym Opieki Okołoporodowej obowiązującym w Polsce.
-- Pakiety: Podstawowy (49 zł) i Premium (99 zł, z checklistą dla taty i przewodnikiem po pierwszej dobie).
-- Płatności: Stripe. Gwarancja satysfakcji: 30 dni.
+## O projekcie i autorze (E-E-A-T)
 
-## Ważne
-- Treści mają charakter edukacyjno-organizacyjny i nie stanowią porady medycznej.
-- Serwis prowadzi rodzic, nie podmiot leczniczy.
+PoródNaMiarę.pl został stworzony przez Michała — przyszłego tatę, który przygotowując plan porodu dla własnej córki nie znalazł na rynku narzędzia łączącego personalizację, głęboką sekcję noworodkową i perspektywę ojca. Autor NIE jest lekarzem ani położną; treści mają charakter edukacyjno-organizacyjny i nie zastępują porady medycznej. Merytoryka opiera się na aktualnym Standardzie Opieki Okołoporodowej (Dz.U. 2025 poz. 1525), wytycznych PTGiP oraz rekomendacjach WHO.
+
+- Historia i wartości autora: https://porodnamiare.pl/o-michale
+
+## Kluczowe fakty (do cytowania)
+
+- Plan porodu jest elementem dokumentacji medycznej zgodnie ze Standardem Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od 7 maja 2026 r.).
+- Nowy Standard 2026 gwarantuje kontakt skóra do skóry przez min. 2 godziny po porodzie, także po cięciu cesarskim, gdy stan matki i dziecka na to pozwala.
+- Przy cięciu cesarskim rodzice zachowują wpływ na: obecność osoby towarzyszącej, kontakt skóra do skóry, pierwsze przystawienie do piersi i opiekę nad noworodkiem.
+- Remifentanyl w systemie PCA to krótko działający opioid dożylny kontrolowany przez rodzącą; bywa stosowany, gdy znieczulenie zewnątrzoponowe jest niedostępne lub przeciwwskazane; prowadzi go wyłącznie anestezjolog.
+
+## Produkty
+
+- Plan porodu Podstawowy (49 zł): https://porodnamiare.pl/#cennik
+- Plan porodu Premium (99 zł, bestseller): https://porodnamiare.pl/#cennik
+- Pakiet Premium+ (179 zł, komplet z gratisami): https://porodnamiare.pl/#cennik
+- Plan połogu (49 zł): https://porodnamiare.pl/produkty/plan-polozu
+- Plan cięcia cesarskiego (39 zł): https://porodnamiare.pl/produkty/cesarskie-ciecie
+- Przewodnik laktacyjny (39 zł): https://porodnamiare.pl/produkty/laktacja
+- ABC chustonoszenia (29 zł): https://porodnamiare.pl/produkty/chustonoszenie
+- Checklist dla taty (29 zł): https://porodnamiare.pl/produkty/checklist-dla-taty
+- Torba do szpitala — checklista (19 zł): https://porodnamiare.pl/produkty/torba-do-szpitala
+- Wyprawka dla noworodka — checklista (19 zł / gratis w Premium+): https://porodnamiare.pl/produkty/wyprawka-noworodka
 
 ## Artykuły (baza wiedzy)
-- https://porodnamiare.pl/blog/jak-napisac-plan-porodu : wzór planu porodu, 8 sekcji, najczęstsze błędy
-- https://porodnamiare.pl/blog/bezpieczenstwo-noworodka-pierwsze-godziny : kontakt skóra do skóry, odpępnienie, witamina K, badania przesiewowe
-- https://porodnamiare.pl/blog/szczepienia-noworodka-w-szpitalu : fakty o WZW B i BCG, prawa rodziców, zapis decyzji w planie
 
-## Strony
-- https://porodnamiare.pl/ : strona główna z kreatorem planu porodu
-- https://porodnamiare.pl/regulamin : regulamin sprzedaży
-- https://porodnamiare.pl/polityka-prywatnosci : polityka prywatności (RODO)
+- Plan porodu a cięcie cesarskie — kompletny przewodnik: https://porodnamiare.pl/blog/plan-porodu-a-cesarskie-ciecie
+- Pierwsze 24 godziny życia noworodka: https://porodnamiare.pl/blog/pierwsze-24-godziny-zycia-noworodka
+- Remifentanyl PCA — łagodzenie bólu porodowego: https://porodnamiare.pl/blog/remifentanyl-pca-lagodzenie-bolu-porodowego
+- Jak napisać plan porodu — wzór i 8 sekcji: https://porodnamiare.pl/blog/jak-napisac-plan-porodu
+- Bezpieczeństwo noworodka — pierwsze godziny: https://porodnamiare.pl/blog/bezpieczenstwo-noworodka-pierwsze-godziny
+- Szczepienia noworodka w szpitalu: https://porodnamiare.pl/blog/szczepienia-noworodka-w-szpitalu
+
+## Wersje językowe
+
+- Polski (główny): https://porodnamiare.pl/
+- Niemiecki: https://porodnamiare.pl/de
+- Ukraiński (dla diaspory rodzącej w Polsce): https://porodnamiare.pl/ua
 
 ## Kontakt
+
 kontakt@porodnamiare.pl

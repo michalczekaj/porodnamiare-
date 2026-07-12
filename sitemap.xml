@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://porodnamiare.pl/</loc><lastmod>2026-07-07</lastmod><priority>1.0</priority></url>
-  <url><loc>https://porodnamiare.pl/de</loc><lastmod>2026-07-07</lastmod><priority>0.9</priority></url>
-  <url><loc>https://porodnamiare.pl/ua</loc><lastmod>2026-07-07</lastmod><priority>0.9</priority></url>
-  <url><loc>https://porodnamiare.pl/blog/jak-napisac-plan-porodu</loc><lastmod>2026-07-07</lastmod><priority>0.8</priority></url>
-  <url><loc>https://porodnamiare.pl/blog/bezpieczenstwo-noworodka-pierwsze-godziny</loc><lastmod>2026-07-07</lastmod><priority>0.8</priority></url>
-  <url><loc>https://porodnamiare.pl/blog/szczepienia-noworodka-w-szpitalu</loc><lastmod>2026-07-07</lastmod><priority>0.8</priority></url>
-  <url><loc>https://porodnamiare.pl/regulamin</loc><lastmod>2026-07-07</lastmod><priority>0.2</priority></url>
-  <url><loc>https://porodnamiare.pl/polityka-prywatnosci</loc><lastmod>2026-07-07</lastmod><priority>0.2</priority></url>
-  <url><loc>https://porodnamiare.pl/produkty/plan-polozu</loc><lastmod>2026-07-07</lastmod><priority>0.9</priority></url>
-  <url><loc>https://porodnamiare.pl/produkty/torba-do-szpitala</loc><lastmod>2026-07-07</lastmod><priority>0.8</priority></url>
-  <url><loc>https://porodnamiare.pl/produkty/checklist-dla-taty</loc><lastmod>2026-07-07</lastmod><priority>0.8</priority></url>
-  <url><loc>https://porodnamiare.pl/produkty/wyprawka-noworodka</loc><lastmod>2026-07-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://porodnamiare.pl/</loc><lastmod>2026-07-12</lastmod><priority>1.0</priority></url>
+  <url><loc>https://porodnamiare.pl/o-michale</loc><lastmod>2026-07-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://porodnamiare.pl/de</loc><lastmod>2026-07-12</lastmod><priority>0.9</priority></url>
+  <url><loc>https://porodnamiare.pl/ua</loc><lastmod>2026-07-12</lastmod><priority>0.9</priority></url>
+  <url><loc>https://porodnamiare.pl/produkty/plan-polozu</loc><lastmod>2026-07-12</lastmod><priority>0.9</priority></url>
+  <url><loc>https://porodnamiare.pl/produkty/cesarskie-ciecie</loc><lastmod>2026-07-12</lastmod><priority>0.9</priority></url>
+  <url><loc>https://porodnamiare.pl/produkty/laktacja</loc><lastmod>2026-07-12</lastmod><priority>0.9</priority></url>
+  <url><loc>https://porodnamiare.pl/produkty/chustonoszenie</loc><lastmod>2026-07-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://porodnamiare.pl/produkty/checklist-dla-taty</loc><lastmod>2026-07-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://porodnamiare.pl/produkty/torba-do-szpitala</loc><lastmod>2026-07-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://porodnamiare.pl/produkty/wyprawka-noworodka</loc><lastmod>2026-07-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://porodnamiare.pl/blog/plan-porodu-a-cesarskie-ciecie</loc><lastmod>2026-07-12</lastmod><priority>0.9</priority></url>
+  <url><loc>https://porodnamiare.pl/blog/pierwsze-24-godziny-zycia-noworodka</loc><lastmod>2026-07-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://porodnamiare.pl/blog/remifentanyl-pca-lagodzenie-bolu-porodowego</loc><lastmod>2026-07-12</lastmod><priority>0.8</priority></url>
+  <url><loc>https://porodnamiare.pl/blog/jak-napisac-plan-porodu</loc><lastmod>2026-07-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://porodnamiare.pl/blog/bezpieczenstwo-noworodka-pierwsze-godziny</loc><lastmod>2026-07-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://porodnamiare.pl/blog/szczepienia-noworodka-w-szpitalu</loc><lastmod>2026-07-12</lastmod><priority>0.7</priority></url>
+  <url><loc>https://porodnamiare.pl/regulamin</loc><lastmod>2026-07-12</lastmod><priority>0.3</priority></url>
+  <url><loc>https://porodnamiare.pl/polityka-prywatnosci</loc><lastmod>2026-07-12</lastmod><priority>0.3</priority></url>
 </urlset>

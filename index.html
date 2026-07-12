@@ -61,7 +61,9 @@ tailwind.config = {
 </script>
 <style>
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body { -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+  body { -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+  img, svg, video { max-width: 100%; height: auto; }
+  img.object-cover { height: 100%; }
   a, button, summary, label { touch-action: manipulation; }
   input, button, select, textarea { font-size: 16px; } /* iOS: bez auto-zoom */
   .safe-b { padding-bottom: calc(0.75rem + env(safe-area-inset-bottom)); }
@@ -91,12 +93,16 @@ tailwind.config = {
       <a href="#kreator" data-i18n="navCreator" class="hover:text-teal">Kreator planu</a>
       <a href="#cennik" data-i18n="navPricing" class="hover:text-teal">Cennik</a>
       <a href="#blog" data-i18n="navBlog" class="hover:text-teal">Wiedza</a>
+      <a href="/o-michale" class="hover:text-teal">O Michale</a>
       <a href="#faq" class="hover:text-teal">FAQ</a>
     </div>
     <div class="flex items-center gap-2">
       <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
-        <option value="pl">PL</option><option value="en">EN</option><option value="uk">UA</option>
+        <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option>
       </select>
+      <button id="musicBtnDesktop" aria-pressed="false" aria-label="Włącz muzykę projektu" title="Kołysanka PoródNaMiarę" class="hidden md:inline-flex items-center justify-center w-9 h-9 rounded-full border border-deep/25 hover:bg-tealsoft transition-colors">
+        <span id="musicIconDesktop" class="text-lg leading-none select-none">🎵</span>
+      </button>
       <a href="#kreator" data-i18n="ctaTop" class="hidden sm:inline-block bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors">Stwórz plan</a>
       <button id="menuBtn" class="md:hidden p-2 -mr-1" aria-label="Menu" aria-expanded="false">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3E3852" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -109,6 +115,7 @@ tailwind.config = {
     <a href="#kreator" data-i18n="navCreator" class="block py-2.5 border-b border-sanddark/60">Kreator planu</a>
     <a href="#cennik" data-i18n="navPricing" class="block py-2.5 border-b border-sanddark/60">Cennik</a>
     <a href="#blog" data-i18n="navBlog" class="block py-2.5 border-b border-sanddark/60">Wiedza</a>
+    <a href="/o-michale" class="block py-2.5 border-b border-sanddark/60">O Michale</a>
     <a href="#faq" class="block py-2.5">FAQ</a>
   </div>
 </header>
@@ -127,6 +134,10 @@ tailwind.config = {
       <a href="#kreator" data-i18n="heroCta1" class="bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">Stwórz swój plan porodu</a>
       <a href="#jak" data-i18n="heroCta2" class="border border-deep/30 font-semibold px-7 py-3.5 rounded-full hover:bg-sanddark transition-colors">Zobacz, jak to działa</a>
     </div>
+    <p class="mt-6 inline-flex items-start gap-2 text-xs text-ink/70 bg-white/70 border border-sanddark rounded-xl px-3 py-2 au au-5">
+      <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span data-i18n="heroStandard">Zgodny ze Standardem Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od maja 2026)</span>
+    </p>
   </div>
   <figure class="rounded-3xl overflow-hidden plan-doc au au-3 relative">
     <!-- ZDJĘCIE: Unsplash/Pexels — "father holding newborn baby skin to skin, warm light" -->
@@ -240,7 +251,7 @@ tailwind.config = {
 
         <div>
           <label for="parents" class="font-semibold block mb-2">Imiona rodziców</label>
-          <input id="parents" type="text" placeholder="np. Anna i Michał" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/50">
+          <input id="parents" type="text" maxlength="80" autocomplete="off" placeholder="np. Anna i Michał" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/50">
         </div>
 
         <fieldset>
@@ -259,7 +270,7 @@ tailwind.config = {
           <div class="space-y-2.5 text-[15px]">
             <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Metody niefarmakologiczne: piłka, prysznic, immersja wodna, TENS, masaż" class="mt-0.5"><span>Metody niefarmakologiczne (piłka, prysznic, immersja wodna, TENS)</span></label>
             <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Znieczulenie zewnątrzoponowe — decyzja mamy w trakcie porodu" class="mt-0.5"><span>Znieczulenie zewnątrzoponowe (decyzja w trakcie porodu)</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Analgezja remifentanylem (PCA) — nowoczesna metoda kontrolowana przez pacjentkę, dostępna m.in. w szpitalu w Przemyślu; prosimy o informację o dostępności" class="mt-0.5"><span><strong>Remifentanyl (PCA)</strong> — analgezja kontrolowana przez pacjentkę, dostępna m.in. w szpitalu w Przemyślu</span></label>
+            <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Analgezja remifentanylem (PCA) — nowoczesna metoda kontrolowana przez pacjentkę; prosimy o informację o dostępności w naszym szpitalu" class="mt-0.5"><span><strong>Remifentanyl (PCA)</strong> — analgezja kontrolowana przez pacjentkę (dostępność zależna od szpitala)</span></label>
             <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Gaz wziewny (Entonox)" class="mt-0.5"><span>Gaz wziewny (Entonox)</span></label>
           </div>
         </fieldset>
@@ -323,7 +334,7 @@ tailwind.config = {
         </fieldset>
 
         <div class="flex flex-wrap gap-3 pt-1">
-          <button type="button" id="generateBtn" data-i18n="btnGenerate" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors">Wygeneruj podgląd</button>
+          <button type="button" id="generateBtn" data-i18n="btnGenerate" class="bg-teal text-white font-semibold px-6 min-h-[48px] py-3.5 rounded-full hover:bg-deep transition-colors">Wygeneruj podgląd</button>
           <button type="reset" data-i18n="btnReset" class="border border-deep/30 font-semibold px-6 py-3 rounded-full hover:bg-sand">Wyczyść</button>
         </div>
       </form>
@@ -334,7 +345,7 @@ tailwind.config = {
         </div>
         <button id="copyBtn" class="hidden mt-5 w-full border-2 border-teal text-teal font-semibold px-6 py-3 rounded-full hover:bg-tealsoft transition-colors" type="button">📋 Kopiuj podsumowanie planu</button>
         <p id="copyHint" class="hidden mt-2 text-xs text-ink/60 text-center">Skopiowane! Wklej je w polu „Podsumowanie planu” podczas płatności lub w odpowiedzi na e-mail po zakupie.</p>
-        <a href="#cennik" id="buyBtn" target="_blank" class="hidden mt-6 w-full text-center bg-deep text-white font-semibold px-6 py-4 rounded-full hover:bg-teal transition-colors block">Kup ten spersonalizowany plan →</a>
+        <a href="#cennik" id="buyBtn" target="_blank" rel="noopener noreferrer" class="hidden mt-6 w-full text-center bg-deep text-white font-semibold px-6 py-4 rounded-full hover:bg-teal transition-colors block">Kup ten spersonalizowany plan →</a>
       </div>
     </div>
   </div>
@@ -344,22 +355,30 @@ tailwind.config = {
 <section id="cennik" class="py-16 md:py-24" style="background:linear-gradient(180deg,#FAF5EF 0%,#F7E9E7 100%)">
 <div class="max-w-6xl mx-auto px-4">
 
-  <div class="text-center mb-12">
+  <div class="text-center mb-8">
     <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="pricingH">Produkty dla rodziców</p>
     <h2 class="font-display text-4xl md:text-5xl font-semibold text-deep mb-4">Wybierz swój zestaw</h2>
     <p class="text-ink/70 max-w-xl mx-auto">Każdy PDF oparty na wiedzy medycznej i doświadczeniu rodziców. Gotowy do druku, do szpitala i do domu.</p>
   </div>
 
+  <!-- BADGE STANDARDU (nad kartami, centralny) -->
+  <div class="flex justify-center mb-10">
+    <span class="inline-flex items-center gap-2 bg-white border border-teal/30 rounded-full px-4 py-2 text-xs font-semibold text-deep shadow-sm">
+      <svg class="w-4 h-4 text-teal flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span data-i18n="standardBadge">Zgodny ze Standardem Opieki Okołoporodowej — Dz.U. 2025 poz. 1525 (obowiązuje od maja 2026)</span>
+    </span>
+  </div>
+
   <!-- TRUST BAR -->
   <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-ink/70 mb-12">
     <span data-i18n="trustA">👀 Podgląd za darmo — płacisz gdy widzisz wartość</span>
-    <span data-i18n="trustB">🔒 Stripe — karta, BLIK, Apple Pay, Google Pay</span>
+    <span data-i18n="trustB">🔒 Stripe + BLIK — karta, Apple Pay, Google Pay</span>
     <span data-i18n="trustC">↩️ 30 dni zwrotu bez pytań</span>
     <span data-i18n="trustD">🤍 Tworzone przez tatę, nie korporację</span>
   </div>
 
   <!-- KARTY PAKIETÓW -->
-  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
+  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8 items-start">
 
     <!-- PODSTAWOWY -->
     <article class="bg-white rounded-3xl border border-sanddark p-8 flex flex-col relative">
@@ -371,20 +390,21 @@ tailwind.config = {
           <span class="text-xl text-ink/60 mb-2">zł</span>
         </div>
       </div>
-      <ul class="space-y-3 text-[14px] flex-1 mb-8">
+      <ul class="space-y-3 text-[14px] flex-1 mb-6">
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Spersonalizowany plan porodu PDF</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>8 sekcji: od warunków po połóg</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Klauzula nadrzędna bezpieczeństwa</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Format A4 gotowy do druku</span></li>
       </ul>
+      <p class="text-[11px] text-ink/45 mb-3 flex items-center gap-1"><svg class="w-3 h-3 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
       <a href="https://buy.stripe.com/TWOJ_LINK_PODSTAWOWY" target="_blank" rel="noopener"
          class="block text-center border-2 border-deep/25 text-deep font-bold py-4 rounded-2xl hover:bg-sanddark transition-colors">
         Kup teraz — 49 zł
       </a>
     </article>
 
-    <!-- PREMIUM — wyróżniony -->
-    <article class="bg-deep rounded-3xl p-8 flex flex-col relative shadow-2xl scale-105 z-10">
+    <!-- PREMIUM -->
+    <article class="bg-deep rounded-3xl p-8 flex flex-col relative shadow-2xl md:scale-105 z-10">
       <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-teal text-white text-xs font-bold px-5 py-1.5 rounded-full whitespace-nowrap shadow">⭐ NAJPOPULARNIEJSZY</span>
       <div class="mb-6">
         <p class="text-xs font-semibold text-sand/40 uppercase tracking-widest mb-1">Polecany</p>
@@ -394,13 +414,15 @@ tailwind.config = {
           <span class="text-xl text-sand/60 mb-2">zł</span>
         </div>
       </div>
-      <ul class="space-y-3 text-[14px] text-sand/85 flex-1 mb-8">
+      <ul class="space-y-3 text-[14px] text-sand/85 flex-1 mb-6">
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Wszystko z Podstawowego</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Wersja skrócona „na drzwi sali"</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Checklist dla taty (od skurczu do wypisu)</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Przewodnik „Pierwsze 24 godziny"</span></li>
+        <li class="flex gap-2.5 items-start"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Instrukcja gwizdka porodowego</strong> + rekomendacja modelu</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Aktualizacja planu do dnia porodu</span></li>
       </ul>
+      <p class="text-[11px] text-sand/40 mb-3 flex items-center gap-1"><svg class="w-3 h-3" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
       <a href="https://buy.stripe.com/TWOJ_LINK_PREMIUM" target="_blank" rel="noopener"
          class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-white hover:text-deep transition-colors">
         Kup teraz — 99 zł
@@ -417,19 +439,23 @@ tailwind.config = {
           <span class="font-display text-5xl font-semibold text-deep">179</span>
           <span class="text-xl text-ink/60 mb-2">zł</span>
         </div>
-        <p class="text-xs text-ink/50 mt-1">Wartość osobno: 245 zł · <span class="text-teal font-semibold">oszczędzasz 66 zł</span></p>
+        <p class="text-xs text-ink/50 mt-1">Wartość osobno: 265 zł · <span class="text-teal font-semibold">oszczędzasz 86 zł</span></p>
       </div>
-      <ul class="space-y-3 text-[14px] flex-1 mb-8">
+      <ul class="space-y-3 text-[14px] flex-1 mb-6">
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Plan porodu Premium (kompletny)</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Plan połogu — pierwsze 6 tygodni</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Torba do szpitala Premium (70+ poz.)</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Checklist dla taty (9 etapów)</span></li>
         <li class="flex gap-2.5 items-start">
           <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          <span><strong class="text-teal">🎁 GRATIS: Wyprawka dla noworodka</strong> — checklista 9 kategorii, 70+ pozycji</span>
+          <span><strong class="text-teal">🎁 GRATIS: Wyprawka dla noworodka</strong> — 9 kategorii, 70+ pozycji</span>
         </li>
-        <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Aktualizacja planu porodu do dnia porodu</span></li>
+        <li class="flex gap-2.5 items-start">
+          <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          <span><strong class="text-teal">🅿️ BONUS: Wniosek o miejsce w wózkowni</strong> — gotowe pismo PDF do spółdzielni/wspólnoty</span>
+        </li>
       </ul>
+      <p class="text-[11px] text-ink/45 mb-3 flex items-center gap-1"><svg class="w-3 h-3 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
       <a href="https://buy.stripe.com/PREMIUM_PLUS_LINK" target="_blank" rel="noopener"
          class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg">
         Kup teraz — 179 zł
@@ -438,31 +464,68 @@ tailwind.config = {
 
   </div>
 
-  <!-- PRODUKTY INDYWIDUALNE (wiersz drugi) -->
+  <!-- TEASER WÓZKOWNIA (tajemniczy, marketingowy) -->
+  <div class="max-w-5xl mx-auto mb-10 bg-deep rounded-3xl p-7 md:p-8 text-sand relative overflow-hidden">
+    <div class="absolute -right-6 -top-6 text-8xl opacity-10 select-none" aria-hidden="true">🅿️</div>
+    <div class="relative">
+      <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-2">Bonus, o którym mało kto wie</p>
+      <h3 class="font-display text-2xl md:text-3xl font-semibold text-white mb-3">Wiesz, że masz prawo ubiegać się o miejsce w wózkowni?</h3>
+      <p class="text-sand/85 leading-relaxed mb-2 max-w-3xl">W wielu blokach i spółdzielniach istnieją wózkownie — pomieszczenia na wózki dziecięce. Większość rodziców nie wie, że może złożyć oficjalny wniosek o przydział miejsca. Wózek 2w1 nie mieści się w windzie, a noszenie go codziennie po schodach to koszmar pierwszych miesięcy.</p>
+      <p class="text-sand/85 leading-relaxed mb-5 max-w-3xl">W pakiecie <strong class="text-white">Premium+</strong> dodajemy gotowe, profesjonalnie przygotowane <strong class="text-white">pismo-wniosek w PDF</strong> z pustymi rubrykami — wystarczy wydrukować, uzupełnić dane i złożyć u zarządcy. Jeden dokument, który potrafi zaoszczędzić Wam miesięcy dźwigania.</p>
+      <a href="#cennik" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors text-sm">Odbierz wniosek w pakiecie Premium+ →</a>
+    </div>
+  </div>
+
+  <!-- PRODUKTY INDYWIDUALNE -->
   <div class="max-w-5xl mx-auto">
-    <p class="text-center text-sm font-semibold text-ink/50 mb-5">Lub kup pojedynczy produkt:</p>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <p class="text-center text-sm font-semibold text-ink/50 mb-5">Lub wybierz pojedynczy produkt:</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <a href="/produkty/plan-polozu" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
         <span class="text-2xl">🤱</span>
         <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Plan połogu</p><p class="text-xs text-ink/60">49 zł · PDF</p></div>
       </a>
-      <a href="/produkty/torba-do-szpitala" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
-        <span class="text-2xl">👜</span>
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Torba do szpitala</p><p class="text-xs text-ink/60">19 zł · checklista PDF</p></div>
+      <a href="/produkty/laktacja" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
+        <span class="text-2xl">🍼</span>
+        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Przewodnik laktacyjny</p><p class="text-xs text-ink/60">39 zł · PDF</p></div>
+      </a>
+      <a href="/produkty/cesarskie-ciecie" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
+        <span class="text-2xl">🏥</span>
+        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Plan cięcia cesarskiego</p><p class="text-xs text-ink/60">39 zł · PDF</p></div>
+      </a>
+      <a href="/produkty/chustonoszenie" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
+        <span class="text-2xl">🧣</span>
+        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">ABC chustonoszenia</p><p class="text-xs text-ink/60">29 zł · przewodnik PDF</p></div>
       </a>
       <a href="/produkty/checklist-dla-taty" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
         <span class="text-2xl">👨</span>
         <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Checklist dla taty</p><p class="text-xs text-ink/60">29 zł · PDF</p></div>
       </a>
-      <a href="/produkty/wyprawka-noworodka" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
-        <span class="text-2xl">🍼</span>
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Wyprawka noworodka</p><p class="text-xs text-ink/60">19 zł · lub gratis w Premium+</p></div>
+      <a href="/produkty/torba-do-szpitala" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
+        <span class="text-2xl">👜</span>
+        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Torba do szpitala</p><p class="text-xs text-ink/60">19 zł · checklista PDF</p></div>
       </a>
     </div>
   </div>
 
+  <!-- PŁATNOŚCI: STRIPE + BLIK -->
+  <div class="mt-10 max-w-5xl mx-auto bg-white border border-sanddark rounded-2xl p-6">
+    <div class="flex flex-wrap items-center gap-5 justify-between">
+      <div class="flex-1 min-w-[260px]">
+        <p class="font-display text-lg font-semibold text-deep mb-1">Dwie zaufane metody płatności</p>
+        <p class="text-sm text-ink/70 leading-relaxed"><strong>Stripe</strong> — karta, Apple Pay, Google Pay (międzynarodowo). <strong>BLIK</strong> — szybki przelew, którym płaci większość Polaków. Wybierasz to, co wygodne.</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 bg-tealsoft rounded-xl px-4 py-2.5 font-bold text-deep text-sm">💳 Stripe</span>
+        <span class="inline-flex items-center gap-1.5 rounded-xl px-4 py-2.5 font-bold text-white text-sm" style="background:#000">BLIK</span>
+      </div>
+    </div>
+    <div class="mt-4 pt-4 border-t border-sanddark bg-tealsoft/40 -mx-6 -mb-6 px-6 pb-6 rounded-b-2xl">
+      <p class="text-sm text-ink/80"><strong>Płatność BLIK-iem:</strong> po kliknięciu „Kup" wybierz BLIK, lub napisz na <a href="mailto:kontakt@porodnamiare.pl" class="text-teal font-semibold underline">kontakt@porodnamiare.pl</a> — wyślemy numer do szybkiego przelewu BLIK i produkt w ciągu 24 h. <!-- TODO: po rejestracji działalności podłącz BLIK w Stripe lub przez Przelewy24/Tpay --></p>
+    </div>
+  </div>
+
   <!-- GWARANCJA -->
-  <div class="mt-10 max-w-5xl mx-auto bg-white border border-sanddark rounded-2xl p-6 flex flex-wrap items-center gap-4 justify-between">
+  <div class="mt-6 max-w-5xl mx-auto bg-white border border-sanddark rounded-2xl p-6 flex flex-wrap items-center gap-4 justify-between">
     <div>
       <p class="font-display text-lg font-semibold text-deep mb-1" data-i18n="guarantee">Gwarancja spokojnej głowy: 30 dni zwrotu — bez pytań, bez formularzy.</p>
       <p class="font-display text-teal text-sm">— Michał, tata i założyciel</p>
@@ -474,6 +537,19 @@ tailwind.config = {
 </div>
 </section>
 
+<!-- ===== GWIZDEK PORODOWY (teaser edukacyjny) ===== -->
+<section class="max-w-5xl mx-auto px-4 py-12">
+  <div class="rounded-3xl p-8 md:p-10 relative overflow-hidden" style="background:linear-gradient(145deg,#F7E9E7,#FAF5EF);border:1px solid #EDDFD3">
+    <div class="absolute -right-4 -bottom-6 text-9xl opacity-10 select-none" aria-hidden="true">🎐</div>
+    <div class="relative max-w-3xl">
+      <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-2">Mało kto o tym wie</p>
+      <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mb-4">Wiesz, co to jest gwizdek porodowy?</h2>
+      <p class="text-[16px] leading-relaxed text-ink/80 mb-3">To prosty, ale genialny sposób na oddech podczas skurczów. Kontrolowany, długi wydech przez gwizdek (lub słomkę) pomaga rozluźnić się, opanować napięcie i „przejechać" przez skurcz — zamiast wstrzymywać oddech i spinać ciało. Prosta rzecz, o której nie mówi się na większości zajęć.</p>
+      <p class="text-[16px] leading-relaxed text-ink/80 mb-6">W pakiecie <strong class="text-deep">Plan porodu Premium</strong> znajdziesz <strong class="text-deep">instrukcję użycia gwizdka porodowego krok po kroku</strong> oraz <strong class="text-deep">rekomendację sprawdzonego modelu</strong> — gotowe do wrzucenia do torby porodowej.</p>
+      <a href="#cennik" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors text-sm">Zobacz pakiet Premium →</a>
+    </div>
+  </div>
+</section>
 
 <!-- ===== FAQ ===== -->
 <section id="faq" class="max-w-6xl mx-auto px-4 pb-16 md:pb-24">
@@ -485,7 +561,7 @@ tailwind.config = {
     </details>
     <details class="bg-white rounded-2xl border border-sanddark p-6">
       <summary class="font-semibold cursor-pointer">Kiedy najlepiej przygotować plan porodu?</summary>
-      <p class="mt-3 text-[15px] leading-relaxed text-ink/80">Między 30. a 36. tygodniem ciąży. Zostaje wtedy czas, by omówić plan z lekarzem prowadzącym i położną oraz sprawdzić, co oferuje Wasz szpital (np. dostępność remifentanylu PCA).</p>
+      <p class="mt-3 text-[15px] leading-relaxed text-ink/80">Między 30. a 36. tygodniem ciąży. Zostaje wtedy czas, by omówić plan z lekarzem prowadzącym i położną oraz sprawdzić, co oferuje Wasz szpital.</p>
     </details>
     <details class="bg-white rounded-2xl border border-sanddark p-6">
       <summary class="font-semibold cursor-pointer">Czym różnicie się od darmowych szablonów?</summary>
@@ -546,6 +622,28 @@ tailwind.config = {
           <a href="blog/jak-napisac-plan-porodu.html" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</a>
         </div>
       </article>
+    </div>
+
+    <!-- Drugi wiersz: nowe artykuły (kompaktowe karty) -->
+    <div class="grid md:grid-cols-3 gap-6 mt-6">
+      <a href="blog/plan-porodu-a-cesarskie-ciecie.html" class="group bg-white rounded-2xl border border-sanddark p-6 flex flex-col hover:border-teal transition-colors">
+        <span class="text-2xl mb-3">🏥</span>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Plan porodu a cięcie cesarskie — kompletny przewodnik</h3>
+        <p class="text-sm text-ink/80 leading-relaxed flex-1">Czy przy cesarce można mieć plan? Tak. Kontakt skóra do skóry na sali operacyjnej, obecność partnera, pierwsze przystawienie — zgodnie ze Standardem 2026.</p>
+        <span class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
+      </a>
+      <a href="blog/pierwsze-24-godziny-zycia-noworodka.html" class="group bg-white rounded-2xl border border-sanddark p-6 flex flex-col hover:border-teal transition-colors">
+        <span class="text-2xl mb-3">👶</span>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Pierwsze 24 godziny życia noworodka — co się dzieje</h3>
+        <p class="text-sm text-ink/80 leading-relaxed flex-1">Kontakt skóra do skóry, witamina K, badania przesiewowe, szczepienia, rooming-in. Pierwsza doba krok po kroku i na co macie realny wpływ.</p>
+        <span class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
+      </a>
+      <a href="blog/remifentanyl-pca-lagodzenie-bolu-porodowego.html" class="group bg-white rounded-2xl border border-sanddark p-6 flex flex-col hover:border-teal transition-colors">
+        <span class="text-2xl mb-3">💉</span>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Remifentanyl PCA — łagodzenie bólu, o którym mało kto wie</h3>
+        <p class="text-sm text-ink/80 leading-relaxed flex-1">Krótko działający opioid kontrolowany przez rodzącą — bywa ratunkiem, gdy znieczulenie zewnątrzoponowe jest niedostępne. Kiedy i dla kogo.</p>
+        <span class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -634,8 +732,10 @@ tailwind.config = {
       <p class="leading-relaxed">Spersonalizowane plany porodu tworzone z myślą o bezpieczeństwie dziecka. Od taty — dla rodziców.</p>
     </div>
     <div>
-      <p class="font-semibold text-white mb-3">Informacje prawne</p>
+      <p class="font-semibold text-white mb-3">Nawigacja i informacje</p>
       <ul class="space-y-1.5">
+        <li><a href="/o-michale" class="underline hover:text-white">O Michale — historia projektu</a></li>
+        <li><a href="#blog" class="underline hover:text-white">Wiedza / artykuły</a></li>
         <li><a href="regulamin.html" class="underline hover:text-white">Regulamin</a></li>
         <li><a href="polityka-prywatnosci.html" class="underline hover:text-white">Polityka prywatności</a></li>
         <li>kontakt@porodnamiare.pl</li>
@@ -663,7 +763,7 @@ tailwind.config = {
   function section(title, items) {
     if (!items.length) return '';
     return '<h3 class="font-display text-deep font-semibold mt-6 mb-2 text-lg">' + title + '</h3><ul class="list-disc pl-5 space-y-1.5 text-[15px] leading-relaxed">'
-      + items.map(i => '<li>' + i + '</li>').join('') + '</ul>';
+      + items.map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>';
   }
 
   document.getElementById('generateBtn').addEventListener('click', function () {
@@ -740,58 +840,64 @@ tailwind.config = {
   popup.addEventListener('click', (e) => { if (e.target === popup) popup.classList.add('hidden'); });
 
 
-  // ===== i18n (PL/EN/UA/RU) — warstwa marketingowa; dokument planu zawsze po polsku =====
+  // ===== i18n (PL/EN/UA/DE) — warstwa marketingowa; dokument planu zawsze po polsku =====
   const I18N = {
     en: {
       ctaTop: 'Create your plan', navWhy: 'Why us', navHow: 'How it works', navCreator: 'Plan creator', navPricing: 'Pricing', navBlog: 'Articles',
       heroBadge: 'Made in Poland, for parents',
       heroH1: 'A personalised birth plan that puts your baby\u2019s safety first',
       heroP1: 'My name is Micha\u0142 and I\u2019m about to become a dad. Looking for a birth plan, I only found free templates or expensive consultations. None answered my key question: <strong>what actually makes a newborn safer?</strong>',
-      heroP2: 'So I built this tool — an interactive birth plan based on current medical standards, written from the perspective of a dad who wants maximum safety for his child.',
+      heroP2: 'So I built this tool \u2014 an interactive birth plan based on current medical standards, written from the perspective of a dad who wants maximum safety for his child.',
+      heroStandard: 'Compliant with the Polish Perinatal Care Standard (Journal of Laws 2025 item 1525, effective May 2026)',
       heroCta1: 'Create your birth plan', heroCta2: 'See how it works',
-      whyH: 'Why Por\u00f3dNaMiar\u0119.pl?', howH: 'How it works — 4 simple steps', creatorH: 'Interactive birth plan creator',
-      creatorNote: 'The interface is available in 4 languages; the plan document itself is generated in Polish, so hospital staff in Poland can fully use it.',
+      whyH: 'Why Por\u00f3dNaMiar\u0119.pl?', howH: 'How it works \u2014 4 simple steps', creatorH: 'Interactive birth plan creator',
+      creatorNote: 'The interface is available in several languages; the plan document itself is generated in Polish, so hospital staff in Poland can fully use it.',
       btnGenerate: 'Generate preview', btnReset: 'Clear',
-      pricingH: 'Packages & pricing', faqH: 'FAQ', blogH: 'Knowledge for conscious parents (in Polish)',
-      trustA: 'Free plan preview — you pay only when you see the value', trustB: 'Secure Stripe payments — cards, BLIK, Apple & Google Pay',
-      trustC: '30-day money-back guarantee — no questions asked', trustD: 'Made by a dad for his own child — not by a corporation',
-      guarantee: 'Peace-of-mind guarantee: if within 30 days you feel the plan didn\u2019t help you — we refund 100% of the price. No questions asked.',
+      pricingH: 'Products for parents', standardBadge: 'Compliant with the Perinatal Care Standard \u2014 Journal of Laws 2025 item 1525 (effective May 2026)',
+      faqH: 'FAQ', blogH: 'Knowledge for conscious parents (in Polish)',
+      trustA: 'Free plan preview \u2014 you pay only when you see the value', trustB: 'Stripe + BLIK \u2014 cards, Apple & Google Pay',
+      trustC: '30-day money-back guarantee \u2014 no questions asked', trustD: 'Made by a dad for his own child \u2014 not by a corporation',
+      guarantee: 'Peace-of-mind guarantee: if within 30 days you feel the plan didn\u2019t help you \u2014 we refund 100% of the price. No questions asked.',
       bnCreator: 'Creator', bnPricing: 'Pricing', bnMusic: 'Lullaby',
       popupPre: 'Before you go\u2026', popupH: 'Get the free checklist \u201c7 safety questions to ask at the hospital\u201d'
     },
     uk: {
       ctaTop: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u043b\u0430\u043d', navWhy: '\u0427\u043e\u043c\u0443 \u043c\u0438', navHow: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454', navCreator: '\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440', navPricing: '\u0426\u0456\u043d\u0438', navBlog: '\u0421\u0442\u0430\u0442\u0442\u0456',
       heroBadge: '\u0421\u0442\u0432\u043e\u0440\u0435\u043d\u043e \u0432 \u041f\u043e\u043b\u044c\u0449\u0456 \u0434\u043b\u044f \u0431\u0430\u0442\u044c\u043a\u0456\u0432',
-      heroH1: '\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u0456\u0437\u043e\u0432\u0430\u043d\u0438\u0439 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432, \u0434\u0435 \u0431\u0435\u0437\u043f\u0435\u043a\u0430 \u0432\u0430\u0448\u043e\u0457 \u0434\u0438\u0442\u0438\u043d\u0438 — \u043d\u0430 \u043f\u0435\u0440\u0448\u043e\u043c\u0443 \u043c\u0456\u0441\u0446\u0456',
+      heroH1: '\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u0456\u0437\u043e\u0432\u0430\u043d\u0438\u0439 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432, \u0434\u0435 \u0431\u0435\u0437\u043f\u0435\u043a\u0430 \u0432\u0430\u0448\u043e\u0457 \u0434\u0438\u0442\u0438\u043d\u0438 \u2014 \u043d\u0430 \u043f\u0435\u0440\u0448\u043e\u043c\u0443 \u043c\u0456\u0441\u0446\u0456',
       heroP1: '\u041c\u0435\u043d\u0435 \u0437\u0432\u0430\u0442\u0438 \u041c\u0456\u0445\u0430\u043b, \u0456 \u044f \u043d\u0435\u0437\u0430\u0431\u0430\u0440\u043e\u043c \u0441\u0442\u0430\u043d\u0443 \u0442\u0430\u0442\u043e\u043c. \u0428\u0443\u043a\u0430\u044e\u0447\u0438 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432, \u044f \u0437\u043d\u0430\u0445\u043e\u0434\u0438\u0432 \u043b\u0438\u0448\u0435 \u0448\u0430\u0431\u043b\u043e\u043d\u0438 \u0430\u0431\u043e \u0434\u043e\u0440\u043e\u0433\u0456 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0456\u0457. \u0416\u043e\u0434\u0435\u043d \u043d\u0435 \u0432\u0456\u0434\u043f\u043e\u0432\u0456\u0434\u0430\u0432 \u043d\u0430 \u0433\u043e\u043b\u043e\u0432\u043d\u0435: <strong>\u0449\u043e \u0440\u0435\u0430\u043b\u044c\u043d\u043e \u043f\u0456\u0434\u0432\u0438\u0449\u0443\u0454 \u0431\u0435\u0437\u043f\u0435\u043a\u0443 \u043d\u043e\u0432\u043e\u043d\u0430\u0440\u043e\u0434\u0436\u0435\u043d\u043e\u0433\u043e?</strong>',
-      heroP2: '\u0422\u043e\u043c\u0443 \u044f \u0441\u0442\u0432\u043e\u0440\u0438\u0432 \u0446\u0435\u0439 \u0456\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 — \u0456\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u0438\u0439 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0456 \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u0438\u0445 \u043c\u0435\u0434\u0438\u0447\u043d\u0438\u0445 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u0456\u0432 \u041f\u043e\u043b\u044c\u0449\u0456. \u0406\u0434\u0435\u0430\u043b\u044c\u043d\u043e \u0434\u043b\u044f \u0440\u043e\u0434\u0438\u043d, \u044f\u043a\u0456 \u043d\u0430\u0440\u043e\u0434\u0436\u0443\u044e\u0442\u044c \u0443 \u043f\u043e\u043b\u044c\u0441\u044c\u043a\u0438\u0445 \u043b\u0456\u043a\u0430\u0440\u043d\u044f\u0445.',
+      heroP2: '\u0422\u043e\u043c\u0443 \u044f \u0441\u0442\u0432\u043e\u0440\u0438\u0432 \u0446\u0435\u0439 \u0456\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 \u2014 \u0456\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u0438\u0439 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0456 \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u0438\u0445 \u043c\u0435\u0434\u0438\u0447\u043d\u0438\u0445 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u0456\u0432 \u041f\u043e\u043b\u044c\u0449\u0456. \u0406\u0434\u0435\u0430\u043b\u044c\u043d\u043e \u0434\u043b\u044f \u0440\u043e\u0434\u0438\u043d, \u044f\u043a\u0456 \u043d\u0430\u0440\u043e\u0434\u0436\u0443\u044e\u0442\u044c \u0443 \u043f\u043e\u043b\u044c\u0441\u044c\u043a\u0438\u0445 \u043b\u0456\u043a\u0430\u0440\u043d\u044f\u0445.',
+      heroStandard: '\u0412\u0456\u0434\u043f\u043e\u0432\u0456\u0434\u0430\u0454 \u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u043c\u0443 \u0421\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u0443 \u043f\u0435\u0440\u0438\u043d\u0430\u0442\u0430\u043b\u044c\u043d\u043e\u0457 \u0434\u043e\u043f\u043e\u043c\u043e\u0433\u0438 (Dz.U. 2025 \u2116 1525, \u0437 \u0442\u0440\u0430\u0432\u043d\u044f 2026)',
       heroCta1: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432', heroCta2: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454',
-      whyH: '\u0427\u043e\u043c\u0443 Por\u00f3dNaMiar\u0119.pl?', howH: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454 — 4 \u043a\u0440\u043e\u043a\u0438', creatorH: '\u0406\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u0438\u0439 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440 \u043f\u043b\u0430\u043d\u0443 \u043f\u043e\u043b\u043e\u0433\u0456\u0432',
-      creatorNote: '\u0406\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u0438\u0439 4 \u043c\u043e\u0432\u0430\u043c\u0438; \u0441\u0430\u043c \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0433\u0435\u043d\u0435\u0440\u0443\u0454\u0442\u044c\u0441\u044f \u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u044e — \u0449\u043e\u0431 \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b \u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u0457 \u043b\u0456\u043a\u0430\u0440\u043d\u0456 \u043c\u0456\u0433 \u043d\u0438\u043c \u043f\u043e\u0432\u043d\u043e\u0446\u0456\u043d\u043d\u043e \u043a\u043e\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0442\u0438\u0441\u044f. \u0426\u0435 \u0432\u0430\u0448\u0430 \u043f\u0435\u0440\u0435\u0432\u0430\u0433\u0430 \u0443 \u0441\u043f\u0456\u043b\u043a\u0443\u0432\u0430\u043d\u043d\u0456 \u0437 \u043b\u0456\u043a\u0430\u0440\u044f\u043c\u0438.',
+      whyH: '\u0427\u043e\u043c\u0443 Por\u00f3dNaMiar\u0119.pl?', howH: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454 \u2014 4 \u043a\u0440\u043e\u043a\u0438', creatorH: '\u0406\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u0438\u0439 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440 \u043f\u043b\u0430\u043d\u0443 \u043f\u043e\u043b\u043e\u0433\u0456\u0432',
+      creatorNote: '\u0406\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u0438\u0439 \u043a\u0456\u043b\u044c\u043a\u043e\u043c\u0430 \u043c\u043e\u0432\u0430\u043c\u0438; \u0441\u0430\u043c \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0433\u0435\u043d\u0435\u0440\u0443\u0454\u0442\u044c\u0441\u044f \u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u044e.',
       btnGenerate: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u0435\u0440\u0435\u0433\u043b\u044f\u0434', btnReset: '\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u0438',
-      pricingH: '\u041f\u0430\u043a\u0435\u0442\u0438 \u0442\u0430 \u0446\u0456\u043d\u0438', faqH: '\u0427\u0430\u0441\u0442\u0456 \u0437\u0430\u043f\u0438\u0442\u0430\u043d\u043d\u044f', blogH: '\u0417\u043d\u0430\u043d\u043d\u044f \u0434\u043b\u044f \u0441\u0432\u0456\u0434\u043e\u043c\u0438\u0445 \u0431\u0430\u0442\u044c\u043a\u0456\u0432 (\u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u044e)',
-      trustA: '\u041f\u0435\u0440\u0435\u0433\u043b\u044f\u0434 \u043f\u043b\u0430\u043d\u0443 \u0431\u0435\u0437\u043a\u043e\u0448\u0442\u043e\u0432\u043d\u043e — \u043f\u043b\u0430\u0442\u0438\u0442\u0435, \u043a\u043e\u043b\u0438 \u0431\u0430\u0447\u0438\u0442\u0435 \u0446\u0456\u043d\u043d\u0456\u0441\u0442\u044c', trustB: '\u0411\u0435\u0437\u043f\u0435\u0447\u043d\u0430 \u043e\u043f\u043b\u0430\u0442\u0430 Stripe — \u043a\u0430\u0440\u0442\u043a\u0438, BLIK, Apple \u0442\u0430 Google Pay',
-      trustC: '30 \u0434\u043d\u0456\u0432 \u0433\u0430\u0440\u0430\u043d\u0442\u0456\u0457 \u043f\u043e\u0432\u0435\u0440\u043d\u0435\u043d\u043d\u044f \u043a\u043e\u0448\u0442\u0456\u0432 — \u0431\u0435\u0437 \u0437\u0430\u043f\u0438\u0442\u0430\u043d\u044c', trustD: '\u0421\u0442\u0432\u043e\u0440\u0435\u043d\u043e \u0442\u0430\u0442\u043e\u043c \u0434\u043b\u044f \u0432\u043b\u0430\u0441\u043d\u043e\u0457 \u0434\u0438\u0442\u0438\u043d\u0438 — \u043d\u0435 \u043a\u043e\u0440\u043f\u043e\u0440\u0430\u0446\u0456\u0454\u044e',
-      guarantee: '\u0413\u0430\u0440\u0430\u043d\u0442\u0456\u044f \u0441\u043f\u043e\u043a\u043e\u044e: \u044f\u043a\u0449\u043e \u043f\u0440\u043e\u0442\u044f\u0433\u043e\u043c 30 \u0434\u043d\u0456\u0432 \u0432\u0438 \u0432\u0438\u0440\u0456\u0448\u0438\u0442\u0435, \u0449\u043e \u043f\u043b\u0430\u043d \u0432\u0430\u043c \u043d\u0435 \u0434\u043e\u043f\u043e\u043c\u0456\u0433 — \u043f\u043e\u0432\u0435\u0440\u043d\u0435\u043c\u043e 100% \u0432\u0430\u0440\u0442\u043e\u0441\u0442\u0456.',
+      pricingH: '\u041f\u0440\u043e\u0434\u0443\u043a\u0442\u0438 \u0434\u043b\u044f \u0431\u0430\u0442\u044c\u043a\u0456\u0432', standardBadge: '\u0412\u0456\u0434\u043f\u043e\u0432\u0456\u0434\u0430\u0454 \u0421\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u0443 \u043f\u0435\u0440\u0438\u043d\u0430\u0442\u0430\u043b\u044c\u043d\u043e\u0457 \u0434\u043e\u043f\u043e\u043c\u043e\u0433\u0438 (Dz.U. 2025 \u2116 1525)',
+      faqH: '\u0427\u0430\u0441\u0442\u0456 \u0437\u0430\u043f\u0438\u0442\u0430\u043d\u043d\u044f', blogH: '\u0417\u043d\u0430\u043d\u043d\u044f \u0434\u043b\u044f \u0441\u0432\u0456\u0434\u043e\u043c\u0438\u0445 \u0431\u0430\u0442\u044c\u043a\u0456\u0432 (\u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u044e)',
+      trustA: '\u041f\u0435\u0440\u0435\u0433\u043b\u044f\u0434 \u043f\u043b\u0430\u043d\u0443 \u0431\u0435\u0437\u043a\u043e\u0448\u0442\u043e\u0432\u043d\u043e', trustB: '\u0411\u0435\u0437\u043f\u0435\u0447\u043d\u0430 \u043e\u043f\u043b\u0430\u0442\u0430 Stripe + BLIK',
+      trustC: '30 \u0434\u043d\u0456\u0432 \u0433\u0430\u0440\u0430\u043d\u0442\u0456\u0457 \u043f\u043e\u0432\u0435\u0440\u043d\u0435\u043d\u043d\u044f', trustD: '\u0421\u0442\u0432\u043e\u0440\u0435\u043d\u043e \u0442\u0430\u0442\u043e\u043c, \u043d\u0435 \u043a\u043e\u0440\u043f\u043e\u0440\u0430\u0446\u0456\u0454\u044e',
+      guarantee: '\u0413\u0430\u0440\u0430\u043d\u0442\u0456\u044f \u0441\u043f\u043e\u043a\u043e\u044e: 30 \u0434\u043d\u0456\u0432 \u043f\u043e\u0432\u0435\u0440\u043d\u0435\u043d\u043d\u044f \u043a\u043e\u0448\u0442\u0456\u0432 \u2014 \u0431\u0435\u0437 \u0437\u0430\u043f\u0438\u0442\u0430\u043d\u044c.',
       bnCreator: '\u041f\u043b\u0430\u043d', bnPricing: '\u0426\u0456\u043d\u0438', bnMusic: '\u041a\u043e\u043b\u0438\u0441\u043a\u043e\u0432\u0430',
-      popupPre: '\u041f\u0435\u0440\u0448 \u043d\u0456\u0436 \u043f\u0456\u0442\u0438\u2026', popupH: '\u041e\u0442\u0440\u0438\u043c\u0430\u0439\u0442\u0435 \u0431\u0435\u0437\u043a\u043e\u0448\u0442\u043e\u0432\u043d\u0438\u0439 \u0447\u0435\u043a-\u043b\u0438\u0441\u0442 \u00ab7 \u043f\u0438\u0442\u0430\u043d\u044c \u043f\u0440\u043e \u0431\u0435\u0437\u043f\u0435\u043a\u0443 \u0434\u0438\u0442\u0438\u043d\u0438 \u0432 \u043b\u0456\u043a\u0430\u0440\u043d\u0456\u00bb'
+      popupPre: '\u041f\u0435\u0440\u0448 \u043d\u0456\u0436 \u043f\u0456\u0442\u0438\u2026', popupH: '\u041e\u0442\u0440\u0438\u043c\u0430\u0439\u0442\u0435 \u0431\u0435\u0437\u043a\u043e\u0448\u0442\u043e\u0432\u043d\u0438\u0439 \u0447\u0435\u043a-\u043b\u0438\u0441\u0442'
     },
-    ru: {
-      ctaTop: '\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u043b\u0430\u043d', navWhy: '\u041f\u043e\u0447\u0435\u043c\u0443 \u043c\u044b', navHow: '\u041a\u0430\u043a \u044d\u0442\u043e \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442', navCreator: '\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440', navPricing: '\u0426\u0435\u043d\u044b', navBlog: '\u0421\u0442\u0430\u0442\u044c\u0438',
-      heroBadge: '\u0421\u043e\u0437\u0434\u0430\u043d\u043e \u0432 \u041f\u043e\u043b\u044c\u0448\u0435 \u0434\u043b\u044f \u0440\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439',
-      heroH1: '\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u043b\u0430\u043d \u0440\u043e\u0434\u043e\u0432, \u0433\u0434\u0435 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u044c \u0432\u0430\u0448\u0435\u0433\u043e \u0440\u0435\u0431\u0451\u043d\u043a\u0430 — \u043d\u0430 \u043f\u0435\u0440\u0432\u043e\u043c \u043c\u0435\u0441\u0442\u0435',
-      heroP1: '\u041c\u0435\u043d\u044f \u0437\u043e\u0432\u0443\u0442 \u041c\u0438\u0445\u0430\u043b, \u0438 \u0441\u043a\u043e\u0440\u043e \u044f \u0441\u0442\u0430\u043d\u0443 \u043f\u0430\u043f\u043e\u0439. \u0418\u0449\u0430 \u043f\u043b\u0430\u043d \u0440\u043e\u0434\u043e\u0432, \u044f \u043d\u0430\u0445\u043e\u0434\u0438\u043b \u0442\u043e\u043b\u044c\u043a\u043e \u0448\u0430\u0431\u043b\u043e\u043d\u044b \u0438\u043b\u0438 \u0434\u043e\u0440\u043e\u0433\u0438\u0435 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u0446\u0438\u0438. \u041d\u0438 \u043e\u0434\u0438\u043d \u043d\u0435 \u043e\u0442\u0432\u0435\u0447\u0430\u043b \u043d\u0430 \u0433\u043b\u0430\u0432\u043d\u043e\u0435: <strong>\u0447\u0442\u043e \u0440\u0435\u0430\u043b\u044c\u043d\u043e \u043f\u043e\u0432\u044b\u0448\u0430\u0435\u0442 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u044c \u043d\u043e\u0432\u043e\u0440\u043e\u0436\u0434\u0451\u043d\u043d\u043e\u0433\u043e?</strong>',
-      heroP2: '\u041f\u043e\u044d\u0442\u043e\u043c\u0443 \u044f \u0441\u043e\u0437\u0434\u0430\u043b \u044d\u0442\u043e\u0442 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442 — \u0438\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u044b\u0439 \u043f\u043b\u0430\u043d \u0440\u043e\u0434\u043e\u0432 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u044b\u0445 \u043c\u0435\u0434\u0438\u0446\u0438\u043d\u0441\u043a\u0438\u0445 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043e\u0432 \u041f\u043e\u043b\u044c\u0448\u0438. \u0418\u0434\u0435\u0430\u043b\u044c\u043d\u043e \u0434\u043b\u044f \u0441\u0435\u043c\u0435\u0439, \u0440\u043e\u0436\u0430\u044e\u0449\u0438\u0445 \u0432 \u043f\u043e\u043b\u044c\u0441\u043a\u0438\u0445 \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0430\u0445.',
-      heroCta1: '\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u043b\u0430\u043d \u0440\u043e\u0434\u043e\u0432', heroCta2: '\u041a\u0430\u043a \u044d\u0442\u043e \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442',
-      whyH: '\u041f\u043e\u0447\u0435\u043c\u0443 Por\u00f3dNaMiar\u0119.pl?', howH: '\u041a\u0430\u043a \u044d\u0442\u043e \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442 — 4 \u0448\u0430\u0433\u0430', creatorH: '\u0418\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u044b\u0439 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440 \u043f\u043b\u0430\u043d\u0430 \u0440\u043e\u0434\u043e\u0432',
-      creatorNote: '\u0418\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043e\u0441\u0442\u0443\u043f\u0435\u043d \u043d\u0430 4 \u044f\u0437\u044b\u043a\u0430\u0445; \u0441\u0430\u043c \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0433\u0435\u043d\u0435\u0440\u0438\u0440\u0443\u0435\u0442\u0441\u044f \u043d\u0430 \u043f\u043e\u043b\u044c\u0441\u043a\u043e\u043c — \u0447\u0442\u043e\u0431\u044b \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b \u043f\u043e\u043b\u044c\u0441\u043a\u043e\u0439 \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u044b \u043c\u043e\u0433 \u0438\u043c \u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c\u0441\u044f. \u042d\u0442\u043e \u0432\u0430\u0448\u0435 \u043f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u043e \u0432 \u043e\u0431\u0449\u0435\u043d\u0438\u0438 \u0441 \u0432\u0440\u0430\u0447\u0430\u043c\u0438.',
-      btnGenerate: '\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u0440\u0435\u0434\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440', btnReset: '\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u044c',
-      pricingH: '\u041f\u0430\u043a\u0435\u0442\u044b \u0438 \u0446\u0435\u043d\u044b', faqH: '\u0427\u0430\u0441\u0442\u044b\u0435 \u0432\u043e\u043f\u0440\u043e\u0441\u044b', blogH: '\u0417\u043d\u0430\u043d\u0438\u044f \u0434\u043b\u044f \u043e\u0441\u043e\u0437\u043d\u0430\u043d\u043d\u044b\u0445 \u0440\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439 (\u043d\u0430 \u043f\u043e\u043b\u044c\u0441\u043a\u043e\u043c)',
-      trustA: '\u041f\u0440\u0435\u0434\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u043f\u043b\u0430\u043d\u0430 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e — \u043f\u043b\u0430\u0442\u0438\u0442\u0435, \u043a\u043e\u0433\u0434\u0430 \u0432\u0438\u0434\u0438\u0442\u0435 \u0446\u0435\u043d\u043d\u043e\u0441\u0442\u044c', trustB: '\u0411\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u0430\u044f \u043e\u043f\u043b\u0430\u0442\u0430 Stripe — \u043a\u0430\u0440\u0442\u044b, BLIK, Apple \u0438 Google Pay',
-      trustC: '30 \u0434\u043d\u0435\u0439 \u0433\u0430\u0440\u0430\u043d\u0442\u0438\u0438 \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 — \u0431\u0435\u0437 \u0432\u043e\u043f\u0440\u043e\u0441\u043e\u0432', trustD: '\u0421\u043e\u0437\u0434\u0430\u043d\u043e \u043f\u0430\u043f\u043e\u0439 \u0434\u043b\u044f \u0441\u0432\u043e\u0435\u0433\u043e \u0440\u0435\u0431\u0451\u043d\u043a\u0430 — \u043d\u0435 \u043a\u043e\u0440\u043f\u043e\u0440\u0430\u0446\u0438\u0435\u0439',
-      guarantee: '\u0413\u0430\u0440\u0430\u043d\u0442\u0438\u044f \u0441\u043f\u043e\u043a\u043e\u0439\u0441\u0442\u0432\u0438\u044f: \u0435\u0441\u043b\u0438 \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 30 \u0434\u043d\u0435\u0439 \u0432\u044b \u0440\u0435\u0448\u0438\u0442\u0435, \u0447\u0442\u043e \u043f\u043b\u0430\u043d \u0432\u0430\u043c \u043d\u0435 \u043f\u043e\u043c\u043e\u0433 — \u0432\u0435\u0440\u043d\u0451\u043c 100% \u0441\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u0438.',
-      bnCreator: '\u041f\u043b\u0430\u043d', bnPricing: '\u0426\u0435\u043d\u044b', bnMusic: '\u041a\u043e\u043b\u044b\u0431\u0435\u043b\u044c\u043d\u0430\u044f',
-      popupPre: '\u041f\u0440\u0435\u0436\u0434\u0435 \u0447\u0435\u043c \u0443\u0439\u0442\u0438\u2026', popupH: '\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u0435 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u044b\u0439 \u0447\u0435\u043a-\u043b\u0438\u0441\u0442 \u00ab7 \u0432\u043e\u043f\u0440\u043e\u0441\u043e\u0432 \u043e \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u0440\u0435\u0431\u0451\u043d\u043a\u0430 \u0432 \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0435\u00bb'
+    de: {
+      ctaTop: 'Plan erstellen', navWhy: 'Warum wir', navHow: 'So geht\u2019s', navCreator: 'Geburtsplan-Generator', navPricing: 'Preise', navBlog: 'Wissen',
+      heroBadge: 'Aus Polen, f\u00fcr Eltern',
+      heroH1: 'Ein pers\u00f6nlicher Geburtsplan, der die Sicherheit Ihres Babys an erste Stelle setzt',
+      heroP1: 'Ich hei\u00dfe Micha\u0142 und werde bald Vater. Auf der Suche nach einem Geburtsplan fand ich nur kostenlose Vorlagen oder teure Beratungen. Keine beantwortete meine wichtigste Frage: <strong>was macht ein Neugeborenes wirklich sicherer?</strong>',
+      heroP2: 'Deshalb habe ich dieses Tool entwickelt \u2014 einen interaktiven Geburtsplan auf Basis aktueller medizinischer Standards, aus der Sicht eines Vaters.',
+      heroStandard: 'Konform mit dem polnischen Standard der perinatalen Versorgung (GBl. 2025 Pos. 1525, g\u00fcltig ab Mai 2026)',
+      heroCta1: 'Geburtsplan erstellen', heroCta2: 'So funktioniert es',
+      whyH: 'Warum Por\u00f3dNaMiar\u0119.pl?', howH: 'So geht\u2019s \u2014 4 einfache Schritte', creatorH: 'Interaktiver Geburtsplan-Generator',
+      creatorNote: 'Die Oberfl\u00e4che ist in mehreren Sprachen verf\u00fcgbar; das Plandokument selbst wird auf Polnisch erstellt, damit das Klinikpersonal in Polen es vollst\u00e4ndig nutzen kann.',
+      btnGenerate: 'Vorschau erstellen', btnReset: 'Zur\u00fccksetzen',
+      pricingH: 'Produkte f\u00fcr Eltern', standardBadge: 'Konform mit dem Standard der perinatalen Versorgung \u2014 GBl. 2025 Pos. 1525 (ab Mai 2026)',
+      faqH: 'FAQ', blogH: 'Wissen f\u00fcr bewusste Eltern (auf Polnisch)',
+      trustA: 'Kostenlose Vorschau \u2014 Sie zahlen erst, wenn Sie den Wert sehen', trustB: 'Stripe + BLIK \u2014 Karte, Apple & Google Pay',
+      trustC: '30 Tage Geld-zur\u00fcck-Garantie \u2014 ohne Fragen', trustD: 'Von einem Vater f\u00fcr sein eigenes Kind \u2014 nicht von einem Konzern',
+      guarantee: 'Sorglos-Garantie: Wenn der Plan Ihnen innerhalb von 30 Tagen nicht geholfen hat \u2014 erstatten wir 100% des Preises. Ohne Fragen.',
+      bnCreator: 'Generator', bnPricing: 'Preise', bnMusic: 'Schlaflied',
+      popupPre: 'Bevor Sie gehen\u2026', popupH: 'Holen Sie sich die kostenlose Checkliste \u201e7 Sicherheitsfragen f\u00fcr die Klinik\u201c'
     }
   };
   const PL_DEFAULTS = {};
@@ -832,19 +938,22 @@ tailwind.config = {
     o.connect(g).connect(audioCtx.destination);
     o.start(); o.stop(audioCtx.currentTime + 0.6);
   }
-  const musicBtn = document.getElementById('musicBtn');
-  if (musicBtn) musicBtn.addEventListener('click', () => {
+  function setMusicIcons(sym){
+    const a=document.getElementById('musicIcon'); if(a) a.textContent=sym;
+    const b=document.getElementById('musicIconDesktop'); if(b) b.textContent=sym;
+  }
+  function toggleMusic(){
     if (!playing) {
       audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
       audioCtx.resume();
       musicTimer = setInterval(() => { pluck(NOTES[ni % NOTES.length]); ni++; }, 420);
-      playing = true; document.getElementById('musicIcon').textContent = '⏸';
+      playing = true; setMusicIcons('⏸');
     } else {
-      clearInterval(musicTimer); playing = false;
-      document.getElementById('musicIcon').textContent = '🎵';
+      clearInterval(musicTimer); playing = false; setMusicIcons('🎵');
     }
-    musicBtn.setAttribute('aria-pressed', playing);
-  });
+    ['musicBtn','musicBtnDesktop'].forEach(id=>{const el=document.getElementById(id); if(el) el.setAttribute('aria-pressed', playing);});
+  }
+  ['musicBtn','musicBtnDesktop'].forEach(id=>{const el=document.getElementById(id); if(el) el.addEventListener('click', toggleMusic);});
 
   // Przełącznik języka — placeholder pod przyszłą wersję EN.
 })();
