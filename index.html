@@ -240,113 +240,260 @@ tailwind.config = {
   </ol>
 </section>
 
-<!-- ===== KREATOR PLANU PORODU ===== -->
+<!-- ===== KREATOR PLANU PORODU (wielokrokowy) ===== -->
 <section id="kreator" class="bg-tealsoft py-16 md:py-24">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 data-i18n="creatorH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-3">Interaktywny kreator planu porodu</h2>
-    <div class="grid md:grid-cols-[1fr_260px] gap-6 items-center mb-10 max-w-4xl"><p>Zaznacz opcje, które są dla Was ważne, a następnie wygeneruj podgląd planu. Podgląd jest bezpłatny — pełny, spersonalizowany dokument PDF otrzymasz po zakupie. Plan obejmuje 8 obszarów — od warunków porodu po połóg — wzorowany na najbardziej wyczerpujących planach zgodnych ze Standardem Opieki Okołoporodowej. <span data-i18n="creatorNote" class="block mt-2 text-sm text-ink/70">Interfejs dostępny w 4 językach; sam dokument planu generowany jest po polsku — tak, aby personel szpitala w Polsce mógł go w pełni wykorzystać.</span></p><img src="img/kreator.webp" alt="Przyszła mama przygotowująca plan porodu w notesie" class="hidden md:block rounded-2xl" loading="lazy"></div>
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-8">
+      <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Kreator krok po kroku</p>
+      <h2 data-i18n="creatorH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-3">Stwórz swój plan porodu</h2>
+      <p class="text-ink/70 max-w-2xl mx-auto">Przejdź przez 12 kroków — zaznacz to, co dla Was ważne. Podgląd tworzy się na bieżąco. Pełny, profesjonalny dokument PDF (z brandem i formatowaniem) otrzymasz po zakupie.</p>
+      <p data-i18n="creatorNote" class="text-sm text-ink/60 mt-2 max-w-2xl mx-auto">Interfejs w 4 językach; dokument planu generujemy po polsku — tak, aby personel szpitala w Polsce mógł go w pełni wykorzystać.</p>
+    </div>
 
-    <div class="grid lg:grid-cols-2 gap-8 items-start">
-      <form id="planForm" class="bg-white rounded-3xl p-6 md:p-8 border border-sanddark space-y-8">
+    <div class="grid lg:grid-cols-[1fr_400px] gap-6 items-start">
 
-        <div>
-          <label for="parents" class="font-semibold block mb-2">Imiona rodziców</label>
-          <input id="parents" type="text" maxlength="80" autocomplete="off" placeholder="np. Anna i Michał" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/50">
+      <!-- LEWA: WIZARD -->
+      <form id="planForm" class="bg-white rounded-3xl border border-sanddark overflow-hidden">
+        <!-- Progress bar -->
+        <div class="bg-sand/60 px-6 pt-5 pb-4 border-b border-sanddark">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-semibold text-deep">Krok <span id="stepNum">1</span> z 12</span>
+            <span class="text-xs text-ink/60"><span id="stepPct">8</span>% ukończone</span>
+          </div>
+          <div class="h-2 bg-sanddark rounded-full overflow-hidden">
+            <div id="progressBar" class="h-full bg-teal transition-all duration-300" style="width:8%"></div>
+          </div>
         </div>
 
-        <fieldset>
-          <legend class="font-display text-lg font-semibold text-deep mb-3">Warunki porodu i osoby obecne</legend>
-          <div class="space-y-2.5 text-[15px]">
-            <label class="flex gap-3 items-start"><input type="checkbox" name="setting" value="Prośba o salę pojedynczą z dostępem do prysznica/wanny, jeśli dostępna" class="mt-0.5"><span>Sala pojedyncza z prysznicem/wanną (jeśli dostępna)</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="setting" value="Przyciemnione światło, cisza i możliwość słuchania własnej muzyki" class="mt-0.5"><span>Przyciemnione światło, cisza, własna muzyka</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="setting" value="Obecne tylko niezbędne osoby z personelu; bez studentów bez naszej zgody" class="mt-0.5"><span>Tylko niezbędny personel; studenci za naszą zgodą</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="setting" value="W miarę możliwości opieka tej samej położnej przez cały poród" class="mt-0.5"><span>Ta sama położna przez cały poród (w miarę możliwości)</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="setting" value="Możliwość robienia zdjęć po narodzinach dziecka" class="mt-0.5"><span>Możliwość zdjęć po narodzinach</span></label>
+        <!-- Kroki -->
+        <div class="p-6 md:p-8 min-h-[420px]">
+      <div class="creator-step" data-step="0" data-active="true">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">📋</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Dane i informacje kluczowe</h3>
+            <p class="text-sm text-ink/70 mt-1">Zaczynamy od podstaw. Te informacje trafią na pierwszą stronę planu i pomogą personelowi szybko się zorientować.</p>
           </div>
-        </fieldset>
-
-        <fieldset>
-          <legend class="font-display text-lg font-semibold text-deep mb-3">Łagodzenie bólu i znieczulenie</legend>
-          <div class="space-y-2.5 text-[15px]">
-            <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Metody niefarmakologiczne: piłka, prysznic, immersja wodna, TENS, masaż" class="mt-0.5"><span>Metody niefarmakologiczne (piłka, prysznic, immersja wodna, TENS)</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Znieczulenie zewnątrzoponowe — decyzja mamy w trakcie porodu" class="mt-0.5"><span>Znieczulenie zewnątrzoponowe (decyzja w trakcie porodu)</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Analgezja remifentanylem (PCA) — nowoczesna metoda kontrolowana przez pacjentkę; prosimy o informację o dostępności w naszym szpitalu" class="mt-0.5"><span><strong>Remifentanyl (PCA)</strong> — analgezja kontrolowana przez pacjentkę (dostępność zależna od szpitala)</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="pain" value="Gaz wziewny (Entonox)" class="mt-0.5"><span>Gaz wziewny (Entonox)</span></label>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię i nazwisko rodzącej</label><input type="text" name="mama" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko rodzącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Osoba towarzysząca (ojciec dziecka / bliska osoba)</label><input type="text" name="tata" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko osoby towarzyszącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię dziecka (jeśli już wybrane)</label><input type="text" name="dziecko" maxlength="120" autocomplete="off" placeholder="np. Wiktoria (jeśli znane)" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Przewidywany termin porodu</label><input type="text" name="termin" maxlength="120" autocomplete="off" placeholder="np. 10.09.2026" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Lekarz prowadzący / położna (opcjonalnie)</label><input type="text" name="lekarz" maxlength="120" autocomplete="off" placeholder="np. dr / położna prowadząca" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="1">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">🏥</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Warunki i miejsce porodu</h3>
+            <p class="text-sm text-ink/70 mt-1">Jak ma wyglądać otoczenie porodu? Zaznacz to, co dla Was ważne.</p>
           </div>
-        </fieldset>
-
-        <fieldset>
-          <legend class="font-display text-lg font-semibold text-deep mb-3">Przebieg porodu</legend>
-          <div class="space-y-2.5 text-[15px]">
-            <label class="flex gap-3 items-start"><input type="checkbox" name="labor" value="Obecność taty przez cały poród, także przy zabiegach" class="mt-0.5"><span>Obecność taty przez cały poród</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="labor" value="Swoboda ruchu i wybór pozycji w I i II okresie porodu" class="mt-0.5"><span>Swoboda ruchu i wybór pozycji</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="labor" value="Nacięcie krocza wyłącznie ze wskazań medycznych, po poinformowaniu" class="mt-0.5"><span>Nacięcie krocza tylko ze wskazań medycznych</span></label>
-        </fieldset>
-
-        <fieldset>
-          <legend class="font-display text-lg font-semibold text-deep mb-3">Indukcja i III okres porodu</legend>
-          <div class="space-y-2.5 text-[15px]">
-            <label class="flex gap-3 items-start"><input type="checkbox" name="induction" value="Bez wywoływania porodu (w tym amniotomii) bez wyraźnych wskazań medycznych" class="mt-0.5"><span>Bez indukcji bez wyraźnych wskazań</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="induction" value="Oksytocyna / amniotomia wyłącznie po wyjaśnieniu wskazań i naszej świadomej zgodzie" class="mt-0.5"><span>Oksytocyna/amniotomia po wyjaśnieniu wskazań i zgodzie</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="induction" value="Możliwość fizjologicznego urodzenia łożyska, jeśli brak czynników ryzyka krwotoku" class="mt-0.5"><span>Fizjologiczne urodzenie łożyska (jeśli brak ryzyka)</span></label>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Chciałabym rodzić w sali pojedynczej" class="mt-0.5 flex-shrink-0"><span>Sala pojedyncza</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Zależy mi na dostępie do prysznica lub wanny w sali" class="mt-0.5 flex-shrink-0"><span>Dostęp do prysznica / wanny</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Przyciemnione światło i cisza w sali porodowej" class="mt-0.5 flex-shrink-0"><span>Przyciemnione światło i cisza</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Możliwość słuchania własnej muzyki podczas porodu" class="mt-0.5 flex-shrink-0"><span>Własna muzyka podczas porodu</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Możliwość robienia zdjęć podczas porodu i pierwszych chwil (za zgodą personelu)" class="mt-0.5 flex-shrink-0"><span>Możliwość zdjęć (za zgodą personelu)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Możliwość nagrywania wideo podczas porodu i pierwszych chwil (za zgodą personelu)" class="mt-0.5 flex-shrink-0"><span>Możliwość nagrań wideo (za zgodą personelu)</span></label>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="2">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">👨‍👩‍👧</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Osoba towarzysząca i osoby obecne</h3>
+            <p class="text-sm text-ink/70 mt-1">Kto ma być przy Was i jak ma wyglądać obecność personelu.</p>
           </div>
-        </fieldset>
-
-        <fieldset>
-          <legend class="font-display text-lg font-semibold text-deep mb-3">Gdyby konieczne było cięcie cesarskie</legend>
-          <div class="space-y-2.5 text-[15px]">
-            <label class="flex gap-3 items-start"><input type="checkbox" name="csection" value="Dokładna informacja o powodach cięcia i nasza świadoma zgoda (poza sytuacją nagłą)" class="mt-0.5"><span>Informacja o powodach + świadoma zgoda (poza nagłymi)</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="csection" value="Obecność taty na sali operacyjnej, jeśli to możliwe" class="mt-0.5"><span>Obecność taty na sali operacyjnej</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="csection" value="Kontakt skóra do skóry na sali operacyjnej; jeśli mama nie może — kontakt z tatą" class="mt-0.5"><span>Skóra do skóry na sali operacyjnej (z mamą lub tatą)</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="csection" value="Jak najszybsze przystawienie dziecka do piersi po cięciu" class="mt-0.5"><span>Jak najszybsze przystawienie do piersi po cięciu</span></label>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="people" value="Chcę rodzić z osobą bliską (ojcem dziecka / partnerem)" checked class="mt-0.5 flex-shrink-0"><span>Poród z osobą bliską (ojciec dziecka)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="people" value="Obecność obojga rodziców przy wszystkich badaniach i zabiegach" checked class="mt-0.5 flex-shrink-0"><span>Obecność obojga rodziców przy badaniach</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="people" value="Jeśli matka nie może być obecna — przy zabiegach obecny jest ojciec dziecka" checked class="mt-0.5 flex-shrink-0"><span>Przy zabiegach obecny ojciec, gdy mama nie może</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="people" value="Prosimy o bieżące informowanie osoby towarzyszącej o postępie porodu" class="mt-0.5 flex-shrink-0"><span>Informowanie osoby towarzyszącej o postępie</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="people" value="Obecne tylko niezbędne osoby z personelu" class="mt-0.5 flex-shrink-0"><span>Tylko niezbędny personel</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="people" value="Zgoda na obecność studentów/-ek położnictwa i medycyny" class="mt-0.5 flex-shrink-0"><span>Zgoda na obecność studentów</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="people" value="W miarę możliwości ta sama położna przez cały poród" class="mt-0.5 flex-shrink-0"><span>Ta sama położna przez cały poród (w miarę możliwości)</span></label>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="3">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">🧴</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Przygotowanie do porodu</h3>
+            <p class="text-sm text-ink/70 mt-1">Zabiegi przygotowujące — Wasze preferencje.</p>
           </div>
-        </fieldset>
-
-        <fieldset class="bg-tealsoft/60 rounded-2xl p-4 -mx-1">
-          <legend class="font-display text-lg font-semibold text-deep mb-3 px-1">Opieka nad noworodkiem <span class="text-teal text-sm font-body">(najważniejsza sekcja)</span></legend>
-          <div class="space-y-2.5 text-[15px]">
-            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Nieprzerwany kontakt skóra do skóry min. 2 godziny po porodzie (także z tatą przy cięciu cesarskim)" checked class="mt-0.5"><span>Kontakt skóra do skóry min. 2 h (także z tatą przy cesarskim cięciu)</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Opóźnione odpępnienie — przecięcie pępowiny po ustaniu tętnienia (min. 1–3 min)" checked class="mt-0.5"><span>Opóźnione odpępnienie (po ustaniu tętnienia)</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Wsparcie laktacyjne: pierwsze przystawienie w ciągu 1 h, pomoc położnej laktacyjnej" checked class="mt-0.5"><span>Wsparcie laktacji — pierwsze przystawienie w ciągu 1 h</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Bez dokarmiania mlekiem modyfikowanym i bez smoczka bez zgody rodziców" class="mt-0.5"><span>Bez dokarmiania i smoczka bez zgody rodziców</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Profilaktyka (wit. K, zabieg Credégo) — po rozmowie z rodzicami, w obecności rodzica" checked class="mt-0.5"><span>Profilaktyka (wit. K, zabieg Credégo) w obecności rodzica</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Badania przesiewowe noworodka (słuch, badania metaboliczne, pulsoksymetria) — tak, w obecności rodzica" checked class="mt-0.5"><span>Badania przesiewowe — tak, w obecności rodzica</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="newborn" value="Wszystkie zabiegi i badania dziecka wykonywane w obecności mamy lub taty" checked class="mt-0.5"><span>Każdy zabieg przy dziecku w obecności rodzica</span></label>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Bez zabiegów przygotowujących (lewatywa, golenie), chyba że o nie poproszę" class="mt-0.5 flex-shrink-0"><span>Bez lewatywy i golenia (chyba że poproszę)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Bez wenflonu, chyba że wystąpi konieczność podania leków dożylnie (akceptujemy założenie w razie wskazań)" class="mt-0.5 flex-shrink-0"><span>Bez wenflonu rutynowego (akceptujemy w razie wskazań)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Możliwość jedzenia i picia w trakcie porodu, o ile nie ma przeciwwskazań" class="mt-0.5 flex-shrink-0"><span>Możliwość jedzenia i picia (o ile brak przeciwwskazań)</span></label>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="4">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">🤰</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Przebieg porodu — I i II okres</h3>
+            <p class="text-sm text-ink/70 mt-1">Jak chcecie, żeby przebiegał sam poród.</p>
           </div>
-        </fieldset>
-
-        <fieldset>
-          <legend class="font-display text-lg font-semibold text-deep mb-3">Szczepienia noworodka</legend>
-          <div class="space-y-2.5 text-[15px]">
-            <label class="flex gap-3 items-start"><input type="radio" name="vacc" value="Chcemy zaszczepić dziecko zgodnie z kalendarzem szczepień, jednak planujemy zrealizować szczepienia we własnym zakresie i według własnego harmonogramu po wypisie ze szpitala. Prosimy o odnotowanie tej decyzji." checked class="mt-0.5"><span><strong>Zaszczepimy dziecko we własnym zakresie</strong>, według własnego harmonogramu po wypisie</span></label>
-            <label class="flex gap-3 items-start"><input type="radio" name="vacc" value="Wyrażamy zgodę na szczepienia (WZW B, BCG) zgodnie ze standardem szpitalnym, w obecności rodzica." class="mt-0.5"><span>Szczepienia w szpitalu, zgodnie ze standardem, w obecności rodzica</span></label>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Pełna i bieżąca informacja o postępie porodu" checked class="mt-0.5 flex-shrink-0"><span>Pełna informacja o postępie porodu</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Zależy mi na porodzie o przebiegu naturalnym (fizjologicznym)" checked class="mt-0.5 flex-shrink-0"><span>Poród naturalny (fizjologiczny)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Pytanie o zgodę na badania i zabiegi poza sytuacjami nagłymi" checked class="mt-0.5 flex-shrink-0"><span>Pytanie o zgodę na zabiegi (poza nagłymi)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Ograniczenie badań dopochwowych do niezbędnego minimum" class="mt-0.5 flex-shrink-0"><span>Ograniczenie badań dopochwowych do minimum</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Swoboda ruchu i dowolne pozycje; dostęp do wanny/prysznica, drabinki, worka sako" class="mt-0.5 flex-shrink-0"><span>Swoboda ruchu i wybór pozycji</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Wybór pozycji w II okresie (w tym pionowej), parcie spontaniczne" class="mt-0.5 flex-shrink-0"><span>Wybór pozycji w II okresie, parcie spontaniczne</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Brak zgody na masaż szyjki i chwyt Kristellera" class="mt-0.5 flex-shrink-0"><span>Bez masażu szyjki i chwytu Kristellera</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Przygaszone światło i cisza w momencie narodzin" class="mt-0.5 flex-shrink-0"><span>Przyciemnione światło i cisza przy narodzinach</span></label>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="5">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">💆</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Łagodzenie bólu porodowego</h3>
+            <p class="text-sm text-ink/70 mt-1">Metody radzenia sobie z bólem — od naturalnych po farmakologiczne. Bezpieczeństwo zawsze jest nadrzędne.</p>
           </div>
-        </fieldset>
-
-        <fieldset>
-          <legend class="font-display text-lg font-semibold text-deep mb-3">Połóg i oddział położniczy</legend>
-          <div class="space-y-2.5 text-[15px]">
-            <label class="flex gap-3 items-start"><input type="checkbox" name="postpartum" value="Rooming-in 24 h — bez rozdzielania mamy i dziecka bez wskazań medycznych" class="mt-0.5"><span>Rooming-in 24 h, bez separacji bez wskazań</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="postpartum" value="Wsparcie laktacyjne podczas całego pobytu na oddziale" class="mt-0.5"><span>Wsparcie laktacyjne podczas pobytu</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="postpartum" value="Informacja o każdym leku lub suplemencie podawanym mamie lub dziecku" class="mt-0.5"><span>Informacja o każdym podawanym leku</span></label>
-            <label class="flex gap-3 items-start"><input type="checkbox" name="postpartum" value="Wypis do domu możliwie szybko, jeśli stan mamy i dziecka jest dobry" class="mt-0.5"><span>Możliwie szybki wypis przy dobrym stanie</span></label>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="pain" value="W pierwszej kolejności metody niefarmakologiczne: immersja wodna, pozycje, masaż, TENS, techniki oddechowe" checked class="mt-0.5 flex-shrink-0"><span>Najpierw metody niefarmakologiczne (woda, masaż, TENS, oddech)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="pain" value="Proszę nie proponować środków farmakologicznych, zanim sama o nie poproszę" class="mt-0.5 flex-shrink-0"><span>Bez propozycji farmakologii, dopóki sama nie poproszę</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="pain" value="Analgezja wziewna (mieszanina podtlenku azotu z tlenem)" class="mt-0.5 flex-shrink-0"><span>Gaz wziewny (podtlenek azotu)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="pain" value="Znieczulenie zewnątrzoponowe (EDA), jeśli o nie poproszę" class="mt-0.5 flex-shrink-0"><span>Znieczulenie zewnątrzoponowe (EDA) na życzenie</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="pain" value="Analgezja remifentanylem w systemie PCA, jeśli o nią poproszę lub EDA będzie niedostępne/przeciwwskazane" class="mt-0.5 flex-shrink-0"><span>Remifentanyl PCA (gdy EDA niedostępne lub na życzenie)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="pain" value="Brak zgody na petydynę (dolargan) i inne środki silnie zmieniające świadomość" class="mt-0.5 flex-shrink-0"><span>Bez petydyny i środków silnie zmieniających świadomość</span></label>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="6">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">🌿</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Ochrona krocza, indukcja i łożysko</h3>
+            <p class="text-sm text-ink/70 mt-1">Nacięcie krocza, wywoływanie porodu i III okres (łożysko).</p>
           </div>
-        </fieldset>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Preferuję ochronę krocza i uniknięcie nacięcia (epizjotomii), o ile nie ma wskazań" checked class="mt-0.5 flex-shrink-0"><span>Ochrona krocza, bez nacięcia bez wskazań</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Nacięcie krocza tylko przy wyraźnych wskazaniach medycznych, po poinformowaniu" checked class="mt-0.5 flex-shrink-0"><span>Nacięcie tylko ze wskazań, po poinformowaniu</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Miejscowe znieczulenie przy ewentualnym zszywaniu krocza" class="mt-0.5 flex-shrink-0"><span>Znieczulenie miejscowe przy zszywaniu</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Bez wywoływania porodu (w tym amniotomii), jeśli brak wyraźnych wskazań" class="mt-0.5 flex-shrink-0"><span>Bez indukcji bez wyraźnych wskazań</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Oksytocyna / amniotomia wyłącznie po wyjaśnieniu wskazań i mojej świadomej zgodzie" class="mt-0.5 flex-shrink-0"><span>Oksytocyna/amniotomia po wyjaśnieniu i zgodzie</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Możliwość fizjologicznego urodzenia łożyska, jeśli brak czynników ryzyka krwotoku" class="mt-0.5 flex-shrink-0"><span>Fizjologiczne urodzenie łożyska (jeśli brak ryzyka)</span></label>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="7">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">🏥</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Gdyby konieczne było cięcie cesarskie</h3>
+            <p class="text-sm text-ink/70 mt-1">Nawet przy cesarskim cięciu macie wpływ na wiele elementów.</p>
+          </div>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="csection" value="Uniknięcie cięcia, jeśli nie ma bezwzględnych wskazań" checked class="mt-0.5 flex-shrink-0"><span>Uniknięcie cięcia bez bezwzględnych wskazań</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="csection" value="Dokładna informacja o powodach i moja świadoma zgoda (poza sytuacją nagłą)" checked class="mt-0.5 flex-shrink-0"><span>Informacja o powodach + świadoma zgoda (poza nagłymi)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="csection" value="Obecność osoby towarzyszącej podczas operacji, jeśli to możliwe" checked class="mt-0.5 flex-shrink-0"><span>Obecność osoby towarzyszącej na sali operacyjnej</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="csection" value="Kontakt skóra do skóry na sali operacyjnej, gdy stan dziecka i matki pozwala" checked class="mt-0.5 flex-shrink-0"><span>Skóra do skóry na sali operacyjnej</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="csection" value="Jeśli matka nie może — kontakt skóra do skóry z ojcem dziecka" checked class="mt-0.5 flex-shrink-0"><span>Skóra do skóry z tatą, gdy mama nie może</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="csection" value="Jak najszybsze przystawienie do piersi po cięciu" class="mt-0.5 flex-shrink-0"><span>Jak najszybsze przystawienie do piersi po cięciu</span></label>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="8">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">👶</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Opieka nad noworodkiem</h3>
+            <p class="text-sm text-ink/70 mt-1">Najważniejsza część planu. Priorytetem jest zdrowie i bezpieczeństwo dziecka — akceptujecie wszystkie procedury ratujące zdrowie i życie.</p>
+          </div>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Nieprzerwany kontakt skóra do skóry przez co najmniej 2 godziny po porodzie (także po cięciu cesarskim)" checked class="mt-0.5 flex-shrink-0"><span>Kontakt skóra do skóry min. 2 h (także po cesarskim)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Osuszenie zamiast kąpieli — pozostawienie mazi płodowej, bez kąpieli w pierwszej dobie" checked class="mt-0.5 flex-shrink-0"><span>Osuszenie zamiast kąpieli w pierwszej dobie</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Ocena Apgar i wstępna ocena podczas kontaktu skóra do skóry, bez zbędnego rozdzielania" checked class="mt-0.5 flex-shrink-0"><span>Ocena Apgar podczas kontaktu skóra do skóry</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Ważenie, mierzenie i badanie po zakończeniu pierwszego, nieprzerwanego kontaktu" checked class="mt-0.5 flex-shrink-0"><span>Ważenie i mierzenie po pierwszym kontakcie</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Odroczone odpępnienie — co najmniej 60 sekund, optymalnie do ustania tętnienia" checked class="mt-0.5 flex-shrink-0"><span>Opóźnione odpępnienie (do ustania tętnienia)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Przecięcie pępowiny przez ojca dziecka, jeśli będzie chciał i nie ma przeciwwskazań" class="mt-0.5 flex-shrink-0"><span>Przecięcie pępowiny przez tatę (jeśli zechce)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Pierwsze przystawienie do piersi jeszcze na sali porodowej, w trakcie kontaktu skóra do skóry" checked class="mt-0.5 flex-shrink-0"><span>Pierwsze przystawienie na sali porodowej</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Wsparcie położnej lub doradcy laktacyjnego w prawidłowym przystawieniu" checked class="mt-0.5 flex-shrink-0"><span>Wsparcie laktacyjne przy pierwszym karmieniu</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Dokarmianie wyłącznie na wskazanie lekarskie, z preferencją odciągniętej siary zamiast mleka modyfikowanego" checked class="mt-0.5 flex-shrink-0"><span>Dokarmianie tylko na wskazanie (preferencja siary)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Bez rutynowego podawania smoczka w okresie ustalania laktacji" checked class="mt-0.5 flex-shrink-0"><span>Bez rutynowego smoczka</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Rooming-in całodobowy — bez rozdzielania mamy i dziecka bez wskazań medycznych" checked class="mt-0.5 flex-shrink-0"><span>Rooming-in 24 h</span></label>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="9">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">💉</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Profilaktyka i badania noworodka</h3>
+            <p class="text-sm text-ink/70 mt-1">Zdrowie dziecka jest priorytetem. Poniższe elementy profilaktyki ratują zdrowie i życie.</p>
+          </div>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="radio" name="vitk" value="Witamina K — podanie domięśniowe (preferowane, najwyższa skuteczność)" checked class="mt-0.5 flex-shrink-0"><span>Witamina K domięśniowo (preferowane)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="radio" name="vitk" value="Witamina K — podanie doustne (alternatywa, jeśli wybrana)" class="mt-0.5 flex-shrink-0"><span>Witamina K doustnie (alternatywa)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prophylaxis" value="Wyrażamy zgodę na wszystkie badania przesiewowe (test z piętki, pulsoksymetria, badanie słuchu) — w miarę możliwości w naszej obecności" checked class="mt-0.5 flex-shrink-0"><span>Wszystkie badania przesiewowe, w naszej obecności</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prophylaxis" value="Profilaktyka zakażeń oczu — zgodnie z wynikiem badań matki (przy wyniku ujemnym akceptujemy odstąpienie)" checked class="mt-0.5 flex-shrink-0"><span>Profilaktyka oczu zależnie od wyniku badań matki</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prophylaxis" value="Prosimy o informację o każdym leku lub suplemencie podawanym dziecku" checked class="mt-0.5 flex-shrink-0"><span>Informacja o każdym leku podawanym dziecku</span></label>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="10">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">🛡️</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Szczepienia noworodka</h3>
+            <p class="text-sm text-ink/70 mt-1">Wasze stanowisko wobec szczepień w szpitalu. Przy odroczeniu WZW B ważny jest ujemny wynik HBsAg u matki.</p>
+          </div>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="radio" name="vacc" value="Szczepienia realizujemy we własnym zakresie — na obecnym etapie nie wyrażamy zgody na szczepienia w szpitalu (WZW B, BCG); wykonamy je po wypisie u wybranego pediatry. Odroczenie WZW B przy potwierdzonym ujemnym wyniku HBsAg u matki jest bezpieczne." checked class="mt-0.5 flex-shrink-0"><span>Szczepienia we własnym zakresie po wypisie (WZW B, BCG odroczone)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="radio" name="vacc" value="Wyrażamy zgodę na szczepienia w szpitalu (WZW B, BCG) zgodnie ze standardem, w obecności rodzica" class="mt-0.5 flex-shrink-0"><span>Szczepienia w szpitalu zgodnie ze standardem</span></label>
+        </div>
+      </div>
+      <div class="creator-step hidden" data-step="11">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">🤱</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Połóg i oddział położniczy</h3>
+            <p class="text-sm text-ink/70 mt-1">Ostatni krok — pobyt na oddziale po porodzie.</p>
+          </div>
+        </div>
+        <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Rooming-in 24 h, bez separacji bez wskazań medycznych" checked class="mt-0.5 flex-shrink-0"><span>Rooming-in 24 h, bez separacji</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Wszystkie czynności i badania dziecka w obecności matki lub ojca" checked class="mt-0.5 flex-shrink-0"><span>Badania dziecka w obecności rodzica</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Wsparcie laktacyjne w czasie całego pobytu" checked class="mt-0.5 flex-shrink-0"><span>Wsparcie laktacyjne przez cały pobyt</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Prosimy o informację o zakresie danych przekazywanych podmiotom zewnętrznym w związku z opieką nad dzieckiem" class="mt-0.5 flex-shrink-0"><span>Informacja o danych przekazywanych na zewnątrz</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Wypis do domu możliwie szybko, jeśli stan matki i dziecka jest dobry" class="mt-0.5 flex-shrink-0"><span>Możliwie szybki wypis przy dobrym stanie</span></label>
+        </div>
+      </div>
+        </div>
 
-        <div class="flex flex-wrap gap-3 pt-1">
-          <button type="button" id="generateBtn" data-i18n="btnGenerate" class="bg-teal text-white font-semibold px-6 min-h-[48px] py-3.5 rounded-full hover:bg-deep transition-colors">Wygeneruj podgląd</button>
-          <button type="reset" data-i18n="btnReset" class="border border-deep/30 font-semibold px-6 py-3 rounded-full hover:bg-sand">Wyczyść</button>
+        <!-- Nawigacja -->
+        <div class="flex items-center justify-between gap-3 px-6 py-5 bg-sand/40 border-t border-sanddark">
+          <button type="button" id="prevBtn" class="border border-deep/25 font-semibold px-5 min-h-[48px] py-3 rounded-full hover:bg-sand transition-colors invisible">← Wstecz</button>
+          <button type="button" id="nextBtn" class="bg-teal text-white font-semibold px-6 min-h-[48px] py-3 rounded-full hover:bg-deep transition-colors">Dalej →</button>
+          <button type="button" id="finishBtn" class="bg-deep text-white font-semibold px-6 min-h-[48px] py-3 rounded-full hover:bg-teal transition-colors hidden">Zobacz podsumowanie ✓</button>
         </div>
       </form>
 
-      <div>
-        <div id="planPreview" class="bg-white rounded-none plan-doc p-8 md:p-10 min-h-[420px] border-t-8 border-teal" aria-live="polite">
-          <p class="text-ink/60 italic">Tutaj pojawi się podgląd Waszego planu porodu. Zaznacz opcje po lewej stronie i kliknij „Wygeneruj podgląd”.</p>
+      <!-- PRAWA: PODGLĄD NA ŻYWO -->
+      <div class="lg:sticky lg:top-24">
+        <div class="bg-white plan-doc border-t-8 border-teal rounded-b-2xl overflow-hidden">
+          <div class="max-h-[520px] overflow-y-auto p-7">
+            <div id="planPreview" aria-live="polite">
+              <p class="text-ink/50 italic text-sm">Podgląd Waszego planu będzie pojawiał się tutaj na bieżąco, w miarę zaznaczania opcji.</p>
+            </div>
+          </div>
         </div>
-        <button id="copyBtn" class="hidden mt-5 w-full border-2 border-teal text-teal font-semibold px-6 py-3 rounded-full hover:bg-tealsoft transition-colors" type="button">📋 Kopiuj podsumowanie planu</button>
-        <p id="copyHint" class="hidden mt-2 text-xs text-ink/60 text-center">Skopiowane! Wklej je w polu „Podsumowanie planu” podczas płatności lub w odpowiedzi na e-mail po zakupie.</p>
-        <a href="#cennik" id="buyBtn" target="_blank" rel="noopener noreferrer" class="hidden mt-6 w-full text-center bg-deep text-white font-semibold px-6 py-4 rounded-full hover:bg-teal transition-colors block">Kup ten spersonalizowany plan →</a>
+        <button id="copyBtn" class="hidden mt-4 w-full border-2 border-teal text-teal font-semibold px-6 py-3 rounded-full hover:bg-tealsoft transition-colors text-sm" type="button">📋 Kopiuj podsumowanie</button>
+        <p id="copyHint" class="hidden mt-2 text-xs text-ink/60 text-center">Skopiowane! Wklej podczas płatności lub w odpowiedzi na e-mail.</p>
+        <a href="#cennik" id="buyBtn" class="hidden mt-3 w-full text-center bg-teal text-white font-semibold px-6 py-4 rounded-full hover:bg-deep transition-colors block">Kup i pobierz swój plan PDF →</a>
+        <p class="hidden md:block text-xs text-ink/50 text-center mt-3" id="buyNote">Najpierw wybierasz pakiet i płacisz, potem od razu pobierasz gotowy plan PDF oraz pozostałe produkty z pakietu.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -754,73 +901,110 @@ tailwind.config = {
   const form = document.getElementById('planForm');
   const preview = document.getElementById('planPreview');
   const buyBtn = document.getElementById('buyBtn');
+  const copyBtn = document.getElementById('copyBtn');
 
-  function esc(t){return t.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-  function collect(name) {
-    return [...form.querySelectorAll('input[name="' + name + '"]:checked')].map(i => i.value);
-  }
+  function esc(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
-  function section(title, items) {
-    if (!items.length) return '';
-    return '<h3 class="font-display text-deep font-semibold mt-6 mb-2 text-lg">' + title + '</h3><ul class="list-disc pl-5 space-y-1.5 text-[15px] leading-relaxed">'
-      + items.map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>';
-  }
+  if (form) {
+    const steps = [...form.querySelectorAll('.creator-step')];
+    const TOTAL = steps.length;
+    let cur = 0;
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const finishBtn = document.getElementById('finishBtn');
+    const bar = document.getElementById('progressBar');
+    const stepNum = document.getElementById('stepNum');
+    const stepPct = document.getElementById('stepPct');
 
-  document.getElementById('generateBtn').addEventListener('click', function () {
-    const parents = document.getElementById('parents').value.trim() || 'Rodzice';
-    const setting = collect('setting');
-    const pain = collect('pain');
-    const labor = collect('labor');
-    const induction = collect('induction');
-    const csection = collect('csection');
-    const newborn = collect('newborn');
-    const vacc = collect('vacc');
-    const postpartum = collect('postpartum');
-    const groups = [setting, pain, labor, induction, csection, newborn, postpartum];
+    // Mapowanie grup na tytuły sekcji w podglądzie/PDF
+    const SECTIONS = [
+      ['setting','Warunki i miejsce porodu'],
+      ['people','Osoby obecne'],
+      ['prep','Przygotowanie do porodu'],
+      ['labor','Przebieg porodu — I i II okres'],
+      ['pain','Łagodzenie bólu porodowego'],
+      ['perineum','Ochrona krocza, indukcja i łożysko'],
+      ['csection','Cięcie cesarskie (gdyby było konieczne)'],
+      ['newborn','Opieka nad noworodkiem'],
+      ['vitk','Profilaktyka witaminą K'],
+      ['prophylaxis','Badania i profilaktyka noworodka'],
+      ['vacc','Szczepienia noworodka'],
+      ['postpartum','Połóg i oddział położniczy']
+    ];
 
-    if (!groups.some(g => g.length)) {
-      preview.innerHTML = '<p class="text-ink/70">Zaznacz przynajmniej jedną opcję, aby wygenerować podgląd planu.</p>';
-      buyBtn.classList.add('hidden'); copyBtn.classList.add('hidden');
-      return;
+    function collect(name){
+      return [...form.querySelectorAll('input[name="'+name+'"]:checked')].map(i=>i.value);
+    }
+    function field(name){
+      const el = form.querySelector('input[name="'+name+'"]');
+      return el ? el.value.trim() : '';
+    }
+    function sectionHTML(title, items){
+      if(!items.length) return '';
+      return '<h3 class="font-display text-deep font-semibold mt-5 mb-2 text-base">'+esc(title)+'</h3><ul class="list-disc pl-5 space-y-1 text-[13px] leading-relaxed text-ink/80">'
+        + items.map(i=>'<li>'+esc(i)+'</li>').join('') + '</ul>';
     }
 
-    preview.innerHTML =
-      '<p class="text-xs uppercase tracking-widest text-teal font-semibold">Plan porodu — podgląd</p>' +
-      '<h2 class="font-display text-2xl font-semibold text-deep mt-1">' + esc(parents) + '</h2>' +
-      '<p class="text-sm text-ink/60 mt-1">Dokument przygotowany w serwisie PoródNaMiarę.pl</p>' +
-      '<div class="mt-5 bg-tealsoft rounded-xl p-4 text-[14px] leading-relaxed"><strong>Priorytet nadrzędny:</strong> zdrowie i życie dziecka oraz mamy są dla nas bezwzględnym priorytetem, nadrzędnym wobec każdego punktu tego planu. W sytuacji zagrożenia akceptujemy wszystkie niezbędne interwencje medyczne — prosimy jedynie o możliwie szybkie poinformowanie nas o sytuacji.</div>' +
-      section('Warunki porodu i osoby obecne', setting) +
-      section('Łagodzenie bólu i znieczulenie', pain) +
-      section('Przebieg porodu', labor) +
-      section('Indukcja i III okres porodu', induction) +
-      section('Cięcie cesarskie (gdyby było konieczne)', csection) +
-      section('Opieka nad noworodkiem', newborn) +
-      section('Szczepienia', vacc) +
-      section('Połóg i oddział położniczy', postpartum) +
-      '<p class="mt-8 pt-4 border-t border-sanddark text-xs text-ink/50">Pełna wersja planu (PDF do druku, z danymi medycznymi, miejscem na podpisy i datę) dostępna po zakupie.</p>';
-    // Zamówienie mailem z gotowym podsumowaniem wyborów (do czasu uruchomienia płatności online)
-    const all = [].concat(setting, pain, labor, induction, csection, newborn, vacc, postpartum).map(v => '- ' + v).join('\n');
-    buyBtn.href = 'mailto:kontakt@porodnamiare.pl?subject=' + encodeURIComponent('Zamówienie planu porodu — ' + parents)
-      + '&body=' + encodeURIComponent('Dzień dobry,\nchcemy zamówić spersonalizowany plan porodu.\n\nWybrane opcje:\n' + all + '\n\nPakiet (Podstawowy 49 zł / Premium 99 zł): ');
-    buyBtn.classList.remove('hidden');
-    window.PLAN_SUMMARY = 'PLAN PORODU — ' + parents + '\n' + all;
-    copyBtn.classList.remove('hidden');
-    preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+    function renderPreview(){
+      const mama = field('mama'), tata = field('tata'), dziecko = field('dziecko'), termin = field('termin');
+      let head = dziecko ? ('Plan porodu — ' + dziecko) : 'Plan porodu';
+      let sub = [mama, tata].filter(Boolean).join(' i ');
+      let html = '<p class="text-[10px] uppercase tracking-widest text-teal font-semibold">PoródNaMiarę.pl · podgląd</p>'
+        + '<h2 class="font-display text-xl font-semibold text-deep mt-1">'+esc(head)+'</h2>';
+      if(sub) html += '<p class="text-sm text-ink/70 mt-0.5">'+esc(sub)+'</p>';
+      if(termin) html += '<p class="text-xs text-ink/50 mt-0.5">Przewidywany termin: '+esc(termin)+'</p>';
+      html += '<div class="mt-4 bg-tealsoft rounded-xl p-3 text-[12px] leading-relaxed"><strong>Priorytet nadrzędny:</strong> zdrowie i życie dziecka oraz mamy są bezwzględnym priorytetem, nadrzędnym wobec każdego punktu planu. W sytuacji zagrożenia akceptujemy wszystkie niezbędne interwencje medyczne.</div>';
+      let any = false;
+      SECTIONS.forEach(([g,t])=>{ const it = collect(g); if(it.length){ any=true; html += sectionHTML(t,it); } });
+      if(!any) html += '<p class="text-ink/50 italic text-sm mt-4">Zaznacz opcje, aby zobaczyć podgląd planu.</p>';
+      html += '<p class="mt-6 pt-3 border-t border-sanddark text-[11px] text-ink/50">Pełny plan PDF — z profesjonalnym formatowaniem, danymi medycznymi, miejscem na podpisy i datę — otrzymasz po zakupie.</p>';
+      preview.innerHTML = html;
 
-  const copyBtn = document.getElementById('copyBtn');
-  copyBtn.addEventListener('click', function(){
+      // Podsumowanie do kopiowania i maila
+      const lines = [];
+      if(sub) lines.push('Rodzice: '+sub);
+      if(dziecko) lines.push('Dziecko: '+dziecko);
+      if(termin) lines.push('Termin: '+termin);
+      SECTIONS.forEach(([g,t])=>{ const it=collect(g); if(it.length){ lines.push('\n['+t+']'); it.forEach(v=>lines.push('- '+v)); }});
+      window.PLAN_SUMMARY = 'PLAN PORODU — PoródNaMiarę.pl\n' + lines.join('\n');
+
+      const anyChecked = SECTIONS.some(([g])=>collect(g).length);
+      if(anyChecked){ copyBtn.classList.remove('hidden'); buyBtn.classList.remove('hidden'); }
+    }
+
+    function showStep(n){
+      cur = Math.max(0, Math.min(TOTAL-1, n));
+      steps.forEach((st,i)=> st.hidden = (i!==cur));
+      const pct = Math.round(((cur+1)/TOTAL)*100);
+      bar.style.width = pct+'%'; stepNum.textContent = cur+1; stepPct.textContent = pct;
+      prevBtn.classList.toggle('invisible', cur===0);
+      nextBtn.classList.toggle('hidden', cur===TOTAL-1);
+      finishBtn.classList.toggle('hidden', cur!==TOTAL-1);
+      // scroll do góry formularza na mobile
+      if(window.innerWidth < 1024) form.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    prevBtn.addEventListener('click', ()=>showStep(cur-1));
+    nextBtn.addEventListener('click', ()=>showStep(cur+1));
+    finishBtn.addEventListener('click', ()=>{
+      renderPreview();
+      const box = document.getElementById('buyNote');
+      if(window.innerWidth < 1024){ preview.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+    // Podgląd na żywo przy każdej zmianie
+    form.addEventListener('change', renderPreview);
+    form.addEventListener('input', renderPreview);
+
+    renderPreview();
+    showStep(0);
+  }
+
+  if (copyBtn) copyBtn.addEventListener('click', function(){
     navigator.clipboard.writeText(window.PLAN_SUMMARY || '').then(()=>{
       document.getElementById('copyHint').classList.remove('hidden');
       copyBtn.textContent = '✓ Skopiowano';
-      setTimeout(()=>{ copyBtn.textContent = '📋 Kopiuj podsumowanie planu'; }, 2500);
+      setTimeout(()=>{ copyBtn.textContent = '📋 Kopiuj podsumowanie'; }, 2500);
     });
-  });
-  form.addEventListener('reset', function () {
-    setTimeout(function () {
-      preview.innerHTML = '<p class="text-ink/60 italic">Tutaj pojawi się podgląd Waszego planu porodu. Zaznacz opcje po lewej stronie i kliknij „Wygeneruj podgląd”.</p>';
-      buyBtn.classList.add('hidden');
-    }, 0);
   });
 
   // Popup: exit-intent (desktop) lub po 30 s (mobile), raz na sesję
