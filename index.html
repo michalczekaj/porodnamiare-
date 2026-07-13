@@ -275,11 +275,22 @@ tailwind.config = {
             <p class="text-sm text-ink/70 mt-1">Zaczynamy od podstaw. Te informacje trafią na pierwszą stronę planu i pomogą personelowi szybko się zorientować.</p>
           </div>
         </div>
-        <div class="space-y-1 text-[15px]">
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię i nazwisko rodzącej</label><input type="text" name="mama" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko rodzącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Osoba towarzysząca (ojciec dziecka / bliska osoba)</label><input type="text" name="tata" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko osoby towarzyszącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię dziecka (jeśli już wybrane)</label><input type="text" name="dziecko" maxlength="120" autocomplete="off" placeholder="np. Wiktoria (jeśli znane)" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Przewidywany termin porodu</label><input type="text" name="termin" maxlength="120" autocomplete="off" placeholder="np. 10.09.2026" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+        <div class="space-y-3 text-[15px]">
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię i nazwisko rodzącej <span class="text-teal">*</span></label><input type="text" name="mama" data-required="1" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko rodzącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Osoba towarzysząca (ojciec dziecka / bliska osoba) <span class="text-teal">*</span></label><input type="text" name="tata" data-required="1" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko osoby towarzyszącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div>
+              <label class="block text-sm font-semibold text-deep mb-1.5">Płeć dziecka <span class="text-teal">*</span> <span class="font-normal text-ink/50">— dobierzemy kolorystykę planu</span></label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="gender-opt flex items-center justify-center gap-2 border-2 border-sanddark rounded-xl px-4 py-3 cursor-pointer hover:border-teal transition-colors font-semibold" data-gender="girl">
+                  <input type="radio" name="plec" value="dziewczynka" data-required="1" class="sr-only"><span>👧 Dziewczynka</span>
+                </label>
+                <label class="gender-opt flex items-center justify-center gap-2 border-2 border-sanddark rounded-xl px-4 py-3 cursor-pointer hover:border-teal transition-colors font-semibold" data-gender="boy">
+                  <input type="radio" name="plec" value="chłopiec" data-required="1" class="sr-only"><span>👦 Chłopiec</span>
+                </label>
+              </div>
+            </div>
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię dziecka (jeśli już wybrane)</label><input type="text" name="dziecko" maxlength="120" autocomplete="off" placeholder="np. Wiktoria / Antoni" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Przewidywany termin porodu <span class="text-teal">*</span></label><input type="text" name="termin" data-required="1" maxlength="120" autocomplete="off" placeholder="np. 10.09.2026" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
             <div><label class="block text-sm font-semibold text-deep mb-1.5">Lekarz prowadzący / położna (opcjonalnie)</label><input type="text" name="lekarz" maxlength="120" autocomplete="off" placeholder="np. dr / położna prowadząca" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
         </div>
       </div>
@@ -488,8 +499,6 @@ tailwind.config = {
             </div>
           </div>
         </div>
-        <button id="copyBtn" class="hidden mt-4 w-full border-2 border-teal text-teal font-semibold px-6 py-3 rounded-full hover:bg-tealsoft transition-colors text-sm" type="button">📋 Kopiuj podsumowanie</button>
-        <p id="copyHint" class="hidden mt-2 text-xs text-ink/60 text-center">Skopiowane! Wklej podczas płatności lub w odpowiedzi na e-mail.</p>
         <a href="#cennik" id="buyBtn" class="hidden mt-3 w-full text-center bg-teal text-white font-semibold px-6 py-4 rounded-full hover:bg-deep transition-colors block">Kup i pobierz swój plan PDF →</a>
         <p class="hidden md:block text-xs text-ink/50 text-center mt-3" id="buyNote">Najpierw wybierasz pakiet i płacisz, potem od razu pobierasz gotowy plan PDF oraz pozostałe produkty z pakietu.</p>
       </div>
@@ -901,7 +910,6 @@ tailwind.config = {
   const form = document.getElementById('planForm');
   const preview = document.getElementById('planPreview');
   const buyBtn = document.getElementById('buyBtn');
-  const copyBtn = document.getElementById('copyBtn');
 
   function esc(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
@@ -916,7 +924,6 @@ tailwind.config = {
     const stepNum = document.getElementById('stepNum');
     const stepPct = document.getElementById('stepPct');
 
-    // Mapowanie grup na tytuły sekcji w podglądzie/PDF
     const SECTIONS = [
       ['setting','Warunki i miejsce porodu'],
       ['people','Osoby obecne'],
@@ -932,47 +939,137 @@ tailwind.config = {
       ['postpartum','Połóg i oddział położniczy']
     ];
 
-    function collect(name){
-      return [...form.querySelectorAll('input[name="'+name+'"]:checked')].map(i=>i.value);
+    function collect(name){ return [...form.querySelectorAll('input[name="'+name+'"]:checked')].map(i=>i.value); }
+    function field(name){ const el=form.querySelector('input[name="'+name+'"]'); return el?el.value.trim():''; }
+
+    // ===== Kolorystyka zależna od płci =====
+    function applyTheme(){
+      const g = (form.querySelector('input[name="plec"]:checked')||{}).value;
+      const root = document.getElementById('kreator');
+      if(!g){ return; }
+      if(g==='chłopiec'){
+        root.style.setProperty('--accent','#5FA8A0');   // mięta
+        root.style.setProperty('--accent-soft','#E4F2F0');
+        window.PLAN_THEME='mint';
+      } else {
+        root.style.setProperty('--accent','#B4636F');   // róż (domyślny brand)
+        root.style.setProperty('--accent-soft','#F7E9E7');
+        window.PLAN_THEME='rose';
+      }
+      // aktualizuj pasek postępu i akcenty podglądu
+      if(bar) bar.style.background='var(--accent)';
+      const pv=document.getElementById('planPreview'); if(pv) pv.style.setProperty('--accent','var(--accent)');
     }
-    function field(name){
-      const el = form.querySelector('input[name="'+name+'"]');
-      return el ? el.value.trim() : '';
+
+    // Podświetlenie wybranej płci
+    form.querySelectorAll('.gender-opt').forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        form.querySelectorAll('.gender-opt').forEach(o=>o.classList.remove('border-teal','bg-tealsoft'));
+        opt.classList.add('border-teal','bg-tealsoft');
+        applyTheme();
+      });
+    });
+
+    // ===== WALIDACJA kroku (wymagane pola) =====
+    function validateStep(idx){
+      const step = steps[idx];
+      const reqs = [...step.querySelectorAll('[data-required="1"]')];
+      // grupy radio: sprawdź po name
+      const checkedNames = new Set();
+      for(const el of reqs){
+        if(el.type==='radio'){
+          if(form.querySelector('input[name="'+el.name+'"]:checked')) checkedNames.add(el.name);
+        }
+      }
+      for(const el of reqs){
+        if(el.type==='radio'){
+          if(!checkedNames.has(el.name)) return {ok:false, el};
+        } else if(!el.value.trim()){
+          return {ok:false, el};
+        }
+      }
+      return {ok:true};
     }
+    function flashError(el){
+      if(el.type==='radio'){
+        const wrap = el.closest('.creator-step');
+        const g = wrap.querySelector('.grid');
+        if(g){ g.classList.add('ring-2','ring-red-400','rounded-xl'); setTimeout(()=>g.classList.remove('ring-2','ring-red-400','rounded-xl'),1800); }
+      } else {
+        el.classList.add('border-red-400','ring-2','ring-red-200');
+        el.focus();
+        setTimeout(()=>el.classList.remove('border-red-400','ring-2','ring-red-200'),1800);
+      }
+    }
+
     function sectionHTML(title, items){
       if(!items.length) return '';
-      return '<h3 class="font-display text-deep font-semibold mt-5 mb-2 text-base">'+esc(title)+'</h3><ul class="list-disc pl-5 space-y-1 text-[13px] leading-relaxed text-ink/80">'
+      return '<h3 class="preview-h font-display font-semibold mt-5 mb-2 text-base">'+esc(title)+'</h3><ul class="list-disc pl-5 space-y-1 text-[13px] leading-relaxed text-ink/80">'
         + items.map(i=>'<li>'+esc(i)+'</li>').join('') + '</ul>';
     }
 
+    // ===== PODGLĄD-TEASER (pierwsze 2 sekcje jawne, reszta rozmyta pod zamkiem) =====
     function renderPreview(){
-      const mama = field('mama'), tata = field('tata'), dziecko = field('dziecko'), termin = field('termin');
-      let head = dziecko ? ('Plan porodu — ' + dziecko) : 'Plan porodu';
-      let sub = [mama, tata].filter(Boolean).join(' i ');
-      let html = '<p class="text-[10px] uppercase tracking-widest text-teal font-semibold">PoródNaMiarę.pl · podgląd</p>'
+      const mama=field('mama'), tata=field('tata'), dziecko=field('dziecko'), termin=field('termin');
+      const head = dziecko ? ('Plan porodu — '+dziecko) : 'Plan porodu';
+      const sub = [mama,tata].filter(Boolean).join(' i ');
+      let html = '<p class="text-[10px] uppercase tracking-widest font-semibold" style="color:var(--accent,#B4636F)">PoródNaMiarę.pl · podgląd</p>'
         + '<h2 class="font-display text-xl font-semibold text-deep mt-1">'+esc(head)+'</h2>';
       if(sub) html += '<p class="text-sm text-ink/70 mt-0.5">'+esc(sub)+'</p>';
       if(termin) html += '<p class="text-xs text-ink/50 mt-0.5">Przewidywany termin: '+esc(termin)+'</p>';
-      html += '<div class="mt-4 bg-tealsoft rounded-xl p-3 text-[12px] leading-relaxed"><strong>Priorytet nadrzędny:</strong> zdrowie i życie dziecka oraz mamy są bezwzględnym priorytetem, nadrzędnym wobec każdego punktu planu. W sytuacji zagrożenia akceptujemy wszystkie niezbędne interwencje medyczne.</div>';
-      let any = false;
-      SECTIONS.forEach(([g,t])=>{ const it = collect(g); if(it.length){ any=true; html += sectionHTML(t,it); } });
-      if(!any) html += '<p class="text-ink/50 italic text-sm mt-4">Zaznacz opcje, aby zobaczyć podgląd planu.</p>';
-      html += '<p class="mt-6 pt-3 border-t border-sanddark text-[11px] text-ink/50">Pełny plan PDF — z profesjonalnym formatowaniem, danymi medycznymi, miejscem na podpisy i datę — otrzymasz po zakupie.</p>';
+      html += '<div class="mt-4 rounded-xl p-3 text-[12px] leading-relaxed" style="background:var(--accent-soft,#F7E9E7)"><strong>Priorytet nadrzędny:</strong> zdrowie i życie dziecka oraz mamy są bezwzględnym priorytetem, nadrzędnym wobec każdego punktu planu.</div>';
+
+      // Zbierz wypełnione sekcje
+      const filled = SECTIONS.map(([g,t])=>[t,collect(g)]).filter(x=>x[1].length);
+      const FREE = 2; // ile sekcji pokazujemy jawnie
+
+      if(!filled.length){
+        html += '<p class="text-ink/50 italic text-sm mt-4">Zaznacz opcje w kolejnych krokach, aby zobaczyć podgląd planu.</p>';
+        preview.innerHTML = html; setBuyState(false); return;
+      }
+
+      // Sekcje jawne
+      filled.slice(0,FREE).forEach(([t,it])=> html += sectionHTML(t,it));
+
+      // Sekcje zablokowane (rozmyte + nakładka)
+      const locked = filled.slice(FREE);
+      if(locked.length){
+        let blurHtml = '';
+        locked.forEach(([t,it])=> blurHtml += sectionHTML(t,it));
+        const hiddenCount = locked.reduce((a,x)=>a+x[1].length,0);
+        html += '<div class="relative mt-5">'
+          + '<div class="pointer-events-none select-none" style="filter:blur(5px);opacity:.55" aria-hidden="true">'+blurHtml+'</div>'
+          + '<div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4" style="background:linear-gradient(180deg,transparent,var(--accent-soft,#F7E9E7) 55%)">'
+          +   '<div class="text-2xl mb-1">🔒</div>'
+          +   '<p class="font-display font-semibold text-deep text-[15px]">Pozostałe '+hiddenCount+' pozycji w '+locked.length+' sekcjach</p>'
+          +   '<p class="text-xs text-ink/70 mt-1 mb-3 max-w-[240px]">Pełny, profesjonalnie sformatowany plan PDF odblokujesz po zakupie pakietu.</p>'
+          +   '<a href="#cennik" class="text-white font-semibold text-sm px-5 py-2.5 rounded-full" style="background:var(--accent,#B4636F)">Odblokuj pełny plan →</a>'
+          + '</div>'
+          + '</div>';
+      }
+      html += '<p class="mt-6 pt-3 border-t border-sanddark text-[11px] text-ink/50">To tylko podgląd. Gotowy dokument PDF — z brandem, formatowaniem, miejscem na podpisy i datę — pobierzesz po zakupie.</p>';
       preview.innerHTML = html;
 
-      // Podsumowanie do kopiowania i maila
-      const lines = [];
-      if(sub) lines.push('Rodzice: '+sub);
-      if(dziecko) lines.push('Dziecko: '+dziecko);
-      if(termin) lines.push('Termin: '+termin);
-      SECTIONS.forEach(([g,t])=>{ const it=collect(g); if(it.length){ lines.push('\n['+t+']'); it.forEach(v=>lines.push('- '+v)); }});
-      window.PLAN_SUMMARY = 'PLAN PORODU — PoródNaMiarę.pl\n' + lines.join('\n');
-
-      const anyChecked = SECTIONS.some(([g])=>collect(g).length);
-      if(anyChecked){ copyBtn.classList.remove('hidden'); buyBtn.classList.remove('hidden'); }
+      // przywróć akcent nagłówków sekcji
+      preview.querySelectorAll('.preview-h').forEach(h=>h.style.color='var(--accent,#B4636F)');
+      setBuyState(true);
     }
 
-    function showStep(n){
+    function setBuyState(on){
+      if(on){ buyBtn.classList.remove('hidden'); }
+      else { buyBtn.classList.add('hidden'); }
+    }
+
+    function showStep(n, dir){
+      // walidacja tylko przy przejściu DO PRZODU
+      if(dir==='next'){
+        const v = validateStep(cur);
+        if(!v.ok){
+          alert('Uzupełnij wymagane pola oznaczone gwiazdką (*), aby przejść dalej.');
+          flashError(v.el);
+          return;
+        }
+      }
       cur = Math.max(0, Math.min(TOTAL-1, n));
       steps.forEach((st,i)=> st.hidden = (i!==cur));
       const pct = Math.round(((cur+1)/TOTAL)*100);
@@ -980,32 +1077,24 @@ tailwind.config = {
       prevBtn.classList.toggle('invisible', cur===0);
       nextBtn.classList.toggle('hidden', cur===TOTAL-1);
       finishBtn.classList.toggle('hidden', cur!==TOTAL-1);
-      // scroll do góry formularza na mobile
-      if(window.innerWidth < 1024) form.scrollIntoView({behavior:'smooth', block:'start'});
+      if(window.innerWidth < 1024) document.getElementById('kreator').scrollIntoView({behavior:'smooth', block:'start'});
     }
 
-    prevBtn.addEventListener('click', ()=>showStep(cur-1));
-    nextBtn.addEventListener('click', ()=>showStep(cur+1));
+    prevBtn.addEventListener('click', ()=>showStep(cur-1,'prev'));
+    nextBtn.addEventListener('click', ()=>showStep(cur+1,'next'));
     finishBtn.addEventListener('click', ()=>{
+      const v = validateStep(cur);
+      if(!v.ok){ alert('Uzupełnij wymagane pola oznaczone gwiazdką (*).'); flashError(v.el); return; }
       renderPreview();
-      const box = document.getElementById('buyNote');
-      if(window.innerWidth < 1024){ preview.scrollIntoView({behavior:'smooth', block:'start'}); }
+      if(window.innerWidth < 1024) preview.scrollIntoView({behavior:'smooth', block:'start'});
     });
-    // Podgląd na żywo przy każdej zmianie
-    form.addEventListener('change', renderPreview);
+    form.addEventListener('change', ()=>{ applyTheme(); renderPreview(); });
     form.addEventListener('input', renderPreview);
 
+    applyTheme();
     renderPreview();
     showStep(0);
   }
-
-  if (copyBtn) copyBtn.addEventListener('click', function(){
-    navigator.clipboard.writeText(window.PLAN_SUMMARY || '').then(()=>{
-      document.getElementById('copyHint').classList.remove('hidden');
-      copyBtn.textContent = '✓ Skopiowano';
-      setTimeout(()=>{ copyBtn.textContent = '📋 Kopiuj podsumowanie'; }, 2500);
-    });
-  });
 
   // Popup: exit-intent (desktop) lub po 30 s (mobile), raz na sesję
   const popup = document.getElementById('popup');
