@@ -51,7 +51,7 @@ tailwind.config = {
       colors: {
         ink: '#3A3341',        /* głęboki granat-teal (tekst) */
         deep: '#3E3852',       /* granat/teal (tła ciemne) */
-        teal: '#B4636F',       /* akcent teal */
+        teal: '#A0525E',       /* akcent teal */
         tealsoft: '#F7E9E7',   /* jasny teal (tła kart) */
         sand: '#FAF5EF',       /* ciepły beż (tło strony) */
         sanddark: '#EDDFD3',   /* beż akcentowy */
@@ -75,7 +75,8 @@ tailwind.config = {
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   .plan-doc { box-shadow: 0 20px 50px -20px rgba(62,56,82,.35); }
   input[type=checkbox], input[type=radio] { accent-color: #B4636F; width: 1.05rem; height: 1.05rem; }
-  :focus-visible { outline: 3px solid #B4636F; outline-offset: 2px; }
+  :focus-visible { outline: 3px solid #A0525E; outline-offset: 2px; }
+  .gender-opt:focus-within { outline: 3px solid #A0525E; outline-offset: 2px; }
   @keyframes fadeUp { from { opacity:0; transform:translateY(22px) } to { opacity:1; transform:none } }
   @keyframes floaty { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-14px) } }
   @keyframes heartbeat { 0%,100% { transform:scale(1) } 15% { transform:scale(1.25) } 30% { transform:scale(1) } }
@@ -269,13 +270,13 @@ tailwind.config = {
             <span class="text-xs text-ink/60"><span id="stepPct">8</span>% ukończone</span>
           </div>
           <div class="h-2 bg-sanddark rounded-full overflow-hidden">
-            <div id="progressBar" class="h-full bg-teal transition-all duration-300" style="width:8%"></div>
+            <div id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8" aria-label="Postęp wypełniania kreatora" class="h-full bg-teal transition-all duration-300" style="width:8%"></div>
           </div>
         </div>
 
         <!-- Kroki -->
         <div class="p-6 md:p-8 min-h-[420px]">
-      <div class="creator-step" data-step="0" data-active="true">
+      <div class="creator-step" data-step="0" role="group" tabindex="-1" data-active="true">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">📋</span>
           <div>
@@ -287,7 +288,7 @@ tailwind.config = {
             <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię i nazwisko rodzącej <span class="text-teal">*</span></label><input type="text" name="mama" data-required="1" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko rodzącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
             <div><label class="block text-sm font-semibold text-deep mb-1.5">Osoba towarzysząca (ojciec dziecka / bliska osoba) <span class="text-teal">*</span></label><input type="text" name="tata" data-required="1" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko osoby towarzyszącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
             <div>
-              <label class="block text-sm font-semibold text-deep mb-1.5">Płeć dziecka <span class="text-teal">*</span> <span class="font-normal text-ink/50">— dobierzemy kolorystykę planu</span></label>
+              <label class="block text-sm font-semibold text-deep mb-1.5">Płeć dziecka <span class="text-teal">*</span> <span class="font-normal text-ink/70">— dobierzemy kolorystykę planu</span></label>
               <div class="grid grid-cols-2 gap-3">
                 <label class="gender-opt flex items-center justify-center gap-2 border-2 border-sanddark rounded-xl px-4 py-3 cursor-pointer hover:border-teal transition-colors font-semibold" data-gender="girl">
                   <input type="radio" name="plec" value="dziewczynka" data-required="1" class="sr-only"><span>👧 Dziewczynka</span>
@@ -302,7 +303,7 @@ tailwind.config = {
             <div><label class="block text-sm font-semibold text-deep mb-1.5">Lekarz prowadzący / położna (opcjonalnie)</label><input type="text" name="lekarz" maxlength="120" autocomplete="off" placeholder="np. dr / położna prowadząca" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="1">
+      <div class="creator-step hidden" data-step="1" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">🏥</span>
           <div>
@@ -319,7 +320,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Możliwość nagrywania wideo podczas porodu i pierwszych chwil (za zgodą personelu)" class="mt-0.5 flex-shrink-0"><span>Możliwość nagrań wideo (za zgodą personelu)</span></label>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="2">
+      <div class="creator-step hidden" data-step="2" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">👨‍👩‍👧</span>
           <div>
@@ -337,7 +338,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="people" value="W miarę możliwości ta sama położna przez cały poród" class="mt-0.5 flex-shrink-0"><span>Ta sama położna przez cały poród (w miarę możliwości)</span></label>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="3">
+      <div class="creator-step hidden" data-step="3" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">🧴</span>
           <div>
@@ -351,7 +352,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Możliwość jedzenia i picia w trakcie porodu, o ile nie ma przeciwwskazań" class="mt-0.5 flex-shrink-0"><span>Możliwość jedzenia i picia (o ile brak przeciwwskazań)</span></label>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="4">
+      <div class="creator-step hidden" data-step="4" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">🤰</span>
           <div>
@@ -370,7 +371,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Przygaszone światło i cisza w momencie narodzin" class="mt-0.5 flex-shrink-0"><span>Przyciemnione światło i cisza przy narodzinach</span></label>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="5">
+      <div class="creator-step hidden" data-step="5" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">💆</span>
           <div>
@@ -387,7 +388,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="pain" value="Brak zgody na petydynę (dolargan) i inne środki silnie zmieniające świadomość" class="mt-0.5 flex-shrink-0"><span>Bez petydyny i środków silnie zmieniających świadomość</span></label>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="6">
+      <div class="creator-step hidden" data-step="6" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">🌿</span>
           <div>
@@ -404,7 +405,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Możliwość fizjologicznego urodzenia łożyska, jeśli brak czynników ryzyka krwotoku" class="mt-0.5 flex-shrink-0"><span>Fizjologiczne urodzenie łożyska (jeśli brak ryzyka)</span></label>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="7">
+      <div class="creator-step hidden" data-step="7" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">🏥</span>
           <div>
@@ -421,7 +422,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="csection" value="Jak najszybsze przystawienie do piersi po cięciu" class="mt-0.5 flex-shrink-0"><span>Jak najszybsze przystawienie do piersi po cięciu</span></label>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="8">
+      <div class="creator-step hidden" data-step="8" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">👶</span>
           <div>
@@ -443,7 +444,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Rooming-in całodobowy — bez rozdzielania mamy i dziecka bez wskazań medycznych" checked class="mt-0.5 flex-shrink-0"><span>Rooming-in 24 h</span></label>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="9">
+      <div class="creator-step hidden" data-step="9" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">💉</span>
           <div>
@@ -459,7 +460,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prophylaxis" value="Prosimy o informację o każdym leku lub suplemencie podawanym dziecku" checked class="mt-0.5 flex-shrink-0"><span>Informacja o każdym leku podawanym dziecku</span></label>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="10">
+      <div class="creator-step hidden" data-step="10" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">🛡️</span>
           <div>
@@ -472,7 +473,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="radio" name="vacc" value="Wyrażamy zgodę na szczepienia w szpitalu (WZW B, BCG) zgodnie ze standardem, w obecności rodzica" class="mt-0.5 flex-shrink-0"><span>Szczepienia w szpitalu zgodnie ze standardem</span></label>
         </div>
       </div>
-      <div class="creator-step hidden" data-step="11">
+      <div class="creator-step hidden" data-step="11" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">🤱</span>
           <div>
@@ -490,6 +491,8 @@ tailwind.config = {
       </div>
         </div>
 
+        <!-- Komunikat walidacji (inline, dostępny) -->
+        <p id="stepError" role="alert" class="hidden mx-6 mb-0 mt-2 text-sm font-semibold text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-2.5"></p>
         <!-- Nawigacja -->
         <div class="flex items-center justify-between gap-3 px-6 py-5 bg-sand/40 border-t border-sanddark">
           <button type="button" id="prevBtn" class="border border-deep/25 font-semibold px-5 min-h-[48px] py-3 rounded-full hover:bg-sand transition-colors invisible">← Wstecz</button>
@@ -503,12 +506,12 @@ tailwind.config = {
         <div class="bg-white plan-doc border-t-8 border-teal rounded-b-2xl overflow-hidden">
           <div class="max-h-[520px] overflow-y-auto p-7">
             <div id="planPreview" aria-live="polite">
-              <p class="text-ink/50 italic text-sm">Podgląd Waszego planu będzie pojawiał się tutaj na bieżąco, w miarę zaznaczania opcji.</p>
+              <p class="text-ink/70 italic text-sm">Podgląd Waszego planu będzie pojawiał się tutaj na bieżąco, w miarę zaznaczania opcji.</p>
             </div>
           </div>
         </div>
         <a href="#cennik" id="buyBtn" class="hidden mt-3 w-full text-center bg-teal text-white font-semibold px-6 py-4 rounded-full hover:bg-deep transition-colors block">Kup i pobierz swój plan PDF →</a>
-        <p class="hidden md:block text-xs text-ink/50 text-center mt-3" id="buyNote">Najpierw wybierasz pakiet i płacisz, potem od razu pobierasz gotowy plan PDF oraz pozostałe produkty z pakietu.</p>
+        <p class="hidden md:block text-xs text-ink/70 text-center mt-3" id="buyNote">Najpierw wybierasz pakiet i płacisz, potem od razu pobierasz gotowy plan PDF oraz pozostałe produkty z pakietu.</p>
       </div>
 
     </div>
@@ -547,7 +550,7 @@ tailwind.config = {
     <!-- PODSTAWOWY -->
     <article class="bg-white rounded-3xl border border-sanddark p-8 flex flex-col relative">
       <div class="mb-6">
-        <p class="text-xs font-semibold text-ink/50 uppercase tracking-widest mb-1">Starter</p>
+        <p class="text-xs font-semibold text-ink/70 uppercase tracking-widest mb-1">Starter</p>
         <h3 class="font-display text-2xl font-semibold text-deep">Plan porodu<br>Podstawowy</h3>
         <div class="flex items-end gap-2 mt-3">
           <span class="font-display text-5xl font-semibold text-deep">49</span>
@@ -571,7 +574,7 @@ tailwind.config = {
     <article class="bg-deep rounded-3xl p-8 flex flex-col relative shadow-2xl md:scale-105 z-10">
       <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-teal text-white text-xs font-bold px-5 py-1.5 rounded-full whitespace-nowrap shadow">⭐ NAJPOPULARNIEJSZY</span>
       <div class="mb-6">
-        <p class="text-xs font-semibold text-sand/40 uppercase tracking-widest mb-1">Polecany</p>
+        <p class="text-xs font-semibold text-sand/60 uppercase tracking-widest mb-1">Polecany</p>
         <h3 class="font-display text-2xl font-semibold text-white">Plan porodu<br>Premium</h3>
         <div class="flex items-end gap-2 mt-3">
           <span class="font-display text-5xl font-semibold text-white">99</span>
@@ -586,7 +589,7 @@ tailwind.config = {
         <li class="flex gap-2.5 items-start"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Instrukcja gwizdka porodowego</strong> + rekomendacja modelu</span></li>
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Aktualizacja planu do dnia porodu</span></li>
       </ul>
-      <p class="text-[11px] text-sand/40 mb-3 flex items-center gap-1"><svg class="w-3 h-3" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
+      <p class="text-[11px] text-sand/60 mb-3 flex items-center gap-1"><svg class="w-3 h-3" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
       <a href="https://buy.stripe.com/TWOJ_LINK_PREMIUM" target="_blank" rel="noopener"
          class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-white hover:text-deep transition-colors">
         Kup teraz — 99 zł
@@ -603,7 +606,7 @@ tailwind.config = {
           <span class="font-display text-5xl font-semibold text-deep">179</span>
           <span class="text-xl text-ink/60 mb-2">zł</span>
         </div>
-        <p class="text-xs text-ink/50 mt-1">Wartość osobno: 265 zł · <span class="text-teal font-semibold">oszczędzasz 86 zł</span></p>
+        <p class="text-xs text-ink/70 mt-1">Wartość osobno: 265 zł · <span class="text-teal font-semibold">oszczędzasz 86 zł</span></p>
       </div>
       <ul class="space-y-3 text-[14px] flex-1 mb-6">
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Plan porodu Premium (kompletny)</span></li>
@@ -642,7 +645,7 @@ tailwind.config = {
 
   <!-- PRODUKTY INDYWIDUALNE -->
   <div class="max-w-5xl mx-auto">
-    <p class="text-center text-sm font-semibold text-ink/50 mb-5">Lub wybierz pojedynczy produkt:</p>
+    <p class="text-center text-sm font-semibold text-ink/70 mb-5">Lub wybierz pojedynczy produkt:</p>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <a href="/produkty/plan-polozu" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
         <span class="text-2xl">🤱</span>
@@ -833,7 +836,7 @@ tailwind.config = {
 <!-- ===== POPUP (exit-intent / czas) ===== -->
 <div id="popup" class="hidden fixed inset-0 z-[60] bg-deep/60 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
   <div class="bg-white rounded-3xl max-w-md w-full p-8 relative plan-doc">
-    <button id="popupClose" class="absolute top-4 right-4 text-ink/50 hover:text-ink text-2xl leading-none" aria-label="Zamknij">×</button>
+    <button id="popupClose" class="absolute top-4 right-4 text-ink/70 hover:text-ink text-2xl leading-none" aria-label="Zamknij">×</button>
     <p data-i18n="popupPre" class="text-teal font-semibold text-xs uppercase tracking-widest mb-2">Zanim wyjdziesz…</p>
     <h3 id="popupTitle" data-i18n="popupH" class="font-display text-2xl font-semibold text-deep mb-3">Odbierz bezpłatną checklistę „7 pytań o bezpieczeństwo dziecka”</h3>
     <p class="text-[15px] text-ink/80 mb-5">Jedna strona konkretów od taty dla rodziców — co sprawdzić w szpitalu, zanim urodzi się Wasze dziecko.</p>
@@ -843,7 +846,7 @@ tailwind.config = {
       <label class="flex items-start gap-2 text-left text-xs text-ink/70"><input type="checkbox" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie e-maila w celu przesłania checklisty, zgodnie z <a href="polityka-prywatnosci.html" class="underline">polityką prywatności</a>.</span></label>
       <button type="submit" class="bg-teal text-white font-semibold py-3 rounded-full hover:bg-deep transition-colors">Wyślij checklistę</button>
     </form>
-    <p class="text-xs text-ink/50 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem.</p>
+    <p class="text-xs text-ink/70 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem.</p>
   </div>
 </div>
 
@@ -960,11 +963,11 @@ tailwind.config = {
       const root = document.getElementById('kreator');
       if(!g){ return; }
       if(g==='chłopiec'){
-        root.style.setProperty('--accent','#5FA8A0');   // mięta
+        root.style.setProperty('--accent','#3E7E76');   // mięta
         root.style.setProperty('--accent-soft','#E4F2F0');
         window.PLAN_THEME='mint';
       } else {
-        root.style.setProperty('--accent','#B4636F');   // róż (domyślny brand)
+        root.style.setProperty('--accent','#A0525E');   // róż (domyślny brand)
         root.style.setProperty('--accent-soft','#F7E9E7');
         window.PLAN_THEME='rose';
       }
@@ -1025,10 +1028,10 @@ tailwind.config = {
       const mama=field('mama'), tata=field('tata'), dziecko=field('dziecko'), termin=field('termin');
       const head = dziecko ? ('Plan porodu — '+dziecko) : 'Plan porodu';
       const sub = [mama,tata].filter(Boolean).join(' i ');
-      let html = '<p class="text-[10px] uppercase tracking-widest font-semibold" style="color:var(--accent,#B4636F)">PoródNaMiarę.pl · podgląd</p>'
+      let html = '<p class="text-[10px] uppercase tracking-widest font-semibold" style="color:var(--accent,#A0525E)">PoródNaMiarę.pl · podgląd</p>'
         + '<h2 class="font-display text-xl font-semibold text-deep mt-1">'+esc(head)+'</h2>';
       if(sub) html += '<p class="text-sm text-ink/70 mt-0.5">'+esc(sub)+'</p>';
-      if(termin) html += '<p class="text-xs text-ink/50 mt-0.5">Przewidywany termin: '+esc(termin)+'</p>';
+      if(termin) html += '<p class="text-xs text-ink/70 mt-0.5">Przewidywany termin: '+esc(termin)+'</p>';
       html += '<div class="mt-4 rounded-xl p-3 text-[12px] leading-relaxed" style="background:var(--accent-soft,#F7E9E7)"><strong>Priorytet nadrzędny:</strong> zdrowie i życie dziecka oraz mamy są bezwzględnym priorytetem, nadrzędnym wobec każdego punktu planu.</div>';
 
       // Zbierz wypełnione sekcje
@@ -1036,7 +1039,7 @@ tailwind.config = {
       const FREE = 2; // ile sekcji pokazujemy jawnie
 
       if(!filled.length){
-        html += '<p class="text-ink/50 italic text-sm mt-4">Zaznacz opcje w kolejnych krokach, aby zobaczyć podgląd planu.</p>';
+        html += '<p class="text-ink/70 italic text-sm mt-4">Zaznacz opcje w kolejnych krokach, aby zobaczyć podgląd planu.</p>';
         preview.innerHTML = html; setBuyState(false); return;
       }
 
@@ -1055,15 +1058,15 @@ tailwind.config = {
           +   '<div class="text-2xl mb-1">🔒</div>'
           +   '<p class="font-display font-semibold text-deep text-[15px]">Pozostałe '+hiddenCount+' pozycji w '+locked.length+' sekcjach</p>'
           +   '<p class="text-xs text-ink/70 mt-1 mb-3 max-w-[240px]">Pełny, profesjonalnie sformatowany plan PDF odblokujesz po zakupie pakietu.</p>'
-          +   '<a href="#cennik" class="text-white font-semibold text-sm px-5 py-2.5 rounded-full" style="background:var(--accent,#B4636F)">Odblokuj pełny plan →</a>'
+          +   '<a href="#cennik" class="text-white font-semibold text-sm px-5 py-2.5 rounded-full" style="background:var(--accent,#A0525E)">Odblokuj pełny plan →</a>'
           + '</div>'
           + '</div>';
       }
-      html += '<p class="mt-6 pt-3 border-t border-sanddark text-[11px] text-ink/50">To tylko podgląd. Gotowy dokument PDF — z brandem, formatowaniem, miejscem na podpisy i datę — pobierzesz po zakupie.</p>';
+      html += '<p class="mt-6 pt-3 border-t border-sanddark text-[11px] text-ink/70">To tylko podgląd. Gotowy dokument PDF — z brandem, formatowaniem, miejscem na podpisy i datę — pobierzesz po zakupie.</p>';
       preview.innerHTML = html;
 
       // przywróć akcent nagłówków sekcji
-      preview.querySelectorAll('.preview-h').forEach(h=>h.style.color='var(--accent,#B4636F)');
+      preview.querySelectorAll('.preview-h').forEach(h=>h.style.color='var(--accent,#A0525E)');
       setBuyState(true);
     }
 
@@ -1072,12 +1075,17 @@ tailwind.config = {
       else { buyBtn.classList.add('hidden'); }
     }
 
+    const errBox = document.getElementById('stepError');
+    function showError(msg){ if(errBox){ errBox.textContent = msg; errBox.classList.remove('hidden'); } }
+    function hideError(){ if(errBox){ errBox.classList.add('hidden'); } }
+    form.addEventListener('change', hideError);
+
     function showStep(n, dir){
       // walidacja tylko przy przejściu DO PRZODU
       if(dir==='next'){
         const v = validateStep(cur);
         if(!v.ok){
-          alert('Uzupełnij wymagane pola oznaczone gwiazdką (*), aby przejść dalej.');
+          showError('Uzupełnij wymagane pola oznaczone gwiazdką (*), aby przejść dalej.');
           flashError(v.el);
           return;
         }
@@ -1085,7 +1093,10 @@ tailwind.config = {
       cur = Math.max(0, Math.min(TOTAL-1, n));
       steps.forEach((st,i)=> st.hidden = (i!==cur));
       const pct = Math.round(((cur+1)/TOTAL)*100);
-      bar.style.width = pct+'%'; stepNum.textContent = cur+1; stepPct.textContent = pct;
+      bar.style.width = pct+'%'; bar.setAttribute('aria-valuenow', pct);
+      stepNum.textContent = cur+1; stepPct.textContent = pct;
+      hideError();
+      steps[cur].focus({preventScroll:true});
       prevBtn.classList.toggle('invisible', cur===0);
       nextBtn.classList.toggle('hidden', cur===TOTAL-1);
       finishBtn.classList.toggle('hidden', cur!==TOTAL-1);
@@ -1096,7 +1107,7 @@ tailwind.config = {
     nextBtn.addEventListener('click', ()=>showStep(cur+1,'next'));
     finishBtn.addEventListener('click', ()=>{
       const v = validateStep(cur);
-      if(!v.ok){ alert('Uzupełnij wymagane pola oznaczone gwiazdką (*).'); flashError(v.el); return; }
+      if(!v.ok){ showError('Uzupełnij wymagane pola oznaczone gwiazdką (*).'); flashError(v.el); return; }
       renderPreview();
       if(window.innerWidth < 1024) preview.scrollIntoView({behavior:'smooth', block:'start'});
     });
