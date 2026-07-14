@@ -14,6 +14,9 @@
 <meta property="og:image" content="https://porodnamiare.pl/img/og.png">
 <meta property="og:locale" content="pl_PL">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PoródNaMiarę.pl — Spersonalizowany plan porodu">
+<meta name="twitter:description" content="Interaktywny plan porodu z naciskiem na bezpieczeństwo noworodka. Stworzony przez tatę, nie korporację.">
+<meta name="twitter:image" content="https://porodnamiare.pl/img/og.png">
 <link rel="canonical" href="https://porodnamiare.pl/">
 <link rel="alternate" hreflang="pl" href="https://porodnamiare.pl/">
 <link rel="alternate" hreflang="de" href="https://porodnamiare.pl/de">
@@ -38,6 +41,8 @@
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
 tailwind.config = {
@@ -80,13 +85,16 @@ tailwind.config = {
   .beat { display:inline-block; animation: heartbeat 2.6s ease-in-out infinite }
   @media (prefers-reduced-motion: reduce) { .au,.floaty,.beat { animation:none } }
 </style>
+<!-- Analityka Plausible (RODO-friendly, bez cookies) — aktywuj po zalozeniu konta na plausible.io i wpisaniu domeny -->
+<!-- <script defer data-domain="porodnamiare.pl" src="https://plausible.io/js/script.js"></script> -->
 </head>
 <body class="font-body bg-sand text-ink antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Przejdź do treści</a>
 
 <!-- ===== NAVBAR ===== -->
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
   <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
-    <a href="#top" class="flex items-center gap-2 font-display text-xl text-deep font-semibold"><img src="img/logo-mark.png" alt="" width="36" height="34" class="w-9 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
+    <a href="#main" class="flex items-center gap-2 font-display text-xl text-deep font-semibold"><img src="img/logo-mark.png" alt="" width="36" height="34" class="w-9 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
     <div class="hidden md:flex items-center gap-7 text-sm font-medium">
       <a href="#dlaczego" data-i18n="navWhy" class="hover:text-teal">Dlaczego my</a>
       <a href="#jak" data-i18n="navHow" class="hover:text-teal">Jak to działa</a>
@@ -120,7 +128,7 @@ tailwind.config = {
   </div>
 </header>
 
-<main id="top">
+<main id="main">
 
 <!-- ===== HERO ===== -->
 <section class="max-w-6xl mx-auto px-4 pt-12 pb-16 md:pt-20 md:pb-24 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
@@ -811,12 +819,14 @@ tailwind.config = {
     <img src="img/brand.webp" alt="Mama z noworodkiem i tabliczką porodnamiare.pl" class="w-40 mx-auto rounded-2xl mb-6" loading="lazy">
     <h2 class="font-display text-3xl font-semibold text-white mb-3">Bezpłatna mini-checklista: „7 pytań o bezpieczeństwo dziecka, które warto zadać w szpitalu”</h2>
     <p class="text-sand/80 mb-8">Konkretna, jednostronicowa lista od Michała. Zostaw adres — wyślemy PDF i damy znać, gdy wystartują nowe narzędzia.</p>
-    <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="mailto:kontakt@porodnamiare.pl" method="post" enctype="text/plain">
+    <!-- MailerLite: podmien action na swoj URL formularza po zalozeniu konta (mailerlite.com) -->
+    <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="https://TWOJ-FORMULARZ.mailerlite.com/subscribe" method="post" target="_blank">
       <label for="lead" class="sr-only">Adres e-mail</label>
-      <input id="lead" name="email" type="email" required placeholder="Twój e-mail" class="flex-1 rounded-full px-5 py-3 text-ink">
-      <button type="submit" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors">Wyślij checklistę</button>
+      <input id="lead" name="fields[email]" type="email" required placeholder="Twój e-mail" class="flex-1 rounded-full px-5 py-3 text-ink">
+      <button type="submit" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors whitespace-nowrap">Wyślij checklistę</button>
     </form>
-    <p class="text-xs text-sand/50 mt-4">Zero spamu. Wypisujesz się jednym kliknięciem. <!-- TODO: podłączyć MailerLite/ConvertKit zamiast mailto --></p>
+    <label class="flex items-start gap-2 max-w-md mx-auto mt-4 text-left text-xs text-sand/70"><input type="checkbox" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu otrzymania checklisty i informacji o narzędziach, zgodnie z <a href="polityka-prywatnosci.html" class="underline">polityką prywatności</a>. Zgodę mogę wycofać w każdej chwili.</span></label>
+    <p class="text-xs text-sand/50 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem. <!-- TODO: podłączyć MailerLite/ConvertKit zamiast mailto --></p>
   </div>
 </section>
 
@@ -827,11 +837,13 @@ tailwind.config = {
     <p data-i18n="popupPre" class="text-teal font-semibold text-xs uppercase tracking-widest mb-2">Zanim wyjdziesz…</p>
     <h3 id="popupTitle" data-i18n="popupH" class="font-display text-2xl font-semibold text-deep mb-3">Odbierz bezpłatną checklistę „7 pytań o bezpieczeństwo dziecka”</h3>
     <p class="text-[15px] text-ink/80 mb-5">Jedna strona konkretów od taty dla rodziców — co sprawdzić w szpitalu, zanim urodzi się Wasze dziecko.</p>
-    <form class="flex flex-col gap-3" action="mailto:kontakt@porodnamiare.pl" method="post" enctype="text/plain">
-      <input name="email" type="email" required placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3">
+    <!-- MailerLite: podmien action na swoj URL formularza -->
+    <form class="flex flex-col gap-3" action="https://TWOJ-FORMULARZ.mailerlite.com/subscribe" method="post" target="_blank">
+      <input name="fields[email]" type="email" required placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3">
+      <label class="flex items-start gap-2 text-left text-xs text-ink/70"><input type="checkbox" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie e-maila w celu przesłania checklisty, zgodnie z <a href="polityka-prywatnosci.html" class="underline">polityką prywatności</a>.</span></label>
       <button type="submit" class="bg-teal text-white font-semibold py-3 rounded-full hover:bg-deep transition-colors">Wyślij checklistę</button>
     </form>
-    <p class="text-xs text-ink/50 mt-3">Zero spamu. Szczegóły w <a href="polityka-prywatnosci.html" class="underline">polityce prywatności</a>.</p>
+    <p class="text-xs text-ink/50 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem.</p>
   </div>
 </div>
 
