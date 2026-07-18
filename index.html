@@ -77,6 +77,16 @@ tailwind.config = {
   input[type=checkbox], input[type=radio] { accent-color: #B4636F; width: 1.05rem; height: 1.05rem; }
   :focus-visible { outline: 3px solid #A0525E; outline-offset: 2px; }
   .gender-opt:focus-within { outline: 3px solid #A0525E; outline-offset: 2px; }
+  /* Tryb wysokiego kontrastu — dla osob slabowidzacych (WCAG AAA) */
+  @media (prefers-contrast: more) {
+    body { background: #fff; color: #1a1720; }
+    .text-ink\/70, .text-ink\/60, .text-ink\/80 { color: #1a1720 !important; }
+    .text-sand\/60, .text-sand\/70, .text-sand\/80, .text-sand\/85 { color: #fff !important; }
+    .border-sanddark { border-color: #6b6470 !important; }
+    a, button { text-decoration-thickness: 2px; }
+    :focus-visible { outline: 4px solid #000; outline-offset: 3px; }
+    .creator-step input[type="checkbox"], .creator-step input[type="radio"] { outline: 2px solid #1a1720; }
+  }
   @keyframes fadeUp { from { opacity:0; transform:translateY(22px) } to { opacity:1; transform:none } }
   @keyframes floaty { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-14px) } }
   @keyframes heartbeat { 0%,100% { transform:scale(1) } 15% { transform:scale(1.25) } 30% { transform:scale(1) } }
@@ -284,22 +294,23 @@ tailwind.config = {
             <p class="text-sm text-ink/70 mt-1">Zaczynamy od podstaw. Te informacje trafią na pierwszą stronę planu i pomogą personelowi szybko się zorientować.</p>
           </div>
         </div>
+        <p id="reqHint" class="sr-only">Pole wymagane do przejścia do następnego kroku.</p>
         <div class="space-y-3 text-[15px]">
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię i nazwisko rodzącej <span class="text-teal">*</span></label><input type="text" name="mama" data-required="1" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko rodzącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Osoba towarzysząca (ojciec dziecka / bliska osoba) <span class="text-teal">*</span></label><input type="text" name="tata" data-required="1" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko osoby towarzyszącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię i nazwisko rodzącej <span class="text-teal" aria-hidden="true">*</span></label><input type="text" name="mama" data-required="1" aria-required="true" aria-describedby="reqHint" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko rodzącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Osoba towarzysząca (ojciec dziecka / bliska osoba) <span class="text-teal" aria-hidden="true">*</span></label><input type="text" name="tata" data-required="1" aria-required="true" aria-describedby="reqHint" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko osoby towarzyszącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
             <div>
-              <label class="block text-sm font-semibold text-deep mb-1.5">Płeć dziecka <span class="text-teal">*</span> <span class="font-normal text-ink/70">— dobierzemy kolorystykę planu</span></label>
+              <label class="block text-sm font-semibold text-deep mb-1.5">Płeć dziecka <span class="text-teal" aria-hidden="true">*</span> <span class="font-normal text-ink/70">— dobierzemy kolorystykę planu</span></label>
               <div class="grid grid-cols-2 gap-3">
                 <label class="gender-opt flex items-center justify-center gap-2 border-2 border-sanddark rounded-xl px-4 py-3 cursor-pointer hover:border-teal transition-colors font-semibold" data-gender="girl">
-                  <input type="radio" name="plec" value="dziewczynka" data-required="1" class="sr-only"><span>👧 Dziewczynka</span>
+                  <input type="radio" name="plec" value="dziewczynka" data-required="1" aria-required="true" aria-describedby="reqHint" class="sr-only"><span>👧 Dziewczynka</span>
                 </label>
                 <label class="gender-opt flex items-center justify-center gap-2 border-2 border-sanddark rounded-xl px-4 py-3 cursor-pointer hover:border-teal transition-colors font-semibold" data-gender="boy">
-                  <input type="radio" name="plec" value="chłopiec" data-required="1" class="sr-only"><span>👦 Chłopiec</span>
+                  <input type="radio" name="plec" value="chłopiec" data-required="1" aria-required="true" aria-describedby="reqHint" class="sr-only"><span>👦 Chłopiec</span>
                 </label>
               </div>
             </div>
             <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię dziecka (jeśli już wybrane)</label><input type="text" name="dziecko" maxlength="120" autocomplete="off" placeholder="np. Wiktoria / Antoni" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Przewidywany termin porodu <span class="text-teal">*</span></label><input type="text" name="termin" data-required="1" maxlength="120" autocomplete="off" placeholder="np. 10.09.2026" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label class="block text-sm font-semibold text-deep mb-1.5">Przewidywany termin porodu <span class="text-teal" aria-hidden="true">*</span></label><input type="text" name="termin" data-required="1" aria-required="true" aria-describedby="reqHint" maxlength="120" autocomplete="off" placeholder="np. 10.09.2026" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
             <div><label class="block text-sm font-semibold text-deep mb-1.5">Lekarz prowadzący / położna (opcjonalnie)</label><input type="text" name="lekarz" maxlength="120" autocomplete="off" placeholder="np. dr / położna prowadząca" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
         </div>
       </div>
@@ -488,6 +499,16 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Prosimy o informację o zakresie danych przekazywanych podmiotom zewnętrznym w związku z opieką nad dzieckiem" class="mt-0.5 flex-shrink-0"><span>Informacja o danych przekazywanych na zewnątrz</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Wypis do domu możliwie szybko, jeśli stan matki i dziecka jest dobry" class="mt-0.5 flex-shrink-0"><span>Możliwie szybki wypis przy dobrym stanie</span></label>
         </div>
+      </div>
+      <div class="creator-step hidden" data-step="12" role="group" tabindex="-1">
+        <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">✅</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Podsumowanie Waszego planu</h3>
+            <p class="text-sm text-ink/70 mt-1">Sprawdźcie wybory przed zakupem. Każdą sekcję możecie jeszcze poprawić.</p>
+          </div>
+        </div>
+        <div id="summaryBox" class="space-y-4 text-[15px]"></div>
       </div>
         </div>
 
@@ -1075,6 +1096,70 @@ tailwind.config = {
       else { buyBtn.classList.add('hidden'); }
     }
 
+    // ===== Podsumowanie z możliwością edycji =====
+    const STEP_OF = {setting:1,people:2,prep:3,labor:4,pain:5,perineum:6,csection:7,newborn:8,vitk:9,prophylaxis:9,vacc:10,postpartum:11};
+    function renderSummary(){
+      const box = document.getElementById('summaryBox');
+      if(!box) return;
+      const mama=field('mama'), tata=field('tata'), dziecko=field('dziecko'), termin=field('termin'), lekarz=field('lekarz');
+      let h = '<div class="bg-tealsoft rounded-2xl p-4">'
+        + '<div class="flex items-start justify-between gap-3"><p class="font-semibold text-deep">Dane podstawowe</p>'
+        + '<button type="button" class="edit-step text-teal font-semibold text-xs underline" data-goto="0">Zmień</button></div>'
+        + '<ul class="mt-2 space-y-0.5 text-[14px] text-ink/80">'
+        + '<li>Rodząca: <strong>'+esc(mama||'—')+'</strong></li>'
+        + '<li>Osoba towarzysząca: <strong>'+esc(tata||'—')+'</strong></li>'
+        + (dziecko?'<li>Dziecko: <strong>'+esc(dziecko)+'</strong></li>':'')
+        + '<li>Termin: <strong>'+esc(termin||'—')+'</strong></li>'
+        + (lekarz?'<li>Lekarz/położna: <strong>'+esc(lekarz)+'</strong></li>':'')
+        + '</ul></div>';
+      let total = 0;
+      SECTIONS.forEach(([g,t])=>{
+        const it = collect(g); if(!it.length) return;
+        total += it.length;
+        h += '<div class="bg-white border border-sanddark rounded-2xl p-4">'
+          + '<div class="flex items-start justify-between gap-3"><p class="font-semibold text-deep">'+esc(t)+'</p>'
+          + '<button type="button" class="edit-step text-teal font-semibold text-xs underline" data-goto="'+(STEP_OF[g]||0)+'">Zmień</button></div>'
+          + '<ul class="mt-2 space-y-1 text-[13px] text-ink/80 list-disc pl-5">'
+          + it.map(v=>'<li>'+esc(v)+'</li>').join('') + '</ul></div>';
+      });
+      if(!total) h += '<p class="text-ink/70 italic">Nie zaznaczyliście jeszcze żadnych preferencji. Wróćcie do wcześniejszych kroków.</p>';
+      else h = '<p class="text-sm text-ink/70">Wybraliście <strong>'+total+'</strong> preferencji w '+SECTIONS.filter(([g])=>collect(g).length).length+' sekcjach.</p>' + h;
+      h += '<div class="rounded-2xl p-5 text-center" style="background:var(--accent-soft,#F7E9E7)">'
+        + '<p class="font-display text-lg font-semibold text-deep mb-1">Gotowe — czas odebrać swój plan</p>'
+        + '<p class="text-sm text-ink/70 mb-4">Po zakupie pobierzesz pełny dokument PDF z brandem, formatowaniem i miejscem na podpisy.</p>'
+        + '<a href="#cennik" class="inline-block text-white font-semibold px-8 py-3.5 rounded-full" style="background:var(--accent,#A0525E)">Wybierz pakiet i pobierz plan →</a></div>';
+      box.innerHTML = h;
+      box.querySelectorAll('.edit-step').forEach(btn=>{
+        btn.addEventListener('click', ()=> showStep(parseInt(btn.dataset.goto,10),'prev'));
+      });
+    }
+
+    // ===== Zapis i przywracanie postępu (sessionStorage) =====
+    const SKEY = 'pnm_creator_v1';
+    function saveProgress(){
+      try{
+        const data = {step:cur, fields:{}, checks:[]};
+        form.querySelectorAll('input[type="text"]').forEach(i=>{ if(i.value) data.fields[i.name]=i.value; });
+        form.querySelectorAll('input[type="checkbox"]:checked, input[type="radio"]:checked').forEach(i=>{
+          if(i.name) data.checks.push(i.name+'||'+i.value);
+        });
+        sessionStorage.setItem(SKEY, JSON.stringify(data));
+      }catch(e){}
+    }
+    function restoreProgress(){
+      try{
+        const raw = sessionStorage.getItem(SKEY); if(!raw) return false;
+        const d = JSON.parse(raw);
+        Object.entries(d.fields||{}).forEach(([n,v])=>{ const el=form.querySelector('input[name="'+n+'"]'); if(el) el.value=v; });
+        (d.checks||[]).forEach(pair=>{
+          const [n,v] = pair.split('||');
+          const el = form.querySelector('input[name="'+CSS.escape(n)+'"][value="'+CSS.escape(v)+'"]');
+          if(el){ el.checked = true; const opt = el.closest('.gender-opt'); if(opt){ opt.classList.add('border-teal','bg-tealsoft'); } }
+        });
+        return typeof d.step==='number' ? d.step : false;
+      }catch(e){ return false; }
+    }
+
     const errBox = document.getElementById('stepError');
     function showError(msg){ if(errBox){ errBox.textContent = msg; errBox.classList.remove('hidden'); } }
     function hideError(){ if(errBox){ errBox.classList.add('hidden'); } }
@@ -1098,8 +1183,11 @@ tailwind.config = {
       hideError();
       steps[cur].focus({preventScroll:true});
       prevBtn.classList.toggle('invisible', cur===0);
-      nextBtn.classList.toggle('hidden', cur===TOTAL-1);
-      finishBtn.classList.toggle('hidden', cur!==TOTAL-1);
+      // ostatni krok = podsumowanie; przedostatni pokazuje przycisk "Zobacz podsumowanie"
+      nextBtn.classList.toggle('hidden', cur>=TOTAL-2);
+      finishBtn.classList.toggle('hidden', cur!==TOTAL-2);
+      if(cur===TOTAL-1){ renderSummary(); }
+      saveProgress();
       if(window.innerWidth < 1024) document.getElementById('kreator').scrollIntoView({behavior:'smooth', block:'start'});
     }
 
@@ -1108,15 +1196,39 @@ tailwind.config = {
     finishBtn.addEventListener('click', ()=>{
       const v = validateStep(cur);
       if(!v.ok){ showError('Uzupełnij wymagane pola oznaczone gwiazdką (*).'); flashError(v.el); return; }
+      showStep(TOTAL-1,'next');
       renderPreview();
-      if(window.innerWidth < 1024) preview.scrollIntoView({behavior:'smooth', block:'start'});
     });
     form.addEventListener('change', ()=>{ applyTheme(); renderPreview(); });
     form.addEventListener('input', renderPreview);
 
+    // Start: przywróć postęp jeśli istnieje
+    const restored = restoreProgress();
     applyTheme();
     renderPreview();
-    showStep(0);
+    if(restored !== false && restored > 0){
+      showStep(restored,'prev');
+      showResumeNotice(restored);
+    } else {
+      showStep(0);
+    }
+
+    function showResumeNotice(stepIdx){
+      const box = document.createElement('div');
+      box.className = 'mx-6 mt-3 flex flex-wrap items-center justify-between gap-3 bg-tealsoft border border-sanddark rounded-xl px-4 py-3 text-sm';
+      box.setAttribute('role','status');
+      box.innerHTML = '<span>Wróciliśmy do kroku <strong>'+(stepIdx+1)+'</strong> — Wasze wybory zostały zachowane.</span>'
+        + '<button type="button" id="resetProgress" class="text-teal font-semibold underline whitespace-nowrap">Zacznij od nowa</button>';
+      form.insertBefore(box, form.firstChild.nextSibling);
+      document.getElementById('resetProgress').addEventListener('click', ()=>{
+        try{ sessionStorage.removeItem(SKEY); }catch(e){}
+        form.reset();
+        form.querySelectorAll('.gender-opt').forEach(o=>o.classList.remove('border-teal','bg-tealsoft'));
+        box.remove();
+        showStep(0);
+        renderPreview();
+      });
+    }
   }
 
   // Popup: exit-intent (desktop) lub po 30 s (mobile), raz na sesję
