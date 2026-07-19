@@ -296,8 +296,8 @@ tailwind.config = {
         </div>
         <p id="reqHint" class="sr-only">Pole wymagane do przejścia do następnego kroku.</p>
         <div class="space-y-3 text-[15px]">
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię i nazwisko rodzącej <span class="text-teal" aria-hidden="true">*</span></label><input type="text" name="mama" data-required="1" aria-required="true" aria-describedby="reqHint" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko rodzącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Osoba towarzysząca (ojciec dziecka / bliska osoba) <span class="text-teal" aria-hidden="true">*</span></label><input type="text" name="tata" data-required="1" aria-required="true" aria-describedby="reqHint" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko osoby towarzyszącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label for="f-mama" class="block text-sm font-semibold text-deep mb-1.5">Imię i nazwisko rodzącej <span class="text-teal" aria-hidden="true">*</span></label><input id="f-mama" type="text" name="mama" data-required="1" aria-required="true" aria-describedby="reqHint" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko rodzącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label for="f-tata" class="block text-sm font-semibold text-deep mb-1.5">Osoba towarzysząca (ojciec dziecka / bliska osoba) <span class="text-teal" aria-hidden="true">*</span></label><input id="f-tata" type="text" name="tata" data-required="1" aria-required="true" aria-describedby="reqHint" maxlength="120" autocomplete="off" placeholder="Imię i nazwisko osoby towarzyszącej" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
             <div>
               <label class="block text-sm font-semibold text-deep mb-1.5">Płeć dziecka <span class="text-teal" aria-hidden="true">*</span> <span class="font-normal text-ink/70">— dobierzemy kolorystykę planu</span></label>
               <div class="grid grid-cols-2 gap-3">
@@ -309,9 +309,9 @@ tailwind.config = {
                 </label>
               </div>
             </div>
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Imię dziecka (jeśli już wybrane)</label><input type="text" name="dziecko" maxlength="120" autocomplete="off" placeholder="np. Wiktoria / Antoni" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Przewidywany termin porodu <span class="text-teal" aria-hidden="true">*</span></label><input type="text" name="termin" data-required="1" aria-required="true" aria-describedby="reqHint" maxlength="120" autocomplete="off" placeholder="np. 10.09.2026" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
-            <div><label class="block text-sm font-semibold text-deep mb-1.5">Lekarz prowadzący / położna (opcjonalnie)</label><input type="text" name="lekarz" maxlength="120" autocomplete="off" placeholder="np. dr / położna prowadząca" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label for="f-dziecko" class="block text-sm font-semibold text-deep mb-1.5">Imię dziecka (jeśli już wybrane)</label><input id="f-dziecko" type="text" name="dziecko" maxlength="120" autocomplete="off" placeholder="np. Wiktoria / Antoni" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label for="f-termin" class="block text-sm font-semibold text-deep mb-1.5">Przewidywany termin porodu <span class="text-teal" aria-hidden="true">*</span></label><input id="f-termin" type="text" name="termin" data-required="1" aria-required="true" aria-describedby="reqHint" maxlength="120" autocomplete="off" placeholder="np. 10.09.2026" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div><label for="f-lekarz" class="block text-sm font-semibold text-deep mb-1.5">Lekarz prowadzący / położna (opcjonalnie)</label><input id="f-lekarz" type="text" name="lekarz" maxlength="120" autocomplete="off" placeholder="np. dr / położna prowadząca" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
         </div>
       </div>
       <div class="creator-step hidden" data-step="1" role="group" tabindex="-1">
@@ -863,7 +863,8 @@ tailwind.config = {
     <p class="text-[15px] text-ink/80 mb-5">Jedna strona konkretów od taty dla rodziców — co sprawdzić w szpitalu, zanim urodzi się Wasze dziecko.</p>
     <!-- MailerLite: podmien action na swoj URL formularza -->
     <form class="flex flex-col gap-3" action="https://TWOJ-FORMULARZ.mailerlite.com/subscribe" method="post" target="_blank">
-      <input name="fields[email]" type="email" required placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3">
+      <label for="popup-email" class="sr-only">Adres e-mail</label>
+      <input id="popup-email" name="fields[email]" type="email" required placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3">
       <label class="flex items-start gap-2 text-left text-xs text-ink/70"><input type="checkbox" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie e-maila w celu przesłania checklisty, zgodnie z <a href="polityka-prywatnosci.html" class="underline">polityką prywatności</a>.</span></label>
       <button type="submit" class="bg-teal text-white font-semibold py-3 rounded-full hover:bg-deep transition-colors">Wyślij checklistę</button>
     </form>
