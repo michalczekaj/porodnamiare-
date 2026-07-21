@@ -19,6 +19,7 @@
 <meta name="twitter:image" content="https://porodnamiare.pl/img/og.png">
 <link rel="canonical" href="https://porodnamiare.pl/">
 <link rel="alternate" hreflang="pl" href="https://porodnamiare.pl/">
+<link rel="alternate" hreflang="en" href="https://porodnamiare.pl/en">
 <link rel="alternate" hreflang="de" href="https://porodnamiare.pl/de">
 <link rel="alternate" hreflang="uk" href="https://porodnamiare.pl/ua">
 <link rel="alternate" hreflang="x-default" href="https://porodnamiare.pl/">
@@ -77,6 +78,12 @@ tailwind.config = {
   input[type=checkbox], input[type=radio] { accent-color: #B4636F; width: 1.05rem; height: 1.05rem; }
   :focus-visible { outline: 3px solid #A0525E; outline-offset: 2px; }
   .gender-opt:focus-within { outline: 3px solid #A0525E; outline-offset: 2px; }
+  /* Ochrona podglądu przed kopiowaniem i screenami */
+  #planPreview { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; position: relative; overflow: hidden; }
+  #planPreview::after { content: "PODGLĄD · PoródNaMiarę.pl · PODGLĄD"; position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center; transform: rotate(-28deg);
+    font-weight: 700; font-size: 1.1rem; letter-spacing: .1em; color: rgba(62,56,82,.10);
+    pointer-events: none; white-space: nowrap; }
   /* Tryb wysokiego kontrastu — dla osob slabowidzacych (WCAG AAA) */
   @media (prefers-contrast: more) {
     body { background: #fff; color: #1a1720; }
@@ -119,7 +126,7 @@ tailwind.config = {
       <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
         <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option>
       </select>
-      <button id="musicBtnDesktop" aria-pressed="false" aria-label="Włącz muzykę projektu" title="Kołysanka PoródNaMiarę" class="hidden md:inline-flex items-center justify-center w-9 h-9 rounded-full border border-deep/25 hover:bg-tealsoft transition-colors">
+      <button id="musicBtnDesktop" aria-pressed="false" aria-label="Odtwórz muzykę projektu" title="Muzyka PoródNaMiarę" class="hidden md:inline-flex items-center justify-center w-9 h-9 rounded-full border border-deep/25 hover:bg-tealsoft transition-colors">
         <span id="musicIconDesktop" class="text-lg leading-none select-none">🎵</span>
       </button>
       <a href="#kreator" data-i18n="ctaTop" class="hidden sm:inline-block bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors">Stwórz plan</a>
@@ -202,10 +209,10 @@ tailwind.config = {
     <span>✓ Gotowy PDF w 24 h</span>
   </div>
   <div class="border-t border-sanddark bg-tealsoft/50">
-    <p class="max-w-6xl mx-auto px-4 py-2.5 text-center text-sm">🌍 Rodzisz za granicą? Wersje krajowe:
-      <a href="/de" class="font-semibold text-teal underline mx-1">🇩🇪 Deutschland</a> ·
-      <a href="/ua" class="font-semibold text-teal underline mx-1">🇺🇦 Україна</a> ·
-      <a href="/ru" class="font-semibold text-teal underline mx-1">🇷🇺 по-русски (roды в Польше)</a>
+    <p class="max-w-6xl mx-auto px-4 py-2.5 text-center text-sm">🌍 Rodzisz w Polsce, ale nie mówisz po polsku? Wersje językowe:
+      <a href="/en" class="font-semibold text-teal underline mx-1">🇬🇧 English</a> ·
+      <a href="/de" class="font-semibold text-teal underline mx-1">🇩🇪 Deutsch</a> ·
+      <a href="/ua" class="font-semibold text-teal underline mx-1">🇺🇦 Українська</a>
     </p>
   </div>
 </div>
@@ -312,6 +319,25 @@ tailwind.config = {
             <div><label for="f-dziecko" class="block text-sm font-semibold text-deep mb-1.5">Imię dziecka (jeśli już wybrane)</label><input id="f-dziecko" type="text" name="dziecko" maxlength="120" autocomplete="off" placeholder="np. Wiktoria / Antoni" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
             <div><label for="f-termin" class="block text-sm font-semibold text-deep mb-1.5">Przewidywany termin porodu <span class="text-teal" aria-hidden="true">*</span></label><input id="f-termin" type="text" name="termin" data-required="1" aria-required="true" aria-describedby="reqHint" maxlength="120" autocomplete="off" placeholder="np. 10.09.2026" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
             <div><label for="f-lekarz" class="block text-sm font-semibold text-deep mb-1.5">Lekarz prowadzący / położna (opcjonalnie)</label><input id="f-lekarz" type="text" name="lekarz" maxlength="120" autocomplete="off" placeholder="np. dr / położna prowadząca" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
+            <div class="mt-4 bg-tealsoft/60 rounded-2xl p-4">
+              <p class="font-semibold text-deep text-sm mb-1">Dane istotne dla bezpieczeństwa noworodka <span class="font-normal text-ink/60">(opcjonalnie — z dokumentacji ciąży)</span></p>
+              <p class="text-xs text-ink/70 mb-3">Wynik HBsAg decyduje o bezpieczeństwie odroczenia szczepienia WZW B. GBS wpływa na postępowanie przy porodzie.</p>
+              <div class="grid sm:grid-cols-2 gap-3 mb-3">
+                <div><label for="f-krew" class="block text-xs font-semibold text-deep mb-1">Grupa krwi i Rh matki</label><input id="f-krew" type="text" name="krew" maxlength="20" autocomplete="off" placeholder="np. A Rh+" class="w-full border border-sanddark rounded-xl px-3 py-2 bg-white text-[15px]"></div>
+              </div>
+              <p class="text-xs font-semibold text-deep mb-1.5">HBsAg matki (WZW B):</p>
+              <div class="flex flex-wrap gap-2 mb-3 text-sm">
+                <label class="flex items-center gap-1.5 bg-white border border-sanddark rounded-full px-3 py-1.5 cursor-pointer"><input type="radio" name="hbsag" value="HBsAg matki: ujemny (odroczenie WZW B bezpieczne)"><span>ujemny</span></label>
+                <label class="flex items-center gap-1.5 bg-white border border-sanddark rounded-full px-3 py-1.5 cursor-pointer"><input type="radio" name="hbsag" value="HBsAg matki: dodatni — postępowanie szczepienne do omówienia z neonatologiem"><span>dodatni</span></label>
+                <label class="flex items-center gap-1.5 bg-white border border-sanddark rounded-full px-3 py-1.5 cursor-pointer"><input type="radio" name="hbsag" value="HBsAg matki: wynik nieznany — do omówienia z neonatologiem"><span>nieznany</span></label>
+              </div>
+              <p class="text-xs font-semibold text-deep mb-1.5">Nosicielstwo GBS (paciorkowiec grupy B):</p>
+              <div class="flex flex-wrap gap-2 text-sm">
+                <label class="flex items-center gap-1.5 bg-white border border-sanddark rounded-full px-3 py-1.5 cursor-pointer"><input type="radio" name="gbs" value="GBS: ujemny"><span>ujemny</span></label>
+                <label class="flex items-center gap-1.5 bg-white border border-sanddark rounded-full px-3 py-1.5 cursor-pointer"><input type="radio" name="gbs" value="GBS: dodatni — profilaktyka antybiotykowa przy porodzie"><span>dodatni</span></label>
+                <label class="flex items-center gap-1.5 bg-white border border-sanddark rounded-full px-3 py-1.5 cursor-pointer"><input type="radio" name="gbs" value="GBS: nieznany"><span>nieznany</span></label>
+              </div>
+            </div>
         </div>
       </div>
       <div class="creator-step hidden" data-step="1" role="group" tabindex="-1">
@@ -324,6 +350,9 @@ tailwind.config = {
         </div>
         <div class="space-y-1 text-[15px]">
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Chciałabym rodzić w sali pojedynczej" class="mt-0.5 flex-shrink-0"><span>Sala pojedyncza</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Chciałabym, by w sali była toaleta" class="mt-0.5 flex-shrink-0"><span>Toaleta w sali</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Mogę rodzić na sali wieloosobowej" class="mt-0.5 flex-shrink-0"><span>Sala wieloosobowa jest OK</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Chciałabym rodzić we własnym ubraniu" class="mt-0.5 flex-shrink-0"><span>Poród we własnym ubraniu</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Zależy mi na dostępie do prysznica lub wanny w sali" class="mt-0.5 flex-shrink-0"><span>Dostęp do prysznica / wanny</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Przyciemnione światło i cisza w sali porodowej" class="mt-0.5 flex-shrink-0"><span>Przyciemnione światło i cisza</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="setting" value="Możliwość słuchania własnej muzyki podczas porodu" class="mt-0.5 flex-shrink-0"><span>Własna muzyka podczas porodu</span></label>
@@ -359,6 +388,8 @@ tailwind.config = {
         </div>
         <div class="space-y-1 text-[15px]">
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Bez zabiegów przygotowujących (lewatywa, golenie), chyba że o nie poproszę" class="mt-0.5 flex-shrink-0"><span>Bez lewatywy i golenia (chyba że poproszę)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Proszę o lewatywę przy przyjęciu" class="mt-0.5 flex-shrink-0"><span>Proszę o lewatywę przy przyjęciu</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Zgoda na założenie wenflonu przy przyjęciu" class="mt-0.5 flex-shrink-0"><span>Zgoda na wenflon przy przyjęciu</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Bez wenflonu, chyba że wystąpi konieczność podania leków dożylnie (akceptujemy założenie w razie wskazań)" class="mt-0.5 flex-shrink-0"><span>Bez wenflonu rutynowego (akceptujemy w razie wskazań)</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Możliwość jedzenia i picia w trakcie porodu, o ile nie ma przeciwwskazań" class="mt-0.5 flex-shrink-0"><span>Możliwość jedzenia i picia (o ile brak przeciwwskazań)</span></label>
         </div>
@@ -375,6 +406,9 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Pełna i bieżąca informacja o postępie porodu" checked class="mt-0.5 flex-shrink-0"><span>Pełna informacja o postępie porodu</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Zależy mi na porodzie o przebiegu naturalnym (fizjologicznym)" checked class="mt-0.5 flex-shrink-0"><span>Poród naturalny (fizjologiczny)</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Pytanie o zgodę na badania i zabiegi poza sytuacjami nagłymi" checked class="mt-0.5 flex-shrink-0"><span>Pytanie o zgodę na zabiegi (poza nagłymi)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Oksytocyna, amniotomia, stałe KTG — tylko po wyjaśnieniu wskazań i mojej zgodzie" checked class="mt-0.5 flex-shrink-0"><span>Oksytocyna / amniotomia / stałe KTG tylko po zgodzie</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Swoboda wydawania dźwięków podczas porodu" class="mt-0.5 flex-shrink-0"><span>Swoboda wydawania dźwięków</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Możliwość korzystania z gwizdka porodowego (wsparcie kontrolowanego oddechu i parcia)" class="mt-0.5 flex-shrink-0"><span>Gwizdek porodowy — wsparcie oddechu i parcia 🌬️</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Ograniczenie badań dopochwowych do niezbędnego minimum" class="mt-0.5 flex-shrink-0"><span>Ograniczenie badań dopochwowych do minimum</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Swoboda ruchu i dowolne pozycje; dostęp do wanny/prysznica, drabinki, worka sako" class="mt-0.5 flex-shrink-0"><span>Swoboda ruchu i wybór pozycji</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="labor" value="Wybór pozycji w II okresie (w tym pionowej), parcie spontaniczne" class="mt-0.5 flex-shrink-0"><span>Wybór pozycji w II okresie, parcie spontaniczne</span></label>
@@ -412,8 +446,12 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Nacięcie krocza tylko przy wyraźnych wskazaniach medycznych, po poinformowaniu" checked class="mt-0.5 flex-shrink-0"><span>Nacięcie tylko ze wskazań, po poinformowaniu</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Miejscowe znieczulenie przy ewentualnym zszywaniu krocza" class="mt-0.5 flex-shrink-0"><span>Znieczulenie miejscowe przy zszywaniu</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Bez wywoływania porodu (w tym amniotomii), jeśli brak wyraźnych wskazań" class="mt-0.5 flex-shrink-0"><span>Bez indukcji bez wyraźnych wskazań</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Najpierw próba metod naturalnych (ruch, aktywność), jeśli stan dziecka pozwala" class="mt-0.5 flex-shrink-0"><span>Najpierw metody naturalne, jeśli stan dziecka pozwala</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Jeśli indukcja konieczna — najpierw prostaglandyna, potem oksytocyna" class="mt-0.5 flex-shrink-0"><span>Indukcja: najpierw prostaglandyna, potem oksytocyna</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Oksytocyna / amniotomia wyłącznie po wyjaśnieniu wskazań i mojej świadomej zgodzie" class="mt-0.5 flex-shrink-0"><span>Oksytocyna/amniotomia po wyjaśnieniu i zgodzie</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Możliwość fizjologicznego urodzenia łożyska, jeśli brak czynników ryzyka krwotoku" class="mt-0.5 flex-shrink-0"><span>Fizjologiczne urodzenie łożyska (jeśli brak ryzyka)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Profilaktyczne podanie oksytocyny w III okresie — po informacji, jeśli wskazane" class="mt-0.5 flex-shrink-0"><span>Oksytocyna w III okresie po informacji (profilaktyka krwotoku)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Urodzenie łożyska bez pośpiechu, jeśli stan matki i dziecka stabilny" class="mt-0.5 flex-shrink-0"><span>Łożysko bez pośpiechu przy stabilnym stanie</span></label>
         </div>
       </div>
       <div class="creator-step hidden" data-step="7" role="group" tabindex="-1">
@@ -453,6 +491,8 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Dokarmianie wyłącznie na wskazanie lekarskie, z preferencją odciągniętej siary zamiast mleka modyfikowanego" checked class="mt-0.5 flex-shrink-0"><span>Dokarmianie tylko na wskazanie (preferencja siary)</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Bez rutynowego podawania smoczka w okresie ustalania laktacji" checked class="mt-0.5 flex-shrink-0"><span>Bez rutynowego smoczka</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Rooming-in całodobowy — bez rozdzielania mamy i dziecka bez wskazań medycznych" checked class="mt-0.5 flex-shrink-0"><span>Rooming-in 24 h</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="cordblood" value="Bankowanie krwi pępowinowej — zestaw pobraniowy i dokumentację przywieziemy ze sobą i przekażemy przy przyjęciu" class="mt-0.5 flex-shrink-0"><span>🩸 Bankowanie krwi pępowinowej (zestaw przywieziemy)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="cordblood" value="Priorytet: opóźnione odpępnienie ważniejsze niż objętość pobranej krwi; przy zagrożeniu rezygnujemy z pobrania" class="mt-0.5 flex-shrink-0"><span>Odpępnienie ważniejsze niż pobranie — dobro dziecka nadrzędne</span></label>
         </div>
       </div>
       <div class="creator-step hidden" data-step="9" role="group" tabindex="-1">
@@ -493,6 +533,9 @@ tailwind.config = {
           </div>
         </div>
         <div class="space-y-1 text-[15px]">
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Prosimy o salę rodzinną (w miarę dostępności)" class="mt-0.5 flex-shrink-0"><span>🏠 Sala rodzinna (w miarę dostępności)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Chcemy skorzystać z usługi hotelowej — nocleg ojca dziecka przy mamie i noworodku" class="mt-0.5 flex-shrink-0"><span>Nocleg ojca przy mamie i dziecku (usługa hotelowa)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Jestem doświadczoną mamą — samodzielna opieka nad dzieckiem przy wsparciu personelu" class="mt-0.5 flex-shrink-0"><span>Doświadczona mama — samodzielna opieka ze wsparciem</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Rooming-in 24 h, bez separacji bez wskazań medycznych" checked class="mt-0.5 flex-shrink-0"><span>Rooming-in 24 h, bez separacji</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Wszystkie czynności i badania dziecka w obecności matki lub ojca" checked class="mt-0.5 flex-shrink-0"><span>Badania dziecka w obecności rodzica</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Wsparcie laktacyjne w czasie całego pobytu" checked class="mt-0.5 flex-shrink-0"><span>Wsparcie laktacyjne przez cały pobyt</span></label>
@@ -560,7 +603,7 @@ tailwind.config = {
   <!-- TRUST BAR -->
   <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-ink/70 mb-12">
     <span data-i18n="trustA">👀 Podgląd za darmo — płacisz gdy widzisz wartość</span>
-    <span data-i18n="trustB">🔒 Stripe + BLIK — karta, Apple Pay, Google Pay</span>
+    <span data-i18n="trustB">🔒 PayHip + BLIK — karta, Apple Pay, Google Pay</span>
     <span data-i18n="trustC">↩️ 30 dni zwrotu bez pytań</span>
     <span data-i18n="trustD">🤍 Tworzone przez tatę, nie korporację</span>
   </div>
@@ -585,7 +628,7 @@ tailwind.config = {
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Format A4 gotowy do druku</span></li>
       </ul>
       <p class="text-[11px] text-ink/45 mb-3 flex items-center gap-1"><svg class="w-3 h-3 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
-      <a href="https://buy.stripe.com/TWOJ_LINK_PODSTAWOWY" target="_blank" rel="noopener"
+      <a href="https://payhip.com/b/TWOJ_LINK_PODSTAWOWY" target="_blank" rel="noopener"
          class="block text-center border-2 border-deep/25 text-deep font-bold py-4 rounded-2xl hover:bg-sanddark transition-colors">
         Kup teraz — 49 zł
       </a>
@@ -611,7 +654,7 @@ tailwind.config = {
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Aktualizacja planu do dnia porodu</span></li>
       </ul>
       <p class="text-[11px] text-sand/60 mb-3 flex items-center gap-1"><svg class="w-3 h-3" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
-      <a href="https://buy.stripe.com/TWOJ_LINK_PREMIUM" target="_blank" rel="noopener"
+      <a href="https://payhip.com/b/TWOJ_LINK_PREMIUM" target="_blank" rel="noopener"
          class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-white hover:text-deep transition-colors">
         Kup teraz — 99 zł
       </a>
@@ -644,7 +687,7 @@ tailwind.config = {
         </li>
       </ul>
       <p class="text-[11px] text-ink/45 mb-3 flex items-center gap-1"><svg class="w-3 h-3 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
-      <a href="https://buy.stripe.com/PREMIUM_PLUS_LINK" target="_blank" rel="noopener"
+      <a href="https://payhip.com/b/PREMIUM_PLUS_LINK" target="_blank" rel="noopener"
          class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg">
         Kup teraz — 179 zł
       </a>
@@ -695,20 +738,20 @@ tailwind.config = {
     </div>
   </div>
 
-  <!-- PŁATNOŚCI: STRIPE + BLIK -->
+  <!-- PŁATNOŚCI: PAYHIP + BLIK -->
   <div class="mt-10 max-w-5xl mx-auto bg-white border border-sanddark rounded-2xl p-6">
     <div class="flex flex-wrap items-center gap-5 justify-between">
       <div class="flex-1 min-w-[260px]">
         <p class="font-display text-lg font-semibold text-deep mb-1">Dwie zaufane metody płatności</p>
-        <p class="text-sm text-ink/70 leading-relaxed"><strong>Stripe</strong> — karta, Apple Pay, Google Pay (międzynarodowo). <strong>BLIK</strong> — szybki przelew, którym płaci większość Polaków. Wybierasz to, co wygodne.</p>
+        <p class="text-sm text-ink/70 leading-relaxed"><strong>PayHip</strong> — karta, Apple Pay, Google Pay (międzynarodowo). <strong>BLIK</strong> — szybki przelew, którym płaci większość Polaków. Wybierasz to, co wygodne.</p>
       </div>
       <div class="flex items-center gap-3">
-        <span class="inline-flex items-center gap-1.5 bg-tealsoft rounded-xl px-4 py-2.5 font-bold text-deep text-sm">💳 Stripe</span>
+        <span class="inline-flex items-center gap-1.5 bg-tealsoft rounded-xl px-4 py-2.5 font-bold text-deep text-sm">💳 PayHip</span>
         <span class="inline-flex items-center gap-1.5 rounded-xl px-4 py-2.5 font-bold text-white text-sm" style="background:#000">BLIK</span>
       </div>
     </div>
     <div class="mt-4 pt-4 border-t border-sanddark bg-tealsoft/40 -mx-6 -mb-6 px-6 pb-6 rounded-b-2xl">
-      <p class="text-sm text-ink/80"><strong>Płatność BLIK-iem:</strong> po kliknięciu „Kup" wybierz BLIK, lub napisz na <a href="mailto:kontakt@porodnamiare.pl" class="text-teal font-semibold underline">kontakt@porodnamiare.pl</a> — wyślemy numer do szybkiego przelewu BLIK i produkt w ciągu 24 h. <!-- TODO: po rejestracji działalności podłącz BLIK w Stripe lub przez Przelewy24/Tpay --></p>
+      <p class="text-sm text-ink/80"><strong>Płatność BLIK-iem:</strong> po kliknięciu „Kup" wybierz BLIK, lub napisz na <a href="mailto:kontakt@porodnamiare.pl" class="text-teal font-semibold underline">kontakt@porodnamiare.pl</a> — wyślemy numer do szybkiego przelewu BLIK i produkt w ciągu 24 h. <!-- TODO: po rejestracji działalności podłącz BLIK w PayHip lub przez Przelewy24/Tpay --></p>
     </div>
   </div>
 
@@ -876,7 +919,7 @@ tailwind.config = {
 
 <!-- ===== STICKY CTA (mobile) ===== -->
 <!-- MUSIC FLOAT (poza menu, prawy dolny róg) -->
-<button id="musicBtn" aria-pressed="false" aria-label="Kołysanka"
+<button id="musicBtn" aria-pressed="false" aria-label="Odtwórz muzykę projektu"
   class="fixed bottom-20 right-4 z-50 md:hidden bg-white/90 backdrop-blur border border-sanddark shadow-lg w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95">
   <span id="musicIcon" class="text-2xl leading-none select-none">🎵</span>
 </button>
@@ -962,6 +1005,7 @@ tailwind.config = {
     const stepPct = document.getElementById('stepPct');
 
     const SECTIONS = [
+      ['hbsag+gbs','Badania matki istotne dla noworodka'],
       ['setting','Warunki i miejsce porodu'],
       ['people','Osoby obecne'],
       ['prep','Przygotowanie do porodu'],
@@ -970,13 +1014,16 @@ tailwind.config = {
       ['perineum','Ochrona krocza, indukcja i łożysko'],
       ['csection','Cięcie cesarskie (gdyby było konieczne)'],
       ['newborn','Opieka nad noworodkiem'],
+      ['cordblood','Krew pępowinowa (bankowanie)'],
       ['vitk','Profilaktyka witaminą K'],
       ['prophylaxis','Badania i profilaktyka noworodka'],
       ['vacc','Szczepienia noworodka'],
       ['postpartum','Połóg i oddział położniczy']
     ];
 
-    function collect(name){ return [...form.querySelectorAll('input[name="'+name+'"]:checked')].map(i=>i.value); }
+    function collect(name){
+      return name.split('+').flatMap(n=>[...form.querySelectorAll('input[name="'+n+'"]:checked')].map(i=>i.value));
+    }
     function field(name){ const el=form.querySelector('input[name="'+name+'"]'); return el?el.value.trim():''; }
 
     // ===== Kolorystyka zależna od płci =====
@@ -1098,7 +1145,7 @@ tailwind.config = {
     }
 
     // ===== Podsumowanie z możliwością edycji =====
-    const STEP_OF = {setting:1,people:2,prep:3,labor:4,pain:5,perineum:6,csection:7,newborn:8,vitk:9,prophylaxis:9,vacc:10,postpartum:11};
+    const STEP_OF = {'hbsag+gbs':0,setting:1,people:2,prep:3,labor:4,pain:5,perineum:6,csection:7,newborn:8,cordblood:8,vitk:9,prophylaxis:9,vacc:10,postpartum:11};
     function renderSummary(){
       const box = document.getElementById('summaryBox');
       if(!box) return;
@@ -1112,6 +1159,7 @@ tailwind.config = {
         + (dziecko?'<li>Dziecko: <strong>'+esc(dziecko)+'</strong></li>':'')
         + '<li>Termin: <strong>'+esc(termin||'—')+'</strong></li>'
         + (lekarz?'<li>Lekarz/położna: <strong>'+esc(lekarz)+'</strong></li>':'')
+        + (field('krew')?'<li>Grupa krwi i Rh matki: <strong>'+esc(field('krew'))+'</strong></li>':'')
         + '</ul></div>';
       let total = 0;
       SECTIONS.forEach(([g,t])=>{
@@ -1205,6 +1253,9 @@ tailwind.config = {
 
     // Start: przywróć postęp jeśli istnieje
     const restored = restoreProgress();
+    // Ochrona podglądu: bez menu kontekstowego / przeciągania
+    preview.addEventListener('contextmenu', e=>e.preventDefault());
+    preview.addEventListener('dragstart', e=>e.preventDefault());
     applyTheme();
     renderPreview();
     if(restored !== false && restored > 0){
@@ -1264,7 +1315,7 @@ tailwind.config = {
       btnGenerate: 'Generate preview', btnReset: 'Clear',
       pricingH: 'Products for parents', standardBadge: 'Compliant with the Perinatal Care Standard \u2014 Journal of Laws 2025 item 1525 (effective May 2026)',
       faqH: 'FAQ', blogH: 'Knowledge for conscious parents (in Polish)',
-      trustA: 'Free plan preview \u2014 you pay only when you see the value', trustB: 'Stripe + BLIK \u2014 cards, Apple & Google Pay',
+      trustA: 'Free plan preview \u2014 you pay only when you see the value', trustB: 'PayHip + BLIK \u2014 cards, Apple & Google Pay',
       trustC: '30-day money-back guarantee \u2014 no questions asked', trustD: 'Made by a dad for his own child \u2014 not by a corporation',
       guarantee: 'Peace-of-mind guarantee: if within 30 days you feel the plan didn\u2019t help you \u2014 we refund 100% of the price. No questions asked.',
       bnCreator: 'Creator', bnPricing: 'Pricing', bnMusic: 'Lullaby',
@@ -1283,7 +1334,7 @@ tailwind.config = {
       btnGenerate: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u0435\u0440\u0435\u0433\u043b\u044f\u0434', btnReset: '\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u0438',
       pricingH: '\u041f\u0440\u043e\u0434\u0443\u043a\u0442\u0438 \u0434\u043b\u044f \u0431\u0430\u0442\u044c\u043a\u0456\u0432', standardBadge: '\u0412\u0456\u0434\u043f\u043e\u0432\u0456\u0434\u0430\u0454 \u0421\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u0443 \u043f\u0435\u0440\u0438\u043d\u0430\u0442\u0430\u043b\u044c\u043d\u043e\u0457 \u0434\u043e\u043f\u043e\u043c\u043e\u0433\u0438 (Dz.U. 2025 \u2116 1525)',
       faqH: '\u0427\u0430\u0441\u0442\u0456 \u0437\u0430\u043f\u0438\u0442\u0430\u043d\u043d\u044f', blogH: '\u0417\u043d\u0430\u043d\u043d\u044f \u0434\u043b\u044f \u0441\u0432\u0456\u0434\u043e\u043c\u0438\u0445 \u0431\u0430\u0442\u044c\u043a\u0456\u0432 (\u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u044e)',
-      trustA: '\u041f\u0435\u0440\u0435\u0433\u043b\u044f\u0434 \u043f\u043b\u0430\u043d\u0443 \u0431\u0435\u0437\u043a\u043e\u0448\u0442\u043e\u0432\u043d\u043e', trustB: '\u0411\u0435\u0437\u043f\u0435\u0447\u043d\u0430 \u043e\u043f\u043b\u0430\u0442\u0430 Stripe + BLIK',
+      trustA: '\u041f\u0435\u0440\u0435\u0433\u043b\u044f\u0434 \u043f\u043b\u0430\u043d\u0443 \u0431\u0435\u0437\u043a\u043e\u0448\u0442\u043e\u0432\u043d\u043e', trustB: '\u0411\u0435\u0437\u043f\u0435\u0447\u043d\u0430 \u043e\u043f\u043b\u0430\u0442\u0430 PayHip + BLIK',
       trustC: '30 \u0434\u043d\u0456\u0432 \u0433\u0430\u0440\u0430\u043d\u0442\u0456\u0457 \u043f\u043e\u0432\u0435\u0440\u043d\u0435\u043d\u043d\u044f', trustD: '\u0421\u0442\u0432\u043e\u0440\u0435\u043d\u043e \u0442\u0430\u0442\u043e\u043c, \u043d\u0435 \u043a\u043e\u0440\u043f\u043e\u0440\u0430\u0446\u0456\u0454\u044e',
       guarantee: '\u0413\u0430\u0440\u0430\u043d\u0442\u0456\u044f \u0441\u043f\u043e\u043a\u043e\u044e: 30 \u0434\u043d\u0456\u0432 \u043f\u043e\u0432\u0435\u0440\u043d\u0435\u043d\u043d\u044f \u043a\u043e\u0448\u0442\u0456\u0432 \u2014 \u0431\u0435\u0437 \u0437\u0430\u043f\u0438\u0442\u0430\u043d\u044c.',
       bnCreator: '\u041f\u043b\u0430\u043d', bnPricing: '\u0426\u0456\u043d\u0438', bnMusic: '\u041a\u043e\u043b\u0438\u0441\u043a\u043e\u0432\u0430',
@@ -1302,7 +1353,7 @@ tailwind.config = {
       btnGenerate: 'Vorschau erstellen', btnReset: 'Zur\u00fccksetzen',
       pricingH: 'Produkte f\u00fcr Eltern', standardBadge: 'Konform mit dem Standard der perinatalen Versorgung \u2014 GBl. 2025 Pos. 1525 (ab Mai 2026)',
       faqH: 'FAQ', blogH: 'Wissen f\u00fcr bewusste Eltern (auf Polnisch)',
-      trustA: 'Kostenlose Vorschau \u2014 Sie zahlen erst, wenn Sie den Wert sehen', trustB: 'Stripe + BLIK \u2014 Karte, Apple & Google Pay',
+      trustA: 'Kostenlose Vorschau \u2014 Sie zahlen erst, wenn Sie den Wert sehen', trustB: 'PayHip + BLIK \u2014 Karte, Apple & Google Pay',
       trustC: '30 Tage Geld-zur\u00fcck-Garantie \u2014 ohne Fragen', trustD: 'Von einem Vater f\u00fcr sein eigenes Kind \u2014 nicht von einem Konzern',
       guarantee: 'Sorglos-Garantie: Wenn der Plan Ihnen innerhalb von 30 Tagen nicht geholfen hat \u2014 erstatten wir 100% des Preises. Ohne Fragen.',
       bnCreator: 'Generator', bnPricing: 'Preise', bnMusic: 'Schlaflied',
@@ -1333,36 +1384,56 @@ tailwind.config = {
   });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
-  // ===== Kołysanka (WebAudio — autorska melodia pozytywki, zero plików) =====
-  let audioCtx = null, musicTimer = null, playing = false;
+  // ===== Muzyka projektu (plik MP3 + fallback WebAudio) =====
+  let audioEl = null, playing = false, audioCtx = null, musicTimer = null, ni = 0;
   const NOTES = [659.25, 783.99, 880, 783.99, 659.25, 587.33, 523.25, 587.33, 659.25, 659.25, 587.33, 523.25, 493.88, 523.25, 587.33, 0];
-  let ni = 0;
-  function pluck(freq) {
-    if (!freq) return;
-    const o = audioCtx.createOscillator(), g = audioCtx.createGain();
-    o.type = 'triangle'; o.frequency.value = freq;
-    g.gain.setValueAtTime(0.0001, audioCtx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime + 0.02);
-    g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.55);
-    o.connect(g).connect(audioCtx.destination);
-    o.start(); o.stop(audioCtx.currentTime + 0.6);
-  }
+  const MUSIC_SRC = '/music/porodnamiaresong.mp3';
+
   function setMusicIcons(sym){
     const a=document.getElementById('musicIcon'); if(a) a.textContent=sym;
     const b=document.getElementById('musicIconDesktop'); if(b) b.textContent=sym;
+    ['musicBtn','musicBtnDesktop'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el){ el.setAttribute('aria-pressed', playing);
+        el.setAttribute('aria-label', playing ? 'Zatrzymaj muzykę' : 'Odtwórz muzykę projektu'); }
+    });
+  }
+  function pluck(freq){
+    if(!freq) return;
+    const o=audioCtx.createOscillator(), g=audioCtx.createGain();
+    o.type='triangle'; o.frequency.value=freq;
+    g.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime+0.55);
+    o.connect(g).connect(audioCtx.destination);
+    o.start(); o.stop(audioCtx.currentTime+0.6);
+  }
+  function startFallback(){
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    audioCtx.resume();
+    musicTimer = setInterval(()=>{ pluck(NOTES[ni % NOTES.length]); ni++; }, 420);
+    playing = true; setMusicIcons('⏸');
+  }
+  function stopAll(){
+    if(audioEl){ audioEl.pause(); }
+    if(musicTimer){ clearInterval(musicTimer); musicTimer=null; }
+    playing=false; setMusicIcons('🎵');
   }
   function toggleMusic(){
-    if (!playing) {
-      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
-      audioCtx.resume();
-      musicTimer = setInterval(() => { pluck(NOTES[ni % NOTES.length]); ni++; }, 420);
-      playing = true; setMusicIcons('⏸');
-    } else {
-      clearInterval(musicTimer); playing = false; setMusicIcons('🎵');
+    if(playing){ stopAll(); return; }
+    if(!audioEl){
+      audioEl = new Audio(MUSIC_SRC);
+      audioEl.loop = true; audioEl.volume = 0.55; audioEl.preload = 'none';
+      audioEl.addEventListener('ended', stopAll);
     }
-    ['musicBtn','musicBtnDesktop'].forEach(id=>{const el=document.getElementById(id); if(el) el.setAttribute('aria-pressed', playing);});
+    audioEl.play().then(()=>{ playing=true; setMusicIcons('⏸'); })
+      .catch(()=>{ startFallback(); });   // brak pliku lub blokada autoplay -> melodia zapasowa
   }
-  ['musicBtn','musicBtnDesktop'].forEach(id=>{const el=document.getElementById(id); if(el) el.addEventListener('click', toggleMusic);});
+  ['musicBtn','musicBtnDesktop'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.addEventListener('click', toggleMusic);
+  });
+  // Zatrzymaj muzykę gdy uzytkownik opusci karte
+  document.addEventListener('visibilitychange', ()=>{ if(document.hidden && playing) stopAll(); });
 
   // Przełącznik języka — placeholder pod przyszłą wersję EN.
 })();

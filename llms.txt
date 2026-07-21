@@ -40,6 +40,7 @@ PoródNaMiarę.pl został stworzony przez Michała — przyszłego tatę, który
 ## Wersje językowe
 
 - Polski (główny): https://porodnamiare.pl/
+- Angielski: https://porodnamiare.pl/en
 - Niemiecki: https://porodnamiare.pl/de
 - Ukraiński (dla diaspory rodzącej w Polsce): https://porodnamiare.pl/ua
 

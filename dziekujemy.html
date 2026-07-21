@@ -1,11 +1,75 @@
-<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dziękujemy za zakup | PoródNaMiarę.pl</title><meta name="robots" content="noindex">
-<link rel="icon" type="image/png" href="/favicon.png"><script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
-<!-- Analityka Plausible (RODO-friendly, bez cookies) — aktywuj po zalozeniu konta na plausible.io i wpisaniu domeny -->
-<!-- <script defer data-domain="porodnamiare.pl" src="https://plausible.io/js/script.js"></script> -->
-</head><body style="font-family:Figtree,sans-serif;background:#FAF5EF;color:#3A3341" class="min-h-screen flex items-center justify-center p-6">
-<div class="max-w-md text-center"><img src="/img/logo-mark.png" alt="" width="90" class="mx-auto mb-6">
-<h1 style="font-family:Fraunces,serif;color:#3E3852" class="text-3xl font-semibold mb-4">Dziękujemy! 💗</h1>
-<p class="mb-8 leading-relaxed">Płatność przyjęta. Twój spersonalizowany plan porodu przygotujemy i wyślemy na podany e-mail w ciągu 24 godzin. Jeśli nie wkleiłaś/-eś podsumowania planu przy płatności — po prostu odpisz na e-mail z potwierdzeniem, załączając skopiowane podsumowanie z kreatora.</p>
-<a href="/" class="inline-block text-white font-semibold px-7 py-3.5 rounded-full" style="background:#B4636F">Wróć na stronę</a></div></body></html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dziękujemy za zakup — Twój plan porodu | PoródNaMiarę.pl</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#FAF5EF">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>tailwind.config={theme:{extend:{colors:{ink:'#3A3341',deep:'#3E3852',teal:'#A0525E',tealsoft:'#F7E9E7',sand:'#FAF5EF',sanddark:'#EDDFD3'},fontFamily:{display:['Fraunces','serif'],body:['Figtree','sans-serif']}}}}</script>
+<style>
+img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
+:focus-visible{outline:3px solid #A0525E;outline-offset:2px}
+@media (prefers-contrast: more){body{background:#fff;color:#1a1720}}
+</style>
+</head>
+<body class="font-body bg-sand text-ink antialiased">
+<main id="main" class="max-w-2xl mx-auto px-4 py-14">
+
+  <div class="text-center mb-10">
+    <div class="text-5xl mb-4" aria-hidden="true">&#128151;</div>
+    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep mb-3">Dziękujemy za zakup!</h1>
+    <p class="text-lg text-ink/80">Wasz plan porodu jest już w drodze.</p>
+  </div>
+
+  <section class="bg-white border-2 border-teal rounded-3xl p-6 md:p-8 mb-5">
+    <div class="flex items-start gap-4">
+      <span class="flex-shrink-0 w-9 h-9 rounded-full bg-teal text-white font-bold flex items-center justify-center">1</span>
+      <div>
+        <h2 class="font-display text-xl font-semibold text-deep mb-2">Sprawdź swoją skrzynkę e-mail</h2>
+        <p class="text-[15px] text-ink/80 leading-relaxed mb-3">Link do pobrania plików wysłaliśmy na adres podany przy płatności. Wiadomość przychodzi zwykle w ciągu minuty od zakupu.</p>
+        <p class="text-sm text-ink/70 bg-tealsoft rounded-xl px-4 py-3">Nie widzisz wiadomości? Sprawdź folder <strong>Spam</strong> lub <strong>Oferty</strong>. Jeśli po 15 minutach nadal jej nie ma — napisz na <a href="mailto:kontakt@porodnamiare.pl" class="text-teal font-semibold underline">kontakt@porodnamiare.pl</a>, wyślemy pliki ręcznie tego samego dnia.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border border-sanddark rounded-3xl p-6 md:p-8 mb-5">
+    <div class="flex items-start gap-4">
+      <span class="flex-shrink-0 w-9 h-9 rounded-full bg-deep text-white font-bold flex items-center justify-center">2</span>
+      <div>
+        <h2 class="font-display text-xl font-semibold text-deep mb-2">Prześlij swoje wybory z kreatora</h2>
+        <p class="text-[15px] text-ink/80 leading-relaxed mb-3">Jeśli kupiliście <strong>spersonalizowany plan porodu</strong>, przygotujemy dokument dokładnie według Waszych odpowiedzi z kreatora. Odpiszcie na wiadomość z PayHip albo napiszcie do nas — podajcie imiona, termin porodu i płeć dziecka.</p>
+        <a href="mailto:kontakt@porodnamiare.pl?subject=Personalizacja%20planu%20porodu" class="inline-block bg-deep text-white font-semibold px-6 py-3 rounded-full hover:bg-teal transition-colors text-sm">Napisz do nas &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-tealsoft rounded-3xl p-6 md:p-8 mb-8">
+    <div class="flex items-start gap-4">
+      <span class="flex-shrink-0 w-9 h-9 rounded-full bg-teal text-white font-bold flex items-center justify-center">3</span>
+      <div>
+        <h2 class="font-display text-xl font-semibold text-deep mb-2">Wydrukujcie w dwóch egzemplarzach</h2>
+        <p class="text-[15px] text-ink/80 leading-relaxed">Jeden zostaje w torbie do szpitala, drugi wręczacie położnej przy przyjęciu. Warto też omówić plan wcześniej z położną prowadzącą lub na zajęciach szkoły rodzenia.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-white border border-sanddark rounded-2xl p-6 text-center mb-8">
+    <p class="font-display text-lg font-semibold text-deep mb-2">Gwarancja spokojnej głowy</p>
+    <p class="text-[15px] text-ink/80">Macie 30 dni na kontakt, jeśli plik nie dotarł lub coś wymaga poprawki — reagujemy tego samego dnia.</p>
+  </div>
+
+  <div class="text-center">
+    <a href="/" class="inline-block border border-deep/30 font-semibold px-7 py-3.5 rounded-full hover:bg-sanddark transition-colors">&larr; Wróć na stronę główną</a>
+    <p class="mt-6 text-sm text-ink/70">Trzymamy kciuki za Wasz poród &#129293;<br><span class="font-display text-teal">— Michał, tata i założyciel</span></p>
+  </div>
+
+</main>
+<footer class="bg-deep text-sand/70 py-8 text-center text-sm">
+  <p>&copy; 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a></p>
+</footer>
+</body>
+</html>
