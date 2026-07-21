@@ -78,6 +78,14 @@ tailwind.config = {
   input[type=checkbox], input[type=radio] { accent-color: #B4636F; width: 1.05rem; height: 1.05rem; }
   :focus-visible { outline: 3px solid #A0525E; outline-offset: 2px; }
   .gender-opt:focus-within { outline: 3px solid #A0525E; outline-offset: 2px; }
+  /* Menu desktop — animowane podkreslenie */
+  .nav-link::after { content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px;
+    background:#A0525E; transform:scaleX(0); transform-origin:right; transition:transform .28s ease; border-radius:2px; }
+  .nav-link:hover::after, .nav-link:focus-visible::after { transform:scaleX(1); transform-origin:left; }
+  /* Menu mobilne — panel wysuwany */
+  #mobileMenu { transition: opacity .25s ease, transform .25s ease; }
+  #mobileMenu.is-closed { opacity:0; transform:translateY(-8px); pointer-events:none; }
+  #menuBtn svg path { transition: d .2s ease; }
   /* Ochrona podglądu przed kopiowaniem i screenami */
   #planPreview { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; position: relative; overflow: hidden; }
   #planPreview::after { content: "PODGLĄD · PoródNaMiarę.pl · PODGLĄD"; position: absolute; inset: 0;
@@ -114,13 +122,14 @@ tailwind.config = {
   <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
     <a href="#main" class="flex items-center gap-2 font-display text-xl text-deep font-semibold"><img src="img/logo-mark.png" alt="" width="36" height="34" class="w-9 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
     <div class="hidden md:flex items-center gap-7 text-sm font-medium">
-      <a href="#dlaczego" data-i18n="navWhy" class="hover:text-teal">Dlaczego my</a>
-      <a href="#jak" data-i18n="navHow" class="hover:text-teal">Jak to działa</a>
-      <a href="#kreator" data-i18n="navCreator" class="hover:text-teal">Kreator planu</a>
-      <a href="#cennik" data-i18n="navPricing" class="hover:text-teal">Cennik</a>
-      <a href="#blog" data-i18n="navBlog" class="hover:text-teal">Wiedza</a>
-      <a href="/o-michale" class="hover:text-teal">O Michale</a>
-      <a href="#faq" class="hover:text-teal">FAQ</a>
+      <a href="#dlaczego" data-i18n="navWhy" class="nav-link relative py-1 hover:text-teal transition-colors">Dlaczego my</a>
+      <a href="#jak" data-i18n="navHow" class="nav-link relative py-1 hover:text-teal transition-colors">Jak to działa</a>
+      <a href="#kreator" data-i18n="navCreator" class="nav-link relative py-1 hover:text-teal transition-colors">Kreator planu</a>
+      <a href="#cennik" data-i18n="navPricing" class="nav-link relative py-1 hover:text-teal transition-colors">Cennik</a>
+      <a href="#krew-pepowinowa" class="nav-link relative py-1 hover:text-teal transition-colors">Krew pępowinowa</a>
+      <a href="#blog" data-i18n="navBlog" class="nav-link relative py-1 hover:text-teal transition-colors">Wiedza</a>
+      <a href="/o-michale" class="nav-link relative py-1 hover:text-teal transition-colors">O Michale</a>
+      <a href="#faq" class="nav-link relative py-1 hover:text-teal transition-colors">FAQ</a>
     </div>
     <div class="flex items-center gap-2">
       <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
@@ -135,14 +144,38 @@ tailwind.config = {
       </button>
     </div>
   </nav>
-  <div id="mobileMenu" class="hidden md:hidden border-t border-sanddark bg-sand px-4 py-4 space-y-1 text-[15px] font-medium">
-    <a href="#dlaczego" data-i18n="navWhy" class="block py-2.5 border-b border-sanddark/60">Dlaczego my</a>
-    <a href="#jak" data-i18n="navHow" class="block py-2.5 border-b border-sanddark/60">Jak to działa</a>
-    <a href="#kreator" data-i18n="navCreator" class="block py-2.5 border-b border-sanddark/60">Kreator planu</a>
-    <a href="#cennik" data-i18n="navPricing" class="block py-2.5 border-b border-sanddark/60">Cennik</a>
-    <a href="#blog" data-i18n="navBlog" class="block py-2.5 border-b border-sanddark/60">Wiedza</a>
-    <a href="/o-michale" class="block py-2.5 border-b border-sanddark/60">O Michale</a>
-    <a href="#faq" class="block py-2.5">FAQ</a>
+  <div id="mobileMenu" class="hidden md:hidden border-t border-sanddark bg-sand/98 backdrop-blur px-4 py-5">
+    <nav class="space-y-1 text-[16px] font-medium" aria-label="Nawigacja mobilna">
+      <a href="#dlaczego" data-i18n="navWhy" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">💗</span>Dlaczego my</span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#jak" data-i18n="navHow" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">🧭</span>Jak to działa</span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#kreator" data-i18n="navCreator" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl bg-tealsoft/60 hover:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">📋</span><span class="font-semibold text-deep">Kreator planu</span></span>
+        <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#cennik" data-i18n="navPricing" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">🛍️</span>Cennik</span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#blog" data-i18n="navBlog" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">📖</span>Wiedza</span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/o-michale" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">👨‍👧</span>O Michale</span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#faq" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">❓</span>FAQ</span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+    <a href="#kreator" class="mob-link mt-4 block text-center bg-teal text-white font-semibold py-3.5 rounded-full hover:bg-deep transition-colors">Stwórz swój plan porodu →</a>
   </div>
 </header>
 
@@ -218,52 +251,101 @@ tailwind.config = {
 </div>
 
 <!-- ===== DLACZEGO MY ===== -->
-<section id="dlaczego" class="bg-deep text-sand py-16 md:py-24">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 data-i18n="whyH" class="font-display text-3xl md:text-4xl font-semibold mb-3">Dlaczego PoródNaMiarę.pl?</h2>
-    <p class="max-w-2xl text-sand/80 mb-12">W Polsce dostaniesz darmowy szablon urzędowy. Za granicą — konsultację z doulą za kilkaset euro. My wypełniamy lukę pomiędzy: samodzielny, interaktywny produkt cyfrowy oparty na dowodach naukowych.</p>
-    <div class="grid md:grid-cols-3 gap-6">
-      <article class="bg-white/5 border border-white/10 rounded-2xl p-7">
-        <h3 class="font-display text-xl font-semibold mb-3 text-white">Perspektywa taty</h3>
-        <p class="text-sand/80 leading-relaxed">Większość materiałów pomija partnera. U nas tata jest aktywnym uczestnikiem porodu: wie, o co pytać, czego pilnować i jak realnie wspierać mamę i dziecko.</p>
+<section id="dlaczego" class="relative bg-deep text-sand py-16 md:py-24 overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.07] pointer-events-none" aria-hidden="true" style="background-image:radial-gradient(circle at 15% 20%, #A0525E 0, transparent 45%), radial-gradient(circle at 85% 75%, #3E7E76 0, transparent 45%)"></div>
+  <div class="relative max-w-6xl mx-auto px-4">
+    <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Dlaczego my</p>
+    <h2 data-i18n="whyH" class="font-display text-3xl md:text-4xl font-semibold mb-4">Nie szablon. Nie korporacja.<br class="hidden sm:block"> Narzędzie zrobione przez rodzica.</h2>
+    <p class="max-w-2xl text-sand/80 mb-12 leading-relaxed">W Polsce dostaniesz darmowy szablon urzędowy. Za granicą — konsultację z doulą za kilkaset euro. Wypełniamy lukę pomiędzy: samodzielny, interaktywny produkt oparty na aktualnym standardzie opieki.</p>
+
+    <div class="grid md:grid-cols-3 gap-5 mb-12">
+      <article class="group bg-white/[0.06] border border-white/10 rounded-3xl p-7 hover:bg-white/[0.10] hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 rounded-2xl bg-teal/20 border border-teal/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
+          <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.36-1.86M17 20H7m10 0v-2c0-.66-.13-1.3-.36-1.86M7 20H2v-2a3 3 0 015.36-1.86M7 20v-2c0-.66.13-1.3.36-1.86m0 0a5 5 0 019.28 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold mb-2.5 text-white">Perspektywa taty</h3>
+        <p class="text-sand/80 leading-relaxed text-[15px]">Większość materiałów pomija partnera. U nas tata jest aktywnym uczestnikiem: wie, o co pytać, czego pilnować i jak realnie wspierać mamę i dziecko.</p>
       </article>
-      <article class="bg-white/5 border border-white/10 rounded-2xl p-7">
-        <h3 class="font-display text-xl font-semibold mb-3 text-white">Bezpieczeństwo noworodka</h3>
-        <p class="text-sand/80 leading-relaxed">Najbardziej rozbudowana sekcja planu dotyczy pierwszych godzin życia dziecka: kontakt skóra do skóry, opóźnione odpępnienie, laktacja, profilaktyka i badania przesiewowe.</p>
+
+      <article class="group bg-white/[0.06] border border-white/10 rounded-3xl p-7 hover:bg-white/[0.10] hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 rounded-2xl bg-teal/20 border border-teal/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
+          <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold mb-2.5 text-white">Bezpieczeństwo noworodka</h3>
+        <p class="text-sand/80 leading-relaxed text-[15px]">Najbardziej rozbudowana część planu dotyczy pierwszych godzin życia: kontakt skóra do skóry, opóźnione odpępnienie, laktacja, profilaktyka i badania przesiewowe.</p>
       </article>
-      <article class="bg-white/5 border border-white/10 rounded-2xl p-7">
-        <h3 class="font-display text-xl font-semibold mb-3 text-white">Evidence-based</h3>
-        <p class="text-sand/80 leading-relaxed">Każda opcja w kreatorze opiera się na aktualnych rekomendacjach i standardach opieki okołoporodowej — w tym nowoczesnych metodach analgezji, jak remifentanyl (PCA).</p>
+
+      <article class="group bg-white/[0.06] border border-white/10 rounded-3xl p-7 hover:bg-white/[0.10] hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 rounded-2xl bg-teal/20 border border-teal/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
+          <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.62 1.38a10 10 0 11-3.5-6.1"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold mb-2.5 text-white">Zgodny ze standardem</h3>
+        <p class="text-sand/80 leading-relaxed text-[15px]">Każda opcja opiera się na Standardzie Opieki Okołoporodowej (Dz.U. 2025 poz. 1525) i aktualnych rekomendacjach — w tym nowoczesnych metodach analgezji jak remifentanyl PCA.</p>
       </article>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-10">
+      <div class="text-center"><p class="font-display text-3xl md:text-4xl font-semibold text-white">13</p><p class="text-xs text-sand/70 mt-1 uppercase tracking-wider">kroków kreatora</p></div>
+      <div class="text-center"><p class="font-display text-3xl md:text-4xl font-semibold text-white">80+</p><p class="text-xs text-sand/70 mt-1 uppercase tracking-wider">gotowych preferencji</p></div>
+      <div class="text-center"><p class="font-display text-3xl md:text-4xl font-semibold text-white">2 h</p><p class="text-xs text-sand/70 mt-1 uppercase tracking-wider">kontaktu skóra do skóry</p></div>
+      <div class="text-center"><p class="font-display text-3xl md:text-4xl font-semibold text-white">4</p><p class="text-xs text-sand/70 mt-1 uppercase tracking-wider">wersje językowe</p></div>
     </div>
   </div>
 </section>
 
 <!-- ===== JAK TO DZIAŁA ===== -->
-<section id="jak" class="max-w-6xl mx-auto px-4 py-16 md:py-24">
-  <h2 data-i18n="howH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-12">Jak to działa — 4 proste kroki</h2>
-  <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-    <li class="bg-white rounded-2xl p-7 border border-sanddark">
-      <span class="font-display text-teal text-3xl font-semibold">1</span>
-      <h3 class="font-semibold mt-3 mb-2">Wybierasz opcje</h3>
-      <p class="text-sm leading-relaxed text-ink/80">Przechodzisz przez kreator: znieczulenie, przebieg porodu, opieka nad noworodkiem, szczepienia.</p>
-    </li>
-    <li class="bg-white rounded-2xl p-7 border border-sanddark">
-      <span class="font-display text-teal text-3xl font-semibold">2</span>
-      <h3 class="font-semibold mt-3 mb-2">Generujesz podgląd</h3>
-      <p class="text-sm leading-relaxed text-ink/80">Jednym kliknięciem widzisz sformatowany, czytelny plan — dokładnie taki, jaki trafi do szpitala.</p>
-    </li>
-    <li class="bg-white rounded-2xl p-7 border border-sanddark">
-      <span class="font-display text-teal text-3xl font-semibold">3</span>
-      <h3 class="font-semibold mt-3 mb-2">Kupujesz plan</h3>
-      <p class="text-sm leading-relaxed text-ink/80">Wybierasz pakiet i otrzymujesz profesjonalny dokument PDF gotowy do druku i rozmowy z lekarzem.</p>
-    </li>
-    <li class="bg-white rounded-2xl p-7 border border-sanddark">
-      <span class="font-display text-teal text-3xl font-semibold">4</span>
-      <h3 class="font-semibold mt-3 mb-2">Idziecie przygotowani</h3>
-      <p class="text-sm leading-relaxed text-ink/80">Zabieracie plan do szpitala. Personel wie, czego chcecie — Wy wiecie, czego pilnować.</p>
-    </li>
-  </ol>
+<section id="jak" class="bg-gradient-to-b from-sand to-tealsoft/40 py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Jak to działa</p>
+      <h2 data-i18n="howH" class="font-display text-3xl md:text-4xl font-semibold text-deep">Od pytania do gotowego dokumentu — 4 kroki</h2>
+      <p class="text-ink/70 mt-3 max-w-xl mx-auto">Cały proces zajmuje kilkanaście minut. Postęp zapisuje się automatycznie, więc możesz wrócić w każdej chwili.</p>
+    </div>
+
+    <ol class="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="hidden lg:block absolute top-[52px] left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-teal/20 via-teal/40 to-teal/20" aria-hidden="true"></div>
+
+      <li class="relative bg-white rounded-3xl p-7 border border-sanddark hover:border-teal/40 hover:shadow-lg hover:shadow-teal/5 hover:-translate-y-1 transition-all duration-300">
+        <div class="relative w-14 h-14 rounded-2xl bg-teal text-white flex items-center justify-center mb-5 shadow-md shadow-teal/25">
+          <span class="font-display text-2xl font-semibold">1</span>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2">Wypełniasz kreator</h3>
+        <p class="text-[15px] leading-relaxed text-ink/80">Przechodzisz przez 13 kroków: warunki porodu, znieczulenie, opieka nad noworodkiem, szczepienia, połóg.</p>
+      </li>
+
+      <li class="relative bg-white rounded-3xl p-7 border border-sanddark hover:border-teal/40 hover:shadow-lg hover:shadow-teal/5 hover:-translate-y-1 transition-all duration-300">
+        <div class="relative w-14 h-14 rounded-2xl bg-teal text-white flex items-center justify-center mb-5 shadow-md shadow-teal/25">
+          <span class="font-display text-2xl font-semibold">2</span>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2">Widzisz podgląd</h3>
+        <p class="text-[15px] leading-relaxed text-ink/80">Plan tworzy się na żywo przy każdym kliknięciu. Na końcu sprawdzasz podsumowanie i możesz poprawić każdą sekcję.</p>
+      </li>
+
+      <li class="relative bg-white rounded-3xl p-7 border border-sanddark hover:border-teal/40 hover:shadow-lg hover:shadow-teal/5 hover:-translate-y-1 transition-all duration-300">
+        <div class="relative w-14 h-14 rounded-2xl bg-teal text-white flex items-center justify-center mb-5 shadow-md shadow-teal/25">
+          <span class="font-display text-2xl font-semibold">3</span>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2">Kupujesz pakiet</h3>
+        <p class="text-[15px] leading-relaxed text-ink/80">Płacisz BLIK-iem lub kartą przez PayHip. Zaraz po płatności dostajesz link do pobrania na e-mail.</p>
+      </li>
+
+      <li class="relative bg-white rounded-3xl p-7 border border-sanddark hover:border-teal/40 hover:shadow-lg hover:shadow-teal/5 hover:-translate-y-1 transition-all duration-300">
+        <div class="relative w-14 h-14 rounded-2xl bg-deep text-white flex items-center justify-center mb-5 shadow-md shadow-deep/25">
+          <span class="font-display text-2xl font-semibold">4</span>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2">Idziecie przygotowani</h3>
+        <p class="text-[15px] leading-relaxed text-ink/80">Drukujecie dwa egzemplarze: jeden do torby, drugi dla położnej. Personel wie, czego chcecie — Wy wiecie, czego pilnować.</p>
+      </li>
+    </ol>
+
+    <div class="text-center mt-12">
+      <a href="#kreator" class="inline-flex items-center gap-2 bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors">
+        Zacznij tworzyć swój plan
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      </a>
+      <p class="text-xs text-ink/60 mt-3">Darmowy podgląd · płatność dopiero przy pobraniu</p>
+    </div>
+  </div>
 </section>
 
 <!-- ===== KREATOR PLANU PORODU (wielokrokowy) ===== -->
@@ -582,6 +664,38 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- ===== KREW PĘPOWINOWA / PBKM ===== -->
+<section id="krew-pepowinowa" class="bg-white py-16 md:py-24 border-y border-sanddark">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Decyzja na jeden dzień w życiu</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-deep mb-4">Krew pępowinowa — jedyna szansa jest w dniu porodu</h2>
+        <p class="text-[17px] leading-relaxed text-ink/80 mb-4">Po odpępnieniu w pępowinie i łożysku zostaje krew bogata w komórki macierzyste. Można ją pobrać tylko raz w życiu — w ciągu kilku minut po narodzinach. Później ten materiał jest bezpowrotnie utracony.</p>
+        <p class="text-[15px] leading-relaxed text-ink/70 mb-6">Pobranie jest nieinwazyjne dla mamy i dziecka, nie zakłóca przebiegu porodu i jest możliwe także przy cięciu cesarskim. Nie wymaga skracania kontaktu skóra do skóry.</p>
+        <div class="bg-tealsoft rounded-2xl p-5 mb-6">
+          <p class="font-semibold text-deep mb-1.5">Nasze stanowisko: dobro dziecka jest nadrzędne</p>
+          <p class="text-[15px] leading-relaxed text-ink/80">W planie porodu zapisujemy wprost, że <strong>opóźnione odpępnienie ma pierwszeństwo</strong> przed objętością pobranej krwi. Jeśli stan dziecka lub mamy będzie tego wymagał — rezygnujemy z pobrania.</p>
+        </div>
+        <a href="/blog/bankowanie-krwi-pepowinowej-pbkm" class="inline-flex items-center gap-2 bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">
+          Przeczytaj przewodnik dla rodziców
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+      </div>
+      <div class="bg-sand rounded-3xl border border-sanddark p-7">
+        <p class="font-display text-lg font-semibold text-deep mb-5">Co warto wiedzieć przed porodem</p>
+        <ul class="space-y-4 text-[15px]">
+          <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full bg-teal/15 text-teal font-bold text-sm flex items-center justify-center">1</span><span><strong class="text-deep">Umowę podpisuje się w ciąży</strong><br><span class="text-ink/75">Zestaw pobraniowy przyjeżdża pocztą — zabieracie go ze sobą do szpitala.</span></span></li>
+          <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full bg-teal/15 text-teal font-bold text-sm flex items-center justify-center">2</span><span><strong class="text-deep">Poinformujcie personel przy przyjęciu</strong><br><span class="text-ink/75">Przekazujecie zestaw i dokumentację położnej — najlepiej mieć to zapisane w planie porodu.</span></span></li>
+          <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full bg-teal/15 text-teal font-bold text-sm flex items-center justify-center">3</span><span><strong class="text-deep">Pobranie trwa kilka minut</strong><br><span class="text-ink/75">Krew pobiera się z żyły pępowinowej już po odpępnieniu dziecka.</span></span></li>
+          <li class="flex gap-3"><span class="flex-shrink-0 w-7 h-7 rounded-full bg-teal/15 text-teal font-bold text-sm flex items-center justify-center">4</span><span><strong class="text-deep">Kurier odbiera materiał</strong><br><span class="text-ink/75">Wy zgłaszacie odbiór — transport i formalności są po stronie banku.</span></span></li>
+        </ul>
+        <p class="text-xs text-ink/60 mt-6 pt-4 border-t border-sanddark">Nie jesteśmy powiązani z żadnym bankiem komórek macierzystych ani nie otrzymujemy prowizji. Piszemy o tym, bo sami z tego korzystamy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== SKLEP / CENNIK ===== -->
 <section id="cennik" class="py-16 md:py-24" style="background:linear-gradient(180deg,#FAF5EF 0%,#F7E9E7 100%)">
 <div class="max-w-6xl mx-auto px-4">
@@ -826,6 +940,12 @@ tailwind.config = {
   <div class="max-w-6xl mx-auto px-4">
     <h2 data-i18n="blogH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-12">Wiedza dla świadomych rodziców</h2>
     <div class="grid md:grid-cols-3 gap-6">
+      <a href="/blog/bankowanie-krwi-pepowinowej-pbkm" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
+        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Decyzje okołoporodowe</p>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Bankowanie krwi pępowinowej — przewodnik dla rodziców</h3>
+        <p class="text-[15px] text-ink/75 leading-relaxed">Jedyna szansa jest w dniu porodu. Jak wygląda pobranie, ile kosztuje i dlaczego opóźnione odpępnienie ma pierwszeństwo.</p>
+      </a>
+
       <article class="bg-white rounded-2xl overflow-hidden border border-sanddark flex flex-col">
         <!-- ZDJĘCIE: "newborn baby hand holding parent finger, soft light" -->
         <img src="img/noworodek.webp" alt="Dłoń noworodka trzymająca palec rodzica" width="600" height="400" loading="lazy" decoding="async" class="h-44 w-full object-cover">
@@ -1378,11 +1498,23 @@ tailwind.config = {
   // ===== Menu mobilne =====
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  function setMenuIcon(open){
+    const p = menuBtn.querySelector('path');
+    if(p) p.setAttribute('d', open ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16');
+  }
   menuBtn.addEventListener('click', () => {
     const open = mobileMenu.classList.toggle('hidden') === false;
+    setMenuIcon(open);
     menuBtn.setAttribute('aria-expanded', open);
   });
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false'); setMenuIcon(false);
+  }));
+  document.addEventListener('keydown', e => {
+    if(e.key==='Escape' && !mobileMenu.classList.contains('hidden')){
+      mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false'); setMenuIcon(false); menuBtn.focus();
+    }
+  });
 
   // ===== Muzyka projektu (plik MP3 + fallback WebAudio) =====
   let audioEl = null, playing = false, audioCtx = null, musicTimer = null, ni = 0;
@@ -1414,20 +1546,34 @@ tailwind.config = {
     musicTimer = setInterval(()=>{ pluck(NOTES[ni % NOTES.length]); ni++; }, 420);
     playing = true; setMusicIcons('⏸');
   }
+  function fadeTo(target, ms, done){
+    if(!audioEl){ if(done) done(); return; }
+    const steps=14, start=audioEl.volume, diff=target-start;
+    let i=0;
+    const t=setInterval(()=>{
+      i++; audioEl.volume = Math.max(0, Math.min(1, start + diff*(i/steps)));
+      if(i>=steps){ clearInterval(t); if(done) done(); }
+    }, ms/steps);
+  }
   function stopAll(){
-    if(audioEl){ audioEl.pause(); }
     if(musicTimer){ clearInterval(musicTimer); musicTimer=null; }
-    playing=false; setMusicIcons('🎵');
+    if(audioEl && !audioEl.paused){ fadeTo(0, 420, ()=>{ audioEl.pause(); }); }
+    playing=false; setMusicIcons('\u266A');
   }
   function toggleMusic(){
     if(playing){ stopAll(); return; }
     if(!audioEl){
       audioEl = new Audio(MUSIC_SRC);
-      audioEl.loop = true; audioEl.volume = 0.55; audioEl.preload = 'none';
-      audioEl.addEventListener('ended', stopAll);
+      audioEl.loop = true; audioEl.preload = 'none';
+      audioEl.setAttribute('playsinline','');   // iOS: bez pelnego ekranu
+      audioEl.addEventListener('error', ()=>{ if(playing) startFallback(); });
     }
-    audioEl.play().then(()=>{ playing=true; setMusicIcons('⏸'); })
-      .catch(()=>{ startFallback(); });   // brak pliku lub blokada autoplay -> melodia zapasowa
+    audioEl.volume = 0;
+    const p = audioEl.play();
+    if(p && p.then){
+      p.then(()=>{ playing=true; setMusicIcons('\u23F8'); fadeTo(0.55, 700); })
+       .catch(()=>{ startFallback(); });
+    } else { playing=true; setMusicIcons('\u23F8'); fadeTo(0.55, 700); }
   }
   ['musicBtn','musicBtnDesktop'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.addEventListener('click', toggleMusic);
