@@ -119,32 +119,32 @@ tailwind.config = {
 
 <!-- ===== NAVBAR ===== -->
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
-  <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
-    <a href="#main" class="flex items-center gap-2 font-display text-xl text-deep font-semibold"><img src="img/logo-mark.png" alt="" width="36" height="34" class="w-9 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+  <nav class="max-w-6xl mx-auto flex items-center gap-4 px-4 py-3" aria-label="Nawigacja główna">
+    <a href="#main" class="flex items-center gap-2 font-display text-lg xl:text-xl text-deep font-semibold flex-shrink-0 whitespace-nowrap"><img src="img/logo-mark.png" alt="" width="36" height="34" class="w-8 xl:w-9 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
+
+    <div class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium mx-auto whitespace-nowrap">
       <a href="#dlaczego" data-i18n="navWhy" class="nav-link relative py-1 hover:text-teal transition-colors">Dlaczego my</a>
       <a href="#jak" data-i18n="navHow" class="nav-link relative py-1 hover:text-teal transition-colors">Jak to działa</a>
       <a href="#kreator" data-i18n="navCreator" class="nav-link relative py-1 hover:text-teal transition-colors">Kreator planu</a>
       <a href="#cennik" data-i18n="navPricing" class="nav-link relative py-1 hover:text-teal transition-colors">Cennik</a>
-      <a href="#krew-pepowinowa" class="nav-link relative py-1 hover:text-teal transition-colors">Krew pępowinowa</a>
-      <a href="#blog" data-i18n="navBlog" class="nav-link relative py-1 hover:text-teal transition-colors">Wiedza</a>
-      <a href="/o-michale" class="nav-link relative py-1 hover:text-teal transition-colors">O Michale</a>
-      <a href="#faq" class="nav-link relative py-1 hover:text-teal transition-colors">FAQ</a>
+      <a href="/wiedza" data-i18n="navBlog" class="nav-link relative py-1 hover:text-teal transition-colors">Wiedza</a>
+      <a href="/o-michale" class="nav-link relative py-1 hover:text-teal transition-colors hidden xl:inline-block">O Michale</a>
     </div>
-    <div class="flex items-center gap-2">
+
+    <div class="flex items-center gap-2 ml-auto lg:ml-0 flex-shrink-0">
       <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
         <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option>
       </select>
-      <button id="musicBtnDesktop" aria-pressed="false" aria-label="Odtwórz muzykę projektu" title="Muzyka PoródNaMiarę" class="hidden md:inline-flex items-center justify-center w-9 h-9 rounded-full border border-deep/25 hover:bg-tealsoft transition-colors">
+      <button id="musicBtnDesktop" aria-pressed="false" aria-label="Odtwórz muzykę projektu" title="Muzyka PoródNaMiarę" class="hidden lg:inline-flex items-center justify-center w-9 h-9 rounded-full border border-deep/25 hover:bg-tealsoft transition-colors flex-shrink-0">
         <span id="musicIconDesktop" class="text-lg leading-none select-none">🎵</span>
       </button>
-      <a href="#kreator" data-i18n="ctaTop" class="hidden sm:inline-block bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors">Stwórz plan</a>
-      <button id="menuBtn" class="md:hidden p-2 -mr-1" aria-label="Menu" aria-expanded="false">
+      <a href="#kreator" data-i18n="ctaTop" class="hidden sm:inline-block bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors whitespace-nowrap">Stwórz plan</a>
+      <button id="menuBtn" class="lg:hidden p-2 -mr-1" aria-label="Menu" aria-expanded="false">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3E3852" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
   </nav>
-  <div id="mobileMenu" class="hidden md:hidden border-t border-sanddark bg-sand/98 backdrop-blur px-4 py-5">
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-sanddark bg-sand/98 backdrop-blur px-4 py-5">
     <nav class="space-y-1 text-[16px] font-medium" aria-label="Nawigacja mobilna">
       <a href="#dlaczego" data-i18n="navWhy" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
         <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">💗</span>Dlaczego my</span>
@@ -162,7 +162,7 @@ tailwind.config = {
         <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">🛍️</span>Cennik</span>
         <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       </a>
-      <a href="#blog" data-i18n="navBlog" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+      <a href="/wiedza" data-i18n="navBlog" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
         <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">📖</span>Wiedza</span>
         <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       </a>
@@ -677,8 +677,8 @@ tailwind.config = {
           <p class="font-semibold text-deep mb-1.5">Nasze stanowisko: dobro dziecka jest nadrzędne</p>
           <p class="text-[15px] leading-relaxed text-ink/80">W planie porodu zapisujemy wprost, że <strong>opóźnione odpępnienie ma pierwszeństwo</strong> przed objętością pobranej krwi. Jeśli stan dziecka lub mamy będzie tego wymagał — rezygnujemy z pobrania.</p>
         </div>
-        <a href="/blog/bankowanie-krwi-pepowinowej-pbkm" class="inline-flex items-center gap-2 bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">
-          Przeczytaj przewodnik dla rodziców
+        <a href="/blog/krew-pepowinowa-banki-porownanie" class="inline-flex items-center gap-2 bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">
+          Porównaj banki i pobierz listę pytań
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </div>
@@ -940,7 +940,25 @@ tailwind.config = {
   <div class="max-w-6xl mx-auto px-4">
     <h2 data-i18n="blogH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-12">Wiedza dla świadomych rodziców</h2>
     <div class="grid md:grid-cols-3 gap-6">
-      <a href="/blog/bankowanie-krwi-pepowinowej-pbkm" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
+      <a href="/blog/krew-pepowinowa-banki-porownanie" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
+        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Decyzje</p>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Krew pępowinowa — PBKM czy Progenis?</h3>
+        <p class="text-[15px] text-ink/75 leading-relaxed">Bezstronne porównanie banków, 12 pytań przed umową i wzór zapisu w planie porodu.</p>
+      </a>
+
+      <a href="/blog/dostepnosc-znieczulenia-w-szpitalu" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
+        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Wybór szpitala</p>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Czy w tym szpitalu dostanę znieczulenie?</h3>
+        <p class="text-[15px] text-ink/75 leading-relaxed">Jak zweryfikować placówkę przed porodem i o co pytać w izbie przyjęć.</p>
+      </a>
+
+      <a href="/blog/pierwsza-pomoc-noworodek-dziecko" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
+        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Bezpieczeństwo</p>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Pierwsza pomoc noworodkowi i małemu dziecku</h3>
+        <p class="text-[15px] text-ink/75 leading-relaxed">Zadławienie, brak oddechu, gorączka, drgawki, oparzenia. Procedury krok po kroku i sygnały alarmowe.</p>
+      </a>
+
+      <a href="/blog/krew-pepowinowa-banki-porownanie" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Decyzje okołoporodowe</p>
         <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Bankowanie krwi pępowinowej — przewodnik dla rodziców</h3>
         <p class="text-[15px] text-ink/75 leading-relaxed">Jedyna szansa jest w dniu porodu. Jak wygląda pobranie, ile kosztuje i dlaczego opóźnione odpępnienie ma pierwszeństwo.</p>
@@ -996,6 +1014,12 @@ tailwind.config = {
         <span class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
       </a>
     </div>
+  </div>
+  <div class="text-center mt-8">
+    <a href="/wiedza" class="inline-flex items-center gap-2 border-2 border-teal text-teal font-semibold px-8 py-3.5 rounded-full hover:bg-teal hover:text-white transition-colors">
+      Zobacz wszystkie artykuły
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+    </a>
   </div>
 </section>
 

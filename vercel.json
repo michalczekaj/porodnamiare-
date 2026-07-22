@@ -61,5 +61,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/blog/bankowanie-krwi-pepowinowej-pbkm",
+      "destination": "/blog/krew-pepowinowa-banki-porownanie",
+      "permanent": true
+    }
   ]
 }
