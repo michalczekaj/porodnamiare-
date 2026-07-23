@@ -573,6 +573,16 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Dokarmianie wyłącznie na wskazanie lekarskie, z preferencją odciągniętej siary zamiast mleka modyfikowanego" checked class="mt-0.5 flex-shrink-0"><span>Dokarmianie tylko na wskazanie (preferencja siary)</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Bez rutynowego podawania smoczka w okresie ustalania laktacji" checked class="mt-0.5 flex-shrink-0"><span>Bez rutynowego smoczka</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Rooming-in całodobowy — bez rozdzielania mamy i dziecka bez wskazań medycznych" checked class="mt-0.5 flex-shrink-0"><span>Rooming-in 24 h</span></label>
+            <div class="mt-4 mb-2 bg-tealsoft/60 rounded-2xl p-4">
+              <p class="font-semibold text-deep text-sm mb-1">Gdyby dziecko wymagało opieki neonatologicznej</p>
+              <p class="text-xs text-ink/70 mb-2">Scenariusz, o którym nikt nie chce myśleć — i właśnie dlatego warto zapisać go wcześniej. Dotyczy porodu przedwczesnego, adaptacji noworodka lub przeniesienia na oddział.</p>
+            </div>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="nicu" value="Jeśli dziecko wymaga opieki neonatologicznej — prosimy, aby ojciec towarzyszył dziecku przez cały czas, gdy matka nie może" class="mt-0.5 flex-shrink-0"><span>Ojciec towarzyszy dziecku, gdy mama nie może 👨‍👧</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="nicu" value="Prosimy o możliwie najwcześniejszy kontakt skóra do skóry (kangurowanie), gdy tylko stan dziecka na to pozwoli" class="mt-0.5 flex-shrink-0"><span>Kangurowanie najwcześniej, jak stan pozwoli</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="nicu" value="Prosimy o wsparcie w rozpoczęciu odciągania pokarmu w pierwszych godzinach po porodzie, nawet gdy dziecko nie może jeszcze jeść" class="mt-0.5 flex-shrink-0"><span>Odciąganie pokarmu od pierwszych godzin 🍼</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="nicu" value="Prosimy o karmienie dziecka mlekiem matki, a przy jego braku — mlekiem z banku mleka kobiecego, jeśli jest dostępne" class="mt-0.5 flex-shrink-0"><span>Priorytet: mleko mamy, następnie bank mleka</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="nicu" value="Prosimy o bieżące informowanie obojga rodziców o stanie dziecka i planie leczenia" class="mt-0.5 flex-shrink-0"><span>Bieżąca informacja dla obojga rodziców</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="nicu" value="Prosimy o umożliwienie rodzicom udziału w pielęgnacji dziecka w zakresie, na jaki pozwala jego stan" class="mt-0.5 flex-shrink-0"><span>Udział rodziców w pielęgnacji</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="cordblood" value="Bankowanie krwi pępowinowej — zestaw pobraniowy i dokumentację przywieziemy ze sobą i przekażemy przy przyjęciu" class="mt-0.5 flex-shrink-0"><span>🩸 Bankowanie krwi pępowinowej (zestaw przywieziemy)</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="cordblood" value="Priorytet: opóźnione odpępnienie ważniejsze niż objętość pobranej krwi; przy zagrożeniu rezygnujemy z pobrania" class="mt-0.5 flex-shrink-0"><span>Odpępnienie ważniejsze niż pobranie — dobro dziecka nadrzędne</span></label>
         </div>
@@ -634,6 +644,40 @@ tailwind.config = {
           </div>
         </div>
         <div id="summaryBox" class="space-y-4 text-[15px]"></div>
+
+        <!-- ===== STREFA ZAKUPU / POBRANIA ===== -->
+        <div id="buyZone" class="mt-6 bg-deep text-sand rounded-2xl p-6">
+          <p class="font-display text-xl font-semibold text-white mb-2">Wasz plan jest gotowy</p>
+          <p class="text-[15px] text-sand/85 leading-relaxed mb-5">Wybierzcie pakiet, a zaraz po płatności wrócicie tutaj i pobierzecie gotowy dokument PDF. Wasze odpowiedzi są zapisane w tej przeglądarce.</p>
+          <div class="grid sm:grid-cols-3 gap-3 mb-4">
+            <a href="https://payhip.com/b/TWOJ_LINK_PODSTAWOWY" class="pay-link block bg-white/10 border border-white/15 rounded-xl p-4 hover:bg-white/20 transition-colors">
+              <p class="font-semibold text-white text-sm">Podstawowy</p>
+              <p class="font-display text-2xl font-semibold text-white my-1">49 zł</p>
+              <p class="text-xs text-sand/75">Plan porodu PDF</p>
+            </a>
+            <a href="https://payhip.com/b/TWOJ_LINK_PREMIUM" class="pay-link block bg-teal border-2 border-teal rounded-xl p-4 hover:brightness-110 transition-all relative">
+              <span class="absolute -top-2 right-3 bg-white text-teal text-[10px] font-bold px-2 py-0.5 rounded-full">POLECANY</span>
+              <p class="font-semibold text-white text-sm">Premium</p>
+              <p class="font-display text-2xl font-semibold text-white my-1">99 zł</p>
+              <p class="text-xs text-white/90">Plan + 3 poradniki PDF</p>
+            </a>
+            <a href="https://payhip.com/b/PREMIUM_PLUS_LINK" class="pay-link block bg-white/10 border border-white/15 rounded-xl p-4 hover:bg-white/20 transition-colors">
+              <p class="font-semibold text-white text-sm">Premium+</p>
+              <p class="font-display text-2xl font-semibold text-white my-1">179 zł</p>
+              <p class="text-xs text-sand/75">Plan + 7 PDF + przegląd</p>
+            </a>
+          </div>
+          <p class="text-xs text-sand/70">💳 BLIK, karta, Apple&nbsp;Pay, Google&nbsp;Pay przez PayHip · dostawa natychmiast</p>
+        </div>
+
+        <div id="downloadZone" class="hidden mt-6 bg-white border-2 border-teal rounded-2xl p-6 text-center">
+          <p class="text-3xl mb-2" aria-hidden="true">🎉</p>
+          <p class="font-display text-xl font-semibold text-deep mb-2">Dziękujemy! Plan jest gotowy do pobrania</p>
+          <p class="text-[15px] text-ink/75 leading-relaxed mb-5">Kliknijcie poniżej, a dokument zapisze się na Waszym urządzeniu. Wydrukujcie dwa egzemplarze: jeden do torby, drugi dla położnej.</p>
+          <button type="button" id="dlBtn" class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors">Pobierz plan porodu (PDF)</button>
+          <p id="dlStatus" class="text-sm text-ink/70 mt-3" aria-live="polite"></p>
+        </div>
+
       </div>
         </div>
 
@@ -940,6 +984,12 @@ tailwind.config = {
   <div class="max-w-6xl mx-auto px-4">
     <h2 data-i18n="blogH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-12">Wiedza dla świadomych rodziców</h2>
     <div class="grid md:grid-cols-3 gap-6">
+      <a href="/blog/wczesniak-inkubator-oddzial-neonatologiczny" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
+        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Wcześniak</p>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Wcześniak, inkubator i oddział neonatologiczny</h3>
+        <p class="text-[15px] text-ink/75 leading-relaxed">Kompletny przewodnik: inkubator, sprzęt na OITN, kangurowanie, wiek skorygowany i urlop do 15 tygodni.</p>
+      </a>
+
       <a href="/blog/krew-pepowinowa-banki-porownanie" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Decyzje</p>
         <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Krew pępowinowa — PBKM czy Progenis?</h3>
@@ -1159,6 +1209,7 @@ tailwind.config = {
       ['csection','Cięcie cesarskie (gdyby było konieczne)'],
       ['newborn','Opieka nad noworodkiem'],
       ['cordblood','Krew pępowinowa (bankowanie)'],
+      ['nicu','Gdyby dziecko wymagało opieki neonatologicznej'],
       ['vitk','Profilaktyka witaminą K'],
       ['prophylaxis','Badania i profilaktyka noworodka'],
       ['vacc','Szczepienia noworodka'],
@@ -1289,7 +1340,7 @@ tailwind.config = {
     }
 
     // ===== Podsumowanie z możliwością edycji =====
-    const STEP_OF = {'hbsag+gbs':0,setting:1,people:2,prep:3,labor:4,pain:5,perineum:6,csection:7,newborn:8,cordblood:8,vitk:9,prophylaxis:9,vacc:10,postpartum:11};
+    const STEP_OF = {'hbsag+gbs':0,setting:1,people:2,prep:3,labor:4,pain:5,perineum:6,csection:7,newborn:8,cordblood:8,nicu:8,vitk:9,prophylaxis:9,vacc:10,postpartum:11};
     function renderSummary(){
       const box = document.getElementById('summaryBox');
       if(!box) return;
@@ -1327,22 +1378,31 @@ tailwind.config = {
       });
     }
 
-    // ===== Zapis i przywracanie postępu (sessionStorage) =====
+    // ===== Zapis i przywracanie postępu (localStorage, ważność 30 dni) =====
     const SKEY = 'pnm_creator_v1';
+    const TTL = 30*24*60*60*1000;
     function saveProgress(){
       try{
-        const data = {step:cur, fields:{}, checks:[]};
+        const data = {step:cur, ts:Date.now(), fields:{}, checks:[]};
         form.querySelectorAll('input[type="text"]').forEach(i=>{ if(i.value) data.fields[i.name]=i.value; });
         form.querySelectorAll('input[type="checkbox"]:checked, input[type="radio"]:checked').forEach(i=>{
           if(i.name) data.checks.push(i.name+'||'+i.value);
         });
-        sessionStorage.setItem(SKEY, JSON.stringify(data));
+        localStorage.setItem(SKEY, JSON.stringify(data));
       }catch(e){}
     }
-    function restoreProgress(){
+    function readProgress(){
       try{
-        const raw = sessionStorage.getItem(SKEY); if(!raw) return false;
+        const raw = localStorage.getItem(SKEY) || sessionStorage.getItem(SKEY);
+        if(!raw) return null;
         const d = JSON.parse(raw);
+        if(d.ts && Date.now()-d.ts > TTL){ localStorage.removeItem(SKEY); return null; }
+        return d;
+      }catch(e){ return null; }
+    }
+    function restoreProgress(){
+      const d = readProgress(); if(!d) return false;
+      try{
         Object.entries(d.fields||{}).forEach(([n,v])=>{ const el=form.querySelector('input[name="'+n+'"]'); if(el) el.value=v; });
         (d.checks||[]).forEach(pair=>{
           const [n,v] = pair.split('||');
@@ -1379,10 +1439,105 @@ tailwind.config = {
       // ostatni krok = podsumowanie; przedostatni pokazuje przycisk "Zobacz podsumowanie"
       nextBtn.classList.toggle('hidden', cur>=TOTAL-2);
       finishBtn.classList.toggle('hidden', cur!==TOTAL-2);
-      if(cur===TOTAL-1){ renderSummary(); }
+      if(cur===TOTAL-1){ renderSummary(); syncZones(); }
       saveProgress();
+      if(cur===6 && dir==='next') setTimeout(egOpen, 260);
       if(window.innerWidth < 1024) document.getElementById('kreator').scrollIntoView({behavior:'smooth', block:'start'});
     }
+
+    // ===== ODBLOKOWANIE PO ZAKUPIE + GENEROWANIE PDF =====
+    const UKEY='pnm_unlocked_v1';
+    function isUnlocked(){ try{ return localStorage.getItem(UKEY)==='1'; }catch(e){ return false; } }
+    function setUnlocked(){ try{ localStorage.setItem(UKEY,'1'); }catch(e){} }
+    (function(){
+      var p=new URLSearchParams(location.search);
+      if(p.get('unlocked')==='1' || p.get('payhip')==='1'){
+        setUnlocked();
+        try{ history.replaceState(null,'',location.pathname+location.hash); }catch(e){}
+      }
+    })();
+    function syncZones(){
+      var bz=document.getElementById('buyZone'), dz=document.getElementById('downloadZone');
+      if(!bz||!dz) return;
+      var u=isUnlocked();
+      bz.classList.toggle('hidden', u);
+      dz.classList.toggle('hidden', !u);
+    }
+    // Zapisz postep tuz przed wyjsciem do PayHip
+    document.querySelectorAll('.pay-link').forEach(function(a){
+      a.addEventListener('click', function(){ saveProgress(); });
+    });
+
+    var INFO={
+      labor:['Gwizdek porodowy — czym jest','Niewielki ustnik oddechowy wspierający kontrolowany wydech w II okresie porodu. Pomaga utrzymać rytm oddechu i efektywne parcie bez wstrzymywania powietrza.'],
+      pain:['Remifentanyl PCA — informacja','Krótko działający opioid podawany pompą z przyciskiem — rodząca sama uruchamia dawkę w czasie skurczu. Szybki początek i koniec działania; wymaga monitorowania saturacji.'],
+      cordblood:['Bankowanie krwi pępowinowej — logistyka','Pobranie z żyły pępowinowej po odpępnieniu; nieinwazyjne, możliwe także przy cięciu cesarskim. Prosimy o odnotowanie pobrania w dokumentacji — kuriera powiadamiamy sami.'],
+      nicu:['Opieka neonatologiczna — nasze priorytety','Prosimy o traktowanie powyższych punktów jako priorytetów rodziców w sytuacji, gdy dziecko wymaga opieki specjalistycznej. Rozumiemy, że decyzje kliniczne należą do zespołu — prosimy jedynie o informację i możliwie wczesny kontakt z dzieckiem.'],
+      postpartum:['Sala rodzinna — uzasadnienie','Stała obecność ojca w pierwszych dobach wspiera więź z dzieckiem, ułatwia laktację i odciąża mamę. Prosimy o informację o dostępności i koszcie usługi hotelowej.']
+    };
+    function planData(){
+      var mama=field('mama'), tata=field('tata'), dziecko=field('dziecko'), termin=field('termin');
+      var rodzice=[mama,tata].filter(Boolean).join(' i ');
+      var g=(form.querySelector('input[name="gender"]:checked')||{}).value||'girl';
+      var rows=[];
+      if(mama) rows.push(['Rodząca',mama]);
+      if(tata) rows.push(['Osoba towarzysząca',tata]);
+      if(termin) rows.push(['Termin porodu',termin]);
+      if(field('lekarz')) rows.push(['Lekarz / położna',field('lekarz')]);
+      if(field('krew')) rows.push(['Grupa krwi i Rh',field('krew')]);
+      var hb=collect('hbsag')[0]; if(hb) rows.push(['HBsAg matki', hb.replace(/^HBsAg matki:\s*/,'')]);
+      var gb=collect('gbs')[0];   if(gb) rows.push(['GBS', gb.replace(/^GBS:\s*/,'')]);
+      var sections=SECTIONS.filter(function(x){ return x[0]!=='hbsag+gbs'; }).map(function(x){
+        return {title:x[1], items:collect(x[0]), info:INFO[x[0]]||null};
+      });
+      return {gender:g, dziecko:dziecko||'Nasze dziecko', rodzice:rodzice, termin:termin, rows:rows, sections:sections};
+    }
+    function loadScript(src){
+      return new Promise(function(res,rej){
+        var t=document.createElement('script'); t.src=src; t.onload=res; t.onerror=rej;
+        document.head.appendChild(t);
+      });
+    }
+    var dlBtn=document.getElementById('dlBtn'), dlStatus=document.getElementById('dlStatus');
+    if(dlBtn){
+      dlBtn.addEventListener('click', function(){
+        dlBtn.disabled=true; dlStatus.textContent='Przygotowuję dokument…';
+        var chain = window.jspdf ? Promise.resolve() : loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+        chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js'); })
+          .then(function(){
+            var data=planData();
+            var doc=window.PNM_buildPlanPDF(data);
+            var nm=(data.dziecko||'plan').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
+            doc.save('Plan-porodu-'+nm+'.pdf');
+            dlStatus.textContent='Gotowe! Sprawdźcie folder Pobrane.';
+            dlBtn.disabled=false;
+          })
+          .catch(function(){
+            dlStatus.textContent='Nie udało się wygenerować pliku. Odśwież stronę lub napisz na kontakt@porodnamiare.pl — wyślemy plan ręcznie.';
+            dlBtn.disabled=false;
+          });
+      });
+    }
+
+    // ===== Bramka e-mail: jednorazowo przy przejsciu z kroku 6 =====
+    const EG_KEY='pnm_eg_v1';
+    function egEl(){ return document.getElementById('emailGate'); }
+    function egSeen(){ try{ return localStorage.getItem(EG_KEY)==='1'; }catch(e){ return true; } }
+    function egMark(){ try{ localStorage.setItem(EG_KEY,'1'); }catch(e){} }
+    function egHide(){ var eg=egEl(); if(!eg) return; eg.classList.add('hidden'); eg.classList.remove('flex'); egMark(); }
+    function egOpen(){
+      var eg=egEl(); if(!eg || egSeen()) return;
+      eg.classList.remove('hidden'); eg.classList.add('flex');
+      var f=eg.querySelector('#eg-email'); if(f) setTimeout(function(){ f.focus(); },80);
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+      var eg=egEl(); if(!eg) return;
+      ['egClose','egSkip'].forEach(function(id){ var b=document.getElementById(id); if(b) b.addEventListener('click', egHide); });
+      eg.addEventListener('click', function(e){ if(e.target===eg) egHide(); });
+      var egf=document.getElementById('egForm');
+      if(egf) egf.addEventListener('submit', function(){ setTimeout(egHide,150); });
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !eg.classList.contains('hidden')) egHide(); });
+    });
 
     prevBtn.addEventListener('click', ()=>showStep(cur-1,'prev'));
     nextBtn.addEventListener('click', ()=>showStep(cur+1,'next'));
@@ -1608,5 +1763,31 @@ tailwind.config = {
   // Przełącznik języka — placeholder pod przyszłą wersję EN.
 })();
 </script>
+
+<!-- ===== BRAMKA E-MAIL (po kroku 6) ===== -->
+<div id="emailGate" class="hidden fixed inset-0 z-[70] bg-deep/60 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="egTitle">
+  <div class="bg-sand rounded-3xl max-w-md w-full p-6 md:p-7 shadow-2xl">
+    <div class="flex items-start justify-between gap-3 mb-3">
+      <div>
+        <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-1.5">Jesteście w połowie</p>
+        <h3 id="egTitle" class="font-display text-xl font-semibold text-deep">Zapisać Wasz postęp?</h3>
+      </div>
+      <button type="button" id="egClose" aria-label="Zamknij" class="flex-shrink-0 w-9 h-9 rounded-full hover:bg-sanddark flex items-center justify-center text-ink/60 text-xl leading-none">&times;</button>
+    </div>
+    <p class="text-[15px] text-ink/80 leading-relaxed mb-4">Wyślemy link, dzięki któremu wrócicie do planu na dowolnym urządzeniu. Bez spamu — tylko ten link i kilka praktycznych wskazówek przed porodem.</p>
+    <form id="egForm" class="flex flex-col gap-3" action="https://TWOJ-FORMULARZ.mailerlite.com/subscribe" method="post" target="_blank">
+      <label for="eg-email" class="sr-only">Adres e-mail</label>
+      <input id="eg-email" name="fields[email]" type="email" required autocomplete="email" placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3 bg-white text-[15px]">
+      <label class="flex gap-2.5 items-start text-xs text-ink/70 leading-relaxed">
+        <input type="checkbox" name="rodo" required class="mt-0.5 flex-shrink-0">
+        <span>Zgadzam się na otrzymanie linku i wiadomości e-mail. Dane przetwarza PoródNaMiarę.pl zgodnie z <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank">polityką prywatności</a>. Mogę wypisać się w każdej chwili.</span>
+      </label>
+      <button type="submit" class="bg-teal text-white font-semibold px-6 py-3.5 rounded-full hover:bg-deep transition-colors">Wyślij mi link do planu</button>
+    </form>
+    <button type="button" id="egSkip" class="w-full text-center text-sm text-ink/60 hover:text-teal mt-3 py-2">Nie teraz, kontynuuję →</button>
+    <p class="text-xs text-ink/55 text-center mt-2">Postęp i tak zapisuje się w tej przeglądarce.</p>
+  </div>
+</div>
+
 </body>
 </html>
