@@ -12,6 +12,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* iOS: bez auto-zoomu przy focusie (wymaga >=16px) */
+  @media (max-width: 1024px){
+    input:not([type="checkbox"]):not([type="radio"]),
+    select, textarea { font-size: 16px !important; }
+  }
+
 img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
 :focus-visible{outline:3px solid #A0525E;outline-offset:2px}
 @media (prefers-contrast: more){body{background:#fff;color:#1a1720}}
@@ -26,24 +32,45 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
     <p class="text-lg text-ink/80">Wasz plan porodu jest już w drodze.</p>
   </div>
 
+  <!-- KROK 1: plan z kreatora -->
   <section class="bg-white border-2 border-teal rounded-3xl p-6 md:p-8 mb-5">
     <div class="flex items-start gap-4">
       <span class="flex-shrink-0 w-9 h-9 rounded-full bg-teal text-white font-bold flex items-center justify-center">1</span>
-      <div>
-        <h2 class="font-display text-xl font-semibold text-deep mb-2">Sprawdź swoją skrzynkę e-mail</h2>
-        <p class="text-[15px] text-ink/80 leading-relaxed mb-3">Link do pobrania plików wysłaliśmy na adres podany przy płatności. Wiadomość przychodzi zwykle w ciągu minuty od zakupu.</p>
-        <p class="text-sm text-ink/70 bg-tealsoft rounded-xl px-4 py-3">Nie widzisz wiadomości? Sprawdź folder <strong>Spam</strong> lub <strong>Oferty</strong>. Jeśli po 15 minutach nadal jej nie ma — napisz na <a href="mailto:kontakt@porodnamiare.pl" class="text-teal font-semibold underline">kontakt@porodnamiare.pl</a>, wyślemy pliki ręcznie tego samego dnia.</p>
+      <div class="min-w-0 flex-1">
+        <h2 class="font-display text-xl font-semibold text-deep mb-2">Pobierz swój plan porodu</h2>
+        <p class="text-[15px] text-ink/80 leading-relaxed mb-4">Wasze odpowiedzi z kreatora są zapisane w tej przeglądarce. Kliknijcie poniżej — dokument wygeneruje się i pobierze od razu.</p>
+        <div id="planReady" class="hidden">
+          <a href="/?unlocked=1#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">Pobierz swój plan porodu &rarr;</a>
+          <p class="text-xs text-ink/60 mt-2">Znaleźliśmy Wasze odpowiedzi &#10003;</p>
+        </div>
+        <div id="planMissing" class="hidden">
+          <div class="bg-tealsoft rounded-xl px-4 py-3 mb-4">
+            <p class="text-[15px] text-ink/85 leading-relaxed"><strong class="text-deep">Nie widzimy tu Waszych odpowiedzi.</strong> To normalne, jeśli kreator wypełnialiście na innym urządzeniu albo w innej przeglądarce — dane zapisują się lokalnie i nie wędrują między urządzeniami.</p>
+          </div>
+          <p class="font-semibold text-deep text-[15px] mb-2">Co zrobić:</p>
+          <ul class="space-y-2 text-[15px] text-ink/80 mb-4">
+            <li class="flex gap-2.5"><span class="text-teal font-bold flex-shrink-0">1.</span><span>Otwórzcie <strong>ten sam link</strong> na urządzeniu, na którym wypełnialiście kreator (np. na telefonie)</span></li>
+            <li class="flex gap-2.5"><span class="text-teal font-bold flex-shrink-0">2.</span><span>Albo wypełnijcie kreator ponownie tutaj — zajmie to kilkanaście minut, a płatność jest już zaksięgowana</span></li>
+            <li class="flex gap-2.5"><span class="text-teal font-bold flex-shrink-0">3.</span><span>Albo napiszcie do nas — przygotuję plan ręcznie i wyślę mailem</span></li>
+          </ul>
+          <div class="flex flex-wrap gap-3">
+            <a href="/?unlocked=1#kreator" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors text-sm">Otwórz kreator &rarr;</a>
+            <a href="mailto:kontakt@porodnamiare.pl?subject=Plan%20porodu%20-%20pomoc%20po%20zakupie" class="inline-block border border-deep/25 font-semibold px-6 py-3 rounded-full hover:bg-sanddark transition-colors text-sm">Napisz do nas</a>
+          </div>
+        </div>
+        <noscript><a href="/?unlocked=1#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full">Pobierz swój plan porodu &rarr;</a></noscript>
       </div>
     </div>
   </section>
 
+  <!-- KROK 2: pliki mailem -->
   <section class="bg-white border border-sanddark rounded-3xl p-6 md:p-8 mb-5">
     <div class="flex items-start gap-4">
       <span class="flex-shrink-0 w-9 h-9 rounded-full bg-deep text-white font-bold flex items-center justify-center">2</span>
-      <div>
-        <h2 class="font-display text-xl font-semibold text-deep mb-2">Pobierz swój spersonalizowany plan</h2>
-        <p class="text-[15px] text-ink/80 leading-relaxed mb-3">Wróćcie do kreatora — Wasze odpowiedzi są zapisane w przeglądarce. Kliknijcie przycisk poniżej, a plan wygeneruje się i pobierze od razu. Jeśli wypełnialiście kreator na innym urządzeniu, otwórzcie ten link na tamtym urządzeniu.</p>
-        <a href="/?unlocked=1#kreator" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors text-sm">Pobierz swój plan porodu &rarr;</a>
+      <div class="min-w-0">
+        <h2 class="font-display text-xl font-semibold text-deep mb-2">Sprawdź skrzynkę e-mail</h2>
+        <p class="text-[15px] text-ink/80 leading-relaxed mb-3">Jeśli kupiliście pakiet Premium lub Premium+, poradniki PDF wysłaliśmy na adres podany przy płatności. Wiadomość przychodzi zwykle w ciągu minuty.</p>
+        <p class="text-sm text-ink/70 bg-tealsoft rounded-xl px-4 py-3">Nie widzicie jej? Sprawdźcie folder <strong>Spam</strong> lub <strong>Oferty</strong>. Jeśli po 15 minutach nadal jej nie ma — napiszcie na <a href="mailto:kontakt@porodnamiare.pl" class="text-teal font-semibold underline">kontakt@porodnamiare.pl</a>.</p>
       </div>
     </div>
   </section>
@@ -72,5 +99,22 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm">
   <p>&copy; 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a></p>
 </footer>
+
+<script>
+(function(){
+  var ready=document.getElementById('planReady'), missing=document.getElementById('planMissing');
+  if(!ready||!missing) return;
+  var has=false;
+  try{
+    var raw=localStorage.getItem('pnm_creator_v1')||sessionStorage.getItem('pnm_creator_v1');
+    if(raw){
+      var d=JSON.parse(raw);
+      has = !!(d && ((d.fields && Object.keys(d.fields).length) || (d.checks && d.checks.length)));
+    }
+  }catch(e){ has=false; }
+  (has?ready:missing).classList.remove('hidden');
+  try{ localStorage.setItem('pnm_unlocked_v1','1'); }catch(e){}
+})();
+</script>
 </body>
 </html>

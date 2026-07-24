@@ -14,7 +14,13 @@
 {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Czy przy cięciu cesarskim można mieć plan porodu?","acceptedAnswer":{"@type":"Answer","text":"Tak. Nawet przy cięciu cesarskim masz wpływ na wiele elementów: obecność osoby towarzyszącej, kontakt skóra do skóry na sali operacyjnej (gwarantowany Standardem 2026, gdy stan mamy i dziecka pozwala), pierwsze przystawienie do piersi i sposób informowania o przebiegu."}},{"@type":"Question","name":"Kiedy przygotować plan cięcia cesarskiego?","acceptedAnswer":{"@type":"Answer","text":"Przy planowanym CC — w III trymestrze, po ustaleniu terminu operacji. Warto mieć go też przygotowany na wszelki wypadek, gdyby poród naturalny zakończył się cięciem ze wskazań nagłych."}}]}]}</script>
 <link rel="stylesheet" href="/css/tailwind.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>body{font-family:Figtree,sans-serif;-webkit-tap-highlight-color:transparent}
+<style>
+  /* iOS: bez auto-zoomu przy focusie (wymaga >=16px) */
+  @media (max-width: 1024px){
+    input:not([type="checkbox"]):not([type="radio"]),
+    select, textarea { font-size: 16px !important; }
+  }
+body{font-family:Figtree,sans-serif;-webkit-tap-highlight-color:transparent}
 img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{font-family:Fraunces,serif}a,button{touch-action:manipulation}</style>
 <!-- Analityka Plausible (RODO-friendly, bez cookies) — aktywuj po zalozeniu konta na plausible.io i wpisaniu domeny -->
 <!-- <script defer data-domain="porodnamiare.pl" src="https://plausible.io/js/script.js"></script> -->

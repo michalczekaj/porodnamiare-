@@ -25,6 +25,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* iOS: bez auto-zoomu przy focusie (wymaga >=16px) */
+  @media (max-width: 1024px){
+    input:not([type="checkbox"]):not([type="radio"]),
+    select, textarea { font-size: 16px !important; }
+  }
+
 img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}input,button{font-size:16px}
 .plan-doc{box-shadow:0 20px 50px -20px rgba(62,56,82,.35)}
 :focus-visible{outline:3px solid #A0525E;outline-offset:2px}

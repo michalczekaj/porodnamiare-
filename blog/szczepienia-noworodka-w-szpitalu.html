@@ -14,7 +14,13 @@
 {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Jakie szczepienia otrzymuje noworodek w polskim szpitalu?","acceptedAnswer":{"@type":"Answer","text":"W pierwszej dobie życia noworodek otrzymuje standardowo szczepienie przeciw WZW typu B oraz przeciw gruźlicy (BCG), zgodnie z Programem Szczepień Ochronnych."}},{"@type":"Question","name":"Czy można zrealizować szczepienia noworodka po wypisie u pediatry?","acceptedAnswer":{"@type":"Answer","text":"Część rodziców decyduje się realizować szczepienia u wybranego pediatry po wypisie. Kluczowe zastrzeżenie bezpieczeństwa dotyczy WZW B: odroczenie jest rozważane tylko przy potwierdzonym ujemnym wyniku HBsAg mamy. Decyzję należy omówić z lekarzem."}}]}]}</script>
 <link rel="stylesheet" href="/css/tailwind.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
-<style>body{font-family:Figtree,sans-serif}
+<style>
+  /* iOS: bez auto-zoomu przy focusie (wymaga >=16px) */
+  @media (max-width: 1024px){
+    input:not([type="checkbox"]):not([type="radio"]),
+    select, textarea { font-size: 16px !important; }
+  }
+body{font-family:Figtree,sans-serif}
 img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2{font-family:Fraunces,serif}a,button{touch-action:manipulation}</style>
 <!-- Analityka Plausible (RODO-friendly, bez cookies) — aktywuj po zalozeniu konta na plausible.io i wpisaniu domeny -->
 <!-- <script defer data-domain="porodnamiare.pl" src="https://plausible.io/js/script.js"></script> -->
