@@ -29,21 +29,10 @@
 <!-- Bing Webmaster: wklej swój kod z bing.com/webmasters -->
 <meta name="msvalidate.01" content="TODO_KOD_WERYFIKACJI_BING">
 <link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":"Person","name":"Michał","description":"Tata i twórca serwisu PoródNaMiarę.pl","url":"https://porodnamiare.pl"},
-{"@type":"Organization","name":"PoródNaMiarę.pl","url":"https://porodnamiare.pl","email":"kontakt@porodnamiare.pl","description":"Spersonalizowane plany porodu z naciskiem na bezpieczeństwo noworodka."},
-{"@type":"Product","name":"Spersonalizowany plan porodu","description":"Interaktywny plan porodu PDF z rozbudowaną sekcją noworodkową.","offers":[{"@type":"Offer","name":"Podstawowy","price":"49","priceCurrency":"PLN"},{"@type":"Offer","name":"Premium","price":"99","priceCurrency":"PLN"}]},
-{"@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Czy plan porodu jest wiążący dla szpitala?","acceptedAnswer":{"@type":"Answer","text":"Plan porodu jest elementem dokumentacji przewidzianym w Standardzie Organizacyjnym Opieki Okołoporodowej. Personel ma obowiązek się z nim zapoznać i omówić go z Wami, choć decyzje medyczne zawsze zależą od sytuacji klinicznej."}},
-{"@type":"Question","name":"Kiedy przygotować plan porodu?","acceptedAnswer":{"@type":"Answer","text":"Najlepiej między 30. a 36. tygodniem ciąży — jest czas na omówienie planu z lekarzem prowadzącym i położną."}},
-{"@type":"Question","name":"Czym różni się Wasz plan od darmowych szablonów?","acceptedAnswer":{"@type":"Answer","text":"Darmowe szablony są ogólne. Nasz plan jest spersonalizowany, oparty na aktualnej wiedzy, z najbardziej rozbudowaną na rynku sekcją noworodkową i checklistą dla taty."}}
-]}]}
-</script>
-<script src="https://cdn.tailwindcss.com"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://porodnamiare.pl/#website","name":"PoródNaMiarę.pl","url":"https://porodnamiare.pl/","inLanguage":"pl","description":"Interaktywny kreator spersonalizowanego planu porodu oraz baza wiedzy dla przyszłych rodziców.","publisher":{"@id":"https://porodnamiare.pl/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://porodnamiare.pl/wiedza?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Person","name":"Michał","description":"Tata i twórca serwisu PoródNaMiarę.pl","url":"https://porodnamiare.pl","@id":"https://porodnamiare.pl/o-michale#person"},{"@type":"Organization","name":"PoródNaMiarę.pl","url":"https://porodnamiare.pl","email":"kontakt@porodnamiare.pl","description":"Spersonalizowane plany porodu z naciskiem na bezpieczeństwo noworodka.","@id":"https://porodnamiare.pl/#organization","logo":{"@type":"ImageObject","url":"https://porodnamiare.pl/img/logo-mark.webp","width":36,"height":34},"areaServed":{"@type":"Country","name":"Polska"},"knowsLanguage":["pl","en","de","uk"],"contactPoint":{"@type":"ContactPoint","email":"kontakt@porodnamiare.pl","contactType":"customer support","availableLanguage":["Polish","English","German","Ukrainian"]}},{"@type":"Product","name":"Spersonalizowany plan porodu","description":"Interaktywny plan porodu PDF z rozbudowaną sekcją noworodkową.","offers":[{"@type":"Offer","name":"Podstawowy","price":"49","priceCurrency":"PLN"},{"@type":"Offer","name":"Premium","price":"99","priceCurrency":"PLN"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Czy plan porodu jest wiążący dla szpitala?","acceptedAnswer":{"@type":"Answer","text":"Plan porodu jest elementem dokumentacji przewidzianym w Standardzie Organizacyjnym Opieki Okołoporodowej. Personel ma obowiązek się z nim zapoznać i omówić go z Wami, choć decyzje medyczne zawsze zależą od sytuacji klinicznej."}},{"@type":"Question","name":"Kiedy przygotować plan porodu?","acceptedAnswer":{"@type":"Answer","text":"Najlepiej między 30. a 36. tygodniem ciąży — jest czas na omówienie planu z lekarzem prowadzącym i położną."}},{"@type":"Question","name":"Czym różni się Wasz plan od darmowych szablonów?","acceptedAnswer":{"@type":"Answer","text":"Darmowe szablony są ogólne. Nasz plan jest spersonalizowany, oparty na aktualnej wiedzy, z najbardziej rozbudowaną na rynku sekcją noworodkową i checklistą dla taty."}}]}]}</script>
+<link rel="preload" as="style" href="/css/tailwind.min.css"><link rel="stylesheet" href="/css/tailwind.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
 tailwind.config = {
@@ -120,7 +109,7 @@ tailwind.config = {
 <!-- ===== NAVBAR ===== -->
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
   <nav class="max-w-6xl mx-auto flex items-center gap-4 px-4 py-3" aria-label="Nawigacja główna">
-    <a href="#main" class="flex items-center gap-2 font-display text-lg xl:text-xl text-deep font-semibold flex-shrink-0 whitespace-nowrap"><img src="img/logo-mark.png" alt="" width="36" height="34" class="w-8 xl:w-9 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
+    <a href="#main" class="flex items-center gap-2 font-display text-lg xl:text-xl text-deep font-semibold flex-shrink-0 whitespace-nowrap"><img src="img/logo-mark.webp" alt="" width="36" height="34" class="w-8 xl:w-9 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
 
     <div class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium mx-auto whitespace-nowrap">
       <a href="#dlaczego" data-i18n="navWhy" class="nav-link relative py-1 hover:text-teal transition-colors">Dlaczego my</a>
@@ -183,7 +172,7 @@ tailwind.config = {
 
 <!-- ===== HERO ===== -->
 <section class="max-w-6xl mx-auto px-4 pt-12 pb-16 md:pt-20 md:pb-24 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
-  <div aria-hidden="true" class="absolute -top-20 -right-24 w-96 h-96 bg-teal/10 rounded-full blur-3xl floaty"></div>
+  <div aria-hidden="true" class="absolute -top-20 -right-24 w-96 h-96 bg-teal/10 rounded-full pointer-events-none blur-3xl floaty"></div>
   <div class="relative">
     <p class="text-teal font-semibold text-sm uppercase tracking-widest mb-4 au au-1"><span class="beat mr-1">♥</span><span data-i18n="heroBadge">Pierwszy taki w Polsce</span></p>
     <h1 data-i18n="heroH1" class="font-display text-4xl md:text-5xl leading-tight text-deep font-semibold mb-6 au au-2">Spersonalizowany plan porodu, który stawia bezpieczeństwo Waszego dziecka na pierwszym miejscu</h1>
@@ -741,7 +730,7 @@ tailwind.config = {
 </section>
 
 <!-- ===== SKLEP / CENNIK ===== -->
-<section id="cennik" class="py-16 md:py-24" style="background:linear-gradient(180deg,#FAF5EF 0%,#F7E9E7 100%)">
+<section id="cennik" class="overflow-hidden py-16 md:py-24" style="background:linear-gradient(180deg,#FAF5EF 0%,#F7E9E7 100%)">
 <div class="max-w-6xl mx-auto px-4">
 
   <div class="text-center mb-8">
@@ -855,7 +844,7 @@ tailwind.config = {
 
   <!-- TEASER WÓZKOWNIA (tajemniczy, marketingowy) -->
   <div class="max-w-5xl mx-auto mb-10 bg-deep rounded-3xl p-7 md:p-8 text-sand relative overflow-hidden">
-    <div class="absolute -right-6 -top-6 text-8xl opacity-10 select-none" aria-hidden="true">🅿️</div>
+    <div class="absolute -right-6 -top-6 text-8xl opacity-10 select-none pointer-events-none" aria-hidden="true">🅿️</div>
     <div class="relative">
       <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-2">Bonus, o którym mało kto wie</p>
       <h3 class="font-display text-2xl md:text-3xl font-semibold text-white mb-3">Wiesz, że masz prawo ubiegać się o miejsce w wózkowni?</h3>
@@ -1076,17 +1065,25 @@ tailwind.config = {
 
 <!-- ===== LEAD MAGNET ===== -->
 <section class="bg-deep text-sand py-16">
+  <div class="max-w-3xl mx-auto px-4 mb-5">
+    <div class="flex items-start gap-3 bg-white border border-sanddark rounded-2xl px-4 py-3">
+      <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+      <p class="text-[13px] leading-relaxed text-ink/80 min-w-0"><strong class="text-deep">Wasze dane zostają w tej przeglądarce.</strong> Odpowiedzi — łącznie z informacjami o zdrowiu, takimi jak grupa krwi, HBsAg czy GBS — zapisujemy wyłącznie lokalnie na Waszym urządzeniu. <strong>Nie wysyłamy ich na żaden serwer</strong>, bo go nie mamy. Możecie je usunąć w każdej chwili przyciskiem „Zacznij od nowa". <a href="/polityka-prywatnosci" class="text-teal underline">Polityka prywatności</a></p>
+    </div>
+  </div>
   <div class="max-w-3xl mx-auto px-4 text-center">
     <img src="img/brand.webp" alt="Mama z noworodkiem i tabliczką porodnamiare.pl" class="w-40 mx-auto rounded-2xl mb-6" loading="lazy">
     <h2 class="font-display text-3xl font-semibold text-white mb-3">Bezpłatna mini-checklista: „7 pytań o bezpieczeństwo dziecka, które warto zadać w szpitalu”</h2>
     <p class="text-sand/80 mb-8">Konkretna, jednostronicowa lista od Michała. Zostaw adres — wyślemy PDF i damy znać, gdy wystartują nowe narzędzia.</p>
     <!-- MailerLite: podmien action na swoj URL formularza po zalozeniu konta (mailerlite.com) -->
-    <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="https://TWOJ-FORMULARZ.mailerlite.com/subscribe" method="post" target="_blank">
-      <label for="lead" class="sr-only">Adres e-mail</label>
-      <input id="lead" name="fields[email]" type="email" required placeholder="Twój e-mail" class="flex-1 rounded-full px-5 py-3 text-ink">
-      <button type="submit" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors whitespace-nowrap">Wyślij checklistę</button>
+    <form class="max-w-md mx-auto" action="https://TWOJ-FORMULARZ.mailerlite.com/subscribe" method="post" target="_blank">
+      <div class="flex flex-col sm:flex-row gap-3">
+        <label for="lead" class="sr-only">Adres e-mail</label>
+        <input id="lead" name="fields[email]" type="email" required autocomplete="email" placeholder="Twój e-mail" class="flex-1 rounded-full px-5 py-3 text-ink">
+        <button type="submit" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors whitespace-nowrap">Wyślij checklistę</button>
+      </div>
+      <label class="flex items-start gap-2 mt-4 text-left text-xs text-sand/70"><input type="checkbox" name="rodo" value="1" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu otrzymania checklisty i informacji o narzędziach, zgodnie z <a href="/polityka-prywatnosci" class="underline">polityką prywatności</a>. Zgodę mogę wycofać w każdej chwili.</span></label>
     </form>
-    <label class="flex items-start gap-2 max-w-md mx-auto mt-4 text-left text-xs text-sand/70"><input type="checkbox" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu otrzymania checklisty i informacji o narzędziach, zgodnie z <a href="polityka-prywatnosci.html" class="underline">polityką prywatności</a>. Zgodę mogę wycofać w każdej chwili.</span></label>
     <p class="text-xs text-sand/50 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem. <!-- TODO: podłączyć MailerLite/ConvertKit zamiast mailto --></p>
   </div>
 </section>
@@ -1102,7 +1099,7 @@ tailwind.config = {
     <form class="flex flex-col gap-3" action="https://TWOJ-FORMULARZ.mailerlite.com/subscribe" method="post" target="_blank">
       <label for="popup-email" class="sr-only">Adres e-mail</label>
       <input id="popup-email" name="fields[email]" type="email" required placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3">
-      <label class="flex items-start gap-2 text-left text-xs text-ink/70"><input type="checkbox" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie e-maila w celu przesłania checklisty, zgodnie z <a href="polityka-prywatnosci.html" class="underline">polityką prywatności</a>.</span></label>
+      <label class="flex items-start gap-2 text-left text-xs text-ink/70"><input type="checkbox" name="rodo" value="1" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie e-maila w celu przesłania checklisty, zgodnie z <a href="/polityka-prywatnosci" class="underline">polityką prywatności</a>.</span></label>
       <button type="submit" class="bg-teal text-white font-semibold py-3 rounded-full hover:bg-deep transition-colors">Wyślij checklistę</button>
     </form>
     <p class="text-xs text-ink/70 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem.</p>
@@ -1158,7 +1155,7 @@ tailwind.config = {
 <footer class="bg-deep text-sand/80 py-12">
   <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
     <div>
-      <div class="flex items-center gap-3 mb-3"><span class="bg-sand rounded-full p-1.5 inline-flex"><img src="img/logo-mark.png" alt="Logo PoródNaMiarę.pl" width="40" height="38" class="w-10 h-auto"></span><p class="font-display text-lg text-white font-semibold">Poród<span class="text-teal">NaMiarę</span>.pl</p></div>
+      <div class="flex items-center gap-3 mb-3"><span class="bg-sand rounded-full p-1.5 inline-flex"><img src="img/logo-mark.webp" alt="Logo PoródNaMiarę.pl" width="40" height="38" class="w-10 h-auto"></span><p class="font-display text-lg text-white font-semibold">Poród<span class="text-teal">NaMiarę</span>.pl</p></div>
       <p class="leading-relaxed">Spersonalizowane plany porodu tworzone z myślą o bezpieczeństwie dziecka. Od taty — dla rodziców.</p>
     </div>
     <div>
@@ -1167,7 +1164,7 @@ tailwind.config = {
         <li><a href="/o-michale" class="underline hover:text-white">O Michale — historia projektu</a></li>
         <li><a href="#blog" class="underline hover:text-white">Wiedza / artykuły</a></li>
         <li><a href="regulamin.html" class="underline hover:text-white">Regulamin</a></li>
-        <li><a href="polityka-prywatnosci.html" class="underline hover:text-white">Polityka prywatności</a></li>
+        <li><a href="/polityka-prywatnosci" class="underline hover:text-white">Polityka prywatności</a></li>
         <li>kontakt@porodnamiare.pl</li>
       </ul>
     </div>
