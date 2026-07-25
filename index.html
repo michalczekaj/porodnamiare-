@@ -1478,6 +1478,7 @@ tailwind.config = {
       var p=new URLSearchParams(location.search);
       if(p.get('unlocked')==='1' || p.get('payhip')==='1'){
         setUnlocked();
+        window.__freshUnlock = true;  // tylko ten wjazd = powrót z płatności
         try{ history.replaceState(null,'',location.pathname+location.hash); }catch(e){}
       }
     })();
@@ -1587,7 +1588,7 @@ tailwind.config = {
       var d = readProgress();
       return !!(d && ((d.fields && Object.keys(d.fields).length) || (d.checks && d.checks.length)));
     })();
-    if(isUnlocked() && hasAnswers){
+    if(window.__freshUnlock && hasAnswers){
       showStep(TOTAL-1,'next');
       renderSummary(); syncZones();
       setTimeout(function(){
