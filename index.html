@@ -1573,8 +1573,14 @@ tailwind.config = {
       if(cur===TOTAL-1){ renderSummary(); syncZones(); }
       saveProgress();
       if(cur===6 && dir==='next') setTimeout(egOpen, 260);
-      // scroll TYLKO przy nawigacji użytkownika, nie przy pierwszym renderze
-      if(dir && window.innerWidth < 1024) document.getElementById('kreator').scrollIntoView({behavior:'smooth', block:'start'});
+      // scroll do góry kreatora przy każdej nawigacji (desktop i mobile) — kroki mają różne wysokości
+      if(dir){
+        var kr=document.getElementById('kreator');
+        if(kr){
+          var top=kr.getBoundingClientRect().top+window.pageYOffset-16;
+          window.scrollTo({top:top, behavior:'smooth'});
+        }
+      }
     }
 
     // ===== ODBLOKOWANIE PO ZAKUPIE + GENEROWANIE PDF =====
@@ -1592,7 +1598,9 @@ tailwind.config = {
     function syncZones(){
       var bz=document.getElementById('buyZone'), dz=document.getElementById('downloadZone');
       if(!bz||!dz) return;
-      var u=isUnlocked();
+      // Pobranie dostępne WYŁĄCZNIE przy świeżym powrocie z płatności (flaga w tej sesji),
+      // nie z trwałego localStorage — to zamyka lukę darmowego pobrania po wcześniejszym odblokowaniu.
+      var u = window.__freshUnlock === true;
       bz.classList.toggle('hidden', u);
       dz.classList.toggle('hidden', !u);
     }
@@ -1634,6 +1642,7 @@ tailwind.config = {
     var dlBtn=document.getElementById('dlBtn'), dlStatus=document.getElementById('dlStatus');
     if(dlBtn){
       dlBtn.addEventListener('click', function(){
+        if(window.__freshUnlock !== true){ dlStatus.textContent='Dokończ zakup, aby pobrać plan.'; return; }
         dlBtn.disabled=true; dlStatus.textContent='Przygotowuję dokument…';
         var chain = window.jspdf ? Promise.resolve() : loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
         chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js'); })
