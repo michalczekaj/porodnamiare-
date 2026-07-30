@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Formularz odstąpienia od umowy | PoródNaMiarę.pl</title>
+<meta name="description" content="Aktywny formularz odstąpienia od umowy — wypełnij i wyślij w kilka sekund, zgodnie z ustawą o prawach konsumenta.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://porodnamiare.pl/formularz-odstapienia">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="stylesheet" href="/css/tailwind.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{font-family:Figtree,sans-serif}h1,h2{font-family:Fraunces,serif}</style>
+</head>
+<body class="bg-sand text-ink antialiased">
+<header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark">
+  <nav class="max-w-2xl mx-auto flex items-center justify-between px-4 py-3">
+    <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
+    <a href="/regulamin" class="text-sm font-semibold text-teal hover:text-deep">Regulamin</a>
+  </nav>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-10">
+  <h1 class="font-display text-3xl font-semibold text-deep mb-3">Formularz odstąpienia od umowy</h1>
+  <p class="text-[15px] text-ink/75 leading-relaxed mb-6">Zgodnie z ustawą o prawach konsumenta masz prawo odstąpić od umowy w terminie 14 dni bez podania przyczyny — chyba że wyraźnie zgodziłaś/eś się na natychmiastowe dostarczenie treści cyfrowej (zob. §4 <a href="/regulamin" class="text-teal underline">regulaminu</a>). Niezależnie od tego, obowiązuje nasza <strong>dobrowolna 30-dniowa gwarancja zwrotu</strong> — bez pytań o powód. Wypełnij formularz poniżej, aby wysłać oświadczenie.</p>
+
+  <form id="wf" class="bg-white border border-sanddark rounded-2xl p-6 space-y-4">
+    <div>
+      <label class="text-sm font-semibold text-deep block mb-1">Imię i nazwisko</label>
+      <input required name="imie" class="w-full border border-sanddark rounded-xl px-3 py-2.5 text-[15px]" placeholder="Jan Kowalski">
+    </div>
+    <div>
+      <label class="text-sm font-semibold text-deep block mb-1">Adres e-mail użyty przy zakupie</label>
+      <input required type="email" name="email" class="w-full border border-sanddark rounded-xl px-3 py-2.5 text-[15px]" placeholder="jan@przyklad.pl">
+    </div>
+    <div>
+      <label class="text-sm font-semibold text-deep block mb-1">Nazwa zakupionego produktu / pakietu</label>
+      <input required name="produkt" class="w-full border border-sanddark rounded-xl px-3 py-2.5 text-[15px]" placeholder="np. Plan porodu Premium">
+    </div>
+    <div>
+      <label class="text-sm font-semibold text-deep block mb-1">Data zamówienia</label>
+      <input required type="date" name="data" class="w-full border border-sanddark rounded-xl px-3 py-2.5 text-[15px]">
+    </div>
+    <div>
+      <label class="text-sm font-semibold text-deep block mb-1">Numer zamówienia PayHip (opcjonalnie, przyspiesza realizację)</label>
+      <input name="numer" class="w-full border border-sanddark rounded-xl px-3 py-2.5 text-[15px]" placeholder="z e-maila potwierdzającego">
+    </div>
+    <button type="submit" class="w-full bg-teal text-white font-bold py-3.5 rounded-2xl hover:bg-deep transition-colors">Wyślij oświadczenie o odstąpieniu →</button>
+    <p class="text-xs text-ink/50 text-center">Otworzy się Twój program pocztowy z gotową wiadomością do kontakt@porodnamiare.pl. Odpowiadamy i zwracamy środki w ciągu 14 dni.</p>
+  </form>
+</main>
+<footer class="bg-deep text-sand/70 py-8 text-center text-sm mt-10">
+  <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a></p>
+</footer>
+<script>
+document.getElementById('wf').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f = new FormData(e.target);
+  var body = 'Ja, niżej podpisany/a ' + f.get('imie') + ' (' + f.get('email') + '), niniejszym informuję o moim odstąpieniu od umowy sprzedaży produktu: ' + f.get('produkt') + '.\n\nData zamówienia: ' + f.get('data') + '\nNumer zamówienia: ' + (f.get('numer') || 'brak') + '\n\nProszę o zwrot płatności zgodnie z regulaminem.\n\nPozdrawiam,\n' + f.get('imie');
+  window.location.href = 'mailto:kontakt@porodnamiare.pl?subject=' + encodeURIComponent('Odstąpienie od umowy — ' + f.get('produkt')) + '&body=' + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>

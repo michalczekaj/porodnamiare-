@@ -801,8 +801,12 @@ tailwind.config = {
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Format A4 gotowy do druku</span></li>
       </ul>
       <p class="text-[11px] text-ink/45 mb-3 flex items-center gap-1"><svg class="w-3 h-3 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
-      <a href="https://payhip.com/b/jUaCl" target="_blank" rel="noopener"
-         class="block text-center border-2 border-deep/25 text-deep font-bold py-4 rounded-2xl hover:bg-sanddark transition-colors">
+      <label class="flex items-start gap-2 text-[11px] mb-2 cursor-pointer text-ink/60">
+        <input type="checkbox" class="consent-gate mt-0.5 flex-shrink-0" data-target="cta-podstawowy">
+        <span>Zgadzam się na natychmiastowe dostarczenie treści cyfrowej i przyjmuję do wiadomości utratę prawa odstąpienia (zachowuję <a href="/formularz-odstapienia" class="underline">30-dniową gwarancję zwrotu</a>).</span>
+      </label>
+      <a id="cta-podstawowy" href="https://payhip.com/b/jUaCl" target="_blank" rel="noopener" aria-disabled="true"
+         class="block text-center border-2 border-deep/25 text-deep font-bold py-4 rounded-2xl hover:bg-sanddark transition-colors pointer-events-none opacity-50">
         Kup teraz — 49 zł
       </a>
     </article>
@@ -830,8 +834,12 @@ tailwind.config = {
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Aktualizacja planu do dnia porodu</span></li>
       </ul>
       <p class="text-[11px] text-sand/60 mb-3 flex items-center gap-1"><svg class="w-3 h-3" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
-      <a href="https://payhip.com/b/PAcED" target="_blank" rel="noopener"
-         class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-white hover:text-deep transition-colors">
+      <label class="flex items-start gap-2 text-[11px] mb-2 cursor-pointer text-sand/60">
+        <input type="checkbox" class="consent-gate mt-0.5 flex-shrink-0" data-target="cta-premium">
+        <span>Zgadzam się na natychmiastowe dostarczenie treści cyfrowej i przyjmuję do wiadomości utratę prawa odstąpienia (zachowuję <a href="/formularz-odstapienia" class="underline">30-dniową gwarancję zwrotu</a>).</span>
+      </label>
+      <a id="cta-premium" href="https://payhip.com/b/PAcED" target="_blank" rel="noopener" aria-disabled="true"
+         class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-white hover:text-deep transition-colors pointer-events-none opacity-50">
         Kup teraz — 99 zł
       </a>
     </article>
@@ -869,8 +877,12 @@ tailwind.config = {
         </li>
       </ul>
       <p class="text-[11px] text-ink/45 mb-3 flex items-center gap-1"><svg class="w-3 h-3 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Zgodny ze Standardem 2025 poz. 1525</p>
-      <a href="https://payhip.com/b/JjgRA" target="_blank" rel="noopener"
-         class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg">
+      <label class="flex items-start gap-2 text-[11px] mb-2 cursor-pointer text-ink/60">
+        <input type="checkbox" class="consent-gate mt-0.5 flex-shrink-0" data-target="cta-premiumplus">
+        <span>Zgadzam się na natychmiastowe dostarczenie treści cyfrowej i przyjmuję do wiadomości utratę prawa odstąpienia (zachowuję <a href="/formularz-odstapienia" class="underline">30-dniową gwarancję zwrotu</a>).</span>
+      </label>
+      <a id="cta-premiumplus" href="https://payhip.com/b/JjgRA" target="_blank" rel="noopener" aria-disabled="true"
+         class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg pointer-events-none opacity-50">
         Kup teraz — 219 zł
       </a>
     </article>
@@ -2060,5 +2072,15 @@ tailwind.config = {
   </div>
 </div>
 
+<script>
+document.querySelectorAll('.consent-gate').forEach(function(cb){
+  cb.addEventListener('change', function(){
+    var t = document.getElementById(this.dataset.target);
+    if(!t) return;
+    if(this.checked){ t.classList.remove('pointer-events-none','opacity-50'); t.removeAttribute('aria-disabled'); }
+    else { t.classList.add('pointer-events-none','opacity-50'); t.setAttribute('aria-disabled','true'); }
+  });
+});
+</script>
 </body>
 </html>
