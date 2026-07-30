@@ -111,6 +111,21 @@ tailwind.config = {
 </style>
 <!-- Analityka Plausible (RODO-friendly, bez cookies) — aktywuj po zalozeniu konta na plausible.io i wpisaniu domeny -->
 <!-- <script defer data-domain="porodnamiare.pl" src="https://plausible.io/js/script.js"></script> -->
+<!-- Vercel Analytics + Speed Insights (aktywne, bez konfiguracji — Vercel wykrywa automatycznie) -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments)};</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<!-- Google Analytics 4 — podmien G-XXXXXXXXXX na swoj Measurement ID z analytics.google.com i odkomentuj -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
 </head>
 <body class="font-body bg-sand text-ink antialiased">
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Przejdź do treści</a>
@@ -1019,6 +1034,22 @@ tailwind.config = {
       <p class="text-[16px] leading-relaxed text-ink/80 mb-3">Kiedy Anna była w ósmym miesiącu ciąży, poszedłem oddać krew po raz pierwszy. Nie dlatego, że byłem bohaterem. Dlatego, że chciałem zrobić coś konkretnego. Jedna donacja może uratować nawet trzy osoby — krew jest rozdzielana na składniki. Po 25 latach w medycynie wiem: <strong>krwi nie da się wyprodukować w laboratorium.</strong></p>
       <p class="text-[16px] leading-relaxed text-ink/80 mb-6">Polska potrzebuje 1 500 litrów krwi dziennie. Brakuje szczególnie grupy 0 Rh–. Krew przechowuje się do 42 dni — zapasy muszą być stale uzupełniane. Oddaje mniej niż 2% Polaków. Wystarczyłoby 4%.</p>
       <a href="/blog/ojciec-dawca-krwi" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors text-sm">Czytaj: dlaczego warto oddawać krew →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLISKOŚĆ I SEKS W CIĄŻY — WYRÓŻNIK EDUKACYJNY ===== -->
+<section class="max-w-5xl mx-auto px-4 py-12">
+  <div class="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-sanddark">
+    <!-- HIGGSFIELD PROMPT: Ciepłe, stonowane zdjęcie pary w ciąży trzymającej się za ręce, czuły kontakt wzrokowy, jasne wnętrze, naturalne światło, styl edytorialny spójny z marką. Zapisz jako: /img/blizkosc/wyroznik-para-dlonie.webp -->
+    <div class="aspect-[4/3] md:aspect-auto bg-gradient-to-br from-tealsoft to-sand overflow-hidden">
+      <img src="/img/blizkosc/wyroznik-para-dlonie.webp" alt="Para w ciąży trzymająca się za ręce — bliskość i intymność w ciąży" width="600" height="450" loading="lazy" class="w-full h-full object-cover">
+    </div>
+    <div class="bg-white p-8 md:p-10 flex flex-col justify-center">
+      <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-2">Temat, o którym warto mówić</p>
+      <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mb-4">Seks i bliskość w ciąży — bez tabu</h2>
+      <p class="text-[15px] leading-relaxed text-ink/75 mb-5">Hormony zmieniają popęd falowo, a wiele par boi się pytać wprost, czy to bezpieczne dla dziecka. Ginekolog i seksuolog z 25-letnim doświadczeniem odpowiada rzeczowo — bez wstydu i bez owijania w bawełnę.</p>
+      <a href="/blog/bliskosc-i-seks-w-ciazy" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors text-sm w-fit">Czytaj artykuł →</a>
     </div>
   </div>
 </section>

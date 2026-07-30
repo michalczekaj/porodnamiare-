@@ -19,7 +19,7 @@ PoródNaMiarę.pl został stworzony przez Michała — przyszłego tatę, który
 
 - Plan porodu Podstawowy (49 zł): https://porodnamiare.pl/#cennik
 - Plan porodu Premium (99 zł, bestseller): https://porodnamiare.pl/#cennik
-- Pakiet Premium+ (179 zł, komplet z gratisami): https://porodnamiare.pl/#cennik
+- Pakiet Premium+ (219 zł, komplet z gratisami — plan porodu, fizjoterapia, sen niemowlęcia, dieta i suplementacja): https://porodnamiare.pl/#cennik
 - Plan połogu (49 zł): https://porodnamiare.pl/produkty/plan-polozu
 - Plan cięcia cesarskiego (39 zł): https://porodnamiare.pl/produkty/cesarskie-ciecie
 - Przewodnik laktacyjny (39 zł): https://porodnamiare.pl/produkty/laktacja
@@ -27,6 +27,10 @@ PoródNaMiarę.pl został stworzony przez Michała — przyszłego tatę, który
 - Checklist dla taty (29 zł): https://porodnamiare.pl/produkty/checklist-dla-taty
 - Torba do szpitala — checklista (19 zł): https://porodnamiare.pl/produkty/torba-do-szpitala
 - Wyprawka dla noworodka — checklista (19 zł / gratis w Premium+): https://porodnamiare.pl/produkty/wyprawka-noworodka
+- Przewodnik fizjoterapii uroginekologicznej (49 zł): https://porodnamiare.pl/produkty/fizjoterapia-uroginekologiczna
+- Przewodnik snu niemowlęcia (59 zł): https://porodnamiare.pl/produkty/sen-niemowlecia
+- Przewodnik dieta i suplementacja w ciąży (59 zł): https://porodnamiare.pl/produkty/dieta-suplementacja-ciaza
+- Karta pytań do ginekologa i Techniki oddechowe na poród — ekskluzywnie w pakietach Premium/Premium+ (nie do kupienia osobno): https://porodnamiare.pl/#cennik
 
 ## Artykuły (baza wiedzy)
 
@@ -43,6 +47,14 @@ PoródNaMiarę.pl został stworzony przez Michała — przyszłego tatę, który
 - Angielski: https://porodnamiare.pl/en
 - Niemiecki: https://porodnamiare.pl/de
 - Ukraiński (dla diaspory rodzącej w Polsce): https://porodnamiare.pl/ua
+
+## Nowe artykuły (lipiec 2026)
+
+- Seks i bliskość w ciąży — hormony, bezpieczeństwo, przeciwwskazania: https://porodnamiare.pl/blog/bliskosc-i-seks-w-ciazy
+- Dieta i suplementacja w ciąży: https://porodnamiare.pl/blog/dieta-suplementacja-ciaza
+- Sen niemowlęcia i małego dziecka: https://porodnamiare.pl/blog/sen-niemowlecia
+- Fizjoterapia uroginekologiczna: https://porodnamiare.pl/blog/fizjoterapia-uroginekologiczna
+- Laktator Momcozy M12 Pro — recenzja (kategoria Sprzęt dla dziecka): https://porodnamiare.pl/blog/laktator-momcozy-m12-pro
 
 ## Kontakt
 
