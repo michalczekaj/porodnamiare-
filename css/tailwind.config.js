@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['../*.html', '../**/*.html'],
+  content: ['/home/claude/site/*.html', '/home/claude/site/**/*.html'],
   theme: {
     extend: {
       colors: {ink:'#3A3341',deep:'#3E3852',teal:'#A0525E',tealsoft:'#F7E9E7',sand:'#FAF5EF',sanddark:'#EDDFD3'},
