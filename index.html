@@ -142,7 +142,7 @@ tailwind.config = {
       </button>
     </div>
   </nav>
-  <div id="mobileMenu" class="hidden lg:hidden border-t border-sanddark bg-sand/98 backdrop-blur px-4 py-5">
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-sanddark bg-sand/95 backdrop-blur px-4 py-5">
     <nav class="space-y-1 text-[16px] font-medium" aria-label="Nawigacja mobilna">
       <a href="#dlaczego" data-i18n="navWhy" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
         <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">💗</span>Dlaczego my</span>
@@ -876,47 +876,90 @@ tailwind.config = {
   <!-- PRODUKTY INDYWIDUALNE -->
   <div class="max-w-5xl mx-auto">
     <p class="text-center text-sm font-semibold text-ink/70 mb-5">Lub wybierz pojedynczy produkt:</p>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <a href="/produkty/plan-polozu" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
-        <img src="/img/produkty/plan-pologu.webp" alt="" width="600" height="900" loading="lazy" decoding="async" class="w-11 h-auto rounded-lg shadow-sm border border-sanddark flex-shrink-0">
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Plan połogu</p><p class="text-xs text-ink/60">49 zł · PDF</p></div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
+      <a href="/produkty/plan-polozu" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-md transition-all">
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/plan-pologu.webp" alt="Plan połogu — okładka PDF" width="600" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="p-3 text-center">
+          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Plan połogu</p>
+          <p class="text-xs text-ink/60 mt-1">49 zł · PDF</p>
+        </div>
       </a>
-      <a href="/produkty/laktacja" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
-        <img src="/img/produkty/laktacja.webp" alt="" width="600" height="900" loading="lazy" decoding="async" class="w-11 h-auto rounded-lg shadow-sm border border-sanddark flex-shrink-0">
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Przewodnik laktacyjny</p><p class="text-xs text-ink/60">39 zł · PDF</p></div>
+      <a href="/produkty/laktacja" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-md transition-all">
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/laktacja.webp" alt="Przewodnik laktacyjny — okładka PDF" width="600" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="p-3 text-center">
+          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Przewodnik laktacyjny</p>
+          <p class="text-xs text-ink/60 mt-1">39 zł · PDF</p>
+        </div>
       </a>
-      <a href="/produkty/cesarskie-ciecie" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
-        <img src="/img/produkty/cesarskie-ciecie.webp" alt="" width="600" height="900" loading="lazy" decoding="async" class="w-11 h-auto rounded-lg shadow-sm border border-sanddark flex-shrink-0">
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Plan cięcia cesarskiego</p><p class="text-xs text-ink/60">39 zł · PDF</p></div>
+      <a href="/produkty/cesarskie-ciecie" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-md transition-all">
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/cesarskie-ciecie.webp" alt="Plan cięcia cesarskiego — okładka PDF" width="600" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="p-3 text-center">
+          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Plan cięcia cesarskiego</p>
+          <p class="text-xs text-ink/60 mt-1">39 zł · PDF</p>
+        </div>
       </a>
-      <a href="/produkty/chustonoszenie" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
-        <img src="/img/produkty/chustonoszenie.webp" alt="" width="600" height="900" loading="lazy" decoding="async" class="w-11 h-auto rounded-lg shadow-sm border border-sanddark flex-shrink-0">
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">ABC chustonoszenia</p><p class="text-xs text-ink/60">29 zł · przewodnik PDF</p></div>
+      <a href="/produkty/chustonoszenie" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-md transition-all">
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/chustonoszenie.webp" alt="ABC chustonoszenia — okładka PDF" width="600" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="p-3 text-center">
+          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">ABC chustonoszenia</p>
+          <p class="text-xs text-ink/60 mt-1">29 zł · przewodnik PDF</p>
+        </div>
       </a>
-      <a href="/produkty/checklist-dla-taty" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
-        <img src="/img/produkty/checklist-dla-taty.webp" alt="" width="600" height="900" loading="lazy" decoding="async" class="w-11 h-auto rounded-lg shadow-sm border border-sanddark flex-shrink-0">
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Checklist dla taty</p><p class="text-xs text-ink/60">29 zł · PDF</p></div>
+      <a href="/produkty/checklist-dla-taty" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-md transition-all">
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/checklist-dla-taty.webp" alt="Checklist dla taty — okładka PDF" width="600" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="p-3 text-center">
+          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Checklist dla taty</p>
+          <p class="text-xs text-ink/60 mt-1">29 zł · PDF</p>
+        </div>
       </a>
-      <a href="/produkty/torba-do-szpitala" class="group bg-white border border-sanddark rounded-2xl p-5 flex gap-3 items-center hover:border-teal transition-colors">
-        <img src="/img/produkty/torba-do-szpitala.webp" alt="" width="600" height="900" loading="lazy" decoding="async" class="w-11 h-auto rounded-lg shadow-sm border border-sanddark flex-shrink-0">
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Torba do szpitala</p><p class="text-xs text-ink/60">19 zł · checklista PDF</p></div>
+      <a href="/produkty/torba-do-szpitala" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-md transition-all">
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/torba-do-szpitala.webp" alt="Torba do szpitala — okładka PDF" width="600" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="p-3 text-center">
+          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Torba do szpitala</p>
+          <p class="text-xs text-ink/60 mt-1">19 zł · checklista PDF</p>
+        </div>
       </a>
-      <a href="/produkty/fizjoterapia-uroginekologiczna" class="group bg-white border-2 border-teal rounded-2xl p-5 flex gap-3 items-center hover:bg-tealsoft transition-colors relative">
-        <span class="absolute -top-2 -right-2 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NOWOŚĆ</span>
-        <img src="/img/produkty/fizjoterapia.webp" alt="" width="600" height="900" loading="lazy" decoding="async" class="w-11 h-auto rounded-lg shadow-sm border border-sanddark flex-shrink-0">
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Fizjoterapia uroginekologiczna</p><p class="text-xs text-ink/60">49 zł · ćwiczeniownik PDF, 16 str.</p></div>
+      <a href="/produkty/fizjoterapia-uroginekologiczna" class="group relative flex flex-col bg-white border-2 border-teal rounded-2xl overflow-hidden hover:bg-tealsoft hover:shadow-md transition-all">
+        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NOWOŚĆ</span>
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/fizjoterapia.webp" alt="Fizjoterapia uroginekologiczna — okładka PDF" width="600" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="p-3 text-center">
+          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Fizjoterapia uroginekologiczna</p>
+          <p class="text-xs text-ink/60 mt-1">49 zł · ćwiczeniownik PDF, 16 str.</p>
+        </div>
       </a>
-
-      <a href="/produkty/sen-niemowlecia" class="group bg-white border-2 border-teal rounded-2xl p-5 flex gap-3 items-center hover:bg-tealsoft transition-colors relative">
-        <span class="absolute -top-2 -right-2 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NOWOŚĆ</span>
-        <img src="/img/produkty/sen-niemowlecia.webp" alt="" width="600" height="900" loading="lazy" decoding="async" class="w-11 h-auto rounded-lg shadow-sm border border-sanddark flex-shrink-0">
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Sen niemowlęcia</p><p class="text-xs text-ink/60">59 zł · przewodnik PDF, 16 str.</p></div>
+      <a href="/produkty/sen-niemowlecia" class="group relative flex flex-col bg-white border-2 border-teal rounded-2xl overflow-hidden hover:bg-tealsoft hover:shadow-md transition-all">
+        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NOWOŚĆ</span>
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/sen-niemowlecia.webp" alt="Sen niemowlęcia — okładka PDF" width="600" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="p-3 text-center">
+          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Sen niemowlęcia</p>
+          <p class="text-xs text-ink/60 mt-1">59 zł · przewodnik PDF, 16 str.</p>
+        </div>
       </a>
-
-      <a href="/produkty/dieta-suplementacja-ciaza" class="group bg-white border-2 border-teal rounded-2xl p-5 flex gap-3 items-center hover:bg-tealsoft transition-colors relative">
-        <span class="absolute -top-2 -right-2 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NOWOŚĆ</span>
-        <img src="/img/produkty/dieta-suplementacja.webp" alt="" width="600" height="900" loading="lazy" decoding="async" class="w-11 h-auto rounded-lg shadow-sm border border-sanddark flex-shrink-0">
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Dieta i suplementacja</p><p class="text-xs text-ink/60">59 zł · przewodnik PDF, 16 str.</p></div>
+      <a href="/produkty/dieta-suplementacja-ciaza" class="group relative flex flex-col bg-white border-2 border-teal rounded-2xl overflow-hidden hover:bg-tealsoft hover:shadow-md transition-all">
+        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NOWOŚĆ</span>
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/dieta-suplementacja.webp" alt="Dieta i suplementacja — okładka PDF" width="600" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="p-3 text-center">
+          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Dieta i suplementacja</p>
+          <p class="text-xs text-ink/60 mt-1">59 zł · przewodnik PDF, 16 str.</p>
+        </div>
       </a>
     </div>
   </div>
