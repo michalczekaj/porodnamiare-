@@ -38,6 +38,54 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}input,butto
 </style>
 <!-- Plausible (RODO-friendly) — aktywuj po zalozeniu konta -->
 <!-- <script defer data-domain="porodnamiare.pl" src="https://plausible.io/js/script.js"></script> -->
+<!-- Vercel Analytics + Speed Insights (aktywne, bez konfiguracji — Vercel wykrywa automatycznie) -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments)};</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<!-- Google Analytics 4 — ładowany WYŁĄCZNIE po zgodzie użytkownika (art. 173 Prawa telekomunikacyjnego) -->
+<script>
+(function(){
+  var GA_ID = 'G-9E89VNE6FV';
+  function loadGA(){
+    if(window.__gaLoaded) return; window.__gaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GA_ID, {anonymize_ip:true});
+  }
+  var consent = null;
+  try { consent = localStorage.getItem('pnm_consent_analytics'); } catch(e){}
+  if(consent === 'granted'){ loadGA(); }
+  else if(consent !== 'denied'){
+    document.addEventListener('DOMContentLoaded', function(){
+      var b = document.createElement('div');
+      b.id = 'cookieConsent';
+      b.setAttribute('role','dialog');
+      b.setAttribute('aria-label','Cookie consent');
+      b.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#3E3852;color:#FAF5EF;padding:16px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.15);font-family:Figtree,sans-serif';
+      b.innerHTML = '<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">' +
+        '<p style="font-size:13.5px;line-height:1.5;margin:0;flex:1;min-width:240px">We use Google Analytics to see which content is helpful — only with your consent, no ad profiling. Details: <a href="/polityka-prywatnosci" style="color:#A0525E;text-decoration:underline">privacy policy</a>.</p>' +
+        '<div style="display:flex;gap:8px;flex-shrink:0">' +
+        '<button id="cookieDeny" style="background:transparent;border:1px solid rgba(250,245,239,.4);color:#FAF5EF;font-weight:600;font-size:13px;padding:9px 16px;border-radius:999px;cursor:pointer">Decline</button>' +
+        '<button id="cookieAccept" style="background:#A0525E;border:none;color:#fff;font-weight:600;font-size:13px;padding:9px 18px;border-radius:999px;cursor:pointer">Accept</button>' +
+        '</div></div>';
+      document.body.appendChild(b);
+      document.getElementById('cookieAccept').addEventListener('click', function(){
+        try{ localStorage.setItem('pnm_consent_analytics','granted'); }catch(e){}
+        loadGA(); b.remove();
+      });
+      document.getElementById('cookieDeny').addEventListener('click', function(){
+        try{ localStorage.setItem('pnm_consent_analytics','denied'); }catch(e){}
+        b.remove();
+      });
+    });
+  }
+})();
+</script>
 </head>
 <body class="font-body bg-sand text-ink antialiased">
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Skip to content</a>

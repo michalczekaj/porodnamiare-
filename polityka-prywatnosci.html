@@ -23,16 +23,49 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2{font-
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments)};</script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-<!-- Google Analytics 4 — podmien G-XXXXXXXXXX na swoj Measurement ID z analytics.google.com i odkomentuj -->
-<!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<!-- Google Analytics 4 — ładowany WYŁĄCZNIE po zgodzie użytkownika (art. 173 Prawa telekomunikacyjnego) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+(function(){
+  var GA_ID = 'G-9E89VNE6FV';
+  function loadGA(){
+    if(window.__gaLoaded) return; window.__gaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GA_ID, {anonymize_ip:true});
+  }
+  var consent = null;
+  try { consent = localStorage.getItem('pnm_consent_analytics'); } catch(e){}
+  if(consent === 'granted'){ loadGA(); }
+  else if(consent !== 'denied'){
+    document.addEventListener('DOMContentLoaded', function(){
+      var b = document.createElement('div');
+      b.id = 'cookieConsent';
+      b.setAttribute('role','dialog');
+      b.setAttribute('aria-label','Zgoda na pliki cookie');
+      b.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#3E3852;color:#FAF5EF;padding:16px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.15);font-family:Figtree,sans-serif';
+      b.innerHTML = '<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">' +
+        '<p style="font-size:13.5px;line-height:1.5;margin:0;flex:1;min-width:240px">Używamy Google Analytics, żeby wiedzieć, które treści są przydatne — wyłącznie za Twoją zgodą, bez profilowania reklamowego. Szczegóły: <a href="/polityka-prywatnosci" style="color:#A0525E;text-decoration:underline">polityka prywatności</a>.</p>' +
+        '<div style="display:flex;gap:8px;flex-shrink:0">' +
+        '<button id="cookieDeny" style="background:transparent;border:1px solid rgba(250,245,239,.4);color:#FAF5EF;font-weight:600;font-size:13px;padding:9px 16px;border-radius:999px;cursor:pointer">Odrzucam</button>' +
+        '<button id="cookieAccept" style="background:#A0525E;border:none;color:#fff;font-weight:600;font-size:13px;padding:9px 18px;border-radius:999px;cursor:pointer">Akceptuję</button>' +
+        '</div></div>';
+      document.body.appendChild(b);
+      document.getElementById('cookieAccept').addEventListener('click', function(){
+        try{ localStorage.setItem('pnm_consent_analytics','granted'); }catch(e){}
+        loadGA(); b.remove();
+      });
+      document.getElementById('cookieDeny').addEventListener('click', function(){
+        try{ localStorage.setItem('pnm_consent_analytics','denied'); }catch(e){}
+        b.remove();
+      });
+    });
+  }
+})();
 </script>
--->
 </head>
 <body class="bg-[#FAF5EF]">
 <main class="max-w-3xl mx-auto px-4 py-14 leading-relaxed text-[15px]">
@@ -60,7 +93,9 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2{font-
 <p>Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia, sprzeciwu oraz cofnięcia zgody w dowolnym momencie, a także wniesienia skargi do Prezesa UODO (uodo.gov.pl).</p>
 
 <h2 class="text-xl font-semibold mt-8 mb-3">5. Cookies</h2>
-<p>Serwis nie używa cookies śledzących ani reklamowych. Wykorzystujemy wyłącznie pamięć sesji przeglądarki (sessionStorage) do jednorazowego wyświetlenia okna z checklistą — te dane nie opuszczają Twojego urządzenia. Jeśli w przyszłości dodamy narzędzia analityczne, poprosimy o zgodę.</p>
+<p>Wykorzystujemy pamięć sesji przeglądarki (sessionStorage) do jednorazowego wyświetlenia okna z checklistą — te dane nie opuszczają Twojego urządzenia i nie wymagają zgody (niezbędne działanie serwisu).</p>
+<p class="mt-3"><strong>Google Analytics 4</strong> — używamy wyłącznie za Twoją dobrowolną, uprzednią zgodą (art. 173 Prawa telekomunikacyjnego, art. 6 ust. 1 lit. a RODO). Przy pierwszej wizycie widzisz baner z wyborem „Akceptuję" / „Odrzucam" — skrypt Google nie ładuje się, dopóki nie klikniesz „Akceptuję". Zbierane dane: strony odwiedzane, czas na stronie, przybliżona lokalizacja (kraj/miasto na podstawie zanonimizowanego IP), typ urządzenia i przeglądarki. Nie łączymy tych danych z Twoim imieniem ani e-mailem. Administratorem tych danych względem Google LLC jest Google (dane mogą być przetwarzane w USA na podstawie standardowych klauzul umownych UE). Zgodę możesz wycofać w każdej chwili, czyszcząc dane strony w przeglądarce (localStorage) — baner pojawi się ponownie.</p>
+<p class="mt-3">Serwis nie używa cookies reklamowych ani profilujących.</p>
 
 <h2 class="text-xl font-semibold mt-8 mb-3">6. Bezpieczeństwo</h2>
 <p>Serwis działa wyłącznie po HTTPS. Minimalizujemy zakres zbieranych danych — to świadoma decyzja projektowa serwisu tworzonego przez rodzica dla rodziców.</p>
