@@ -104,7 +104,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
           </ul>
           <div class="flex flex-wrap gap-3">
             <a href="/?unlocked=1#kreator" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors text-sm">Otwórz kreator &rarr;</a>
-            <a href="mailto:kontakt@porodnamiare.pl?subject=Plan%20porodu%20-%20pomoc%20po%20zakupie" class="inline-block border border-deep/25 font-semibold px-6 py-3 rounded-full hover:bg-sanddark transition-colors text-sm">Napisz do nas</a>
+            <a href="#" class="pnm-email inline-block border border-deep/25 font-semibold px-6 py-3 rounded-full hover:bg-sanddark transition-colors text-sm" data-u="kontakt" data-d="porodnamiare.pl" data-p="?subject=Plan%20porodu%20-%20pomoc%20po%20zakupie" data-hide="1" rel="nofollow">Napisz do nas</a>
           </div>
         </div>
         <noscript><a href="/?unlocked=1#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full">Pobierz swój plan porodu &rarr;</a></noscript>
@@ -119,7 +119,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
       <div class="min-w-0">
         <h2 class="font-display text-xl font-semibold text-deep mb-2">Sprawdź skrzynkę e-mail</h2>
         <p class="text-[15px] text-ink/80 leading-relaxed mb-3">Jeśli kupiliście pakiet Premium lub Premium+, poradniki PDF wysłaliśmy na adres podany przy płatności. Wiadomość przychodzi zwykle w ciągu minuty.</p>
-        <p class="text-sm text-ink/70 bg-tealsoft rounded-xl px-4 py-3">Nie widzicie jej? Sprawdźcie folder <strong>Spam</strong> lub <strong>Oferty</strong>. Jeśli po 15 minutach nadal jej nie ma — napiszcie na <a href="mailto:kontakt@porodnamiare.pl" class="text-teal font-semibold underline">kontakt@porodnamiare.pl</a>.</p>
+        <p class="text-sm text-ink/70 bg-tealsoft rounded-xl px-4 py-3">Nie widzicie jej? Sprawdźcie folder <strong>Spam</strong> lub <strong>Oferty</strong>. Jeśli po 15 minutach nadal jej nie ma — napiszcie na <a href="#" class="text-teal font-semibold underline pnm-email" data-u="kontakt" data-d="porodnamiare.pl" rel="nofollow"></a>.</p>
       </div>
     </div>
   </section>
@@ -165,5 +165,6 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
   try{ localStorage.setItem('pnm_unlocked_v1','1'); }catch(e){}
 })();
 </script>
+<script src="js/email-protect.js" defer></script>
 </body>
 </html>

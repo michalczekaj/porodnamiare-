@@ -93,7 +93,7 @@
       <input name="numer" class="w-full border border-sanddark rounded-xl px-3 py-2.5 text-[15px]" placeholder="z e-maila potwierdzającego">
     </div>
     <button type="submit" class="w-full bg-teal text-white font-bold py-3.5 rounded-2xl hover:bg-deep transition-colors">Wyślij oświadczenie o odstąpieniu →</button>
-    <p class="text-xs text-ink/50 text-center">Otworzy się Twój program pocztowy z gotową wiadomością do kontakt@porodnamiare.pl. Odpowiadamy i zwracamy środki w ciągu 14 dni.</p>
+    <p class="text-xs text-ink/50 text-center">Otworzy się Twój program pocztowy z gotową wiadomością do <span class="pnm-email" data-u="kontakt" data-d="porodnamiare.pl"></span>. Odpowiadamy i zwracamy środki w ciągu 14 dni.</p>
   </form>
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm mt-10">
@@ -104,8 +104,9 @@ document.getElementById('wf').addEventListener('submit', function(e){
   e.preventDefault();
   var f = new FormData(e.target);
   var body = 'Ja, niżej podpisany/a ' + f.get('imie') + ' (' + f.get('email') + '), niniejszym informuję o moim odstąpieniu od umowy sprzedaży produktu: ' + f.get('produkt') + '.\n\nData zamówienia: ' + f.get('data') + '\nNumer zamówienia: ' + (f.get('numer') || 'brak') + '\n\nProszę o zwrot płatności zgodnie z regulaminem.\n\nPozdrawiam,\n' + f.get('imie');
-  window.location.href = 'mailto:kontakt@porodnamiare.pl?subject=' + encodeURIComponent('Odstąpienie od umowy — ' + f.get('produkt')) + '&body=' + encodeURIComponent(body);
+  window.location.href = 'mailto:' + 'kontakt' + '@' + 'porodnamiare.pl' + '?subject=' + encodeURIComponent('Odstąpienie od umowy — ' + f.get('produkt')) + '&body=' + encodeURIComponent(body);
 });
 </script>
+<script src="js/email-protect.js" defer></script>
 </body>
 </html>
