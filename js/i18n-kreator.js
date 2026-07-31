@@ -24,6 +24,14 @@
     uk: {"Rodząca":"Породілля","Osoba towarzysząca":"Особа супроводу","Termin porodu":"Дата пологів","Lekarz / położna":"Лікар / акушерка","Grupa krwi i Rh":"Група крові та Rh","HBsAg matki":"HBsAg матері","GBS":"СГБ"}
   };
 
+  // ---- 1c. Nagłówki H2 13 kroków UI kreatora (inne niż tytuły sekcji PDF!) ----
+  var UI_STEP_TITLES = {
+    pl: ["Dane i informacje kluczowe","Warunki i miejsce porodu","Osoba towarzysząca i osoby obecne","Przygotowanie do porodu","Przebieg porodu — I i II okres","Łagodzenie bólu porodowego","Ochrona krocza, indukcja i łożysko","Gdyby konieczne było cięcie cesarskie","Opieka nad noworodkiem","Profilaktyka i badania noworodka","Szczepienia noworodka","Połóg i oddział położniczy","Podsumowanie Waszego planu"],
+    en: ["Key details","Birth conditions and place","Support person and people present","Preparing for birth","Labour — first and second stage","Pain relief in labour","Perineal protection, induction and placenta","If a caesarean section becomes necessary","Newborn care","Newborn screening and prophylaxis","Newborn vaccinations","Postpartum ward","Summary of your plan"],
+    de: ["Wichtige Angaben","Bedingungen und Ort der Geburt","Begleitperson und Anwesende","Vorbereitung auf die Geburt","Geburtsverlauf — Eröffnungs- und Austreibungsphase","Schmerzlinderung während der Geburt","Dammschutz, Einleitung und Plazenta","Falls ein Kaiserschnitt nötig wird","Versorgung des Neugeborenen","Screening und Prophylaxe des Neugeborenen","Impfungen des Neugeborenen","Wochenbett und Wochenbettstation","Zusammenfassung Ihres Plans"],
+    uk: ["Ключові дані","Умови та місце пологів","Особа супроводу та присутні","Підготовка до пологів","Перебіг пологів — I та II період","Знеболення під час пологів","Захист промежини, індукція та послід","Якщо знадобиться кесарів розтин","Догляд за новонародженим","Профілактика та обстеження новонародженого","Щеплення новонародженого","Післяпологовий період і відділення","Підсумок вашого плану"]
+  };
+
   // ---- 2. UI kreatora (nawigacja, przyciski, etykiety) ----------------
   var UI = {
     pl: {back:"← Wstecz", next:"Dalej →", download:"Pobierz plan porodu (PDF)", downloadPl:"Pobierz PDF po polsku (dla personelu)", downloadTranslated:"Pobierz PDF w Twoim języku (dla siebie)", step:"Krok", of:"z", langLabel:"Język", preparing:"Przygotowuję dokument…", note:"Dokument dla personelu jest zawsze po polsku — to on musi go zrozumieć w kilka sekund."},
@@ -149,11 +157,44 @@
 "Wypis do domu możliwie szybko, jeśli stan matki i dziecka jest dobry": {en:"Discharge home as soon as possible, if mother and baby are both well", de:"Möglichst frühe Entlassung nach Hause, sofern Mutter und Kind wohlauf sind", uk:"Виписка додому якнайшвидше, якщо стан матері й дитини добрий"}
   };
 
-  global.PNM_I18N = { steps: STEP_TITLES, ui: UI, pdf: PDF_STATIC, values: VALUES, rowLabels: ROW_LABELS,
+  global.PNM_I18N = { steps: STEP_TITLES, uiSteps: UI_STEP_TITLES, ui: UI, pdf: PDF_STATIC, values: VALUES, rowLabels: ROW_LABELS,
     t: function (pl, lang) { // tłumaczy pojedynczą frazę; brak wpisu -> zwraca polski oryginał
       if (!lang || lang === 'pl') return pl;
       var e = VALUES[pl];
       return (e && e[lang]) ? e[lang] : pl;
+    },
+    // Na żywo tłumaczy widoczną treść kreatora w DOM: nagłówki kroków, przyciski, etykiety opcji.
+    // Nie rusza atrybutu value="" (dane kreatora pozostają kanoniczne po polsku).
+    applyToKreator: function (lang) {
+      var root = document.getElementById('kreator');
+      if (!root) return;
+      lang = lang || 'pl';
+      // 1) Nagłówki H2 kroków
+      var heads = root.querySelectorAll('.creator-step h3, [data-step] h3');
+      heads.forEach(function (h) {
+        if (!h.dataset.plOrig) h.dataset.plOrig = h.textContent.trim();
+        var idx = UI_STEP_TITLES.pl.indexOf(h.dataset.plOrig);
+        h.textContent = (idx > -1 && UI_STEP_TITLES[lang]) ? UI_STEP_TITLES[lang][idx] : h.dataset.plOrig;
+      });
+      // 2) Etykiety opcji (span obok input w <label>) — klucz słownika to ZAWSZE input.value
+      //    (pełne zdanie kliniczne), span pokazuje zwykle skróconą etykietę PL — przy tłumaczeniu
+      //    pokazujemy pełne, precyzyjne zdanie (dłuższe, ale poprawne merytorycznie).
+      root.querySelectorAll('label > input[value]').forEach(function (inp) {
+        var span = inp.nextElementSibling;
+        if (!span) return;
+        if (!span.dataset.plOrig) span.dataset.plOrig = span.textContent;
+        var pl = inp.value;
+        span.textContent = (lang === 'pl') ? span.dataset.plOrig : (VALUES[pl] && VALUES[pl][lang] ? VALUES[pl][lang] : span.dataset.plOrig);
+      });
+      // 3) Przyciski nawigacji i pobierania
+      var map = {prevBtn: 'back', nextBtn: 'next', dlBtn: 'download'};
+      Object.keys(map).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        if (!el.dataset.plOrig) el.dataset.plOrig = el.textContent.trim();
+        el.textContent = (lang === 'pl') ? el.dataset.plOrig : (UI[lang] && UI[lang][map[id]]) || el.dataset.plOrig;
+      });
+      try { localStorage.setItem('pnm_kreator_lang', lang); } catch (e) {}
     }
   };
 })(window);
