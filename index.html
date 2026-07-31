@@ -690,6 +690,20 @@ tailwind.config = {
           <p class="text-[15px] text-ink/75 leading-relaxed mb-5">Kliknijcie poniżej, a dokument zapisze się na Waszym urządzeniu. Wydrukujcie dwa egzemplarze: jeden do torby, drugi dla położnej.</p>
           <button type="button" id="dlBtn" class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors">Pobierz plan porodu (PDF)</button>
           <p id="dlStatus" class="text-sm text-ink/70 mt-3" aria-live="polite"></p>
+
+          <div class="mt-6 pt-5 border-t border-sanddark">
+            <p class="text-[13px] font-semibold text-ink/70 mb-2">Rodzicie obcojęzyczni? Pobierzcie też własną kopię</p>
+            <p class="text-xs text-ink/55 mb-3">Personel dostaje wersję polską. Wy możecie mieć tę samą treść we własnym języku.</p>
+            <div class="flex flex-wrap gap-2 justify-center items-center">
+              <select id="dlLang" class="border border-sanddark rounded-full px-3 py-2 text-sm font-semibold text-deep bg-white">
+                <option value="en">🇬🇧 English</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="uk">🇺🇦 Українська</option>
+              </select>
+              <button type="button" id="dlBtnLang" class="border-2 border-teal text-teal font-semibold px-5 py-2 rounded-full hover:bg-teal hover:text-white transition-colors text-sm">Pobierz kopię w tym języku →</button>
+            </div>
+            <p id="dlStatusLang" class="text-xs text-ink/60 mt-2" aria-live="polite"></p>
+          </div>
         </div>
 
       </div>
@@ -1786,6 +1800,32 @@ tailwind.config = {
           .catch(function(){
             dlStatus.textContent='Nie udało się wygenerować pliku. Odśwież stronę lub napisz na kontakt@porodnamiare.pl — wyślemy plan ręcznie.';
             dlBtn.disabled=false;
+          });
+      });
+    }
+
+    // ===== Pobranie kopii dla rodzica w jego języku (EN/DE/UK) — obok wersji PL dla personelu =====
+    var dlBtnLang=document.getElementById('dlBtnLang'), dlStatusLang=document.getElementById('dlStatusLang'), dlLangSel=document.getElementById('dlLang');
+    var LANG_NAMES={en:'English',de:'Deutsch',uk:'Українською'};
+    if(dlBtnLang){
+      dlBtnLang.addEventListener('click', function(){
+        if(window.__freshUnlock !== true){ dlStatusLang.textContent='Dokończ zakup, aby pobrać plan.'; return; }
+        var lang = dlLangSel.value;
+        dlBtnLang.disabled=true; dlStatusLang.textContent='Przygotowuję dokument…';
+        var chain = window.jspdf ? Promise.resolve() : loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+        chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js'); })
+          .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js'); })
+          .then(function(){
+            var data=planData();
+            var doc=window.PNM_buildPlanPDF(data, lang);
+            var nm=(data.dziecko||'plan').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
+            doc.save('Birth-plan-'+nm+'-'+lang+'.pdf');
+            dlStatusLang.textContent='Gotowe! Kopia w języku: '+LANG_NAMES[lang]+'.';
+            dlBtnLang.disabled=false;
+          })
+          .catch(function(){
+            dlStatusLang.textContent='Nie udało się wygenerować pliku. Napisz na kontakt@porodnamiare.pl.';
+            dlBtnLang.disabled=false;
           });
       });
     }

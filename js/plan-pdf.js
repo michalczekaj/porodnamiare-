@@ -31,19 +31,26 @@ window.PNM_FONT_BOLD="AAEAAAANAIAAAwBQR1BPUxJjK2gAAGnEAAATvEdTVUKOOo58AAB9gAAAAH
     return {d:d, t:t, page:0, y:0};
   }
 
+  function pdfLabel(lang, key, fallback){
+    try{
+      if(lang && lang!=='pl' && window.PNM_I18N && window.PNM_I18N.pdf[lang]) return window.PNM_I18N.pdf[lang][key];
+    }catch(e){}
+    return fallback;
+  }
+
   function cover(c, dziecko, rodzice, termin){
-    var d=c.d, t=c.t; c.page=1;
+    var d=c.d, t=c.t, lang=c.lang; c.page=1;
     d.setFillColor(t.soft[0],t.soft[1],t.soft[2]); d.rect(0,0,W,H,'F');
     d.setFillColor(t.ac[0],t.ac[1],t.ac[2]); d.rect(0,0,W,110,'F');
     heart(d, W/2, 32, 7, [255,255,255]);
     d.setTextColor(255,255,255);
     d.setFont('Lato','bold'); d.setFontSize(10);
-    d.text('PLAN PORODU', W/2, 62, {align:'center', charSpace:1.2});
+    d.text(pdfLabel(lang,'cover','PLAN PORODU'), W/2, 62, {align:'center', charSpace:1.2});
     d.setFontSize(dziecko && dziecko.length>12 ? 26 : 32);
-    d.text(dziecko||'Nasze dziecko', W/2, 80, {align:'center'});
+    d.text(dziecko||pdfLabel(lang,'parents','Nasze dziecko'), W/2, 80, {align:'center'});
     d.setFont('Lato','normal'); d.setFontSize(12);
     if(rodzice) d.text(rodzice, W/2, 91, {align:'center'});
-    if(termin){ d.setFontSize(10); d.text('Przewidywany termin: '+termin, W/2, 100, {align:'center'}); }
+    if(termin){ d.setFontSize(10); d.text(pdfLabel(lang,'term','Przewidywany termin')+': '+termin, W/2, 100, {align:'center'}); }
     // Logo strony nad nazwą marki — wycentrowane, estetyczny rozmiar
     try{
       var lw=26, lh=lw*PNM_LOGO_AR;      // 26mm szerokości
@@ -51,26 +58,28 @@ window.PNM_FONT_BOLD="AAEAAAANAIAAAwBQR1BPUxJjK2gAAGnEAAATvEdTVUKOOo58AAB9gAAAAH
     }catch(e){}
     d.setTextColor(t.ac[0],t.ac[1],t.ac[2]);
     d.setFont('Lato','bold'); d.setFontSize(13);
-    d.text('PorodNaMiare.pl', W/2, H-44, {align:'center'});
+    d.text(pdfLabel(lang,'brand','PorodNaMiare.pl'), W/2, H-44, {align:'center'});
     d.setTextColor(GREY[0],GREY[1],GREY[2]);
     d.setFont('Lato','normal'); d.setFontSize(8);
-    d.text('Zgodny ze Standardem Opieki Okołoporodowej — Dz.U. 2025 poz. 1525', W/2, H-33, {align:'center'});
+    d.text(pdfLabel(lang,'standard','Zgodny ze Standardem Opieki Okołoporodowej — Dz.U. 2025 poz. 1525'), W/2, H-33, {align:'center'});
     d.setFontSize(7.5);
-    d.text('Dokument organizacyjny — nie zastępuje porady lekarskiej.', W/2, H-27, {align:'center'});
+    d.text(pdfLabel(lang,'footerNote','Dokument organizacyjny — nie zastępuje porady lekarskiej.'), W/2, H-27, {align:'center', maxWidth:W-40});
   }
 
   function chrome(c){
-    var d=c.d, t=c.t;
+    var d=c.d, t=c.t, lang=c.lang;
     d.setFillColor(t.ac[0],t.ac[1],t.ac[2]); d.rect(0,0,W,13,'F');
     d.setTextColor(255,255,255); d.setFont('Lato','bold'); d.setFontSize(9);
-    d.text('PLAN PORODU', 16, 8.6);
+    d.text(pdfLabel(lang,'cover','PLAN PORODU'), 16, 8.6);
     d.setFont('Lato','normal'); d.setFontSize(8);
-    d.text('PorodNaMiare.pl', W-16, 8.6, {align:'right'});
+    d.text(pdfLabel(lang,'brand','PorodNaMiare.pl'), W-16, 8.6, {align:'right'});
     d.setFillColor(DEEP[0],DEEP[1],DEEP[2]); d.rect(0,H-9,W,9,'F');
     heart(d, 16, H-6, 1.5, [255,255,255]);
     d.setTextColor(255,255,255); d.setFontSize(7);
-    d.text('Wygenerowano w PorodNaMiare.pl', 20, H-5.4);
-    d.text('str. '+c.page, W-16, H-5.4, {align:'right'});
+    var genLabel = lang==='en'?'Generated at PorodNaMiare.pl':lang==='de'?'Erstellt auf PorodNaMiare.pl':lang==='uk'?'Створено на PorodNaMiare.pl':'Wygenerowano w PorodNaMiare.pl';
+    var pageLabel = lang==='en'?'p.':lang==='de'?'S.':lang==='uk'?'стор.':'str.';
+    d.text(genLabel, 20, H-5.4);
+    d.text(pageLabel+' '+c.page, W-16, H-5.4, {align:'right'});
   }
 
   function newPage(c){
@@ -101,7 +110,7 @@ window.PNM_FONT_BOLD="AAEAAAANAIAAAwBQR1BPUxJjK2gAAGnEAAATvEdTVUKOOo58AAB9gAAAAH
 
   function priority(c){
     var d=c.d, t=c.t;
-    var txt='PRIORYTET NADRZĘDNY: zdrowie i życie dziecka oraz matki są bezwzględnym priorytetem, nadrzędnym wobec każdego punktu tego planu. W sytuacji zagrożenia akceptujemy wszystkie niezbędne interwencje medyczne. Prosimy jedynie o możliwie szybką informację o sytuacji.';
+    var txt=pdfLabel(c.lang,'priority','PRIORYTET NADRZĘDNY: zdrowie i życie dziecka oraz matki są bezwzględnym priorytetem, nadrzędnym wobec każdego punktu tego planu. W sytuacji zagrożenia akceptujemy wszystkie niezbędne interwencje medyczne. Prosimy jedynie o możliwie szybką informację o sytuacji.');
     d.setFont('Lato','bold'); d.setFontSize(8.5);
     var lines=d.splitTextToSize(txt, W-48), bh=lines.length*4.4+8;
     need(c,bh+5);
@@ -158,39 +167,58 @@ window.PNM_FONT_BOLD="AAEAAAANAIAAAwBQR1BPUxJjK2gAAGnEAAATvEdTVUKOOo58AAB9gAAAAH
   }
 
   function signatures(c){
-    var d=c.d;
+    var d=c.d, lang=c.lang;
     need(c,52);
     d.setTextColor(DEEP[0],DEEP[1],DEEP[2]); d.setFont('Lato','bold'); d.setFontSize(11);
-    d.text('Oświadczenie i podpisy',16,c.y); c.y+=7;
+    d.text(pdfLabel(lang,'signTitle','Oświadczenie i podpisy'),16,c.y); c.y+=7;
     d.setFont('Lato','normal'); d.setFontSize(9); d.setTextColor(INK[0],INK[1],INK[2]);
-    d.splitTextToSize('Świadomie wyrażamy powyższe preferencje. Akceptujemy wszelkie niezbędne interwencje ratujące zdrowie i życie dziecka oraz matki.', W-32)
+    d.splitTextToSize(pdfLabel(lang,'signText','Świadomie wyrażamy powyższe preferencje. Akceptujemy wszelkie niezbędne interwencje ratujące zdrowie i życie dziecka oraz matki.'), W-32)
       .forEach(function(l){ d.text(l,16,c.y); c.y+=4.6; });
     c.y+=13;
     d.setDrawColor(SD[0],SD[1],SD[2]); d.setLineWidth(0.4);
     d.line(24,c.y,88,c.y); d.line(118,c.y,182,c.y);
     c.y+=5;
     d.setTextColor(GREY[0],GREY[1],GREY[2]); d.setFontSize(8);
-    d.text('Matka',56,c.y,{align:'center'});
-    d.text('Ojciec / osoba towarzysząca',150,c.y,{align:'center'});
+    d.text(pdfLabel(lang,'signMother','Matka'),56,c.y,{align:'center'});
+    d.text(pdfLabel(lang,'signFather','Ojciec / osoba towarzysząca'),150,c.y,{align:'center'});
     c.y+=10;
     d.setTextColor(INK[0],INK[1],INK[2]); d.setFontSize(9);
-    d.text('Data: ............................................',16,c.y);
+    d.text(pdfLabel(lang,'signDate','Data')+': ............................................',16,c.y);
   }
 
-  window.PNM_buildPlanPDF = function(data){
+  window.PNM_buildPlanPDF = function(data, lang){
+    lang = lang || 'pl';
     var c=Doc(data.gender);
+    c.lang = lang;
+    var tr = function(s){
+      try{ return (lang!=='pl' && window.PNM_I18N) ? window.PNM_I18N.t(s, lang) : s; }catch(e){ return s; }
+    };
     cover(c, data.dziecko, data.rodzice, data.termin);
     newPage(c);
-    dataBox(c, data.rows||[]);
+    dataBox(c, (data.rows||[]).map(function(r){
+      var label = (lang!=='pl' && window.PNM_I18N && window.PNM_I18N.rowLabels[lang] && window.PNM_I18N.rowLabels[lang][r[0]]) ? window.PNM_I18N.rowLabels[lang][r[0]] : r[0];
+      return [label, r[1]];
+    }));
     priority(c);
     var n=1;
     (data.sections||[]).forEach(function(s){
       if(s.items && s.items.length){
-        section(c, n++, s.title, s.items);
+        var title = lang!=='pl' ? translateStepTitle(s.title, lang) : s.title;
+        section(c, n++, title, s.items.map(tr));
         if(s.info) infoBox(c, s.info[0], s.info[1]);
       }
     });
     signatures(c);
     return c.d;
   };
+
+  // Mapuje polski tytuł kroku kreatora na jego tłumaczenie (po indeksie w PNM_I18N.steps.pl)
+  function translateStepTitle(plTitle, lang){
+    try{
+      var steps = window.PNM_I18N.steps;
+      var idx = steps.pl.indexOf(plTitle);
+      if(idx>-1 && steps[lang] && steps[lang][idx]) return steps[lang][idx];
+    }catch(e){}
+    return plTitle;
+  }
 })();
