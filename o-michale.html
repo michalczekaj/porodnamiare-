@@ -156,7 +156,9 @@ blockquote{border-left:3px solid #A0525E}
   function fmt(s){ s=Math.floor(s||0); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
   btn.addEventListener('click', function(){
     if(!a){
-      a=new Audio('/audio/michal-o-stronie.mp3');
+      a=document.createElement('audio');
+      var src1=document.createElement('source'); src1.src='/audio/michal-o-stronie.opus'; src1.type='audio/ogg; codecs=opus'; a.appendChild(src1);
+      var src2=document.createElement('source'); src2.src='/audio/michal-o-stronie-128.mp3'; src2.type='audio/mpeg'; a.appendChild(src2);
       a.preload='none'; a.setAttribute('playsinline','');
       a.addEventListener('timeupdate', function(){
         if(a.duration){ bar.style.width=(a.currentTime/a.duration*100)+'%'; time.textContent=fmt(a.currentTime); }
