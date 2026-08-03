@@ -1246,7 +1246,7 @@ tailwind.config = {
 
 <!-- ===== SZKOŁA RODZENIA ===== -->
 <section class="max-w-6xl mx-auto px-4 py-16 md:py-20 grid md:grid-cols-2 gap-10 items-center">
-  <img src="img/rodzina.webp" alt="Rodzice z noworodkiem — przygotowanie w szkole rodzenia" width="600" height="900" loading="lazy" decoding="async" class="rounded-3xl plan-doc w-full object-cover aspect-[4/5] max-h-[480px]">
+  <img src="img/planporoduciaza.png" alt="Plan porodu i szkoła rodzenia — przygotowanie do porodu" width="600" height="900" loading="lazy" decoding="async" class="rounded-3xl plan-doc w-full object-cover aspect-[4/5] max-h-[480px]">
   <div>
     <p data-i18n="schoolKicker" class="text-teal font-semibold text-sm uppercase tracking-widest mb-3">Edukacja przedporodowa</p>
     <h2 data-i18n="schoolH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-5">Idziecie do szkoły rodzenia? Świetna decyzja — zabierzcie tam swój plan</h2>
@@ -1308,33 +1308,21 @@ tailwind.config = {
         <p class="text-[15px] text-ink/75 leading-relaxed">Jedyna szansa jest w dniu porodu. Jak wygląda pobranie, ile kosztuje i dlaczego opóźnione odpępnienie ma pierwszeństwo.</p>
       </a>
 
-      <article class="bg-white rounded-2xl overflow-hidden border border-sanddark flex flex-col">
-        <!-- ZDJĘCIE: "newborn baby hand holding parent finger, soft light" -->
-        <img src="img/noworodek.webp" alt="Dłoń noworodka trzymająca palec rodzica" width="600" height="400" loading="lazy" decoding="async" class="h-44 w-full object-cover">
-        <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-lg font-semibold text-deep mb-2">Bezpieczeństwo noworodka podczas porodu — co naprawdę ma znaczenie</h3>
-          <p class="text-sm text-ink/80 leading-relaxed flex-1">Kontakt skóra do skóry, opóźnione odpępnienie i stała obecność rodzica przy zabiegach to interwencje o udokumentowanym wpływie na zdrowie dziecka. Wyjaśniamy, o co pytać personel i jak zapisać to w planie porodu.</p>
-          <a href="blog/bezpieczenstwo-noworodka-pierwsze-godziny.html" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</a>
-        </div>
-      </article>
-      <article class="bg-white rounded-2xl overflow-hidden border border-sanddark flex flex-col">
-        <!-- ZDJĘCIE: "calm pregnant couple at home, warm natural light" -->
-        <img src="img/mama.webp" alt="Spokojna para w ciąży rozmawiająca o decyzjach dotyczących dziecka" width="600" height="400" loading="lazy" decoding="async" class="h-44 w-full object-cover">
-        <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-lg font-semibold text-deep mb-2">Szczepienia noworodka — fakty, wybór rodziców i aktualne rekomendacje</h3>
-          <p class="text-sm text-ink/80 leading-relaxed flex-1">Szczepienia chronią dziecko — a rodzice mają prawo świadomie zdecydować, gdzie i kiedy je zrealizują. Omawiamy aktualny kalendarz szczepień, opcję realizacji we własnym zakresie i jak zapisać tę decyzję w planie porodu.</p>
-          <a href="blog/szczepienia-noworodka-w-szpitalu.html" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</a>
-        </div>
-      </article>
-      <article class="bg-white rounded-2xl overflow-hidden border border-sanddark flex flex-col">
-        <!-- ZDJĘCIE: "modern hospital corridor / maternity ward, clean bright" -->
-        <img src="img/szpital.webp" alt="Nowoczesny oddział szpitalny — opieka okołoporodowa w Polsce" width="600" height="400" loading="lazy" decoding="async" class="h-44 w-full object-cover">
-        <div class="p-6 flex flex-col flex-1">
-          <h3 class="font-display text-lg font-semibold text-deep mb-2">Jak napisać plan porodu — wzór, 8 sekcji i najczęstsze błędy</h3>
-          <p class="text-sm text-ink/80 leading-relaxed flex-1">Kompletny przewodnik: co musi zawierać skuteczny plan porodu, jak formułować oczekiwania, by personel czytał je z szacunkiem, i jakich zapisów unikać. Z przykładami z prawdziwych planów.</p>
-          <a href="blog/jak-napisac-plan-porodu.html" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</a>
-        </div>
-      </article>
+      <a href="/blog/bezpieczenstwo-noworodka-pierwsze-godziny" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
+        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Noworodek · Bezpieczeństwo</p>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Bezpieczeństwo noworodka podczas porodu — co naprawdę ma znaczenie</h3>
+        <p class="text-[15px] text-ink/75 leading-relaxed">Kontakt skóra do skóry, opóźnione odpępnienie i stała obecność rodzica przy zabiegach to interwencje o udokumentowanym wpływie na zdrowie dziecka.</p>
+      </a>
+      <a href="/blog/szczepienia-noworodka-w-szpitalu" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
+        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Noworodek · Decyzje</p>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Szczepienia noworodka — fakty, wybór rodziców i aktualne rekomendacje</h3>
+        <p class="text-[15px] text-ink/75 leading-relaxed">Szczepienia chronią dziecko — a rodzice mają prawo świadomie zdecydować, gdzie i kiedy je zrealizują.</p>
+      </a>
+      <a href="/blog/jak-napisac-plan-porodu" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
+        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Poród · Planowanie</p>
+        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Jak napisać plan porodu — wzór, 8 sekcji i najczęstsze błędy</h3>
+        <p class="text-[15px] text-ink/75 leading-relaxed">Kompletny przewodnik: co musi zawierać skuteczny plan porodu, jak formułować oczekiwania i jakich zapisów unikać.</p>
+      </a>
     </div>
 
     <!-- Drugi wiersz: nowe artykuły (kompaktowe karty) -->
@@ -1386,16 +1374,16 @@ tailwind.config = {
     <img src="img/brand.webp" alt="Mama z noworodkiem i tabliczką porodnamiare.pl" class="w-40 mx-auto rounded-2xl mb-6" loading="lazy">
     <h2 class="font-display text-3xl font-semibold text-white mb-3">Bezpłatna mini-checklista: „7 pytań o bezpieczeństwo dziecka, które warto zadać w szpitalu”</h2>
     <p class="text-sand/80 mb-8">Konkretna, jednostronicowa lista od Michała. Zostaw adres — wyślemy PDF i damy znać, gdy wystartują nowe narzędzia.</p>
-    <!-- MailerLite: podmien action na swoj URL formularza po zalozeniu konta (mailerlite.com) -->
-    <form class="max-w-md mx-auto" action="https://TWOJ-FORMULARZ.mailerlite.com/subscribe" method="post" target="_blank">
+    <!-- Brevo: podmien TWOJ-LIST-ID na ID listy z Brevo → Contacts → Lists -->
+    <form class="max-w-md mx-auto" action="https://sibforms.com/serve/TWOJ-LIST-ID" method="post" target="_blank">
       <div class="flex flex-col sm:flex-row gap-3">
         <label for="lead" class="sr-only">Adres e-mail</label>
-        <input id="lead" name="fields[email]" type="email" required autocomplete="email" placeholder="Twój e-mail" class="flex-1 rounded-full px-5 py-3 text-ink">
+        <input id="lead" name="EMAIL" type="email" required autocomplete="email" placeholder="Twój e-mail" class="flex-1 rounded-full px-5 py-3 text-ink">
         <button type="submit" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors whitespace-nowrap">Wyślij checklistę</button>
       </div>
       <label class="flex items-start gap-2 mt-4 text-left text-xs text-sand/70"><input type="checkbox" name="rodo" value="1" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu otrzymania checklisty i informacji o narzędziach, zgodnie z <a href="/polityka-prywatnosci" class="underline">polityką prywatności</a>. Zgodę mogę wycofać w każdej chwili.</span></label>
     </form>
-    <p class="text-xs text-sand/50 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem. <!-- TODO: podłączyć MailerLite/ConvertKit zamiast mailto --></p>
+    <p class="text-xs text-sand/50 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem.</p>
   </div>
 </section>
 
@@ -1406,10 +1394,10 @@ tailwind.config = {
     <p data-i18n="popupPre" class="text-tealsoft font-semibold text-xs uppercase tracking-widest mb-2">Zanim wyjdziesz…</p>
     <h3 id="popupTitle" data-i18n="popupH" class="font-display text-2xl font-semibold text-deep mb-3">Odbierz bezpłatną checklistę „7 pytań o bezpieczeństwo dziecka”</h3>
     <p class="text-[15px] text-ink/80 mb-5">Jedna strona konkretów od taty dla rodziców — co sprawdzić w szpitalu, zanim urodzi się Wasze dziecko.</p>
-    <!-- MailerLite: podmien action na swoj URL formularza -->
-    <form class="flex flex-col gap-3" action="https://TWOJ-FORMULARZ.mailerlite.com/subscribe" method="post" target="_blank">
+    <!-- Brevo: podmien TWOJ-LIST-ID na ID listy z Brevo → Contacts → Lists -->
+    <form class="flex flex-col gap-3" action="https://sibforms.com/serve/TWOJ-LIST-ID" method="post" target="_blank">
       <label for="popup-email" class="sr-only">Adres e-mail</label>
-      <input id="popup-email" name="fields[email]" type="email" required placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3">
+      <input id="popup-email" name="EMAIL" type="email" required placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3">
       <label class="flex items-start gap-2 text-left text-xs text-ink/70"><input type="checkbox" name="rodo" value="1" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie e-maila w celu przesłania checklisty, zgodnie z <a href="/polityka-prywatnosci" class="underline">polityką prywatności</a>.</span></label>
       <button type="submit" class="bg-teal text-white font-semibold py-3 rounded-full hover:bg-deep transition-colors">Wyślij checklistę</button>
     </form>
@@ -2280,9 +2268,9 @@ tailwind.config = {
       <button type="button" id="egClose" aria-label="Zamknij" class="flex-shrink-0 w-9 h-9 rounded-full hover:bg-sanddark flex items-center justify-center text-ink/60 text-xl leading-none">&times;</button>
     </div>
     <p class="text-[15px] text-ink/80 leading-relaxed mb-4">Wyślemy link, dzięki któremu wrócicie do planu na dowolnym urządzeniu. Bez spamu — tylko ten link i kilka praktycznych wskazówek przed porodem.</p>
-    <form id="egForm" class="flex flex-col gap-3" action="https://TWOJ-FORMULARZ.mailerlite.com/subscribe" method="post" target="_blank">
+    <form id="egForm" class="flex flex-col gap-3" action="https://sibforms.com/serve/TWOJ-LIST-ID" method="post" target="_blank">
       <label for="eg-email" class="sr-only">Adres e-mail</label>
-      <input id="eg-email" name="fields[email]" type="email" required autocomplete="email" placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3 bg-white text-[15px]">
+      <input id="eg-email" name="EMAIL" type="email" required autocomplete="email" placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3 bg-white text-[15px]">
       <label class="flex gap-2.5 items-start text-xs text-ink/70 leading-relaxed">
         <input type="checkbox" name="rodo" required class="mt-0.5 flex-shrink-0">
         <span>Zgadzam się na otrzymanie linku i wiadomości e-mail. Dane przetwarza PoródNaMiarę.pl zgodnie z <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">polityką prywatności</a>. Mogę wypisać się w każdej chwili.</span>
