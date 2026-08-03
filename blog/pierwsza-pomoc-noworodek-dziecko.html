@@ -93,26 +93,29 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/wiedza" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    <div class="flex items-center gap-3">
+<select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select>
+<a href="/wiedza" data-i18n="navCta" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+</div>
   </nav>
 </header>
 
 <main id="main" class="max-w-3xl mx-auto px-4 py-10">
   <nav aria-label="Ścieżka nawigacji" class="text-xs text-ink/60 mb-5 no-print"><a href="/" class="hover:text-teal">Start</a> · <a href="/wiedza" class="hover:text-teal">Wiedza</a> · <span>Pierwsza pomoc</span></nav>
 
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Bezpieczeństwo dziecka · Aktualizacja: 23 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Pierwsza pomoc noworodkowi i małemu dziecku — przewodnik, który warto przeczytać zanim będzie potrzebny</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-6">W stanach nagłych u najmłodszych liczy się nie siła, lecz kolejność działań i spokój. Poniżej znajdziecie konkretne procedury — bez teoretyzowania, w formie, którą da się odtworzyć w środku nocy, z krzyczącym dzieckiem na rękach.</p>
+  <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Bezpieczeństwo dziecka · Aktualizacja: 23 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Pierwsza pomoc noworodkowi i małemu dziecku — przewodnik, który warto przeczytać zanim będzie potrzebny</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6">W stanach nagłych u najmłodszych liczy się nie siła, lecz kolejność działań i spokój. Poniżej znajdziecie konkretne procedury — bez teoretyzowania, w formie, którą da się odtworzyć w środku nocy, z krzyczącym dzieckiem na rękach.</p>
 
   <div class="bg-red-50 border-2 border-red-300 rounded-2xl p-5 mb-8">
-    <p class="font-bold text-red-800 text-lg mb-2">☎ Numery, które trzeba znać na pamięć</p>
-    <p class="text-[15px] text-red-900 leading-relaxed"><strong>112</strong> — numer alarmowy (także z zablokowanego telefonu)<br><strong>999</strong> — pogotowie ratunkowe<br><strong>800 112 112</strong> — Telefoniczna Informacja Pacjenta (NFZ)</p>
-    <p class="text-sm text-red-800 mt-3">Dzwoniąc, powiedz od razu: <em>wiek dziecka, co się stało, czy oddycha, adres</em>. Dyspozytor poprowadzi Cię przez działania — nie rozłączaj się.</p>
+    <p data-i18n="numsT" class="font-bold text-red-800 text-lg mb-2">☎ Numery, które trzeba znać na pamięć</p>
+    <p data-i18n="numsP" class="text-[15px] text-red-900 leading-relaxed"><strong>112</strong> — numer alarmowy (także z zablokowanego telefonu)<br><strong>999</strong> — pogotowie ratunkowe<br><strong>800 112 112</strong> — Telefoniczna Informacja Pacjenta (NFZ)</p>
+    <p data-i18n="numsHint" class="text-sm text-red-800 mt-3">Dzwoniąc, powiedz od razu: <em>wiek dziecka, co się stało, czy oddycha, adres</em>. Dyspozytor poprowadzi Cię przez działania — nie rozłączaj się.</p>
   </div>
 
   <nav class="bg-white border border-sanddark rounded-2xl p-5 mb-10 no-print" aria-label="Spis treści">
-    <p class="font-semibold text-deep mb-3">Szybka nawigacja</p>
-    <ul class="grid sm:grid-cols-2 gap-2 text-[15px]">
+    <p data-i18n="tocT" class="font-semibold text-deep mb-3">Szybka nawigacja</p>
+    <ul data-i18n="tocList" class="grid sm:grid-cols-2 gap-2 text-[15px]">
       <li><a href="#zadlawienie" class="text-teal hover:underline">→ Zadławienie</a></li>
       <li><a href="#rko" class="text-teal hover:underline">→ Brak oddechu (RKO)</a></li>
       <li><a href="#goraczka" class="text-teal hover:underline">→ Gorączka</a></li>
@@ -125,37 +128,37 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
   </nav>
 
   <div class="bg-tealsoft rounded-2xl p-5 mb-10">
-    <p class="font-semibold text-deep mb-2">Zasada nadrzędna: najpierw ocena, potem działanie</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Zanim cokolwiek zrobisz, sprawdź trzy rzeczy: <strong>czy dziecko reaguje</strong> (delikatnie potrząśnij, zawołaj), <strong>czy oddycha</strong> (patrz na klatkę piersiową przez 10 sekund) i <strong>jaki ma kolor skóry</strong> (bladość, sinica ust). Te trzy obserwacje decydują o wszystkim, co dalej.</p>
+    <p data-i18n="ruleT" class="font-semibold text-deep mb-2">Zasada nadrzędna: najpierw ocena, potem działanie</p>
+    <p data-i18n="ruleP" class="text-[15px] leading-relaxed text-ink/85">Zanim cokolwiek zrobisz, sprawdź trzy rzeczy: <strong>czy dziecko reaguje</strong> (delikatnie potrząśnij, zawołaj), <strong>czy oddycha</strong> (patrz na klatkę piersiową przez 10 sekund) i <strong>jaki ma kolor skóry</strong> (bladość, sinica ust). Te trzy obserwacje decydują o wszystkim, co dalej.</p>
   </div>
 
-  <h2 id="zadlawienie" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Zadławienie — najczęstszy stan nagły u małych dzieci</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Dziecko poznaje świat ustami, a drogi oddechowe niemowlęcia mają średnicę ołówka. Winogrono, kawałek marchewki, koralik czy zakrętka to realne zagrożenie.</p>
+  <h2 id="zadlawienie" data-i18n="h2_1" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Zadławienie — najczęstszy stan nagły u małych dzieci</h2>
+  <p data-i18n="p1" class="leading-relaxed text-ink/85 mb-4">Dziecko poznaje świat ustami, a drogi oddechowe niemowlęcia mają średnicę ołówka. Winogrono, kawałek marchewki, koralik czy zakrętka to realne zagrożenie.</p>
 
   <div class="bg-white border-2 border-teal rounded-2xl p-5 mb-5">
-    <p class="font-bold text-deep mb-2">Najpierw rozstrzygnij: kaszel skuteczny czy nieskuteczny?</p>
-    <p class="text-[15px] leading-relaxed text-ink/85 mb-2"><strong class="text-green-700">Kaszel skuteczny</strong> — dziecko głośno kaszle, płacze, łapie oddech. <em>Nie interweniuj.</em> Zachęcaj do kaszlu, bądź obok, obserwuj. Uderzanie w plecy może przemieścić ciało obce głębiej.</p>
-    <p class="text-[15px] leading-relaxed text-ink/85"><strong class="text-red-700">Kaszel nieskuteczny</strong> — kaszel bezgłośny, dziecko nie może nabrać powietrza, sinieje, traci przytomność. <em>Działaj natychmiast.</em></p>
+    <p data-i18n="coughT" class="font-bold text-deep mb-2">Najpierw rozstrzygnij: kaszel skuteczny czy nieskuteczny?</p>
+    <p data-i18n="coughEff" class="text-[15px] leading-relaxed text-ink/85 mb-2"><strong class="text-green-700">Kaszel skuteczny</strong> — dziecko głośno kaszle, płacze, łapie oddech. <em>Nie interweniuj.</em> Zachęcaj do kaszlu, bądź obok, obserwuj. Uderzanie w plecy może przemieścić ciało obce głębiej.</p>
+    <p data-i18n="coughIneff" class="text-[15px] leading-relaxed text-ink/85"><strong class="text-red-700">Kaszel nieskuteczny</strong> — kaszel bezgłośny, dziecko nie może nabrać powietrza, sinieje, traci przytomność. <em>Działaj natychmiast.</em></p>
   </div>
 
-  <h3 class="font-display text-xl font-semibold text-deep mt-8 mb-3">Niemowlę (poniżej 1. roku życia)</h3>
-  <ol class="space-y-3 mb-6">
+  <h3 data-i18n="h3_1" class="font-display text-xl font-semibold text-deep mt-8 mb-3">Niemowlę (poniżej 1. roku życia)</h3>
+  <ol data-i18n="infantSteps" class="space-y-3 mb-6">
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. Pięć uderzeń międzyłopatkowych.</strong><br><span class="text-[15px] text-ink/80">Ułóż niemowlę twarzą w dół na przedramieniu, <strong>głową niżej niż tułów</strong>, podtrzymując żuchwę palcami (nie uciskaj gardła). Nasadą dłoni wykonaj pięć zdecydowanych uderzeń między łopatki.</span></li>
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Pięć uciśnięć klatki piersiowej.</strong><br><span class="text-[15px] text-ink/80">Odwróć dziecko na plecy, nadal głową niżej. Dwoma palcami uciśnij pięć razy dolną połowę mostka — <strong>głębiej i wolniej</strong> niż przy resuscytacji.</span></li>
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Sprawdź jamę ustną.</strong><br><span class="text-[15px] text-ink/80">Zaglądaj po każdym cyklu. Wyjmuj tylko to, co widzisz i możesz chwycić. <strong>Nigdy nie wkładaj palca „na ślepo"</strong> — wepchniesz ciało obce głębiej.</span></li>
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Powtarzaj i wezwij pomoc.</strong><br><span class="text-[15px] text-ink/80">Cykl 5 + 5 aż do skutku. Jeśli jesteś sam — po minucie dzwoń pod 112 i włącz głośnomówiący. Jeśli dziecko straci przytomność, przejdź do resuscytacji.</span></li>
   </ol>
 
-  <h3 class="font-display text-xl font-semibold text-deep mt-8 mb-3">Dziecko powyżej 1. roku życia</h3>
-  <p class="leading-relaxed text-ink/85 mb-4">Schemat jest podobny, ale zamiast uciśnięć klatki stosuje się <strong>uciśnięcia nadbrzusza (rękoczyn Heimlicha)</strong>: stań za dzieckiem, obejmij je, pięść umieść między pępkiem a mostkiem i wykonaj pięć energicznych ruchów do siebie i do góry. Naprzemiennie: pięć uderzeń w plecy, pięć uciśnięć nadbrzusza.</p>
-  <p class="text-[15px] text-ink/75 bg-sand border border-sanddark rounded-xl p-4 mb-6">Po skutecznym rękoczynie Heimlicha dziecko powinno być zbadane przez lekarza — technika ta może powodować urazy narządów wewnętrznych.</p>
+  <h3 data-i18n="h3_2" class="font-display text-xl font-semibold text-deep mt-8 mb-3">Dziecko powyżej 1. roku życia</h3>
+  <p data-i18n="heimlichP" class="leading-relaxed text-ink/85 mb-4">Schemat jest podobny, ale zamiast uciśnięć klatki stosuje się <strong>uciśnięcia nadbrzusza (rękoczyn Heimlicha)</strong>: stań za dzieckiem, obejmij je, pięść umieść między pępkiem a mostkiem i wykonaj pięć energicznych ruchów do siebie i do góry. Naprzemiennie: pięć uderzeń w plecy, pięć uciśnięć nadbrzusza.</p>
+  <p data-i18n="heimNote" class="text-[15px] text-ink/75 bg-sand border border-sanddark rounded-xl p-4 mb-6">Po skutecznym rękoczynie Heimlicha dziecko powinno być zbadane przez lekarza — technika ta może powodować urazy narządów wewnętrznych.</p>
 
-  <h2 id="rko" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Brak oddechu — resuscytacja krążeniowo-oddechowa</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">U dzieci zatrzymanie krążenia najczęściej wynika z <strong>problemu oddechowego</strong>, nie z zawału. Dlatego u najmłodszych zaczyna się od oddechów ratowniczych, a nie od samych uciśnięć.</p>
+  <h2 id="rko" data-i18n="h2_2" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Brak oddechu — resuscytacja krążeniowo-oddechowa</h2>
+  <p data-i18n="rkoP" class="leading-relaxed text-ink/85 mb-4">U dzieci zatrzymanie krążenia najczęściej wynika z <strong>problemu oddechowego</strong>, nie z zawału. Dlatego u najmłodszych zaczyna się od oddechów ratowniczych, a nie od samych uciśnięć.</p>
 
   <div class="bg-white border-2 border-red-300 rounded-2xl p-5 mb-5">
-    <p class="font-bold text-deep mb-3">Sekwencja dla niemowlęcia i dziecka</p>
-    <ol class="space-y-2.5 text-[15px] text-ink/85 list-decimal pl-5">
+    <p data-i18n="rkoT" class="font-bold text-deep mb-3">Sekwencja dla niemowlęcia i dziecka</p>
+    <ol data-i18n="rkoSteps" class="space-y-2.5 text-[15px] text-ink/85 list-decimal pl-5">
       <li><strong>Sprawdź reakcję i oddech</strong> — maksymalnie 10 sekund. Pojedyncze westchnienia to nie jest prawidłowy oddech.</li>
       <li><strong>Wołaj o pomoc</strong> i poproś kogoś o telefon pod 112. Jeśli jesteś sam — najpierw minuta resuscytacji, potem telefon.</li>
       <li><strong>5 oddechów ratowniczych.</strong> U niemowlęcia obejmij ustami nos i usta jednocześnie; u starszego dziecka zatkaj nos i wdmuchuj do ust. Wdech ma trwać ok. 1 sekundy — tyle, by klatka delikatnie się uniosła.</li>
@@ -163,15 +166,15 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
       <li><strong>Kontynuuj 30 : 2</strong> aż do przyjazdu pogotowia, powrotu oddechu lub całkowitego wyczerpania.</li>
     </ol>
   </div>
-  <p class="text-[15px] text-ink/75 bg-tealsoft rounded-xl p-4 mb-6"><strong>Pozycja głowy ma znaczenie:</strong> u niemowlęcia głowa powinna być w pozycji neutralnej, nie odgięta do tyłu jak u dorosłego. Zbyt mocne odgięcie zamyka drogi oddechowe.</p>
+  <p data-i18n="headNote" class="text-[15px] text-ink/75 bg-tealsoft rounded-xl p-4 mb-6"><strong>Pozycja głowy ma znaczenie:</strong> u niemowlęcia głowa powinna być w pozycji neutralnej, nie odgięta do tyłu jak u dorosłego. Zbyt mocne odgięcie zamyka drogi oddechowe.</p>
 
-  <h2 id="goraczka" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Gorączka — kiedy to pilne</h2>
+  <h2 id="goraczka" data-i18n="h2_3" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Gorączka — kiedy to pilne</h2>
   <div class="bg-red-50 border-2 border-red-300 rounded-2xl p-5 mb-5">
-    <p class="font-bold text-red-800 mb-2">Bezwzględna zasada dla noworodków</p>
-    <p class="text-[15px] text-red-900 leading-relaxed">Gorączka <strong>powyżej 38°C u dziecka poniżej 3. miesiąca życia</strong> to zawsze stan wymagający pilnej konsultacji — niezależnie od pory dnia i samopoczucia dziecka. U noworodka gorączka może być jedynym objawem poważnego zakażenia, a pogorszenie następuje szybko.</p>
+    <p data-i18n="feverT" class="font-bold text-red-800 mb-2">Bezwzględna zasada dla noworodków</p>
+    <p data-i18n="feverP" class="text-[15px] text-red-900 leading-relaxed">Gorączka <strong>powyżej 38°C u dziecka poniżej 3. miesiąca życia</strong> to zawsze stan wymagający pilnej konsultacji — niezależnie od pory dnia i samopoczucia dziecka. U noworodka gorączka może być jedynym objawem poważnego zakażenia, a pogorszenie następuje szybko.</p>
   </div>
-  <p class="leading-relaxed text-ink/85 mb-4">U starszych niemowląt i dzieci istotniejsze od samej liczby na termometrze jest <strong>zachowanie dziecka</strong>. Dziecko z temperaturą 39°C, które pije, reaguje i bawi się, jest w lepszej sytuacji niż apatyczne dziecko z 38°C.</p>
-  <ul class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <p data-i18n="feverP2" class="leading-relaxed text-ink/85 mb-4">U starszych niemowląt i dzieci istotniejsze od samej liczby na termometrze jest <strong>zachowanie dziecka</strong>. Dziecko z temperaturą 39°C, które pije, reaguje i bawi się, jest w lepszej sytuacji niż apatyczne dziecko z 38°C.</p>
+  <ul data-i18n="feverList" class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li>Mierz temperaturę pod pachą lub w odbycie (u niemowląt najbardziej wiarygodny pomiar).</li>
     <li>Nawadniaj małymi porcjami, często — odwodnienie jest groźniejsze niż sama gorączka.</li>
     <li>Nie przegrzewaj: lekkie ubranie, przewietrzony pokój.</li>
@@ -179,12 +182,12 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     <li>Nie stosuj alkoholu ani lodowatych kąpieli — powodują skurcz naczyń i dreszcze, które podnoszą temperaturę.</li>
   </ul>
 
-  <h2 id="drgawki" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Drgawki gorączkowe</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Dotyczą kilku procent dzieci między 6. miesiącem a 5. rokiem życia. Wyglądają dramatycznie, ale w typowej postaci nie powodują trwałych uszkodzeń. Kluczowe jest, żeby wiedzieć, czego <strong>nie</strong> robić.</p>
+  <h2 id="drgawki" data-i18n="h2_4" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Drgawki gorączkowe</h2>
+  <p data-i18n="seizureP" class="leading-relaxed text-ink/85 mb-4">Dotyczą kilku procent dzieci między 6. miesiącem a 5. rokiem życia. Wyglądają dramatycznie, ale w typowej postaci nie powodują trwałych uszkodzeń. Kluczowe jest, żeby wiedzieć, czego <strong>nie</strong> robić.</p>
   <div class="grid sm:grid-cols-2 gap-4 mb-6">
     <div class="bg-white border-2 border-green-300 rounded-2xl p-5">
-      <p class="font-bold text-green-800 mb-2">✓ Rób</p>
-      <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+      <p data-i18n="doT" class="font-bold text-green-800 mb-2">✓ Rób</p>
+      <ul data-i18n="doList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
         <li>Ułóż dziecko na boku</li>
         <li>Usuń twarde przedmioty z otoczenia</li>
         <li>Podłóż coś miękkiego pod głowę</li>
@@ -194,8 +197,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
       </ul>
     </div>
     <div class="bg-white border-2 border-red-300 rounded-2xl p-5">
-      <p class="font-bold text-red-800 mb-2">✗ Nie rób</p>
-      <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+      <p data-i18n="dontT" class="font-bold text-red-800 mb-2">✗ Nie rób</p>
+      <ul data-i18n="dontList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
         <li>Nie wkładaj nic do ust</li>
         <li>Nie krępuj ruchów</li>
         <li>Nie podawaj leków ani wody</li>
@@ -204,25 +207,25 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
       </ul>
     </div>
   </div>
-  <p class="text-[15px] text-ink/85 bg-red-50 border border-red-200 rounded-xl p-4 mb-6"><strong>Dzwoń pod 112, jeśli:</strong> drgawki trwają dłużej niż 5 minut, wystąpiły po raz pierwszy, powtarzają się w krótkim odstępie, dziecko nie odzyskuje przytomności po ustaniu drgawek lub ma poniżej 6 miesięcy.</p>
+  <p data-i18n="seizureCall" class="text-[15px] text-ink/85 bg-red-50 border border-red-200 rounded-xl p-4 mb-6"><strong>Dzwoń pod 112, jeśli:</strong> drgawki trwają dłużej niż 5 minut, wystąpiły po raz pierwszy, powtarzają się w krótkim odstępie, dziecko nie odzyskuje przytomności po ustaniu drgawek lub ma poniżej 6 miesięcy.</p>
 
-  <h2 id="oparzenia" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Oparzenia</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Najczęstsza przyczyna u małych dzieci to gorący płyn — herbata, zupa, woda z czajnika. Skóra niemowlęcia jest cieńsza, więc uszkodzenie sięga głębiej przy niższej temperaturze.</p>
-  <ol class="space-y-2.5 mb-6 text-[15px] text-ink/85 list-decimal pl-5">
+  <h2 id="oparzenia" data-i18n="h2_5" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Oparzenia</h2>
+  <p data-i18n="burnsP" class="leading-relaxed text-ink/85 mb-4">Najczęstsza przyczyna u małych dzieci to gorący płyn — herbata, zupa, woda z czajnika. Skóra niemowlęcia jest cieńsza, więc uszkodzenie sięga głębiej przy niższej temperaturze.</p>
+  <ol data-i18n="burnSteps" class="space-y-2.5 mb-6 text-[15px] text-ink/85 list-decimal pl-5">
     <li><strong>Chłodź bieżącą letnią wodą przez 20 minut.</strong> Nie lodowatą — u małego dziecka grozi wychłodzeniem całego organizmu.</li>
     <li><strong>Zdejmij ubranie i biżuterię</strong> z okolicy oparzenia, ale nie odrywaj tego, co przywarło do skóry.</li>
     <li><strong>Osłoń jałowym opatrunkiem</strong> lub czystą, wilgotną tkaniną.</li>
     <li><strong>Nie stosuj</strong> masła, oliwy, pasty do zębów, mąki ani domowych maści. Nie przebijaj pęcherzy.</li>
     <li><strong>Zadbaj o ciepło reszty ciała</strong> — dziecko szybko się wychładza podczas chłodzenia rany.</li>
   </ol>
-  <p class="text-[15px] text-ink/85 bg-red-50 border border-red-200 rounded-xl p-4 mb-6"><strong>Do szpitala zawsze przy:</strong> oparzeniu twarzy, szyi, dłoni, stóp lub krocza; oparzeniu większym niż dłoń dziecka; oparzeniu chemicznym lub elektrycznym; każdym oparzeniu u niemowlęcia.</p>
+  <p data-i18n="burnsWhen" class="text-[15px] text-ink/85 bg-red-50 border border-red-200 rounded-xl p-4 mb-6"><strong>Do szpitala zawsze przy:</strong> oparzeniu twarzy, szyi, dłoni, stóp lub krocza; oparzeniu większym niż dłoń dziecka; oparzeniu chemicznym lub elektrycznym; każdym oparzeniu u niemowlęcia.</p>
 
-  <h2 id="uraz-glowy" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Upadek i uraz głowy</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Upadek z przewijaka to klasyka — zdarza się nawet najuważniejszym rodzicom. Sam upadek nie zawsze oznacza poważny uraz, ale przez 24–48 godzin trzeba obserwować dziecko.</p>
-  <p class="text-[15px] text-ink/85 bg-red-50 border border-red-200 rounded-xl p-4 mb-6"><strong>Natychmiast pod 112, jeśli po urazie głowy wystąpi:</strong> utrata przytomności (choćby krótka), wymioty (szczególnie powtarzające się), drgawki, wyciek krwi lub przejrzystego płynu z ucha albo nosa, nierówne źrenice, narastająca senność, nietypowy przeraźliwy płacz, wyczuwalne wgniecenie czaszki lub napięte, uwypuklone ciemiączko.</p>
+  <h2 id="uraz-glowy" data-i18n="h2_6" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Upadek i uraz głowy</h2>
+  <p data-i18n="headP" class="leading-relaxed text-ink/85 mb-4">Upadek z przewijaka to klasyka — zdarza się nawet najuważniejszym rodzicom. Sam upadek nie zawsze oznacza poważny uraz, ale przez 24–48 godzin trzeba obserwować dziecko.</p>
+  <p data-i18n="headWhen" class="text-[15px] text-ink/85 bg-red-50 border border-red-200 rounded-xl p-4 mb-6"><strong>Natychmiast pod 112, jeśli po urazie głowy wystąpi:</strong> utrata przytomności (choćby krótka), wymioty (szczególnie powtarzające się), drgawki, wyciek krwi lub przejrzystego płynu z ucha albo nosa, nierówne źrenice, narastająca senność, nietypowy przeraźliwy płacz, wyczuwalne wgniecenie czaszki lub napięte, uwypuklone ciemiączko.</p>
 
-  <h2 id="zatrucia" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Zatrucia i połknięcie ciała obcego</h2>
-  <ul class="space-y-2 mb-4 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="zatrucia" data-i18n="h2_7" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Zatrucia i połknięcie ciała obcego</h2>
+  <ul data-i18n="poisonList" class="space-y-2 mb-4 text-[15px] text-ink/85 list-disc pl-5">
     <li><strong>Nie wywołuj wymiotów</strong> — przy substancjach żrących drugie przejście przez przełyk pogłębia uszkodzenie.</li>
     <li><strong>Zabezpiecz opakowanie</strong> substancji i zabierz je ze sobą do szpitala.</li>
     <li><strong>Nie podawaj mleka</strong> „na wszelki wypadek" — przy niektórych substancjach przyspiesza wchłanianie.</li>
@@ -230,9 +233,9 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     <li><strong>Magnesy neodymowe</strong> — połknięcie więcej niż jednego grozi perforacją jelit. Również pilnie do szpitala.</li>
   </ul>
 
-  <h2 id="alarm" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Sygnały alarmowe u noworodka — kiedy nie czekać do rana</h2>
+  <h2 id="alarm" data-i18n="h2_8" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Sygnały alarmowe u noworodka — kiedy nie czekać do rana</h2>
   <div class="bg-white border-2 border-red-300 rounded-2xl p-6 mb-6">
-    <ul class="space-y-2 text-[15px] text-ink/85 list-disc pl-5">
+    <ul data-i18n="alarmList" class="space-y-2 text-[15px] text-ink/85 list-disc pl-5">
       <li>Gorączka powyżej 38°C lub temperatura poniżej 36°C</li>
       <li>Trudności w oddychaniu: przyspieszony oddech, wciąganie międzyżebrzy, stękanie, poruszanie skrzydełkami nosa</li>
       <li>Sinica ust, języka lub twarzy</li>
@@ -245,10 +248,10 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
       <li>Napięte, uwypuklone ciemiączko</li>
     </ul>
   </div>
-  <p class="leading-relaxed text-ink/85 mb-6">Rodzicielska intuicja jest dobrym wskaźnikiem. Jeśli macie poczucie, że „coś jest nie tak" — skonsultujcie się, nawet jeśli nie umiecie nazwać objawu. Lepiej niepotrzebnie zadzwonić niż zwlekać.</p>
+  <p data-i18n="intuition" class="leading-relaxed text-ink/85 mb-6">Rodzicielska intuicja jest dobrym wskaźnikiem. Jeśli macie poczucie, że „coś jest nie tak" — skonsultujcie się, nawet jeśli nie umiecie nazwać objawu. Lepiej niepotrzebnie zadzwonić niż zwlekać.</p>
 
-  <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4">Profilaktyka — czego pilnować na co dzień</h2>
-  <ul class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 data-i18n="h2_9" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4">Profilaktyka — czego pilnować na co dzień</h2>
+  <ul data-i18n="prevList" class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li><strong>Sen na plecach</strong>, na twardym materacu, bez poduszki, kocyków i zabawek w łóżeczku.</li>
     <li><strong>Nigdy nie zostawiaj dziecka samego</strong> na przewijaku, łóżku ani kanapie — nawet „na sekundę".</li>
     <li><strong>Fotelik samochodowy</strong> dopasowany do wagi, montowany zgodnie z instrukcją, tyłem do kierunku jazdy tak długo, jak to możliwe.</li>
@@ -258,14 +261,14 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
   </ul>
 
   <div class="bg-deep text-sand rounded-3xl p-7 md:p-9 text-center mt-12 no-print">
-    <p class="font-display text-2xl font-semibold text-white mb-3">Wiedza to jedno. Przygotowanie to drugie.</p>
-    <p class="text-sand/85 mb-6 max-w-xl mx-auto leading-relaxed">Nasz kreator planu porodu ma rozbudowaną sekcję o pierwszych godzinach życia dziecka — kontakt skóra do skóry, profilaktyka, badania przesiewowe i to, o co pytać personel.</p>
-    <a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
+    <p data-i18n="ctaT" class="font-display text-2xl font-semibold text-white mb-3">Wiedza to jedno. Przygotowanie to drugie.</p>
+    <p data-i18n="ctaP" class="text-sand/85 mb-6 max-w-xl mx-auto leading-relaxed">Nasz kreator planu porodu ma rozbudowaną sekcję o pierwszych godzinach życia dziecka — kontakt skóra do skóry, profilaktyka, badania przesiewowe i to, o co pytać personel.</p>
+    <a href="/#kreator" data-i18n="ctaBtn" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
   </div>
 
   
   <div class="mt-10 pt-6 border-t border-sanddark">
-    <p class="font-semibold text-deep mb-3">Powiązane artykuły</p>
+    <p data-i18n="relatedT" class="font-semibold text-deep mb-3">Powiązane artykuły</p>
     <div class="grid sm:grid-cols-2 gap-4">
       <a href="/blog/bezpieczenstwo-noworodka-pierwsze-godziny" class="group bg-white border border-sanddark rounded-2xl p-5 hover:border-teal/50 transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-1.5">Bezpieczeństwo</p>
@@ -284,5 +287,184 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm no-print">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: '← Knowledge',
+eyebrow: "Child safety · Updated: 23 July 2026",
+h1: "First aid for a newborn and young child — a guide worth reading before you need it",
+lead: "In emergencies with the very young, it's not strength that counts but the order of actions and staying calm. Below are the concrete procedures — no theorising, in a form you can recall in the middle of the night with a screaming child in your arms.",
+numsT: '☎ Numbers to know by heart',
+numsP: '<strong>112</strong> — emergency number (also from a locked phone)<br><strong>999</strong> — ambulance<br><strong>800 112 112</strong> — Patient Telephone Information (NFZ)',
+numsHint: "When you call, say immediately: <em>age of child, what happened, whether they're breathing, your address</em>. The dispatcher will guide you through the steps — don't hang up.",
+tocT: 'Quick navigation',
+tocList: '<li><a href="#zadlawienie" class="text-teal hover:underline">→ Choking</a></li><li><a href="#rko" class="text-teal hover:underline">→ No breathing (CPR)</a></li><li><a href="#goraczka" class="text-teal hover:underline">→ Fever</a></li><li><a href="#drgawki" class="text-teal hover:underline">→ Febrile seizures</a></li><li><a href="#oparzenia" class="text-teal hover:underline">→ Burns</a></li><li><a href="#uraz-glowy" class="text-teal hover:underline">→ Head injury</a></li><li><a href="#zatrucia" class="text-teal hover:underline">→ Poisoning</a></li><li><a href="#alarm" class="text-teal hover:underline">→ Red-flag signs</a></li>',
+ruleT: 'Overriding rule: assess first, then act',
+ruleP: 'Before you do anything, check three things: <strong>does the child respond</strong> (gently shake and call), <strong>are they breathing</strong> (watch the chest for 10 seconds), and <strong>what colour is the skin</strong> (pallor, blue lips). These three observations determine everything that follows.',
+h2_1: 'Choking — the most common emergency in young children',
+p1: "Children discover the world through their mouths, and a baby's airway has the diameter of a pencil. A grape, piece of carrot, bead or bottle cap is a real danger.",
+coughT: 'First, decide: effective or ineffective cough?',
+coughEff: '<strong class="text-green-700">Effective cough</strong> — the child coughs loudly, cries, catches their breath. <em>Don\'t intervene.</em> Encourage coughing, stay close, observe. Back blows can drive a foreign body deeper.',
+coughIneff: '<strong class="text-red-700">Ineffective cough</strong> — silent cough, child can\'t breathe, turning blue, losing consciousness. <em>Act immediately.</em>',
+h3_1: 'Infant (under 1 year)',
+infantSteps: '<li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. Five back blows.</strong><br><span class="text-[15px] text-ink/80">Lay the infant face-down along your forearm, <strong>head lower than the body</strong>, supporting the jaw with your fingers (don\'t press the throat). Use the heel of your hand to deliver five firm blows between the shoulder blades.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Five chest thrusts.</strong><br><span class="text-[15px] text-ink/80">Turn the baby onto their back, still head-down. Press two fingers five times on the lower half of the breastbone — <strong>deeper and slower</strong> than in CPR.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Check the mouth.</strong><br><span class="text-[15px] text-ink/80">Look after each cycle. Only remove what you can see and grasp. <strong>Never do a blind finger sweep</strong> — you\'ll push the object deeper.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Repeat and call for help.</strong><br><span class="text-[15px] text-ink/80">Repeat 5 + 5 until the object comes out. If alone — call 112 after one minute on speakerphone. If the child loses consciousness, start CPR.</span></li>',
+h3_2: 'Child over 1 year',
+heimlichP: 'The pattern is similar, but instead of chest thrusts use <strong>abdominal thrusts (Heimlich manoeuvre)</strong>: stand behind the child, wrap your arms around them, place your fist between the navel and breastbone and make five sharp inward-and-upward thrusts. Alternate: five back blows, five abdominal thrusts.',
+heimNote: 'After a successful Heimlich manoeuvre the child should be examined by a doctor — the technique can cause internal injuries.',
+h2_2: 'No breathing — cardiopulmonary resuscitation',
+rkoP: 'In children, cardiac arrest most often results from a <strong>breathing problem</strong>, not a heart attack. That\'s why in infants and young children you start with rescue breaths, not compression-only CPR.',
+rkoT: 'Sequence for infant and child',
+rkoSteps: '<li><strong>Check for response and breathing</strong> — maximum 10 seconds. Occasional gasps are not normal breathing.</li><li><strong>Call for help</strong> and ask someone to dial 112. If alone — one minute of CPR first, then call.</li><li><strong>5 rescue breaths.</strong> For an infant, cover both nose and mouth with your mouth; for an older child, pinch the nose and breathe into the mouth. Each breath should last about 1 second — just enough for the chest to gently rise.</li><li><strong>30 chest compressions.</strong> Infant: two fingers or encircling thumbs. Child: heel of one hand. Depth: <strong>1/3 of the chest diameter</strong> (about 4 cm for an infant, 5 cm for a child). Rate: <strong>100–120 per minute</strong>.</li><li><strong>Continue 30 : 2</strong> until the ambulance arrives, breathing returns, or you are completely exhausted.</li>',
+headNote: '<strong>Head position matters:</strong> for an infant the head should be in a neutral position, not tilted back as it would be for an adult. Tilting too far back closes the airway.',
+h2_3: 'Fever — when it\'s urgent',
+feverT: 'Absolute rule for newborns',
+feverP: 'A fever <strong>above 38°C in a child under 3 months</strong> always requires urgent consultation — regardless of the time of day or how the child seems. In a newborn, fever can be the only sign of serious infection, and deterioration can happen quickly.',
+feverP2: 'In older infants and children, <strong>the child\'s behaviour</strong> matters more than the number on the thermometer. A child at 39°C who is drinking, responding and playing is in a better situation than a lethargic child at 38°C.',
+feverList: '<li>Measure temperature in the armpit or rectum (most reliable in infants).</li><li>Hydrate little and often — dehydration is more dangerous than the fever itself.</li><li>Don\'t overheat: light clothing, ventilated room.</li><li>Antipyretics only at the dose matched to <strong>body weight</strong>, not age. Consult a doctor or pharmacist on dosing.</li><li>Don\'t use alcohol or ice-cold baths — they cause blood vessel constriction and shivering, which raises temperature.</li>',
+h2_4: 'Febrile seizures',
+seizureP: 'Affect a few per cent of children between 6 months and 5 years. They look dramatic, but in the typical form they don\'t cause lasting damage. The key is knowing what <strong>not</strong> to do.',
+doT: '✓ Do',
+doList: '<li>Lay the child on their side</li><li>Remove hard objects from around them</li><li>Place something soft under the head</li><li>Note the start time</li><li>Loosen tight clothing</li><li>Stay with the child</li>',
+dontT: '✗ Don\'t',
+dontList: '<li>Don\'t put anything in the mouth</li><li>Don\'t restrain movements</li><li>Don\'t give medications or water</li><li>Don\'t put the child in cold water</li><li>Don\'t shake the child</li>',
+seizureCall: '<strong>Call 112 if:</strong> the seizure lasts more than 5 minutes, it\'s the first seizure, they repeat in quick succession, the child doesn\'t regain consciousness after the seizure stops, or the child is under 6 months.',
+h2_5: 'Burns',
+burnsP: 'The most common cause in young children is a hot liquid — tea, soup, water from a kettle. Baby skin is thinner, so the damage goes deeper at lower temperatures.',
+burnSteps: '<li><strong>Cool with lukewarm running water for 20 minutes.</strong> Not ice-cold — in a young child this risks cooling the whole body.</li><li><strong>Remove clothing and jewellery</strong> near the burn, but don\'t pull off anything stuck to the skin.</li><li><strong>Cover with a sterile dressing</strong> or clean, damp cloth.</li><li><strong>Don\'t use</strong> butter, olive oil, toothpaste, flour or home remedies. Don\'t burst blisters.</li><li><strong>Keep the rest of the body warm</strong> — children cool quickly while you cool the wound.</li>',
+burnsWhen: "<strong>Always go to hospital if:</strong> the burn involves the face, neck, hands, feet or genitals; the burn is larger than the child's hand; it's a chemical or electrical burn; or it's any burn in an infant.",
+h2_6: 'Fall and head injury',
+headP: 'A fall from the changing table is a classic — it happens even to the most attentive parents. The fall itself doesn\'t always mean a serious injury, but watch the child for 24–48 hours.',
+headWhen: '<strong>Call 112 immediately if after a head injury:</strong> loss of consciousness (even brief), vomiting (especially repeated), seizures, blood or clear fluid from an ear or nose, unequal pupils, increasing drowsiness, unusual high-pitched crying, a palpable dent in the skull, or a tense, bulging fontanelle.',
+h2_7: 'Poisoning and swallowed foreign objects',
+poisonList: '<li><strong>Don\'t induce vomiting</strong> — with corrosive substances a second pass through the oesophagus deepens the damage.</li><li><strong>Secure the packaging</strong> of the substance and take it to hospital.</li><li><strong>Don\'t give milk</strong> "just in case" — with some substances it speeds absorption.</li><li><strong>Button batteries are an emergency.</strong> A swallowed battery can damage the oesophagus within 2 hours. Go to A&E immediately, even if the child looks fine.</li><li><strong>Neodymium magnets</strong> — swallowing more than one risks intestinal perforation. Also go to hospital urgently.</li>',
+h2_8: "Red-flag signs in a newborn — when not to wait until morning",
+alarmList: '<li>Fever above 38°C or temperature below 36°C</li><li>Breathing difficulties: rapid breathing, chest wall retractions, grunting, nasal flaring</li><li>Blue lips, tongue or face</li><li>Lethargy, limpness, no response to stimuli</li><li>Refusing feeds at consecutive feeds</li><li>No urine for 8–12 hours, dry mouth, sunken fontanelle</li><li>Jaundice worsening after day 5 or spreading to palms and soles</li><li>Persistent, unusual-sounding crying</li><li>Vomiting green or blood-tinged fluid</li><li>Tense, bulging fontanelle</li>',
+intuition: "Parental instinct is a good indicator. If you feel something 'isn't right' — seek advice, even if you can't name the symptom. Better to call unnecessarily than to delay.",
+h2_9: 'Prevention — what to watch daily',
+prevList: '<li><strong>Sleep on back</strong>, on a firm mattress, without pillows, blankets or toys in the cot.</li><li><strong>Never leave a baby alone</strong> on a changing table, bed or sofa — even "for a second".</li><li><strong>Car seat</strong> matched to weight, installed per instructions, rear-facing as long as possible.</li><li><strong>Small objects and grapes</strong> out of reach. Cut grapes and cherry tomatoes lengthwise into quarters.</li><li><strong>Medications, chemicals, button batteries</strong> in locked cupboards, not in a bag on a chair.</li><li><strong>Bath temperature</strong> around 37°C — test with your elbow or a thermometer, not your hand.</li>',
+ctaT: 'Knowledge is one thing. Preparation is another.',
+ctaP: 'Our birth-plan creator has an extensive section on the first hours of the baby\'s life — skin-to-skin contact, prevention, screening tests and what to ask the staff.',
+ctaBtn: 'Create your birth plan →',
+relatedT: 'Related articles'
+},
+de: {
+navCta: '← Wissen',
+eyebrow: 'Kindersicherheit · Aktualisiert: 23. Juli 2026',
+h1: 'Erste Hilfe für Neugeborene und Kleinkinder — ein Leitfaden, den man lesen sollte, bevor man ihn braucht',
+lead: 'Bei Notfällen bei den Jüngsten kommt es nicht auf Kraft an, sondern auf die Reihenfolge der Maßnahmen und Ruhe. Unten finden Sie konkrete Verfahren — ohne Theoretisieren, in einer Form, die sich mitten in der Nacht mit einem schreienden Kind auf dem Arm abrufen lässt.',
+numsT: '☎ Nummern, die man auswendig kennen muss',
+numsP: '<strong>112</strong> — Notruf (auch von gesperrtem Telefon)<br><strong>999</strong> — Notruf Rettungsdienst (Polen)<br><strong>800 112 112</strong> — Telefon-Patienteninformation (NFZ)',
+numsHint: 'Sagen Sie beim Anruf sofort: <em>Alter des Kindes, was passiert ist, ob es atmet, Adresse</em>. Der Disponent führt Sie durch die Maßnahmen — nicht auflegen.',
+tocT: 'Schnellnavigation',
+tocList: '<li><a href="#zadlawienie" class="text-teal hover:underline">→ Verschlucken/Ersticken</a></li><li><a href="#rko" class="text-teal hover:underline">→ Kein Atem (HLW)</a></li><li><a href="#goraczka" class="text-teal hover:underline">→ Fieber</a></li><li><a href="#drgawki" class="text-teal hover:underline">→ Fieberkrämpfe</a></li><li><a href="#oparzenia" class="text-teal hover:underline">→ Verbrennungen</a></li><li><a href="#uraz-glowy" class="text-teal hover:underline">→ Kopfverletzung</a></li><li><a href="#zatrucia" class="text-teal hover:underline">→ Vergiftungen</a></li><li><a href="#alarm" class="text-teal hover:underline">→ Warnsignale</a></li>',
+ruleT: 'Oberste Regel: erst einschätzen, dann handeln',
+ruleP: 'Bevor Sie etwas tun, prüfen Sie drei Dinge: <strong>reagiert das Kind</strong> (sanft schütteln, ansprechen), <strong>atmet es</strong> (10 Sekunden auf den Brustkorb schauen) und <strong>welche Hautfarbe hat es</strong> (Blässe, blaue Lippen). Diese drei Beobachtungen entscheiden über alles Weitere.',
+h2_1: 'Verschlucken — der häufigste Notfall bei Kleinkindern',
+p1: 'Kinder erkunden die Welt mit dem Mund, und die Atemwege eines Säuglings haben den Durchmesser eines Bleistifts. Eine Weintraube, Karottenstück, Perle oder Flaschenverschluss sind reale Gefahren.',
+coughT: 'Zuerst entscheiden: effektiver oder ineffektiver Husten?',
+coughEff: '<strong class="text-green-700">Effektiver Husten</strong> — das Kind hustet laut, weint, schnappt nach Luft. <em>Nicht eingreifen.</em> Zum Husten ermutigen, dabei bleiben, beobachten. Rückenklopfen kann einen Fremdkörper tiefer schieben.',
+coughIneff: '<strong class="text-red-700">Ineffektiver Husten</strong> — lautloser Husten, Kind bekommt keine Luft, wird blau, verliert das Bewusstsein. <em>Sofort handeln.</em>',
+h3_1: 'Säugling (unter 1 Jahr)',
+infantSteps: '<li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. Fünf Rückenklopfer.</strong><br><span class="text-[15px] text-ink/80">Legen Sie den Säugling mit dem Gesicht nach unten auf Ihren Unterarm, <strong>Kopf tiefer als Rumpf</strong>, stützen Sie den Unterkiefer mit den Fingern (kein Druck auf die Kehle). Geben Sie mit dem Handballen fünf kräftige Schläge zwischen die Schulterblätter.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Fünf Brustkompressionen.</strong><br><span class="text-[15px] text-ink/80">Drehen Sie das Kind auf den Rücken, Kopf weiterhin tief. Drücken Sie mit zwei Fingern fünfmal auf die untere Hälfte des Brustbeins — <strong>tiefer und langsamer</strong> als bei der Wiederbelebung.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Mundraum prüfen.</strong><br><span class="text-[15px] text-ink/80">Nach jedem Zyklus hineinsehen. Nur entfernen, was Sie sehen und greifen können. <strong>Niemals blind mit dem Finger tasten</strong> — Sie schieben den Fremdkörper tiefer.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Wiederholen und Hilfe rufen.</strong><br><span class="text-[15px] text-ink/80">Zyklus 5 + 5, bis der Fremdkörper entfernt ist. Allein — nach einer Minute 112 anrufen und Lautsprecher einschalten. Verliert das Kind das Bewusstsein, mit der Wiederbelebung beginnen.</span></li>',
+h3_2: 'Kind über 1 Jahr',
+heimlichP: 'Das Muster ist ähnlich, aber statt Brustkompressionen wird das <strong>Heimlich-Manöver</strong> angewendet: Stellen Sie sich hinter das Kind, umfassen Sie es, legen Sie die Faust zwischen Nabel und Brustbein und führen Sie fünf kräftige Stöße nach innen und oben aus. Abwechselnd: fünf Rückenschläge, fünf Bauchstöße.',
+heimNote: 'Nach einem erfolgreichen Heimlich-Manöver sollte das Kind ärztlich untersucht werden — die Technik kann innere Verletzungen verursachen.',
+h2_2: 'Kein Atem — Herzlungen-Wiederbelebung',
+rkoP: 'Bei Kindern ist der Herzstillstand meist auf ein <strong>Atemproblem</strong> zurückzuführen, nicht auf einen Herzinfarkt. Deshalb beginnt man bei Säuglingen und Kleinkindern mit Beatmungen, nicht nur mit Herzdruckmassage.',
+rkoT: 'Ablauf für Säugling und Kind',
+rkoSteps: '<li><strong>Reaktion und Atmung prüfen</strong> — höchstens 10 Sekunden. Gelegentliche Schnappatmung ist keine normale Atmung.</li><li><strong>Um Hilfe rufen</strong> und jemanden bitten, 112 zu wählen. Allein — erst eine Minute Wiederbelebung, dann anrufen.</li><li><strong>5 Beatmungen.</strong> Beim Säugling Mund und Nase gleichzeitig mit dem Mund bedecken; beim älteren Kind Nase zuhalten und in den Mund einblasen. Jede Beatmung ca. 1 Sekunde — nur so viel, dass sich der Brustkorb leicht hebt.</li><li><strong>30 Herzdruckmassagen.</strong> Säugling: zwei Finger oder umschließende Daumen. Kind: Handballen einer Hand. Tiefe: <strong>1/3 des Brustkorbdurchmessers</strong> (ca. 4 cm beim Säugling, 5 cm beim Kind). Tempo: <strong>100–120 pro Minute</strong>.</li><li><strong>30 : 2 fortsetzen</strong> bis der Rettungsdienst eintrifft, die Atmung zurückkehrt oder Sie vollständig erschöpft sind.</li>',
+headNote: '<strong>Kopfposition ist wichtig:</strong> beim Säugling sollte der Kopf in neutraler Position sein, nicht nach hinten überstreckt wie bei Erwachsenen. Zu starkes Überstrecken verschließt die Atemwege.',
+h2_3: 'Fieber — wann es dringend ist',
+feverT: 'Absolute Regel für Neugeborene',
+feverP: 'Fieber <strong>über 38°C bei einem Kind unter 3 Monaten</strong> erfordert immer eine umgehende Konsultation — unabhängig von Tageszeit und Befinden des Kindes. Bei einem Neugeborenen kann Fieber das einzige Zeichen einer schweren Infektion sein, und die Verschlechterung kann schnell eintreten.',
+feverP2: 'Bei älteren Säuglingen und Kindern ist <strong>das Verhalten des Kindes</strong> wichtiger als die Zahl auf dem Thermometer. Ein Kind mit 39°C, das trinkt, reagiert und spielt, ist in einer besseren Lage als ein apathisches Kind mit 38°C.',
+feverList: '<li>Temperatur in der Achselhöhle oder rektal messen (bei Säuglingen zuverlässigste Methode).</li><li>In kleinen Portionen, häufig trinken lassen — Austrocknung ist gefährlicher als das Fieber selbst.</li><li>Nicht überhitzen: leichte Kleidung, gut belüftetes Zimmer.</li><li>Fiebersenkende Mittel nur in einer nach <strong>Körpergewicht</strong> bemessenen Dosis, nicht nach Alter. Dosierung mit Arzt oder Apotheker klären.</li><li>Keine Alkohol- oder eiskalten Bäder — sie bewirken Gefäßkrampf und Schüttelfrost, was die Temperatur erhöht.</li>',
+h2_4: 'Fieberkrämpfe',
+seizureP: 'Betreffen einige Prozent der Kinder zwischen dem 6. Lebensmonat und dem 5. Lebensjahr. Sie sehen dramatisch aus, hinterlassen in der typischen Form aber keine bleibenden Schäden. Entscheidend ist, zu wissen, was man <strong>nicht</strong> tun sollte.',
+doT: '✓ Tun',
+doList: '<li>Kind auf die Seite legen</li><li>Harte Gegenstände aus der Umgebung entfernen</li><li>Etwas Weiches unter den Kopf legen</li><li>Beginn-Uhrzeit merken</li><li>Enge Kleidung lockern</li><li>Beim Kind bleiben</li>',
+dontT: '✗ Nicht tun',
+dontList: '<li>Nichts in den Mund stecken</li><li>Bewegungen nicht einschränken</li><li>Keine Medikamente oder Wasser geben</li><li>Nicht in kaltes Wasser legen</li><li>Kind nicht schütteln</li>',
+seizureCall: '<strong>112 anrufen, wenn:</strong> der Krampf länger als 5 Minuten dauert, er erstmals aufgetreten ist, sich in kurzem Abstand wiederholt, das Kind nach dem Krampf nicht das Bewusstsein wiedererlangt, oder das Kind unter 6 Monaten ist.',
+h2_5: 'Verbrennungen',
+burnsP: 'Häufigste Ursache bei Kleinkindern ist eine heiße Flüssigkeit — Tee, Suppe, Wasser aus dem Wasserkocher. Die Haut eines Säuglings ist dünner, daher ist die Schädigung bei niedrigerer Temperatur tiefer.',
+burnSteps: '<li><strong>20 Minuten mit lauwarmem fließendem Wasser kühlen.</strong> Nicht eiskalt — bei einem kleinen Kind droht Auskühlung des gesamten Körpers.</li><li><strong>Kleidung und Schmuck</strong> in der Umgebung der Verbrennung entfernen, aber nichts abreißen, das an der Haut klebt.</li><li><strong>Sterilen Verband</strong> oder sauberes, feuchtes Tuch auflegen.</li><li><strong>Kein</strong> Butter, Olivenöl, Zahnpasta, Mehl oder Hausmittel verwenden. Keine Blasen aufstechen.</li><li><strong>Rest des Körpers warmhalten</strong> — Kinder kühlen beim Wundkühlen schnell aus.</li>',
+burnsWhen: '<strong>Immer ins Krankenhaus bei:</strong> Verbrennung von Gesicht, Hals, Händen, Füßen oder Genitalien; Verbrennung größer als die Kinderhand; chemischer oder elektrischer Verbrennung; jeder Verbrennung bei einem Säugling.',
+h2_6: 'Sturz und Kopfverletzung',
+headP: 'Ein Sturz vom Wickeltisch ist ein Klassiker — er passiert sogar den aufmerksamsten Eltern. Der Sturz selbst bedeutet nicht immer eine ernste Verletzung, aber das Kind sollte 24–48 Stunden beobachtet werden.',
+headWhen: '<strong>Sofort 112, wenn nach einer Kopfverletzung auftritt:</strong> Bewusstlosigkeit (auch kurz), Erbrechen (besonders wiederholt), Krämpfe, Blut oder klare Flüssigkeit aus einem Ohr oder der Nase, ungleiche Pupillen, zunehmende Schläfrigkeit, ungewöhnliches schrilles Schreien, spürbares Eindrücken des Schädels oder gespannte, vorgewölbte Fontanelle.',
+h2_7: 'Vergiftungen und verschluckte Fremdkörper',
+poisonList: '<li><strong>Kein Erbrechen auslösen</strong> — bei ätzenden Substanzen vertieft eine zweite Passage durch die Speiseröhre die Schädigung.</li><li><strong>Die Verpackung sichern</strong> und ins Krankenhaus mitnehmen.</li><li><strong>Keine Milch geben</strong> „zur Sicherheit" — bei manchen Substanzen beschleunigt sie die Aufnahme.</li><li><strong>Knopfbatterien sind ein Notfall.</strong> Eine verschluckte Batterie kann die Speiseröhre innerhalb von 2 Stunden schädigen. Sofort in die Notaufnahme, auch wenn das Kind gut aussieht.</li><li><strong>Neodym-Magnete</strong> — das Verschlucken mehrerer droht mit Darmperforation. Ebenfalls dringend ins Krankenhaus.</li>',
+h2_8: 'Warnsignale beim Neugeborenen — wann man nicht bis morgen warten sollte',
+alarmList: '<li>Fieber über 38°C oder Temperatur unter 36°C</li><li>Atemprobleme: beschleunigte Atmung, Einziehen der Zwischenrippenräume, Stöhnen, Nasenflügeln</li><li>Blaue Lippen, Zunge oder Gesicht</li><li>Apathie, Schlaffheit, keine Reaktion auf Reize</li><li>Trinkverweigerung bei aufeinanderfolgenden Mahlzeiten</li><li>Kein Urin für 8–12 Stunden, trockener Mund, eingesunkene Fontanelle</li><li>Gelbsucht, die sich nach dem 5. Tag verstärkt oder Handflächen und Fußsohlen erfasst</li><li>Anhaltendes, ungewöhnlich klingendes Schreien</li><li>Erbrechen von grüner oder blutiger Flüssigkeit</li><li>Gespannte, vorgewölbte Fontanelle</li>',
+intuition: 'Elterliche Intuition ist ein guter Indikator. Wenn Sie das Gefühl haben, dass „etwas nicht stimmt" — konsultieren Sie, auch wenn Sie das Symptom nicht benennen können. Lieber unnötig anrufen als zu zögern.',
+h2_9: 'Prävention — worauf täglich zu achten ist',
+prevList: '<li><strong>Schlafen auf dem Rücken</strong>, auf fester Matratze, ohne Kissen, Decken oder Spielzeug im Bett.</li><li><strong>Kind nie allein lassen</strong> auf dem Wickeltisch, Bett oder Sofa — auch nicht „für eine Sekunde".</li><li><strong>Kindersitz</strong> passend zum Gewicht, nach Anleitung montiert, so lange wie möglich entgegen der Fahrtrichtung.</li><li><strong>Kleine Gegenstände und Weintrauben</strong> außer Reichweite. Weintrauben und Cocktailtomaten längs in Viertel schneiden.</li><li><strong>Medikamente, Chemikalien, Knopfbatterien</strong> in verschlossenen Schränken, nicht in der Tasche auf dem Stuhl.</li><li><strong>Badetemperatur</strong> ca. 37°C — mit dem Ellbogen oder Thermometer prüfen, nicht mit der Hand.</li>',
+ctaT: 'Wissen ist eine Sache. Vorbereitung eine andere.',
+ctaP: 'Unser Geburtsplan-Ersteller hat einen ausführlichen Abschnitt über die ersten Stunden im Leben des Babys — Haut-zu-Haut-Kontakt, Prophylaxe, Screening-Untersuchungen und was Sie das Personal fragen sollten.',
+ctaBtn: 'Erstellen Sie Ihren Geburtsplan →',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: '← Знання',
+eyebrow: 'Безпека дитини · Оновлено: 23 липня 2026',
+h1: 'Перша допомога новонародженому і маленькій дитині — путівник, який варто прочитати, поки він не знадобився',
+lead: 'У надзвичайних ситуаціях з найменшими важлива не сила, а порядок дій і спокій. Нижче — конкретні процедури, без теоретизування, у формі, яку можна відтворити посеред ночі з плачучою дитиною на руках.',
+numsT: '☎ Номери, які треба знати напам\'ять',
+numsP: '<strong>112</strong> — номер екстреної допомоги (також із заблокованого телефону)<br><strong>999</strong> — швидка допомога<br><strong>800 112 112</strong> — Телефонна інформація пацієнта (НФЗ)',
+numsHint: 'Зателефонувавши, скажіть одразу: <em>вік дитини, що сталося, чи дихає, адреса</em>. Диспетчер проведе вас через дії — не вішайте трубку.',
+tocT: 'Швидка навігація',
+tocList: '<li><a href="#zadlawienie" class="text-teal hover:underline">→ Задушення</a></li><li><a href="#rko" class="text-teal hover:underline">→ Відсутність дихання (СЛР)</a></li><li><a href="#goraczka" class="text-teal hover:underline">→ Гарячка</a></li><li><a href="#drgawki" class="text-teal hover:underline">→ Febрильні судоми</a></li><li><a href="#oparzenia" class="text-teal hover:underline">→ Опіки</a></li><li><a href="#uraz-glowy" class="text-teal hover:underline">→ Травма голови</a></li><li><a href="#zatrucia" class="text-teal hover:underline">→ Отруєння</a></li><li><a href="#alarm" class="text-teal hover:underline">→ Тривожні сигнали</a></li>',
+ruleT: 'Головне правило: спочатку оцінка, потім дії',
+ruleP: 'Перш ніж щось зробити, перевірте три речі: <strong>чи реагує дитина</strong> (легенько потрясіть, покличте), <strong>чи дихає</strong> (дивіться на грудну клітку 10 секунд) і <strong>який колір шкіри</strong> (блідість, синюшність губ). Ці три спостереження визначають все подальше.',
+h2_1: 'Задушення — найчастіший невідкладний стан у маленьких дітей',
+p1: 'Діти пізнають світ через рот, а дихальні шляхи немовляти мають діаметр олівця. Виноградина, шматочок моркви, намистина чи кришечка — реальна небезпека.',
+coughT: 'Спочатку визначте: кашель ефективний чи неефективний?',
+coughEff: '<strong class="text-green-700">Ефективний кашель</strong> — дитина голосно кашляє, плаче, ловить повітря. <em>Не втручайтеся.</em> Заохочуйте до кашлю, будьте поруч, спостерігайте. Удари по спині можуть просунути чужорідний предмет глибше.',
+coughIneff: '<strong class="text-red-700">Неефективний кашель</strong> — беззвучний кашель, дитина не може вдихнути, синіє, втрачає свідомість. <em>Дійте негайно.</em>',
+h3_1: 'Немовля (до 1 року)',
+infantSteps: '<li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. П\'ять ударів між лопатками.</strong><br><span class="text-[15px] text-ink/80">Покладіть немовля обличчям вниз на передпліччя, <strong>голова нижче тулуба</strong>, підтримуючи нижню щелепу пальцями (не тисніть на горло). Основою долоні завдайте п\'ять рішучих ударів між лопатками.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. П\'ять натиснень на грудну клітку.</strong><br><span class="text-[15px] text-ink/80">Переверніть дитину на спину, голова також нижче. Двома пальцями натисніть п\'ять разів на нижню половину грудини — <strong>глибше і повільніше</strong>, ніж при реанімації.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Перевірте ротову порожнину.</strong><br><span class="text-[15px] text-ink/80">Оглядайте після кожного циклу. Виймайте тільки те, що бачите і можете схопити. <strong>Ніколи не вкладайте пальця наосліп</strong> — запхаєте чужорідний предмет глибше.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Повторюйте і викликайте допомогу.</strong><br><span class="text-[15px] text-ink/80">Цикл 5+5 до результату. Якщо ви самі — через хвилину телефонуйте на 112 і вмикайте гучний зв\'язок. Якщо дитина знепритомніє, переходьте до реанімації.</span></li>',
+h3_2: 'Дитина старше 1 року',
+heimlichP: 'Схема подібна, але замість натиснень на груди застосовується <strong>прийом Геймліха</strong>: станьте позаду дитини, обійміть її, розташуйте кулак між пупком і грудиною і виконайте п\'ять енергійних рухів до себе і вгору. Почергово: п\'ять ударів по спині, п\'ять натиснень на живіт.',
+heimNote: 'Після успішного прийому Геймліха дитину слід оглянути лікаря — техніка може спричинити травми внутрішніх органів.',
+h2_2: 'Відсутність дихання — серцево-легенева реанімація',
+rkoP: 'У дітей зупинка серця найчастіше виникає через <strong>проблему з диханням</strong>, а не через інфаркт. Тому у найменших починають зі штучного дихання, а не лише з компресій.',
+rkoT: 'Послідовність для немовляти і дитини',
+rkoSteps: '<li><strong>Перевірте реакцію і дихання</strong> — максимум 10 секунд. Поодинокі ковтки повітря — це не нормальне дихання.</li><li><strong>Кличте на допомогу</strong> і попросіть когось зателефонувати на 112. Якщо ви самі — спочатку хвилина реанімації, потім дзвінок.</li><li><strong>5 штучних вдихів.</strong> У немовляти обхопіть ротом ніс і рот одночасно; у старшої дитини затисніть ніс і вдихайте в рот. Вдих має тривати близько 1 секунди — рівно стільки, щоб грудна клітка злегка піднялася.</li><li><strong>30 натиснень на грудну клітку.</strong> Немовля: два пальці або обхоплюючі великі пальці. Дитина: основа одної долоні. Глибина: <strong>1/3 розміру грудної клітки</strong> (близько 4 см у немовляти, 5 см у дитини). Темп: <strong>100–120 на хвилину</strong>.</li><li><strong>Продовжуйте 30:2</strong> до приїзду швидкої, відновлення дихання або повного виснаження.</li>',
+headNote: '<strong>Положення голови має значення:</strong> у немовляти голова повинна бути в нейтральному положенні, не закинута назад, як у дорослого. Надмірне закидання закриває дихальні шляхи.',
+h2_3: 'Гарячка — коли це невідкладно',
+feverT: 'Абсолютне правило для новонароджених',
+feverP: 'Гарячка <strong>вище 38°C у дитини до 3 місяців</strong> — завжди стан, що вимагає термінової консультації, незалежно від часу доби і самопочуття дитини. У новонародженого гарячка може бути єдиним симптомом серйозної інфекції, а погіршення відбувається швидко.',
+feverP2: 'У старших немовлят і дітей важливіше за саму цифру на термометрі <strong>поведінка дитини</strong>. Дитина з температурою 39°C, яка п\'є, реагує і грається, перебуває в кращій ситуації, ніж апатична дитина з 38°C.',
+feverList: '<li>Вимірюйте температуру в пахві або ректально (у немовлят найнадійніший метод).</li><li>Давайте пити невеликими порціями, часто — зневоднення небезпечніше за саму гарячку.</li><li>Не перегрівайте: легкий одяг, провітрена кімната.</li><li>Жарознижувальні засоби виключно в дозі, відповідній <strong>масі тіла</strong>, а не вікові. Дозування узгодьте з лікарем або фармацевтом.</li><li>Не використовуйте спирт і крижані ванни — вони спричиняють спазм судин і озноб, що підвищує температуру.</li>',
+h2_4: 'Febрильні судоми',
+seizureP: 'Виникають у кількох відсотків дітей між 6 місяцями і 5 роками. Виглядають драматично, але в типовій формі не спричиняють постійних пошкоджень. Ключово — знати, чого <strong>не</strong> робити.',
+doT: '✓ Робіть',
+doList: '<li>Покладіть дитину на бік</li><li>Приберіть тверді предмети з оточення</li><li>Підкладіть щось м\'яке під голову</li><li>Запам\'ятайте час початку</li><li>Розслабте тісний одяг</li><li>Залишайтеся поруч з дитиною</li>',
+dontT: '✗ Не робіть',
+dontList: '<li>Нічого не вкладайте в рот</li><li>Не обмежуйте рухи</li><li>Не давайте ліки чи воду</li><li>Не кладіть у холодну воду</li><li>Не трясіть дитиною</li>',
+seizureCall: '<strong>Телефонуйте на 112, якщо:</strong> судоми тривають понад 5 хвилин, виникли вперше, повторюються через короткий проміжок, дитина не відновлює свідомість після закінчення судом, або дитині менше 6 місяців.',
+h2_5: 'Опіки',
+burnsP: 'Найчастіша причина у маленьких дітей — гаряча рідина: чай, суп, окріп із чайника. Шкіра немовляти тонша, тому пошкодження сягає глибше при нижчій температурі.',
+burnSteps: '<li><strong>Охолоджуйте під теплою проточною водою 20 хвилин.</strong> Не крижаною — у маленької дитини загрожує переохолодженням всього організму.</li><li><strong>Зніміть одяг і прикраси</strong> поблизу опіку, але не відривайте того, що прилипло до шкіри.</li><li><strong>Накрийте стерильною пов\'язкою</strong> або чистою вологою тканиною.</li><li><strong>Не застосовуйте</strong> масло, оливкову олію, зубну пасту, борошно чи домашні мазі. Не проколюйте пухирі.</li><li><strong>Тримайте решту тіла в теплі</strong> — дитина швидко переохолоджується під час охолодження рани.</li>',
+burnsWhen: '<strong>До лікарні завжди при:</strong> опіку обличчя, шиї, кистей, стоп або промежини; опіку, більшому за долоню дитини; хімічному або електричному опіку; будь-якому опіку у немовляти.',
+h2_6: 'Падіння і травма голови',
+headP: 'Падіння з пеленального столу — класика, що трапляється навіть у найуважніших батьків. Саме падіння не завжди означає серйозну травму, але протягом 24–48 годин треба спостерігати за дитиною.',
+headWhen: '<strong>Негайно на 112, якщо після травми голови з\'явилося:</strong> втрата свідомості (навіть коротка), блювання (особливо повторне), судоми, витікання крові чи прозорої рідини з вуха або носа, нерівні зіниці, наростаюча сонливість, незвичний пронизливий плач, відчутне вдавлення черепа або напружений, випуклий тім\'ячко.',
+h2_7: 'Отруєння і ковтання чужорідних предметів',
+poisonList: '<li><strong>Не викликайте блювання</strong> — при їдких речовинах повторне проходження через стравохід поглиблює пошкодження.</li><li><strong>Збережіть упаковку</strong> речовини і візьміть її з собою до лікарні.</li><li><strong>Не давайте молока</strong> «про всяк випадок» — при деяких речовинах прискорює всмоктування.</li><li><strong>Ґудзикові батарейки — надзвичайна ситуація.</strong> Проковтнута батарейка може пошкодити стравохід протягом 2 годин. Негайно до ВЕД, навіть якщо дитина виглядає добре.</li><li><strong>Неодимові магніти</strong> — ковтання більш ніж одного загрожує перфорацією кишківника. Також терміново до лікарні.</li>',
+h2_8: 'Тривожні сигнали у новонародженого — коли не чекати до ранку',
+alarmList: '<li>Гарячка вище 38°C або температура нижче 36°C</li><li>Труднощі з диханням: прискорений подих, втягування міжреберних проміжків, стогін, рух крил носа</li><li>Синюшність губ, язика або обличчя</li><li>Апатія, млявість, відсутність реакції на подразники</li><li>Відмова від їжі при кількох годуваннях поспіль</li><li>Відсутність сечі 8–12 годин, сухий рот, запале тім\'ячко</li><li>Жовтяниця, що посилюється після 5-ї доби або охоплює долоні й підошви</li><li>Наполегливий, незвичний за тоном плач</li><li>Блювання зеленим вмістом або з домішками крові</li><li>Напружене, випукле тім\'ячко</li>',
+intuition: "Батьківська інтуїція — добрий індикатор. Якщо є відчуття, що «щось не так» — проконсультуйтеся, навіть якщо не можете назвати симптом. Краще зателефонувати зайвий раз, ніж зволікати.",
+h2_9: 'Профілактика — за чим стежити щодня',
+prevList: '<li><strong>Сон на спині</strong>, на твердому матраці, без подушки, ковдр і іграшок у ліжечку.</li><li><strong>Ніколи не залишайте дитину саму</strong> на пеленальному столі, ліжку чи дивані — навіть «на секунду».</li><li><strong>Автокрісло</strong> підібране за масою, встановлене згідно з інструкцією, проти ходу руху якомога довше.</li><li><strong>Дрібні предмети і виноград</strong> поза досяжністю. Виноград і черрі-томати розрізайте вздовж на четвертини.</li><li><strong>Ліки, хімікати, ґудзикові батарейки</strong> в замкнених шафках, а не в сумці на стільці.</li><li><strong>Температура купання</strong> близько 37°C — перевіряйте ліктем або термометром, не долонею.</li>',
+ctaT: 'Знання — одне. Підготовка — інше.',
+ctaP: 'Наш конструктор плану пологів має розгорнутий розділ про перші години життя дитини — контакт шкіра до шкіри, профілактика, скринінгові дослідження і про що запитати персонал.',
+ctaBtn: 'Створіть свій план пологів →',
+relatedT: "Пов'язані статті"
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>
