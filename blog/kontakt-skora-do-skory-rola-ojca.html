@@ -71,14 +71,14 @@
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/wiedza" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    <div class="flex items-center gap-2"><select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select><a href="/wiedza" data-i18n="navCta" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a></div>
   </nav>
 </header>
 <main id="main" class="max-w-3xl mx-auto px-4 py-10">
   <nav class="text-xs text-ink/60 mb-5 no-print"><a href="/" class="hover:text-teal">Start</a> · <a href="/wiedza" class="hover:text-teal">Wiedza</a> · <span>Kontakt skóra do skóry — rola ojca</span></nav>
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Poród rodzinny · Aktualizacja: 27 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Kontakt skóra do skóry — co zrobić, gdy mama nie może (rola ojca)</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-6">Narodziny to szok sensoryczny dla noworodka. Kontakt „skóra do skóry" (ang. Skin-to-Skin, STS) tuż po porodzie to medycznie udowodniony sposób na jego złagodzenie — obowiązkowy w Standardzie 2026. <strong>Gdy mama nie może kangurować, tata jest naturalnym zastępcą</strong>. I robi to równie dobrze.</p>
+  <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Poród rodzinny · Aktualizacja: 27 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Kontakt skóra do skóry — co zrobić, gdy mama nie może (rola ojca)</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6">Narodziny to szok sensoryczny dla noworodka. Kontakt „skóra do skóry" (ang. Skin-to-Skin, STS) tuż po porodzie to medycznie udowodniony sposób na jego złagodzenie — obowiązkowy w Standardzie 2026. <strong>Gdy mama nie może kangurować, tata jest naturalnym zastępcą</strong>. I robi to równie dobrze.</p>
   <div class="bg-tealsoft rounded-2xl p-5 mb-8"><p class="font-semibold text-deep mb-2">Najważniejsze w skrócie</p><ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5"><li>STS reguluje temperaturę, oddech i tętno noworodka <strong>szybciej niż inkubator</strong>.</li><li>Gdy mama po CC lub komplikacjach nie może — <strong>tata kanguruje zamiast niej</strong>.</li><li>Przygotuj się: koszula <strong>rozpinana z przodu</strong> to klucz logistyczny.</li><li>Kangurowanie ojca podnosi <strong>jego poziom oksytocyny i prolaktyny</strong> — naukowy fakt.</li><li>Zapisz chęć kangurowania przez tatę <strong>w planie porodu</strong> — personel będzie gotowy.</li></ul></div>
   <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mt-10 mb-4">Dlaczego STS jest tak ważny medycznie?</h2>
   <p class="leading-relaxed text-ink/85 mb-4">W momencie położenia nagiego ciałka dziecka na nagiej klatce piersiowej rodzica zachodzą mierzalne zmiany:</p>
@@ -124,5 +124,34 @@
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm no-print">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: '← Knowledge',
+eyebrow: 'Dad · Newborn',
+h1: 'Skin-to-skin contact — what to do when mum can't (dad's role)',
+lead: 'Skin-to-skin is not just a mother's privilege. When mum cannot hold the baby — after a caesarean, in intensive care, or due to exhaustion — dad steps in. How to do it right and why it matters for the baby.',
+tocT: 'In this article',
+relatedT: 'Related articles'
+},
+de: {
+navCta: '← Wissen',
+eyebrow: 'Vater · Neugeborenes',
+h1: 'Hautkontakt — was tun, wenn Mama nicht kann (Vaterrolle)',
+lead: 'Hautkontakt ist kein ausschließliches Recht der Mutter. Wenn Mama das Baby nicht halten kann — nach einem Kaiserschnitt, auf der Intensivstation oder vor Erschöpfung — übernimmt Papa.',
+tocT: 'In diesem Artikel',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: '← Знання',
+eyebrow: 'Тато · Новонароджений',
+h1: 'Контакт шкіра до шкіри — що робити, коли мама не може (роль тата)',
+lead: 'Контакт шкіра до шкіри — не тільки привілей матері. Коли мама не може тримати дитину — після кесаревого, у реанімації або від втоми — тато замінює її.',
+tocT: 'У цій статті',
+relatedT: "Пов'язані статті"
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>

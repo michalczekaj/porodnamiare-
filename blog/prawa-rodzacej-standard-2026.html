@@ -88,20 +88,20 @@
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/wiedza" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    <div class="flex items-center gap-2"><select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select><a href="/wiedza" data-i18n="navCta" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a></div>
   </nav>
 </header>
 
 <main id="main" class="max-w-3xl mx-auto px-4 py-10">
   <nav aria-label="Ścieżka nawigacji" class="text-xs text-ink/60 mb-5 no-print"><a href="/" class="hover:text-teal">Start</a> · <a href="/wiedza" class="hover:text-teal">Wiedza</a> · <span>Prawa rodzącej 2026</span></nav>
 
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Poród · Aktualizacja: 27 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Prawa rodzącej i osoby towarzyszącej według Standardu Opieki Okołoporodowej 2026</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-6">Standard Opieki Okołoporodowej 2026 to akt prawny — nie zalecenie. Jego zapisy <strong>bezwzględnie obowiązują personel każdej polskiej sali porodowej</strong>. Znajomość własnych praw to pierwsza warstwa znieczulenia: kiedy wiesz, czego możesz się domagać, wchodzisz na salę porodową z zupełnie inną siłą.</p>
+  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3"><p data-i18n="eyebrow"</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Prawa rodzącej i osoby towarzyszącej według Standardu Opieki Okołoporodowej 2026</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6">Standard Opieki Okołoporodowej 2026 to akt prawny — nie zalecenie. Jego zapisy <strong>bezwzględnie obowiązują personel każdej polskiej sali porodowej</strong>. Znajomość własnych praw to pierwsza warstwa znieczulenia: kiedy wiesz, czego możesz się domagać, wchodzisz na salę porodową z zupełnie inną siłą.</p>
 
   <div class="bg-tealsoft rounded-2xl p-5 mb-8">
-    <p class="font-semibold text-deep mb-2">Najważniejsze w skrócie</p>
-    <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+    <p data-i18n="summaryT" class="font-semibold text-deep mb-2">Najważniejsze w skrócie</p>
+    <ul data-i18n="summaryList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
       <li>Żaden zabieg nie może być wykonany <strong>bez Twojej świadomej zgody</strong> (poza nagłym zagrożeniem życia).</li>
       <li>Personel ma obowiązek <strong>zapoznać się z planem porodu</strong> zaraz po przyjęciu na oddział.</li>
       <li>Masz prawo do <strong>znieczulenia ZZO</strong>, jeśli nie ma medycznych przeciwwskazań.</li>
@@ -111,8 +111,8 @@
   </div>
 
   <nav class="bg-white border border-sanddark rounded-2xl p-5 mb-10 no-print" aria-label="Spis treści">
-    <p class="font-semibold text-deep mb-3">W tym artykule</p>
-    <ul class="grid sm:grid-cols-2 gap-2 text-[15px]">
+    <p data-i18n="tocT" class="font-semibold text-deep mb-3">W tym artykule</p>
+    <ul data-i18n="tocList" class="grid sm:grid-cols-2 gap-2 text-[15px]">
       <li><a href="#czym" class="text-teal hover:underline">→ Czym jest Standard 2026</a></li>
       <li><a href="#prawa" class="text-teal hover:underline">→ Główne prawa rodzącej</a></li>
       <li><a href="#tata" class="text-teal hover:underline">→ Prawa osoby towarzyszącej</a></li>
@@ -121,21 +121,21 @@
     </ul>
   </nav>
 
-  <h2 id="czym" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-10 mb-4">Czym jest Standard Opieki Okołoporodowej 2026?</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">To rozporządzenie Ministra Zdrowia wyznaczające minimalne, ale rygorystyczne ramy jakości opieki nad kobietą w okresie fizjologicznej ciąży, fizjologicznego porodu, połogu oraz opieki nad noworodkiem (Dz.U. 2025 poz. 1525, obowiązuje od 7 maja 2026 r.).</p>
-  <p class="leading-relaxed text-ink/85 mb-6">Wersja 2026 kładzie szczególny nacisk na: <strong>niefarmakologiczne i farmakologiczne metody łagodzenia bólu</strong>, partnerską komunikację między personelem a pacjentką oraz podmiotowość rodzącej we wszystkich decyzjach. To nie są "dobre chęci" — to prawny obowiązek placówki.</p>
+  <h2 id="czym" data-i18n="h2_1" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-10 mb-4">Czym jest Standard Opieki Okołoporodowej 2026?</h2>
+  <p data-i18n="p1a" class="leading-relaxed text-ink/85 mb-4">To rozporządzenie Ministra Zdrowia wyznaczające minimalne, ale rygorystyczne ramy jakości opieki nad kobietą w okresie fizjologicznej ciąży, fizjologicznego porodu, połogu oraz opieki nad noworodkiem (Dz.U. 2025 poz. 1525, obowiązuje od 7 maja 2026 r.).</p>
+  <p data-i18n="p1b" class="leading-relaxed text-ink/85 mb-6">Wersja 2026 kładzie szczególny nacisk na: <strong>niefarmakologiczne i farmakologiczne metody łagodzenia bólu</strong>, partnerską komunikację między personelem a pacjentką oraz podmiotowość rodzącej we wszystkich decyzjach. To nie są "dobre chęci" — to prawny obowiązek placówki.</p>
 
-  <h2 id="prawa" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4">Główne prawa rodzącej pacjentki</h2>
+  <h2 id="prawa" data-i18n="h2_2" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4">Główne prawa rodzącej pacjentki</h2>
 
-  <h3 class="font-display text-xl font-semibold text-deep mb-3">Prawo do informacji i świadomej zgody</h3>
-  <p class="leading-relaxed text-ink/85 mb-4">Żaden zabieg — przebicie pęcherza płodowego, podanie oksytocyny, nacięcie krocza — nie może zostać wykonany bez Twojej <strong>wyraźnej, świadomej zgody</strong>. Jedyny wyjątek to bezpośrednie zagrożenie życia, gdy zwłoka mogłaby zaszkodzić Tobie lub dziecku. W każdej innej sytuacji personel ma obowiązek wyjaśnić cel działania w zrozumiały sposób, bez żargonu medycznego.</p>
+  <h3 data-i18n="h3_1" class="font-display text-xl font-semibold text-deep mb-3">Prawo do informacji i świadomej zgody</h3>
+  <p data-i18n="p2a" class="leading-relaxed text-ink/85 mb-4">Żaden zabieg — przebicie pęcherza płodowego, podanie oksytocyny, nacięcie krocza — nie może zostać wykonany bez Twojej <strong>wyraźnej, świadomej zgody</strong>. Jedyny wyjątek to bezpośrednie zagrożenie życia, gdy zwłoka mogłaby zaszkodzić Tobie lub dziecku. W każdej innej sytuacji personel ma obowiązek wyjaśnić cel działania w zrozumiały sposób, bez żargonu medycznego.</p>
 
-  <h3 class="font-display text-xl font-semibold text-deep mb-3">Prawo do respektowania planu porodu</h3>
-  <p class="leading-relaxed text-ink/85 mb-4">Plan porodu to <strong>dokument wiążący</strong>. Personel ma obowiązek zapoznać się z nim zaraz po przyjęciu na oddział. Jeśli ze względów medycznych jakikolwiek punkt nie może zostać zrealizowany — musisz otrzymać jasne uzasadnienie.</p>
+  <h3 data-i18n="h3_2" class="font-display text-xl font-semibold text-deep mb-3">Prawo do respektowania planu porodu</h3>
+  <p data-i18n="p2b" class="leading-relaxed text-ink/85 mb-4">Plan porodu to <strong>dokument wiążący</strong>. Personel ma obowiązek zapoznać się z nim zaraz po przyjęciu na oddział. Jeśli ze względów medycznych jakikolwiek punkt nie może zostać zrealizowany — musisz otrzymać jasne uzasadnienie.</p>
 
-  <h3 class="font-display text-xl font-semibold text-deep mb-3">Prawo do łagodzenia bólu</h3>
-  <p class="leading-relaxed text-ink/85 mb-4">Bół porodowy to fizjologia, ale cierpienie nią nie jest. Masz prawo do:</p>
-  <ul class="space-y-1.5 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <h3 data-i18n="h3_3" class="font-display text-xl font-semibold text-deep mb-3">Prawo do łagodzenia bólu</h3>
+  <p data-i18n="p2c" class="leading-relaxed text-ink/85 mb-4">Bół porodowy to fizjologia, ale cierpienie nią nie jest. Masz prawo do:</p>
+  <ul data-i18n="painList" class="space-y-1.5 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li>Swobody ruchu, korzystania z wanny, piłek, poduszek</li>
     <li>Gazu wziewnego (mieszanina podtlenku azotu i tlenu)</li>
     <li>TENS (przezskórna stymulacja elektryczna)</li>
@@ -143,11 +143,11 @@
     <li>Znieczulenia remifentanylem PCA jako alternatywy dla ZZO</li>
   </ul>
 
-  <h3 class="font-display text-xl font-semibold text-deep mb-3">Prawo do nieprzerwanego kontaktu skóra do skóry</h3>
-  <p class="leading-relaxed text-ink/85 mb-6">Po narodzinach zdrowe dziecko powinno zostać ułożone na Twojej nagiej klatce piersiowej na <strong>co najmniej 2 godziny</strong>. W tym czasie przeprowadzane są tylko niezbędne badania — ocenę w skali Apgar można wykonać, gdy maluch przytula się do Ciebie. Standard 2026 gwarantuje to explicite, również przy cięciu cesarskim, jeśli stan matki i dziecka na to pozwala.</p>
+  <h3 data-i18n="h3_4" class="font-display text-xl font-semibold text-deep mb-3">Prawo do nieprzerwanego kontaktu skóra do skóry</h3>
+  <p data-i18n="p2d" class="leading-relaxed text-ink/85 mb-6">Po narodzinach zdrowe dziecko powinno zostać ułożone na Twojej nagiej klatce piersiowej na <strong>co najmniej 2 godziny</strong>. W tym czasie przeprowadzane są tylko niezbędne badania — ocenę w skali Apgar można wykonać, gdy maluch przytula się do Ciebie. Standard 2026 gwarantuje to explicite, również przy cięciu cesarskim, jeśli stan matki i dziecka na to pozwala.</p>
 
-  <h2 id="tata" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4">Rola i prawa osoby towarzyszącej (taty)</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">W 2026 roku rola ojca na sali porodowej to nie jest już "stanie w kącie". Standard gwarantuje:</p>
+  <h2 id="tata" data-i18n="h2_3" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4">Rola i prawa osoby towarzyszącej (taty)</h2>
+  <p data-i18n="p3" class="leading-relaxed text-ink/85 mb-4">W 2026 roku rola ojca na sali porodowej to nie jest już "stanie w kącie". Standard gwarantuje:</p>
 
   <div class="grid sm:grid-cols-3 gap-4 mb-6">
     <div class="bg-white border border-sanddark rounded-2xl p-4 text-center">
@@ -167,15 +167,15 @@
     </div>
   </div>
 
-  <h2 id="egzekwowanie" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4">Jak egzekwować swoje prawa w praktyce?</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Rozmowa to podstawa. Jeśli coś dzieje się wbrew Twoim oczekiwaniom, przypomnij spokojnie:</p>
+  <h2 id="egzekwowanie" data-i18n="h2_4" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4">Jak egzekwować swoje prawa w praktyce?</h2>
+  <p data-i18n="p4" class="leading-relaxed text-ink/85 mb-4">Rozmowa to podstawa. Jeśli coś dzieje się wbrew Twoim oczekiwaniom, przypomnij spokojnie:</p>
   <div class="bg-white border-l-4 border-teal rounded-r-2xl p-5 mb-6">
-    <p class="font-semibold text-deep mb-2">Skuteczny komunikat</p>
-    <p class="text-[15px] text-ink/85 italic">„W naszym planie porodu prosiliśmy o… czy możemy omówić alternatywy? Co jest powodem tego działania?"</p>
+    <p data-i18n="effectiveT" class="font-semibold text-deep mb-2">Skuteczny komunikat</p>
+    <p data-i18n="effectiveP" class="text-[15px] text-ink/85 italic">„W naszym planie porodu prosiliśmy o… czy możemy omówić alternatywy? Co jest powodem tego działania?"</p>
   </div>
-  <p class="leading-relaxed text-ink/85 mb-6">Współpraca z personelem oparta na wzajemnym szacunku zawsze daje najlepsze efekty. Nigdy nie bój się pytać — to Wasz poród i Wasze dziecko. Asertywność nie musi oznaczać konfrontacji.</p>
+  <p data-i18n="p4b" class="leading-relaxed text-ink/85 mb-6">Współpraca z personelem oparta na wzajemnym szacunku zawsze daje najlepsze efekty. Nigdy nie bój się pytać — to Wasz poród i Wasze dziecko. Asertywność nie musi oznaczać konfrontacji.</p>
 
-  <h2 id="faq" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-6">Najczęstsze pytania</h2>
+  <h2 id="faq" data-i18n="faqH" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-6">Najczęstsze pytania</h2>
   <div class="space-y-5 mb-10">
     <details class="bg-white border border-sanddark rounded-2xl p-5 group">
       <summary class="font-semibold text-deep cursor-pointer list-none flex justify-between items-center">Czy szpital może odmówić mi ZZO?<span class="text-teal group-open:rotate-90 transition-transform">→</span></summary>
@@ -202,7 +202,7 @@
   </div>
 
   <div class="mt-10 pt-6 border-t border-sanddark">
-    <p class="font-semibold text-deep mb-3">Powiązane artykuły</p>
+    <p data-i18n="relatedT" class="font-semibold text-deep mb-3">Powiązane artykuły</p>
     <div class="grid sm:grid-cols-2 gap-4">
       <a href="/blog/jak-napisac-plan-porodu" class="group bg-white border border-sanddark rounded-2xl p-5 hover:border-teal/50 transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-1.5">Poród</p>
@@ -221,5 +221,106 @@
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm no-print">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: '← Knowledge',
+eyebrow: 'Labour · Updated: 27 July 2026',
+h1: 'Rights of the labouring person and birth companion under the Perinatal Care Standard 2026',
+lead: 'The Perinatal Care Standard 2026 is a legal act — not a recommendation. Its provisions <strong>are binding on the staff of every Polish delivery room</strong>. Knowing your rights is the first layer of pain relief: when you know what you can demand, you enter the delivery room with a completely different kind of strength.',
+summaryT: 'Key points at a glance',
+summaryList: '<li>No procedure may be performed <strong>without your informed consent</strong> (except in a life-threatening emergency).</li><li>Staff are required to <strong>review the birth plan</strong> immediately after admission.</li><li>You have the right to <strong>epidural anaesthesia</strong> if there are no medical contraindications.</li><li>Skin-to-skin contact — <strong>minimum 2 hours</strong> uninterrupted after birth.</li><li>Dad has the right to be present at <strong>every stage</strong> of physiological labour.</li>',
+tocT: 'In this article',
+tocList: '<li><a href="#czym" class="text-teal hover:underline">→ What the Standard 2026 is</a></li><li><a href="#prawa" class="text-teal hover:underline">→ Main rights of the labouring person</a></li><li><a href="#tata" class="text-teal hover:underline">→ Birth companion rights</a></li><li><a href="#egzekwowanie" class="text-teal hover:underline">→ How to enforce your rights</a></li><li><a href="#faq" class="text-teal hover:underline">→ FAQ</a></li>',
+h2_1: 'What is the Perinatal Care Standard 2026?',
+p1a: 'It is a regulation of the Minister of Health setting the minimum but rigorous framework for care of women during physiological pregnancy, physiological labour, the postnatal period, and newborn care (Journal of Laws 2025, item 1525, in force from 7 May 2026).',
+p1b: 'The 2026 version places special emphasis on: <strong>non-pharmacological and pharmacological pain-relief methods</strong>, partnership communication between staff and patient, and the labouring person\'s agency in all decisions. These are not "good intentions" — they are legal obligations on the facility.',
+h2_2: 'Main rights of the labouring patient',
+h3_1: 'Right to information and informed consent',
+p2a: 'No procedure — rupturing the membranes, administering oxytocin, episiotomy — may be carried out without your <strong>explicit, informed consent</strong>. The only exception is an immediate threat to life where delay could harm you or your baby. In any other situation, staff must explain the purpose in understandable terms, without medical jargon.',
+h3_2: 'Right to have the birth plan respected',
+p2b: 'The birth plan is a <strong>binding document</strong>. Staff must review it immediately after admission. If for medical reasons any point cannot be met — you must receive a clear explanation.',
+h3_3: 'Right to pain relief',
+p2c: 'Labour pain is physiology, but suffering is not. You have the right to:',
+painList: '<li>Freedom of movement, use of bath, birth balls, cushions</li><li>Entonox (nitrous oxide and oxygen mixture)</li><li>TENS (transcutaneous electrical nerve stimulation)</li><li>Epidural anaesthesia, if there are no medical contraindications</li><li>Remifentanil PCA as an alternative to epidural</li>',
+h3_4: 'Right to uninterrupted skin-to-skin contact',
+p2d: 'After birth, a healthy baby should be placed on your bare chest for <strong>at least 2 hours</strong>. During this time only essential checks are carried out — the Apgar score can be assessed while the baby is held against you. The Standard 2026 guarantees this explicitly, including after a caesarean section if the condition of mother and baby allows.',
+h2_3: 'Role and rights of the birth companion (dad)',
+p3: 'In 2026, the father\'s role in the delivery room is no longer "standing in the corner". The Standard guarantees:',
+h2_4: 'How to enforce your rights in practice',
+p4: 'Communication is the foundation. If something happens against your expectations, calmly remind staff:',
+effectiveT: 'An effective statement',
+effectiveP: '"In our birth plan we requested… can we discuss the alternatives? What is the reason for this procedure?"',
+p4b: 'Collaboration with staff based on mutual respect always produces the best outcomes. Never be afraid to ask — it\'s your birth and your baby. Assertiveness does not have to mean confrontation.',
+faqH: 'Frequently asked questions',
+relatedT: 'Related articles'
+},
+de: {
+navCta: '← Wissen',
+eyebrow: 'Geburt · Aktualisiert: 27. Juli 2026',
+h1: 'Rechte der Gebärenden und der Begleitperson nach dem Perinatalen Versorgungsstandard 2026',
+lead: 'Der Perinatale Versorgungsstandard 2026 ist ein Rechtsakt — keine Empfehlung. Seine Bestimmungen <strong>sind für das Personal jedes polnischen Kreißsaals verbindlich</strong>. Die eigenen Rechte zu kennen ist die erste Schmerzlinderungsschicht: Wer weiß, was er verlangen kann, betritt den Kreißsaal mit einer ganz anderen Stärke.',
+summaryT: 'Das Wichtigste kurz zusammengefasst',
+summaryList: '<li>Kein Eingriff darf <strong>ohne Ihre informierte Einwilligung</strong> durchgeführt werden (außer bei unmittelbarer Lebensgefahr).</li><li>Das Personal muss den <strong>Geburtsplan sofort nach der Aufnahme</strong> zur Kenntnis nehmen.</li><li>Sie haben das Recht auf <strong>Periduralanästhesie</strong>, wenn keine medizinischen Kontraindikationen bestehen.</li><li>Hautkontakt — <strong>mindestens 2 Stunden</strong> ununterbrochen nach der Geburt.</li><li>Der Vater hat das Recht, bei <strong>jeder Phase</strong> der physiologischen Geburt anwesend zu sein.</li>',
+tocT: 'In diesem Artikel',
+tocList: '<li><a href="#czym" class="text-teal hover:underline">→ Was der Standard 2026 ist</a></li><li><a href="#prawa" class="text-teal hover:underline">→ Hauptrechte der Gebärenden</a></li><li><a href="#tata" class="text-teal hover:underline">→ Rechte der Begleitperson</a></li><li><a href="#egzekwowanie" class="text-teal hover:underline">→ Wie man seine Rechte durchsetzt</a></li><li><a href="#faq" class="text-teal hover:underline">→ FAQ</a></li>',
+h2_1: 'Was ist der Perinatale Versorgungsstandard 2026?',
+p1a: 'Es handelt sich um eine Verordnung des Gesundheitsministers, die den Mindest-, aber strengen Rahmen für die Versorgung der Frau während der physiologischen Schwangerschaft, der physiologischen Geburt, des Wochenbetts und der Neugeborenenversorgung festlegt (GBl. 2025 Pos. 1525, gültig ab 7. Mai 2026).',
+p1b: 'Die Version 2026 legt besonderen Wert auf: <strong>nicht-pharmakologische und pharmakologische Schmerzlinderungsmethoden</strong>, partnerschaftliche Kommunikation zwischen Personal und Patientin sowie die Entscheidungsfreiheit der Gebärenden. Das sind keine „guten Absichten" — das sind rechtliche Verpflichtungen der Einrichtung.',
+h2_2: 'Hauptrechte der gebärenden Patientin',
+h3_1: 'Recht auf Information und informierte Einwilligung',
+p2a: 'Kein Eingriff — Amniotomie, Oxytocinverabreichung, Episiotomie — darf ohne Ihre <strong>ausdrückliche, informierte Einwilligung</strong> durchgeführt werden. Die einzige Ausnahme ist eine unmittelbare Lebensgefahr, bei der ein Aufschub Ihnen oder Ihrem Kind schaden würde. In jeder anderen Situation muss das Personal den Zweck in verständlichen Worten erklären, ohne Fachjargon.',
+h3_2: 'Recht auf Einhaltung des Geburtsplans',
+p2b: 'Der Geburtsplan ist ein <strong>verbindliches Dokument</strong>. Das Personal muss ihn sofort nach der Aufnahme zur Kenntnis nehmen. Falls aus medizinischen Gründen ein Punkt nicht erfüllt werden kann — müssen Sie eine klare Begründung erhalten.',
+h3_3: 'Recht auf Schmerzlinderung',
+p2c: 'Geburtsschmerz ist Physiologie, aber Leiden nicht. Sie haben das Recht auf:',
+painList: '<li>Bewegungsfreiheit, Nutzung von Wanne, Bällen, Kissen</li><li>Lachgas (Stickstoffoxid-Sauerstoff-Gemisch)</li><li>TENS (transkutane elektrische Nervenstimulation)</li><li>Periduralanästhesie, wenn keine medizinischen Kontraindikationen bestehen</li><li>Remifentanil-PCA als Alternative zur PDA</li>',
+h3_4: 'Recht auf ununterbrochenen Hautkontakt',
+p2d: 'Nach der Geburt soll ein gesundes Kind für <strong>mindestens 2 Stunden</strong> auf Ihre nackte Brust gelegt werden. In dieser Zeit werden nur notwendige Untersuchungen durchgeführt — der Apgar-Score kann bewertet werden, während das Baby bei Ihnen liegt. Der Standard 2026 garantiert dies ausdrücklich, auch beim Kaiserschnitt, wenn der Zustand von Mutter und Kind es erlaubt.',
+h2_3: 'Rolle und Rechte der Begleitperson (Vater)',
+p3: 'Im Jahr 2026 ist die Rolle des Vaters im Kreißsaal kein „in der Ecke stehen" mehr. Der Standard garantiert:',
+h2_4: 'Wie man seine Rechte in der Praxis durchsetzt',
+p4: 'Gespräch ist die Grundlage. Wenn etwas gegen Ihre Erwartungen geschieht, erinnern Sie ruhig daran:',
+effectiveT: 'Eine wirksame Aussage',
+effectiveP: '„In unserem Geburtsplan haben wir um… gebeten — können wir Alternativen besprechen? Was ist der Grund für diese Maßnahme?"',
+p4b: 'Zusammenarbeit mit dem Personal auf gegenseitigem Respekt erzielt immer die besten Ergebnisse. Scheuen Sie sich nie zu fragen — es ist Ihre Geburt und Ihr Kind. Selbstbewusstsein muss keine Konfrontation bedeuten.',
+faqH: 'Häufig gestellte Fragen',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: '← Знання',
+eyebrow: 'Пологи · Оновлено: 27 липня 2026',
+h1: 'Права породіллі та супровідної особи згідно зі Стандартом перинатальної опіки 2026',
+lead: 'Стандарт перинатальної опіки 2026 — це правовий акт, а не рекомендація. Його положення <strong>є обов\'язковими для персоналу кожної польської пологової зали</strong>. Знання своїх прав — перший шар знеболення: коли ви знаєте, чого можете вимагати, ви входите до пологової зали з зовсім іншою силою.',
+summaryT: 'Найголовніше коротко',
+summaryList: '<li>Жодна процедура не може бути виконана <strong>без вашої інформованої згоди</strong> (крім безпосередньої загрози життю).</li><li>Персонал зобов\'язаний <strong>ознайомитися з планом пологів</strong> одразу після госпіталізації.</li><li>Ви маєте право на <strong>епідуральну анестезію</strong>, якщо немає медичних протипоказань.</li><li>Контакт шкіра до шкіри — <strong>мінімум 2 години</strong> безперервно після пологів.</li><li>Тато має право бути присутнім на <strong>кожному етапі</strong> фізіологічних пологів.</li>',
+tocT: 'У цій статті',
+tocList: '<li><a href="#czym" class="text-teal hover:underline">→ Що таке Стандарт 2026</a></li><li><a href="#prawa" class="text-teal hover:underline">→ Основні права породіллі</a></li><li><a href="#tata" class="text-teal hover:underline">→ Права супровідної особи</a></li><li><a href="#egzekwowanie" class="text-teal hover:underline">→ Як відстояти свої права</a></li><li><a href="#faq" class="text-teal hover:underline">→ Часті запитання</a></li>',
+h2_1: 'Що таке Стандарт перинатальної опіки 2026?',
+p1a: 'Це постанова Міністра охорони здоров\'я, що встановлює мінімальні, але суворі рамки якості опіки над жінкою в період фізіологічної вагітності, фізіологічних пологів, післяпологового періоду та опіки над новонародженим (Збірник законів 2025, п. 1525, набрала чинності 7 травня 2026 р.).',
+p1b: 'Версія 2026 приділяє особливу увагу: <strong>нефармакологічним і фармакологічним методам знеболення</strong>, партнерській комунікації між персоналом і пацієнткою та суб\'єктності породіллі в усіх рішеннях. Це не «добрі наміри» — це правовий обов\'язок закладу.',
+h2_2: 'Основні права породіллі',
+h3_1: 'Право на інформацію та інформовану згоду',
+p2a: 'Жодна процедура — розрив плодового міхура, введення окситоцину, епізіотомія — не може бути виконана без вашої <strong>явної, інформованої згоди</strong>. Єдиний виняток — безпосередня загроза життю, коли зволікання може зашкодити вам або дитині. В будь-якій іншій ситуації персонал зобов\'язаний пояснити мету дій зрозумілою мовою, без медичного жаргону.',
+h3_2: 'Право на дотримання плану пологів',
+p2b: 'План пологів — це <strong>обов\'язковий документ</strong>. Персонал зобов\'язаний ознайомитися з ним одразу після госпіталізації. Якщо з медичних причин будь-який пункт не може бути виконаний — ви маєте отримати чітке обґрунтування.',
+h3_3: 'Право на знеболення',
+p2c: 'Пологовий біль — це фізіологія, але страждання нею не є. Ви маєте право на:',
+painList: '<li>Свободу руху, використання ванни, м\'ячів, подушок</li><li>Газ (суміш закису азоту і кисню)</li><li>TENS (черезшкірна електростимуляція)</li><li>Епідуральну анестезію, якщо немає медичних протипоказань</li><li>Ремифентаніл у системі PCA як альтернативу епідуральній</li>',
+h3_4: 'Право на безперервний контакт шкіра до шкіри',
+p2d: 'Після народження здорову дитину слід покласти на вашу голу грудну клітку на <strong>щонайменше 2 години</strong>. В цей час проводяться лише необхідні обстеження — оцінку за шкалою Апгар можна провести, поки малюк притулений до вас. Стандарт 2026 гарантує це прямо, зокрема при кесаревому розтині, якщо стан матері й дитини дозволяє.',
+h2_3: 'Роль і права супровідної особи (тата)',
+p3: 'У 2026 році роль батька в пологовій залі — це вже не «стояти в куті». Стандарт гарантує:',
+h2_4: 'Як відстояти свої права на практиці',
+p4: 'Розмова — це основа. Якщо щось відбувається всупереч вашим очікуванням, спокійно нагадайте:',
+effectiveT: 'Ефективне формулювання',
+effectiveP: '«У нашому плані пологів ми просили про… чи можемо обговорити альтернативи? Яка причина цієї дії?»',
+p4b: 'Співпраця з персоналом на основі взаємної поваги завжди дає найкращі результати. Не бійтеся запитувати — це ваші пологи і ваша дитина. Наполегливість не обов\'язково означає конфронтацію.',
+faqH: 'Часті запитання',
+relatedT: 'Пов\'язані статті'
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>

@@ -93,20 +93,23 @@
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/wiedza" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    <div class="flex items-center gap-2">
+      <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select>
+      <a href="/wiedza" data-i18n="navCta" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    </div>
   </nav>
 </header>
 
 <main id="main" class="max-w-3xl mx-auto px-4 py-10">
   <nav aria-label="Ścieżka nawigacji" class="text-xs text-ink/60 mb-5 no-print"><a href="/" class="hover:text-teal">Start</a> · <a href="/wiedza" class="hover:text-teal">Wiedza</a> · <span>Objawy porodu</span></nav>
 
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Poród · Aktualizacja: 25 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Objawy porodu — kiedy jechać do szpitala, a kiedy zostać w domu</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-6">Jeśli czytacie to o trzeciej w nocy z telefonem w jednej ręce i dłonią na brzuchu w drugiej — zacznijcie od sekcji „jedźcie natychmiast". Reszta poczeka. A jeśli czytacie na spokojnie w 34. tygodniu, żeby wiedzieć wcześniej — <strong>to najlepszy moment, jaki mogliście wybrać</strong>.</p>
+  <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Poród · Aktualizacja: 25 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Objawy porodu — kiedy jechać do szpitala, a kiedy zostać w domu</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6">Jeśli czytacie to o trzeciej w nocy z telefonem w jednej ręce i dłonią na brzuchu w drugiej — zacznijcie od sekcji „jedźcie natychmiast". Reszta poczeka. A jeśli czytacie na spokojnie w 34. tygodniu, żeby wiedzieć wcześniej — <strong>to najlepszy moment, jaki mogliście wybrać</strong>.</p>
 
   <div class="bg-red-50 border-2 border-red-300 rounded-2xl p-6 mb-8">
-    <p class="font-bold text-red-800 mb-3 text-lg">Jedźcie natychmiast, niezależnie od skurczów, jeśli:</p>
-    <ul class="space-y-2 text-[15px] text-red-900 list-disc pl-5">
+    <p data-i18n="alarmT" class="font-bold text-red-800 mb-3 text-lg">Jedźcie natychmiast, niezależnie od skurczów, jeśli:</p>
+    <ul data-i18n="alarmList" class="space-y-2 text-[15px] text-red-900 list-disc pl-5">
       <li><strong>Odeszły wody płodowe</strong> — zapamiętajcie godzinę, kolor i zapach</li>
       <li><strong>Płyn jest zielonkawy, brunatny lub cuchnący</strong></li>
       <li><strong>Pojawiło się krwawienie</strong> z dróg rodnych</li>
@@ -116,12 +119,12 @@
       <li><strong>Gorączka</strong> powyżej 38°C</li>
       <li><strong>Jakiekolwiek objawy porodu przed 37. tygodniem</strong> ciąży</li>
     </ul>
-    <p class="text-sm text-red-800 mt-4">Nie czekajcie do rana i nie „obserwujcie do jutra". Fałszywy alarm nikogo nie obrazi — personel położniczy ocenia takie sytuacje codziennie.</p>
+    <p data-i18n="alarmNote" class="text-sm text-red-800 mt-4">Nie czekajcie do rana i nie „obserwujcie do jutra". Fałszywy alarm nikogo nie obrazi — personel położniczy ocenia takie sytuacje codziennie.</p>
   </div>
 
   <nav class="bg-white border border-sanddark rounded-2xl p-5 mb-10 no-print" aria-label="Spis treści">
-    <p class="font-semibold text-deep mb-3">W tym przewodniku</p>
-    <ul class="grid sm:grid-cols-2 gap-2 text-[15px]">
+    <p data-i18n="tocT" class="font-semibold text-deep mb-3">W tym przewodniku</p>
+    <ul data-i18n="tocList" class="grid sm:grid-cols-2 gap-2 text-[15px]">
       <li><a href="#zwiastuny" class="text-teal hover:underline">→ Zwiastuny porodu</a></li>
       <li><a href="#skurcze" class="text-teal hover:underline">→ Skurcze: fałszywe czy prawdziwe</a></li>
       <li><a href="#zasada-511" class="text-teal hover:underline">→ Zasada 5-1-1</a></li>
@@ -133,9 +136,9 @@
     </ul>
   </nav>
 
-  <h2 id="zwiastuny" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Zwiastuny — organizm zaczyna się przygotowywać</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Na kilka dni, a czasem kilka tygodni przed porodem pojawiają się sygnały, że ciało się przygotowuje. <strong>Żaden z nich nie oznacza, że trzeba jechać do szpitala</strong> — warto je jednak znać, żeby nie interpretować ich błędnie.</p>
-  <ul class="space-y-2.5 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="zwiastuny" data-i18n="h2_1" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Zwiastuny — organizm zaczyna się przygotowywać</h2>
+  <p data-i18n="p1a" class="leading-relaxed text-ink/85 mb-4">Na kilka dni, a czasem kilka tygodni przed porodem pojawiają się sygnały, że ciało się przygotowuje. <strong>Żaden z nich nie oznacza, że trzeba jechać do szpitala</strong> — warto je jednak znać, żeby nie interpretować ich błędnie.</p>
+  <ul data-i18n="signsList" class="space-y-2.5 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li><strong>Obniżenie brzucha</strong> — dziecko wstawia się do kanału rodnego. Łatwiej oddychać, ale częściej trzeba korzystać z toalety.</li>
     <li><strong>Nasilenie skurczów przepowiadających</strong> — brzuch twardnieje częściej niż wcześniej.</li>
     <li><strong>Bóle krzyża i uczucie rozpierania w miednicy</strong>.</li>
@@ -145,71 +148,71 @@
     <li><strong>Odejście czopu śluzowego</strong> — o tym niżej.</li>
   </ul>
 
-  <h2 id="skurcze" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Skurcze — jak odróżnić przepowiadające od porodowych</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">To jest pytanie numer jeden ostatnich tygodni ciąży. Różnica jest wyraźniejsza, niż się wydaje — pod warunkiem, że wiecie, na co patrzeć.</p>
+  <h2 id="skurcze" data-i18n="h2_2" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Skurcze — jak odróżnić przepowiadające od porodowych</h2>
+  <p data-i18n="p2" class="leading-relaxed text-ink/85 mb-4">To jest pytanie numer jeden ostatnich tygodni ciąży. Różnica jest wyraźniejsza, niż się wydaje — pod warunkiem, że wiecie, na co patrzeć.</p>
   <div class="overflow-x-auto mb-6">
     <table class="w-full text-[14px] border-collapse">
       <caption class="sr-only">Porównanie skurczów przepowiadających i porodowych</caption>
       <thead><tr class="bg-deep text-white text-left">
-        <th scope="col" class="p-3 rounded-tl-xl font-semibold">Cecha</th>
-        <th scope="col" class="p-3 font-semibold">Przepowiadające (Braxtona-Hicksa)</th>
-        <th scope="col" class="p-3 rounded-tr-xl font-semibold">Porodowe</th>
+        <th data-i18n="th1" scope="col" class="p-3 rounded-tl-xl font-semibold">Cecha</th>
+        <th data-i18n="th2" scope="col" class="p-3 font-semibold">Przepowiadające (Braxtona-Hicksa)</th>
+        <th data-i18n="th3" scope="col" class="p-3 rounded-tr-xl font-semibold">Porodowe</th>
       </tr></thead>
       <tbody class="align-top">
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Rytm</th><td class="p-3">Nieregularne, przypadkowe</td><td class="p-3">Regularne, odstępy się skracają</td></tr>
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Nasilenie</th><td class="p-3">Stałe lub słabnące</td><td class="p-3">Stopniowo coraz silniejsze</td></tr>
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Czas trwania</th><td class="p-3">Zmienny, zwykle krótki</td><td class="p-3">Coraz dłuższe, do ok. 60–90 sekund</td></tr>
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Lokalizacja</th><td class="p-3">Głównie przód brzucha</td><td class="p-3">Od krzyża, opasująco ku przodowi</td></tr>
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Reakcja na odpoczynek</th><td class="p-3">Ustępują po zmianie pozycji, kąpieli, odpoczynku</td><td class="p-3"><strong>Nie ustępują niezależnie od tego, co zrobicie</strong></td></tr>
-        <tr class="bg-white"><th scope="row" class="p-3 text-left font-semibold text-deep rounded-bl-xl">Czy da się rozmawiać</th><td class="p-3">Tak, bez problemu</td><td class="p-3 rounded-br-xl">W szczycie skurczu coraz trudniej</td></tr>
+        <tr data-i18n="tr1" class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Rytm</th><td class="p-3">Nieregularne, przypadkowe</td><td class="p-3">Regularne, odstępy się skracają</td></tr>
+        <tr data-i18n="tr2" class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Nasilenie</th><td class="p-3">Stałe lub słabnące</td><td class="p-3">Stopniowo coraz silniejsze</td></tr>
+        <tr data-i18n="tr3" class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Czas trwania</th><td class="p-3">Zmienny, zwykle krótki</td><td class="p-3">Coraz dłuższe, do ok. 60–90 sekund</td></tr>
+        <tr data-i18n="tr4" class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Lokalizacja</th><td class="p-3">Głównie przód brzucha</td><td class="p-3">Od krzyża, opasująco ku przodowi</td></tr>
+        <tr data-i18n="tr5" class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Reakcja na odpoczynek</th><td class="p-3">Ustępują po zmianie pozycji, kąpieli, odpoczynku</td><td class="p-3"><strong>Nie ustępują niezależnie od tego, co zrobicie</strong></td></tr>
+        <tr data-i18n="tr6" class="bg-white"><th scope="row" class="p-3 text-left font-semibold text-deep rounded-bl-xl">Czy da się rozmawiać</th><td class="p-3">Tak, bez problemu</td><td class="p-3 rounded-br-xl">W szczycie skurczu coraz trudniej</td></tr>
       </tbody>
     </table>
   </div>
   <div class="bg-white border-2 border-teal rounded-2xl p-5 mb-6">
-    <p class="font-bold text-deep mb-2">Test ciepłej kąpieli</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Najprostsze domowe rozstrzygnięcie: wejdźcie na 20–30 minut do ciepłej (nie gorącej) wanny albo pod prysznic. <strong>Skurcze przepowiadające zwykle się uspokoją. Porodowe będą szły dalej</strong>, a często nawet się nasilą.</p>
+    <p data-i18n="bathT" class="font-bold text-deep mb-2">Test ciepłej kąpieli</p>
+    <p data-i18n="bathP" class="text-[15px] leading-relaxed text-ink/85">Najprostsze domowe rozstrzygnięcie: wejdźcie na 20–30 minut do ciepłej (nie gorącej) wanny albo pod prysznic. <strong>Skurcze przepowiadające zwykle się uspokoją. Porodowe będą szły dalej</strong>, a często nawet się nasilą.</p>
   </div>
 
-  <h2 id="zasada-511" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Zasada 5-1-1 — kiedy typowo wyjeżdża się do szpitala</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">To praktyczna reguła, którą warto znać na pamięć:</p>
+  <h2 id="zasada-511" data-i18n="h2_3" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Zasada 5-1-1 — kiedy typowo wyjeżdża się do szpitala</h2>
+  <p data-i18n="p3" class="leading-relaxed text-ink/85 mb-4">To praktyczna reguła, którą warto znać na pamięć:</p>
   <div class="bg-tealsoft rounded-2xl p-6 mb-6">
     <p class="font-display text-2xl font-semibold text-deep mb-3 text-center">5 — 1 — 1</p>
-    <ul class="space-y-2 text-[15px] text-ink/85">
+    <ul data-i18n="rule511" class="space-y-2 text-[15px] text-ink/85">
       <li><strong>5</strong> — skurcze co <strong>5 minut</strong> (licząc od początku jednego do początku następnego)</li>
       <li><strong>1</strong> — każdy trwa około <strong>1 minuty</strong></li>
       <li><strong>1</strong> — taki rytm utrzymuje się od co najmniej <strong>1 godziny</strong></li>
     </ul>
   </div>
   <div class="bg-white border-2 border-teal rounded-2xl p-5 mb-6">
-    <p class="font-bold text-deep mb-2">Przy kolejnym porodzie — jedźcie wcześniej</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Zasada 5-1-1 dotyczy przede wszystkim pierwszego porodu. Kolejne przebiegają zwykle szybciej, dlatego często zaleca się wyjazd już przy <strong>skurczach co 7–10 minut</strong>. Ustalcie to wcześniej z lekarzem lub położną prowadzącą — zwłaszcza jeśli macie daleko do szpitala.</p>
+    <p data-i18n="nextT" class="font-bold text-deep mb-2">Przy kolejnym porodzie — jedźcie wcześniej</p>
+    <p data-i18n="nextP" class="text-[15px] leading-relaxed text-ink/85">Zasada 5-1-1 dotyczy przede wszystkim pierwszego porodu. Kolejne przebiegają zwykle szybciej, dlatego często zaleca się wyjazd już przy <strong>skurczach co 7–10 minut</strong>. Ustalcie to wcześniej z lekarzem lub położną prowadzącą — zwłaszcza jeśli macie daleko do szpitala.</p>
   </div>
-  <p class="leading-relaxed text-ink/85 mb-6"><strong>Jak liczyć:</strong> zapisujcie godzinę <em>początku</em> każdego skurczu i czas jego trwania. Odstęp mierzy się od początku jednego do początku kolejnego, nie od końca do początku. W stresie nikt tego nie pamięta, więc notujcie na kartce albo w telefonie — to zadanie idealne dla osoby towarzyszącej.</p>
+  <p data-i18n="countNote" class="leading-relaxed text-ink/85 mb-6"><strong>Jak liczyć:</strong> zapisujcie godzinę <em>początku</em> każdego skurczu i czas jego trwania. Odstęp mierzy się od początku jednego do początku kolejnego, nie od końca do początku. W stresie nikt tego nie pamięta, więc notujcie na kartce albo w telefonie — to zadanie idealne dla osoby towarzyszącej.</p>
 
-  <h2 id="wody" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Odejście wód płodowych</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Wbrew filmom rzadko wygląda to jak nagły potok. Częściej jest to <strong>stały wyciek</strong>, którego nie da się zatrzymać napięciem mięśni — i to właśnie odróżnia go od nietrzymania moczu, powszechnego w końcówce ciąży.</p>
-  <p class="leading-relaxed text-ink/85 mb-4">Płyn owodniowy jest przejrzysty lub lekko mętny, o słodkawym, mało charakterystycznym zapachu. Jeśli nie jesteście pewne — załóżcie czystą wkładkę i połóżcie się na 30 minut. Przy pękniętym pęcherzu płyn będzie się sączył dalej.</p>
+  <h2 id="wody" data-i18n="h2_4" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Odejście wód płodowych</h2>
+  <p data-i18n="watersP1" class="leading-relaxed text-ink/85 mb-4">Wbrew filmom rzadko wygląda to jak nagły potok. Częściej jest to <strong>stały wyciek</strong>, którego nie da się zatrzymać napięciem mięśni — i to właśnie odróżnia go od nietrzymania moczu, powszechnego w końcówce ciąży.</p>
+  <p data-i18n="watersP2" class="leading-relaxed text-ink/85 mb-4">Płyn owodniowy jest przejrzysty lub lekko mętny, o słodkawym, mało charakterystycznym zapachu. Jeśli nie jesteście pewne — załóżcie czystą wkładkę i połóżcie się na 30 minut. Przy pękniętym pęcherzu płyn będzie się sączył dalej.</p>
   <div class="bg-white border-2 border-teal rounded-2xl p-5 mb-5">
-    <p class="font-bold text-deep mb-2">Zapamiętajcie trzy rzeczy</p>
-    <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+    <p data-i18n="rememberT" class="font-bold text-deep mb-2">Zapamiętajcie trzy rzeczy</p>
+    <ul data-i18n="rememberList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
       <li><strong>Godzinę</strong> odejścia wód</li>
       <li><strong>Kolor</strong> — przejrzysty, czy zabarwiony</li>
       <li><strong>Zapach</strong> — obojętny, czy nieprzyjemny</li>
     </ul>
-    <p class="text-[15px] text-ink/85 mt-3">To pierwsze pytania, jakie usłyszycie na izbie przyjęć. Warto mieć je gotowe.</p>
+    <p data-i18n="rememberNote" class="text-[15px] text-ink/85 mt-3">To pierwsze pytania, jakie usłyszycie na izbie przyjęć. Warto mieć je gotowe.</p>
   </div>
   <div class="bg-red-50 border-2 border-red-300 rounded-2xl p-5 mb-6">
-    <p class="font-bold text-red-800 mb-2">Po odejściu wód jedziecie do szpitala — także bez skurczów</p>
-    <p class="text-[15px] text-red-900 leading-relaxed">Pęknięty pęcherz płodowy oznacza otwartą drogę dla drobnoustrojów. <strong>Nie bierzcie kąpieli w wannie</strong>, nie współżyjcie, nie wkładajcie niczego do pochwy. Prysznic jest dozwolony. Jeśli płyn jest zielonkawy lub brunatny — to sytuacja pilna.</p>
+    <p data-i18n="watersGoT" class="font-bold text-red-800 mb-2">Po odejściu wód jedziecie do szpitala — także bez skurczów</p>
+    <p data-i18n="watersGoP" class="text-[15px] text-red-900 leading-relaxed">Pęknięty pęcherz płodowy oznacza otwartą drogę dla drobnoustrojów. <strong>Nie bierzcie kąpieli w wannie</strong>, nie współżyjcie, nie wkładajcie niczego do pochwy. Prysznic jest dozwolony. Jeśli płyn jest zielonkawy lub brunatny — to sytuacja pilna.</p>
   </div>
 
-  <h2 id="czop" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Czop śluzowy — czyli fałszywy alarm numer jeden</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Czop śluzowy to gęsta wydzielina zamykająca kanał szyjki macicy przez całą ciążę. Jego odejście wygląda jak galaretowata wydzielina, czasem podbarwiona różowo lub brązowo.</p>
-  <p class="leading-relaxed text-ink/85 mb-6"><strong>Sam czop nie jest sygnałem do wyjazdu.</strong> Może odejść na kilka godzin przed porodem, ale równie dobrze na tydzień czy dwa. Oznacza tylko, że szyjka zaczyna się zmieniać. Jeśli towarzyszy mu <strong>jasnoczerwone krwawienie</strong> — wtedy jedziecie, bo to już inna sytuacja.</p>
+  <h2 id="czop" data-i18n="h2_5" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Czop śluzowy — czyli fałszywy alarm numer jeden</h2>
+  <p data-i18n="mucusP1" class="leading-relaxed text-ink/85 mb-4">Czop śluzowy to gęsta wydzielina zamykająca kanał szyjki macicy przez całą ciążę. Jego odejście wygląda jak galaretowata wydzielina, czasem podbarwiona różowo lub brązowo.</p>
+  <p data-i18n="mucusP2" class="leading-relaxed text-ink/85 mb-6"><strong>Sam czop nie jest sygnałem do wyjazdu.</strong> Może odejść na kilka godzin przed porodem, ale równie dobrze na tydzień czy dwa. Oznacza tylko, że szyjka zaczyna się zmieniać. Jeśli towarzyszy mu <strong>jasnoczerwone krwawienie</strong> — wtedy jedziecie, bo to już inna sytuacja.</p>
 
-  <h2 id="dom" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Co robić w domu, zanim wyjedziecie</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Wczesna faza porodu potrafi trwać wiele godzin. Spędzenie jej w domu jest zwykle wygodniejsze niż na szpitalnym korytarzu.</p>
-  <ul class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="dom" data-i18n="h2_6" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Co robić w domu, zanim wyjedziecie</h2>
+  <p data-i18n="homeP" class="leading-relaxed text-ink/85 mb-4">Wczesna faza porodu potrafi trwać wiele godzin. Spędzenie jej w domu jest zwykle wygodniejsze niż na szpitalnym korytarzu.</p>
+  <ul data-i18n="homeList" class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li><strong>Jedzcie i pijcie</strong>, jeśli nie ma przeciwwskazań. Poród to wysiłek na wiele godzin — lekkostrawny posiłek to inwestycja.</li>
     <li><strong>Odpoczywajcie, jeśli to noc.</strong> Sen między skurczami jest cenniejszy niż chodzenie po mieszkaniu „żeby przyspieszyć".</li>
     <li><strong>Ciepła kąpiel lub prysznic</strong> — jeśli wody nie odeszły.</li>
@@ -218,13 +221,13 @@
     <li><strong>Nie zostawajcie same</strong>, jeśli to możliwe.</li>
   </ul>
   <div class="bg-tealsoft rounded-2xl p-5 mb-6">
-    <p class="font-semibold text-deep mb-2">Zadzwońcie, jeśli macie wątpliwości</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Izba przyjęć odbiera telefony całą dobę. Opisanie objawów przez telefon jest bezpłatne, zajmuje trzy minuty i bardzo często rozwiewa wątpliwości. <strong>Zapiszcie ten numer w telefonie już dziś</strong> — razem z numerem do szkoły rodzenia i położnej.</p>
+    <p data-i18n="callT" class="font-semibold text-deep mb-2">Zadzwońcie, jeśli macie wątpliwości</p>
+    <p data-i18n="callP" class="text-[15px] leading-relaxed text-ink/85">Izba przyjęć odbiera telefony całą dobę. Opisanie objawów przez telefon jest bezpłatne, zajmuje trzy minuty i bardzo często rozwiewa wątpliwości. <strong>Zapiszcie ten numer w telefonie już dziś</strong> — razem z numerem do szkoły rodzenia i położnej.</p>
   </div>
 
-  <h2 id="wyjazd" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Przed wyjazdem — lista dwuminutowa</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Wszystko to powinno być gotowe najpóźniej w 36. tygodniu, żeby w tym momencie tylko wziąć i wyjść.</p>
-  <ul class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="wyjazd" data-i18n="h2_7" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Przed wyjazdem — lista dwuminutowa</h2>
+  <p data-i18n="departureP" class="leading-relaxed text-ink/85 mb-4">Wszystko to powinno być gotowe najpóźniej w 36. tygodniu, żeby w tym momencie tylko wziąć i wyjść.</p>
+  <ul data-i18n="departureList" class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li>Torba do szpitala — <a href="/blog/checklist-taty-sala-porodowa" class="text-teal underline font-semibold">lista dla taty</a> obejmuje też jego rzeczy</li>
     <li>Dokumenty: dowód, karta ciąży, wyniki badań, grupa krwi</li>
     <li><strong>Plan porodu — dwa wydrukowane egzemplarze</strong></li>
@@ -233,9 +236,9 @@
     <li>Ustalone, kto odbiera starsze dziecko i kto powiadamia rodzinę</li>
   </ul>
 
-  <h2 id="szpital" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Co się dzieje na izbie przyjęć</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Wiedza o tym, co Was czeka, zdejmuje sporą część napięcia:</p>
-  <ul class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="szpital" data-i18n="h2_8" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Co się dzieje na izbie przyjęć</h2>
+  <p data-i18n="admissionP" class="leading-relaxed text-ink/85 mb-4">Wiedza o tym, co Was czeka, zdejmuje sporą część napięcia:</p>
+  <ul data-i18n="admissionList" class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li>Wywiad — pytania o skurcze, wody, ruchy dziecka, przebieg ciąży</li>
     <li>KTG — zapis tętna dziecka i czynności skurczowej, zwykle 20–30 minut</li>
     <li>Badanie wewnętrzne — ocena rozwarcia szyjki macicy</li>
@@ -243,37 +246,37 @@
     <li>Decyzja: przyjęcie na oddział albo powrót do domu z zaleceniami</li>
   </ul>
   <div class="bg-white border-2 border-teal rounded-2xl p-5 mb-6">
-    <p class="font-bold text-deep mb-2">To jest moment na plan porodu</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Przekażcie dokument położnej <strong>przy przyjęciu</strong>, nie na sali porodowej w trakcie skurczów. Wtedy jest czas, żeby ktoś go rzeczywiście przeczytał i odnotował Wasze preferencje w dokumentacji.</p>
+    <p data-i18n="planT" class="font-bold text-deep mb-2">To jest moment na plan porodu</p>
+    <p data-i18n="planP" class="text-[15px] leading-relaxed text-ink/85">Przekażcie dokument położnej <strong>przy przyjęciu</strong>, nie na sali porodowej w trakcie skurczów. Wtedy jest czas, żeby ktoś go rzeczywiście przeczytał i odnotował Wasze preferencje w dokumentacji.</p>
   </div>
-  <p class="leading-relaxed text-ink/85 mb-6"><strong>Odesłanie do domu nie jest porażką.</strong> Oznacza, że poród jeszcze się nie rozpoczął na dobre — a wczesną fazę lepiej spędzić we własnym łóżku niż na szpitalnym korytarzu. Wrócicie, gdy przyjdzie właściwy moment.</p>
+  <p data-i18n="sentHome" class="leading-relaxed text-ink/85 mb-6"><strong>Odesłanie do domu nie jest porażką.</strong> Oznacza, że poród jeszcze się nie rozpoczął na dobre — a wczesną fazę lepiej spędzić we własnym łóżku niż na szpitalnym korytarzu. Wrócicie, gdy przyjdzie właściwy moment.</p>
 
     <div class="bg-tealsoft border border-teal/30 rounded-2xl p-5 mb-8">
-    <p class="text-[15px] text-ink/85"><strong class="text-deep">🫁 Wiesz kiedy jechać. Warto wiedzieć, jak oddychać po drodze.</strong> <strong>Techniki oddechowe na każdą fazę porodu</strong> (12 str.) w pakietach <a href="/#cennik" class="text-teal font-semibold underline">Premium i Premium+</a>.</p>
+    <p data-i18n="crossSell" class="text-[15px] text-ink/85"><strong class="text-deep">🫁 Wiesz kiedy jechać. Warto wiedzieć, jak oddychać po drodze.</strong> <strong>Techniki oddechowe na każdą fazę porodu</strong> (12 str.) w pakietach <a href="/#cennik" class="text-teal font-semibold underline">Premium i Premium+</a>.</p>
   </div>
 
   <div class="bg-deep text-sand rounded-3xl p-7 md:p-9 mt-10 no-print">
-    <p class="font-display text-2xl md:text-3xl font-semibold text-white mb-3">Przygotujcie plan, zanim zaczną się skurcze</p>
-    <p class="text-sand/85 leading-relaxed mb-5">O czwartej nad ranem, przy skurczach co pięć minut, nikt nie tłumaczy położnej swoich preferencji dotyczących znieczulenia, odpępnienia czy kontaktu skóra do skóry. <strong>Te ustalenia muszą istnieć wcześniej — na papierze.</strong></p>
-    <ul class="space-y-2 text-[15px] text-sand/85 mb-6">
+    <p data-i18n="ctaT" class="font-display text-2xl md:text-3xl font-semibold text-white mb-3">Przygotujcie plan, zanim zaczną się skurcze</p>
+    <p data-i18n="ctaP" class="text-sand/85 leading-relaxed mb-5">O czwartej nad ranem, przy skurczach co pięć minut, nikt nie tłumaczy położnej swoich preferencji dotyczących znieczulenia, odpępnienia czy kontaktu skóra do skóry. <strong>Te ustalenia muszą istnieć wcześniej — na papierze.</strong></p>
+    <ul data-i18n="ctaList" class="space-y-2 text-[15px] text-sand/85 mb-6">
       <li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>13 kroków obejmujących cały poród i pierwsze doby</span></li>
       <li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Gotowy PDF do wręczenia przy przyjęciu</span></li>
       <li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Zgodny ze Standardem Opieki Okołoporodowej 2026</span></li>
       <li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Cały kreator za darmo — płacicie dopiero przy pobraniu</span></li>
     </ul>
-    <a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
+    <a data-i18n="ctaBtn" href="/#kreator" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
   </div>
 
-  <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4">Najczęstsze pytania</h2>
+  <h2 data-i18n="faqH" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4">Najczęstsze pytania</h2>
   <div class="space-y-3 mb-10">
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Czy można pojechać za wcześnie?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Można zostać odesłaną do domu — i to normalna sytuacja, którą personel ocenia codziennie. Nie ma w tym nic wstydliwego. Zdecydowanie lepiej pojechać niepotrzebnie niż zwlekać przy objawach wymagających oceny.</p></details>
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Ile trwa poród od pierwszych skurczów?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Przy pierwszym porodzie faza od regularnych skurczów do narodzin trwa najczęściej kilkanaście godzin, przy kolejnych zwykle krócej. Rozpiętość jest jednak bardzo duża i pojedyncze liczby niewiele mówią o Waszym konkretnym porodzie.</p></details>
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Czy skurcze zawsze bolą od początku?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Nie. Na początku wiele kobiet opisuje je jako uczucie twardnienia brzucha lub bóle przypominające miesiączkowe. Ból narasta stopniowo wraz z postępem porodu.</p></details>
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Co jeśli mieszkam daleko od szpitala?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Omówcie to z lekarzem lub położną prowadzącą jeszcze w ciąży — przy dużej odległości zwykle zaleca się wcześniejszy wyjazd. Warto też przejechać trasę wcześniej i sprawdzić, gdzie dokładnie znajduje się izba przyjęć oraz jak wygląda parking.</p></details>
+    <details data-i18n="faq1" class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Czy można pojechać za wcześnie?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Można zostać odesłaną do domu — i to normalna sytuacja, którą personel ocenia codziennie. Nie ma w tym nic wstydliwego. Zdecydowanie lepiej pojechać niepotrzebnie niż zwlekać przy objawach wymagających oceny.</p></details>
+    <details data-i18n="faq2" class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Ile trwa poród od pierwszych skurczów?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Przy pierwszym porodzie faza od regularnych skurczów do narodzin trwa najczęściej kilkanaście godzin, przy kolejnych zwykle krócej. Rozpiętość jest jednak bardzo duża i pojedyncze liczby niewiele mówią o Waszym konkretnym porodzie.</p></details>
+    <details data-i18n="faq3" class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Czy skurcze zawsze bolą od początku?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Nie. Na początku wiele kobiet opisuje je jako uczucie twardnienia brzucha lub bóle przypominające miesiączkowe. Ból narasta stopniowo wraz z postępem porodu.</p></details>
+    <details data-i18n="faq4" class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Co jeśli mieszkam daleko od szpitala?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Omówcie to z lekarzem lub położną prowadzącą jeszcze w ciąży — przy dużej odległości zwykle zaleca się wcześniejszy wyjazd. Warto też przejechać trasę wcześniej i sprawdzić, gdzie dokładnie znajduje się izba przyjęć oraz jak wygląda parking.</p></details>
   </div>
 
   <div class="mt-10 pt-6 border-t border-sanddark">
-    <p class="font-semibold text-deep mb-3">Powiązane artykuły</p>
+    <p data-i18n="relatedT" class="font-semibold text-deep mb-3">Powiązane artykuły</p>
     <div class="grid sm:grid-cols-2 gap-4">
       <a href="/blog/checklist-taty-sala-porodowa" class="group bg-white border border-sanddark rounded-2xl p-5 hover:border-teal/50 transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-1.5">Dla taty</p>
@@ -292,5 +295,211 @@
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm no-print">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: '← Knowledge',
+eyebrow: 'Labour · Updated: 25 July 2026',
+h1: 'Signs of labour — when to go to hospital and when to stay home',
+lead: 'If you\'re reading this at three in the morning with a phone in one hand and your belly in the other — start with the "go immediately" section. The rest can wait. If you\'re reading calmly at 34 weeks to know in advance — <strong>this is the best moment you could have chosen</strong>.',
+alarmT: 'Go immediately, regardless of contractions, if:',
+alarmList: '<li><strong>Your waters have broken</strong> — note the time, colour and smell</li><li><strong>The fluid is greenish, brownish or foul-smelling</strong></li><li><strong>You have vaginal bleeding</strong></li><li><strong>The baby has stopped moving</strong> or movements have clearly weakened</li><li><strong>Strong, constant abdominal pain</strong> that does not ease between contractions</li><li><strong>Severe headache with visual disturbances</strong>, sudden swelling of the face and hands</li><li><strong>Fever</strong> above 38°C</li><li><strong>Any signs of labour before 37 weeks</strong> of pregnancy</li>',
+alarmNote: 'Don\'t wait until morning and don\'t "monitor until tomorrow". A false alarm offends no one — maternity staff assess these situations every day.',
+tocT: 'In this guide',
+tocList: '<li><a href="#zwiastuny" class="text-teal hover:underline">→ Early signs of labour</a></li><li><a href="#skurcze" class="text-teal hover:underline">→ Contractions: false or real?</a></li><li><a href="#zasada-511" class="text-teal hover:underline">→ The 5-1-1 rule</a></li><li><a href="#wody" class="text-teal hover:underline">→ Waters breaking</a></li><li><a href="#czop" class="text-teal hover:underline">→ Mucus plug</a></li><li><a href="#dom" class="text-teal hover:underline">→ What to do at home</a></li><li><a href="#wyjazd" class="text-teal hover:underline">→ Before you leave</a></li><li><a href="#szpital" class="text-teal hover:underline">→ What happens at admissions</a></li>',
+h2_1: 'Early signs — your body starts to prepare',
+p1a: 'In the days or sometimes weeks before labour, signals appear that the body is getting ready. <strong>None of them means you need to go to hospital</strong> — but it\'s worth knowing them so you don\'t misread them.',
+signsList: '<li><strong>Lightening</strong> — the baby drops into the birth canal. Easier to breathe, but more frequent toilet trips.</li><li><strong>More frequent Braxton Hicks contractions</strong> — your belly hardens more often than before.</li><li><strong>Lower back pain and pelvic pressure</strong>.</li><li><strong>Looser stools</strong> — the body clears itself before labour. Normal and very common.</li><li><strong>A sudden burst of energy</strong> — the urge to clean, organise, prepare. Common enough to have its own name: nesting instinct.</li><li><strong>Weight loss</strong> of half to one kilogram in the last few days.</li><li><strong>Mucus plug coming away</strong> — more on this below.</li>',
+h2_2: 'Contractions — how to tell Braxton Hicks from real ones',
+p2: 'This is the number-one question of the last weeks of pregnancy. The difference is clearer than it seems — as long as you know what to look for.',
+th1: 'Feature', th2: 'Braxton Hicks (false)', th3: 'Labour contractions',
+tr1: '<th scope="row" class="p-3 text-left font-semibold text-deep">Pattern</th><td class="p-3">Irregular, random</td><td class="p-3">Regular, intervals shortening</td>',
+tr2: '<th scope="row" class="p-3 text-left font-semibold text-deep">Intensity</th><td class="p-3">Constant or weakening</td><td class="p-3">Gradually stronger</td>',
+tr3: '<th scope="row" class="p-3 text-left font-semibold text-deep">Duration</th><td class="p-3">Variable, usually short</td><td class="p-3">Getting longer, up to ~60–90 seconds</td>',
+tr4: '<th scope="row" class="p-3 text-left font-semibold text-deep">Location</th><td class="p-3">Mainly front of abdomen</td><td class="p-3">From back, wrapping to the front</td>',
+tr5: '<th scope="row" class="p-3 text-left font-semibold text-deep">Response to rest</th><td class="p-3">Ease after position change, bath, rest</td><td class="p-3"><strong>Do not ease regardless of what you do</strong></td>',
+tr6: '<th scope="row" class="p-3 text-left font-semibold text-deep rounded-bl-xl">Can you talk through it?</th><td class="p-3">Yes, easily</td><td class="p-3 rounded-br-xl">Increasingly difficult at the peak</td>',
+bathT: 'The warm bath test',
+bathP: 'The simplest home check: spend 20–30 minutes in a warm (not hot) bath or shower. <strong>Braxton Hicks usually calm down. Labour contractions continue</strong> — and often intensify.',
+h2_3: 'The 5-1-1 rule — when to typically head to hospital',
+p3: 'A practical rule worth knowing by heart:',
+rule511: '<li><strong>5</strong> — contractions every <strong>5 minutes</strong> (measured from the start of one to the start of the next)</li><li><strong>1</strong> — each lasting about <strong>1 minute</strong></li><li><strong>1</strong> — this pattern sustained for at least <strong>1 hour</strong></li>',
+nextT: 'For subsequent labours — go earlier',
+nextP: 'The 5-1-1 rule applies mainly to a first labour. Subsequent ones are usually faster, so many practitioners advise leaving at <strong>contractions every 7–10 minutes</strong>. Agree this with your doctor or midwife — especially if the hospital is far.',
+countNote: '<strong>How to time:</strong> note the <em>start</em> time of each contraction and its duration. The interval is measured from start to start, not end to start. Nobody remembers this under stress, so write it down or use a phone — a perfect task for your birth companion.',
+h2_4: 'Waters breaking',
+watersP1: 'Contrary to films, it rarely looks like a sudden gush. More often it is a <strong>continuous trickle</strong> that cannot be stopped by clenching muscles — and that is what distinguishes it from urinary leakage, which is common in late pregnancy.',
+watersP2: 'Amniotic fluid is clear or slightly cloudy, with a faintly sweet, unremarkable smell. If you\'re not sure — put on a clean pad and lie down for 30 minutes. If the membranes have ruptured, fluid will keep seeping.',
+rememberT: 'Remember three things',
+rememberList: '<li><strong>The time</strong> the waters broke</li><li><strong>The colour</strong> — clear, or discoloured</li><li><strong>The smell</strong> — neutral, or unpleasant</li>',
+rememberNote: 'These are the first questions you\'ll be asked at admissions. Good to have them ready.',
+watersGoT: 'After your waters break, go to hospital — even without contractions',
+watersGoP: 'Ruptured membranes mean an open route for bacteria. <strong>Do not take a bath</strong>, do not have sex, do not insert anything into the vagina. A shower is fine. If the fluid is greenish or brownish — this is urgent.',
+h2_5: 'Mucus plug — the number-one false alarm',
+mucusP1: 'The mucus plug is a thick discharge that seals the cervical canal throughout pregnancy. When it comes away it looks like a jelly-like discharge, sometimes tinged pink or brown.',
+mucusP2: '<strong>The plug itself is not a sign to leave.</strong> It may come away a few hours before labour — or equally a week or two beforehand. It simply signals the cervix is beginning to change. If it is accompanied by <strong>bright-red bleeding</strong> — then you go, because that is a different situation.',
+h2_6: 'What to do at home before you leave',
+homeP: 'Early labour can last many hours. Spending it at home is usually more comfortable than in a hospital corridor.',
+homeList: '<li><strong>Eat and drink</strong> if there are no contraindications. Labour is hours of effort — a light meal is an investment.</li><li><strong>Rest if it\'s night-time.</strong> Sleep between contractions is more valuable than pacing the flat "to speed things up".</li><li><strong>Warm bath or shower</strong> — if your waters haven\'t broken.</li><li><strong>Change positions</strong>, sway your hips, lean on a birth ball.</li><li><strong>Someone should time contractions</strong> and write them down.</li><li><strong>Don\'t be alone</strong> if at all possible.</li>',
+callT: 'Call if you have any doubts',
+callP: 'The admissions unit answers calls around the clock. Describing symptoms by phone is free, takes three minutes and very often clears up uncertainty. <strong>Save that number today</strong> — along with the antenatal class number and your midwife\'s.',
+h2_7: 'Before you leave — the two-minute list',
+departureP: 'All of this should be ready by 36 weeks at the latest, so that at this moment you simply pick up and go.',
+departureList: '<li>Hospital bag — <a href="/blog/checklist-taty-sala-porodowa" class="text-teal underline font-semibold">dad\'s checklist</a> covers his things too</li><li>Documents: ID, pregnancy card, test results, blood type</li><li><strong>Birth plan — two printed copies</strong></li><li>Charged phone and power bank</li><li>Car seat fitted in the car</li><li>Agreed who collects older children and who notifies family</li>',
+h2_8: 'What happens at admissions',
+admissionP: 'Knowing what to expect removes a lot of the tension:',
+admissionList: '<li>History — questions about contractions, waters, baby\'s movements, pregnancy course</li><li>CTG — foetal heart rate and contraction recording, usually 20–30 minutes</li><li>Internal examination — assessment of cervical dilation</li><li>Blood pressure, pulse, temperature; sometimes urine test</li><li>Decision: admission to the ward or return home with instructions</li>',
+planT: 'This is the moment for your birth plan',
+planP: 'Hand the document to the midwife <strong>at admission</strong>, not on the delivery ward during contractions. That\'s when there is time for someone to actually read it and note your preferences in the file.',
+sentHome: '<strong>Being sent home is not a failure.</strong> It means labour has not properly started yet — and the early phase is better spent in your own bed than in a hospital corridor. You\'ll be back when the right moment comes.',
+crossSell: '<strong class="text-deep">🫁 You know when to go. It\'s worth knowing how to breathe along the way.</strong> <strong>Breathing techniques for every phase of labour</strong> (12 pages) in the <a href="/#cennik" class="text-teal font-semibold underline">Premium and Premium+</a> packages.',
+ctaT: 'Prepare your plan before contractions start',
+ctaP: 'At four in the morning, with contractions every five minutes, no one explains their preferences about anaesthesia, cord clamping or skin-to-skin to the midwife. <strong>These things must exist beforehand — in writing.</strong>',
+ctaList: '<li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>13 steps covering the whole birth and first days</span></li><li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Ready PDF to hand over at admission</span></li><li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Compliant with the Perinatal Care Standard 2026</span></li><li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Entire creator free — you pay only when downloading</span></li>',
+ctaBtn: 'Create your birth plan →',
+faqH: 'Frequently asked questions',
+faq1: '<summary class="font-semibold text-deep cursor-pointer">Can you go too early?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">You may be sent home — and that\'s a normal situation that staff assess every day. There\'s nothing embarrassing about it. It is far better to go unnecessarily than to delay when symptoms need assessment.</p>',
+faq2: '<summary class="font-semibold text-deep cursor-pointer">How long does labour last from the first contractions?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">For a first labour, the phase from regular contractions to birth usually takes many hours; subsequent labours tend to be shorter. The range is very wide and a single number says little about your specific birth.</p>',
+faq3: '<summary class="font-semibold text-deep cursor-pointer">Do contractions always hurt from the start?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">No. Many women initially describe them as a tightening of the belly or period-like cramps. Pain builds gradually as labour progresses.</p>',
+faq4: '<summary class="font-semibold text-deep cursor-pointer">What if I live far from the hospital?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Discuss this with your doctor or midwife during pregnancy — a long distance usually means an earlier departure is advised. It\'s also worth doing the drive beforehand to find exactly where admissions is and what parking is like.</p>',
+relatedT: 'Related articles'
+},
+de: {
+navCta: '← Wissen',
+eyebrow: 'Geburt · Aktualisiert: 25. Juli 2026',
+h1: 'Geburtszeichen — wann ins Krankenhaus und wann zu Hause bleiben',
+lead: 'Wenn Sie das um drei Uhr morgens mit dem Telefon in einer Hand und der anderen auf dem Bauch lesen — beginnen Sie mit dem Abschnitt „sofort fahren". Der Rest hat Zeit. Wenn Sie in Ruhe in der 34. Woche lesen, um es im Voraus zu wissen — <strong>das ist der beste Moment, den Sie wählen konnten</strong>.',
+alarmT: 'Sofort fahren, unabhängig von Wehen, wenn:',
+alarmList: '<li><strong>Fruchtblase geplatzt</strong> — Uhrzeit, Farbe und Geruch merken</li><li><strong>Flüssigkeit grünlich, bräunlich oder übelriechend</strong></li><li><strong>Vaginale Blutung aufgetreten</strong></li><li><strong>Das Kind hat aufgehört sich zu bewegen</strong> oder Bewegungen deutlich schwächer</li><li><strong>Starker, anhaltender Bauchschmerz</strong>, der zwischen den Wehen nicht nachlässt</li><li><strong>Starker Kopfschmerz mit Sehstörungen</strong>, plötzliche Schwellung von Gesicht und Händen</li><li><strong>Fieber</strong> über 38 °C</li><li><strong>Geburtszeichen vor der 37. Schwangerschaftswoche</strong></li>',
+alarmNote: 'Nicht bis morgen früh warten und nicht „beobachten bis morgen". Ein Fehlalarm beleidigt niemanden — Geburtspersonal beurteilt das täglich.',
+tocT: 'In diesem Leitfaden',
+tocList: '<li><a href="#zwiastuny" class="text-teal hover:underline">→ Geburtsvorzeichen</a></li><li><a href="#skurcze" class="text-teal hover:underline">→ Wehen: falsch oder echt?</a></li><li><a href="#zasada-511" class="text-teal hover:underline">→ Die 5-1-1-Regel</a></li><li><a href="#wody" class="text-teal hover:underline">→ Blasensprung</a></li><li><a href="#czop" class="text-teal hover:underline">→ Schleimpfropf</a></li><li><a href="#dom" class="text-teal hover:underline">→ Was zu Hause tun</a></li><li><a href="#wyjazd" class="text-teal hover:underline">→ Vor der Abfahrt</a></li><li><a href="#szpital" class="text-teal hover:underline">→ Was in der Aufnahme passiert</a></li>',
+h2_1: 'Vorzeichen — der Körper bereitet sich vor',
+p1a: 'Einige Tage, manchmal Wochen vor der Geburt treten Signale auf, dass sich der Körper vorbereitet. <strong>Keines davon bedeutet, dass Sie ins Krankenhaus müssen</strong> — es ist jedoch gut, sie zu kennen, damit Sie sie nicht falsch deuten.',
+signsList: '<li><strong>Senkwehen</strong> — das Kind senkt sich in den Geburtskanal. Leichter zu atmen, aber häufigere Toilettengänge.</li><li><strong>Häufigere Braxton-Hicks-Kontraktionen</strong> — der Bauch verhärtet sich öfter.</li><li><strong>Kreuzschmerzen und Druckgefühl im Becken</strong>.</li><li><strong>Lockerer Stuhlgang</strong> — der Körper reinigt sich vor der Geburt. Normal und sehr häufig.</li><li><strong>Plötzlicher Energieschub</strong> — der Drang zu putzen, ordnen, vorbereiten. Das Nestbauinstinkt-Phänomen.</li><li><strong>Gewichtsabnahme</strong> von einem halben bis einem Kilogramm in den letzten Tagen.</li><li><strong>Abgang des Schleimpfropfs</strong> — dazu unten mehr.</li>',
+h2_2: 'Wehen — wie Braxton Hicks von echten unterscheiden',
+p2: 'Das ist die Frage Nummer eins der letzten Schwangerschaftswochen. Der Unterschied ist klarer als er scheint — wenn man weiß, worauf man achten muss.',
+th1: 'Merkmal', th2: 'Braxton-Hicks (falsch)', th3: 'Geburtswehen',
+tr1: '<th scope="row" class="p-3 text-left font-semibold text-deep">Muster</th><td class="p-3">Unregelmäßig, zufällig</td><td class="p-3">Regelmäßig, Abstände kürzer werdend</td>',
+tr2: '<th scope="row" class="p-3 text-left font-semibold text-deep">Intensität</th><td class="p-3">Gleich bleibend oder schwächer</td><td class="p-3">Allmählich stärker</td>',
+tr3: '<th scope="row" class="p-3 text-left font-semibold text-deep">Dauer</th><td class="p-3">Wechselnd, meist kurz</td><td class="p-3">Länger werdend, bis ca. 60–90 Sekunden</td>',
+tr4: '<th scope="row" class="p-3 text-left font-semibold text-deep">Lage</th><td class="p-3">Hauptsächlich Bauchvorderseite</td><td class="p-3">Vom Rücken, gürtelförmig nach vorne</td>',
+tr5: '<th scope="row" class="p-3 text-left font-semibold text-deep">Reaktion auf Ruhe</th><td class="p-3">Lassen nach bei Lagewechsel, Bad, Ruhe</td><td class="p-3"><strong>Lassen nicht nach, egal was Sie tun</strong></td>',
+tr6: '<th scope="row" class="p-3 text-left font-semibold text-deep rounded-bl-xl">Können Sie sprechen?</th><td class="p-3">Ja, problemlos</td><td class="p-3 rounded-br-xl">Auf dem Höhepunkt zunehmend schwierig</td>',
+bathT: 'Der Warmwasser-Test',
+bathP: 'Die einfachste Heimprüfung: 20–30 Minuten in einer warmen (nicht heißen) Wanne oder unter der Dusche. <strong>Braxton Hicks lassen meist nach. Geburtswehen gehen weiter</strong> — und verstärken sich oft sogar.',
+h2_3: 'Die 5-1-1-Regel — wann man typischerweise ins Krankenhaus fährt',
+p3: 'Eine praktische Faustregel, die man auswendig kennen sollte:',
+rule511: '<li><strong>5</strong> — Wehen alle <strong>5 Minuten</strong> (vom Beginn einer bis zum Beginn der nächsten)</li><li><strong>1</strong> — jede dauert etwa <strong>1 Minute</strong></li><li><strong>1</strong> — dieses Muster hält seit mindestens <strong>1 Stunde</strong> an</li>',
+nextT: 'Bei weiteren Geburten — früher fahren',
+nextP: 'Die 5-1-1-Regel gilt vor allem für die erste Geburt. Weitere verlaufen meist schneller, daher wird oft eine Abfahrt bereits bei <strong>Wehen alle 7–10 Minuten</strong> empfohlen. Besprechen Sie das vorab mit Ihrem Arzt oder Ihrer Hebamme.',
+countNote: '<strong>Wie messen:</strong> notieren Sie den <em>Beginn</em> jeder Wehe und ihre Dauer. Der Abstand wird von Beginn zu Beginn gemessen, nicht von Ende zu Beginn. Unter Stress erinnert sich niemand daran — also aufschreiben oder im Telefon notieren. Eine ideale Aufgabe für die Begleitperson.',
+h2_4: 'Blasensprung',
+watersP1: 'Entgegen der Filmdarstellung sieht es selten wie ein plötzlicher Schwall aus. Häufiger ist es ein <strong>anhaltender Abgang</strong>, den man durch Muskeln nicht stoppen kann — das unterscheidet ihn von der in der Spätschwangerschaft häufigen Harninkontinenz.',
+watersP2: 'Fruchtwasser ist klar oder leicht trüb, mit einem leicht süßlichen, kaum charakteristischen Geruch. Falls Sie nicht sicher sind — legen Sie eine saubere Einlage ein und legen Sie sich 30 Minuten hin. Bei gebrochenem Blasensprung sickert Flüssigkeit weiter.',
+rememberT: 'Drei Dinge merken',
+rememberList: '<li><strong>Die Uhrzeit</strong> des Blasensprungs</li><li><strong>Die Farbe</strong> — klar oder verfärbt</li><li><strong>Der Geruch</strong> — neutral oder unangenehm</li>',
+rememberNote: 'Das sind die ersten Fragen, die Sie in der Aufnahme hören werden. Gut, sie parat zu haben.',
+watersGoT: 'Nach dem Blasensprung fahren Sie ins Krankenhaus — auch ohne Wehen',
+watersGoP: 'Ein geplatzter Blasensprung bedeutet einen offenen Weg für Keime. <strong>Nehmen Sie kein Bad in der Wanne</strong>, kein Geschlechtsverkehr, nichts in die Scheide einführen. Duschen ist erlaubt. Wenn die Flüssigkeit grünlich oder bräunlich ist — das ist eine Notlage.',
+h2_5: 'Schleimpfropf — der häufigste Fehlalarm',
+mucusP1: 'Der Schleimpfropf ist ein dicker Ausfluss, der den Gebärmutterhalskanal während der gesamten Schwangerschaft versiegelt. Sein Abgang sieht aus wie ein geleeartiger Ausfluss, manchmal leicht rosa oder braun gefärbt.',
+mucusP2: '<strong>Der Schleimpfropf allein ist kein Abfahrtszeichen.</strong> Er kann einige Stunden vor der Geburt abgehen — oder genauso gut eine oder zwei Wochen davor. Er zeigt nur, dass sich der Muttermund zu verändern beginnt. Wenn er von <strong>hellroter Blutung</strong> begleitet wird — dann fahren Sie, denn das ist eine andere Situation.',
+h2_6: 'Was zu Hause tun, bevor Sie fahren',
+homeP: 'Die frühe Geburtsphase kann viele Stunden dauern. Sie zu Hause zu verbringen ist meist angenehmer als auf dem Krankenhausflur.',
+homeList: '<li><strong>Essen und trinken</strong> Sie, wenn keine Kontraindikationen bestehen. Geburt ist stundenlange Anstrengung — eine leichte Mahlzeit ist eine Investition.</li><li><strong>Ruhen Sie sich aus, wenn es Nacht ist.</strong> Schlaf zwischen den Wehen ist wertvoller als durch die Wohnung zu gehen.</li><li><strong>Warmes Bad oder Dusche</strong> — wenn die Fruchtblase nicht geplatzt ist.</li><li><strong>Positionen wechseln</strong>, Hüften schwingen, an einem Geburtsball lehnen.</li><li><strong>Jemand soll die Wehen messen</strong> und aufschreiben.</li><li><strong>Nicht allein sein</strong>, wenn möglich.</li>',
+callT: 'Anrufen, wenn Sie Zweifel haben',
+callP: 'Die Aufnahme nimmt rund um die Uhr Anrufe entgegen. Symptome telefonisch zu beschreiben ist kostenlos, dauert drei Minuten und klärt Zweifel sehr oft. <strong>Speichern Sie die Nummer noch heute</strong> — zusammen mit der Nummer des Geburtsvorbereitungskurses und der Hebamme.',
+h2_7: 'Vor der Abfahrt — die Zwei-Minuten-Liste',
+departureP: 'Alles sollte spätestens in der 36. Woche bereit sein, damit Sie in diesem Moment nur nehmen und gehen.',
+departureList: '<li>Kliniktasche — <a href="/blog/checklist-taty-sala-porodowa" class="text-teal underline font-semibold">Checkliste für den Vater</a> umfasst auch seine Sachen</li><li>Dokumente: Ausweis, Mutterpass, Untersuchungsergebnisse, Blutgruppe</li><li><strong>Geburtsplan — zwei ausgedruckte Exemplare</strong></li><li>Aufgeladenes Telefon und Powerbank</li><li>Kindersitz im Auto montiert</li><li>Geklärt, wer das ältere Kind abholt und wer die Familie benachrichtigt</li>',
+h2_8: 'Was in der Aufnahme passiert',
+admissionP: 'Zu wissen, was Sie erwartet, nimmt einen großen Teil der Anspannung:',
+admissionList: '<li>Anamnese — Fragen zu Wehen, Fruchtwasser, Kindsbewegungen, Schwangerschaftsverlauf</li><li>CTG — Aufzeichnung der kindlichen Herzfrequenz und Wehentätigkeit, ca. 20–30 Minuten</li><li>Innere Untersuchung — Beurteilung der Muttermund-Eröffnung</li><li>Blutdruck, Puls, Temperatur; manchmal Urintest</li><li>Entscheidung: Aufnahme auf die Station oder Rückkehr nach Hause mit Empfehlungen</li>',
+planT: 'Das ist der Moment für den Geburtsplan',
+planP: 'Geben Sie das Dokument der Hebamme <strong>bei der Aufnahme</strong>, nicht im Kreißsaal während der Wehen. Dann ist Zeit, dass jemand es tatsächlich liest und Ihre Wünsche in der Dokumentation vermerkt.',
+sentHome: '<strong>Nach Hause geschickt zu werden ist kein Scheitern.</strong> Es bedeutet, dass die Geburt noch nicht richtig begonnen hat — und die frühe Phase verbringt man besser im eigenen Bett als auf dem Krankenhausflur. Sie kommen wieder, wenn der richtige Moment kommt.',
+crossSell: '<strong class="text-deep">🫁 Sie wissen, wann Sie fahren. Es lohnt sich zu wissen, wie man dabei atmet.</strong> <strong>Atemtechniken für jede Geburtsphase</strong> (12 Seiten) in den Paketen <a href="/#cennik" class="text-teal font-semibold underline">Premium und Premium+</a>.',
+ctaT: 'Bereiten Sie Ihren Plan vor, bevor die Wehen beginnen',
+ctaP: 'Um vier Uhr morgens, bei Wehen alle fünf Minuten, erklärt niemand der Hebamme seine Präferenzen zu Betäubung, Abnabeln oder Hautkontakt. <strong>Diese Vereinbarungen müssen vorher bestehen — auf Papier.</strong>',
+ctaList: '<li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>13 Schritte, die die gesamte Geburt und die ersten Tage abdecken</span></li><li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Fertiges PDF zur Übergabe bei der Aufnahme</span></li><li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Konform mit dem Versorgungsstandard 2026</span></li><li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Gesamter Generator kostenlos — Zahlung erst beim Download</span></li>',
+ctaBtn: 'Erstellen Sie Ihren Geburtsplan →',
+faqH: 'Häufig gestellte Fragen',
+faq1: '<summary class="font-semibold text-deep cursor-pointer">Kann man zu früh fahren?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Man kann nach Hause geschickt werden — und das ist eine normale Situation, die das Personal täglich beurteilt. Es ist nichts Peinliches dabei. Es ist viel besser, unnötig zu fahren, als bei abklärungsbedürftigen Symptomen zu zögern.</p>',
+faq2: '<summary class="font-semibold text-deep cursor-pointer">Wie lange dauert eine Geburt ab den ersten Wehen?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Bei einer Erstgeburt dauert die Phase von regelmäßigen Wehen bis zur Geburt meist viele Stunden; weitere Geburten verlaufen meist kürzer. Die Bandbreite ist sehr groß und einzelne Zahlen sagen wenig über Ihre konkrete Geburt aus.</p>',
+faq3: '<summary class="font-semibold text-deep cursor-pointer">Schmerzen Wehen immer von Anfang an?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Nein. Viele Frauen beschreiben sie anfangs als ein Verhärten des Bauches oder menstruationsähnliche Schmerzen. Der Schmerz nimmt im Verlauf der Geburt allmählich zu.</p>',
+faq4: '<summary class="font-semibold text-deep cursor-pointer">Was wenn ich weit vom Krankenhaus entfernt wohne?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Besprechen Sie das mit Ihrem Arzt oder Ihrer Hebamme während der Schwangerschaft — bei großer Entfernung wird meist eine frühere Abfahrt empfohlen. Es lohnt sich auch, die Strecke vorher zu fahren und zu prüfen, wo genau die Aufnahme ist und wie es mit dem Parkplatz aussieht.</p>',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: '← Знання',
+eyebrow: 'Пологи · Оновлено: 25 липня 2026',
+h1: 'Ознаки пологів — коли їхати до лікарні, а коли залишатися вдома',
+lead: 'Якщо ви читаєте це о третій ночі з телефоном в одній руці і долонею на животі в іншій — починайте з розділу «їдьте негайно». Решта почекає. Якщо читаєте спокійно на 34 тижні, щоб знати завчасно — <strong>це найкращий момент, який ви могли вибрати</strong>.',
+alarmT: 'Їдьте негайно, незалежно від переймів, якщо:',
+alarmList: '<li><strong>Відійшли навколоплідні води</strong> — запам\'ятайте час, колір і запах</li><li><strong>Рідина зеленувата, коричнювата або смердюча</strong></li><li><strong>З\'явилася кровотеча</strong> зі статевих шляхів</li><li><strong>Дитина перестала рухатися</strong> або рухи значно послабшали</li><li><strong>Сильний постійний біль у животі</strong>, який не вщухає між переймами</li><li><strong>Сильний головний біль із порушенням зору</strong>, раптовий набряк обличчя й рук</li><li><strong>Температура</strong> понад 38°C</li><li><strong>Будь-які ознаки пологів до 37 тижня</strong> вагітності</li>',
+alarmNote: 'Не чекайте до ранку і не «спостерігайте до завтра». Хибна тривога нікого не образить — персонал пологового відділення оцінює такі ситуації щодня.',
+tocT: 'У цьому посібнику',
+tocList: '<li><a href="#zwiastuny" class="text-teal hover:underline">→ Провісники пологів</a></li><li><a href="#skurcze" class="text-teal hover:underline">→ Перейми: хибні чи справжні?</a></li><li><a href="#zasada-511" class="text-teal hover:underline">→ Правило 5-1-1</a></li><li><a href="#wody" class="text-teal hover:underline">→ Відходження вод</a></li><li><a href="#czop" class="text-teal hover:underline">→ Слизова пробка</a></li><li><a href="#dom" class="text-teal hover:underline">→ Що робити вдома</a></li><li><a href="#wyjazd" class="text-teal hover:underline">→ Перед від\'їздом</a></li><li><a href="#szpital" class="text-teal hover:underline">→ Що відбувається в приймальному покої</a></li>',
+h2_1: 'Провісники — організм починає готуватися',
+p1a: 'За кілька днів, а іноді тижнів до пологів з\'являються сигнали, що тіло готується. <strong>Жоден з них не означає, що треба їхати до лікарні</strong> — але варто їх знати, щоб правильно інтерпретувати.',
+signsList: '<li><strong>Опускання живота</strong> — дитина вставляється в родовий канал. Легше дихати, але частіші походи до туалету.</li><li><strong>Частіші тренувальні перейми</strong> — живіт твердіє частіше, ніж раніше.</li><li><strong>Болі в попереку і відчуття розпирання в тазу</strong>.</li><li><strong>Рідший стілець</strong> — організм очищується перед пологами. Це нормально і дуже часто.</li><li><strong>Раптовий приплив енергії</strong> — потреба прибирати, влаштовувати, готуватися. Явище настільки поширене, що має власну назву: інстинкт гнізда.</li><li><strong>Зниження ваги</strong> на пів-один кілограм в останні дні.</li><li><strong>Відходження слизової пробки</strong> — про це нижче.</li>',
+h2_2: 'Перейми — як відрізнити тренувальні від справжніх',
+p2: 'Це питання номер один останніх тижнів вагітності. Різниця чіткіша, ніж здається — якщо знати, на що дивитися.',
+th1: 'Ознака', th2: 'Тренувальні (Брекстон-Хікс)', th3: 'Справжні перейми',
+tr1: '<th scope="row" class="p-3 text-left font-semibold text-deep">Ритм</th><td class="p-3">Нерегулярні, хаотичні</td><td class="p-3">Регулярні, інтервали скорочуються</td>',
+tr2: '<th scope="row" class="p-3 text-left font-semibold text-deep">Інтенсивність</th><td class="p-3">Постійна або слабшає</td><td class="p-3">Поступово наростає</td>',
+tr3: '<th scope="row" class="p-3 text-left font-semibold text-deep">Тривалість</th><td class="p-3">Змінна, зазвичай коротка</td><td class="p-3">Дедалі довші, до ~60–90 секунд</td>',
+tr4: '<th scope="row" class="p-3 text-left font-semibold text-deep">Локалізація</th><td class="p-3">Переважно перед живота</td><td class="p-3">Від попереку, оперізуючи до передньої частини</td>',
+tr5: '<th scope="row" class="p-3 text-left font-semibold text-deep">Реакція на відпочинок</th><td class="p-3">Минають при зміні позиції, ванні, відпочинку</td><td class="p-3"><strong>Не минають незалежно від того, що ви робите</strong></td>',
+tr6: '<th scope="row" class="p-3 text-left font-semibold text-deep rounded-bl-xl">Чи можна розмовляти?</th><td class="p-3">Так, вільно</td><td class="p-3 rounded-br-xl">На піку дедалі важче</td>',
+bathT: 'Тест теплої ванни',
+bathP: 'Найпростіша домашня перевірка: побудьте 20–30 хвилин у теплій (не гарячій) ванні або під душем. <strong>Тренувальні перейми зазвичай заспокояться. Справжні тривають далі</strong> — і нерідко посилюються.',
+h2_3: 'Правило 5-1-1 — коли зазвичай їдуть до лікарні',
+p3: 'Практичне правило, яке варто знати напам\'ять:',
+rule511: '<li><strong>5</strong> — перейми кожні <strong>5 хвилин</strong> (від початку однієї до початку наступної)</li><li><strong>1</strong> — кожна триває близько <strong>1 хвилини</strong></li><li><strong>1</strong> — такий ритм зберігається щонайменше <strong>1 годину</strong></li>',
+nextT: 'При наступних пологах — їдьте раніше',
+nextP: 'Правило 5-1-1 стосується насамперед перших пологів. Наступні зазвичай швидші, тому часто рекомендують від\'їзд вже при <strong>переймах кожні 7–10 хвилин</strong>. Узгодьте це заздалегідь з лікарем або акушеркою.',
+countNote: '<strong>Як рахувати:</strong> записуйте час <em>початку</em> кожної перейми та її тривалість. Інтервал вимірюється від початку до початку, а не від кінця до початку. Під час стресу ніхто цього не пам\'ятає — тому записуйте на папері або в телефоні. Ідеальне завдання для супровідної особи.',
+h2_4: 'Відходження навколоплідних вод',
+watersP1: 'Всупереч фільмам це рідко виглядає як раптовий потік. Частіше це <strong>постійне підтікання</strong>, яке не можна зупинити напругою м\'язів — саме це відрізняє його від нетримання сечі, поширеного в кінці вагітності.',
+watersP2: 'Навколоплідні води прозорі або злегка каламутні, із солодкуватим, малохарактерним запахом. Якщо не впевнені — покладіть чисту прокладку і ляжте на 30 хвилин. При розриві плодового міхура рідина продовжить підтікати.',
+rememberT: 'Запам\'ятайте три речі',
+rememberList: '<li><strong>Час</strong> відходження вод</li><li><strong>Колір</strong> — прозорий чи забарвлений</li><li><strong>Запах</strong> — нейтральний чи неприємний</li>',
+rememberNote: 'Це перші запитання, які ви почуєте в приймальному покої. Добре мати їх готовими.',
+watersGoT: 'Після відходження вод — їдьте до лікарні, навіть без переймів',
+watersGoP: 'Розрив плодового міхура означає відкритий шлях для мікроорганізмів. <strong>Не приймайте ванну</strong>, не вступайте в статеві стосунки, нічого не вводьте у піхву. Душ дозволений. Якщо рідина зеленувата або коричнювата — це невідкладна ситуація.',
+h2_5: 'Слизова пробка — найпоширеніша хибна тривога',
+mucusP1: 'Слизова пробка — це густі виділення, що закривають канал шийки матки протягом усієї вагітності. Її відходження виглядає як желеподібні виділення, іноді рожево або коричнево забарвлені.',
+mucusP2: '<strong>Сама пробка не є сигналом до від\'їзду.</strong> Вона може відійти за кілька годин до пологів, але так само за тиждень чи два. Це лише означає, що шийка починає змінюватися. Якщо її супроводжує <strong>яскраво-червона кровотеча</strong> — тоді їдьте, бо це вже інша ситуація.',
+h2_6: 'Що робити вдома до від\'їзду',
+homeP: 'Рання фаза пологів може тривати багато годин. Провести її вдома зазвичай комфортніше, ніж у лікарняному коридорі.',
+homeList: '<li><strong>Їжте і пийте</strong>, якщо немає протипоказань. Пологи — це багатогодинне зусилля; легка страва — інвестиція.</li><li><strong>Відпочивайте, якщо ніч.</strong> Сон між переймами цінніший за ходіння по квартирі.</li><li><strong>Тепла ванна або душ</strong> — якщо води не відійшли.</li><li><strong>Змінюйте позиції</strong>, похитуйте стегнами, спирайтеся на фітбол.</li><li><strong>Хтось має вимірювати перейми</strong> і записувати.</li><li><strong>Не залишайтеся самі</strong>, якщо можливо.</li>',
+callT: 'Зателефонуйте, якщо є сумніви',
+callP: 'Приймальний покій приймає дзвінки цілодобово. Описати симптоми телефоном безкоштовно, займає три хвилини і дуже часто розвіює сумніви. <strong>Збережіть цей номер уже сьогодні</strong> — разом із номером школи для батьків та акушерки.',
+h2_7: 'Перед від\'їздом — список на дві хвилини',
+departureP: 'Все це має бути готове не пізніше 36-го тижня, щоб у цей момент просто взяти і вийти.',
+departureList: '<li>Сумка до лікарні — <a href="/blog/checklist-taty-sala-porodowa" class="text-teal underline font-semibold">список для тата</a> охоплює і його речі</li><li>Документи: посвідчення особи, карта вагітної, результати обстежень, група крові</li><li><strong>План пологів — два роздрукованих примірники</strong></li><li>Заряджений телефон і павербанк</li><li>Автокрісло встановлено в машині</li><li>Узгоджено, хто забирає старшу дитину і хто повідомляє сім\'ю</li>',
+h2_8: 'Що відбувається в приймальному покої',
+admissionP: 'Знання того, що на вас чекає, знімає значну частину напруги:',
+admissionList: '<li>Анамнез — запитання про перейми, води, рухи дитини, перебіг вагітності</li><li>КТГ — запис серцебиття дитини і перейм, зазвичай 20–30 хвилин</li><li>Внутрішнє обстеження — оцінка розкриття шийки матки</li><li>Вимірювання тиску, пульсу, температури; іноді аналіз сечі</li><li>Рішення: госпіталізація або повернення додому з рекомендаціями</li>',
+planT: 'Це момент для плану пологів',
+planP: 'Передайте документ акушерці <strong>при госпіталізації</strong>, а не в пологовій залі під час переймів. Тоді є час, щоб хтось справді прочитав його і занотував ваші побажання в документації.',
+sentHome: '<strong>Відправлення додому — не поразка.</strong> Це означає, що пологи ще не почалися як слід — а ранню фазу краще провести у власному ліжку, ніж у лікарняному коридорі. Ви повернетеся, коли настане правильний момент.',
+crossSell: '<strong class="text-deep">🫁 Ви знаєте, коли їхати. Варто знати, як дихати по дорозі.</strong> <strong>Техніки дихання для кожної фази пологів</strong> (12 стор.) у пакетах <a href="/#cennik" class="text-teal font-semibold underline">Premium і Premium+</a>.',
+ctaT: 'Підготуйте план до початку переймів',
+ctaP: 'О четвертій ранку, при переймах кожні п\'ять хвилин, ніхто не пояснює акушерці свої побажання щодо знеболення, відсікання пуповини чи контакту шкіра до шкіри. <strong>Ці домовленості мають існувати заздалегідь — на папері.</strong>',
+ctaList: '<li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>13 кроків, що охоплюють усі пологи і перші доби</span></li><li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Готовий PDF для передачі при госпіталізації</span></li><li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Відповідає Стандарту перинатальної опіки 2026</span></li><li class="flex gap-2.5"><span class="text-tealsoft font-bold">✓</span><span>Весь конструктор безкоштовно — платите лише при завантаженні</span></li>',
+ctaBtn: 'Створіть свій план пологів →',
+faqH: 'Часті запитання',
+faq1: '<summary class="font-semibold text-deep cursor-pointer">Чи можна приїхати надто рано?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Вас можуть відправити додому — і це нормальна ситуація, яку персонал оцінює щодня. В цьому немає нічого ганебного. Набагато краще приїхати зайвий раз, ніж зволікати при симптомах, що потребують оцінки.</p>',
+faq2: '<summary class="font-semibold text-deep cursor-pointer">Скільки тривають пологи від перших переймів?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">При перших пологах фаза від регулярних переймів до народження найчастіше займає багато годин; наступні зазвичай коротші. Розкид дуже великий і окремі цифри мало що говорять про ваші конкретні пологи.</p>',
+faq3: '<summary class="font-semibold text-deep cursor-pointer">Чи перейми завжди болять від початку?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Ні. Спочатку багато жінок описують їх як відчуття затвердіння живота або болі, подібні до менструальних. Біль наростає поступово в міру прогресування пологів.</p>',
+faq4: '<summary class="font-semibold text-deep cursor-pointer">Що якщо я живу далеко від лікарні?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Обговоріть це з лікарем або акушеркою ще під час вагітності — при великій відстані зазвичай рекомендують від\'їжджати раніше. Варто також заздалегідь проїхати маршрут і перевірити, де саме знаходиться приймальний покій і як із парковкою.</p>',
+relatedT: 'Пов\'язані статті'
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>

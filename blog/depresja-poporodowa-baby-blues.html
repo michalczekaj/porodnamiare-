@@ -90,16 +90,16 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/wiedza" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    <div class="flex items-center gap-2"><select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select><a href="/wiedza" data-i18n="navCta" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a></div>
   </nav>
 </header>
 
 <main id="main" class="max-w-3xl mx-auto px-4 py-10">
   <nav aria-label="Ścieżka nawigacji" class="text-xs text-ink/60 mb-5 no-print"><a href="/" class="hover:text-teal">Start</a> · <a href="/wiedza" class="hover:text-teal">Wiedza</a> · <span>Depresja poporodowa i baby blues</span></nav>
 
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Połóg · Aktualizacja: 27 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Depresja poporodowa i baby blues — jak je odróżnić i kiedy szukać pomocy</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-6">Płaczesz bez powodu w trzeciej dobie. Albo masz tygodnie po porodzie i nadal nic nie sprawia radości, a poczucie winy rośnie. <strong>Jedno i drugie jest normalne — ale tylko jedno wymaga leczenia.</strong> Ten artykuł pomoże Ci je odróżnić i wiedzieć, kiedy sięgnąć po pomoc.</p>
+  <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Połóg · Aktualizacja: 27 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Depresja poporodowa i baby blues — jak je odróżnić i kiedy szukać pomocy</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6">Płaczesz bez powodu w trzeciej dobie. Albo masz tygodnie po porodzie i nadal nic nie sprawia radości, a poczucie winy rośnie. <strong>Jedno i drugie jest normalne — ale tylko jedno wymaga leczenia.</strong> Ten artykuł pomoże Ci je odróżnić i wiedzieć, kiedy sięgnąć po pomoc.</p>
 
   <div class="bg-tealsoft rounded-2xl p-5 mb-8">
     <p class="font-semibold text-deep mb-2">Najważniejsze w skrócie</p>
@@ -113,7 +113,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
   </div>
 
   <nav class="bg-white border border-sanddark rounded-2xl p-5 mb-10 no-print" aria-label="Spis treści">
-    <p class="font-semibold text-deep mb-3">W tym artykule</p>
+    <p data-i18n="tocT" class="font-semibold text-deep mb-3">W tym artykule</p>
     <ul class="grid sm:grid-cols-2 gap-2 text-[15px]">
       <li><a href="#roznica" class="text-teal hover:underline">→ Baby blues vs depresja poporodowa</a></li>
       <li><a href="#objawy" class="text-teal hover:underline">→ Objawy — czego szukać</a></li>
@@ -273,7 +273,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
   </div>
 
   <div class="mt-10 pt-6 border-t border-sanddark">
-    <p class="font-semibold text-deep mb-3">Powiązane artykuły</p>
+    <p data-i18n="relatedT" class="font-semibold text-deep mb-3">Powiązane artykuły</p>
     <div class="grid sm:grid-cols-2 gap-4">
       <a href="/blog/blizna-po-cesarskim-cieciu-mobilizacja" class="group bg-white border border-sanddark rounded-2xl p-5 hover:border-teal/50 transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-1.5">Połóg</p>
@@ -292,5 +292,34 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm no-print">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: '← Knowledge',
+eyebrow: 'Postnatal · Updated: 29 July 2026',
+h1: 'Postnatal depression and baby blues — symptoms, differences and how to seek help',
+lead: 'Baby blues affects up to 80% of mothers. Postnatal depression is a serious illness that requires treatment. How to tell them apart, what the symptoms are and — most importantly — where to find help.',
+tocT: 'In this article',
+relatedT: 'Related articles'
+},
+de: {
+navCta: '← Wissen',
+eyebrow: 'Wochenbett · Aktualisiert: 29. Juli 2026',
+h1: 'Wochenbettdepression und Baby-Blues — Symptome, Unterschiede und wo man Hilfe findet',
+lead: 'Baby-Blues betrifft bis zu 80 % der Mütter. Wochenbettdepression ist eine ernsthafte Erkrankung, die Behandlung erfordert.',
+tocT: 'In diesem Artikel',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: '← Знання',
+eyebrow: 'Післяпологовий період · Оновлено: 29 липня 2026',
+h1: 'Послологова депресія і бебі-блюз — симптоми, відмінності та як шукати допомогу',
+lead: 'Бебі-блюз торкається до 80% матерів. Послологова депресія — серйозна хвороба, що потребує лікування.',
+tocT: 'У цій статті',
+relatedT: "Пов'язані статті"
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>

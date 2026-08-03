@@ -71,14 +71,14 @@
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/wiedza" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    <div class="flex items-center gap-2"><select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select><a href="/wiedza" data-i18n="navCta" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a></div>
   </nav>
 </header>
 <main id="main" class="max-w-3xl mx-auto px-4 py-10">
   <nav class="text-xs text-ink/60 mb-5 no-print"><a href="/" class="hover:text-teal">Start</a> · <a href="/wiedza" class="hover:text-teal">Wiedza</a> · <span>Opóźnione odpępnienie a krew pępowinowa</span></nav>
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Decyzje · Aktualizacja: 27 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Opóźnione odpępnienie a bankowanie krwi pępowinowej — jak to pogodzić w planie porodu</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-6">Dwie świadome decyzje współczesnych rodziców — moment przecięcia pępowiny i bankowanie komórek macierzystych — mogą ze sobą kolidować. <strong>Czy da się je połączyć? Zależy od priorytetów</strong>. Wyjaśniamy rzetelnie, bez marketingowego szumu.</p>
+  <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Decyzje · Aktualizacja: 27 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Opóźnione odpępnienie a bankowanie krwi pępowinowej — jak to pogodzić w planie porodu</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6">Dwie świadome decyzje współczesnych rodziców — moment przecięcia pępowiny i bankowanie komórek macierzystych — mogą ze sobą kolidować. <strong>Czy da się je połączyć? Zależy od priorytetów</strong>. Wyjaśniamy rzetelnie, bez marketingowego szumu.</p>
   <div class="bg-tealsoft rounded-2xl p-5 mb-8"><p class="font-semibold text-deep mb-2">Najważniejsze w skrócie</p><ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5"><li>Opóźnione odpępnienie = <strong>transfuzja ok. 1/3 objętości krwi</strong> z łożyska do dziecka.</li><li>Kompromis: <strong>60–90 sekund</strong> — dziecko dostaje najwięcej, bank może zebrać wystarczająco.</li><li>Musisz określić <strong>priorytet w planie porodu</strong> — personel potrzebuje jasnej instrukcji.</li><li>Pobranie krwi pępowinowej jest <strong>nieinwazyjne i bezbolesne</strong> dla matki i dziecka.</li><li>Przy nagłym CC pobranie krwi do banku <strong>jest możliwe</strong> — poinformuj zespół operacyjny.</li></ul></div>
   <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mt-10 mb-4">Co daje opóźnione odpępnienie?</h2>
   <p class="leading-relaxed text-ink/85 mb-4">Pępowina i łożysko zaraz po porodzie zawierają ok. <strong>1/3 całkowitej objętości krwi noworodka</strong>. Odczekanie z zaciśnięciem do ustania tętnienia (1–5 min) to transfuzja własną krwią. Korzyści:</p>
@@ -125,5 +125,34 @@
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm no-print">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: '← Knowledge',
+eyebrow: 'Labour · Newborn',
+h1: 'Delayed cord clamping and cord blood banking — how to reconcile them',
+lead: 'Delayed cord clamping gives the baby up to 80 ml of extra blood. Cord blood banking requires clamping promptly. Can you do both? What does the evidence say and how to write this priority into your birth plan.',
+tocT: 'In this article',
+relatedT: 'Related articles'
+},
+de: {
+navCta: '← Wissen',
+eyebrow: 'Geburt · Neugeborenes',
+h1: 'Verzögertes Abnabeln und Nabelschnurblutbank — wie man beides in Einklang bringt',
+lead: 'Verzögertes Abnabeln gibt dem Baby bis zu 80 ml zusätzliches Blut. Nabelschnurblutbanken erfordern sofortiges Klemmen. Kann man beides verbinden?',
+tocT: 'In diesem Artikel',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: '← Знання',
+eyebrow: 'Пологи · Новонароджений',
+h1: 'Відстрочене перетяття пуповини і банк пуповинної крові — як поєднати',
+lead: 'Відстрочене перетяття дає дитині до 80 мл додаткової крові. Банківство пуповинної крові вимагає негайного перетяття. Чи можна поєднати обидва?',
+tocT: 'У цій статті',
+relatedT: "Пов'язані статті"
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>

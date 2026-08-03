@@ -71,14 +71,14 @@
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/wiedza" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    <div class="flex items-center gap-2"><select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select><a href="/wiedza" data-i18n="navCta" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a></div>
   </nav>
 </header>
 <main id="main" class="max-w-3xl mx-auto px-4 py-10">
   <nav class="text-xs text-ink/60 mb-5 no-print"><a href="/" class="hover:text-teal">Start</a> · <a href="/wiedza" class="hover:text-teal">Wiedza</a> · <span>Jak rozmawiać z personelem o planie porodu</span></nav>
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Poród · Aktualizacja: 27 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Jak rozmawiać z personelem o planie porodu — przykładowe dialogi i zasada BRAIN</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-6">Plan porodu to nie pozew sądowy — to zaproszenie do współpracy. <strong>Najlepsze plany porodu są realizowane przez personel, który czuje się partnerem, nie oskarżonym</strong>. Jak to osiągnąć? Przez sposób rozmowy, nie przez treść dokumentu.</p>
+  <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Poród · Aktualizacja: 27 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Jak rozmawiać z personelem o planie porodu — przykładowe dialogi i zasada BRAIN</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6">Plan porodu to nie pozew sądowy — to zaproszenie do współpracy. <strong>Najlepsze plany porodu są realizowane przez personel, który czuje się partnerem, nie oskarżonym</strong>. Jak to osiągnąć? Przez sposób rozmowy, nie przez treść dokumentu.</p>
   <div class="bg-tealsoft rounded-2xl p-5 mb-8"><p class="font-semibold text-deep mb-2">Najważniejsze w skrócie</p><ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5"><li>Zamień "żądam" na "zależy nam na…" — <strong>ton zmienia wszystko</strong>.</li><li>Zasada <strong>BRAIN</strong> to kompas decyzyjny przy każdej propozycji interwencji.</li><li>Tata = <strong>"adwokat" partnerki</strong> — zna plan, zadaje pytania, nie oskarża.</li><li>Wręcz plan na <strong>izbie przyjęć i ponownie</strong> na sali porodowej.</li><li>W nagłych sytuacjach: <strong>pełne zaufanie do zespołu</strong> — czas na pytania minie.</li></ul></div>
   <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mt-10 mb-4">Dlaczego personel czasem "nie lubi" planów porodu?</h2>
   <p class="leading-relaxed text-ink/85 mb-6">Zazwyczaj dlatego, że trafiają do nich ściągnięte z internetu gotowce z medycznie wykluczającymi się zapisami. Plan stworzony z głową — jak np. ten z PoródNaMiarę.pl — od razu pokazuje, że podchodzicie do sprawy poważnie i jesteście otwarci na współpracę. To zmienia nastawienie personelu już na wejściu.</p>
@@ -153,5 +153,34 @@
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm no-print">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: '← Knowledge',
+eyebrow: 'Labour · Communication',
+h1: 'How to talk to staff about your birth plan — dialogues and the BRAIN principle',
+lead: 'Knowing your rights is one thing. Being able to communicate them calmly during labour is another. Practical dialogues, the BRAIN decision framework, and how to prepare your birth companion to be your advocate.',
+tocT: 'In this article',
+relatedT: 'Related articles'
+},
+de: {
+navCta: '← Wissen',
+eyebrow: 'Geburt · Kommunikation',
+h1: 'Wie man mit dem Personal über den Geburtsplan spricht — Dialoge und das BRAIN-Prinzip',
+lead: 'Die eigenen Rechte zu kennen ist eine Sache. Sie während der Geburt ruhig kommunizieren zu können eine andere. Praktische Dialoge und das BRAIN-Entscheidungsframework.',
+tocT: 'In diesem Artikel',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: '← Знання',
+eyebrow: 'Пологи · Комунікація',
+h1: 'Як спілкуватися з персоналом про план пологів — діалоги і принцип BRAIN',
+lead: 'Знати свої права — одне. Спокійно повідомляти про них під час пологів — інше. Практичні діалоги, метод BRAIN і як підготувати супровідну особу бути вашим захисником.',
+tocT: 'У цій статті',
+relatedT: "Пов'язані статті"
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>
