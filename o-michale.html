@@ -94,13 +94,10 @@ blockquote{border-left:3px solid #A0525E}
   <nav class="max-w-4xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
     <div class="flex items-center gap-2">
-      <div class="hidden sm:flex items-center gap-1 text-xs font-semibold">
-        <a href="/" class="border border-deep/30 rounded-full px-2 py-1 hover:bg-sanddark bg-sanddark">PL</a>
-        <a href="/en" class="border border-deep/30 rounded-full px-2 py-1 hover:bg-sanddark">EN</a>
-        <a href="/de" class="border border-deep/30 rounded-full px-2 py-1 hover:bg-sanddark">DE</a>
-        <a href="/ua" class="border border-deep/30 rounded-full px-2 py-1 hover:bg-sanddark">UA</a>
-      </div>
-      <a href="/#kreator" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors">Stwórz plan</a>
+      <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
+        <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option>
+      </select>
+      <a href="/#kreator" data-i18n="navCta" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors">Stwórz plan</a>
     </div>
   </nav>
 </header>
@@ -112,14 +109,14 @@ blockquote{border-left:3px solid #A0525E}
   <nav aria-label="Ścieżka nawigacji" class="text-xs text-ink/60 mb-6 no-print"><a href="/" class="hover:text-teal">Start</a> · <span>O Michale</span></nav>
   <div class="grid md:grid-cols-5 gap-8 items-center">
     <div class="md:col-span-3">
-      <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Tata, nie korporacja</p>
-      <h1 class="font-display text-3xl md:text-[2.6rem] leading-[1.15] font-semibold text-deep mb-5">Nie jestem lekarzem.<br>Jestem tatą, który bał się, że czegoś nie dopilnuje.</h1>
-      <p class="text-lg leading-relaxed text-ink/80 mb-4">Nazywam się Michał. We wrześniu na świat przychodzi moja córka Wiktoria. Ta strona powstała, bo szukałem dla niej narzędzia, którego nie było — i w końcu zbudowałem je sam.</p>
-      <p class="text-[15px] leading-relaxed text-ink/70">To nie jest historia o firmie. To historia o wieczorze, w którym zrozumiałem, że za kilka tygodni znajdę się w miejscu, gdzie od mojego przygotowania będzie zależeć spokój dwóch najważniejszych dla mnie osób.</p>
+      <p data-i18n="kicker1" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Tata, nie korporacja</p>
+      <h1 data-i18n="h1" class="font-display text-3xl md:text-[2.6rem] leading-[1.15] font-semibold text-deep mb-5">Nie jestem lekarzem.<br>Jestem tatą, który bał się, że czegoś nie dopilnuje.</h1>
+      <p data-i18n="heroP1" class="text-lg leading-relaxed text-ink/80 mb-4">Nazywam się Michał. We wrześniu na świat przychodzi moja córka Wiktoria. Ta strona powstała, bo szukałem dla niej narzędzia, którego nie było — i w końcu zbudowałem je sam.</p>
+      <p data-i18n="heroP2" class="text-[15px] leading-relaxed text-ink/70">To nie jest historia o firmie. To historia o wieczorze, w którym zrozumiałem, że za kilka tygodni znajdę się w miejscu, gdzie od mojego przygotowania będzie zależeć spokój dwóch najważniejszych dla mnie osób.</p>
     </div>
     <div class="md:col-span-2">
       <img src="/img/o-michale.webp" alt="Michał Czekaj — tata i twórca PoródNaMiarę.pl, autor spersonalizowanych planów porodu dla rodziców w Polsce" width="1000" height="1250" class="portrait rounded-3xl w-full object-cover aspect-[4/5]" loading="eager" fetchpriority="high" onerror="this.src='/img/gen/tata-noworodek.svg'">
-      <p class="text-xs text-ink/55 text-center mt-3">Michał — twórca PoródNaMiarę.pl</p>
+      <p data-i18n="photoCap" class="text-xs text-ink/55 text-center mt-3">Michał — twórca PoródNaMiarę.pl</p>
     </div>
   </div>
 </section>
@@ -134,15 +131,15 @@ blockquote{border-left:3px solid #A0525E}
         <span id="playIcon" class="text-xl leading-none select-none" aria-hidden="true">▶</span>
       </button>
       <div class="min-w-0 flex-1">
-        <p class="font-display text-lg font-semibold text-deep mb-1">Posłuchajcie mnie przez chwilę</p>
-        <p class="text-[15px] text-ink/75 leading-relaxed mb-3">Dwie minuty o tym, dlaczego powstała ta strona i co chciałbym, żebyście z niej wynieśli.</p>
+        <p data-i18n="audioT" class="font-display text-lg font-semibold text-deep mb-1">Posłuchajcie mnie przez chwilę</p>
+        <p data-i18n="audioP" class="text-[15px] text-ink/75 leading-relaxed mb-3">Dwie minuty o tym, dlaczego powstała ta strona i co chciałbym, żebyście z niej wynieśli.</p>
         <div class="flex items-center gap-3">
           <div class="flex-1 h-1.5 bg-sanddark rounded-full overflow-hidden">
             <div id="audioBar" class="h-full bg-teal rounded-full transition-[width] duration-200" style="width:0%"></div>
           </div>
           <span id="audioTime" class="text-xs text-ink/60 tabular-nums flex-shrink-0">0:00</span>
         </div>
-        <p id="audioFallback" class="hidden text-xs text-ink/60 mt-2">Nagranie będzie dostępne wkrótce.</p>
+        <p id="audioFallback" data-i18n="audioFb" class="hidden text-xs text-ink/60 mt-2">Nagranie będzie dostępne wkrótce.</p>
       </div>
     </div>
   </div>
@@ -177,40 +174,40 @@ blockquote{border-left:3px solid #A0525E}
 <!-- HISTORIA -->
 <section class="bg-white border-y border-sanddark py-14">
   <div class="max-w-3xl mx-auto px-4">
-    <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mb-6">Jak to się zaczęło</h2>
-    <p class="leading-relaxed text-ink/85 mb-4">Kiedy Anna powiedziała mi, że jesteśmy w ciąży, zrobiłem to, co robi większość facetów: zacząłem czytać. Chciałem być przygotowany. Chciałem wiedzieć, co się będzie działo i co mogę zrobić, żeby jej pomóc.</p>
-    <p class="leading-relaxed text-ink/85 mb-4">Znalazłem setki artykułów o tym, co czuje kobieta. Poradniki o oddychaniu. Listy rzeczy do torby. I <strong>prawie nic o tym, co ma robić ten drugi człowiek w sali</strong> — poza „być wsparciem" i „trzymać za rękę".</p>
-    <p class="leading-relaxed text-ink/85 mb-6">Potem trafiłem na darmowy szablon planu porodu. Urzędowy formularz z pustymi polami. Usiadłem, żeby go wypełnić — i utknąłem po piętnastu minutach. Bo skąd mam wiedzieć, czy chcę „oksytocynę w III okresie"? Skąd mam wiedzieć, o co w ogóle należy zapytać?</p>
+    <h2 data-i18n="histH" class="font-display text-2xl md:text-3xl font-semibold text-deep mb-6">Jak to się zaczęło</h2>
+    <p data-i18n="histP1" class="leading-relaxed text-ink/85 mb-4">Kiedy Anna powiedziała mi, że jesteśmy w ciąży, zrobiłem to, co robi większość facetów: zacząłem czytać. Chciałem być przygotowany. Chciałem wiedzieć, co się będzie działo i co mogę zrobić, żeby jej pomóc.</p>
+    <p data-i18n="histP2" class="leading-relaxed text-ink/85 mb-4">Znalazłem setki artykułów o tym, co czuje kobieta. Poradniki o oddychaniu. Listy rzeczy do torby. I <strong>prawie nic o tym, co ma robić ten drugi człowiek w sali</strong> — poza „być wsparciem" i „trzymać za rękę".</p>
+    <p data-i18n="histP3" class="leading-relaxed text-ink/85 mb-6">Potem trafiłem na darmowy szablon planu porodu. Urzędowy formularz z pustymi polami. Usiadłem, żeby go wypełnić — i utknąłem po piętnastu minutach. Bo skąd mam wiedzieć, czy chcę „oksytocynę w III okresie"? Skąd mam wiedzieć, o co w ogóle należy zapytać?</p>
 
     <blockquote class="pl-5 py-1 my-8">
-      <p class="font-display text-xl md:text-2xl text-deep leading-relaxed italic">To był moment, w którym zrozumiałem: problemem nie jest brak informacji. Problemem jest to, że nikt nie układa jej w decyzje, które rodzic potrafi podjąć.</p>
+      <p data-i18n="quote1" class="font-display text-xl md:text-2xl text-deep leading-relaxed italic">To był moment, w którym zrozumiałem: problemem nie jest brak informacji. Problemem jest to, że nikt nie układa jej w decyzje, które rodzic potrafi podjąć.</p>
     </blockquote>
 
-    <p class="leading-relaxed text-ink/85 mb-4">Zacząłem więc od zera. Przeczytałem Standard Organizacyjny Opieki Okołoporodowej — cały, łącznie z nowelizacją, która weszła w życie w maju 2026. Rozmawiałem z położnymi. Czytałem rekomendacje o opóźnionym odpępnieniu, o kontakcie skóra do skóry, o remifentanylu, o krwi pępowinowej.</p>
-    <p class="leading-relaxed text-ink/85 mb-4">I zbudowałem dokument dla siebie i Anny. Jedenaście stron. Przepracowany w pięciu wersjach. Z sekcją o tym, co robić, gdy dziecko trafi na neonatologię. Z zapisem, że jeśli coś pójdzie nie tak — dobro Wiktorii jest ważniejsze niż jakikolwiek punkt naszego planu.</p>
-    <p class="leading-relaxed text-ink/85">Kiedy skończyłem, pomyślałem o wszystkich innych rodzicach, którzy siedzą teraz nad tym samym pustym formularzem. I o tym, że nie każdy ma trzy miesiące, żeby to rozgryźć od podstaw.</p>
+    <p data-i18n="histP4" class="leading-relaxed text-ink/85 mb-4">Zacząłem więc od zera. Przeczytałem Standard Organizacyjny Opieki Okołoporodowej — cały, łącznie z nowelizacją, która weszła w życie w maju 2026. Rozmawiałem z położnymi. Czytałem rekomendacje o opóźnionym odpępnieniu, o kontakcie skóra do skóry, o remifentanylu, o krwi pępowinowej.</p>
+    <p data-i18n="histP5" class="leading-relaxed text-ink/85 mb-4">I zbudowałem dokument dla siebie i Anny. Jedenaście stron. Przepracowany w pięciu wersjach. Z sekcją o tym, co robić, gdy dziecko trafi na neonatologię. Z zapisem, że jeśli coś pójdzie nie tak — dobro Wiktorii jest ważniejsze niż jakikolwiek punkt naszego planu.</p>
+    <p data-i18n="histP6" class="leading-relaxed text-ink/85">Kiedy skończyłem, pomyślałem o wszystkich innych rodzicach, którzy siedzą teraz nad tym samym pustym formularzem. I o tym, że nie każdy ma trzy miesiące, żeby to rozgryźć od podstaw.</p>
   </div>
 </section>
 
 <!-- DLACZEGO INNI TEGO NIE ROBIĄ -->
 <section class="max-w-3xl mx-auto px-4 py-14">
-  <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mb-6">Dlaczego robię to inaczej</h2>
+  <h2 data-i18n="whyH" class="font-display text-2xl md:text-3xl font-semibold text-deep mb-6">Dlaczego robię to inaczej</h2>
   <div class="space-y-5">
     <div class="bg-white border border-sanddark rounded-2xl p-6">
-      <p class="font-display text-lg font-semibold text-deep mb-2">Nie jestem lekarzem — i mówię o tym wprost</p>
-      <p class="text-[15px] leading-relaxed text-ink/80">Plan porodu nie jest dokumentem medycznym. To zapis Waszych preferencji, przekazywany personelowi. Nie stawiam diagnoz i nigdy nie będę. Robię coś innego: <strong>porządkuję decyzje</strong> tak, żebyście nie musieli podejmować ich w trakcie skurczów. Każda opcja w kreatorze ma oparcie w obowiązującym standardzie opieki.</p>
+      <p data-i18n="why1T" class="font-display text-lg font-semibold text-deep mb-2">Nie jestem lekarzem — i mówię o tym wprost</p>
+      <p data-i18n="why1P" class="text-[15px] leading-relaxed text-ink/80">Plan porodu nie jest dokumentem medycznym. To zapis Waszych preferencji, przekazywany personelowi. Nie stawiam diagnoz i nigdy nie będę. Robię coś innego: <strong>porządkuję decyzje</strong> tak, żebyście nie musieli podejmować ich w trakcie skurczów. Każda opcja w kreatorze ma oparcie w obowiązującym standardzie opieki.</p>
     </div>
     <div class="bg-white border border-sanddark rounded-2xl p-6">
-      <p class="font-display text-lg font-semibold text-deep mb-2">Tata nie jest tu dodatkiem</p>
-      <p class="text-[15px] leading-relaxed text-ink/80">W moim kreatorze partner ma konkretną rolę: wie, o co pytać, czego pilnować i co zrobić, gdy mama nie może mówić za siebie. To nie jest miły gest — <strong>Standard Opieki Okołoporodowej wprost przewiduje udział ojca</strong> w edukacji przedporodowej, bo sprzyja to więzi i wspiera zdrowie psychiczne kobiety.</p>
+      <p data-i18n="why2T" class="font-display text-lg font-semibold text-deep mb-2">Tata nie jest tu dodatkiem</p>
+      <p data-i18n="why2P" class="text-[15px] leading-relaxed text-ink/80">W moim kreatorze partner ma konkretną rolę: wie, o co pytać, czego pilnować i co zrobić, gdy mama nie może mówić za siebie. To nie jest miły gest — <strong>Standard Opieki Okołoporodowej wprost przewiduje udział ojca</strong> w edukacji przedporodowej, bo sprzyja to więzi i wspiera zdrowie psychiczne kobiety.</p>
     </div>
     <div class="bg-white border border-sanddark rounded-2xl p-6">
-      <p class="font-display text-lg font-semibold text-deep mb-2">Piszę też o rzeczach, które są niewygodne</p>
-      <p class="text-[15px] leading-relaxed text-ink/80">O tym, że bankowanie krwi pępowinowej stoi w konflikcie z opóźnionym odpępnieniem. O tym, że opłaty za poród rodzinny bywają bezprawne. O tym, że znieczulenie zależy od tego, czy anestezjolog nie jest akurat na bloku operacyjnym. <strong>Nie mam sponsora, któremu mogłoby to przeszkadzać.</strong></p>
+      <p data-i18n="why3T" class="font-display text-lg font-semibold text-deep mb-2">Piszę też o rzeczach, które są niewygodne</p>
+      <p data-i18n="why3P" class="text-[15px] leading-relaxed text-ink/80">O tym, że bankowanie krwi pępowinowej stoi w konflikcie z opóźnionym odpępnieniem. O tym, że opłaty za poród rodzinny bywają bezprawne. O tym, że znieczulenie zależy od tego, czy anestezjolog nie jest akurat na bloku operacyjnym. <strong>Nie mam sponsora, któremu mogłoby to przeszkadzać.</strong></p>
     </div>
     <div class="bg-white border border-sanddark rounded-2xl p-6">
-      <p class="font-display text-lg font-semibold text-deep mb-2">Odpowiadam osobiście</p>
-      <p class="text-[15px] leading-relaxed text-ink/80">Nie ma tu działu obsługi klienta ani systemu ticketów. Jest jeden e-mail i jedna osoba, która na niego odpisuje. Jeśli coś w Waszym planie wymaga poprawki — piszcie. To dla mnie ważne, żeby dokument, który weźmiecie do szpitala, był naprawdę Wasz.</p>
+      <p data-i18n="why4T" class="font-display text-lg font-semibold text-deep mb-2">Odpowiadam osobiście</p>
+      <p data-i18n="why4P" class="text-[15px] leading-relaxed text-ink/80">Nie ma tu działu obsługi klienta ani systemu ticketów. Jest jeden e-mail i jedna osoba, która na niego odpisuje. Jeśli coś w Waszym planie wymaga poprawki — piszcie. To dla mnie ważne, żeby dokument, który weźmiecie do szpitala, był naprawdę Wasz.</p>
     </div>
   </div>
 </section>
@@ -218,24 +215,24 @@ blockquote{border-left:3px solid #A0525E}
 <!-- LICZBY / AUTORYTET -->
 <section class="bg-deep text-sand py-14">
   <div class="max-w-4xl mx-auto px-4">
-    <h2 class="font-display text-2xl md:text-3xl font-semibold text-white mb-3">Na czym opieram to, co tworzę</h2>
-    <p class="text-sand/80 mb-10 max-w-2xl leading-relaxed">Nie na intuicji i nie na tym, „co się zwykle robi". Na dokumentach, które można sprawdzić.</p>
+    <h2 data-i18n="basisH" class="font-display text-2xl md:text-3xl font-semibold text-white mb-3">Na czym opieram to, co tworzę</h2>
+    <p data-i18n="basisP" class="text-sand/80 mb-10 max-w-2xl leading-relaxed">Nie na intuicji i nie na tym, „co się zwykle robi". Na dokumentach, które można sprawdzić.</p>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <div class="bg-white/[0.06] border border-white/10 rounded-2xl p-5">
         <p class="font-display text-3xl font-semibold text-white mb-1">2026</p>
-        <p class="text-[14px] text-sand/80 leading-relaxed">Standard Opieki Okołoporodowej (Dz.U. 2025 poz. 1525) obowiązujący od 7 maja</p>
+        <p data-i18n="stat1" class="text-[14px] text-sand/80 leading-relaxed">Standard Opieki Okołoporodowej (Dz.U. 2025 poz. 1525) obowiązujący od 7 maja</p>
       </div>
       <div class="bg-white/[0.06] border border-white/10 rounded-2xl p-5">
         <p class="font-display text-3xl font-semibold text-white mb-1">13</p>
-        <p class="text-[14px] text-sand/80 leading-relaxed">kroków kreatora obejmujących cały poród i pierwsze doby</p>
+        <p data-i18n="stat2" class="text-[14px] text-sand/80 leading-relaxed">kroków kreatora obejmujących cały poród i pierwsze doby</p>
       </div>
       <div class="bg-white/[0.06] border border-white/10 rounded-2xl p-5">
         <p class="font-display text-3xl font-semibold text-white mb-1">80+</p>
-        <p class="text-[14px] text-sand/80 leading-relaxed">gotowych preferencji do zaznaczenia, każda z oparciem w standardzie</p>
+        <p data-i18n="stat3" class="text-[14px] text-sand/80 leading-relaxed">gotowych preferencji do zaznaczenia, każda z oparciem w standardzie</p>
       </div>
       <div class="bg-white/[0.06] border border-white/10 rounded-2xl p-5">
         <p class="font-display text-3xl font-semibold text-white mb-1">12</p>
-        <p class="text-[14px] text-sand/80 leading-relaxed">artykułów w bazie wiedzy — bezpłatnych, bez rejestracji</p>
+        <p data-i18n="stat4" class="text-[14px] text-sand/80 leading-relaxed">artykułów w bazie wiedzy — bezpłatnych, bez rejestracji</p>
       </div>
     </div>
   </div>
@@ -243,19 +240,19 @@ blockquote{border-left:3px solid #A0525E}
 
 <!-- CO ZNAJDZIESZ -->
 <section class="max-w-3xl mx-auto px-4 py-14">
-  <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mb-6">Co dostajecie ode mnie</h2>
-  <p class="leading-relaxed text-ink/85 mb-6">Dokument, który wręczycie położnej przy przyjęciu. Napisany tak, żeby personel przeczytał go w minutę i wiedział, co jest dla Was ważne — bez tłumaczenia w trakcie skurczów.</p>
+  <h2 data-i18n="getH" class="font-display text-2xl md:text-3xl font-semibold text-deep mb-6">Co dostajecie ode mnie</h2>
+  <p data-i18n="getP" class="leading-relaxed text-ink/85 mb-6">Dokument, który wręczycie położnej przy przyjęciu. Napisany tak, żeby personel przeczytał go w minutę i wiedział, co jest dla Was ważne — bez tłumaczenia w trakcie skurczów.</p>
   <ul class="grid sm:grid-cols-2 gap-3 mb-8">
-    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span>Warunki porodu i osoby obecne</span></li>
-    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span>Łagodzenie bólu — kolejność metod</span></li>
-    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span>Scenariusz cięcia cesarskiego</span></li>
-    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span>Pierwsze godziny noworodka</span></li>
-    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span>Krew pępowinowa i profilaktyka</span></li>
-    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span>Połóg i wsparcie laktacyjne</span></li>
+    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span data-i18n="li1">Warunki porodu i osoby obecne</span></li>
+    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span data-i18n="li2">Łagodzenie bólu — kolejność metod</span></li>
+    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span data-i18n="li3">Scenariusz cięcia cesarskiego</span></li>
+    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span data-i18n="li4">Pierwsze godziny noworodka</span></li>
+    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span data-i18n="li5">Krew pępowinowa i profilaktyka</span></li>
+    <li class="flex gap-2.5 bg-white border border-sanddark rounded-xl px-4 py-3 text-[15px]"><span class="text-teal font-bold flex-shrink-0">✓</span><span data-i18n="li6">Połóg i wsparcie laktacyjne</span></li>
   </ul>
   <div class="bg-tealsoft rounded-2xl p-6">
-    <p class="font-semibold text-deep mb-2">Klauzula, której nie usunę z żadnego planu</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">W każdym dokumencie jest zapis, że <strong>zdrowie i życie dziecka oraz matki są nadrzędne wobec każdego punktu planu</strong>. Plan porodu to nie lista żądań. To sposób na to, żeby w spokojnych warunkach powiedzieć, co jest dla Was ważne — z pełną zgodą na wszystko, co okaże się konieczne.</p>
+    <p data-i18n="clauseT" class="font-semibold text-deep mb-2">Klauzula, której nie usunę z żadnego planu</p>
+    <p data-i18n="clauseP" class="text-[15px] leading-relaxed text-ink/85">W każdym dokumencie jest zapis, że <strong>zdrowie i życie dziecka oraz matki są nadrzędne wobec każdego punktu planu</strong>. Plan porodu to nie lista żądań. To sposób na to, żeby w spokojnych warunkach powiedzieć, co jest dla Was ważne — z pełną zgodą na wszystko, co okaże się konieczne.</p>
   </div>
 </section>
 
@@ -263,14 +260,14 @@ blockquote{border-left:3px solid #A0525E}
 <section class="bg-white border-t border-sanddark py-14">
   <div class="max-w-3xl mx-auto px-4">
     <div class="bg-deep text-sand rounded-3xl p-8 md:p-10">
-      <p class="text-tealsoft font-semibold text-xs uppercase tracking-[0.2em] mb-3">Zanim zaczną się skurcze</p>
-      <h2 class="font-display text-2xl md:text-3xl font-semibold text-white mb-4">Zróbcie to dziś wieczorem, spokojnie, przy herbacie</h2>
-      <p class="text-sand/85 leading-relaxed mb-6">Wypełnienie kreatora zajmuje kilkanaście minut. Postęp zapisuje się sam, więc możecie wrócić w każdej chwili. Podgląd jest darmowy — płacicie dopiero, gdy zdecydujecie się pobrać gotowy dokument.</p>
+      <p data-i18n="ctaKicker" class="text-tealsoft font-semibold text-xs uppercase tracking-[0.2em] mb-3">Zanim zaczną się skurcze</p>
+      <h2 data-i18n="ctaH" class="font-display text-2xl md:text-3xl font-semibold text-white mb-4">Zróbcie to dziś wieczorem, spokojnie, przy herbacie</h2>
+      <p data-i18n="ctaP" class="text-sand/85 leading-relaxed mb-6">Wypełnienie kreatora zajmuje kilkanaście minut. Postęp zapisuje się sam, więc możecie wrócić w każdej chwili. Podgląd jest darmowy — płacicie dopiero, gdy zdecydujecie się pobrać gotowy dokument.</p>
       <div class="flex flex-wrap gap-3 mb-6">
-        <a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
-        <a href="/wiedza" class="inline-block border border-white/25 text-sand font-semibold px-7 py-4 rounded-full hover:bg-white/10 transition-colors">Najpierw poczytaj</a>
+        <a href="/#kreator" data-i18n="ctaBtn1" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
+        <a href="/wiedza" data-i18n="ctaBtn2" class="inline-block border border-white/25 text-sand font-semibold px-7 py-4 rounded-full hover:bg-white/10 transition-colors">Najpierw poczytaj</a>
       </div>
-      <p class="text-sm text-sand/70 leading-relaxed">Trzymam kciuki za Wasz poród. Naprawdę.<br><span class="font-display text-tealsoft">— Michał, tata Wiktorii</span></p>
+      <p data-i18n="ctaFoot" class="text-sm text-sand/70 leading-relaxed">Trzymam kciuki za Wasz poród. Naprawdę.<br><span class="font-display text-tealsoft">— Michał, tata Wiktorii</span></p>
     </div>
   </div>
 </section>
@@ -278,11 +275,11 @@ blockquote{border-left:3px solid #A0525E}
 <!-- KONTAKT -->
 <section class="max-w-3xl mx-auto px-4 py-12">
   <div class="bg-sand border border-sanddark rounded-2xl p-6 text-center">
-    <p class="font-display text-lg font-semibold text-deep mb-2">Macie pytanie? Piszcie śmiało</p>
-    <p class="text-[15px] text-ink/80 mb-4">Odpisuję osobiście, zwykle tego samego dnia.</p>
+    <p data-i18n="contactT" class="font-display text-lg font-semibold text-deep mb-2">Macie pytanie? Piszcie śmiało</p>
+    <p data-i18n="contactP" class="text-[15px] text-ink/80 mb-4">Odpisuję osobiście, zwykle tego samego dnia.</p>
     <a href="#" class="inline-block bg-white border border-deep/20 font-semibold px-6 py-3 rounded-full hover:bg-tealsoft transition-colors pnm-email" data-u="kontakt" data-d="porodnamiare.pl" rel="nofollow"></a>
   </div>
-  <p class="text-xs text-ink/60 mt-8 leading-relaxed text-center">PoródNaMiarę.pl prowadzi osoba fizyczna. Produkty mają charakter organizacyjny i edukacyjny — nie stanowią porady medycznej i nie zastępują konsultacji z lekarzem lub położną. Treści opierają się na Standardzie Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525).</p>
+  <p data-i18n="disclaimer" class="text-xs text-ink/60 mt-8 leading-relaxed text-center">PoródNaMiarę.pl prowadzi osoba fizyczna. Produkty mają charakter organizacyjny i edukacyjny — nie stanowią porady medycznej i nie zastępują konsultacji z lekarzem lub położną. Treści opierają się na Standardzie Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525).</p>
 </section>
 
 </main>
@@ -291,5 +288,154 @@ blockquote{border-left:3px solid #A0525E}
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a> · <span class="pnm-email" data-u="kontakt" data-d="porodnamiare.pl"></span></p>
 </footer>
 <script src="js/email-protect.js" defer></script>
+<script>
+window.PAGE_I18N = {
+en: {
+  navCta: 'Create a plan',
+  kicker1: 'Dad, not a corporation',
+  h1: "I'm not a doctor.<br>I'm a dad who was afraid he'd miss something.",
+  heroP1: "My name is Michał. My daughter Wiktoria is due in September. This site exists because I was looking for a tool for her that didn't exist — so I ended up building it myself.",
+  heroP2: "This isn't a story about a company. It's a story about an evening when I realised that in a few weeks I'd be in a place where the calm of the two most important people in my life would depend on how prepared I was.",
+  photoCap: 'Michał — creator of PoródNaMiarę.pl',
+  audioT: 'Listen to me for a moment',
+  audioP: 'Two minutes on why this site exists and what I hope you take from it.',
+  audioFb: 'The recording will be available soon.',
+  histH: 'How it started',
+  histP1: 'When Anna told me we were expecting, I did what most guys do: I started reading. I wanted to be prepared. I wanted to know what would happen and how I could help her.',
+  histP2: 'I found hundreds of articles about what the mother feels. Breathing guides. Hospital-bag checklists. And <strong>almost nothing about what the other person in the room should actually do</strong> — beyond "be supportive" and "hold her hand".',
+  histP3: 'Then I found a free birth-plan template. An official form with empty boxes. I sat down to fill it in — and got stuck after fifteen minutes. How was I supposed to know if we wanted "oxytocin in the third stage"? How was I supposed to know what to even ask about?',
+  quote1: "That was the moment I understood: the problem isn't a lack of information. The problem is that no one turns it into decisions a parent can actually make.",
+  histP4: 'So I started from zero. I read the entire Organisational Perinatal Care Standard — including the amendment that took effect in May 2026. I talked to midwives. I read the recommendations on delayed cord clamping, skin-to-skin contact, remifentanil, cord blood.',
+  histP5: 'And I built a document for Anna and myself. Eleven pages. Reworked through five versions. With a section on what to do if the baby ends up in neonatal care. With a clause stating that if anything goes wrong — Wiktoria\'s wellbeing outranks every other point in our plan.',
+  histP6: "When I finished, I thought about all the other parents sitting in front of that same blank form right now. And about the fact that not everyone has three months to figure it out from scratch.",
+  whyH: 'Why I do this differently',
+  why1T: "I'm not a doctor — and I say so plainly",
+  why1P: 'A birth plan isn\'t a medical document. It\'s a record of your preferences, handed to staff. I don\'t make diagnoses and never will. What I do instead: <strong>I organise decisions</strong> so you don\'t have to make them mid-contraction. Every option in the creator is grounded in the current care standard.',
+  why2T: "Dad isn't an afterthought here",
+  why2P: 'In my creator, the partner has a concrete role: knowing what to ask, what to watch for, and what to do when mum can\'t speak for herself. This isn\'t just a nice gesture — <strong>the Perinatal Care Standard explicitly calls for the father\'s involvement</strong> in antenatal education, because it supports bonding and the mother\'s mental health.',
+  why3T: "I also write about uncomfortable things",
+  why3P: "About how cord-blood banking conflicts with delayed clamping. About how family-birth fees are sometimes unlawful. About how anaesthesia availability depends on whether the anaesthesiologist happens to be in surgery. <strong>I don't have a sponsor who'd mind.</strong>",
+  why4T: 'I answer personally',
+  why4P: "There's no customer-service department or ticketing system. There's one email address and one person answering it. If anything in your plan needs fixing — write to me. It matters to me that the document you bring to the hospital is truly yours.",
+  basisH: 'What I base this on',
+  basisP: 'Not intuition, not "how it\'s usually done". On documents you can check yourself.',
+  stat1: 'Perinatal Care Standard (Journal of Laws 2025 item 1525) in effect since 7 May',
+  stat2: 'creator steps covering the whole birth and first days',
+  stat3: 'ready-made preferences to select, each grounded in the standard',
+  stat4: 'free knowledge-base articles — no registration',
+  getH: 'What you get from me',
+  getP: "A document you'll hand to the midwife at admission. Written so staff can read it in a minute and know what matters to you — no explaining needed mid-contraction.",
+  li1: 'Birth conditions and who may be present', li2: 'Pain relief — order of methods', li3: 'C-section scenario',
+  li4: "Newborn's first hours", li5: 'Cord blood and prevention', li6: 'Postpartum and breastfeeding support',
+  clauseT: "The clause I won't remove from any plan",
+  clauseP: 'Every document states that <strong>the health and life of the baby and mother outrank every other point in the plan</strong>. A birth plan isn\'t a list of demands. It\'s a way to state, calmly and in advance, what matters to you — with full consent to whatever turns out to be necessary.',
+  ctaKicker: 'Before contractions start',
+  ctaH: 'Do this tonight, calmly, over a cup of tea',
+  ctaP: "Filling in the creator takes about fifteen minutes. Your progress saves itself, so you can come back anytime. The preview is free — you only pay if you decide to download the finished document.",
+  ctaBtn1: 'Create your birth plan →', ctaBtn2: 'Read first',
+  ctaFoot: "I'm rooting for your birth. Really.<br><span class=\"font-display text-tealsoft\">— Michał, Wiktoria's dad</span>",
+  contactT: 'Got a question? Just ask',
+  contactP: 'I answer personally, usually the same day.',
+  disclaimer: 'PoródNaMiarę.pl is run by a private individual. Products are organisational and educational in nature — they do not constitute medical advice and do not replace consultation with a doctor or midwife. Content is based on the Organisational Perinatal Care Standard (Journal of Laws 2025 item 1525).'
+},
+de: {
+  navCta: 'Plan erstellen',
+  kicker1: 'Vater, kein Unternehmen',
+  h1: 'Ich bin kein Arzt.<br>Ich bin ein Vater, der Angst hatte, etwas zu übersehen.',
+  heroP1: 'Ich heiße Michał. Im September kommt meine Tochter Wiktoria zur Welt. Diese Seite entstand, weil ich für sie ein Werkzeug suchte, das es nicht gab — also habe ich es selbst gebaut.',
+  heroP2: 'Das ist keine Firmengeschichte. Es ist die Geschichte eines Abends, an dem mir klar wurde, dass in wenigen Wochen die Ruhe der zwei wichtigsten Menschen in meinem Leben von meiner Vorbereitung abhängen würde.',
+  photoCap: 'Michał — Gründer von PoródNaMiarę.pl',
+  audioT: 'Hören Sie mir kurz zu',
+  audioP: 'Zwei Minuten darüber, warum diese Seite entstanden ist und was Sie daraus mitnehmen sollen.',
+  audioFb: 'Die Aufnahme ist bald verfügbar.',
+  histH: 'Wie alles begann',
+  histP1: 'Als Anna mir sagte, dass wir schwanger sind, tat ich, was die meisten Männer tun: Ich fing an zu lesen. Ich wollte vorbereitet sein. Ich wollte wissen, was passieren würde und wie ich helfen könnte.',
+  histP2: 'Ich fand hunderte Artikel darüber, was die Frau fühlt. Atemratgeber. Kliniktaschen-Listen. Und <strong>fast nichts darüber, was die zweite Person im Kreißsaal eigentlich tun soll</strong> — außer „unterstützend sein" und „die Hand halten".',
+  histP3: 'Dann fand ich eine kostenlose Geburtsplan-Vorlage. Ein Formular mit leeren Feldern. Ich setzte mich hin, um es auszufüllen — und blieb nach fünfzehn Minuten stecken. Woher sollte ich wissen, ob wir „Oxytocin in der Nachgeburtsperiode" wollten? Woher sollte ich überhaupt wissen, was zu fragen ist?',
+  quote1: 'In diesem Moment wurde mir klar: Das Problem ist nicht der Mangel an Information. Das Problem ist, dass niemand sie in Entscheidungen übersetzt, die Eltern tatsächlich treffen können.',
+  histP4: 'Also fing ich bei null an. Ich las den gesamten Organisationsstandard für perinatale Versorgung — vollständig, inklusive der Novelle, die im Mai 2026 in Kraft trat. Ich sprach mit Hebammen. Ich las Empfehlungen zum verzögerten Abnabeln, zum Haut-zu-Haut-Kontakt, zu Remifentanil, zu Nabelschnurblut.',
+  histP5: 'Und ich erstellte ein Dokument für Anna und mich. Elf Seiten. Fünf Versionen lang überarbeitet. Mit einem Abschnitt darüber, was zu tun ist, wenn das Kind auf die Neonatologie kommt. Mit dem Vermerk, dass — falls etwas schiefgeht — Wiktorias Wohl wichtiger ist als jeder Punkt unseres Plans.',
+  histP6: 'Als ich fertig war, dachte ich an all die anderen Eltern, die gerade vor demselben leeren Formular sitzen. Und daran, dass nicht jeder drei Monate Zeit hat, das von Grund auf zu durchdringen.',
+  whyH: 'Warum ich es anders mache',
+  why1T: 'Ich bin kein Arzt — und sage das offen',
+  why1P: 'Ein Geburtsplan ist kein medizinisches Dokument. Er ist eine Aufzeichnung Ihrer Präferenzen, die dem Personal übergeben wird. Ich stelle keine Diagnosen und werde es nie tun. Was ich stattdessen tue: <strong>Ich ordne Entscheidungen</strong>, damit Sie sie nicht mitten in den Wehen treffen müssen. Jede Option im Ersteller stützt sich auf den geltenden Versorgungsstandard.',
+  why2T: 'Der Vater ist hier kein Anhängsel',
+  why2P: 'In meinem Ersteller hat der Partner eine konkrete Rolle: zu wissen, was zu fragen ist, worauf zu achten ist und was zu tun ist, wenn die Mutter nicht für sich selbst sprechen kann. Das ist keine nette Geste — <strong>der Standard für perinatale Versorgung sieht die Beteiligung des Vaters</strong> an der Geburtsvorbereitung ausdrücklich vor, weil sie die Bindung fördert und die psychische Gesundheit der Mutter unterstützt.',
+  why3T: 'Ich schreibe auch über unbequeme Dinge',
+  why3P: 'Darüber, dass Nabelschnurblut-Banking im Konflikt mit verzögertem Abnabeln steht. Darüber, dass Gebühren für die Familiengeburt manchmal rechtswidrig sind. Darüber, dass die Verfügbarkeit einer Betäubung davon abhängt, ob der Anästhesist gerade im OP ist. <strong>Ich habe keinen Sponsor, den das stören könnte.</strong>',
+  why4T: 'Ich antworte persönlich',
+  why4P: 'Es gibt keine Kundenservice-Abteilung und kein Ticketsystem. Es gibt eine E-Mail-Adresse und eine Person, die antwortet. Wenn an Ihrem Plan etwas korrigiert werden muss — schreiben Sie mir. Mir ist wichtig, dass das Dokument, das Sie mit in die Klinik nehmen, wirklich Ihres ist.',
+  basisH: 'Worauf ich mich stütze',
+  basisP: 'Nicht auf Intuition und nicht auf „was man üblicherweise macht". Auf Dokumente, die man selbst prüfen kann.',
+  stat1: 'Standard für perinatale Versorgung (Gesetzblatt 2025 Pos. 1525), gültig seit 7. Mai',
+  stat2: 'Schritte des Erstellers, die die gesamte Geburt und die ersten Tage abdecken',
+  stat3: 'fertige Präferenzen zur Auswahl, jede mit Bezug zum Standard',
+  stat4: 'kostenlose Artikel in der Wissensdatenbank — ohne Registrierung',
+  getH: 'Was Sie von mir bekommen',
+  getP: 'Ein Dokument, das Sie der Hebamme bei der Aufnahme übergeben. So geschrieben, dass das Personal es in einer Minute liest und weiß, was Ihnen wichtig ist — ohne Erklärungen während der Wehen.',
+  li1: 'Geburtsbedingungen und anwesende Personen', li2: 'Schmerzlinderung — Reihenfolge der Methoden', li3: 'Kaiserschnitt-Szenario',
+  li4: 'Erste Stunden des Neugeborenen', li5: 'Nabelschnurblut und Prävention', li6: 'Wochenbett und Stillunterstützung',
+  clauseT: 'Die Klausel, die ich aus keinem Plan entferne',
+  clauseP: 'In jedem Dokument steht, dass <strong>Gesundheit und Leben des Kindes und der Mutter über jedem Punkt des Plans stehen</strong>. Ein Geburtsplan ist keine Forderungsliste. Er ist eine Möglichkeit, in Ruhe zu sagen, was Ihnen wichtig ist — bei voller Zustimmung zu allem, was sich als notwendig erweist.',
+  ctaKicker: 'Bevor die Wehen einsetzen',
+  ctaH: 'Machen Sie das heute Abend, in Ruhe, bei einer Tasse Tee',
+  ctaP: 'Das Ausfüllen des Erstellers dauert etwa fünfzehn Minuten. Ihr Fortschritt wird automatisch gespeichert, Sie können jederzeit zurückkehren. Die Vorschau ist kostenlos — Sie zahlen erst, wenn Sie sich entscheiden, das fertige Dokument herunterzuladen.',
+  ctaBtn1: 'Erstellen Sie Ihren Geburtsplan →', ctaBtn2: 'Erst lesen',
+  ctaFoot: 'Ich drücke die Daumen für Ihre Geburt. Wirklich.<br><span class="font-display text-tealsoft">— Michał, Wiktorias Vater</span>',
+  contactT: 'Haben Sie eine Frage? Schreiben Sie einfach',
+  contactP: 'Ich antworte persönlich, meist noch am selben Tag.',
+  disclaimer: 'PoródNaMiarę.pl wird von einer Privatperson betrieben. Die Produkte sind organisatorischer und edukativer Natur — sie stellen keine medizinische Beratung dar und ersetzen keine Konsultation mit Arzt oder Hebamme. Die Inhalte basieren auf dem Organisationsstandard für perinatale Versorgung (Gesetzblatt 2025 Pos. 1525).'
+},
+uk: {
+  navCta: 'Створити план',
+  kicker1: 'Тато, не корпорація',
+  h1: 'Я не лікар.<br>Я тато, який боявся щось упустити.',
+  heroP1: 'Мене звати Міхал. У вересні народиться моя донька Вікторія. Цей сайт з\'явився тому, що я шукав для неї інструмент, якого не існувало — тож зрештою створив його сам.',
+  heroP2: 'Це не історія про компанію. Це історія про вечір, коли я зрозумів, що за кілька тижнів опинюся в місці, де спокій двох найважливіших для мене людей залежатиме від моєї підготовки.',
+  photoCap: 'Міхал — засновник PoródNaMiarę.pl',
+  audioT: 'Послухайте мене хвилинку',
+  audioP: 'Дві хвилини про те, чому виник цей сайт і що я хотів би, щоб ви з нього винесли.',
+  audioFb: 'Запис буде доступний незабаром.',
+  histH: 'Як все почалося',
+  histP1: 'Коли Анна сказала мені, що ми чекаємо дитину, я зробив те, що робить більшість чоловіків: почав читати. Хотів бути готовим. Хотів знати, що відбуватиметься і чим я можу допомогти.',
+  histP2: 'Я знайшов сотні статей про те, що відчуває жінка. Посібники з дихання. Списки речей у сумку. І <strong>майже нічого про те, що робити другій людині в пологовій залі</strong> — окрім «бути підтримкою» і «тримати за руку».',
+  histP3: 'Потім я знайшов безкоштовний шаблон плану пологів. Офіційна форма з порожніми полями. Сів заповнювати — і застряг за п\'ятнадцять хвилин. Звідки мені знати, чи хочемо ми «окситоцин у третьому періоді»? Звідки мені взагалі знати, про що питати?',
+  quote1: 'Це була мить, коли я зрозумів: проблема не в нестачі інформації. Проблема в тому, що ніхто не перетворює її на рішення, які батьки справді можуть ухвалити.',
+  histP4: 'Тож я почав з нуля. Прочитав увесь Організаційний стандарт перинатальної допомоги — повністю, разом із поправкою, що набула чинності у травні 2026 року. Розмовляв з акушерками. Читав рекомендації щодо відстроченого перетискання пуповини, контакту шкіра до шкіри, ремифентанілу, пуповинної крові.',
+  histP5: 'І я створив документ для себе й Анни. Одинадцять сторінок. Опрацьований у п\'яти версіях. З розділом про те, що робити, якщо дитина потрапить до неонатології. Із записом, що якщо щось піде не так — благополуччя Вікторії важливіше за будь-який пункт нашого плану.',
+  histP6: 'Коли закінчив, подумав про всіх інших батьків, які зараз сидять над тією самою порожньою формою. І про те, що не кожен має три місяці, щоб розібратися в цьому з нуля.',
+  whyH: 'Чому я роблю це інакше',
+  why1T: 'Я не лікар — і кажу про це прямо',
+  why1P: 'План пологів — не медичний документ. Це запис ваших побажань, який передається персоналу. Я не ставлю діагнози і ніколи не робитиму цього. Натомість я роблю інше: <strong>впорядковую рішення</strong>, щоб вам не довелося ухвалювати їх під час перейм. Кожна опція в конструкторі має підставу в чинному стандарті допомоги.',
+  why2T: 'Тато тут не додаток',
+  why2P: 'У моєму конструкторі партнер має конкретну роль: знає, про що питати, за чим стежити і що робити, коли мама не може говорити за себе. Це не просто гарний жест — <strong>Стандарт перинатальної допомоги прямо передбачає участь батька</strong> в допологовій освіті, бо це сприяє зв\'язку і підтримує психічне здоров\'я жінки.',
+  why3T: 'Я також пишу про незручні речі',
+  why3P: 'Про те, що банкування пуповинної крові конфліктує з відстроченим перетисканням пуповини. Про те, що плата за пологи в присутності родини буває незаконною. Про те, що доступність знеболення залежить від того, чи анестезіолог саме не в операційній. <strong>У мене немає спонсора, якому б це заважало.</strong>',
+  why4T: 'Відповідаю особисто',
+  why4P: 'Тут немає відділу обслуговування клієнтів чи системи заявок. Є одна електронна адреса й одна людина, яка на неї відповідає. Якщо у вашому плані щось потрібно виправити — пишіть. Для мене важливо, щоб документ, який ви візьмете до лікарні, був справді вашим.',
+  basisH: 'На чому я це базую',
+  basisP: 'Не на інтуїції і не на тому, «як зазвичай роблять». На документах, які можна перевірити самостійно.',
+  stat1: 'Стандарт перинатальної допомоги (Вісник законів 2025, поз. 1525), чинний з 7 травня',
+  stat2: 'кроків конструктора, що охоплюють усі пологи й перші доби',
+  stat3: 'готових побажань для вибору, кожне з підставою у стандарті',
+  stat4: 'безкоштовних статей у базі знань — без реєстрації',
+  getH: 'Що ви отримуєте від мене',
+  getP: 'Документ, який ви вручите акушерці при госпіталізації. Написаний так, щоб персонал прочитав його за хвилину й знав, що для вас важливо — без пояснень під час перейм.',
+  li1: 'Умови пологів і присутні особи', li2: 'Знеболення — порядок методів', li3: 'Сценарій кесаревого розтину',
+  li4: 'Перші години новонародженого', li5: 'Пуповинна кров і профілактика', li6: 'Післяпологовий період і підтримка лактації',
+  clauseT: 'Пункт, який я не прибираю з жодного плану',
+  clauseP: 'У кожному документі є запис, що <strong>здоров\'я і життя дитини та матері важливіші за будь-який пункт плану</strong>. План пологів — це не список вимог. Це спосіб спокійно сказати, що для вас важливо — з повною згодою на все, що виявиться необхідним.',
+  ctaKicker: 'Перш ніж почнуться перейми',
+  ctaH: 'Зробіть це сьогодні ввечері, спокійно, за чаєм',
+  ctaP: 'Заповнення конструктора займає близько п\'ятнадцяти хвилин. Прогрес зберігається автоматично, тож можете повернутися будь-коли. Перегляд безкоштовний — платите лише коли вирішите завантажити готовий документ.',
+  ctaBtn1: 'Створіть свій план пологів →', ctaBtn2: 'Спершу почитати',
+  ctaFoot: 'Тримаю кулаки за ваші пологи. Справді.<br><span class="font-display text-tealsoft">— Міхал, тато Вікторії</span>',
+  contactT: 'Є запитання? Пишіть сміливо',
+  contactP: 'Відповідаю особисто, зазвичай того самого дня.',
+  disclaimer: 'PoródNaMiarę.pl веде фізична особа. Продукти мають організаційний та освітній характер — не є медичною порадою і не замінюють консультації лікаря чи акушерки. Зміст базується на Організаційному стандарті перинатальної допомоги (Вісник законів 2025, поз. 1525).'
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>

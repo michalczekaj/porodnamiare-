@@ -78,22 +78,24 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2{font-
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#kreator" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Stwórz plan</a>
+<div class="flex items-center gap-3">
+<select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select>
+<a href="/#kreator" data-i18n="navCta" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Stwórz plan</a>
+</div>
 </nav></header>
 <main class="max-w-3xl mx-auto px-4 py-12 leading-relaxed">
-<p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Wiedza · 7 lipca 2026</p>
-<p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Aktualizacja: lipiec 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep mb-2">Bezpieczeństwo noworodka podczas porodu — co naprawdę ma znaczenie w pierwszych godzinach</h1>
-<p class="text-sm text-ink/60 mb-8">Autor: Michał — tata i twórca PoródNaMiarę.pl · Treść edukacyjna, nie zastępuje konsultacji z lekarzem lub położną</p>
-<p class="mb-4 text-[16px]">Poród to nie tylko wysiłek mamy — to także pierwsze, najważniejsze godziny życia Waszego dziecka. Kiedy przygotowywałem plan porodu dla naszej córki, odkryłem, że kilka prostych, dobrze udokumentowanych praktyk ma realny wpływ na zdrowy start. Oto one — wraz z tym, jak zapisać je w planie porodu.</p><h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-4">1. Nieprzerwany kontakt skóra do skóry — minimum 2 godziny</h2><p class="mb-4 text-[16px]">Położenie osuszonego noworodka bezpośrednio na klatce piersiowej mamy stabilizuje jego temperaturę, oddech i poziom cukru, a jednocześnie uruchamia laktację. Polski Standard Organizacyjny Opieki Okołoporodowej gwarantuje nieprzerwany kontakt przez co najmniej 2 godziny — także po cięciu cesarskim, a gdy mama nie może, kontakt może przejąć tata. W planie porodu warto zapisać: ocena Apgar i wstępne badania w trakcie kontaktu, ważenie i mierzenie dopiero po jego zakończeniu.</p><h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-4">2. Opóźnione odpępnienie</h2><p class="mb-4 text-[16px]">Odczekanie z przecięciem pępowiny co najmniej 60 sekund — a najlepiej do ustania tętnienia — pozwala dziecku otrzymać dodatkową krew z łożyska, co zwiększa zapasy żelaza na pierwsze miesiące życia. To prośba, którą personel zrealizuje niemal zawsze, jeśli tylko znajdzie się w dokumencie. Ważne: dobry plan zawsze dodaje klauzulę, że przy konieczności natychmiastowej pomocy dziecku akceptujecie wcześniejsze odpępnienie.</p><h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-4">3. Witamina K — profilaktyka, z której nie warto rezygnować</h2><p class="mb-4 text-[16px]">Podanie witaminy K zapobiega krwawieniu z jej niedoboru (VKDB), w tym groźnej postaci późnej z ryzykiem krwawienia śródczaszkowego. Złotym standardem jest jednorazowe podanie domięśniowe; alternatywa doustna wymaga schematu kilku dawek i jest mniej skuteczna wobec postaci późnej. W planie warto zaznaczyć preferowaną drogę podania i prośbę o wykonanie zabiegu w obecności rodzica.</p><h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-4">4. Badania przesiewowe — cichy ratunek</h2><p class="mb-4 text-[16px]">Test z piętki (badania metaboliczne), pulsoksymetria przesiewowa (wykrywa krytyczne wady serca) i badanie słuchu to trzy nieinwazyjne badania, które wychwytują choroby zanim dadzą objawy. Nasza rekomendacja w każdym planie: pełna zgoda na wszystkie badania przesiewowe, z prośbą o wykonanie ich w obecności rodzica.</p><h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-4">5. Obecność rodzica przy każdej procedurze</h2><p class="mb-4 text-[16px]">Najprostszy i najczęściej pomijany zapis: „prosimy, aby wszystkie badania i czynności pielęgnacyjne przy dziecku odbywały się w obecności mamy lub taty, poza sytuacjami nagłymi”. Ten jeden punkt daje Wam spokój i pełną wiedzę o tym, co dzieje się z dzieckiem.</p>
+<p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Wiedza · Aktualizacja: 7 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-2">Bezpieczeństwo noworodka podczas porodu — co naprawdę ma znaczenie w pierwszych godzinach</h1>
+<p data-i18n="authorLine" class="text-sm text-ink/60 mb-8">Autor: Michał — tata i twórca PoródNaMiarę.pl · Treść edukacyjna, nie zastępuje konsultacji z lekarzem lub położną</p>
+<p data-i18n="intro" class="mb-4 text-[16px]">Poród to nie tylko wysiłek mamy — to także pierwsze, najważniejsze godziny życia Waszego dziecka. Kiedy przygotowywałem plan porodu dla naszej córki, odkryłem, że kilka prostych, dobrze udokumentowanych praktyk ma realny wpływ na zdrowy start. Oto one — wraz z tym, jak zapisać je w planie porodu.</p><h2 data-i18n="h2_1" class="font-display text-2xl font-semibold text-deep mt-10 mb-4">1. Nieprzerwany kontakt skóra do skóry — minimum 2 godziny</h2><p data-i18n="p1" class="mb-4 text-[16px]">Położenie osuszonego noworodka bezpośrednio na klatce piersiowej mamy stabilizuje jego temperaturę, oddech i poziom cukru, a jednocześnie uruchamia laktację. Polski Standard Organizacyjny Opieki Okołoporodowej gwarantuje nieprzerwany kontakt przez co najmniej 2 godziny — także po cięciu cesarskim, a gdy mama nie może, kontakt może przejąć tata. W planie porodu warto zapisać: ocena Apgar i wstępne badania w trakcie kontaktu, ważenie i mierzenie dopiero po jego zakończeniu.</p><h2 data-i18n="h2_2" class="font-display text-2xl font-semibold text-deep mt-10 mb-4">2. Opóźnione odpępnienie</h2><p data-i18n="p2" class="mb-4 text-[16px]">Odczekanie z przecięciem pępowiny co najmniej 60 sekund — a najlepiej do ustania tętnienia — pozwala dziecku otrzymać dodatkową krew z łożyska, co zwiększa zapasy żelaza na pierwsze miesiące życia. To prośba, którą personel zrealizuje niemal zawsze, jeśli tylko znajdzie się w dokumencie. Ważne: dobry plan zawsze dodaje klauzulę, że przy konieczności natychmiastowej pomocy dziecku akceptujecie wcześniejsze odpępnienie.</p><h2 data-i18n="h2_3" class="font-display text-2xl font-semibold text-deep mt-10 mb-4">3. Witamina K — profilaktyka, z której nie warto rezygnować</h2><p data-i18n="p3" class="mb-4 text-[16px]">Podanie witaminy K zapobiega krwawieniu z jej niedoboru (VKDB), w tym groźnej postaci późnej z ryzykiem krwawienia śródczaszkowego. Złotym standardem jest jednorazowe podanie domięśniowe; alternatywa doustna wymaga schematu kilku dawek i jest mniej skuteczna wobec postaci późnej. W planie warto zaznaczyć preferowaną drogę podania i prośbę o wykonanie zabiegu w obecności rodzica.</p><h2 data-i18n="h2_4" class="font-display text-2xl font-semibold text-deep mt-10 mb-4">4. Badania przesiewowe — cichy ratunek</h2><p data-i18n="p4" class="mb-4 text-[16px]">Test z piętki (badania metaboliczne), pulsoksymetria przesiewowa (wykrywa krytyczne wady serca) i badanie słuchu to trzy nieinwazyjne badania, które wychwytują choroby zanim dadzą objawy. Nasza rekomendacja w każdym planie: pełna zgoda na wszystkie badania przesiewowe, z prośbą o wykonanie ich w obecności rodzica.</p><h2 data-i18n="h2_5" class="font-display text-2xl font-semibold text-deep mt-10 mb-4">5. Obecność rodzica przy każdej procedurze</h2><p data-i18n="p5" class="mb-4 text-[16px]">Najprostszy i najczęściej pomijany zapis: „prosimy, aby wszystkie badania i czynności pielęgnacyjne przy dziecku odbywały się w obecności mamy lub taty, poza sytuacjami nagłymi”. Ten jeden punkt daje Wam spokój i pełną wiedzę o tym, co dzieje się z dzieckiem.</p>
 <div class="mt-12 bg-tealsoft rounded-2xl p-7 text-center">
-<p class="font-display text-xl font-semibold text-deep mb-3">Zamień wiedzę w gotowy dokument</p>
-<p class="mb-5 text-[15px]">Bezpłatny kreator planu porodu — 8 sekcji, podgląd od razu, PDF gotowy do szpitala.</p>
-<a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep">Stwórz swój plan porodu</a>
+<p data-i18n="ctaT" class="font-display text-xl font-semibold text-deep mb-3">Zamień wiedzę w gotowy dokument</p>
+<p data-i18n="ctaP" class="mb-5 text-[15px]">Bezpłatny kreator planu porodu — 8 sekcji, podgląd od razu, PDF gotowy do szpitala.</p>
+<a href="/#kreator" data-i18n="ctaBtn" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep">Stwórz swój plan porodu</a>
 </div>
 
   <div class="mt-10 pt-6 border-t border-sanddark">
-    <p class="font-semibold text-deep mb-3">Powiązane artykuły</p>
+    <p data-i18n="relatedT" class="font-semibold text-deep mb-3">Powiązane artykuły</p>
     <div class="grid sm:grid-cols-2 gap-4">
       <a href="/blog/pierwsze-24-godziny-zycia-noworodka" class="group bg-white border border-sanddark rounded-2xl p-5 hover:border-teal/50 transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-1.5">Noworodek</p>
@@ -108,4 +110,72 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2{font-
 
   </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm mt-8"><p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p></footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: 'Create a plan',
+eyebrow: 'Knowledge · Updated: 7 July 2026',
+h1: 'Newborn safety during birth — what actually matters in the first hours',
+authorLine: "Author: Michał — dad and creator of PoródNaMiarę.pl · Educational content, doesn't replace consultation with a doctor or midwife",
+intro: "Birth isn't just the mother's effort — it's also the first, most important hours of your baby's life. While preparing a birth plan for our daughter, I discovered that a handful of simple, well-documented practices have a real impact on a healthy start. Here they are — along with how to record them in your birth plan.",
+h2_1: '1. Uninterrupted skin-to-skin contact — at least 2 hours',
+p1: "Placing a dried newborn directly on the mother's chest stabilises their temperature, breathing and blood sugar, while triggering lactation. The Polish Organisational Perinatal Care Standard guarantees uninterrupted contact for at least 2 hours — even after a caesarean, and if the mother can't, the father can take over. Worth recording in your plan: Apgar scoring and initial checks happen during contact, weighing and measuring only afterward.",
+h2_2: '2. Delayed cord clamping',
+p2: "Waiting at least 60 seconds before cutting the cord — ideally until pulsation stops — lets the baby receive extra blood from the placenta, boosting iron stores for the first months of life. Staff will honour this request almost always if it's in the document. Important: a good plan always adds a clause accepting earlier clamping if the baby needs immediate help.",
+h2_3: '3. Vitamin K — prevention not worth skipping',
+p3: 'Vitamin K prevents vitamin K deficiency bleeding (VKDB), including the dangerous late form with risk of intracranial bleeding. The gold standard is a single intramuscular dose; the oral alternative requires a multi-dose schedule and is less effective against the late form. Worth noting your preferred route and requesting the procedure happen with a parent present.',
+h2_4: '4. Screening tests — the quiet lifesaver',
+p4: 'The heel-prick test (metabolic screening), pulse oximetry screening (detects critical heart defects) and hearing test are three non-invasive tests that catch conditions before symptoms appear. Our recommendation for every plan: full consent to all screening tests, with a request to perform them with a parent present.',
+h2_5: '5. A parent present for every procedure',
+p5: 'The simplest, most often overlooked note: "please ensure all examinations and care procedures on the baby happen with mum or dad present, except in emergencies." This one point gives you peace of mind and full awareness of what\'s happening with your baby.',
+ctaT: 'Turn knowledge into a ready document',
+ctaP: 'Free birth-plan creator — 8 sections, instant preview, hospital-ready PDF.',
+ctaBtn: 'Create your birth plan',
+relatedT: 'Related articles'
+},
+de: {
+navCta: 'Plan erstellen',
+eyebrow: 'Wissen · Aktualisiert: 7. Juli 2026',
+h1: 'Sicherheit des Neugeborenen während der Geburt — was in den ersten Stunden wirklich zählt',
+authorLine: 'Autor: Michał — Vater und Gründer von PoródNaMiarę.pl · Bildungsinhalt, ersetzt keine Beratung durch Arzt oder Hebamme',
+intro: 'Die Geburt ist nicht nur die Anstrengung der Mutter — es sind auch die ersten, wichtigsten Stunden im Leben Ihres Kindes. Bei der Vorbereitung des Geburtsplans für unsere Tochter entdeckte ich, dass einige einfache, gut dokumentierte Praktiken einen echten Einfluss auf einen gesunden Start haben. Hier sind sie — mit Hinweisen, wie man sie im Geburtsplan festhält.',
+h2_1: '1. Ununterbrochener Haut-zu-Haut-Kontakt — mindestens 2 Stunden',
+p1: 'Das Legen des abgetrockneten Neugeborenen direkt auf die Brust der Mutter stabilisiert Temperatur, Atmung und Blutzucker und regt gleichzeitig die Milchbildung an. Der polnische Organisationsstandard für perinatale Versorgung garantiert ununterbrochenen Kontakt für mindestens 2 Stunden — auch nach einem Kaiserschnitt, und wenn die Mutter nicht kann, kann der Vater übernehmen. Im Geburtsplan festzuhalten: Apgar-Bewertung und erste Untersuchungen während des Kontakts, Wiegen und Messen erst danach.',
+h2_2: '2. Verzögertes Abnabeln',
+p2: 'Mindestens 60 Sekunden mit dem Durchtrennen der Nabelschnur zu warten — idealerweise bis das Pulsieren aufhört — lässt das Baby zusätzliches Blut aus der Plazenta erhalten, was die Eisenreserven für die ersten Lebensmonate erhöht. Diese Bitte wird das Personal fast immer erfüllen, wenn sie im Dokument steht. Wichtig: Ein guter Plan fügt immer eine Klausel hinzu, dass bei Notwendigkeit sofortiger Hilfe für das Baby ein früheres Abnabeln akzeptiert wird.',
+h2_3: '3. Vitamin K — Prophylaxe, auf die man nicht verzichten sollte',
+p3: 'Die Gabe von Vitamin K verhindert Blutungen durch Vitamin-K-Mangel (VKDB), einschließlich der gefährlichen Spätform mit Risiko intrakranieller Blutungen. Goldstandard ist eine einmalige intramuskuläre Gabe; die orale Alternative erfordert ein Mehrfachdosis-Schema und ist gegen die Spätform weniger wirksam. Im Plan sollte der bevorzugte Verabreichungsweg vermerkt und die Durchführung in Anwesenheit eines Elternteils gewünscht werden.',
+h2_4: '4. Screening-Untersuchungen — die stille Rettung',
+p4: 'Der Fersenbluttest (Stoffwechsel-Screening), die Puls­oxymetrie-Vorsorge (erkennt kritische Herzfehler) und der Hörtest sind drei nicht-invasive Untersuchungen, die Erkrankungen erfassen, bevor Symptome auftreten. Unsere Empfehlung für jeden Plan: volle Zustimmung zu allen Screening-Untersuchungen, mit der Bitte, sie in Anwesenheit eines Elternteils durchzuführen.',
+h2_5: '5. Anwesenheit eines Elternteils bei jeder Maßnahme',
+p5: 'Der einfachste und am häufigsten übersehene Vermerk: „Bitte alle Untersuchungen und Pflegemaßnahmen am Baby in Anwesenheit von Mama oder Papa durchführen, außer in Notfällen." Dieser eine Punkt gibt Ihnen Ruhe und volle Kenntnis darüber, was mit Ihrem Baby geschieht.',
+ctaT: 'Verwandeln Sie Wissen in ein fertiges Dokument',
+ctaP: 'Kostenloser Geburtsplan-Ersteller — 8 Abschnitte, sofortige Vorschau, klinikfertiges PDF.',
+ctaBtn: 'Erstellen Sie Ihren Geburtsplan',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: 'Створити план',
+eyebrow: 'Знання · Оновлено: 7 липня 2026',
+h1: 'Безпека новонародженого під час пологів — що справді має значення в перші години',
+authorLine: 'Автор: Міхал — тато і засновник PoródNaMiarę.pl · Освітній контент, не замінює консультації лікаря чи акушерки',
+intro: 'Пологи — це не лише зусилля мами, а й перші, найважливіші години життя вашої дитини. Готуючи план пологів для нашої доньки, я виявив, що кілька простих, добре задокументованих практик мають реальний вплив на здоровий старт. Ось вони — разом з тим, як записати їх у плані пологів.',
+h2_1: '1. Безперервний контакт шкіра до шкіри — щонайменше 2 години',
+p1: 'Викладання обсушеної дитини безпосередньо на груди мами стабілізує її температуру, дихання і рівень цукру, а водночас запускає лактацію. Польський Організаційний стандарт перинатальної допомоги гарантує безперервний контакт щонайменше 2 години — навіть після кесаревого розтину, а якщо мама не може, контакт може взяти на себе тато. У плані пологів варто записати: оцінка за шкалою Апгар і початкові огляди під час контакту, зважування і вимірювання лише після його завершення.',
+h2_2: '2. Відстрочене перетискання пуповини',
+p2: 'Очікування щонайменше 60 секунд перед перетисканням пуповини — а найкраще до припинення пульсації — дозволяє дитині отримати додаткову кров з плаценти, що збільшує запаси заліза на перші місяці життя. Це прохання персонал виконає майже завжди, якщо воно є в документі. Важливо: добрий план завжди додає застереження, що в разі потреби негайної допомоги дитині ви погоджуєтесь на раніше перетискання.',
+h2_3: '3. Вітамін K — профілактика, від якої не варто відмовлятися',
+p3: 'Введення вітаміну K запобігає кровотечі через його дефіцит (VKDB), включно з небезпечною пізньою формою з ризиком внутрішньочерепного крововиливу. Золотий стандарт — одноразове внутрішньом\'язове введення; пероральна альтернатива вимагає схеми з кількох доз і менш ефективна проти пізньої форми. У плані варто зазначити бажаний шлях введення і прохання виконати процедуру в присутності батьків.',
+h2_4: '4. Скринінгові дослідження — тиха рятівниця',
+p4: 'Тест п\'яткової крові (метаболічний скринінг), скринінгова пульсоксиметрія (виявляє критичні вади серця) і тест слуху — три неінвазивні дослідження, які виявляють захворювання до появи симптомів. Наша рекомендація для кожного плану: повна згода на всі скринінгові дослідження з проханням виконати їх у присутності батьків.',
+h2_5: '5. Присутність батьків при кожній процедурі',
+p5: 'Найпростіший і найчастіше пропущений запис: «просимо, щоб усі обстеження і процедури догляду за дитиною відбувалися в присутності мами або тата, окрім невідкладних ситуацій». Цей один пункт дає вам спокій і повне знання того, що відбувається з вашою дитиною.',
+ctaT: 'Перетворіть знання на готовий документ',
+ctaP: 'Безкоштовний конструктор плану пологів — 8 розділів, миттєвий перегляд, PDF, готовий для лікарні.',
+ctaBtn: 'Створіть свій план пологів',
+relatedT: 'Пов\'язані статті'
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body></html>
