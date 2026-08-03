@@ -86,31 +86,33 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#kreator" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Stwórz plan</a>
+<div class="flex items-center gap-3">
+<select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select>
+<a href="/#kreator" data-i18n="navCta" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Stwórz plan</a>
+</div>
 </nav></header>
 
 <main class="max-w-3xl mx-auto px-4 py-10">
   <nav class="text-xs text-ink/50 mb-6"><a href="/" class="hover:text-teal">Start</a> › <a href="/#blog" class="hover:text-teal">Wiedza</a> › Plan porodu a cięcie cesarskie</nav>
 
   <article class="prose max-w-none">
-    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Przewodnik · Cięcie cesarskie</p>
-    <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Aktualizacja: 12 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Plan porodu a cięcie cesarskie — kompletny przewodnik</h1>
-    <p class="text-sm text-ink/50 mb-1">Autor: <a href="/o-michale" class="text-teal underline">Michał</a>, tata i twórca PoródNaMiarę.pl · Zaktualizowano: 12 lipca 2026</p>
-    <p class="text-lg leading-relaxed text-ink/80 mb-6 mt-4">Najczęstszy mit, jaki słyszę od rodziców: „skoro mam mieć cesarkę, to plan porodu jest mi niepotrzebny". To nieprawda — i to jeden z powodów, dla których napisałem ten tekst.</p>
+    <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Przewodnik · Cięcie cesarskie · Aktualizacja: 12 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Plan porodu a cięcie cesarskie — kompletny przewodnik</h1>
+    <p data-i18n="authorLine" class="text-sm text-ink/50 mb-1">Autor: <a href="/o-michale" class="text-teal underline">Michał</a>, tata i twórca PoródNaMiarę.pl · Zaktualizowano: 12 lipca 2026</p>
+    <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6 mt-4">Najczęstszy mit, jaki słyszę od rodziców: „skoro mam mieć cesarkę, to plan porodu jest mi niepotrzebny". To nieprawda — i to jeden z powodów, dla których napisałem ten tekst.</p>
 
     <div class="bg-tealsoft rounded-2xl p-5 my-6 text-[15px]">
-      <p class="font-semibold text-deep mb-2">W skrócie (dla tych, którzy się spieszą):</p>
-      <p class="text-ink/80 m-0">Przy cięciu cesarskim <strong>możesz i powinnaś</strong> mieć plan. Masz wpływ na: obecność partnera na sali, kontakt skóra do skóry po operacji (gwarantowany Standardem 2026), pierwsze przystawienie do piersi i opiekę nad noworodkiem. Nowy Standard (Dz.U. 2025 poz. 1525) wzmacnia te prawa.</p>
+      <p data-i18n="boxT" class="font-semibold text-deep mb-2">W skrócie (dla tych, którzy się spieszą):</p>
+      <p data-i18n="boxP" class="text-ink/80 m-0">Przy cięciu cesarskim <strong>możesz i powinnaś</strong> mieć plan. Masz wpływ na: obecność partnera na sali, kontakt skóra do skóry po operacji (gwarantowany Standardem 2026), pierwsze przystawienie do piersi i opiekę nad noworodkiem. Nowy Standard (Dz.U. 2025 poz. 1525) wzmacnia te prawa.</p>
     </div>
 
-    <h2 class="font-display text-2xl font-semibold text-deep">Dlaczego plan porodu przy cesarskim cięciu ma sens</h2>
-    <p>Cięcie cesarskie to poród operacyjny — ale wciąż poród. Wciąż są narodziny Twojego dziecka i pierwsze chwile jego życia. To, że odbywa się na sali operacyjnej, nie odbiera Ci prawa do decydowania o rzeczach, które nie kolidują z bezpieczeństwem zabiegu.</p>
-    <p>Kiedy zacząłem czytać o cesarskim cięciu przygotowując materiały dla PoródNaMiarę.pl, zaskoczyło mnie, jak wiele elementów zależy od tego, czy rodzice o nie poproszą. Personel często działa rutynowo — nie ze złej woli, ale dlatego, że nikt nie wyraził innych preferencji. Zapisany plan zmienia tę dynamikę.</p>
+    <h2 data-i18n="h2_1" class="font-display text-2xl font-semibold text-deep">Dlaczego plan porodu przy cesarskim cięciu ma sens</h2>
+    <p data-i18n="p1a">Cięcie cesarskie to poród operacyjny — ale wciąż poród. Wciąż są narodziny Twojego dziecka i pierwsze chwile jego życia. To, że odbywa się na sali operacyjnej, nie odbiera Ci prawa do decydowania o rzeczach, które nie kolidują z bezpieczeństwem zabiegu.</p>
+    <p data-i18n="p1b">Kiedy zacząłem czytać o cesarskim cięciu przygotowując materiały dla PoródNaMiarę.pl, zaskoczyło mnie, jak wiele elementów zależy od tego, czy rodzice o nie poproszą. Personel często działa rutynowo — nie ze złej woli, ale dlatego, że nikt nie wyraził innych preferencji. Zapisany plan zmienia tę dynamikę.</p>
 
-    <h2 class="font-display text-2xl font-semibold text-deep">Co możesz zawrzeć w planie cięcia cesarskiego</h2>
-    <p>Oto elementy, na które realnie masz wpływ przy CC — i które warto zapisać:</p>
-    <ul class="list-disc pl-5 space-y-2 text-[15px]">
+    <h2 data-i18n="h2_2" class="font-display text-2xl font-semibold text-deep">Co możesz zawrzeć w planie cięcia cesarskiego</h2>
+    <p data-i18n="p2">Oto elementy, na które realnie masz wpływ przy CC — i które warto zapisać:</p>
+    <ul data-i18n="list1" class="list-disc pl-5 space-y-2 text-[15px]">
       <li><strong>Obecność osoby towarzyszącej</strong> — przy znieczuleniu przewodowym (podpajęczynówkowym lub zewnątrzoponowym) partner często może być obecny na sali. Przy znieczuleniu ogólnym zwykle nie. Zapytaj wcześniej.</li>
       <li><strong>Rodzaj znieczulenia</strong> — jeśli nie ma wskazań do znieczulenia ogólnego, przewodowe pozwala Ci być przytomną przy narodzinach dziecka.</li>
       <li><strong>Kontakt skóra do skóry na sali operacyjnej</strong> — gdy stan Twój i dziecka na to pozwala. To prawo wzmocnione nowym Standardem.</li>
@@ -122,45 +124,45 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
     </ul>
 
     <div class="bg-white border-l-4 border-teal rounded-r-2xl p-5 my-6 text-[15px] italic text-ink/80">
-      „Kiedy rozmawiałem o tym z położną na naszej szkole rodzenia, powiedziała mi coś, co zapamiętałem: <strong>najgorszy plan to ten, którego nie ma</strong>. Nawet przy planowanej cesarce warto go mieć — bo cesarka też bywa nagła, a wtedy Wasze wcześniej zapisane preferencje są jedynym głosem, jaki zostaje."
+      <span data-i18n="quote1">„Kiedy rozmawiałem o tym z położną na naszej szkole rodzenia, powiedziała mi coś, co zapamiętałem: <strong>najgorszy plan to ten, którego nie ma</strong>. Nawet przy planowanej cesarce warto go mieć — bo cesarka też bywa nagła, a wtedy Wasze wcześniej zapisane preferencje są jedynym głosem, jaki zostaje."</span>
       <span class="block mt-2 not-italic font-semibold text-deep">— Michał</span>
     </div>
 
-    <h2 class="font-display text-2xl font-semibold text-deep">Kontakt skóra do skóry po cesarskim — co mówi Standard 2026</h2>
-    <p>Nowy Standard Organizacyjny Opieki Okołoporodowej (Dz.U. 2025 poz. 1525), obowiązujący od maja 2026, wprost przewiduje dwugodzinny, nieprzerwany kontakt skóra do skóry po porodzie — także po cięciu cesarskim, o ile stan matki i dziecka na to pozwala. To duża zmiana: wcześniej po CC dziecko było najczęściej od razu zabierane.</p>
-    <p>W praktyce oznacza to, że masz podstawę, by prosić o położenie dziecka na Twojej klatce piersiowej jeszcze na sali operacyjnej. A jeśli Twój stan tego nie pozwala — o kontakt skóra do skóry z ojcem dziecka.</p>
+    <h2 data-i18n="h2_3" class="font-display text-2xl font-semibold text-deep">Kontakt skóra do skóry po cesarskim — co mówi Standard 2026</h2>
+    <p data-i18n="p3a">Nowy Standard Organizacyjny Opieki Okołoporodowej (Dz.U. 2025 poz. 1525), obowiązujący od maja 2026, wprost przewiduje dwugodzinny, nieprzerwany kontakt skóra do skóry po porodzie — także po cięciu cesarskim, o ile stan matki i dziecka na to pozwala. To duża zmiana: wcześniej po CC dziecko było najczęściej od razu zabierane.</p>
+    <p data-i18n="p3b">W praktyce oznacza to, że masz podstawę, by prosić o położenie dziecka na Twojej klatce piersiowej jeszcze na sali operacyjnej. A jeśli Twój stan tego nie pozwala — o kontakt skóra do skóry z ojcem dziecka.</p>
 
-    <h2 class="font-display text-2xl font-semibold text-deep">Cesarskie planowane vs ze wskazań nagłych</h2>
-    <p><strong>Planowane (elektywne)</strong> — masz czas przygotować plan spokojnie, ustalić szczegóły z lekarzem, dopytać o możliwości szpitala. To komfortowa sytuacja.</p>
-    <p><strong>Ze wskazań nagłych</strong> — cesarka, o której decyzja zapada w trakcie porodu naturalnego. Tu nie ma czasu na dyskusję, a bezpieczeństwo jest absolutnym priorytetem. Ale nawet wtedy Twój wcześniej przygotowany plan zawiera sekcję „gdyby cesarskie okazało się konieczne" — i personel wie, czego sobie życzysz w kwestiach, które nie kolidują z pilnością zabiegu.</p>
+    <h2 data-i18n="h2_4" class="font-display text-2xl font-semibold text-deep">Cesarskie planowane vs ze wskazań nagłych</h2>
+    <p data-i18n="p4a"><strong>Planowane (elektywne)</strong> — masz czas przygotować plan spokojnie, ustalić szczegóły z lekarzem, dopytać o możliwości szpitala. To komfortowa sytuacja.</p>
+    <p data-i18n="p4b"><strong>Ze wskazań nagłych</strong> — cesarka, o której decyzja zapada w trakcie porodu naturalnego. Tu nie ma czasu na dyskusję, a bezpieczeństwo jest absolutnym priorytetem. Ale nawet wtedy Twój wcześniej przygotowany plan zawiera sekcję „gdyby cesarskie okazało się konieczne" — i personel wie, czego sobie życzysz w kwestiach, które nie kolidują z pilnością zabiegu.</p>
 
     <div class="bg-deep text-sand rounded-2xl p-6 my-8">
-      <p class="font-display text-lg font-semibold text-white mb-2">Priorytet: bezpieczeństwo dziecka i mamy</p>
-      <p class="text-sand/85 text-[15px] m-0">Każdy dobry plan porodu — także plan cięcia — zaczyna się od klauzuli, że w sytuacji zagrożenia życia lub zdrowia akceptujecie wszystkie niezbędne interwencje medyczne. Preferencje dotyczą sytuacji, gdy jest wybór. Gdy go nie ma, liczy się tylko bezpieczeństwo.</p>
+      <p data-i18n="safetyT" class="font-display text-lg font-semibold text-white mb-2">Priorytet: bezpieczeństwo dziecka i mamy</p>
+      <p data-i18n="safetyP" class="text-sand/85 text-[15px] m-0">Każdy dobry plan porodu — także plan cięcia — zaczyna się od klauzuli, że w sytuacji zagrożenia życia lub zdrowia akceptujecie wszystkie niezbędne interwencje medyczne. Preferencje dotyczą sytuacji, gdy jest wybór. Gdy go nie ma, liczy się tylko bezpieczeństwo.</p>
     </div>
 
-    <h2 class="font-display text-2xl font-semibold text-deep">Połóg po cięciu cesarskim — o czym pamiętać</h2>
-    <p>Powrót do sprawności po CC przebiega inaczej niż po porodzie naturalnym. To rana operacyjna, która wymaga czasu i ostrożności. Warto z góry wiedzieć: jak pielęgnować bliznę, jakich ruchów unikać w pierwszych tygodniach, jak karmić piersią w pozycjach odciążających ranę i jakie sygnały (gorączka, zaczerwienienie, rozejście rany) wymagają pilnego kontaktu z lekarzem.</p>
+    <h2 data-i18n="h2_5" class="font-display text-2xl font-semibold text-deep">Połóg po cięciu cesarskim — o czym pamiętać</h2>
+    <p data-i18n="p5">Powrót do sprawności po CC przebiega inaczej niż po porodzie naturalnym. To rana operacyjna, która wymaga czasu i ostrożności. Warto z góry wiedzieć: jak pielęgnować bliznę, jakich ruchów unikać w pierwszych tygodniach, jak karmić piersią w pozycjach odciążających ranę i jakie sygnały (gorączka, zaczerwienienie, rozejście rany) wymagają pilnego kontaktu z lekarzem.</p>
 
-    <h2 class="font-display text-2xl font-semibold text-deep">Jak przygotować plan cięcia cesarskiego</h2>
-    <p>Najprościej — skorzystaj z gotowego narzędzia. Nasz <a href="/#kreator" class="text-teal underline">interaktywny kreator planu porodu</a> zawiera sekcję cięcia cesarskiego, a <a href="/produkty/cesarskie-ciecie" class="text-teal underline">Plan cięcia cesarskiego</a> to osobny, rozbudowany dokument dla mam, które wiedzą, że czeka je CC — z przygotowaniem do operacji, przebiegiem i połogiem po cięciu.</p>
+    <h2 data-i18n="h2_6" class="font-display text-2xl font-semibold text-deep">Jak przygotować plan cięcia cesarskiego</h2>
+    <p data-i18n="p6">Najprościej — skorzystaj z gotowego narzędzia. Nasz <a href="/#kreator" class="text-teal underline">interaktywny kreator planu porodu</a> zawiera sekcję cięcia cesarskiego, a <a href="/produkty/cesarskie-ciecie" class="text-teal underline">Plan cięcia cesarskiego</a> to osobny, rozbudowany dokument dla mam, które wiedzą, że czeka je CC — z przygotowaniem do operacji, przebiegiem i połogiem po cięciu.</p>
 
     <div class="bg-tealsoft rounded-2xl p-6 my-8 text-center">
-      <p class="font-display text-xl font-semibold text-deep mb-2">Przygotuj swój plan cięcia cesarskiego</p>
-      <p class="text-ink/70 text-[15px] mb-4">Zgodny ze Standardem 2026. Kontakt skóra do skóry, obecność partnera, pierwsze przystawienie — miej to zapisane.</p>
-      <a href="/produkty/cesarskie-ciecie" class="inline-block bg-teal text-white font-semibold px-8 py-3.5 rounded-full hover:bg-deep transition-colors">Zobacz Plan cięcia cesarskiego →</a>
+      <p data-i18n="ctaT" class="font-display text-xl font-semibold text-deep mb-2">Przygotuj swój plan cięcia cesarskiego</p>
+      <p data-i18n="ctaP" class="text-ink/70 text-[15px] mb-4">Zgodny ze Standardem 2026. Kontakt skóra do skóry, obecność partnera, pierwsze przystawienie — miej to zapisane.</p>
+      <a href="/produkty/cesarskie-ciecie" data-i18n="ctaBtn" class="inline-block bg-teal text-white font-semibold px-8 py-3.5 rounded-full hover:bg-deep transition-colors">Zobacz Plan cięcia cesarskiego →</a>
     </div>
 
     <p class="text-xs text-ink/50 border-t border-sanddark pt-4 mt-8">Ten artykuł ma charakter edukacyjny i nie zastępuje porady lekarskiej ani położniczej. Wszystkie decyzje dotyczące sposobu porodu i opieki nad dzieckiem skonsultuj z lekarzem prowadzącym lub położną. Podstawa prawna: Rozporządzenie Ministra Zdrowia — Standard Organizacyjny Opieki Okołoporodowej (Dz.U. 2025 poz. 1525).</p>
   </article>
 
   <div class="bg-tealsoft border border-teal/30 rounded-2xl p-5 my-8">
-    <p class="text-[15px] text-ink/85"><strong class="text-deep">🧘‍♀️ Planujesz CC?</strong> Przygotuj też ciało na powrót do formy — <a href="/produkty/fizjoterapia-uroginekologiczna" class="text-teal font-semibold underline">Przewodnik fizjoterapii uroginekologicznej (49 zł)</a> ma osobny protokół po cesarce.</p>
+    <p data-i18n="crossSellP" class="text-[15px] text-ink/85"><strong class="text-deep">🧘‍♀️ Planujesz CC?</strong> Przygotuj też ciało na powrót do formy — <a href="/produkty/fizjoterapia-uroginekologiczna" class="text-teal font-semibold underline">Przewodnik fizjoterapii uroginekologicznej (49 zł)</a> ma osobny protokół po cesarce.</p>
   </div>
 
   <!-- Powiązane artykuły -->
   <section class="mt-12 pt-8 border-t border-sanddark">
-    <h2 class="font-display text-xl font-semibold text-deep mb-4">Przeczytaj również</h2>
+    <h2 data-i18n="relatedT" class="font-display text-xl font-semibold text-deep mb-4">Przeczytaj również</h2>
     <div class="grid sm:grid-cols-2 gap-4 text-sm">
       <a href="/blog/blizna-po-cesarskim-cieciu-mobilizacja" class="group bg-white border border-sanddark rounded-2xl p-5 hover:border-teal/50 transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-1.5">Połóg</p>
@@ -175,4 +177,108 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm">
 <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a> · <a href="/o-michale" class="underline">O Michale</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: 'Create a plan',
+eyebrow: 'Guide · C-section · Updated: 12 July 2026',
+h1: 'Birth plan and caesarean section — the complete guide',
+authorLine: 'Author: <a href="/o-michale" class="text-teal underline">Michał</a>, dad and creator of PoródNaMiarę.pl · Updated: 12 July 2026',
+lead: '"Since I\'m having a C-section, I don\'t need a birth plan" — the most common myth I hear from parents. It\'s not true — and it\'s one reason I wrote this piece.',
+boxT: 'In short (for those in a hurry):',
+boxP: 'For a caesarean, you <strong>can and should</strong> have a plan. You have influence over: your partner\'s presence in the operating room, skin-to-skin contact after surgery (guaranteed by the 2026 Standard), first latching, and newborn care. The new Standard (Journal of Laws 2025 item 1525) strengthens these rights.',
+h2_1: 'Why a birth plan makes sense for a caesarean',
+p1a: "A caesarean is a surgical birth — but still a birth. It's still your baby's arrival and the first moments of their life. Taking place in an operating room doesn't strip you of the right to decide on things that don't conflict with the safety of the procedure.",
+p1b: "When I started reading about caesareans while preparing materials for PoródNaMiarę.pl, I was surprised how much depends simply on parents asking. Staff often follow routine — not from ill will, but because no one voiced different preferences. A written plan changes that dynamic.",
+h2_2: 'What you can include in a C-section plan',
+p2: "Here are the elements you genuinely have influence over during a caesarean — and that are worth writing down:",
+list1: '<li><strong>A companion\'s presence</strong> — with regional anaesthesia (spinal or epidural), your partner can often be present in the room. Usually not with general anaesthesia. Ask in advance.</li><li><strong>Type of anaesthesia</strong> — if there\'s no indication for general anaesthesia, regional lets you be conscious for your baby\'s birth.</li><li><strong>Skin-to-skin contact in the operating room</strong> — when your and the baby\'s condition allow. This right is strengthened by the new Standard.</li><li><strong>Contact with the father when mum can\'t</strong> — if your condition doesn\'t allow skin-to-skin, your partner can provide it.</li><li><strong>First latching</strong> — as soon as possible after surgery.</li><li><strong>Delayed cord clamping</strong> — also possible during a C-section, if the baby\'s condition allows.</li><li><strong>Being kept informed</strong> — a request that each stage be explained to you.</li><li><strong>Newborn care</strong> — exams and procedures in your presence, when possible.</li>',
+quote1: '"When I talked about this with the midwife at our antenatal class, she told me something I remembered: <strong>the worst plan is the one that doesn\'t exist</strong>. Even with a planned caesarean it\'s worth having one — because caesareans can turn urgent too, and then your previously written preferences are the only voice that remains."',
+h2_3: 'Skin-to-skin after a caesarean — what the 2026 Standard says',
+p3a: 'The new Organisational Perinatal Care Standard (Journal of Laws 2025 item 1525), in effect since May 2026, explicitly provides for two hours of uninterrupted skin-to-skin contact after birth — including after a caesarean, provided mother and baby\'s condition allow. This is a major change: previously, babies were usually taken away immediately after a C-section.',
+p3b: "In practice, this means you have grounds to ask for the baby to be placed on your chest right in the operating room. And if your condition doesn't allow it — for skin-to-skin contact with the baby's father.",
+h2_4: 'Planned vs emergency caesarean',
+p4a: '<strong>Planned (elective)</strong> — you have time to prepare your plan calmly, work out details with your doctor, and ask about what the hospital can offer. A comfortable situation.',
+p4b: '<strong>From emergency indications</strong> — a caesarean decided during a natural labour already underway. There\'s no time for discussion here, and safety is the absolute priority. But even then, your previously prepared plan includes a "if a caesarean becomes necessary" section — so staff know your wishes on matters that don\'t conflict with the urgency of the procedure.',
+h2_5: 'Postpartum recovery after a caesarean — what to remember',
+p5: 'Recovery after a C-section is different from recovery after a vaginal birth. It\'s a surgical wound requiring time and care. Worth knowing in advance: how to care for the scar, which movements to avoid in the first weeks, how to breastfeed in positions that don\'t strain the wound, and which signs (fever, redness, wound separation) need urgent medical attention.',
+h2_6: 'How to prepare a caesarean birth plan',
+p6: 'The simplest way — use a ready-made tool. Our <a href="/#kreator" class="text-teal underline">interactive birth-plan creator</a> includes a caesarean section, and the <a href="/produkty/cesarskie-ciecie" class="text-teal underline">C-Section Plan</a> is a separate, in-depth document for mothers who know a caesarean awaits them — covering surgery prep, the procedure itself, and postpartum recovery.',
+safetyT: "Priority: the safety of the baby and mother",
+safetyP: "Every good birth plan — including a C-section plan — opens with a clause stating that in a situation threatening life or health, you accept all necessary medical interventions. Preferences apply when there's a choice. When there isn't, only safety matters.",
+ctaT: 'Prepare your C-section plan',
+ctaP: 'Aligned with the 2026 Standard. Skin-to-skin contact, partner presence, first latching — have it in writing.',
+ctaBtn: 'View the C-Section Plan →',
+crossSellP: '<strong class="text-deep">🧘‍♀️ Planning a C-section?</strong> Prepare your body for recovery too — the <a href="/produkty/fizjoterapia-uroginekologiczna" class="text-teal font-semibold underline">Pelvic-Floor Physiotherapy Guide (49 PLN)</a> has a separate post-caesarean protocol.',
+relatedT: 'Also read'
+},
+de: {
+navCta: 'Plan erstellen',
+eyebrow: 'Ratgeber · Kaiserschnitt · Aktualisiert: 12. Juli 2026',
+h1: 'Geburtsplan und Kaiserschnitt — der vollständige Ratgeber',
+authorLine: 'Autor: <a href="/o-michale" class="text-teal underline">Michał</a>, Vater und Gründer von PoródNaMiarę.pl · Aktualisiert: 12. Juli 2026',
+lead: '„Da ich einen Kaiserschnitt bekomme, brauche ich keinen Geburtsplan" — der häufigste Mythos, den ich von Eltern höre. Das stimmt nicht — und das ist einer der Gründe, warum ich diesen Text geschrieben habe.',
+boxT: 'Kurz gesagt (für Eilige):',
+boxP: 'Bei einem Kaiserschnitt <strong>können und sollten Sie</strong> einen Plan haben. Sie haben Einfluss auf: die Anwesenheit Ihres Partners im OP, Haut-zu-Haut-Kontakt nach der Operation (garantiert durch den Standard 2026), das erste Anlegen und die Versorgung des Neugeborenen. Der neue Standard (Gesetzblatt 2025 Pos. 1525) stärkt diese Rechte.',
+h2_1: 'Warum ein Geburtsplan beim Kaiserschnitt Sinn ergibt',
+p1a: 'Ein Kaiserschnitt ist eine operative Geburt — aber immer noch eine Geburt. Es sind immer noch die Ankunft Ihres Kindes und die ersten Momente seines Lebens. Dass sie im OP stattfindet, nimmt Ihnen nicht das Recht, über Dinge zu entscheiden, die die Sicherheit des Eingriffs nicht beeinträchtigen.',
+p1b: 'Als ich bei der Vorbereitung von Materialien für PoródNaMiarę.pl begann, über Kaiserschnitte zu lesen, überraschte mich, wie viel davon abhängt, ob Eltern danach fragen. Das Personal handelt oft routinemäßig — nicht aus bösem Willen, sondern weil niemand andere Präferenzen geäußert hat. Ein schriftlicher Plan verändert diese Dynamik.',
+h2_2: 'Was Sie in Ihren Kaiserschnitt-Plan aufnehmen können',
+p2: 'Hier sind die Elemente, auf die Sie bei einem Kaiserschnitt tatsächlich Einfluss haben — und die es wert sind, festgehalten zu werden:',
+list1: '<li><strong>Anwesenheit einer Begleitperson</strong> — bei Regionalanästhesie (Spinal- oder Periduralanästhesie) darf der Partner oft im Raum sein. Bei Vollnarkose meist nicht. Fragen Sie vorher nach.</li><li><strong>Art der Anästhesie</strong> — besteht keine Indikation für eine Vollnarkose, lässt Sie die Regionalanästhesie die Geburt bei Bewusstsein erleben.</li><li><strong>Haut-zu-Haut-Kontakt im OP</strong> — wenn Ihr Zustand und der des Babys es zulassen. Dieses Recht wird durch den neuen Standard gestärkt.</li><li><strong>Kontakt mit dem Vater, wenn die Mutter nicht kann</strong> — kann Ihr Zustand keinen Haut-zu-Haut-Kontakt zulassen, kann der Partner ihn übernehmen.</li><li><strong>Erstes Anlegen</strong> — so schnell wie möglich nach der Operation.</li><li><strong>Verzögertes Abnabeln</strong> — auch beim Kaiserschnitt möglich, wenn der Zustand des Babys es zulässt.</li><li><strong>Information über den Verlauf</strong> — die Bitte, jeden Schritt erklärt zu bekommen.</li><li><strong>Versorgung des Neugeborenen</strong> — Untersuchungen und Maßnahmen in Ihrer Anwesenheit, wenn möglich.</li>',
+quote1: '„Als ich mit der Hebamme in unserem Geburtsvorbereitungskurs darüber sprach, sagte sie mir etwas, das ich mir gemerkt habe: <strong>der schlechteste Plan ist der, den es nicht gibt</strong>. Selbst bei einem geplanten Kaiserschnitt lohnt es sich, einen zu haben — denn auch ein Kaiserschnitt kann zum Notfall werden, und dann sind Ihre zuvor festgehaltenen Präferenzen die einzige Stimme, die bleibt."',
+h2_3: 'Haut-zu-Haut-Kontakt nach dem Kaiserschnitt — was der Standard 2026 sagt',
+p3a: 'Der neue Organisationsstandard für perinatale Versorgung (Gesetzblatt 2025 Pos. 1525), gültig seit Mai 2026, sieht ausdrücklich zwei Stunden ununterbrochenen Haut-zu-Haut-Kontakt nach der Geburt vor — auch nach einem Kaiserschnitt, sofern Zustand von Mutter und Kind es zulassen. Das ist eine große Veränderung: bisher wurde das Baby nach einem Kaiserschnitt meist sofort weggebracht.',
+p3b: 'In der Praxis bedeutet das: Sie haben eine Grundlage, um zu bitten, das Baby noch im OP auf Ihre Brust zu legen. Und falls Ihr Zustand das nicht zulässt — um Haut-zu-Haut-Kontakt mit dem Vater des Kindes.',
+h2_4: 'Geplanter vs. Notfall-Kaiserschnitt',
+p4a: '<strong>Geplant (elektiv)</strong> — Sie haben Zeit, Ihren Plan in Ruhe vorzubereiten, Details mit dem Arzt zu klären und nach den Möglichkeiten der Klinik zu fragen. Eine komfortable Situation.',
+p4b: '<strong>Aus akuter Indikation</strong> — ein Kaiserschnitt, dessen Entscheidung während einer bereits laufenden natürlichen Geburt fällt. Hier bleibt keine Zeit für Diskussionen, Sicherheit hat absolute Priorität. Aber auch dann enthält Ihr zuvor vorbereiteter Plan einen Abschnitt „falls ein Kaiserschnitt nötig wird" — und das Personal kennt Ihre Wünsche in Fragen, die die Dringlichkeit des Eingriffs nicht beeinträchtigen.',
+h2_5: 'Wochenbett nach dem Kaiserschnitt — woran Sie denken sollten',
+p5: 'Die Genesung nach einem Kaiserschnitt verläuft anders als nach einer natürlichen Geburt. Es ist eine OP-Wunde, die Zeit und Vorsicht erfordert. Gut zu wissen im Voraus: wie man die Narbe pflegt, welche Bewegungen in den ersten Wochen zu vermeiden sind, wie man in wundschonenden Positionen stillt und welche Anzeichen (Fieber, Rötung, Wundöffnung) dringend ärztlich abgeklärt werden müssen.',
+h2_6: 'Wie Sie einen Kaiserschnitt-Plan vorbereiten',
+p6: 'Am einfachsten mit einem fertigen Werkzeug. Unser <a href="/#kreator" class="text-teal underline">interaktiver Geburtsplan-Ersteller</a> enthält einen Kaiserschnitt-Abschnitt, und der <a href="/produkty/cesarskie-ciecie" class="text-teal underline">Kaiserschnitt-Plan</a> ist ein separates, ausführliches Dokument für Mütter, die wissen, dass ein Kaiserschnitt bevorsteht — mit OP-Vorbereitung, Ablauf und Wochenbett danach.',
+safetyT: 'Priorität: Sicherheit von Baby und Mutter',
+safetyP: 'Jeder gute Geburtsplan — auch ein Kaiserschnitt-Plan — beginnt mit einer Klausel, dass Sie bei Gefahr für Leben oder Gesundheit alle notwendigen medizinischen Interventionen akzeptieren. Präferenzen gelten, wenn es eine Wahl gibt. Gibt es keine, zählt nur die Sicherheit.',
+ctaT: 'Bereiten Sie Ihren Kaiserschnitt-Plan vor',
+ctaP: 'Im Einklang mit dem Standard 2026. Haut-zu-Haut-Kontakt, Anwesenheit des Partners, erstes Anlegen — halten Sie es schriftlich fest.',
+ctaBtn: 'Kaiserschnitt-Plan ansehen →',
+crossSellP: '<strong class="text-deep">🧘‍♀️ Planen Sie einen Kaiserschnitt?</strong> Bereiten Sie auch Ihren Körper auf die Erholung vor — der <a href="/produkty/fizjoterapia-uroginekologiczna" class="text-teal font-semibold underline">Beckenboden-Physiotherapie-Guide (49 PLN)</a> hat ein eigenes Protokoll nach Kaiserschnitt.',
+relatedT: 'Auch lesenswert'
+},
+uk: {
+navCta: 'Створити план',
+eyebrow: 'Путівник · Кесарів розтин · Оновлено: 12 липня 2026',
+h1: 'План пологів і кесарів розтин — повний путівник',
+authorLine: 'Автор: <a href="/o-michale" class="text-teal underline">Міхал</a>, тато і засновник PoródNaMiarę.pl · Оновлено: 12 липня 2026',
+lead: '«Раз у мене буде кесарів розтин, план пологів мені не потрібен» — найпоширеніший міф, який я чую від батьків. Це неправда — і це одна з причин, чому я написав цей текст.',
+boxT: 'Коротко (для тих, хто поспішає):',
+boxP: 'При кесаревому розтині ви <strong>можете і повинні</strong> мати план. Ви впливаєте на: присутність партнера в операційній, контакт шкіра до шкіри після операції (гарантований Стандартом 2026), перше прикладання до грудей і догляд за новонародженим. Новий Стандарт (Вісник законів 2025, поз. 1525) посилює ці права.',
+h2_1: 'Чому план пологів має сенс при кесаревому розтині',
+p1a: 'Кесарів розтин — це оперативні пологи, але все ж пологи. Це все ще народження вашої дитини і перші миті її життя. Те, що це відбувається в операційній, не позбавляє вас права вирішувати щодо речей, які не суперечать безпеці процедури.',
+p1b: 'Коли я почав читати про кесарів розтин, готуючи матеріали для PoródNaMiarę.pl, мене здивувало, як багато залежить від того, чи попросять про це батьки. Персонал часто діє за рутиною — не через злий намір, а тому що ніхто не висловив інших побажань. Записаний план змінює цю динаміку.',
+h2_2: 'Що можна включити в план кесаревого розтину',
+p2: 'Ось елементи, на які ви справді маєте вплив при кесаревому розтині — і які варто записати:',
+list1: '<li><strong>Присутність супровідної особи</strong> — при регіонарній анестезії (спінальній або епідуральній) партнер часто може бути присутнім в операційній. При загальному наркозі зазвичай ні. Запитайте заздалегідь.</li><li><strong>Вид анестезії</strong> — якщо немає показань до загального наркозу, регіонарна анестезія дозволяє бути при свідомості під час народження дитини.</li><li><strong>Контакт шкіра до шкіри в операційній</strong> — коли ваш стан і стан дитини дозволяють. Це право посилене новим Стандартом.</li><li><strong>Контакт з татом, коли мама не може</strong> — якщо ваш стан не дозволяє контакт шкіра до шкіри, його може забезпечити партнер.</li><li><strong>Перше прикладання до грудей</strong> — якнайшвидше після операції.</li><li><strong>Відстрочене перетискання пуповини</strong> — можливе й при кесаревому розтині, якщо стан дитини дозволяє.</li><li><strong>Інформування про перебіг</strong> — прохання пояснювати кожен наступний етап.</li><li><strong>Догляд за новонародженим</strong> — обстеження і процедури у вашій присутності, коли це можливо.</li>',
+quote1: '«Коли я говорив про це з акушеркою на наших заняттях для батьків, вона сказала мені дещо, що я запам\'ятав: <strong>найгірший план — це той, якого немає</strong>. Навіть при запланованому кесаревому розтині варто його мати — бо кесарів розтин теж буває терміновим, і тоді ваші заздалегідь записані побажання — єдиний голос, що залишається».',
+h2_3: 'Контакт шкіра до шкіри після кесаревого розтину — що каже Стандарт 2026',
+p3a: 'Новий Організаційний стандарт перинатальної допомоги (Вісник законів 2025, поз. 1525), чинний з травня 2026 року, прямо передбачає двогодинний безперервний контакт шкіра до шкіри після пологів — навіть після кесаревого розтину, якщо стан матері й дитини дозволяє. Це велика зміна: раніше після кесаревого розтину дитину зазвичай одразу забирали.',
+p3b: 'На практиці це означає, що у вас є підстава просити покласти дитину на вашу грудну клітку ще в операційній. А якщо ваш стан цього не дозволяє — про контакт шкіра до шкіри з татом дитини.',
+h2_4: 'Плановий кесарів розтин проти екстреного',
+p4a: '<strong>Плановий (елективний)</strong> — у вас є час спокійно підготувати план, узгодити деталі з лікарем, розпитати про можливості лікарні. Комфортна ситуація.',
+p4b: '<strong>За екстреними показаннями</strong> — кесарів розтин, рішення про який ухвалюється під час природних пологів. Тут немає часу на обговорення, і безпека — абсолютний пріоритет. Але навіть тоді ваш заздалегідь підготовлений план містить розділ «якщо кесарів розтин виявиться необхідним» — і персонал знає ваші побажання щодо питань, які не суперечать терміновості процедури.',
+h2_5: 'Післяпологовий період після кесаревого розтину — що варто пам\'ятати',
+p5: 'Відновлення після кесаревого розтину відбувається інакше, ніж після природних пологів. Це операційна рана, яка потребує часу й обережності. Варто знати заздалегідь: як доглядати за рубцем, яких рухів уникати в перші тижні, як годувати груддю в позах, що не навантажують рану, і які сигнали (гарячка, почервоніння, розходження рани) потребують термінового звернення до лікаря.',
+h2_6: 'Як підготувати план кесаревого розтину',
+p6: 'Найпростіше — скористатися готовим інструментом. Наш <a href="/#kreator" class="text-teal underline">інтерактивний конструктор плану пологів</a> містить розділ про кесарів розтин, а <a href="/produkty/cesarskie-ciecie" class="text-teal underline">План кесаревого розтину</a> — окремий, розгорнутий документ для мам, які знають, що на них чекає кесарів розтин — з підготовкою до операції, перебігом і післяпологовим періодом.',
+safetyT: 'Пріоритет: безпека дитини і мами',
+safetyP: 'Кожен добрий план пологів — включно з планом кесаревого розтину — починається з пункту, що в разі загрози життю чи здоров\'ю ви погоджуєтесь на всі необхідні медичні втручання. Побажання стосуються ситуацій, коли є вибір. Коли його немає, важлива лише безпека.',
+ctaT: 'Підготуйте свій план кесаревого розтину',
+ctaP: 'Відповідає Стандарту 2026. Контакт шкіра до шкіри, присутність партнера, перше прикладання — майте це записаним.',
+ctaBtn: 'Переглянути План кесаревого розтину →',
+crossSellP: '<strong class="text-deep">🧘‍♀️ Плануєте кесарів розтин?</strong> Підготуйте також тіло до відновлення — <a href="/produkty/fizjoterapia-uroginekologiczna" class="text-teal font-semibold underline">Гід з уроґінекологічної фізіотерапії (49 zł)</a> має окремий протокол після кесаревого розтину.',
+relatedT: 'Читайте також'
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body></html>

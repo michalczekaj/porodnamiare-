@@ -20,10 +20,9 @@
 {"@type":"Question","name":"Czy bankowanie krwi pępowinowej skraca opóźnione odpępnienie?","acceptedAnswer":{"@type":"Answer","text":"Nie musi. Opóźnione odpępnienie zmniejsza objętość krwi pozostałej w pępowinie, ale przynosi dziecku udokumentowane korzyści — lepsze zapasy żelaza na pierwsze miesiące życia. Warto zapisać w planie porodu, że opóźnione odpępnienie ma pierwszeństwo przed objętością pobrania."}},
 {"@type":"Question","name":"Kiedy trzeba podpisać umowę z bankiem komórek macierzystych?","acceptedAnswer":{"@type":"Answer","text":"Najlepiej w trzecim trymestrze, z zapasem kilku tygodni. Zestaw pobraniowy przychodzi pocztą i trzeba zabrać go ze sobą do szpitala razem z dokumentacją."}},
 {"@type":"Question","name":"Do czego wykorzystuje się komórki macierzyste z krwi pępowinowej?","acceptedAnswer":{"@type":"Answer","text":"Komórki macierzyste z krwi pępowinowej stosuje się w leczeniu blisko 80 chorób onkologicznych i hematologicznych, między innymi białaczek i chłoniaków. Trwają badania nad ich zastosowaniem w chorobach neurologicznych i autoimmunologicznych."}}]}]}</script>
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/css/tailwind.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script>tailwind.config={theme:{extend:{colors:{ink:'#3A3341',deep:'#3E3852',teal:'#A0525E',tealsoft:'#F7E9E7',sand:'#FAF5EF',sanddark:'#EDDFD3'},fontFamily:{display:['Fraunces','serif'],body:['Figtree','sans-serif']}}}}</script>
 <style>img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visible{outline:3px solid #A0525E;outline-offset:2px}
 @media (prefers-contrast: more){body{background:#fff;color:#1a1720}}</style>
 <script defer data-domain="porodnamiare.pl" src="https://plausible.io/js/script.js"></script>
@@ -80,21 +79,24 @@
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Przejdź do treści</a>
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
-    <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.png" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/#kreator" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors">Stwórz plan</a>
+    <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
+    <div class="flex items-center gap-3">
+<select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select>
+<a href="/#kreator" data-i18n="navCta" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors">Stwórz plan</a>
+</div>
   </nav>
 </header>
 
 <main id="main" class="max-w-3xl mx-auto px-4 py-12">
   <nav aria-label="Ścieżka nawigacji" class="text-xs text-ink/60 mb-6"><a href="/" class="hover:text-teal">Start</a> · <a href="/#blog" class="hover:text-teal">Wiedza</a> · <span>Krew pępowinowa</span></nav>
 
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Poród · Aktualizacja: 21 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Bankowanie krwi pępowinowej — co naprawdę musicie wiedzieć przed porodem</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-8">To jedna z niewielu decyzji okołoporodowych, której nie da się odłożyć na później. Krew pępowinową można pobrać tylko raz — w ciągu kilku minut po narodzinach dziecka. Poniżej znajdziecie konkretne informacje, bez marketingu i bez straszenia.</p>
+  <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Poród · Aktualizacja: 21 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Bankowanie krwi pępowinowej — co naprawdę musicie wiedzieć przed porodem</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-8">To jedna z niewielu decyzji okołoporodowych, której nie da się odłożyć na później. Krew pępowinową można pobrać tylko raz — w ciągu kilku minut po narodzinach dziecka. Poniżej znajdziecie konkretne informacje, bez marketingu i bez straszenia.</p>
 
   <div class="bg-tealsoft rounded-2xl p-6 mb-10">
-    <p class="font-semibold text-deep mb-2">W skrócie, jeśli nie macie czasu na całość</p>
-    <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+    <p data-i18n="boxT" class="font-semibold text-deep mb-2">W skrócie, jeśli nie macie czasu na całość</p>
+    <ul data-i18n="boxList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
       <li>Pobranie jest nieinwazyjne i możliwe także przy cięciu cesarskim.</li>
       <li>Umowę trzeba podpisać jeszcze w ciąży — zestaw przychodzi pocztą.</li>
       <li>Opóźnione odpępnienie ma udowodnione korzyści dla dziecka i warto dać mu pierwszeństwo.</li>
@@ -102,55 +104,55 @@
     </ul>
   </div>
 
-  <h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Czym właściwie jest krew pępowinowa</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Po urodzeniu dziecka w pępowinie i łożysku zostaje jeszcze kilkadziesiąt mililitrów krwi. Jest ona wyjątkowo bogata w krwiotwórcze komórki macierzyste — te same, które w medycynie pozyskuje się ze szpiku kostnego, tyle że młodsze i łatwiejsze do pobrania.</p>
-  <p class="leading-relaxed text-ink/85 mb-4">Standardowo ta krew jest utylizowana razem z łożyskiem. Bankowanie polega na tym, że zamiast tego zostaje pobrana, przebadana, zamrożona w ciekłym azocie i przechowywana na wypadek, gdyby kiedyś była potrzebna.</p>
+  <h2 data-i18n="h2_1" class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Czym właściwie jest krew pępowinowa</h2>
+  <p data-i18n="p1a" class="leading-relaxed text-ink/85 mb-4">Po urodzeniu dziecka w pępowinie i łożysku zostaje jeszcze kilkadziesiąt mililitrów krwi. Jest ona wyjątkowo bogata w krwiotwórcze komórki macierzyste — te same, które w medycynie pozyskuje się ze szpiku kostnego, tyle że młodsze i łatwiejsze do pobrania.</p>
+  <p data-i18n="p1b" class="leading-relaxed text-ink/85 mb-4">Standardowo ta krew jest utylizowana razem z łożyskiem. Bankowanie polega na tym, że zamiast tego zostaje pobrana, przebadana, zamrożona w ciekłym azocie i przechowywana na wypadek, gdyby kiedyś była potrzebna.</p>
 
-  <h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Do czego to służy — bez obietnic bez pokrycia</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Komórki macierzyste z krwi pępowinowej mają dziś realne, udokumentowane zastosowanie w leczeniu blisko <strong>80 chorób onkologicznych i hematologicznych</strong> — przede wszystkim białaczek, chłoniaków i ciężkich niedokrwistości. To nie jest medycyna przyszłości, tylko standard stosowany od dziesięcioleci.</p>
-  <p class="leading-relaxed text-ink/85 mb-4">Równocześnie trwają badania kliniczne nad wykorzystaniem tych komórek w chorobach neurologicznych i autoimmunologicznych. Tu uczciwa odpowiedź brzmi: to obszar badań, nie gotowa terapia. Warto podejmować decyzję na podstawie tego, co działa dziś, traktując potencjalne przyszłe zastosowania jako dodatkową, niepewną wartość.</p>
+  <h2 data-i18n="h2_2" class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Do czego to służy — bez obietnic bez pokrycia</h2>
+  <p data-i18n="p2a" class="leading-relaxed text-ink/85 mb-4">Komórki macierzyste z krwi pępowinowej mają dziś realne, udokumentowane zastosowanie w leczeniu blisko <strong>80 chorób onkologicznych i hematologicznych</strong> — przede wszystkim białaczek, chłoniaków i ciężkich niedokrwistości. To nie jest medycyna przyszłości, tylko standard stosowany od dziesięcioleci.</p>
+  <p data-i18n="p2b" class="leading-relaxed text-ink/85 mb-4">Równocześnie trwają badania kliniczne nad wykorzystaniem tych komórek w chorobach neurologicznych i autoimmunologicznych. Tu uczciwa odpowiedź brzmi: to obszar badań, nie gotowa terapia. Warto podejmować decyzję na podstawie tego, co działa dziś, traktując potencjalne przyszłe zastosowania jako dodatkową, niepewną wartość.</p>
 
-  <h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Jak wygląda pobranie krok po kroku</h2>
-  <ol class="space-y-3 mb-6">
+  <h2 data-i18n="h2_3" class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Jak wygląda pobranie krok po kroku</h2>
+  <ol data-i18n="stepsList" class="space-y-3 mb-6">
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. Umowa i zestaw pobraniowy.</strong><br><span class="text-[15px] text-ink/80">Podpisujecie umowę w trzecim trymestrze. Zestaw z workiem pobraniowym i dokumentacją przychodzi pocztą — trzeba go spakować do torby szpitalnej.</span></li>
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Zgłoszenie przy przyjęciu.</strong><br><span class="text-[15px] text-ink/80">Przy przyjęciu na oddział przekazujecie zestaw położnej i informujecie o zamiarze pobrania. Jeśli macie to zapisane w planie porodu, wystarczy pokazać dokument.</span></li>
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Pobranie po odpępnieniu.</strong><br><span class="text-[15px] text-ink/80">Personel pobiera krew z żyły pępowinowej — z części, która nie jest już połączona z dzieckiem. Zajmuje to kilka minut i nie wymaga przerywania kontaktu skóra do skóry.</span></li>
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Transport do laboratorium.</strong><br><span class="text-[15px] text-ink/80">Zgłaszacie odbiór kurierowi (numer jest w dokumentacji zestawu). Dalej wszystkim zajmuje się bank — badaniami, preparatyką i mrożeniem.</span></li>
   </ol>
 
-  <h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Najważniejszy konflikt: odpępnienie kontra objętość pobrania</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">To jest kwestia, o której banki mówią najciszej, a która ma największe znaczenie praktyczne. Im dłużej czekacie z odpępnieniem, tym więcej krwi trafia do dziecka — i tym mniej zostaje do pobrania.</p>
-  <p class="leading-relaxed text-ink/85 mb-4">Opóźnione odpępnienie (co najmniej 60 sekund, optymalnie do ustania tętnienia) ma <strong>udokumentowane korzyści</strong>: lepsze zapasy żelaza na pierwsze miesiące życia i niższe ryzyko niedokrwistości. Bankowanie to zabezpieczenie na wypadek zdarzenia, które statystycznie jest mało prawdopodobne.</p>
+  <h2 data-i18n="h2_4" class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Najważniejszy konflikt: odpępnienie kontra objętość pobrania</h2>
+  <p data-i18n="p4a" class="leading-relaxed text-ink/85 mb-4">To jest kwestia, o której banki mówią najciszej, a która ma największe znaczenie praktyczne. Im dłużej czekacie z odpępnieniem, tym więcej krwi trafia do dziecka — i tym mniej zostaje do pobrania.</p>
+  <p data-i18n="p4b" class="leading-relaxed text-ink/85 mb-4">Opóźnione odpępnienie (co najmniej 60 sekund, optymalnie do ustania tętnienia) ma <strong>udokumentowane korzyści</strong>: lepsze zapasy żelaza na pierwsze miesiące życia i niższe ryzyko niedokrwistości. Bankowanie to zabezpieczenie na wypadek zdarzenia, które statystycznie jest mało prawdopodobne.</p>
   <div class="bg-white border-2 border-teal rounded-2xl p-6 mb-6">
-    <p class="font-semibold text-deep mb-2">Nasza rekomendacja</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Zapiszcie w planie porodu wprost: <em>„Prosimy o zachowanie opóźnionego odpępnienia również wtedy, gdy zmniejszy to objętość pobranej krwi. Jeżeli stan dziecka lub matki będzie wymagał innego postępowania — rezygnujemy z pobrania"</em>. Dzięki temu personel nie musi zgadywać, co jest dla Was ważniejsze.</p>
+    <p data-i18n="recT" class="font-semibold text-deep mb-2">Nasza rekomendacja</p>
+    <p data-i18n="recP" class="text-[15px] leading-relaxed text-ink/85">Zapiszcie w planie porodu wprost: <em>„Prosimy o zachowanie opóźnionego odpępnienia również wtedy, gdy zmniejszy to objętość pobranej krwi. Jeżeli stan dziecka lub matki będzie wymagał innego postępowania — rezygnujemy z pobrania"</em>. Dzięki temu personel nie musi zgadywać, co jest dla Was ważniejsze.</p>
   </div>
 
-  <h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Ile to kosztuje</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Modele rozliczeń różnią się między bankami, ale zwykle składają się z dwóch części: jednorazowej opłaty za pobranie i preparatykę oraz cyklicznej opłaty za przechowywanie. Warto porównać oferty i zwrócić uwagę na kilka rzeczy, o które łatwo nie zapytać:</p>
-  <ul class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 data-i18n="h2_5" class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Ile to kosztuje</h2>
+  <p data-i18n="p5" class="leading-relaxed text-ink/85 mb-4">Modele rozliczeń różnią się między bankami, ale zwykle składają się z dwóch części: jednorazowej opłaty za pobranie i preparatykę oraz cyklicznej opłaty za przechowywanie. Warto porównać oferty i zwrócić uwagę na kilka rzeczy, o które łatwo nie zapytać:</p>
+  <ul data-i18n="costList" class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li>Co się dzieje, jeśli pobrana objętość okaże się zbyt mała — czy płacicie mimo to?</li>
     <li>Jaki jest koszt przechowywania po osiągnięciu przez dziecko pełnoletności?</li>
     <li>Czy bank ma akredytacje jakościowe i gdzie fizycznie znajduje się laboratorium?</li>
     <li>Co się stanie z materiałem, jeśli bank zakończy działalność?</li>
   </ul>
 
-  <h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Który bank wybrać</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Na polskim rynku działa kilka banków komórek macierzystych. Największym z nich jest <strong>Polski Bank Komórek Macierzystych (PBKM)</strong>, część międzynarodowej Grupy FamiCord, współpracujący z ok. 1500 szpitali w Polsce. Szczegóły oferty, cennik i warianty zestawów znajdziecie bezpośrednio na <a href="https://www.pbkm.pl/" target="_blank" rel="noopener nofollow" class="text-teal underline font-semibold">pbkm.pl</a>.</p>
-  <p class="text-sm text-ink/70 bg-sand border border-sanddark rounded-xl p-4 mb-6">Nie jesteśmy powiązani z żadnym bankiem komórek macierzystych i nie otrzymujemy prowizji za polecenia. Piszemy o tym, bo sami przez tę decyzję przechodzimy — a informacji napisanych zrozumiałym językiem po prostu brakuje.</p>
+  <h2 data-i18n="h2_6" class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Który bank wybrać</h2>
+  <p data-i18n="p6" class="leading-relaxed text-ink/85 mb-4">Na polskim rynku działa kilka banków komórek macierzystych. Największym z nich jest <strong>Polski Bank Komórek Macierzystych (PBKM)</strong>, część międzynarodowej Grupy FamiCord, współpracujący z ok. 1500 szpitali w Polsce. Szczegóły oferty, cennik i warianty zestawów znajdziecie bezpośrednio na <a href="https://www.pbkm.pl/" target="_blank" rel="noopener nofollow" class="text-teal underline font-semibold">pbkm.pl</a>.</p>
+  <p data-i18n="disclaimer1" class="text-sm text-ink/70 bg-sand border border-sanddark rounded-xl p-4 mb-6">Nie jesteśmy powiązani z żadnym bankiem komórek macierzystych i nie otrzymujemy prowizji za polecenia. Piszemy o tym, bo sami przez tę decyzję przechodzimy — a informacji napisanych zrozumiałym językiem po prostu brakuje.</p>
 
-  <h2 class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Najczęstsze pytania</h2>
+  <h2 data-i18n="faqH" class="font-display text-2xl font-semibold text-deep mt-10 mb-3">Najczęstsze pytania</h2>
   <div class="space-y-3 mb-10">
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Czy pobranie boli i czy jest bezpieczne?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Pobranie jest nieinwazyjne dla mamy i dla dziecka. Krew pobiera się z żyły pępowinowej już po odpępnieniu — z części, która nie jest połączona z dzieckiem. Nie zakłóca przebiegu porodu i jest możliwe także przy cięciu cesarskim.</p></details>
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Czy da się bankować przy cesarskim cięciu?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Tak. Procedura przebiega analogicznie — po odpępnieniu, na sali operacyjnej. Warto uprzedzić o tym zespół przed operacją.</p></details>
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Kiedy trzeba podpisać umowę?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Najlepiej w trzecim trymestrze, z zapasem kilku tygodni na dostarczenie zestawu. Przy porodzie przedwczesnym bez zestawu pobranie nie będzie możliwe.</p></details>
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold text-deep cursor-pointer">Co jeśli pobrana objętość będzie za mała?</summary><p class="mt-3 text-[15px] text-ink/80 leading-relaxed">Zdarza się, że materiał nie spełnia kryteriów jakościowych — wtedy nie nadaje się do zabankowania. Zasady rozliczenia w takiej sytuacji różnią się między bankami i warto sprawdzić ten punkt w umowie przed podpisaniem.</p></details>
+    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary data-i18n="faq1Q" class="font-semibold text-deep cursor-pointer">Czy pobranie boli i czy jest bezpieczne?</summary><p data-i18n="faq1A" class="mt-3 text-[15px] text-ink/80 leading-relaxed">Pobranie jest nieinwazyjne dla mamy i dla dziecka. Krew pobiera się z żyły pępowinowej już po odpępnieniu — z części, która nie jest połączona z dzieckiem. Nie zakłóca przebiegu porodu i jest możliwe także przy cięciu cesarskim.</p></details>
+    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary data-i18n="faq2Q" class="font-semibold text-deep cursor-pointer">Czy da się bankować przy cesarskim cięciu?</summary><p data-i18n="faq2A" class="mt-3 text-[15px] text-ink/80 leading-relaxed">Tak. Procedura przebiega analogicznie — po odpępnieniu, na sali operacyjnej. Warto uprzedzić o tym zespół przed operacją.</p></details>
+    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary data-i18n="faq3Q" class="font-semibold text-deep cursor-pointer">Kiedy trzeba podpisać umowę?</summary><p data-i18n="faq3A" class="mt-3 text-[15px] text-ink/80 leading-relaxed">Najlepiej w trzecim trymestrze, z zapasem kilku tygodni na dostarczenie zestawu. Przy porodzie przedwczesnym bez zestawu pobranie nie będzie możliwe.</p></details>
+    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary data-i18n="faq4Q" class="font-semibold text-deep cursor-pointer">Co jeśli pobrana objętość będzie za mała?</summary><p data-i18n="faq4A" class="mt-3 text-[15px] text-ink/80 leading-relaxed">Zdarza się, że materiał nie spełnia kryteriów jakościowych — wtedy nie nadaje się do zabankowania. Zasady rozliczenia w takiej sytuacji różnią się między bankami i warto sprawdzić ten punkt w umowie przed podpisaniem.</p></details>
   </div>
 
   <div class="bg-deep text-sand rounded-3xl p-7 md:p-9 text-center">
-    <p class="font-display text-2xl font-semibold text-white mb-3">Zapiszcie tę decyzję w planie porodu</p>
-    <p class="text-sand/85 mb-6 max-w-xl mx-auto leading-relaxed">Nasz kreator ma osobną sekcję poświęconą krwi pępowinowej — z gotową klauzulą o pierwszeństwie opóźnionego odpępnienia. Nie musicie tego formułować sami w trakcie skurczów.</p>
-    <a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
+    <p data-i18n="ctaT" class="font-display text-2xl font-semibold text-white mb-3">Zapiszcie tę decyzję w planie porodu</p>
+    <p data-i18n="ctaP" class="text-sand/85 mb-6 max-w-xl mx-auto leading-relaxed">Nasz kreator ma osobną sekcję poświęconą krwi pępowinowej — z gotową klauzulą o pierwszeństwie opóźnionego odpępnienia. Nie musicie tego formułować sami w trakcie skurczów.</p>
+    <a href="/#kreator" data-i18n="ctaBtn" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
   </div>
 
   <p class="text-xs text-ink/60 mt-8 leading-relaxed">Artykuł ma charakter edukacyjny i nie stanowi porady medycznej. Decyzję o bankowaniu krwi pępowinowej warto omówić z lekarzem prowadzącym ciążę lub położną. Dane o zastosowaniach klinicznych za materiałami informacyjnymi banków komórek macierzystych, stan na 2026 r.</p>
@@ -159,5 +161,127 @@
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: 'Create a plan',
+eyebrow: 'Birth · Updated: 21 July 2026',
+h1: "Cord blood banking — what you actually need to know before birth",
+lead: "This is one of the few perinatal decisions that can't be postponed. Cord blood can only be collected once — within minutes of the baby's birth. Below is the practical information, without marketing and without scare tactics.",
+boxT: "In short, if you're short on time",
+boxList: '<li>Collection is non-invasive and possible even during a caesarean.</li><li>The contract must be signed during pregnancy — the kit arrives by post.</li><li>Delayed cord clamping has proven benefits for the baby and is worth prioritising.</li><li>Worth noting your banking decision in the birth plan, so you don\'t have to explain it mid-contraction.</li>',
+h2_1: 'What cord blood actually is',
+p1a: "After birth, several dozen millilitres of blood remain in the umbilical cord and placenta. It's exceptionally rich in haematopoietic stem cells — the same kind obtained from bone marrow in medicine, just younger and easier to collect.",
+p1b: "Normally this blood is disposed of along with the placenta. Banking means it's instead collected, tested, frozen in liquid nitrogen, and stored in case it's ever needed.",
+h2_2: 'What it\'s used for — no empty promises',
+p2a: 'Cord-blood stem cells today have real, documented use in treating nearly <strong>80 oncological and haematological conditions</strong> — chiefly leukaemias, lymphomas and severe anaemias. This isn\'t future medicine — it\'s a standard treatment used for decades.',
+p2b: "At the same time, clinical trials are ongoing into using these cells for neurological and autoimmune conditions. The honest answer here: this is a research area, not a ready therapy. It's worth basing your decision on what works today, treating potential future uses as an additional, uncertain bonus.",
+h2_3: 'How collection works, step by step',
+stepsList: '<li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. Contract and collection kit.</strong><br><span class="text-[15px] text-ink/80">You sign the contract in the third trimester. The kit with collection bag and paperwork arrives by post — pack it in your hospital bag.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Reporting at admission.</strong><br><span class="text-[15px] text-ink/80">At admission, you hand the kit to the midwife and mention your intent to collect. If it\'s noted in your birth plan, just show the document.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Collection after clamping.</strong><br><span class="text-[15px] text-ink/80">Staff draw blood from the umbilical vein — from the part no longer connected to the baby. Takes a few minutes and doesn\'t require interrupting skin-to-skin contact.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Transport to the lab.</strong><br><span class="text-[15px] text-ink/80">You arrange courier pickup (the number is in the kit\'s paperwork). The bank handles the rest — testing, processing and freezing.</span></li>',
+h2_4: 'The key conflict: cord clamping versus collection volume',
+p4a: "This is the issue banks talk about least, yet it has the greatest practical significance. The longer you wait to clamp, the more blood goes to the baby — and the less remains to collect.",
+p4b: 'Delayed cord clamping (at least 60 seconds, ideally until pulsation stops) has <strong>documented benefits</strong>: better iron stores for the first months of life and lower anaemia risk. Banking is a safeguard against an event that\'s statistically unlikely.',
+recT: 'Our recommendation',
+recP: 'Write it plainly in your birth plan: <em>"We ask that delayed cord clamping be maintained even if it reduces the volume of blood collected. If the baby\'s or mother\'s condition requires different action — we forgo the collection."</em> This way staff don\'t have to guess what matters more to you.',
+h2_5: 'How much it costs',
+p5: "Payment models vary between banks, but usually consist of two parts: a one-off fee for collection and processing, and a recurring storage fee. Worth comparing offers and checking a few things that are easy to overlook:",
+costList: '<li>What happens if the collected volume turns out too small — do you pay anyway?</li><li>What\'s the storage cost once the child turns 18?</li><li>Does the bank have quality accreditations, and where is the lab physically located?</li><li>What happens to the material if the bank ceases operations?</li>',
+h2_6: 'Which bank to choose',
+p6: 'Several stem-cell banks operate on the Polish market. The largest is the <strong>Polish Stem Cell Bank (PBKM)</strong>, part of the international FamiCord Group, working with around 1,500 hospitals in Poland. Details on offers, pricing and kit options are available directly at <a href="https://www.pbkm.pl/" target="_blank" rel="noopener nofollow" class="text-teal underline font-semibold">pbkm.pl</a>.',
+disclaimer1: "We're not affiliated with any stem-cell bank and receive no referral commission. We write about this because we're going through this decision ourselves — and clearly written information is simply hard to find.",
+faqH: 'Frequently asked questions',
+faq1Q: 'Does collection hurt, and is it safe?',
+faq1A: "Collection is non-invasive for mother and baby. Blood is drawn from the umbilical vein after clamping — from the part no longer connected to the baby. It doesn't disrupt labour and is possible during a caesarean too.",
+faq2Q: 'Can you bank during a caesarean section?',
+faq2A: 'Yes. The procedure works the same way — after clamping, in the operating room. Worth informing the team beforehand.',
+faq3Q: 'When do you need to sign the contract?',
+faq3A: "Ideally in the third trimester, with a few weeks' buffer for the kit to arrive. Without the kit at a premature birth, collection won't be possible.",
+faq4Q: 'What if the collected volume is too small?',
+faq4A: "Sometimes the material doesn't meet quality criteria and can't be banked. Billing rules for this situation vary between banks — worth checking this point in the contract before signing.",
+ctaT: 'Record this decision in your birth plan',
+ctaP: "Our creator has a dedicated cord-blood section — with a ready-made clause giving priority to delayed cord clamping. You won't have to phrase it yourself mid-contraction.",
+ctaBtn: 'Create your birth plan →'
+},
+de: {
+navCta: 'Plan erstellen',
+eyebrow: 'Geburt · Aktualisiert: 21. Juli 2026',
+h1: 'Nabelschnurblut-Banking — was Sie wirklich vor der Geburt wissen müssen',
+lead: 'Dies ist eine der wenigen Entscheidungen rund um die Geburt, die sich nicht aufschieben lässt. Nabelschnurblut kann nur einmal entnommen werden — innerhalb weniger Minuten nach der Geburt. Im Folgenden konkrete Informationen, ohne Marketing und ohne Angstmacherei.',
+boxT: 'Kurz gesagt, für Eilige',
+boxList: '<li>Die Entnahme ist nicht-invasiv und auch beim Kaiserschnitt möglich.</li><li>Der Vertrag muss noch in der Schwangerschaft unterschrieben werden — das Set kommt per Post.</li><li>Verzögertes Abnabeln hat nachgewiesene Vorteile für das Baby und sollte Vorrang haben.</li><li>Die Banking-Entscheidung sollte im Geburtsplan festgehalten werden, damit Sie es nicht während der Wehen erklären müssen.</li>',
+h2_1: 'Was Nabelschnurblut eigentlich ist',
+p1a: 'Nach der Geburt verbleiben noch einige Dutzend Milliliter Blut in Nabelschnur und Plazenta. Es ist außergewöhnlich reich an blutbildenden Stammzellen — denselben, die in der Medizin aus Knochenmark gewonnen werden, nur jünger und leichter zu entnehmen.',
+p1b: 'Normalerweise wird dieses Blut zusammen mit der Plazenta entsorgt. Beim Banking wird es stattdessen entnommen, getestet, in flüssigem Stickstoff eingefroren und für den Bedarfsfall gelagert.',
+h2_2: 'Wofür es dient — ohne leere Versprechen',
+p2a: 'Nabelschnurblut-Stammzellen haben heute reale, dokumentierte Anwendung bei der Behandlung von fast <strong>80 onkologischen und hämatologischen Erkrankungen</strong> — vor allem Leukämien, Lymphomen und schweren Anämien. Das ist keine Zukunftsmedizin, sondern seit Jahrzehnten angewandter Standard.',
+p2b: 'Gleichzeitig laufen klinische Studien zur Anwendung dieser Zellen bei neurologischen und Autoimmunerkrankungen. Die ehrliche Antwort hier: das ist ein Forschungsgebiet, keine fertige Therapie. Es lohnt sich, die Entscheidung auf Basis dessen zu treffen, was heute funktioniert, und mögliche zukünftige Anwendungen als zusätzlichen, unsicheren Wert zu betrachten.',
+h2_3: 'So läuft die Entnahme Schritt für Schritt ab',
+stepsList: '<li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. Vertrag und Entnahmeset.</strong><br><span class="text-[15px] text-ink/80">Sie unterschreiben den Vertrag im dritten Trimester. Das Set mit Entnahmebeutel und Unterlagen kommt per Post — packen Sie es in die Kliniktasche.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Meldung bei der Aufnahme.</strong><br><span class="text-[15px] text-ink/80">Bei der Aufnahme übergeben Sie das Set der Hebamme und informieren über die geplante Entnahme. Steht es im Geburtsplan, genügt das Zeigen des Dokuments.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Entnahme nach dem Abnabeln.</strong><br><span class="text-[15px] text-ink/80">Das Personal entnimmt Blut aus der Nabelschnurvene — aus dem Teil, der nicht mehr mit dem Baby verbunden ist. Dauert wenige Minuten und erfordert keine Unterbrechung des Haut-zu-Haut-Kontakts.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Transport ins Labor.</strong><br><span class="text-[15px] text-ink/80">Sie melden die Abholung beim Kurier (Nummer in den Set-Unterlagen). Den Rest übernimmt die Bank — Tests, Aufbereitung und Einfrieren.</span></li>',
+h2_4: 'Der wichtigste Konflikt: Abnabeln versus Entnahmemenge',
+p4a: 'Das ist das Thema, über das Banken am leisesten sprechen, das aber die größte praktische Bedeutung hat. Je länger Sie mit dem Abnabeln warten, desto mehr Blut gelangt zum Baby — und desto weniger bleibt zur Entnahme übrig.',
+p4b: 'Verzögertes Abnabeln (mindestens 60 Sekunden, idealerweise bis das Pulsieren aufhört) hat <strong>dokumentierte Vorteile</strong>: bessere Eisenreserven für die ersten Lebensmonate und geringeres Anämierisiko. Banking ist eine Absicherung für ein statistisch unwahrscheinliches Ereignis.',
+recT: 'Unsere Empfehlung',
+recP: 'Halten Sie in Ihrem Geburtsplan klar fest: <em>„Wir bitten um verzögertes Abnabeln, auch wenn dies die entnommene Blutmenge verringert. Erfordert der Zustand von Baby oder Mutter ein anderes Vorgehen — verzichten wir auf die Entnahme."</em> So muss das Personal nicht raten, was Ihnen wichtiger ist.',
+h2_5: 'Was es kostet',
+p5: 'Abrechnungsmodelle unterscheiden sich zwischen Banken, bestehen aber meist aus zwei Teilen: einer einmaligen Gebühr für Entnahme und Aufbereitung sowie einer laufenden Lagergebühr. Vergleichen Sie Angebote und achten Sie auf einige leicht übersehene Punkte:',
+costList: '<li>Was passiert, wenn die entnommene Menge zu gering ist — zahlen Sie trotzdem?</li><li>Wie hoch sind die Lagerkosten, wenn das Kind volljährig wird?</li><li>Hat die Bank Qualitätsakkreditierungen, und wo befindet sich das Labor physisch?</li><li>Was geschieht mit dem Material, wenn die Bank ihren Betrieb einstellt?</li>',
+h2_6: 'Welche Bank wählen',
+p6: 'Auf dem polnischen Markt sind mehrere Stammzellenbanken tätig. Die größte ist die <strong>Polnische Stammzellenbank (PBKM)</strong>, Teil der internationalen FamiCord-Gruppe, die mit rund 1.500 Kliniken in Polen zusammenarbeitet. Details zu Angebot, Preisen und Set-Varianten finden Sie direkt unter <a href="https://www.pbkm.pl/" target="_blank" rel="noopener nofollow" class="text-teal underline font-semibold">pbkm.pl</a>.',
+disclaimer1: 'Wir sind mit keiner Stammzellenbank verbunden und erhalten keine Provision für Empfehlungen. Wir schreiben darüber, weil wir diese Entscheidung selbst durchlaufen — und klar verständliche Informationen schlicht fehlen.',
+faqH: 'Häufige Fragen',
+faq1Q: 'Tut die Entnahme weh, und ist sie sicher?',
+faq1A: 'Die Entnahme ist für Mutter und Baby nicht-invasiv. Blut wird nach dem Abnabeln aus der Nabelschnurvene entnommen — aus dem Teil, der nicht mit dem Baby verbunden ist. Sie beeinträchtigt die Geburt nicht und ist auch beim Kaiserschnitt möglich.',
+faq2Q: 'Kann man beim Kaiserschnitt banken?',
+faq2A: 'Ja. Das Verfahren läuft analog ab — nach dem Abnabeln, im OP. Informieren Sie das Team vorher darüber.',
+faq3Q: 'Wann muss der Vertrag unterschrieben werden?',
+faq3A: 'Idealerweise im dritten Trimester, mit einigen Wochen Puffer für die Zustellung des Sets. Bei einer Frühgeburt ohne Set ist keine Entnahme möglich.',
+faq4Q: 'Was, wenn die entnommene Menge zu gering ist?',
+faq4A: 'Es kommt vor, dass das Material die Qualitätskriterien nicht erfüllt und dann nicht bankfähig ist. Die Abrechnungsregeln dafür unterscheiden sich zwischen Banken — prüfen Sie diesen Punkt vor der Unterschrift im Vertrag.',
+ctaT: 'Halten Sie diese Entscheidung in Ihrem Geburtsplan fest',
+ctaP: 'Unser Ersteller hat einen eigenen Abschnitt zum Nabelschnurblut — mit einer fertigen Klausel zum Vorrang des verzögerten Abnabelns. Sie müssen es nicht selbst mitten in den Wehen formulieren.',
+ctaBtn: 'Erstellen Sie Ihren Geburtsplan →'
+},
+uk: {
+navCta: 'Створити план',
+eyebrow: 'Пологи · Оновлено: 21 липня 2026',
+h1: 'Банкування пуповинної крові — що справді треба знати перед пологами',
+lead: 'Це одне з небагатьох перинатальних рішень, яке не можна відкласти на потім. Пуповинну кров можна зібрати лише раз — протягом кількох хвилин після народження дитини. Нижче — конкретна інформація, без маркетингу і без залякування.',
+boxT: 'Коротко, якщо немає часу на все',
+boxList: '<li>Забір неінвазивний і можливий навіть при кесаревому розтині.</li><li>Договір потрібно підписати ще під час вагітності — набір приходить поштою.</li><li>Відстрочене перетискання пуповини має доведені переваги для дитини, і варто надати йому пріоритет.</li><li>Факт банкування варто записати в плані пологів, щоб не пояснювати це під час перейм.</li>',
+h2_1: 'Що таке пуповинна кров насправді',
+p1a: 'Після народження дитини в пуповині та плаценті залишається кілька десятків мілілітрів крові. Вона надзвичайно багата на кровотворні стовбурові клітини — ті самі, які в медицині отримують з кісткового мозку, тільки молодші й простіші для забору.',
+p1b: 'Зазвичай ця кров утилізується разом із плацентою. Банкування означає, що замість цього її забирають, досліджують, заморожують у рідкому азоті та зберігають на випадок, якщо колись знадобиться.',
+h2_2: 'Для чого це служить — без порожніх обіцянок',
+p2a: 'Стовбурові клітини з пуповинної крові сьогодні мають реальне, задокументоване застосування в лікуванні майже <strong>80 онкологічних і гематологічних захворювань</strong> — насамперед лейкемій, лімфом і важких анемій. Це не медицина майбутнього, а стандарт, що застосовується десятиліттями.',
+p2b: 'Водночас тривають клінічні дослідження щодо використання цих клітин при неврологічних та аутоімунних захворюваннях. Чесна відповідь тут: це сфера досліджень, а не готова терапія. Варто ухвалювати рішення на основі того, що працює сьогодні, розглядаючи потенційні майбутні застосування як додаткову, невизначену цінність.',
+h2_3: 'Як відбувається забір крок за кроком',
+stepsList: '<li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. Договір і набір для забору.</strong><br><span class="text-[15px] text-ink/80">Ви підписуєте договір у третьому триместрі. Набір з мішком для забору і документацією приходить поштою — покладіть його в сумку до пологового.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Повідомлення при госпіталізації.</strong><br><span class="text-[15px] text-ink/80">При госпіталізації ви передаєте набір акушерці й повідомляєте про намір забору. Якщо це записано у плані пологів, достатньо показати документ.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Забір після перетискання пуповини.</strong><br><span class="text-[15px] text-ink/80">Персонал забирає кров з пуповинної вени — з частини, яка вже не з\'єднана з дитиною. Займає кілька хвилин і не потребує переривання контакту шкіра до шкіри.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Транспортування до лабораторії.</strong><br><span class="text-[15px] text-ink/80">Ви замовляєте кур\'єра (номер є в документації набору). Далі всім займається банк — дослідженнями, обробкою і заморожуванням.</span></li>',
+h2_4: 'Найважливіший конфлікт: перетискання пуповини проти об\'єму забору',
+p4a: 'Це питання, про яке банки говорять найтихіше, хоча воно має найбільше практичне значення. Що довше ви чекаєте з перетисканням, то більше крові потрапляє до дитини — і то менше залишається для забору.',
+p4b: 'Відстрочене перетискання пуповини (щонайменше 60 секунд, оптимально до припинення пульсації) має <strong>задокументовані переваги</strong>: кращі запаси заліза на перші місяці життя і нижчий ризик анемії. Банкування — це страховка на випадок статистично малоймовірної події.',
+recT: 'Наша рекомендація',
+recP: 'Запишіть у плані пологів прямо: <em>«Просимо зберегти відстрочене перетискання пуповини навіть тоді, коли це зменшить об\'єм зібраної крові. Якщо стан дитини або матері вимагатиме іншого підходу — відмовляємось від забору»</em>. Завдяки цьому персоналу не доведеться вгадувати, що для вас важливіше.',
+h2_5: 'Скільки це коштує',
+p5: 'Моделі оплати відрізняються між банками, але зазвичай складаються з двох частин: одноразової плати за забір і обробку та регулярної плати за зберігання. Варто порівняти пропозиції та звернути увагу на кілька речей, про які легко не запитати:',
+costList: '<li>Що відбувається, якщо зібраний об\'єм виявиться замалим — чи платите ви все одно?</li><li>Яка вартість зберігання після досягнення дитиною повноліття?</li><li>Чи має банк якісні акредитації і де фізично розташована лабораторія?</li><li>Що станеться з матеріалом, якщо банк припинить діяльність?</li>',
+h2_6: 'Який банк обрати',
+p6: 'На польському ринку діє кілька банків стовбурових клітин. Найбільший з них — <strong>Польський банк стовбурових клітин (PBKM)</strong>, частина міжнародної групи FamiCord, що співпрацює приблизно з 1500 лікарнями в Польщі. Деталі пропозиції, ціни та варіанти наборів можна знайти безпосередньо на <a href="https://www.pbkm.pl/" target="_blank" rel="noopener nofollow" class="text-teal underline font-semibold">pbkm.pl</a>.',
+disclaimer1: 'Ми не пов\'язані з жодним банком стовбурових клітин і не отримуємо комісії за рекомендації. Ми пишемо про це, бо самі проходимо через це рішення — а зрозуміло написаної інформації просто бракує.',
+faqH: 'Часті запитання',
+faq1Q: 'Чи болить забір і чи він безпечний?',
+faq1A: 'Забір неінвазивний для мами і дитини. Кров беруть з пуповинної вени вже після перетискання — з частини, яка не з\'єднана з дитиною. Не порушує перебігу пологів і можливий також при кесаревому розтині.',
+faq2Q: 'Чи можна банкувати при кесаревому розтині?',
+faq2A: 'Так. Процедура проходить аналогічно — після перетискання, в операційній. Варто попередити про це команду перед операцією.',
+faq3Q: 'Коли потрібно підписати договір?',
+faq3A: 'Найкраще в третьому триместрі, із запасом кількох тижнів на доставку набору. При передчасних пологах без набору забір буде неможливим.',
+faq4Q: 'Що якщо зібраний об\'єм буде замалим?',
+faq4A: 'Буває, що матеріал не відповідає критеріям якості — тоді він не придатний для банкування. Правила розрахунку в такій ситуації відрізняються між банками, і варто перевірити цей пункт у договорі перед підписанням.',
+ctaT: 'Запишіть це рішення у плані пологів',
+ctaP: 'Наш конструктор має окремий розділ, присвячений пуповинній крові — з готовим пунктом про пріоритет відстроченого перетискання. Вам не доведеться формулювати це самостійно під час перейм.',
+ctaBtn: 'Створіть свій план пологів →'
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>

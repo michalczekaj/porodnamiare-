@@ -90,20 +90,23 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/wiedza" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    <div class="flex items-center gap-3">
+<select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select>
+<a href="/wiedza" data-i18n="navCta" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+</div>
   </nav>
 </header>
 
 <main id="main" class="max-w-3xl mx-auto px-4 py-10">
   <nav aria-label="Ścieżka nawigacji" class="text-xs text-ink/60 mb-5 no-print"><a href="/" class="hover:text-teal">Start</a> · <a href="/wiedza" class="hover:text-teal">Wiedza</a> · <span>Fentanyl przy porodzie</span></nav>
 
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Łagodzenie bólu porodowego · Aktualizacja: 23 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Fentanyl przy porodzie — co to za lek i dlaczego prawdopodobnie usłyszysz o nim na sali porodowej</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-6">Fentanyl to silny lek przeciwbólowy z grupy opioidów, podawany dożylnie lub jako składnik znieczulenia zewnątrzoponowego. W mediach kojarzy się głównie z kryzysem narkotykowym w Stanach Zjednoczonych — i to skojarzenie niepotrzebnie niepokoi rodziców. W położnictwie mówimy o zupełnie innym kontekście: precyzyjnie dobranych, bardzo małych dawkach podawanych przez anestezjologa pod stałym nadzorem.</p>
+  <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Łagodzenie bólu porodowego · Aktualizacja: 23 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Fentanyl przy porodzie — co to za lek i dlaczego prawdopodobnie usłyszysz o nim na sali porodowej</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6">Fentanyl to silny lek przeciwbólowy z grupy opioidów, podawany dożylnie lub jako składnik znieczulenia zewnątrzoponowego. W mediach kojarzy się głównie z kryzysem narkotykowym w Stanach Zjednoczonych — i to skojarzenie niepotrzebnie niepokoi rodziców. W położnictwie mówimy o zupełnie innym kontekście: precyzyjnie dobranych, bardzo małych dawkach podawanych przez anestezjologa pod stałym nadzorem.</p>
 
   <div class="bg-tealsoft rounded-2xl p-5 mb-8">
-    <p class="font-semibold text-deep mb-2">W skrócie</p>
-    <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+    <p data-i18n="boxT" class="font-semibold text-deep mb-2">W skrócie</p>
+    <ul data-i18n="boxList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
       <li>Najczęściej trafia do organizmu jako <strong>dodatek do znieczulenia zewnątrzoponowego</strong>, a nie jako osobny zastrzyk.</li>
       <li>Dzięki niemu można zmniejszyć dawkę leku znieczulającego — blok jest słabszy ruchowo, łatwiej się poruszać i parć.</li>
       <li>Przenika przez łożysko; przy podaniu zewnątrzoponowym wpływ na dziecko jest zwykle nieistotny klinicznie.</li>
@@ -112,8 +115,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
   </div>
 
   <nav class="bg-white border border-sanddark rounded-2xl p-5 mb-10 no-print" aria-label="Spis treści">
-    <p class="font-semibold text-deep mb-3">W tym artykule</p>
-    <ul class="grid sm:grid-cols-2 gap-2 text-[15px]">
+    <p data-i18n="tocT" class="font-semibold text-deep mb-3">W tym artykule</p>
+    <ul data-i18n="tocList" class="grid sm:grid-cols-2 gap-2 text-[15px]">
       <li><a href="#czym-jest" class="text-teal hover:underline">→ Czym jest fentanyl</a></li>
       <li><a href="#drogi" class="text-teal hover:underline">→ Jak jest podawany</a></li>
       <li><a href="#eda" class="text-teal hover:underline">→ Fentanyl w znieczuleniu EDA</a></li>
@@ -125,47 +128,47 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     </ul>
   </nav>
 
-  <h2 id="czym-jest" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Czym właściwie jest fentanyl</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Fentanyl należy do opioidów — tej samej rodziny leków co morfina, ale jest od niej wielokrotnie silniejszy w przeliczeniu na miligram. Właśnie dlatego stosuje się go w dawkach mierzonych w mikrogramach i wyłącznie w warunkach, w których można monitorować oddech i saturację pacjentki.</p>
-  <p class="leading-relaxed text-ink/85 mb-4">Działa przez wiązanie się z receptorami opioidowymi w rdzeniu kręgowym i mózgu, co zmniejsza przewodzenie i odczuwanie bodźców bólowych. W przeciwieństwie do znieczulenia miejscowego nie „wyłącza" nerwów w danym obszarze, tylko zmienia sposób, w jaki układ nerwowy przetwarza ból.</p>
+  <h2 id="czym-jest" data-i18n="h2_1" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Czym właściwie jest fentanyl</h2>
+  <p data-i18n="p1a" class="leading-relaxed text-ink/85 mb-4">Fentanyl należy do opioidów — tej samej rodziny leków co morfina, ale jest od niej wielokrotnie silniejszy w przeliczeniu na miligram. Właśnie dlatego stosuje się go w dawkach mierzonych w mikrogramach i wyłącznie w warunkach, w których można monitorować oddech i saturację pacjentki.</p>
+  <p data-i18n="p1b" class="leading-relaxed text-ink/85 mb-4">Działa przez wiązanie się z receptorami opioidowymi w rdzeniu kręgowym i mózgu, co zmniejsza przewodzenie i odczuwanie bodźców bólowych. W przeciwieństwie do znieczulenia miejscowego nie „wyłącza" nerwów w danym obszarze, tylko zmienia sposób, w jaki układ nerwowy przetwarza ból.</p>
 
   <div class="bg-white border-2 border-teal rounded-2xl p-5 mb-6">
-    <p class="font-bold text-deep mb-2">Dlaczego szpitalny fentanyl to co innego niż ten z doniesień medialnych</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Kryzys opioidowy w USA dotyczy fentanylu produkowanego nielegalnie, o nieznanym stężeniu, przyjmowanego bez kontroli. W szpitalu mówimy o preparacie o ściśle określonym stężeniu, dawce dobranej przez anestezjologa do konkretnej sytuacji i ciągłym monitorowaniu parametrów życiowych. To dwa różne światy, choć nazwa ta sama.</p>
+    <p data-i18n="boxT2" class="font-bold text-deep mb-2">Dlaczego szpitalny fentanyl to co innego niż ten z doniesień medialnych</p>
+    <p data-i18n="boxP2" class="text-[15px] leading-relaxed text-ink/85">Kryzys opioidowy w USA dotyczy fentanylu produkowanego nielegalnie, o nieznanym stężeniu, przyjmowanego bez kontroli. W szpitalu mówimy o preparacie o ściśle określonym stężeniu, dawce dobranej przez anestezjologa do konkretnej sytuacji i ciągłym monitorowaniu parametrów życiowych. To dwa różne światy, choć nazwa ta sama.</p>
   </div>
 
-  <h2 id="drogi" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Jak jest podawany przy porodzie</h2>
+  <h2 id="drogi" data-i18n="h2_2" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Jak jest podawany przy porodzie</h2>
   <div class="space-y-3 mb-6">
     <div class="bg-white border border-sanddark rounded-2xl p-5">
-      <p class="font-semibold text-deep mb-1.5">Zewnątrzoponowo — najczęstsza droga</p>
-      <p class="text-[15px] text-ink/80 leading-relaxed">Jako składnik mieszaniny podawanej przez cewnik zewnątrzoponowy, razem z lekiem znieczulającym miejscowo. Lek działa głównie tam, gdzie jest potrzebny, a ilości docierające do krwiobiegu są niewielkie.</p>
+      <p data-i18n="route1T" class="font-semibold text-deep mb-1.5">Zewnątrzoponowo — najczęstsza droga</p>
+      <p data-i18n="route1P" class="text-[15px] text-ink/80 leading-relaxed">Jako składnik mieszaniny podawanej przez cewnik zewnątrzoponowy, razem z lekiem znieczulającym miejscowo. Lek działa głównie tam, gdzie jest potrzebny, a ilości docierające do krwiobiegu są niewielkie.</p>
     </div>
     <div class="bg-white border border-sanddark rounded-2xl p-5">
-      <p class="font-semibold text-deep mb-1.5">Podpajęczynówkowo — przy znieczuleniu do cięcia cesarskiego</p>
-      <p class="text-[15px] text-ink/80 leading-relaxed">Dodawany do znieczulenia podpajęczynówkowego przed cesarskim cięciem — poprawia komfort w trakcie operacji i pierwszych godzinach po niej.</p>
+      <p data-i18n="route2T" class="font-semibold text-deep mb-1.5">Podpajęczynówkowo — przy znieczuleniu do cięcia cesarskiego</p>
+      <p data-i18n="route2P" class="text-[15px] text-ink/80 leading-relaxed">Dodawany do znieczulenia podpajęczynówkowego przed cesarskim cięciem — poprawia komfort w trakcie operacji i pierwszych godzinach po niej.</p>
     </div>
     <div class="bg-white border border-sanddark rounded-2xl p-5">
-      <p class="font-semibold text-deep mb-1.5">Dożylnie — rzadziej, w wybranych sytuacjach</p>
-      <p class="text-[15px] text-ink/80 leading-relaxed">Stosowany, gdy znieczulenie zewnątrzoponowe jest niedostępne lub przeciwwskazane. Działa szybciej, ale silniej wpływa na całe ciało — również na dziecko, jeśli podanie nastąpi krótko przed urodzeniem.</p>
+      <p data-i18n="route3T" class="font-semibold text-deep mb-1.5">Dożylnie — rzadziej, w wybranych sytuacjach</p>
+      <p data-i18n="route3P" class="text-[15px] text-ink/80 leading-relaxed">Stosowany, gdy znieczulenie zewnątrzoponowe jest niedostępne lub przeciwwskazane. Działa szybciej, ale silniej wpływa na całe ciało — również na dziecko, jeśli podanie nastąpi krótko przed urodzeniem.</p>
     </div>
   </div>
 
-  <h2 id="eda" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Dlaczego dodaje się go do znieczulenia zewnątrzoponowego</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">To pytanie, które warto zadać, bo wiele rodzących nie wie, że ich „EDA" zawiera opioid. Powód jest praktyczny: opioid i lek znieczulający wzmacniają się nawzajem. Dzięki temu można użyć <strong>mniejszej ilości leku znieczulającego</strong>, a to przekłada się bezpośrednio na komfort porodu.</p>
-  <ul class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="eda" data-i18n="h2_3" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Dlaczego dodaje się go do znieczulenia zewnątrzoponowego</h2>
+  <p data-i18n="p3" class="leading-relaxed text-ink/85 mb-4">To pytanie, które warto zadać, bo wiele rodzących nie wie, że ich „EDA" zawiera opioid. Powód jest praktyczny: opioid i lek znieczulający wzmacniają się nawzajem. Dzięki temu można użyć <strong>mniejszej ilości leku znieczulającego</strong>, a to przekłada się bezpośrednio na komfort porodu.</p>
+  <ul data-i18n="edaList" class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li><strong>Słabszy blok ruchowy</strong> — większa szansa, że utrzymasz czucie w nogach i zdolność do zmiany pozycji.</li>
     <li><strong>Zachowane czucie parcia</strong> — łatwiej współpracować w drugim okresie porodu.</li>
     <li><strong>Szybszy początek ulgi</strong> niż przy samym leku znieczulającym.</li>
     <li><strong>Mniejsze ryzyko spadku ciśnienia</strong> związanego z dużymi dawkami znieczulenia miejscowego.</li>
   </ul>
-  <p class="text-[15px] text-ink/75 bg-sand border border-sanddark rounded-xl p-4 mb-6">Nowoczesne podejście do znieczulenia porodowego zakłada „ruchome EDA" — takie, przy którym rodząca może się poruszać i aktywnie uczestniczyć w porodzie. Dodatek opioidu jest jednym z elementów, które to umożliwiają.</p>
+  <p data-i18n="note1" class="text-[15px] text-ink/75 bg-sand border border-sanddark rounded-xl p-4 mb-6">Nowoczesne podejście do znieczulenia porodowego zakłada „ruchome EDA" — takie, przy którym rodząca może się poruszać i aktywnie uczestniczyć w porodzie. Dodatek opioidu jest jednym z elementów, które to umożliwiają.</p>
 
-  <h2 id="odczucia" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Jak się po nim czujesz</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Najczęściej zgłaszane odczucia to senność, uczucie ciepła, rozluźnienie i wyraźne zmniejszenie napięcia towarzyszącego skurczom. Część kobiet opisuje to jako „ból jest, ale przestaje być najważniejszy".</p>
+  <h2 id="odczucia" data-i18n="h2_4" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Jak się po nim czujesz</h2>
+  <p data-i18n="p4" class="leading-relaxed text-ink/85 mb-4">Najczęściej zgłaszane odczucia to senność, uczucie ciepła, rozluźnienie i wyraźne zmniejszenie napięcia towarzyszącego skurczom. Część kobiet opisuje to jako „ból jest, ale przestaje być najważniejszy".</p>
   <div class="grid sm:grid-cols-2 gap-4 mb-6">
     <div class="bg-white border border-sanddark rounded-2xl p-5">
-      <p class="font-semibold text-deep mb-2">Częste, przemijające działania niepożądane</p>
-      <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+      <p data-i18n="sideT1" class="font-semibold text-deep mb-2">Częste, przemijające działania niepożądane</p>
+      <ul data-i18n="sideList1" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
         <li>Świąd skóry, zwłaszcza twarzy i nosa</li>
         <li>Senność i spowolnienie</li>
         <li>Nudności</li>
@@ -173,49 +176,49 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
       </ul>
     </div>
     <div class="bg-white border-2 border-red-300 rounded-2xl p-5">
-      <p class="font-semibold text-red-800 mb-2">Rzadkie, wymagające reakcji zespołu</p>
-      <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+      <p data-i18n="sideT2" class="font-semibold text-red-800 mb-2">Rzadkie, wymagające reakcji zespołu</p>
+      <ul data-i18n="sideList2" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
         <li>Nadmierne spłycenie oddechu</li>
         <li>Spadek saturacji</li>
         <li>Nasilona senność utrudniająca kontakt</li>
       </ul>
-      <p class="text-xs text-ink/70 mt-2">Właśnie dlatego przy analgezji opioidowej monitoruje się oddech i saturację. Zespół dysponuje lekiem odwracającym działanie opioidów.</p>
+      <p data-i18n="sideNote" class="text-xs text-ink/70 mt-2">Właśnie dlatego przy analgezji opioidowej monitoruje się oddech i saturację. Zespół dysponuje lekiem odwracającym działanie opioidów.</p>
     </div>
   </div>
 
-  <h2 id="dziecko" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Wpływ na dziecko — uczciwa odpowiedź</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Fentanyl przenika przez łożysko — to fakt, którego nie ma sensu ukrywać. Znaczenie ma jednak <strong>droga podania i moment</strong>.</p>
-  <p class="leading-relaxed text-ink/85 mb-4">Przy podaniu <strong>zewnątrzoponowym</strong> ilości docierające do krwiobiegu matki są na tyle małe, że u noworodka zwykle nie obserwuje się istotnych klinicznie następstw. Przy podaniu <strong>dożylnym</strong>, szczególnie krótko przed urodzeniem, może pojawić się przejściowe osłabienie napędu oddechowego i senność — dlatego anestezjolog uwzględnia przewidywany czas porodu przy wyborze metody.</p>
+  <h2 id="dziecko" data-i18n="h2_5" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Wpływ na dziecko — uczciwa odpowiedź</h2>
+  <p data-i18n="p5a" class="leading-relaxed text-ink/85 mb-4">Fentanyl przenika przez łożysko — to fakt, którego nie ma sensu ukrywać. Znaczenie ma jednak <strong>droga podania i moment</strong>.</p>
+  <p data-i18n="p5b" class="leading-relaxed text-ink/85 mb-4">Przy podaniu <strong>zewnątrzoponowym</strong> ilości docierające do krwiobiegu matki są na tyle małe, że u noworodka zwykle nie obserwuje się istotnych klinicznie następstw. Przy podaniu <strong>dożylnym</strong>, szczególnie krótko przed urodzeniem, może pojawić się przejściowe osłabienie napędu oddechowego i senność — dlatego anestezjolog uwzględnia przewidywany czas porodu przy wyborze metody.</p>
   <div class="bg-tealsoft rounded-2xl p-5 mb-6">
-    <p class="font-semibold text-deep mb-2">Co to oznacza w praktyce</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Zespół neonatologiczny wie, jakie leki otrzymała mama, i obserwuje noworodka pod tym kątem. Jeśli dziecko jest wyraźnie senne, pierwsze przystawienie do piersi może wymagać więcej cierpliwości i wsparcia położnej. To sytuacja przejściowa — warto o nią poprosić, zamiast rezygnować z karmienia.</p>
+    <p data-i18n="practT" class="font-semibold text-deep mb-2">Co to oznacza w praktyce</p>
+    <p data-i18n="practP" class="text-[15px] leading-relaxed text-ink/85">Zespół neonatologiczny wie, jakie leki otrzymała mama, i obserwuje noworodka pod tym kątem. Jeśli dziecko jest wyraźnie senne, pierwsze przystawienie do piersi może wymagać więcej cierpliwości i wsparcia położnej. To sytuacja przejściowa — warto o nią poprosić, zamiast rezygnować z karmienia.</p>
   </div>
 
-  <h2 id="porownanie" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Fentanyl na tle innych metod</h2>
+  <h2 id="porownanie" data-i18n="h2_6" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Fentanyl na tle innych metod</h2>
   <div class="overflow-x-auto mb-6">
     <table class="w-full text-[14px] border-collapse">
       <caption class="sr-only">Porównanie metod łagodzenia bólu porodowego</caption>
       <thead>
         <tr class="bg-deep text-white text-left">
-          <th scope="col" class="p-3 rounded-tl-xl font-semibold">Metoda</th>
-          <th scope="col" class="p-3 font-semibold">Siła działania</th>
-          <th scope="col" class="p-3 rounded-tr-xl font-semibold">Cechy szczególne</th>
+          <th scope="col" data-i18n="th1" class="p-3 rounded-tl-xl font-semibold">Metoda</th>
+          <th scope="col" data-i18n="th2" class="p-3 font-semibold">Siła działania</th>
+          <th scope="col" data-i18n="th3" class="p-3 rounded-tr-xl font-semibold">Cechy szczególne</th>
         </tr>
       </thead>
       <tbody class="align-top">
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 font-semibold text-deep text-left">EDA z fentanylem</th><td class="p-3">Najskuteczniejsza</td><td class="p-3">Słabszy blok ruchowy niż sam lek znieczulający; wymaga założenia cewnika</td></tr>
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 font-semibold text-deep text-left">Remifentanyl PCA</th><td class="p-3">Umiarkowana</td><td class="p-3">Rodząca sama uruchamia dawkę; bardzo krótkie działanie; wymaga stałego monitorowania</td></tr>
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 font-semibold text-deep text-left">Fentanyl dożylnie</th><td class="p-3">Umiarkowana</td><td class="p-3">Alternatywa, gdy EDA niedostępne; działa dłużej niż remifentanyl</td></tr>
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 font-semibold text-deep text-left">Gaz wziewny</th><td class="p-3">Łagodna</td><td class="p-3">Pełna kontrola rodzącej, szybkie ustępowanie, brak wpływu na przebieg porodu</td></tr>
-        <tr class="bg-white"><th scope="row" class="p-3 font-semibold text-deep text-left rounded-bl-xl">Metody niefarmakologiczne</th><td class="p-3">Zmienna</td><td class="p-3 rounded-br-xl">Immersja wodna, pozycje, masaż, TENS, oddech; bez wpływu na dziecko</td></tr>
+        <tr data-i18n="tr1" class="bg-white border-b border-sanddark"><th scope="row" class="p-3 font-semibold text-deep text-left">EDA z fentanylem</th><td class="p-3">Najskuteczniejsza</td><td class="p-3">Słabszy blok ruchowy niż sam lek znieczulający; wymaga założenia cewnika</td></tr>
+        <tr data-i18n="tr2" class="bg-white border-b border-sanddark"><th scope="row" class="p-3 font-semibold text-deep text-left">Remifentanyl PCA</th><td class="p-3">Umiarkowana</td><td class="p-3">Rodząca sama uruchamia dawkę; bardzo krótkie działanie; wymaga stałego monitorowania</td></tr>
+        <tr data-i18n="tr3" class="bg-white border-b border-sanddark"><th scope="row" class="p-3 font-semibold text-deep text-left">Fentanyl dożylnie</th><td class="p-3">Umiarkowana</td><td class="p-3">Alternatywa, gdy EDA niedostępne; działa dłużej niż remifentanyl</td></tr>
+        <tr data-i18n="tr4" class="bg-white border-b border-sanddark"><th scope="row" class="p-3 font-semibold text-deep text-left">Gaz wziewny</th><td class="p-3">Łagodna</td><td class="p-3">Pełna kontrola rodzącej, szybkie ustępowanie, brak wpływu na przebieg porodu</td></tr>
+        <tr data-i18n="tr5" class="bg-white"><th scope="row" class="p-3 font-semibold text-deep text-left rounded-bl-xl">Metody niefarmakologiczne</th><td class="p-3">Zmienna</td><td class="p-3 rounded-br-xl">Immersja wodna, pozycje, masaż, TENS, oddech; bez wpływu na dziecko</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="text-[15px] text-ink/75 bg-sand border border-sanddark rounded-xl p-4 mb-6">Nie istnieje jedna „najlepsza" metoda. Standard opieki okołoporodowej zobowiązuje szpital do poinformowania o wszystkich dostępnych opcjach i umożliwienia ich zastosowania w granicach bezpieczeństwa. Wybór należy do Ciebie i może się zmienić w trakcie porodu.</p>
+  <p data-i18n="note2" class="text-[15px] text-ink/75 bg-sand border border-sanddark rounded-xl p-4 mb-6">Nie istnieje jedna „najlepsza" metoda. Standard opieki okołoporodowej zobowiązuje szpital do poinformowania o wszystkich dostępnych opcjach i umożliwienia ich zastosowania w granicach bezpieczeństwa. Wybór należy do Ciebie i może się zmienić w trakcie porodu.</p>
 
-  <h2 id="pytania" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">O co zapytać anestezjologa</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Standard przewiduje konsultację anestezjologiczną między 33. a 37. tygodniem ciąży. To najlepszy moment na te pytania — spokojnie, bez skurczów.</p>
-  <ul class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="pytania" data-i18n="h2_7" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">O co zapytać anestezjologa</h2>
+  <p data-i18n="p7" class="leading-relaxed text-ink/85 mb-4">Standard przewiduje konsultację anestezjologiczną między 33. a 37. tygodniem ciąży. To najlepszy moment na te pytania — spokojnie, bez skurczów.</p>
+  <ul data-i18n="questionsList" class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li>Jaki skład ma mieszanina używana w tym szpitalu do znieczulenia zewnątrzoponowego?</li>
     <li>Czy stosujecie „ruchome EDA", przy którym można zmieniać pozycję?</li>
     <li>Jak monitorowana jest rodząca po podaniu opioidu?</li>
@@ -224,11 +227,11 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     <li>Jakie są alternatywy, jeśli anestezjolog będzie w danym momencie na bloku operacyjnym?</li>
   </ul>
 
-  <h2 id="plan" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Jak zapisać swoje stanowisko w planie porodu</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Najczęstszy błąd to sformułowania kategoryczne w stylu „bez żadnych leków". Poród bywa nieprzewidywalny, a zbyt sztywny zapis stawia personel i Ciebie w trudnej sytuacji. Lepiej sprawdzają się preferencje z zachowaniem furtki:</p>
+  <h2 id="plan" data-i18n="h2_8" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Jak zapisać swoje stanowisko w planie porodu</h2>
+  <p data-i18n="p8" class="leading-relaxed text-ink/85 mb-4">Najczęstszy błąd to sformułowania kategoryczne w stylu „bez żadnych leków". Poród bywa nieprzewidywalny, a zbyt sztywny zapis stawia personel i Ciebie w trudnej sytuacji. Lepiej sprawdzają się preferencje z zachowaniem furtki:</p>
   <div class="bg-white border-2 border-teal rounded-2xl p-5 mb-6">
-    <p class="font-semibold text-deep mb-2">Przykładowe sformułowania</p>
-    <ul class="space-y-2 text-[15px] text-ink/85">
+    <p data-i18n="examplesT" class="font-semibold text-deep mb-2">Przykładowe sformułowania</p>
+    <ul data-i18n="examplesList" class="space-y-2 text-[15px] text-ink/85">
       <li>„W pierwszej kolejności proszę o metody niefarmakologiczne — immersję wodną, pozycje, masaż, techniki oddechowe."</li>
       <li>„Proszę nie proponować środków farmakologicznych, dopóki sama o nie nie poproszę."</li>
       <li>„Jeśli zdecyduję się na znieczulenie zewnątrzoponowe, proszę o informację o składzie podawanej mieszaniny."</li>
@@ -237,13 +240,13 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
   </div>
 
   <div class="bg-deep text-sand rounded-3xl p-7 md:p-9 text-center mt-12 no-print">
-    <p class="font-display text-2xl font-semibold text-white mb-3">Zapisz swoje preferencje, zanim zaczną się skurcze</p>
-    <p class="text-sand/85 mb-6 max-w-xl mx-auto leading-relaxed">Nasz kreator ma osobny krok poświęcony łagodzeniu bólu — z gotowymi sformułowaniami dotyczącymi kolejności metod, znieczulenia zewnątrzoponowego i środków, na które nie wyrażasz zgody.</p>
-    <a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
+    <p data-i18n="ctaT" class="font-display text-2xl font-semibold text-white mb-3">Zapisz swoje preferencje, zanim zaczną się skurcze</p>
+    <p data-i18n="ctaP" class="text-sand/85 mb-6 max-w-xl mx-auto leading-relaxed">Nasz kreator ma osobny krok poświęcony łagodzeniu bólu — z gotowymi sformułowaniami dotyczącymi kolejności metod, znieczulenia zewnątrzoponowego i środków, na które nie wyrażasz zgody.</p>
+    <a href="/#kreator" data-i18n="ctaBtn" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
   </div>
 
   <div class="mt-10 pt-6 border-t border-sanddark">
-    <p class="font-semibold text-deep mb-3">Powiązane artykuły</p>
+    <p data-i18n="relatedT" class="font-semibold text-deep mb-3">Powiązane artykuły</p>
     <div class="grid sm:grid-cols-2 gap-4">
       <a href="/blog/remifentanyl-pca-lagodzenie-bolu-porodowego" class="group bg-white border border-sanddark rounded-2xl p-5 hover:border-teal/50 transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-1.5">Łagodzenie bólu</p>
@@ -262,5 +265,181 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm no-print">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: '← Knowledge',
+eyebrow: 'Labour pain relief · Updated: 23 July 2026',
+h1: "Fentanyl during labour — what this drug is, and why you'll probably hear about it in the delivery room",
+lead: "Fentanyl is a strong opioid painkiller, given intravenously or as part of an epidural mixture. In the media it's mostly associated with the US opioid crisis — an association that needlessly worries parents. In obstetrics we're talking about a completely different context: precisely measured, very small doses given by an anaesthesiologist under constant supervision.",
+boxT: 'In short',
+boxList: '<li>It most often enters the body as <strong>an addition to an epidural</strong>, not as a separate injection.</li><li>It allows a lower dose of local anaesthetic — the block is less motor-blocking, making it easier to move and push.</li><li>It crosses the placenta; with epidural administration the effect on the baby is usually not clinically significant.</li><li>Administration requires <strong>your informed consent</strong> — you can decide on this in advance in your birth plan.</li>',
+tocT: 'In this article',
+tocList: '<li><a href="#czym-jest" class="text-teal hover:underline">→ What fentanyl is</a></li><li><a href="#drogi" class="text-teal hover:underline">→ How it\'s administered</a></li><li><a href="#eda" class="text-teal hover:underline">→ Fentanyl in an epidural</a></li><li><a href="#odczucia" class="text-teal hover:underline">→ How it feels</a></li><li><a href="#dziecko" class="text-teal hover:underline">→ Effect on the baby</a></li><li><a href="#porownanie" class="text-teal hover:underline">→ Method comparison</a></li><li><a href="#pytania" class="text-teal hover:underline">→ Questions for the anaesthesiologist</a></li><li><a href="#plan" class="text-teal hover:underline">→ Recording it in your birth plan</a></li>',
+h2_1: 'What fentanyl actually is',
+p1a: "Fentanyl belongs to the opioid family — the same drug class as morphine, but many times more potent per milligram. That's exactly why it's used in doses measured in micrograms, and only in settings where the patient's breathing and oxygen saturation can be monitored.",
+p1b: 'It works by binding to opioid receptors in the spinal cord and brain, reducing the transmission and perception of pain signals. Unlike local anaesthesia, it doesn\'t "switch off" nerves in a given area — it changes how the nervous system processes pain.',
+boxT2: "Why hospital fentanyl is a different thing from the fentanyl in the news",
+boxP2: "The US opioid crisis involves illegally produced fentanyl of unknown concentration, taken uncontrolled. In hospital we're talking about a preparation of precisely known concentration, dosed by an anaesthesiologist to the specific situation, with continuous monitoring of vital signs. Two different worlds, even though the name is the same.",
+h2_2: 'How it\'s given during labour',
+route1T: 'Epidural — the most common route',
+route1P: "As part of the mixture given through an epidural catheter, together with a local anaesthetic. The drug acts mainly where it's needed, and the amounts reaching the bloodstream are small.",
+route2T: 'Spinal — for caesarean anaesthesia',
+route2P: "Added to spinal anaesthesia before a caesarean section — improves comfort during surgery and in the first hours afterward.",
+route3T: 'Intravenous — less common, in selected situations',
+route3P: "Used when an epidural is unavailable or contraindicated. Works faster, but affects the whole body more strongly — including the baby, if given shortly before birth.",
+h2_3: "Why it's added to an epidural",
+p3: 'A question worth asking, because many labouring women don\'t know their "epidural" contains an opioid. The reason is practical: the opioid and the anaesthetic potentiate each other. This allows use of a <strong>smaller amount of anaesthetic</strong>, which directly translates into labour comfort.',
+edaList: '<li><strong>Weaker motor block</strong> — a better chance you\'ll keep feeling in your legs and the ability to change position.</li><li><strong>Preserved urge-to-push sensation</strong> — easier to cooperate during the second stage.</li><li><strong>Faster onset of relief</strong> than with the anaesthetic alone.</li><li><strong>Lower risk of blood-pressure drop</strong> linked to large doses of local anaesthetic.</li>',
+note1: 'The modern approach to labour anaesthesia favours a "mobile epidural" — one that lets the labouring woman move and actively participate in birth. Adding an opioid is one of the elements that makes this possible.',
+h2_4: 'How it feels',
+p4: 'The most commonly reported sensations are drowsiness, a feeling of warmth, relaxation, and a marked reduction in the tension that comes with contractions. Some women describe it as "the pain is there, but it stops being the main thing."',
+sideT1: 'Common, temporary side effects',
+sideList1: '<li>Skin itching, especially on the face and nose</li><li>Drowsiness and slowed reactions</li><li>Nausea</li><li>Dry mouth</li>',
+sideT2: 'Rare, requiring team response',
+sideList2: '<li>Excessive shallow breathing</li><li>Drop in oxygen saturation</li><li>Marked drowsiness impairing responsiveness</li>',
+sideNote: "This is exactly why breathing and saturation are monitored during opioid analgesia. The team has a reversal drug available for opioid effects.",
+h2_5: 'Effect on the baby — an honest answer',
+p5a: "Fentanyl crosses the placenta — a fact there's no point hiding. What matters, though, is <strong>the route of administration and the timing</strong>.",
+p5b: 'With <strong>epidural</strong> administration, the amounts reaching the mother\'s bloodstream are small enough that no clinically significant effect is usually seen in the newborn. With <strong>intravenous</strong> administration, especially shortly before birth, temporary respiratory drive suppression and drowsiness can occur — which is why the anaesthesiologist factors in the expected time of birth when choosing the method.',
+practT: 'What this means in practice',
+practP: "The neonatal team knows what medications the mother received and watches the newborn accordingly. If the baby is noticeably sleepy, the first latching may need more patience and midwife support. This is a temporary situation — worth asking for help with rather than giving up on breastfeeding.",
+h2_6: 'Fentanyl compared with other methods',
+th1: 'Method', th2: 'Strength', th3: 'Notable features',
+tr1: '<th scope="row" class="p-3 font-semibold text-deep text-left">Epidural with fentanyl</th><td class="p-3">Most effective</td><td class="p-3">Weaker motor block than anaesthetic alone; requires catheter placement</td>',
+tr2: '<th scope="row" class="p-3 font-semibold text-deep text-left">Remifentanil PCA</th><td class="p-3">Moderate</td><td class="p-3">Self-administered dose; very short-acting; requires continuous monitoring</td>',
+tr3: '<th scope="row" class="p-3 font-semibold text-deep text-left">Intravenous fentanyl</th><td class="p-3">Moderate</td><td class="p-3">Alternative when an epidural is unavailable; longer-acting than remifentanil</td>',
+tr4: '<th scope="row" class="p-3 font-semibold text-deep text-left">Inhaled gas</th><td class="p-3">Mild</td><td class="p-3">Full control by the labouring woman, wears off quickly, no effect on labour progress</td>',
+tr5: '<th scope="row" class="p-3 font-semibold text-deep text-left rounded-bl-xl">Non-pharmacological methods</th><td class="p-3">Variable</td><td class="p-3 rounded-br-xl">Water immersion, positions, massage, TENS, breathing; no effect on the baby</td>',
+note2: 'There\'s no single "best" method. The perinatal care standard requires the hospital to inform you of all available options and to allow their use within the bounds of safety. The choice is yours, and it can change during labour.',
+h2_7: 'What to ask the anaesthesiologist',
+p7: 'The standard provides for an anaesthesiology consultation between weeks 33 and 37 of pregnancy. This is the best time for these questions — calmly, without contractions.',
+questionsList: '<li>What is the composition of the mixture used at this hospital for epidural anaesthesia?</li><li>Do you offer a "mobile epidural" that allows position changes?</li><li>How is the labouring woman monitored after an opioid is given?</li><li>Are there any contraindications given my conditions or medications?</li><li>What happens if the anaesthesia turns out insufficient or one-sided?</li><li>What are the alternatives if the anaesthesiologist is in the operating theatre at that moment?</li>',
+h2_8: 'How to record your position in the birth plan',
+p8: 'The most common mistake is a categorical phrasing like "no drugs at all." Labour can be unpredictable, and an overly rigid statement puts both staff and you in a difficult position. Preferences with a built-in escape clause work better:',
+examplesT: 'Example phrasings',
+examplesList: '<li>"First, please offer non-pharmacological methods — water immersion, positions, massage, breathing techniques."</li><li>"Please don\'t suggest pharmacological options until I ask for them myself."</li><li>"If I decide on an epidural, please tell me the composition of the mixture being given."</li><li>"I do not consent to pethidine or other agents that strongly alter consciousness."</li>',
+ctaT: 'Record your preferences before contractions start',
+ctaP: 'Our creator has a dedicated pain-relief step — with ready-made wording for the order of methods, epidural anaesthesia, and agents you don\'t consent to.',
+ctaBtn: 'Create your birth plan →',
+relatedT: 'Related articles'
+},
+de: {
+navCta: '← Wissen',
+eyebrow: 'Schmerzlinderung bei der Geburt · Aktualisiert: 23. Juli 2026',
+h1: 'Fentanyl bei der Geburt — was das für ein Medikament ist und warum Sie wahrscheinlich im Kreißsaal davon hören werden',
+lead: 'Fentanyl ist ein starkes Schmerzmittel aus der Gruppe der Opioide, das intravenös oder als Bestandteil einer Periduralanästhesie verabreicht wird. In den Medien wird es hauptsächlich mit der Opioidkrise in den USA assoziiert — eine Assoziation, die Eltern unnötig beunruhigt. In der Geburtshilfe sprechen wir von einem völlig anderen Kontext: präzise dosierten, sehr kleinen Mengen, die von einem Anästhesisten unter ständiger Überwachung verabreicht werden.',
+boxT: 'Kurz gesagt',
+boxList: '<li>Gelangt meist als <strong>Zusatz zur Periduralanästhesie</strong> in den Körper, nicht als separate Injektion.</li><li>Ermöglicht eine geringere Dosis des Lokalanästhetikums — der Block ist motorisch schwächer, Bewegen und Pressen fallen leichter.</li><li>Passiert die Plazenta; bei periduraler Gabe ist die Wirkung aufs Baby meist klinisch unbedeutend.</li><li>Die Gabe erfordert <strong>Ihre informierte Zustimmung</strong> — Sie können dies vorab im Geburtsplan festlegen.</li>',
+tocT: 'In diesem Artikel',
+tocList: '<li><a href="#czym-jest" class="text-teal hover:underline">→ Was Fentanyl ist</a></li><li><a href="#drogi" class="text-teal hover:underline">→ Wie es verabreicht wird</a></li><li><a href="#eda" class="text-teal hover:underline">→ Fentanyl in der PDA</a></li><li><a href="#odczucia" class="text-teal hover:underline">→ Wie es sich anfühlt</a></li><li><a href="#dziecko" class="text-teal hover:underline">→ Wirkung aufs Baby</a></li><li><a href="#porownanie" class="text-teal hover:underline">→ Methodenvergleich</a></li><li><a href="#pytania" class="text-teal hover:underline">→ Fragen an den Anästhesisten</a></li><li><a href="#plan" class="text-teal hover:underline">→ Eintrag im Geburtsplan</a></li>',
+h2_1: 'Was Fentanyl eigentlich ist',
+p1a: 'Fentanyl gehört zu den Opioiden — derselben Medikamentenfamilie wie Morphin, ist aber pro Milligramm um ein Vielfaches stärker. Genau deshalb wird es in Mikrogramm-Dosen verwendet, und nur in Umgebungen, in denen Atmung und Sauerstoffsättigung der Patientin überwacht werden können.',
+p1b: 'Es wirkt durch Bindung an Opioidrezeptoren im Rückenmark und Gehirn, wodurch Weiterleitung und Wahrnehmung von Schmerzreizen reduziert werden. Anders als eine örtliche Betäubung „schaltet" es Nerven in einem bestimmten Bereich nicht „ab", sondern verändert, wie das Nervensystem Schmerz verarbeitet.',
+boxT2: 'Warum Klinik-Fentanyl etwas anderes ist als das aus den Medienberichten',
+boxP2: 'Die Opioidkrise in den USA betrifft illegal hergestelltes Fentanyl unbekannter Konzentration, unkontrolliert eingenommen. In der Klinik sprechen wir von einem Präparat mit genau festgelegter Konzentration, einer vom Anästhesisten auf die konkrete Situation abgestimmten Dosis und kontinuierlicher Überwachung der Vitalparameter. Zwei verschiedene Welten, trotz gleichen Namens.',
+h2_2: 'Wie es bei der Geburt verabreicht wird',
+route1T: 'Periduralanästhesie — der häufigste Weg',
+route1P: 'Als Bestandteil der über einen Periduralkatheter verabreichten Mischung, zusammen mit einem Lokalanästhetikum. Das Medikament wirkt hauptsächlich dort, wo es gebraucht wird, und die in den Blutkreislauf gelangenden Mengen sind gering.',
+route2T: 'Spinalanästhesie — bei Betäubung für den Kaiserschnitt',
+route2P: 'Wird der Spinalanästhesie vor einem Kaiserschnitt zugesetzt — verbessert den Komfort während der OP und in den ersten Stunden danach.',
+route3T: 'Intravenös — seltener, in ausgewählten Situationen',
+route3P: 'Angewendet, wenn eine PDA nicht verfügbar oder kontraindiziert ist. Wirkt schneller, beeinflusst aber den gesamten Körper stärker — auch das Baby, wenn die Gabe kurz vor der Geburt erfolgt.',
+h2_3: 'Warum es der Periduralanästhesie zugesetzt wird',
+p3: 'Eine Frage, die sich zu stellen lohnt, denn viele Gebärende wissen nicht, dass ihre „PDA" ein Opioid enthält. Der Grund ist praktisch: Opioid und Anästhetikum verstärken sich gegenseitig. Dadurch kann eine <strong>geringere Menge des Anästhetikums</strong> verwendet werden, was sich direkt auf den Komfort der Geburt auswirkt.',
+edaList: '<li><strong>Schwächerer motorischer Block</strong> — bessere Chance, das Gefühl in den Beinen und die Fähigkeit zum Positionswechsel zu behalten.</li><li><strong>Erhaltenes Pressgefühl</strong> — leichteres Mitwirken in der Austreibungsphase.</li><li><strong>Schnellerer Wirkungseintritt</strong> als bei alleinigem Anästhetikum.</li><li><strong>Geringeres Risiko eines Blutdruckabfalls</strong> durch hohe Dosen des Lokalanästhetikums.</li>',
+note1: 'Der moderne Ansatz zur Geburtsanästhesie setzt auf die „mobile PDA" — eine, bei der sich die Gebärende bewegen und aktiv an der Geburt teilnehmen kann. Der Opioid-Zusatz ist eines der Elemente, die dies ermöglichen.',
+h2_4: 'Wie es sich anfühlt',
+p4: 'Am häufigsten berichtete Empfindungen sind Schläfrigkeit, ein Wärmegefühl, Entspannung und eine deutliche Verringerung der mit Wehen einhergehenden Anspannung. Manche Frauen beschreiben es als „der Schmerz ist da, hört aber auf, im Vordergrund zu stehen".',
+sideT1: 'Häufige, vorübergehende Nebenwirkungen',
+sideList1: '<li>Hautjucken, besonders im Gesicht und an der Nase</li><li>Schläfrigkeit und Verlangsamung</li><li>Übelkeit</li><li>Mundtrockenheit</li>',
+sideT2: 'Seltene, eine Team-Reaktion erfordernde',
+sideList2: '<li>Übermäßig flache Atmung</li><li>Abfall der Sauerstoffsättigung</li><li>Verstärkte Schläfrigkeit, die den Kontakt erschwert</li>',
+sideNote: 'Genau deshalb werden bei Opioid-Analgesie Atmung und Sättigung überwacht. Das Team verfügt über ein Medikament, das die Opioidwirkung aufhebt.',
+h2_5: 'Wirkung aufs Baby — eine ehrliche Antwort',
+p5a: 'Fentanyl passiert die Plazenta — eine Tatsache, die zu verbergen keinen Sinn hätte. Entscheidend sind jedoch <strong>Verabreichungsweg und Zeitpunkt</strong>.',
+p5b: 'Bei <strong>peridural</strong>er Gabe sind die in den mütterlichen Blutkreislauf gelangenden Mengen so gering, dass beim Neugeborenen meist keine klinisch bedeutsamen Folgen beobachtet werden. Bei <strong>intravenöser</strong> Gabe, besonders kurz vor der Geburt, kann eine vorübergehende Dämpfung des Atemantriebs und Schläfrigkeit auftreten — deshalb berücksichtigt der Anästhesist die voraussichtliche Geburtszeit bei der Methodenwahl.',
+practT: 'Was das in der Praxis bedeutet',
+practP: 'Das neonatologische Team weiß, welche Medikamente die Mutter erhalten hat, und beobachtet das Neugeborene entsprechend. Ist das Baby merklich schläfrig, braucht das erste Anlegen möglicherweise mehr Geduld und Unterstützung durch die Hebamme. Das ist eine vorübergehende Situation — bitten Sie lieber um Hilfe, als das Stillen aufzugeben.',
+h2_6: 'Fentanyl im Vergleich zu anderen Methoden',
+th1: 'Methode', th2: 'Wirkstärke', th3: 'Besonderheiten',
+tr1: '<th scope="row" class="p-3 font-semibold text-deep text-left">PDA mit Fentanyl</th><td class="p-3">Am wirksamsten</td><td class="p-3">Schwächerer motorischer Block als reines Anästhetikum; erfordert Katheterlegung</td>',
+tr2: '<th scope="row" class="p-3 font-semibold text-deep text-left">Remifentanil-PCA</th><td class="p-3">Mäßig</td><td class="p-3">Selbst ausgelöste Dosis; sehr kurze Wirkdauer; erfordert kontinuierliche Überwachung</td>',
+tr3: '<th scope="row" class="p-3 font-semibold text-deep text-left">Fentanyl intravenös</th><td class="p-3">Mäßig</td><td class="p-3">Alternative, wenn PDA nicht verfügbar; wirkt länger als Remifentanil</td>',
+tr4: '<th scope="row" class="p-3 font-semibold text-deep text-left">Lachgas</th><td class="p-3">Mild</td><td class="p-3">Volle Kontrolle durch die Gebärende, klingt schnell ab, kein Einfluss auf Geburtsverlauf</td>',
+tr5: '<th scope="row" class="p-3 font-semibold text-deep text-left rounded-bl-xl">Nicht-pharmakologische Methoden</th><td class="p-3">Variabel</td><td class="p-3 rounded-br-xl">Wasserimmersion, Positionen, Massage, TENS, Atmung; keine Wirkung aufs Baby</td>',
+note2: 'Es gibt keine einzige „beste" Methode. Der Perinatalversorgungsstandard verpflichtet die Klinik, über alle verfügbaren Optionen zu informieren und deren Anwendung im Rahmen der Sicherheit zu ermöglichen. Die Wahl liegt bei Ihnen und kann sich während der Geburt ändern.',
+h2_7: 'Was Sie den Anästhesisten fragen sollten',
+p7: 'Der Standard sieht eine Anästhesieberatung zwischen der 33. und 37. Schwangerschaftswoche vor. Das ist der beste Zeitpunkt für diese Fragen — in Ruhe, ohne Wehen.',
+questionsList: '<li>Welche Zusammensetzung hat die in dieser Klinik für die PDA verwendete Mischung?</li><li>Bieten Sie eine „mobile PDA" an, bei der man die Position wechseln kann?</li><li>Wie wird die Gebärende nach Opioidgabe überwacht?</li><li>Gibt es bei meinen Erkrankungen oder Medikamenten Kontraindikationen?</li><li>Was passiert, wenn die Betäubung sich als unzureichend oder einseitig erweist?</li><li>Welche Alternativen gibt es, falls der Anästhesist gerade im OP ist?</li>',
+h2_8: 'Wie Sie Ihre Position im Geburtsplan festhalten',
+p8: 'Der häufigste Fehler sind kategorische Formulierungen wie „keine Medikamente jeglicher Art". Geburten können unvorhersehbar verlaufen, und eine zu starre Festlegung bringt Personal und Sie selbst in eine schwierige Lage. Besser funktionieren Präferenzen mit eingebautem Spielraum:',
+examplesT: 'Beispielformulierungen',
+examplesList: '<li>„Bitte zunächst nicht-pharmakologische Methoden anbieten — Wasserimmersion, Positionen, Massage, Atemtechniken."</li><li>„Bitte schlagen Sie keine pharmakologischen Mittel vor, bis ich selbst danach frage."</li><li>„Falls ich mich für eine PDA entscheide, bitte ich um Information zur Zusammensetzung der verabreichten Mischung."</li><li>„Ich stimme Pethidin und anderen stark bewusstseinsverändernden Mitteln nicht zu."</li>',
+ctaT: 'Halten Sie Ihre Präferenzen fest, bevor die Wehen beginnen',
+ctaP: 'Unser Ersteller hat einen eigenen Schritt zur Schmerzlinderung — mit fertigen Formulierungen zur Reihenfolge der Methoden, zur PDA und zu Mitteln, denen Sie nicht zustimmen.',
+ctaBtn: 'Erstellen Sie Ihren Geburtsplan →',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: '← Знання',
+eyebrow: 'Знеболення пологів · Оновлено: 23 липня 2026',
+h1: 'Фентаніл при пологах — що це за препарат і чому ви, ймовірно, почуєте про нього в пологовій залі',
+lead: 'Фентаніл — сильний знеболювальний препарат з групи опіоїдів, що вводиться внутрішньовенно або як складова епідуральної анестезії. У медіа він асоціюється переважно з опіоїдною кризою в США — і ця асоціація непотрібно тривожить батьків. В акушерстві йдеться про зовсім інший контекст: точно підібрані, дуже малі дози, що вводяться анестезіологом під постійним наглядом.',
+boxT: 'Коротко',
+boxList: '<li>Найчастіше потрапляє в організм як <strong>додаток до епідуральної анестезії</strong>, а не як окрема ін\'єкція.</li><li>Завдяки йому можна зменшити дозу анестетика — блок слабший моторно, легше рухатися і тужитися.</li><li>Проникає крізь плаценту; при епідуральному введенні вплив на дитину зазвичай клінічно незначний.</li><li>Введення потребує <strong>вашої усвідомленої згоди</strong> — про це можна вирішити заздалегідь у плані пологів.</li>',
+tocT: 'У цій статті',
+tocList: '<li><a href="#czym-jest" class="text-teal hover:underline">→ Що таке фентаніл</a></li><li><a href="#drogi" class="text-teal hover:underline">→ Як вводиться</a></li><li><a href="#eda" class="text-teal hover:underline">→ Фентаніл в епідуральній анестезії</a></li><li><a href="#odczucia" class="text-teal hover:underline">→ Які відчуття</a></li><li><a href="#dziecko" class="text-teal hover:underline">→ Вплив на дитину</a></li><li><a href="#porownanie" class="text-teal hover:underline">→ Порівняння методів</a></li><li><a href="#pytania" class="text-teal hover:underline">→ Про що запитати анестезіолога</a></li><li><a href="#plan" class="text-teal hover:underline">→ Запис у плані пологів</a></li>',
+h2_1: 'Що таке фентаніл насправді',
+p1a: 'Фентаніл належить до опіоїдів — тієї самої групи препаратів, що й морфін, але в перерахунку на міліграм у багато разів сильніший. Саме тому його застосовують у дозах, вимірюваних мікрограмами, і виключно в умовах, де можна моніторити дихання і сатурацію пацієнтки.',
+p1b: 'Діє шляхом зв\'язування з опіоїдними рецепторами у спинному мозку і головному мозку, що зменшує проведення і сприйняття больових сигналів. На відміну від місцевої анестезії, він не «вимикає» нерви в певній ділянці, а змінює те, як нервова система обробляє біль.',
+boxT2: 'Чому лікарняний фентаніл — це не те саме, що фентаніл із медійних повідомлень',
+boxP2: 'Опіоїдна криза в США стосується нелегально виробленого фентанілу невідомої концентрації, який вживають безконтрольно. У лікарні йдеться про препарат чітко визначеної концентрації, дозу підбирає анестезіолог під конкретну ситуацію, з постійним моніторингом життєвих показників. Це два різні світи, попри однакову назву.',
+h2_2: 'Як вводиться при пологах',
+route1T: 'Епідурально — найчастіший шлях',
+route1P: 'Як складова суміші, що вводиться через епідуральний катетер разом з місцевим анестетиком. Препарат діє переважно там, де потрібно, а кількості, що потрапляють у кровотік, невеликі.',
+route2T: 'Спінально — при анестезії для кесаревого розтину',
+route2P: 'Додається до спінальної анестезії перед кесаревим розтином — покращує комфорт під час операції і в перші години після неї.',
+route3T: 'Внутрішньовенно — рідше, у вибраних ситуаціях',
+route3P: 'Застосовується, коли епідуральна анестезія недоступна або протипоказана. Діє швидше, але сильніше впливає на все тіло — також на дитину, якщо введення відбувається незадовго до народження.',
+h2_3: 'Чому його додають до епідуральної анестезії',
+p3: 'Питання, яке варто поставити, бо багато породіль не знають, що їхня «епідуральна» містить опіоїд. Причина практична: опіоїд і анестетик підсилюють один одного. Завдяки цьому можна використати <strong>меншу кількість анестетика</strong>, що безпосередньо впливає на комфорт пологів.',
+edaList: '<li><strong>Слабший моторний блок</strong> — більший шанс зберегти чутливість у ногах і здатність змінювати позу.</li><li><strong>Збережене відчуття потуг</strong> — легше співпрацювати в другому періоді пологів.</li><li><strong>Швидший початок полегшення</strong>, ніж при самому анестетику.</li><li><strong>Менший ризик падіння тиску</strong>, пов\'язаного з великими дозами місцевого анестетика.</li>',
+note1: 'Сучасний підхід до знеболення пологів передбачає «рухому епідуральну анестезію» — таку, при якій породілля може рухатися й активно брати участь у пологах. Додавання опіоїду — один з елементів, що це уможливлюють.',
+h2_4: 'Які відчуття після нього',
+p4: 'Найчастіше повідомлювані відчуття — сонливість, відчуття тепла, розслаблення і помітне зменшення напруги, що супроводжує перейми. Деякі жінки описують це як «біль є, але перестає бути головним».',
+sideT1: 'Часті, тимчасові побічні ефекти',
+sideList1: '<li>Свербіж шкіри, особливо обличчя й носа</li><li>Сонливість і сповільненість</li><li>Нудота</li><li>Сухість у роті</li>',
+sideT2: 'Рідкісні, що потребують реакції команди',
+sideList2: '<li>Надмірне сповільнення дихання</li><li>Падіння сатурації</li><li>Виражена сонливість, що ускладнює контакт</li>',
+sideNote: 'Саме тому при опіоїдній аналгезії моніторять дихання і сатурацію. У команди є препарат, що усуває дію опіоїдів.',
+h2_5: 'Вплив на дитину — чесна відповідь',
+p5a: 'Фентаніл проникає крізь плаценту — це факт, який немає сенсу приховувати. Проте значення має <strong>шлях введення і момент</strong>.',
+p5b: 'При <strong>епідуральному</strong> введенні кількості, що потрапляють у кровотік матері, настільки малі, що у новонародженого зазвичай не спостерігається клінічно значущих наслідків. При <strong>внутрішньовенному</strong> введенні, особливо незадовго до народження, може з\'явитися тимчасове послаблення дихального драйву і сонливість — тому анестезіолог враховує очікуваний час пологів при виборі методу.',
+practT: 'Що це означає на практиці',
+practP: 'Неонатологічна команда знає, які препарати отримала мама, і спостерігає за новонародженим з урахуванням цього. Якщо дитина помітно сонлива, перше прикладання до грудей може вимагати більше терпіння і підтримки акушерки. Це тимчасова ситуація — варто попросити про неї, а не відмовлятися від годування.',
+h2_6: 'Фентаніл на тлі інших методів',
+th1: 'Метод', th2: 'Сила дії', th3: 'Особливості',
+tr1: '<th scope="row" class="p-3 font-semibold text-deep text-left">Епідуральна з фентанілом</th><td class="p-3">Найефективніша</td><td class="p-3">Слабший моторний блок, ніж сам анестетик; потребує встановлення катетера</td>',
+tr2: '<th scope="row" class="p-3 font-semibold text-deep text-left">Ремифентаніл PCA</th><td class="p-3">Помірна</td><td class="p-3">Породілля сама вмикає дозу; дуже коротка дія; потребує постійного моніторингу</td>',
+tr3: '<th scope="row" class="p-3 font-semibold text-deep text-left">Фентаніл внутрішньовенно</th><td class="p-3">Помірна</td><td class="p-3">Альтернатива, коли епідуральна недоступна; діє довше, ніж ремифентаніл</td>',
+tr4: '<th scope="row" class="p-3 font-semibold text-deep text-left">Інгаляційний газ</th><td class="p-3">Легка</td><td class="p-3">Повний контроль породіллі, швидко минає, не впливає на перебіг пологів</td>',
+tr5: '<th scope="row" class="p-3 font-semibold text-deep text-left rounded-bl-xl">Нефармакологічні методи</th><td class="p-3">Змінна</td><td class="p-3 rounded-br-xl">Занурення у воду, пози, масаж, TENS, дихання; без впливу на дитину</td>',
+note2: 'Не існує єдиного «найкращого» методу. Стандарт перинатальної допомоги зобов\'язує лікарню інформувати про всі доступні варіанти і дозволяти їх застосування в межах безпеки. Вибір за вами і може змінюватися під час пологів.',
+h2_7: 'Про що запитати анестезіолога',
+p7: 'Стандарт передбачає консультацію анестезіолога між 33 і 37 тижнем вагітності. Це найкращий момент для цих питань — спокійно, без переймів.',
+questionsList: '<li>Який склад суміші використовується в цій лікарні для епідуральної анестезії?</li><li>Чи застосовуєте ви «рухому епідуральну анестезію», яка дозволяє змінювати позу?</li><li>Як моніторять породіллю після введення опіоїду?</li><li>Чи є протипоказання з огляду на мої захворювання або препарати, які я приймаю?</li><li>Що відбувається, якщо анестезія виявиться недостатньою або однобічною?</li><li>Які є альтернативи, якщо анестезіолог у цей момент буде в операційній?</li>',
+h2_8: 'Як записати свою позицію в плані пологів',
+p8: 'Найчастіша помилка — категоричні формулювання на кшталт «без жодних препаратів». Пологи бувають непередбачуваними, і надто жорсткий запис ставить персонал і вас у складну ситуацію. Краще працюють побажання із застереженням:',
+examplesT: 'Приклади формулювань',
+examplesList: '<li>«У першу чергу прошу нефармакологічні методи — занурення у воду, пози, масаж, техніки дихання».</li><li>«Прошу не пропонувати фармакологічні засоби, доки я сама про них не попрошу».</li><li>«Якщо я вирішу на епідуральну анестезію, прошу повідомити склад суміші, що вводиться».</li><li>«Не даю згоди на петидин та інші засоби, що сильно змінюють свідомість».</li>',
+ctaT: 'Запишіть свої побажання, перш ніж почнуться перейми',
+ctaP: 'Наш конструктор має окремий крок, присвячений знеболенню — з готовими формулюваннями щодо порядку методів, епідуральної анестезії та засобів, на які ви не даєте згоди.',
+ctaBtn: 'Створіть свій план пологів →',
+relatedT: "Пов'язані статті"
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>

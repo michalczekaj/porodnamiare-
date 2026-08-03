@@ -94,25 +94,28 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/wiedza" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    <div class="flex items-center gap-3">
+<select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select>
+<a href="/wiedza" data-i18n="navCta" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+</div>
   </nav>
 </header>
 
 <main id="main" class="max-w-3xl mx-auto px-4 py-10">
   <nav aria-label="Ścieżka nawigacji" class="text-xs text-ink/60 mb-5 no-print"><a href="/" class="hover:text-teal">Start</a> · <a href="/wiedza" class="hover:text-teal">Wiedza</a> · <span>Rola taty</span></nav>
 
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Dla taty · Aktualizacja: 21 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Rola taty przy porodzie — co robić minuta po minucie</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-6">Większość poradników mówi ojcom, żeby „byli wsparciem". To zdanie nie pomaga o czwartej nad ranem, kiedy partnerka ma skurcz co trzy minuty, a Ty stoisz z torbą w ręku i nie wiesz, gdzie się podziać. Poniżej jest konkret: co robić na każdym etapie.</p>
+  <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Dla taty · Aktualizacja: 21 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Rola taty przy porodzie — co robić minuta po minucie</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6">Większość poradników mówi ojcom, żeby „byli wsparciem". To zdanie nie pomaga o czwartej nad ranem, kiedy partnerka ma skurcz co trzy minuty, a Ty stoisz z torbą w ręku i nie wiesz, gdzie się podziać. Poniżej jest konkret: co robić na każdym etapie.</p>
 
   <div class="bg-tealsoft rounded-2xl p-5 mb-8">
-    <p class="font-semibold text-deep mb-2">Jedna rzecz, którą warto zapamiętać</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Twoim głównym zadaniem nie jest znoszenie bólu za partnerkę ani podejmowanie decyzji medycznych. Jest nim <strong>bycie jej głosem wtedy, gdy ona nie ma siły mówić</strong> — i pilnowanie, żeby ustalenia z planu porodu nie zniknęły w gorączce chwili.</p>
+    <p data-i18n="boxT" class="font-semibold text-deep mb-2">Jedna rzecz, którą warto zapamiętać</p>
+    <p data-i18n="boxP" class="text-[15px] leading-relaxed text-ink/85">Twoim głównym zadaniem nie jest znoszenie bólu za partnerkę ani podejmowanie decyzji medycznych. Jest nim <strong>bycie jej głosem wtedy, gdy ona nie ma siły mówić</strong> — i pilnowanie, żeby ustalenia z planu porodu nie zniknęły w gorączce chwili.</p>
   </div>
 
   <nav class="bg-white border border-sanddark rounded-2xl p-5 mb-10 no-print" aria-label="Spis treści">
-    <p class="font-semibold text-deep mb-3">Etapy</p>
-    <ul class="grid sm:grid-cols-2 gap-2 text-[15px]">
+    <p data-i18n="tocT" class="font-semibold text-deep mb-3">Etapy</p>
+    <ul data-i18n="tocList" class="grid sm:grid-cols-2 gap-2 text-[15px]">
       <li><a href="#przed" class="text-teal hover:underline">→ Zanim wyjedziecie</a></li>
       <li><a href="#skurcze" class="text-teal hover:underline">→ Pierwsze skurcze</a></li>
       <li><a href="#sala" class="text-teal hover:underline">→ Na sali porodowej</a></li>
@@ -122,9 +125,9 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     </ul>
   </nav>
 
-  <h2 id="przed" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Etap 1: zanim wyjedziecie do szpitala</h2>
+  <h2 id="przed" data-i18n="h2_1" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Etap 1: zanim wyjedziecie do szpitala</h2>
   <div class="bg-white border border-sanddark rounded-2xl p-6 mb-6">
-    <ul class="space-y-2.5 text-[15px] text-ink/85">
+    <ul data-i18n="stage1List" class="space-y-2.5 text-[15px] text-ink/85">
       <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Własna torba</strong> — ładowarka i powerbank, woda, przekąski, zmiana koszulki, dezodorant, gotówka na parking.</span></li>
       <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Dwa wydrukowane egzemplarze planu porodu</strong> — jeden dla położnej, jeden dla Was.</span></li>
       <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Przejechana trasa</strong> — realnie, o różnych porach. Sprawdź, gdzie jest izba przyjęć, a nie główne wejście.</span></li>
@@ -135,22 +138,22 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     </ul>
   </div>
 
-  <h2 id="skurcze" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Etap 2: pierwsze skurcze</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Tu zaczyna się Twoja pierwsza konkretna funkcja: <strong>jesteś stoperem i głosem rozsądku</strong>.</p>
-  <ul class="space-y-2 mb-5 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="skurcze" data-i18n="h2_2" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Etap 2: pierwsze skurcze</h2>
+  <p data-i18n="p2" class="leading-relaxed text-ink/85 mb-4">Tu zaczyna się Twoja pierwsza konkretna funkcja: <strong>jesteś stoperem i głosem rozsądku</strong>.</p>
+  <ul data-i18n="stage2List" class="space-y-2 mb-5 text-[15px] text-ink/85 list-disc pl-5">
     <li><strong>Mierz odstępy</strong> między początkami kolejnych skurczów i ich długość. Zapisuj — w stresie nikt tego nie pamięta.</li>
     <li><strong>Zadbaj o nawodnienie i posiłek</strong> partnerki, jeśli nie ma przeciwwskazań. Poród to wysiłek na wiele godzin.</li>
     <li><strong>Sam też zjedz.</strong> Brzmi banalnie, ale zasłabnięcia ojców na sali biorą się głównie z pustego żołądka i stresu.</li>
     <li><strong>Trzymaj spokojny ton głosu.</strong> Twoje napięcie udziela się natychmiast — to działa w obie strony.</li>
     <li><strong>Nie pospieszaj wyjazdu na siłę</strong>, ale też nie bagatelizuj. Przy wątpliwościach dzwońcie na oddział i pytajcie.</li>
   </ul>
-  <p class="text-[15px] text-ink/75 bg-sand border border-sanddark rounded-xl p-4 mb-6">Jeśli odeszły wody płodowe, pojawia się krwawienie, dziecko przestaje się ruszać albo partnerka źle się czuje — jedziecie od razu, niezależnie od tego, jak wyglądają skurcze.</p>
+  <p data-i18n="warn1" class="text-[15px] text-ink/75 bg-sand border border-sanddark rounded-xl p-4 mb-6">Jeśli odeszły wody płodowe, pojawia się krwawienie, dziecko przestaje się ruszać albo partnerka źle się czuje — jedziecie od razu, niezależnie od tego, jak wyglądają skurcze.</p>
 
-  <h2 id="sala" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Etap 3: na sali porodowej</h2>
+  <h2 id="sala" data-i18n="h2_3" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Etap 3: na sali porodowej</h2>
   <div class="grid sm:grid-cols-2 gap-4 mb-6">
     <div class="bg-white border border-sanddark rounded-2xl p-5">
-      <p class="font-semibold text-deep mb-2">Ciało</p>
-      <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+      <p data-i18n="bodyT" class="font-semibold text-deep mb-2">Ciało</p>
+      <ul data-i18n="bodyList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
         <li>Masaż okolicy lędźwiowej — mocno, nasadą dłoni</li>
         <li>Podparcie w pozycjach pionowych</li>
         <li>Chłodny okład na kark, picie małymi łykami</li>
@@ -158,8 +161,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
       </ul>
     </div>
     <div class="bg-white border border-sanddark rounded-2xl p-5">
-      <p class="font-semibold text-deep mb-2">Głowa</p>
-      <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+      <p data-i18n="headT" class="font-semibold text-deep mb-2">Głowa</p>
+      <ul data-i18n="headList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
         <li>Oddychaj razem z nią — nadaj rytm</li>
         <li>Pilnuj światła, ciszy, muzyki</li>
         <li>Informuj o postępie, jeśli chce wiedzieć</li>
@@ -168,9 +171,9 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     </div>
   </div>
   <div class="bg-white border-2 border-teal rounded-2xl p-5 mb-6">
-    <p class="font-bold text-deep mb-2">Twoja najważniejsza rola: komunikacja z personelem</p>
-    <p class="text-[15px] leading-relaxed text-ink/85 mb-2">To Ty pamiętasz plan porodu. Pytaj spokojnie i konkretnie — nie w trybie konfrontacji, tylko współpracy:</p>
-    <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+    <p data-i18n="commT" class="font-bold text-deep mb-2">Twoja najważniejsza rola: komunikacja z personelem</p>
+    <p data-i18n="commP" class="text-[15px] leading-relaxed text-ink/85 mb-2">To Ty pamiętasz plan porodu. Pytaj spokojnie i konkretnie — nie w trybie konfrontacji, tylko współpracy:</p>
+    <ul data-i18n="commList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
       <li>„Czy możemy prosić o wyjaśnienie, po co jest ten zabieg?"</li>
       <li>„W planie porodu mamy prośbę o ograniczenie badań do niezbędnych — czy to jest teraz konieczne?"</li>
       <li>„Partnerka prosiła o znieczulenie — czy jest możliwe i w jakim czasie?"</li>
@@ -178,9 +181,9 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     </ul>
   </div>
 
-  <h2 id="po" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Etap 4: tuż po narodzinach — najważniejsze dwie godziny</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Standard obowiązujący od maja 2026 gwarantuje <strong>co najmniej dwie godziny nieprzerwanego kontaktu skóra do skóry</strong>, także po cięciu cesarskim. To okno, którego nie da się odzyskać — i to Ty go pilnujesz, bo partnerka jest zajęta czym innym.</p>
-  <ul class="space-y-2 mb-5 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="po" data-i18n="h2_4" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Etap 4: tuż po narodzinach — najważniejsze dwie godziny</h2>
+  <p data-i18n="p4" class="leading-relaxed text-ink/85 mb-4">Standard obowiązujący od maja 2026 gwarantuje <strong>co najmniej dwie godziny nieprzerwanego kontaktu skóra do skóry</strong>, także po cięciu cesarskim. To okno, którego nie da się odzyskać — i to Ty go pilnujesz, bo partnerka jest zajęta czym innym.</p>
+  <ul data-i18n="stage4List" class="space-y-2 mb-5 text-[15px] text-ink/85 list-disc pl-5">
     <li><strong>Pilnuj, żeby dziecko nie zostało zabrane bez potrzeby</strong> — ważenie i mierzenie może poczekać.</li>
     <li><strong>Jeśli mama nie może — przejmij kontakt sam.</strong> Rozpięta koszulka, dziecko na klatce piersiowej. To działa tak samo dobrze.</li>
     <li><strong>Przecięcie pępowiny</strong> — jeśli chcesz. Nie musisz i nikt nie powinien Cię do tego namawiać.</li>
@@ -189,8 +192,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     <li><strong>Bądź przy dziecku</strong>, jeśli musi opuścić salę. Nowy standard wspiera obecność rodzica przy badaniach.</li>
   </ul>
 
-  <h2 id="doby" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Etap 5: pierwsze doby</h2>
-  <ul class="space-y-2 mb-5 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="doby" data-i18n="h2_5" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Etap 5: pierwsze doby</h2>
+  <ul data-i18n="stage5List" class="space-y-2 mb-5 text-[15px] text-ink/85 list-disc pl-5">
     <li><strong>Przejmij całą logistykę</strong> — dokumenty, formalności, zakupy, kontakt z rodziną. Ona ma karmić i się regenerować.</li>
     <li><strong>Wspieraj laktację praktycznie</strong>: woda w zasięgu ręki, poduszka, coś do jedzenia jedną ręką, spokój przy karmieniu.</li>
     <li><strong>Filtruj odwiedziny.</strong> To jedna z najbardziej niedocenianych ról taty. „Przyjedźcie za tydzień" to pełne zdanie.</li>
@@ -198,11 +201,11 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     <li><strong>Zadbaj o siebie.</strong> Niewyspany, głodny i przerażony tata nie pomoże nikomu. To nie egoizm, tylko warunek działania.</li>
   </ul>
 
-  <h2 id="slowa" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Co mówić, a czego nie mówić</h2>
+  <h2 id="slowa" data-i18n="h2_6" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Co mówić, a czego nie mówić</h2>
   <div class="grid sm:grid-cols-2 gap-4 mb-6">
     <div class="bg-white border-2 border-green-300 rounded-2xl p-5">
-      <p class="font-bold text-green-800 mb-2">✓ Działa</p>
-      <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+      <p data-i18n="worksT" class="font-bold text-green-800 mb-2">✓ Działa</p>
+      <ul data-i18n="worksList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
         <li>„Jestem tu, nigdzie nie idę"</li>
         <li>„Oddychaj ze mną"</li>
         <li>„Świetnie ci idzie"</li>
@@ -211,8 +214,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
       </ul>
     </div>
     <div class="bg-white border-2 border-red-300 rounded-2xl p-5">
-      <p class="font-bold text-red-800 mb-2">✗ Nie pomaga</p>
-      <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+      <p data-i18n="notT" class="font-bold text-red-800 mb-2">✗ Nie pomaga</p>
+      <ul data-i18n="notList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
         <li>„Uspokój się"</li>
         <li>„Inne kobiety dają radę"</li>
         <li>„To jeszcze nie boli tak bardzo"</li>
@@ -223,13 +226,13 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
   </div>
 
   <div class="bg-deep text-sand rounded-3xl p-7 md:p-9 text-center mt-12 no-print">
-    <p class="font-display text-2xl font-semibold text-white mb-3">Chcesz mieć to wszystko w kieszeni?</p>
-    <p class="text-sand/85 mb-6 max-w-xl mx-auto leading-relaxed">Checklist dla Taty to rozbudowana wersja tego przewodnika w formie PDF do wydruku — z miejscem na notatki i kontakty. Do zabrania w torbie, bez zasięgu i bez szukania.</p>
-    <a href="/#cennik" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Zobacz Checklist dla Taty →</a>
+    <p data-i18n="ctaT" class="font-display text-2xl font-semibold text-white mb-3">Chcesz mieć to wszystko w kieszeni?</p>
+    <p data-i18n="ctaP" class="text-sand/85 mb-6 max-w-xl mx-auto leading-relaxed">Checklist dla Taty to rozbudowana wersja tego przewodnika w formie PDF do wydruku — z miejscem na notatki i kontakty. Do zabrania w torbie, bez zasięgu i bez szukania.</p>
+    <a href="/#cennik" data-i18n="ctaBtn" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Zobacz Checklist dla Taty →</a>
   </div>
 
   <div class="mt-10 pt-6 border-t border-sanddark">
-    <p class="font-semibold text-deep mb-3">Powiązane artykuły</p>
+    <p data-i18n="relatedT" class="font-semibold text-deep mb-3">Powiązane artykuły</p>
     <div class="grid sm:grid-cols-2 gap-4">
       <a href="/blog/porod-rodzinny-oplaty-prawa-taty" class="group bg-white border border-sanddark rounded-2xl p-5 hover:border-teal/50 transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-1.5">Prawa rodziców</p>
@@ -248,5 +251,124 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm no-print">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: '← Knowledge',
+eyebrow: 'For dads · Updated: 21 July 2026',
+h1: "Dad's role during birth — what to do, minute by minute",
+lead: '"Just be supportive" — that\'s what most guides tell fathers. That sentence doesn\'t help at 4am when your partner has a contraction every three minutes and you\'re standing there with the bag, not knowing what to do. Below is the concrete version: what to do at every stage.',
+boxT: 'One thing worth remembering',
+boxP: "Your main job isn't to endure the pain for your partner or make medical decisions. It's <strong>being her voice when she doesn't have the strength to speak</strong> — and making sure the birth-plan decisions don't get lost in the heat of the moment.",
+tocT: 'Stages',
+tocList: '<li><a href="#przed" class="text-teal hover:underline">→ Before you leave</a></li><li><a href="#skurcze" class="text-teal hover:underline">→ First contractions</a></li><li><a href="#sala" class="text-teal hover:underline">→ In the delivery room</a></li><li><a href="#po" class="text-teal hover:underline">→ Right after birth</a></li><li><a href="#doby" class="text-teal hover:underline">→ The first days</a></li><li><a href="#slowa" class="text-teal hover:underline">→ What to say, what not to</a></li>',
+h2_1: "Stage 1: before you head to the hospital",
+stage1List: '<li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Your own bag</strong> — charger and power bank, water, snacks, a spare shirt, deodorant, cash for parking.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Two printed copies of the birth plan</strong> — one for the midwife, one for you.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Drive the route</strong> — for real, at different times of day. Find the emergency admission entrance, not the main one.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Parking</strong> — is it paid, is there a barrier, will you need cash.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Entry rules</strong> — indoor shoes, intake form, protective clothing, possible fee.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Roles agreed in advance</strong> — who tells the family, who stays with an older child, who looks after the dog.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Full tank and charged phone</strong> — every day from week 37 onward.</span></li>',
+h2_2: 'Stage 2: first contractions',
+p2: 'This is where your first concrete function begins: <strong>you\'re the stopwatch and the voice of reason</strong>.',
+stage2List: '<li><strong>Time the intervals</strong> between contraction starts, and their duration. Write it down — no one remembers this under stress.</li><li><strong>Make sure your partner drinks and eats</strong>, if there\'s no contraindication. Labour is a many-hour effort.</li><li><strong>Eat something yourself too.</strong> Sounds trivial, but fathers fainting in the delivery room usually comes down to an empty stomach and stress.</li><li><strong>Keep a calm tone of voice.</strong> Your tension transmits instantly — it works both ways.</li><li><strong>Don\'t force an early departure</strong>, but don\'t downplay things either. If in doubt, call the ward and ask.</li>',
+warn1: "If the waters break, there's bleeding, the baby stops moving, or your partner feels unwell — go straight away, regardless of how the contractions look.",
+h2_3: 'Stage 3: in the delivery room',
+bodyT: 'Body',
+bodyList: '<li>Lower back massage — firm, with the heel of your hand</li><li>Support in upright positions</li><li>Cool compress on the neck, small sips of water</li><li>Help getting into the bath or shower</li>',
+headT: 'Mind',
+headList: "<li>Breathe with her — set the rhythm</li><li>Manage light, quiet, music</li><li>Give progress updates, if she wants to know</li><li>Take calls outside the room, or not at all</li>",
+commT: 'Your most important role: communicating with staff',
+commP: "You're the one who remembers the birth plan. Ask calmly and specifically — not confrontationally, but collaboratively:",
+commList: '<li>"Could you explain why this procedure is needed?"</li><li>"Our birth plan asks to limit exams to what\'s necessary — is this one required right now?"</li><li>"My partner asked for pain relief — is it available, and when?"</li><li>"Can we keep delayed cord clamping?"</li>',
+h2_4: 'Stage 4: right after birth — the most important two hours',
+p4: 'The standard in effect since May 2026 guarantees <strong>at least two hours of uninterrupted skin-to-skin contact</strong>, even after a caesarean. This is a window you can\'t get back — and you\'re the one guarding it, because your partner is occupied with other things.',
+stage4List: "<li><strong>Make sure the baby isn't taken away unnecessarily</strong> — weighing and measuring can wait.</li><li><strong>If mum can't — take over skin-to-skin yourself.</strong> Open shirt, baby on your chest. It works just as well.</li><li><strong>Cutting the cord</strong> — if you want to. You don't have to, and no one should pressure you.</li><li><strong>Photos</strong> — with staff's permission, but never of medical procedures.</li><li><strong>Track the agreed decisions</strong> on vitamin K, vaccinations and screening tests — per the birth plan.</li><li><strong>Stay with the baby</strong> if they need to leave the room. The new standard supports a parent's presence during exams.</li>",
+h2_5: 'Stage 5: the first days',
+stage5List: "<li><strong>Take over all the logistics</strong> — paperwork, admin, shopping, contacting family. She needs to feed and recover.</li><li><strong>Support breastfeeding practically</strong>: water within reach, a pillow, one-handed food, a calm space for feeding.</li><li><strong>Filter visitors.</strong> One of dad's most underrated roles. \"Come by next week\" is a complete sentence.</li><li><strong>Watch your partner's mood.</strong> Baby blues in the first days are common, but if it deepens or lasts more than two weeks — act, and seek help.</li><li><strong>Take care of yourself.</strong> A sleep-deprived, hungry, terrified dad can't help anyone. That's not selfish — it's a requirement.</li>",
+h2_6: 'What to say, and what not to',
+worksT: '✓ Works',
+worksList: '<li>"I\'m here, I\'m not going anywhere"</li><li>"Breathe with me"</li><li>"You\'re doing great"</li><li>"Want me to ask something?"</li><li>"There\'ll be a break soon"</li>',
+notT: "✗ Doesn't help",
+notList: '<li>"Calm down"</li><li>"Other women manage"</li><li>"It doesn\'t even hurt that much yet"</li><li>"Maybe skip the pain relief?"</li><li>Silence, staring at your phone</li>',
+ctaT: 'Want all of this in your pocket?',
+ctaP: "The Dad's Checklist is an expanded, printable PDF version of this guide — with space for notes and contacts. Pack it in the bag — no signal, no searching needed.",
+ctaBtn: "See the Dad's Checklist →",
+relatedT: 'Related articles'
+},
+de: {
+navCta: '← Wissen',
+eyebrow: 'Für Väter · Aktualisiert: 21. Juli 2026',
+h1: 'Die Rolle des Vaters bei der Geburt — was Minute für Minute zu tun ist',
+lead: '„Sei einfach unterstützend" — das sagen die meisten Ratgeber Vätern. Dieser Satz hilft nicht um vier Uhr morgens, wenn die Partnerin alle drei Minuten eine Wehe hat und Sie mit der Tasche in der Hand dastehen und nicht wissen, was zu tun ist. Im Folgenden konkret: was in jeder Phase zu tun ist.',
+boxT: 'Eine Sache, die man sich merken sollte',
+boxP: 'Ihre Hauptaufgabe ist nicht, den Schmerz für die Partnerin zu ertragen oder medizinische Entscheidungen zu treffen. Sie ist es, <strong>ihre Stimme zu sein, wenn ihr die Kraft zum Sprechen fehlt</strong> — und sicherzustellen, dass die Festlegungen aus dem Geburtsplan im Trubel des Moments nicht verloren gehen.',
+tocT: 'Phasen',
+tocList: '<li><a href="#przed" class="text-teal hover:underline">→ Bevor Sie losfahren</a></li><li><a href="#skurcze" class="text-teal hover:underline">→ Erste Wehen</a></li><li><a href="#sala" class="text-teal hover:underline">→ Im Kreißsaal</a></li><li><a href="#po" class="text-teal hover:underline">→ Direkt nach der Geburt</a></li><li><a href="#doby" class="text-teal hover:underline">→ Die ersten Tage</a></li><li><a href="#slowa" class="text-teal hover:underline">→ Was sagen, was nicht</a></li>',
+h2_1: 'Phase 1: bevor Sie ins Krankenhaus fahren',
+stage1List: '<li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Eigene Tasche</strong> — Ladegerät und Powerbank, Wasser, Snacks, ein Ersatz-T-Shirt, Deo, Bargeld fürs Parken.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Zwei ausgedruckte Exemplare des Geburtsplans</strong> — eines für die Hebamme, eines für Sie.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Route abfahren</strong> — wirklich, zu verschiedenen Tageszeiten. Finden Sie den Notaufnahme-Eingang, nicht den Haupteingang.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Parken</strong> — kostenpflichtig, Schranke, Bargeld nötig?</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Zugangsregeln</strong> — Hausschuhe, Aufnahmebogen, Schutzkleidung, eventuelle Gebühr.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Vorab geklärte Rollen</strong> — wer informiert die Familie, wer bleibt bei einem älteren Kind, wer kümmert sich um den Hund.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Voller Tank und geladenes Handy</strong> — täglich ab der 37. Woche.</span></li>',
+h2_2: 'Phase 2: erste Wehen',
+p2: 'Hier beginnt Ihre erste konkrete Funktion: <strong>Sie sind die Stoppuhr und die Stimme der Vernunft</strong>.',
+stage2List: '<li><strong>Messen Sie die Abstände</strong> zwischen den Wehenbeginnen und deren Dauer. Notieren Sie es — unter Stress erinnert sich niemand daran.</li><li><strong>Sorgen Sie für Flüssigkeit und Nahrung</strong> der Partnerin, sofern keine Kontraindikation besteht. Die Geburt ist eine mehrstündige Anstrengung.</li><li><strong>Essen Sie auch selbst etwas.</strong> Klingt banal, aber das Ohnmächtigwerden von Vätern im Kreißsaal hat meist mit leerem Magen und Stress zu tun.</li><li><strong>Bewahren Sie einen ruhigen Tonfall.</strong> Ihre Anspannung überträgt sich sofort — das funktioniert in beide Richtungen.</li><li><strong>Drängen Sie nicht unnötig zur Abfahrt</strong>, aber verharmlosen Sie auch nichts. Rufen Sie im Zweifel die Station an und fragen Sie nach.</li>',
+warn1: 'Wenn das Fruchtwasser abgeht, Blutungen auftreten, das Baby aufhört sich zu bewegen oder es der Partnerin schlecht geht — fahren Sie sofort los, unabhängig davon, wie die Wehen aussehen.',
+h2_3: 'Phase 3: im Kreißsaal',
+bodyT: 'Körper',
+bodyList: '<li>Kreuzbeinmassage — fest, mit dem Handballen</li><li>Stütze in aufrechten Positionen</li><li>Kühle Kompresse im Nacken, kleine Schlucke trinken</li><li>Hilfe beim Einstieg in Wanne oder Dusche</li>',
+headT: 'Kopf',
+headList: '<li>Atmen Sie mit ihr — geben Sie den Rhythmus vor</li><li>Achten Sie auf Licht, Ruhe, Musik</li><li>Informieren Sie über den Fortschritt, wenn sie es wissen möchte</li><li>Nehmen Sie Anrufe außerhalb des Raums an, oder gar nicht</li>',
+commT: 'Ihre wichtigste Rolle: Kommunikation mit dem Personal',
+commP: 'Sie erinnern sich an den Geburtsplan. Fragen Sie ruhig und konkret — nicht konfrontativ, sondern kooperativ:',
+commList: '<li>„Könnten Sie erklären, wozu dieser Eingriff dient?"</li><li>„Unser Geburtsplan bittet darum, Untersuchungen auf das Nötige zu beschränken — ist diese jetzt notwendig?"</li><li>„Meine Partnerin wollte eine Betäubung — ist das möglich, und wann?"</li><li>„Können wir das verzögerte Abnabeln beibehalten?"</li>',
+h2_4: 'Phase 4: direkt nach der Geburt — die wichtigsten zwei Stunden',
+p4: 'Der seit Mai 2026 geltende Standard garantiert <strong>mindestens zwei Stunden ununterbrochenen Haut-zu-Haut-Kontakt</strong>, auch nach einem Kaiserschnitt. Dieses Zeitfenster lässt sich nicht nachholen — und Sie sind derjenige, der darauf achtet, weil die Partnerin mit anderem beschäftigt ist.',
+stage4List: '<li><strong>Achten Sie darauf, dass das Baby nicht unnötig weggebracht wird</strong> — Wiegen und Messen können warten.</li><li><strong>Kann Mama nicht — übernehmen Sie den Kontakt selbst.</strong> Offenes Hemd, Baby auf der Brust. Das funktioniert genauso gut.</li><li><strong>Nabelschnur durchtrennen</strong> — wenn Sie möchten. Sie müssen nicht, und niemand sollte Sie dazu drängen.</li><li><strong>Fotos</strong> — mit Zustimmung des Personals, aber niemals von medizinischen Eingriffen.</li><li><strong>Achten Sie auf die Vereinbarungen</strong> zu Vitamin K, Impfungen und Screening-Untersuchungen — gemäß Geburtsplan.</li><li><strong>Bleiben Sie beim Baby</strong>, wenn es den Raum verlassen muss. Der neue Standard unterstützt die Anwesenheit eines Elternteils bei Untersuchungen.</li>',
+h2_5: 'Phase 5: die ersten Tage',
+stage5List: '<li><strong>Übernehmen Sie die gesamte Logistik</strong> — Dokumente, Formalitäten, Einkäufe, Kontakt zur Familie. Sie muss stillen und sich erholen.</li><li><strong>Unterstützen Sie das Stillen praktisch</strong>: Wasser in Reichweite, ein Kissen, einhändig essbares Essen, Ruhe beim Stillen.</li><li><strong>Filtern Sie Besuche.</strong> Eine der am meisten unterschätzten Vaterrollen. „Kommt nächste Woche vorbei" ist ein vollständiger Satz.</li><li><strong>Beobachten Sie die Stimmung der Partnerin.</strong> Baby-Blues in den ersten Tagen ist häufig, aber wenn er sich vertieft oder länger als zwei Wochen anhält — handeln Sie und suchen Sie Hilfe.</li><li><strong>Kümmern Sie sich um sich selbst.</strong> Ein übermüdeter, hungriger, verängstigter Vater hilft niemandem. Das ist kein Egoismus, sondern eine Voraussetzung.</li>',
+h2_6: 'Was man sagen sollte, und was nicht',
+worksT: '✓ Funktioniert',
+worksList: '<li>„Ich bin hier, ich gehe nirgendwohin"</li><li>„Atme mit mir"</li><li>„Du machst das großartig"</li><li>„Soll ich etwas fragen?"</li><li>„Gleich gibt es eine Pause"</li>',
+notT: '✗ Hilft nicht',
+notList: '<li>„Beruhig dich"</li><li>„Andere Frauen schaffen das auch"</li><li>„Es tut noch nicht so weh"</li><li>„Vielleicht doch ohne Betäubung?"</li><li>Schweigen und aufs Handy starren</li>',
+ctaT: 'Wollen Sie das alles griffbereit haben?',
+ctaP: 'Die Väter-Checkliste ist eine erweiterte, druckbare PDF-Version dieses Ratgebers — mit Platz für Notizen und Kontakte. Zum Mitnehmen in der Tasche, ohne Netz und ohne Suchen.',
+ctaBtn: 'Väter-Checkliste ansehen →',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: '← Знання',
+eyebrow: 'Для тата · Оновлено: 21 липня 2026',
+h1: 'Роль тата під час пологів — що робити хвилина за хвилиною',
+lead: '«Просто будь підтримкою» — так кажуть батькам більшість порадників. Ця фраза не допомагає о четвертій ранку, коли у партнерки перейми що три хвилини, а ви стоїте із сумкою в руці й не знаєте, куди подітися. Нижче — конкретика: що робити на кожному етапі.',
+boxT: 'Одна річ, яку варто запам\'ятати',
+boxP: 'Ваше головне завдання — не терпіти біль за партнерку і не приймати медичні рішення. Це <strong>бути її голосом, коли в неї немає сил говорити</strong> — і стежити, щоб домовленості з плану пологів не загубилися в гарячці моменту.',
+tocT: 'Етапи',
+tocList: '<li><a href="#przed" class="text-teal hover:underline">→ Перед виїздом</a></li><li><a href="#skurcze" class="text-teal hover:underline">→ Перші перейми</a></li><li><a href="#sala" class="text-teal hover:underline">→ У пологовій залі</a></li><li><a href="#po" class="text-teal hover:underline">→ Одразу після народження</a></li><li><a href="#doby" class="text-teal hover:underline">→ Перші доби</a></li><li><a href="#slowa" class="text-teal hover:underline">→ Що казати, а що ні</a></li>',
+h2_1: 'Етап 1: перед виїздом до лікарні',
+stage1List: '<li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Своя сумка</strong> — зарядка й павербанк, вода, перекуси, змінна футболка, дезодорант, готівка на паркування.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Два роздруковані примірники плану пологів</strong> — один для акушерки, один для вас.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Проїхана дорога</strong> — реально, у різний час доби. З\'ясуйте, де приймальне відділення, а не головний вхід.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Паркування</strong> — платне чи ні, чи є шлагбаум, чи потрібна готівка.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Правила входу</strong> — змінне взуття, анкета, захисний одяг, можлива плата.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Узгоджені ролі</strong> — хто повідомляє родину, хто залишається зі старшою дитиною, хто доглядає собаку.</span></li><li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">☐</span><span><strong>Повний бак і заряджений телефон</strong> — щодня з 37-го тижня.</span></li>',
+h2_2: 'Етап 2: перші перейми',
+p2: 'Тут починається ваша перша конкретна функція: <strong>ви — секундомір і голос розсудливості</strong>.',
+stage2List: '<li><strong>Вимірюйте інтервали</strong> між початками переймів та їхню тривалість. Записуйте — у стресі цього ніхто не пам\'ятає.</li><li><strong>Подбайте про пиття й харчування</strong> партнерки, якщо немає протипоказань. Пологи — це багатогодинне навантаження.</li><li><strong>Поїжте й самі.</strong> Звучить банально, але непритомність татів у пологовій залі здебільшого через порожній шлунок і стрес.</li><li><strong>Тримайте спокійний тон голосу.</strong> Ваша напруга передається миттєво — це працює в обидва боки.</li><li><strong>Не поспішайте з виїздом штучно</strong>, але й не применшуйте. Якщо є сумніви — дзвоніть у відділення й запитуйте.</li>',
+warn1: 'Якщо відійшли води, з\'явилася кровотеча, дитина перестала рухатися або партнерці погано — їдьте одразу, незалежно від того, як виглядають перейми.',
+h2_3: 'Етап 3: у пологовій залі',
+bodyT: 'Тіло',
+bodyList: '<li>Масаж попереку — сильно, основою долоні</li><li>Підтримка у вертикальних позах</li><li>Прохолодний компрес на шию, пиття маленькими ковтками</li><li>Допомога при вході у ванну або душ</li>',
+headT: 'Голова',
+headList: '<li>Дихайте разом з нею — задавайте ритм</li><li>Стежте за світлом, тишею, музикою</li><li>Інформуйте про перебіг, якщо вона хоче знати</li><li>Приймайте дзвінки поза залою або взагалі не приймайте</li>',
+commT: 'Ваша найважливіша роль: спілкування з персоналом',
+commP: 'Саме ви пам\'ятаєте план пологів. Питайте спокійно і конкретно — не в режимі конфронтації, а співпраці:',
+commList: '<li>«Чи можемо ми попросити пояснити, для чого ця процедура?»</li><li>«У плані пологів у нас є прохання обмежити обстеження до необхідних — чи це зараз потрібно?»</li><li>«Партнерка просила знеболення — чи можливо це і за який час?»</li><li>«Чи можемо ми зберегти відстрочене перетискання пуповини?»</li>',
+h2_4: 'Етап 4: одразу після народження — найважливіші дві години',
+p4: 'Стандарт, чинний з травня 2026 року, гарантує <strong>щонайменше дві години безперервного контакту шкіра до шкіри</strong>, навіть після кесаревого розтину. Це вікно неможливо повернути — і саме ви стежите за ним, бо партнерка зайнята іншим.',
+stage4List: '<li><strong>Стежте, щоб дитину не забрали без потреби</strong> — зважування і вимірювання може почекати.</li><li><strong>Якщо мама не може — самі перейміть контакт.</strong> Розстібнута сорочка, дитина на грудях. Це працює так само добре.</li><li><strong>Перетискання пуповини</strong> — якщо хочете. Не зобов\'язково, і ніхто не повинен вас до цього намовляти.</li><li><strong>Фото</strong> — за згодою персоналу, але без фотографування медичних процедур.</li><li><strong>Стежте за домовленостями</strong> щодо вітаміну K, щеплень і скринінгових досліджень — відповідно до плану пологів.</li><li><strong>Будьте поруч з дитиною</strong>, якщо їй потрібно покинути залу. Новий стандарт підтримує присутність батьків при обстеженнях.</li>',
+h2_5: 'Етап 5: перші доби',
+stage5List: '<li><strong>Візьміть на себе всю логістику</strong> — документи, формальності, покупки, зв\'язок з родиною. Вона має годувати і відновлюватися.</li><li><strong>Практично підтримуйте лактацію</strong>: вода під рукою, подушка, щось для їжі однією рукою, спокій під час годування.</li><li><strong>Фільтруйте відвідування.</strong> Одна з найбільш недооцінених ролей тата. «Приїжджайте за тиждень» — повне речення.</li><li><strong>Спостерігайте за настроєм партнерки.</strong> Післяпологовий смуток у перші дні поширений, але якщо він поглиблюється або триває довше двох тижнів — реагуйте і шукайте допомогу.</li><li><strong>Подбайте про себе.</strong> Невиспаний, голодний і переляканий тато нікому не допоможе. Це не егоїзм, а умова функціонування.</li>',
+h2_6: 'Що казати, а що ні',
+worksT: '✓ Працює',
+worksList: '<li>«Я тут, нікуди не йду»</li><li>«Дихай зі мною»</li><li>«У тебе чудово виходить»</li><li>«Хочеш, щоб я щось запитав?»</li><li>«Скоро буде перерва»</li>',
+notT: '✗ Не допомагає',
+notList: '<li>«Заспокойся»</li><li>«Інші жінки справляються»</li><li>«Це ще не так боляче»</li><li>«Може, все-таки без знеболення?»</li><li>Мовчання і витріщання в телефон</li>',
+ctaT: 'Хочете мати все це під рукою?',
+ctaP: 'Чек-лист для тата — розширена версія цього путівника у форматі PDF для друку — з місцем для нотаток і контактів. Взяти з собою в сумку, без мережі й без пошуків.',
+ctaBtn: 'Переглянути Чек-лист для тата →',
+relatedT: "Пов'язані статті"
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>

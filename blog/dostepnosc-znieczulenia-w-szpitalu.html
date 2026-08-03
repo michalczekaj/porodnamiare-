@@ -93,20 +93,23 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
   <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
     <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <a href="/wiedza" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+    <div class="flex items-center gap-3">
+<select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select>
+<a href="/wiedza" data-i18n="navCta" class="text-sm font-semibold text-teal hover:text-deep transition-colors">← Wiedza</a>
+</div>
   </nav>
 </header>
 
 <main id="main" class="max-w-3xl mx-auto px-4 py-10">
   <nav aria-label="Ścieżka nawigacji" class="text-xs text-ink/60 mb-5 no-print"><a href="/" class="hover:text-teal">Start</a> · <a href="/wiedza" class="hover:text-teal">Wiedza</a> · <span>Dostępność znieczulenia</span></nav>
 
-  <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Wybór szpitala · Aktualizacja: 21 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Czy w tym szpitalu dostanę znieczulenie? Jak to sprawdzić, zanim zacznie się poród</h1>
-  <p class="text-lg leading-relaxed text-ink/80 mb-6">„W naszym szpitalu jest znieczulenie" i „w naszym szpitalu dostaniesz znieczulenie o trzeciej w nocy w sobotę" to dwa różne zdania. Od maja 2026 macie narzędzia, żeby sprawdzić, które z nich jest prawdziwe — zanim spakujecie torbę.</p>
+  <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Wybór szpitala · Aktualizacja: 21 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Czy w tym szpitalu dostanę znieczulenie? Jak to sprawdzić, zanim zacznie się poród</h1>
+  <p data-i18n="lead" class="text-lg leading-relaxed text-ink/80 mb-6">„W naszym szpitalu jest znieczulenie" i „w naszym szpitalu dostaniesz znieczulenie o trzeciej w nocy w sobotę" to dwa różne zdania. Od maja 2026 macie narzędzia, żeby sprawdzić, które z nich jest prawdziwe — zanim spakujecie torbę.</p>
 
   <div class="bg-tealsoft rounded-2xl p-5 mb-8">
-    <p class="font-semibold text-deep mb-2">Co zmienił standard obowiązujący od 7 maja 2026</p>
-    <ul class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
+    <p data-i18n="boxT" class="font-semibold text-deep mb-2">Co zmienił standard obowiązujący od 7 maja 2026</p>
+    <ul data-i18n="boxList" class="space-y-1.5 text-[15px] text-ink/85 list-disc pl-5">
       <li>Każda rodząca ma mieć dostęp do <strong>co najmniej jednej metody farmakologicznego</strong> łagodzenia bólu.</li>
       <li>Szpital ma <strong>obowiązek opublikować</strong> na swojej stronie, jakie metody oferuje.</li>
       <li>NFZ powiązał wycenę porodu z odsetkiem znieczuleń — placówki mają finansowy powód, by je realnie udostępniać.</li>
@@ -114,8 +117,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
   </div>
 
   <nav class="bg-white border border-sanddark rounded-2xl p-5 mb-10 no-print" aria-label="Spis treści">
-    <p class="font-semibold text-deep mb-3">W tym artykule</p>
-    <ul class="grid sm:grid-cols-2 gap-2 text-[15px]">
+    <p data-i18n="tocT" class="font-semibold text-deep mb-3">W tym artykule</p>
+    <ul data-i18n="tocList" class="grid sm:grid-cols-2 gap-2 text-[15px]">
       <li><a href="#problem" class="text-teal hover:underline">→ Na czym polega problem</a></li>
       <li><a href="#mnozniki" class="text-teal hover:underline">→ Mnożniki NFZ</a></li>
       <li><a href="#jak-sprawdzic" class="text-teal hover:underline">→ Weryfikacja krok po kroku</a></li>
@@ -125,43 +128,43 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
     </ul>
   </nav>
 
-  <h2 id="problem" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Na czym naprawdę polega problem</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Rodzice zwykle pytają: „czy ten szpital robi znieczulenie zewnątrzoponowe?". Odpowiedź prawie zawsze brzmi „tak" — i prawie zawsze jest bezużyteczna.</p>
-  <p class="leading-relaxed text-ink/85 mb-4">Realnym wąskim gardłem nie jest sprzęt ani procedura, tylko <strong>dostępność anestezjologa</strong>. W wielu szpitalach powiatowych jeden anestezjolog na dyżurze obsługuje jednocześnie blok operacyjny, oddział intensywnej terapii i porodówkę. Jeśli w momencie Waszej prośby trwa nagła operacja, znieczulenie się nie odbędzie — i nie będzie to niczyja zła wola.</p>
+  <h2 id="problem" data-i18n="h2_1" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Na czym naprawdę polega problem</h2>
+  <p data-i18n="p1a" class="leading-relaxed text-ink/85 mb-4">Rodzice zwykle pytają: „czy ten szpital robi znieczulenie zewnątrzoponowe?". Odpowiedź prawie zawsze brzmi „tak" — i prawie zawsze jest bezużyteczna.</p>
+  <p data-i18n="p1b" class="leading-relaxed text-ink/85 mb-4">Realnym wąskim gardłem nie jest sprzęt ani procedura, tylko <strong>dostępność anestezjologa</strong>. W wielu szpitalach powiatowych jeden anestezjolog na dyżurze obsługuje jednocześnie blok operacyjny, oddział intensywnej terapii i porodówkę. Jeśli w momencie Waszej prośby trwa nagła operacja, znieczulenie się nie odbędzie — i nie będzie to niczyja zła wola.</p>
   <div class="bg-white border-2 border-teal rounded-2xl p-5 mb-6">
-    <p class="font-bold text-deep mb-2">Właściwe pytanie brzmi inaczej</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Zamiast „czy robicie znieczulenie" pytajcie: <em>„czy anestezjolog jest dostępny dla oddziału położniczego całodobowo, czy dyżuruje jednocześnie na bloku operacyjnym?"</em> Ta jedna zmiana sformułowania daje Wam prawdziwą odpowiedź.</p>
+    <p data-i18n="tipT" class="font-bold text-deep mb-2">Właściwe pytanie brzmi inaczej</p>
+    <p data-i18n="tipP" class="text-[15px] leading-relaxed text-ink/85">Zamiast „czy robicie znieczulenie" pytajcie: <em>„czy anestezjolog jest dostępny dla oddziału położniczego całodobowo, czy dyżuruje jednocześnie na bloku operacyjnym?"</em> Ta jedna zmiana sformułowania daje Wam prawdziwą odpowiedź.</p>
   </div>
 
-  <h2 id="mnozniki" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Mnożniki NFZ — dlaczego szpitalom zaczęło zależeć</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">To element nowego systemu, o którym rodzice praktycznie nie słyszą, a który zmienia układ sił. NFZ powiązał wycenę porodu z odsetkiem znieczuleń wykonywanych w danej placówce.</p>
+  <h2 id="mnozniki" data-i18n="h2_2" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Mnożniki NFZ — dlaczego szpitalom zaczęło zależeć</h2>
+  <p data-i18n="p2" class="leading-relaxed text-ink/85 mb-4">To element nowego systemu, o którym rodzice praktycznie nie słyszą, a który zmienia układ sił. NFZ powiązał wycenę porodu z odsetkiem znieczuleń wykonywanych w danej placówce.</p>
   <div class="overflow-x-auto mb-5">
     <table class="w-full text-[14px] border-collapse">
       <caption class="sr-only">Mechanizm mnożników NFZ dla wyceny porodu</caption>
       <thead><tr class="bg-deep text-white text-left">
-        <th scope="col" class="p-3 rounded-tl-xl font-semibold">Sytuacja placówki</th>
-        <th scope="col" class="p-3 rounded-tr-xl font-semibold">Wpływ na wycenę porodu</th>
+        <th scope="col" data-i18n="th1" class="p-3 rounded-tl-xl font-semibold">Sytuacja placówki</th>
+        <th scope="col" data-i18n="th2" class="p-3 rounded-tr-xl font-semibold">Wpływ na wycenę porodu</th>
       </tr></thead>
       <tbody>
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Udział znieczuleń poniżej 5% w kwartale</th><td class="p-3 text-red-700 font-semibold">obniżenie o 5%</td></tr>
-        <tr class="bg-white border-b border-sanddark"><th scope="row" class="p-3 text-left font-semibold text-deep">Przekroczenie kolejnych progów</th><td class="p-3 text-green-700 font-semibold">premie +12%, +19%, +21%</td></tr>
+        <tr class="bg-white border-b border-sanddark"><th scope="row" data-i18n="tr1a" class="p-3 text-left font-semibold text-deep">Udział znieczuleń poniżej 5% w kwartale</th><td data-i18n="tr1b" class="p-3 text-red-700 font-semibold">obniżenie o 5%</td></tr>
+        <tr class="bg-white border-b border-sanddark"><th scope="row" data-i18n="tr2a" class="p-3 text-left font-semibold text-deep">Przekroczenie kolejnych progów</th><td data-i18n="tr2b" class="p-3 text-green-700 font-semibold">premie +12%, +19%, +21%</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="leading-relaxed text-ink/85 mb-4">Znaczenie praktyczne jest takie: szpital, który dotąd traktował znieczulenie jako kłopot organizacyjny, ma teraz wymierny powód, żeby je realnie udostępniać. Jeśli usłyszycie, że „u nas się tego nie robi", warto wiedzieć, że placówka płaci za to finansowo.</p>
-  <p class="text-[15px] text-ink/75 bg-sand border border-sanddark rounded-xl p-4 mb-6">To nie znaczy, że możecie zażądać znieczulenia jak towaru w sklepie. Decyzja pozostaje medyczna i zależy od przeciwwskazań, etapu porodu i sytuacji na oddziale. Chodzi o to, żebyście wiedzieli, jak wygląda tło organizacyjne.</p>
+  <p data-i18n="p3" class="leading-relaxed text-ink/85 mb-4">Znaczenie praktyczne jest takie: szpital, który dotąd traktował znieczulenie jako kłopot organizacyjny, ma teraz wymierny powód, żeby je realnie udostępniać. Jeśli usłyszycie, że „u nas się tego nie robi", warto wiedzieć, że placówka płaci za to finansowo.</p>
+  <p data-i18n="note1" class="text-[15px] text-ink/75 bg-sand border border-sanddark rounded-xl p-4 mb-6">To nie znaczy, że możecie zażądać znieczulenia jak towaru w sklepie. Decyzja pozostaje medyczna i zależy od przeciwwskazań, etapu porodu i sytuacji na oddziale. Chodzi o to, żebyście wiedzieli, jak wygląda tło organizacyjne.</p>
 
-  <h2 id="jak-sprawdzic" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Weryfikacja szpitala — cztery kroki</h2>
-  <ol class="space-y-3 mb-6">
+  <h2 id="jak-sprawdzic" data-i18n="h2_3" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Weryfikacja szpitala — cztery kroki</h2>
+  <ol data-i18n="stepsList" class="space-y-3 mb-6">
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. Strona internetowa szpitala.</strong><br><span class="text-[15px] text-ink/80">Od 7 maja 2026 placówka ma obowiązek opublikować informację o dostępnych metodach łagodzenia bólu. Szukajcie w zakładce oddziału położniczego lub w informacjach dla pacjenta. <strong>Brak takiej informacji to sam w sobie sygnał ostrzegawczy</strong> — oznacza, że szpital nie realizuje obowiązku organizacyjnego.</span></li>
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Telefon do izby przyjęć.</strong><br><span class="text-[15px] text-ink/80">Pytania z sekcji poniżej. Zadzwońcie w dzień powszedni rano — wtedy jest największa szansa na spokojną rozmowę.</span></li>
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Szkoła rodzenia przy szpitalu.</strong><br><span class="text-[15px] text-ink/80">Położne prowadzące zajęcia znają realia oddziału lepiej niż jakakolwiek strona internetowa. To najbardziej wiarygodne źródło.</span></li>
     <li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Konsultacja anestezjologiczna.</strong><br><span class="text-[15px] text-ink/80">Standard przewiduje ją między 33. a 37. tygodniem ciąży. Nie rezygnujcie z niej — to jedyny moment na rozmowę z osobą, która faktycznie podejmie decyzję.</span></li>
   </ol>
 
-  <h2 id="pytania" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Pytania, które warto zadać</h2>
+  <h2 id="pytania" data-i18n="h2_4" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Pytania, które warto zadać</h2>
   <div class="bg-white border-2 border-teal rounded-2xl p-6 mb-6">
-    <ul class="space-y-2.5 text-[15px] text-ink/85 list-disc pl-5">
+    <ul data-i18n="questionsList" class="space-y-2.5 text-[15px] text-ink/85 list-disc pl-5">
       <li>Czy anestezjolog jest dostępny dla oddziału położniczego <strong>całodobowo</strong>, czy dyżuruje jednocześnie na bloku operacyjnym?</li>
       <li>Jaki jest typowy czas oczekiwania na znieczulenie od momentu zgłoszenia prośby?</li>
       <li>Czy stosujecie „ruchome EDA", przy którym można zmieniać pozycję i chodzić?</li>
@@ -171,37 +174,37 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
       <li>Czy konsultacja anestezjologiczna w 33.–37. tygodniu odbywa się u Was, czy trzeba ją zorganizować samodzielnie?</li>
     </ul>
   </div>
-  <p class="text-[15px] text-ink/75 mb-6">Zapiszcie odpowiedzi z datą i imieniem osoby, z którą rozmawialiście. Jeśli później pojawi się rozbieżność, macie konkret zamiast wrażenia.</p>
+  <p data-i18n="p4" class="text-[15px] text-ink/75 mb-6">Zapiszcie odpowiedzi z datą i imieniem osoby, z którą rozmawialiście. Jeśli później pojawi się rozbieżność, macie konkret zamiast wrażenia.</p>
 
-  <h2 id="konsultacja" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Konsultacja anestezjologiczna — nie odpuszczajcie jej</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">To najbardziej niedoceniana wizyta w całej ciąży. Anestezjolog sprawdzi przeciwwskazania, o których możecie nie wiedzieć: zaburzenia krzepnięcia, niektóre choroby kręgosłupa, przyjmowane leki przeciwzakrzepowe, wcześniejsze operacje kręgosłupa.</p>
-  <p class="leading-relaxed text-ink/85 mb-6">Dowiecie się też, jaki skład ma mieszanina używana w danym szpitalu — najczęściej jest to lek znieczulający miejscowo połączony z niewielką dawką opioidu. Więcej o tym w naszym tekście o <a href="/blog/fentanyl-w-porodzie" class="text-teal underline font-semibold">fentanylu przy porodzie</a>.</p>
+  <h2 id="konsultacja" data-i18n="h2_5" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Konsultacja anestezjologiczna — nie odpuszczajcie jej</h2>
+  <p data-i18n="p5a" class="leading-relaxed text-ink/85 mb-4">To najbardziej niedoceniana wizyta w całej ciąży. Anestezjolog sprawdzi przeciwwskazania, o których możecie nie wiedzieć: zaburzenia krzepnięcia, niektóre choroby kręgosłupa, przyjmowane leki przeciwzakrzepowe, wcześniejsze operacje kręgosłupa.</p>
+  <p data-i18n="p5b" class="leading-relaxed text-ink/85 mb-6">Dowiecie się też, jaki skład ma mieszanina używana w danym szpitalu — najczęściej jest to lek znieczulający miejscowo połączony z niewielką dawką opioidu. Więcej o tym w naszym tekście o <a href="/blog/fentanyl-w-porodzie" class="text-teal underline font-semibold">fentanylu przy porodzie</a>.</p>
 
-  <h2 id="odmowa" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Co zrobić, gdy odmówiono znieczulenia</h2>
-  <p class="leading-relaxed text-ink/85 mb-4">Odmowa może być uzasadniona medycznie — zbyt zaawansowany poród, przeciwwskazania, brak anestezjologa w danej chwili. Ma jednak swoje standardy.</p>
-  <ul class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
+  <h2 id="odmowa" data-i18n="h2_6" class="font-display text-2xl md:text-3xl font-semibold text-deep mt-12 mb-4 scroll-mt-20">Co zrobić, gdy odmówiono znieczulenia</h2>
+  <p data-i18n="p6" class="leading-relaxed text-ink/85 mb-4">Odmowa może być uzasadniona medycznie — zbyt zaawansowany poród, przeciwwskazania, brak anestezjologa w danej chwili. Ma jednak swoje standardy.</p>
+  <ul data-i18n="refusalList" class="space-y-2 mb-6 text-[15px] text-ink/85 list-disc pl-5">
     <li><strong>Poproście o wyjaśnienie i odnotowanie</strong> przyczyny w dokumentacji medycznej.</li>
     <li><strong>Zapytajcie o alternatywy</strong> — jeśli EDA nie jest możliwe, powinny być zaproponowane inne metody.</li>
     <li><strong>Osoba towarzysząca może pytać w Waszym imieniu</strong>, gdy Wy nie macie na to siły. To jedna z najważniejszych ról taty na sali.</li>
     <li><strong>Po porodzie</strong> możecie złożyć skargę do Rzecznika Praw Pacjenta, jeśli uznacie, że doszło do naruszenia standardu.</li>
   </ul>
   <div class="bg-tealsoft rounded-2xl p-5 mb-6">
-    <p class="font-semibold text-deep mb-2">Zapiszcie to w planie porodu</p>
-    <p class="text-[15px] leading-relaxed text-ink/85">Zdanie w rodzaju: <em>„Proszę o informację o dostępnych metodach łagodzenia bólu przy przyjęciu oraz o odnotowanie w dokumentacji, jeśli wybrana metoda nie będzie możliwa"</em> ustawia rozmowę od pierwszej minuty — bez konfrontacji, ale konkretnie.</p>
+    <p data-i18n="recT" class="font-semibold text-deep mb-2">Zapiszcie to w planie porodu</p>
+    <p data-i18n="recP" class="text-[15px] leading-relaxed text-ink/85">Zdanie w rodzaju: <em>„Proszę o informację o dostępnych metodach łagodzenia bólu przy przyjęciu oraz o odnotowanie w dokumentacji, jeśli wybrana metoda nie będzie możliwa"</em> ustawia rozmowę od pierwszej minuty — bez konfrontacji, ale konkretnie.</p>
   </div>
 
     <div class="bg-tealsoft border border-teal/30 rounded-2xl p-5 mb-8">
-    <p class="text-[15px] text-ink/85"><strong class="text-deep">🫁 Znieczulenie nie zawsze jest dostępne od razu.</strong> Oddech jest — zawsze. <strong>Techniki oddechowe i relaksacja na poród</strong> (ćwiczeniownik 12 str.) w pakietach <a href="/#cennik" class="text-teal font-semibold underline">Premium i Premium+</a>.</p>
+    <p data-i18n="crossSell" class="text-[15px] text-ink/85"><strong class="text-deep">🫁 Znieczulenie nie zawsze jest dostępne od razu.</strong> Oddech jest — zawsze. <strong>Techniki oddechowe i relaksacja na poród</strong> (ćwiczeniownik 12 str.) w pakietach <a href="/#cennik" class="text-teal font-semibold underline">Premium i Premium+</a>.</p>
   </div>
 
   <div class="bg-deep text-sand rounded-3xl p-7 md:p-9 text-center mt-12 no-print">
-    <p class="font-display text-2xl font-semibold text-white mb-3">Zapisz swoje preferencje, zanim zaczną się skurcze</p>
-    <p class="text-sand/85 mb-6 max-w-xl mx-auto leading-relaxed">Kreator ma osobny krok o łagodzeniu bólu — z gotowymi sformułowaniami dotyczącymi kolejności metod i sytuacji, gdy znieczulenie jest niedostępne.</p>
-    <a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
+    <p data-i18n="ctaT" class="font-display text-2xl font-semibold text-white mb-3">Zapisz swoje preferencje, zanim zaczną się skurcze</p>
+    <p data-i18n="ctaP" class="text-sand/85 mb-6 max-w-xl mx-auto leading-relaxed">Kreator ma osobny krok o łagodzeniu bólu — z gotowymi sformułowaniami dotyczącymi kolejności metod i sytuacji, gdy znieczulenie jest niedostępne.</p>
+    <a href="/#kreator" data-i18n="ctaBtn" class="inline-block bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Stwórz swój plan porodu →</a>
   </div>
 
   <div class="mt-10 pt-6 border-t border-sanddark">
-    <p class="font-semibold text-deep mb-3">Powiązane artykuły</p>
+    <p data-i18n="relatedT" class="font-semibold text-deep mb-3">Powiązane artykuły</p>
     <div class="grid sm:grid-cols-2 gap-4">
       <a href="/blog/fentanyl-w-porodzie" class="group bg-white border border-sanddark rounded-2xl p-5 hover:border-teal/50 transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-1.5">Łagodzenie bólu</p>
@@ -220,5 +223,130 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm no-print">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: '← Knowledge',
+eyebrow: 'Choosing a hospital · Updated: 21 July 2026',
+h1: "Will I get anaesthesia at this hospital? How to check before labour starts",
+lead: '"Our hospital offers anaesthesia" and "our hospital will give you anaesthesia at 3am on a Saturday" are two different statements. Since May 2026, you have tools to check which one is true — before you pack your bag.',
+boxT: 'What changed with the standard in effect since 7 May 2026',
+boxList: '<li>Every labouring woman must have access to <strong>at least one pharmacological</strong> pain-relief method.</li><li>The hospital is <strong>required to publish</strong> on its website which methods it offers.</li><li>The National Health Fund (NFZ) tied birth reimbursement to the anaesthesia rate — hospitals now have a financial reason to genuinely provide it.</li>',
+tocT: 'In this article',
+tocList: '<li><a href="#problem" class="text-teal hover:underline">→ What the real problem is</a></li><li><a href="#mnozniki" class="text-teal hover:underline">→ NFZ multipliers</a></li><li><a href="#jak-sprawdzic" class="text-teal hover:underline">→ Step-by-step verification</a></li><li><a href="#pytania" class="text-teal hover:underline">→ Questions for admissions</a></li><li><a href="#konsultacja" class="text-teal hover:underline">→ Anaesthesiology consultation</a></li><li><a href="#odmowa" class="text-teal hover:underline">→ When anaesthesia is refused</a></li>',
+h2_1: "What the problem actually is",
+p1a: 'Parents usually ask: "does this hospital do epidurals?" The answer is almost always "yes" — and almost always useless.',
+p1b: "The real bottleneck isn't equipment or procedure, but <strong>anaesthesiologist availability</strong>. In many district hospitals, a single on-call anaesthesiologist covers the operating theatre, intensive care, and the delivery ward simultaneously. If an emergency surgery is underway when you request anaesthesia, it won't happen — and it won't be anyone's fault.",
+tipT: 'The right question sounds different',
+tipP: 'Instead of "do you do epidurals", ask: <em>"is an anaesthesiologist available for the maternity ward around the clock, or do they cover the operating theatre at the same time?"</em> This one change in wording gets you a real answer.',
+h2_2: 'NFZ multipliers — why hospitals started to care',
+p2: "This is part of the new system parents rarely hear about, yet it shifts the balance of incentives. The NFZ tied birth reimbursement to the anaesthesia rate at a given facility.",
+th1: 'Facility situation', th2: 'Effect on birth reimbursement',
+tr1a: 'Anaesthesia rate below 5% per quarter', tr1b: '5% reduction',
+tr2a: 'Exceeding successive thresholds', tr2b: '+12%, +19%, +21% bonuses',
+p3: 'In practice: a hospital that used to treat anaesthesia as an organisational headache now has a measurable financial reason to genuinely provide it. If you hear "we don\'t do that here", know that the facility pays a price for it.',
+note1: "This doesn't mean you can demand anaesthesia like a product off a shelf. The decision remains medical and depends on contraindications, labour stage, and the ward's situation at the time. The point is for you to understand the organisational backdrop.",
+h2_3: 'Verifying a hospital — four steps',
+stepsList: '<li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. The hospital website.</strong><br><span class="text-[15px] text-ink/80">Since 7 May 2026, facilities must publish information on available pain-relief methods. Look under the maternity ward tab or patient information. <strong>Missing information is itself a warning sign</strong> — it means the hospital isn\'t fulfilling this organisational duty.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Call admissions.</strong><br><span class="text-[15px] text-ink/80">Questions are in the section below. Call on a weekday morning — that\'s when you\'re most likely to get an unrushed conversation.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. The hospital\'s antenatal classes.</strong><br><span class="text-[15px] text-ink/80">The midwives running classes know the ward\'s reality better than any website. This is the most reliable source.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. The anaesthesiology consultation.</strong><br><span class="text-[15px] text-ink/80">The standard schedules it between weeks 33 and 37. Don\'t skip it — it\'s your only chance to talk to the person who\'ll actually make the decision.</span></li>',
+h2_4: 'Questions worth asking',
+questionsList: '<li>Is an anaesthesiologist available for the maternity ward <strong>around the clock</strong>, or do they cover the operating theatre at the same time?</li><li>What\'s the typical wait time for anaesthesia once requested?</li><li>Do you offer "mobile epidurals" that allow position changes and walking?</li><li>What non-pharmacological methods are available — bath, shower, birth ball, TENS?</li><li>Is inhaled analgesia or remifentanil PCA available when an epidural isn\'t possible?</li><li>How many births per month does the ward handle, and how many anaesthesiologists are on duty?</li><li>Does the week 33–37 anaesthesiology consultation happen at your facility, or do we need to arrange it ourselves?</li>',
+p4: "Write down the answers with the date and the name of the person you spoke to. If a discrepancy comes up later, you'll have specifics instead of an impression.",
+h2_5: "The anaesthesiology consultation — don't skip it",
+p5a: "This is the most underrated visit in your whole pregnancy. The anaesthesiologist checks for contraindications you might not know about: clotting disorders, certain spinal conditions, blood thinners, previous spinal surgery.",
+p5b: 'You\'ll also learn the composition of the mixture used at that hospital — usually a local anaesthetic combined with a small opioid dose. More on this in our article on <a href="/blog/fentanyl-w-porodzie" class="text-teal underline font-semibold">fentanyl during labour</a>.',
+h2_6: "What to do if anaesthesia is refused",
+p6: "A refusal can be medically justified — labour too advanced, contraindications, no anaesthesiologist available at that moment. But it has standards to follow.",
+refusalList: '<li><strong>Ask for an explanation, and for the reason to be noted</strong> in your medical file.</li><li><strong>Ask about alternatives</strong> — if an epidural isn\'t possible, other methods should be offered.</li><li><strong>Your companion can ask on your behalf</strong> when you don\'t have the strength to. This is one of dad\'s most important roles in the room.</li><li><strong>After birth</strong>, you can file a complaint with the Patients\' Rights Ombudsman if you believe the standard was breached.</li>',
+recT: 'Write this into your birth plan',
+recP: 'A sentence like: <em>"Please inform us of available pain-relief methods at admission, and note in the file if the chosen method isn\'t possible"</em> sets the tone of the conversation from minute one — not confrontational, but specific.',
+crossSell: '<strong class="text-deep">🫁 Anaesthesia isn\'t always available right away.</strong> Breathing always is. <strong>Breathing techniques and relaxation for labour</strong> (a 12-page workbook) included in the <a href="/#cennik" class="text-teal font-semibold underline">Premium and Premium+</a> packages.',
+ctaT: 'Record your preferences before contractions start',
+ctaP: "The creator has a dedicated pain-relief step — with ready-made wording for the order of methods and what to do if anaesthesia isn't available.",
+ctaBtn: 'Create your birth plan →',
+relatedT: 'Related articles'
+},
+de: {
+navCta: '← Wissen',
+eyebrow: 'Klinikwahl · Aktualisiert: 21. Juli 2026',
+h1: 'Bekomme ich in dieser Klinik eine Betäubung? So prüfen Sie es, bevor die Geburt beginnt',
+lead: '„In unserer Klinik gibt es Betäubung" und „in unserer Klinik bekommen Sie um drei Uhr nachts an einem Samstag eine Betäubung" sind zwei verschiedene Aussagen. Seit Mai 2026 haben Sie Werkzeuge, um zu prüfen, welche davon zutrifft — bevor Sie die Tasche packen.',
+boxT: 'Was der seit 7. Mai 2026 geltende Standard verändert hat',
+boxList: '<li>Jede Gebärende muss Zugang zu <strong>mindestens einer pharmakologischen</strong> Schmerzlinderungsmethode haben.</li><li>Die Klinik ist <strong>verpflichtet, auf ihrer Website zu veröffentlichen</strong>, welche Methoden sie anbietet.</li><li>Die Nationale Gesundheitskasse (NFZ) hat die Geburtsvergütung an die Betäubungsquote gekoppelt — Kliniken haben nun einen finanziellen Grund, sie tatsächlich anzubieten.</li>',
+tocT: 'In diesem Artikel',
+tocList: '<li><a href="#problem" class="text-teal hover:underline">→ Worin das Problem wirklich besteht</a></li><li><a href="#mnozniki" class="text-teal hover:underline">→ NFZ-Multiplikatoren</a></li><li><a href="#jak-sprawdzic" class="text-teal hover:underline">→ Verifizierung Schritt für Schritt</a></li><li><a href="#pytania" class="text-teal hover:underline">→ Fragen an die Aufnahme</a></li><li><a href="#konsultacja" class="text-teal hover:underline">→ Anästhesieberatung</a></li><li><a href="#odmowa" class="text-teal hover:underline">→ Bei Ablehnung der Betäubung</a></li>',
+h2_1: 'Worin das eigentliche Problem besteht',
+p1a: 'Eltern fragen meist: „Macht diese Klinik Periduralanästhesien?" Die Antwort lautet fast immer „ja" — und ist fast immer nutzlos.',
+p1b: 'Der eigentliche Engpass ist nicht die Ausrüstung oder das Verfahren, sondern die <strong>Verfügbarkeit eines Anästhesisten</strong>. In vielen Kreiskrankenhäusern betreut ein diensthabender Anästhesist gleichzeitig OP, Intensivstation und Kreißsaal. Läuft gerade eine Notoperation, wenn Sie um Betäubung bitten, findet sie nicht statt — und das ist niemandes böser Wille.',
+tipT: 'Die richtige Frage klingt anders',
+tipP: 'Statt „Macht ihr Periduralanästhesien" fragen Sie: <em>„Ist ein Anästhesist rund um die Uhr für den Kreißsaal verfügbar, oder betreut er gleichzeitig den OP?"</em> Diese eine Formulierungsänderung liefert Ihnen eine echte Antwort.',
+h2_2: 'NFZ-Multiplikatoren — warum es Kliniken jetzt wichtig ist',
+p2: 'Das ist ein Teil des neuen Systems, von dem Eltern praktisch nichts hören, der aber die Kräfteverhältnisse verändert. Die NFZ hat die Geburtsvergütung an die Betäubungsquote der jeweiligen Einrichtung gekoppelt.',
+th1: 'Situation der Einrichtung', th2: 'Auswirkung auf die Geburtsvergütung',
+tr1a: 'Betäubungsanteil unter 5 % im Quartal', tr1b: 'Kürzung um 5 %',
+tr2a: 'Überschreiten weiterer Schwellenwerte', tr2b: 'Bonus +12 %, +19 %, +21 %',
+p3: 'Praktisch bedeutet das: Eine Klinik, die Betäubung bisher als organisatorisches Ärgernis behandelte, hat jetzt einen messbaren finanziellen Grund, sie tatsächlich anzubieten. Hören Sie „das machen wir hier nicht", wissen Sie: die Einrichtung zahlt finanziell dafür.',
+note1: 'Das bedeutet nicht, dass Sie Betäubung wie eine Ware im Laden verlangen können. Die Entscheidung bleibt medizinisch und hängt von Kontraindikationen, Geburtsphase und der Situation auf der Station ab. Es geht darum, dass Sie den organisatorischen Hintergrund kennen.',
+h2_3: 'Klinik-Verifizierung — vier Schritte',
+stepsList: '<li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. Die Klinik-Website.</strong><br><span class="text-[15px] text-ink/80">Seit 7. Mai 2026 müssen Einrichtungen Informationen zu verfügbaren Schmerzlinderungsmethoden veröffentlichen. Schauen Sie im Bereich Geburtshilfe oder Patienteninformation nach. <strong>Fehlt diese Information, ist das selbst ein Warnsignal</strong> — es bedeutet, dass die Klinik dieser organisatorischen Pflicht nicht nachkommt.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Anruf bei der Aufnahme.</strong><br><span class="text-[15px] text-ink/80">Fragen siehe Abschnitt unten. Rufen Sie werktags morgens an — dann ist die Chance auf ein ruhiges Gespräch am größten.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Der Geburtsvorbereitungskurs der Klinik.</strong><br><span class="text-[15px] text-ink/80">Die kursleitenden Hebammen kennen die Realität der Station besser als jede Website. Das ist die verlässlichste Quelle.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Die Anästhesieberatung.</strong><br><span class="text-[15px] text-ink/80">Der Standard sieht sie zwischen der 33. und 37. Woche vor. Verzichten Sie nicht darauf — es ist die einzige Gelegenheit, mit der Person zu sprechen, die tatsächlich entscheidet.</span></li>',
+h2_4: 'Fragen, die sich zu stellen lohnen',
+questionsList: '<li>Ist ein Anästhesist <strong>rund um die Uhr</strong> für den Kreißsaal verfügbar, oder betreut er gleichzeitig den OP?</li><li>Wie lange ist die typische Wartezeit auf Betäubung ab Anfrage?</li><li>Bieten Sie „mobile PDA" an, bei der man Position wechseln und laufen kann?</li><li>Welche nicht-pharmakologischen Methoden gibt es — Wanne, Dusche, Gebärball, TENS?</li><li>Ist Inhalationsanalgesie oder Remifentanil-PCA verfügbar, wenn PDA nicht möglich ist?</li><li>Wie viele Geburten pro Monat betreut die Station, und wie viele Anästhesisten sind im Dienst?</li><li>Findet die Anästhesieberatung in Woche 33–37 bei Ihnen statt, oder müssen wir sie selbst organisieren?</li>',
+p4: 'Notieren Sie die Antworten mit Datum und Namen der Ansprechperson. Kommt es später zu Widersprüchen, haben Sie Fakten statt eines Eindrucks.',
+h2_5: 'Die Anästhesieberatung — verzichten Sie nicht darauf',
+p5a: 'Das ist der am meisten unterschätzte Termin der gesamten Schwangerschaft. Der Anästhesist prüft Kontraindikationen, von denen Sie vielleicht nichts wissen: Gerinnungsstörungen, bestimmte Wirbelsäulenerkrankungen, Blutverdünner, frühere Wirbelsäulenoperationen.',
+p5b: 'Sie erfahren auch die Zusammensetzung der in der jeweiligen Klinik verwendeten Mischung — meist ein Lokalanästhetikum kombiniert mit einer geringen Opioid-Dosis. Mehr dazu in unserem Artikel über <a href="/blog/fentanyl-w-porodzie" class="text-teal underline font-semibold">Fentanyl bei der Geburt</a>.',
+h2_6: 'Was tun, wenn die Betäubung abgelehnt wird',
+p6: 'Eine Ablehnung kann medizinisch begründet sein — zu weit fortgeschrittene Geburt, Kontraindikationen, kein verfügbarer Anästhesist im Moment. Sie hat jedoch Standards.',
+refusalList: '<li><strong>Bitten Sie um eine Erklärung und um deren Vermerk</strong> in der Krankenakte.</li><li><strong>Fragen Sie nach Alternativen</strong> — ist PDA nicht möglich, sollten andere Methoden angeboten werden.</li><li><strong>Die Begleitperson kann in Ihrem Namen fragen</strong>, wenn Sie selbst dazu nicht in der Lage sind. Das ist eine der wichtigsten Vaterrollen im Kreißsaal.</li><li><strong>Nach der Geburt</strong> können Sie eine Beschwerde beim Patientenrechtsbeauftragten einreichen, wenn Sie einen Verstoß gegen den Standard vermuten.</li>',
+recT: 'Halten Sie das im Geburtsplan fest',
+recP: 'Ein Satz wie: <em>„Bitte informieren Sie uns bei Aufnahme über verfügbare Schmerzlinderungsmethoden und vermerken Sie in der Akte, falls die gewählte Methode nicht möglich sein sollte"</em> setzt den Ton des Gesprächs von der ersten Minute an — nicht konfrontativ, aber konkret.',
+crossSell: '<strong class="text-deep">🫁 Betäubung ist nicht immer sofort verfügbar.</strong> Atmung schon — immer. <strong>Atemtechniken und Entspannung für die Geburt</strong> (12-seitiges Übungsheft) in den Paketen <a href="/#cennik" class="text-teal font-semibold underline">Premium und Premium+</a>.',
+ctaT: 'Halten Sie Ihre Präferenzen fest, bevor die Wehen beginnen',
+ctaP: 'Der Ersteller hat einen eigenen Schritt zur Schmerzlinderung — mit fertigen Formulierungen zur Reihenfolge der Methoden und für den Fall, dass eine Betäubung nicht verfügbar ist.',
+ctaBtn: 'Erstellen Sie Ihren Geburtsplan →',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: '← Знання',
+eyebrow: 'Вибір лікарні · Оновлено: 21 липня 2026',
+h1: 'Чи отримаю я знеболення в цій лікарні? Як перевірити, перш ніж почнуться пологи',
+lead: '«У нашій лікарні є знеболення» і «у нашій лікарні ви отримаєте знеболення о третій ночі в суботу» — це два різні твердження. З травня 2026 року у вас є інструменти, щоб перевірити, яке з них правдиве — перш ніж пакувати сумку.',
+boxT: 'Що змінив стандарт, чинний з 7 травня 2026 року',
+boxList: '<li>Кожна породілля повинна мати доступ до <strong>щонайменше одного фармакологічного</strong> методу знеболення.</li><li>Лікарня <strong>зобов\'язана опублікувати</strong> на своєму сайті, які методи вона пропонує.</li><li>НФЗ (Національний фонд здоров\'я) пов\'язав оплату за пологи з відсотком знеболень — заклади мають фінансову причину реально їх надавати.</li>',
+tocT: 'У цій статті',
+tocList: '<li><a href="#problem" class="text-teal hover:underline">→ У чому насправді проблема</a></li><li><a href="#mnozniki" class="text-teal hover:underline">→ Множники НФЗ</a></li><li><a href="#jak-sprawdzic" class="text-teal hover:underline">→ Перевірка крок за кроком</a></li><li><a href="#pytania" class="text-teal hover:underline">→ Питання до приймального відділення</a></li><li><a href="#konsultacja" class="text-teal hover:underline">→ Консультація анестезіолога</a></li><li><a href="#odmowa" class="text-teal hover:underline">→ Якщо у знеболенні відмовили</a></li>',
+h2_1: 'У чому насправді полягає проблема',
+p1a: 'Батьки зазвичай запитують: «чи робить ця лікарня епідуральну анестезію?». Відповідь майже завжди «так» — і майже завжди марна.',
+p1b: 'Реальне вузьке місце — не обладнання чи процедура, а <strong>доступність анестезіолога</strong>. У багатьох районних лікарнях один черговий анестезіолог одночасно обслуговує операційну, реанімацію і пологове відділення. Якщо в момент вашого прохання триває екстрена операція, знеболення не відбудеться — і це нічия недобра воля.',
+tipT: 'Правильне питання звучить інакше',
+tipP: 'Замість «чи робите ви знеболення» запитайте: <em>«чи анестезіолог доступний для пологового відділення цілодобово, чи він одночасно чергує в операційній?»</em> Ця одна зміна формулювання дає вам справжню відповідь.',
+h2_2: 'Множники НФЗ — чому лікарням це стало важливо',
+p2: 'Це елемент нової системи, про який батьки практично не чують, але який змінює розстановку сил. НФЗ пов\'язав оплату за пологи з відсотком знеболень у конкретному закладі.',
+th1: 'Ситуація закладу', th2: 'Вплив на оплату за пологи',
+tr1a: 'Частка знеболень нижче 5% за квартал', tr1b: 'зниження на 5%',
+tr2a: 'Перевищення наступних порогів', tr2b: 'бонуси +12%, +19%, +21%',
+p3: 'Практичне значення таке: лікарня, яка досі ставилася до знеболення як до організаційної проблеми, тепер має вимірювану фінансову причину реально його надавати. Якщо ви почуєте «у нас цього не роблять», варто знати, що заклад платить за це фінансово.',
+note1: 'Це не означає, що ви можете вимагати знеболення як товар у магазині. Рішення залишається медичним і залежить від протипоказань, етапу пологів і ситуації у відділенні. Йдеться про те, щоб ви розуміли організаційний контекст.',
+h2_3: 'Перевірка лікарні — чотири кроки',
+stepsList: '<li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">1. Вебсайт лікарні.</strong><br><span class="text-[15px] text-ink/80">З 7 травня 2026 заклад зобов\'язаний опублікувати інформацію про доступні методи знеболення. Шукайте у вкладці пологового відділення або в інформації для пацієнтів. <strong>Відсутність такої інформації сама по собі є попереджувальним сигналом</strong> — означає, що лікарня не виконує організаційний обов\'язок.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">2. Дзвінок до приймального відділення.</strong><br><span class="text-[15px] text-ink/80">Питання нижче. Зателефонуйте у будній день зранку — тоді найбільший шанс на спокійну розмову.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">3. Школа для батьків при лікарні.</strong><br><span class="text-[15px] text-ink/80">Акушерки, що ведуть заняття, знають реалії відділення краще за будь-який сайт. Це найнадійніше джерело.</span></li><li class="bg-white border border-sanddark rounded-2xl p-5"><strong class="text-deep">4. Консультація анестезіолога.</strong><br><span class="text-[15px] text-ink/80">Стандарт передбачає її між 33 і 37 тижнем вагітності. Не відмовляйтесь від неї — це єдина нагода поговорити з людиною, яка фактично прийматиме рішення.</span></li>',
+h2_4: 'Питання, які варто поставити',
+questionsList: '<li>Чи доступний анестезіолог для пологового відділення <strong>цілодобово</strong>, чи він одночасно чергує в операційній?</li><li>Який типовий час очікування знеболення від моменту прохання?</li><li>Чи застосовуєте ви «рухому епідуральну анестезію», яка дозволяє змінювати позу і ходити?</li><li>Які нефармакологічні методи доступні — ванна, душ, фітбол, TENS?</li><li>Чи доступна інгаляційна аналгезія або ремифентаніл у системі PCA, коли епідуральна недоступна?</li><li>Скільки пологів на місяць приймає відділення і скільки анестезіологів чергує?</li><li>Чи консультація анестезіолога на 33–37 тижні відбувається у вас, чи треба організувати її самостійно?</li>',
+p4: 'Запишіть відповіді з датою і ім\'ям особи, з якою розмовляли. Якщо пізніше виникне розбіжність, у вас буде конкретика замість враження.',
+h2_5: 'Консультація анестезіолога — не відмовляйтесь від неї',
+p5a: 'Це найнедооціненіший візит за всю вагітність. Анестезіолог перевірить протипоказання, про які ви можете не знати: порушення згортання крові, деякі захворювання хребта, антикоагулянти, попередні операції на хребті.',
+p5b: 'Ви також дізнаєтесь, який склад суміші використовується в конкретній лікарні — найчастіше це місцевий анестетик у поєднанні з невеликою дозою опіоїду. Більше про це в нашій статті про <a href="/blog/fentanyl-w-porodzie" class="text-teal underline font-semibold">фентаніл при пологах</a>.',
+h2_6: 'Що робити, якщо у знеболенні відмовили',
+p6: 'Відмова може бути медично обґрунтованою — надто пізня стадія пологів, протипоказання, відсутність анестезіолога в даний момент. Проте вона має власні стандарти.',
+refusalList: '<li><strong>Попросіть пояснення і зазначення</strong> причини в медичній документації.</li><li><strong>Запитайте про альтернативи</strong> — якщо епідуральна неможлива, мають бути запропоновані інші методи.</li><li><strong>Супровідна особа може запитувати від вашого імені</strong>, коли у вас немає на це сил. Це одна з найважливіших ролей тата в пологовій залі.</li><li><strong>Після пологів</strong> ви можете подати скаргу Речнику прав пацієнта, якщо вважаєте, що стандарт порушено.</li>',
+recT: 'Запишіть це у плані пологів',
+recP: 'Фраза на кшталт: <em>«Прошу інформувати про доступні методи знеболення при госпіталізації та зазначити в документації, якщо обраний метод виявиться неможливим»</em> задає тон розмови з першої хвилини — без конфронтації, але конкретно.',
+crossSell: '<strong class="text-deep">🫁 Знеболення не завжди доступне одразу.</strong> Дихання доступне завжди. <strong>Техніки дихання і релаксації для пологів</strong> (зошит вправ, 12 стор.) у пакетах <a href="/#cennik" class="text-teal font-semibold underline">Premium і Premium+</a>.',
+ctaT: 'Запишіть свої побажання, перш ніж почнуться перейми',
+ctaP: 'Конструктор має окремий крок про знеболення — з готовими формулюваннями щодо порядку методів і ситуації, коли знеболення недоступне.',
+ctaBtn: 'Створіть свій план пологів →',
+relatedT: "Пов'язані статті"
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body>
 </html>

@@ -80,31 +80,33 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-3xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#kreator" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Stwórz plan</a>
+<div class="flex items-center gap-3">
+<select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language"><option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option></select>
+<a href="/#kreator" data-i18n="navCta" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Stwórz plan</a>
+</div>
 </nav></header>
 <main class="max-w-3xl mx-auto px-4 py-10">
   <nav class="text-xs text-ink/50 mb-6"><a href="/" class="hover:text-teal">Start</a> › <a href="/#blog" class="hover:text-teal">Wiedza</a> › Pierwsze 24 godziny noworodka</nav>
   <article class="prose max-w-none">
-    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Przewodnik · Noworodek</p>
-    <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Aktualizacja: 12 lipca 2026</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Pierwsze 24 godziny życia noworodka — co się dzieje i na co masz wpływ</h1>
-    <p class="text-sm text-ink/50 mb-4">Autor: <a href="/o-michale" class="text-teal underline">Michał</a>, tata i twórca PoródNaMiarę.pl · Zaktualizowano: 12 lipca 2026</p>
-    <div class="bg-tealsoft rounded-2xl p-5 my-6 text-[15px]"><p class="font-semibold text-deep mb-2">W skrócie:</p><p class="text-ink/80 m-0">Pierwsza doba to kontakt skóra do skóry (min. 2h, także po CC), osuszenie zamiast kąpieli, ocena Apgar podczas kontaktu, profilaktyka witaminą K, badania przesiewowe (test z piętki, pulsoksymetria, słuch), decyzja o szczepieniach i rooming-in. Na większość z tych elementów masz wpływ.</p></div>
-    <p>Pierwsza doba życia dziecka to seria procedur i decyzji, które dzieją się szybko — a Wy chcecie przy nich być świadomi, nie zaskoczeni. Oto co realnie się dzieje w pierwszych 24 godzinach i na co macie wpływ.</p><h2 class="font-display text-2xl font-semibold text-deep">Zaraz po porodzie: kontakt skóra do skóry</h2><p>Zgodnie ze Standardem 2026 (Dz.U. 2025 poz. 1525) dziecko powinno trafić w nieprzerwany kontakt skóra do skóry na co najmniej 2 godziny — także po cięciu cesarskim, gdy stan mamy i dziecka pozwala. To reguluje temperaturę, tętno i oddech noworodka oraz wspiera start laktacji.</p><h2 class="font-display text-2xl font-semibold text-deep">Osuszenie zamiast kąpieli</h2><p>Warto poprosić, by dziecko jedynie osuszono, pozostawiając maź płodową — bez kąpieli w pierwszej dobie. Maź płodowa ma funkcję ochronną i nawilżającą.</p><h2 class="font-display text-2xl font-semibold text-deep">Ocena Apgar i pierwsze badania</h2><p>Ocenę stanu dziecka (skala Apgar) można w wielu przypadkach przeprowadzić podczas kontaktu skóra do skóry, bez zbędnego rozdzielania. Ważenie, mierzenie i szczegółowe badanie — po zakończeniu pierwszego, nieprzerwanego kontaktu, o ile nie ma wskazań do wcześniejszej interwencji.</p><h2 class="font-display text-2xl font-semibold text-deep">Profilaktyka: witamina K i badania przesiewowe</h2><ul class="list-disc pl-5 space-y-2 text-[15px]"><li><strong>Witamina K</strong> — zapobiega groźnym krwawieniom z niedoboru witaminy K. Podanie domięśniowe to złoty standard.</li><li><strong>Test przesiewowy z piętki</strong> — wykrywa m.in. fenyloketonurię, mukowiscydozę, wrodzoną niedoczynność tarczycy.</li><li><strong>Pulsoksymetria</strong> — nieinwazyjne badanie wykrywające krytyczne wady serca.</li><li><strong>Badanie słuchu</strong> — wczesne wykrycie niedosłuchu.</li></ul><div class="bg-white border-l-4 border-teal rounded-r-2xl p-5 my-6 text-[15px] italic text-ink/80">To była dla mnie najważniejsza sekcja całego planu. Nie chodzi o to, żeby odmawiać procedur — wręcz przeciwnie, większość z nich ratuje zdrowie. Chodzi o to, żeby wiedzieć, co i dlaczego się dzieje, i móc przy tym być.<span class="block mt-2 not-italic font-semibold text-deep">— Michał</span></div><h2 class="font-display text-2xl font-semibold text-deep">Szczepienia w szpitalu</h2><p>W pierwszej dobie proponowane są szczepienia przeciw WZW typu B i gruźlicy (BCG). To decyzja rodziców — warto znać swoje stanowisko wcześniej. Więcej w osobnym artykule o <a href='/blog/szczepienia-noworodka-w-szpitalu' class='text-teal underline'>szczepieniach noworodka w szpitalu</a>.</p><h2 class="font-display text-2xl font-semibold text-deep">Rooming-in i karmienie</h2><p>Całodobowy rooming-in (dziecko przy mamie) to standard — bez rozdzielania bez wskazań medycznych. Pierwsze przystawienie do piersi najlepiej jeszcze na sali porodowej, w trakcie kontaktu skóra do skóry.</p>
+    <p data-i18n="eyebrow" class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Przewodnik · Noworodek · Aktualizacja: 12 lipca 2026</p>
+  <h1 data-i18n="h1" class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Pierwsze 24 godziny życia noworodka — co się dzieje i na co masz wpływ</h1>
+    <p data-i18n="authorLine" class="text-sm text-ink/50 mb-4">Autor: <a href="/o-michale" class="text-teal underline">Michał</a>, tata i twórca PoródNaMiarę.pl · Zaktualizowano: 12 lipca 2026</p>
+    <div class="bg-tealsoft rounded-2xl p-5 my-6 text-[15px]"><p data-i18n="boxT" class="font-semibold text-deep mb-2">W skrócie:</p><p data-i18n="boxP" class="text-ink/80 m-0">Pierwsza doba to kontakt skóra do skóry (min. 2h, także po CC), osuszenie zamiast kąpieli, ocena Apgar podczas kontaktu, profilaktyka witaminą K, badania przesiewowe (test z piętki, pulsoksymetria, słuch), decyzja o szczepieniach i rooming-in. Na większość z tych elementów masz wpływ.</p></div>
+    <p data-i18n="intro">Pierwsza doba życia dziecka to seria procedur i decyzji, które dzieją się szybko — a Wy chcecie przy nich być świadomi, nie zaskoczeni. Oto co realnie się dzieje w pierwszych 24 godzinach i na co macie wpływ.</p><h2 data-i18n="h2_1" class="font-display text-2xl font-semibold text-deep">Zaraz po porodzie: kontakt skóra do skóry</h2><p data-i18n="p1">Zgodnie ze Standardem 2026 (Dz.U. 2025 poz. 1525) dziecko powinno trafić w nieprzerwany kontakt skóra do skóry na co najmniej 2 godziny — także po cięciu cesarskim, gdy stan mamy i dziecka pozwala. To reguluje temperaturę, tętno i oddech noworodka oraz wspiera start laktacji.</p><h2 data-i18n="h2_2" class="font-display text-2xl font-semibold text-deep">Osuszenie zamiast kąpieli</h2><p data-i18n="p2">Warto poprosić, by dziecko jedynie osuszono, pozostawiając maź płodową — bez kąpieli w pierwszej dobie. Maź płodowa ma funkcję ochronną i nawilżającą.</p><h2 data-i18n="h2_3" class="font-display text-2xl font-semibold text-deep">Ocena Apgar i pierwsze badania</h2><p data-i18n="p3">Ocenę stanu dziecka (skala Apgar) można w wielu przypadkach przeprowadzić podczas kontaktu skóra do skóry, bez zbędnego rozdzielania. Ważenie, mierzenie i szczegółowe badanie — po zakończeniu pierwszego, nieprzerwanego kontaktu, o ile nie ma wskazań do wcześniejszej interwencji.</p><h2 data-i18n="h2_4" class="font-display text-2xl font-semibold text-deep">Profilaktyka: witamina K i badania przesiewowe</h2><ul data-i18n="list1" class="list-disc pl-5 space-y-2 text-[15px]"><li><strong>Witamina K</strong> — zapobiega groźnym krwawieniom z niedoboru witaminy K. Podanie domięśniowe to złoty standard.</li><li><strong>Test przesiewowy z piętki</strong> — wykrywa m.in. fenyloketonurię, mukowiscydozę, wrodzoną niedoczynność tarczycy.</li><li><strong>Pulsoksymetria</strong> — nieinwazyjne badanie wykrywające krytyczne wady serca.</li><li><strong>Badanie słuchu</strong> — wczesne wykrycie niedosłuchu.</li></ul><div class="bg-white border-l-4 border-teal rounded-r-2xl p-5 my-6 text-[15px] italic text-ink/80"><span data-i18n="quote1">To była dla mnie najważniejsza sekcja całego planu. Nie chodzi o to, żeby odmawiać procedur — wręcz przeciwnie, większość z nich ratuje zdrowie. Chodzi o to, żeby wiedzieć, co i dlaczego się dzieje, i móc przy tym być.</span><span class="block mt-2 not-italic font-semibold text-deep">— Michał</span></div><h2 data-i18n="h2_5" class="font-display text-2xl font-semibold text-deep">Szczepienia w szpitalu</h2><p data-i18n="p5">W pierwszej dobie proponowane są szczepienia przeciw WZW typu B i gruźlicy (BCG). To decyzja rodziców — warto znać swoje stanowisko wcześniej. Więcej w osobnym artykule o <a href='/blog/szczepienia-noworodka-w-szpitalu' class='text-teal underline'>szczepieniach noworodka w szpitalu</a>.</p><h2 data-i18n="h2_6" class="font-display text-2xl font-semibold text-deep">Rooming-in i karmienie</h2><p data-i18n="p6">Całodobowy rooming-in (dziecko przy mamie) to standard — bez rozdzielania bez wskazań medycznych. Pierwsze przystawienie do piersi najlepiej jeszcze na sali porodowej, w trakcie kontaktu skóra do skóry.</p>
     <div class="bg-tealsoft rounded-2xl p-6 my-8 text-center">
-      <p class="font-display text-xl font-semibold text-deep mb-2">Przygotuj sekcję noworodkową swojego planu</p>
-      <p class="text-ink/70 text-[15px] mb-4">Kreator planu porodu ma rozbudowaną sekcję opieki nad noworodkiem — najważniejszą część całego planu.</p>
-      <a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-8 py-3.5 rounded-full hover:bg-deep transition-colors">Stwórz plan porodu →</a>
+      <p data-i18n="ctaT" class="font-display text-xl font-semibold text-deep mb-2">Przygotuj sekcję noworodkową swojego planu</p>
+      <p data-i18n="ctaP" class="text-ink/70 text-[15px] mb-4">Kreator planu porodu ma rozbudowaną sekcję opieki nad noworodkiem — najważniejszą część całego planu.</p>
+      <a href="/#kreator" data-i18n="ctaBtn" class="inline-block bg-teal text-white font-semibold px-8 py-3.5 rounded-full hover:bg-deep transition-colors">Stwórz plan porodu →</a>
     </div>
     <p class="text-xs text-ink/50 border-t border-sanddark pt-4 mt-8">Artykuł ma charakter edukacyjny i nie zastępuje porady lekarskiej ani położniczej. Decyzje dotyczące metod łagodzenia bólu i opieki nad dzieckiem skonsultuj z lekarzem lub położną. Podstawa: Standard Organizacyjny Opieki Okołoporodowej (Dz.U. 2025 poz. 1525).</p>
   </article>
 
   <div class="bg-tealsoft border border-teal/30 rounded-2xl p-5 mt-10 mb-2">
-    <p class="text-[15px] text-ink/85"><strong class="text-deep">😴 Pierwsze 24 godziny to dopiero początek.</strong> Kolejne tygodnie to nauka rytmu dnia i nocy — <a href="/produkty/sen-niemowlecia" class="text-teal font-semibold underline">Przewodnik snu niemowlęcia (59 zł)</a>, zanim chaos się utrwali.</p>
+    <p data-i18n="crossSellP" class="text-[15px] text-ink/85"><strong class="text-deep">😴 Pierwsze 24 godziny to dopiero początek.</strong> Kolejne tygodnie to nauka rytmu dnia i nocy — <a href="/produkty/sen-niemowlecia" class="text-teal font-semibold underline">Przewodnik snu niemowlęcia (59 zł)</a>, zanim chaos się utrwali.</p>
   </div>
 
   <div class="mt-10 pt-6 border-t border-sanddark">
-    <p class="font-semibold text-deep mb-3">Powiązane artykuły</p>
+    <p data-i18n="relatedT" class="font-semibold text-deep mb-3">Powiązane artykuły</p>
     <div class="grid sm:grid-cols-2 gap-4">
       <a href="/blog/szczepienia-noworodka-w-szpitalu" class="group bg-white border border-sanddark rounded-2xl p-5 hover:border-teal/50 transition-all">
         <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-1.5">Decyzje</p>
@@ -121,4 +123,90 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm">
 <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/o-michale" class="underline">O Michale</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+en: {
+navCta: 'Create a plan',
+eyebrow: 'Guide · Newborn · Updated: 12 July 2026',
+h1: "A newborn's first 24 hours — what happens, and what you can influence",
+authorLine: 'Author: <a href="/o-michale" class="text-teal underline">Michał</a>, dad and creator of PoródNaMiarę.pl · Updated: 12 July 2026',
+boxT: 'In short:',
+boxP: 'The first day means skin-to-skin contact (min. 2h, even after a C-section), drying instead of bathing, Apgar scoring during contact, vitamin K prevention, screening tests (heel prick, pulse oximetry, hearing), the vaccination decision, and rooming-in. You have a say in most of these.',
+intro: "A newborn's first day is a series of procedures and decisions happening fast — and you want to be informed through them, not caught off guard. Here's what actually happens in the first 24 hours, and where you have influence.",
+h2_1: 'Right after birth: skin-to-skin contact',
+p1: "Under the 2026 Standard (Journal of Laws 2025 item 1525), the baby should have uninterrupted skin-to-skin contact for at least 2 hours — even after a caesarean, when mother's and baby's condition allow. This regulates the newborn's temperature, heart rate and breathing, and supports the start of lactation.",
+h2_2: 'Drying instead of bathing',
+p2: "It's worth asking that the baby only be dried, leaving the vernix in place — no bath on day one. Vernix has a protective, moisturising function.",
+h2_3: 'Apgar scoring and first checks',
+p3: "The baby's Apgar assessment can, in many cases, be done during skin-to-skin contact, without unnecessary separation. Weighing, measuring and the detailed exam happen after the first uninterrupted contact ends, unless there's a reason for earlier intervention.",
+h2_4: 'Prevention: vitamin K and screening tests',
+list1: '<li><strong>Vitamin K</strong> — prevents dangerous bleeding from vitamin K deficiency. An intramuscular dose is the gold standard.</li><li><strong>Heel-prick screening test</strong> — detects conditions including phenylketonuria, cystic fibrosis, and congenital hypothyroidism.</li><li><strong>Pulse oximetry</strong> — a non-invasive test detecting critical heart defects.</li><li><strong>Hearing test</strong> — early detection of hearing loss.</li>',
+quote1: "This was the most important section of our whole plan for me. It's not about refusing procedures — quite the opposite, most of them save lives. It's about knowing what's happening and why, and being able to be there for it.",
+h2_5: 'Vaccinations in hospital',
+p5: "On day one, vaccinations against hepatitis B and tuberculosis (BCG) are offered. This is a parental decision — worth knowing your position in advance. More in our separate article on <a href='/blog/szczepienia-noworodka-w-szpitalu' class='text-teal underline'>newborn vaccinations in hospital</a>.",
+h2_6: 'Rooming-in and feeding',
+p6: "24-hour rooming-in (baby staying with mum) is standard — no separation without medical indication. First latching is best done right on the delivery ward, during skin-to-skin contact.",
+ctaT: "Prepare your plan's newborn section",
+ctaP: "The birth-plan creator has an extensive newborn-care section — the most important part of the whole plan.",
+ctaBtn: 'Create your birth plan →',
+crossSellP: '<strong class="text-deep">😴 The first 24 hours are just the beginning.</strong> The following weeks are about learning day-night rhythm — the <a href="/produkty/sen-niemowlecia" class="text-teal font-semibold underline">Infant Sleep Guide (59 PLN)</a>, before chaos sets in.',
+relatedT: 'Related articles'
+},
+de: {
+navCta: 'Plan erstellen',
+eyebrow: 'Ratgeber · Neugeborenes · Aktualisiert: 12. Juli 2026',
+h1: 'Die ersten 24 Stunden des Neugeborenen — was passiert und worauf Sie Einfluss haben',
+authorLine: 'Autor: <a href="/o-michale" class="text-teal underline">Michał</a>, Vater und Gründer von PoródNaMiarę.pl · Aktualisiert: 12. Juli 2026',
+boxT: 'Kurz gesagt:',
+boxP: 'Der erste Tag bedeutet Haut-zu-Haut-Kontakt (mind. 2 Std., auch nach Kaiserschnitt), Abtrocknen statt Baden, Apgar-Bewertung während des Kontakts, Vitamin-K-Prophylaxe, Screening-Untersuchungen (Fersenbluttest, Pulsoxymetrie, Hörtest), die Impfentscheidung und Rooming-in. Bei den meisten dieser Punkte haben Sie ein Mitspracherecht.',
+intro: 'Der erste Tag im Leben eines Neugeborenen bringt eine Reihe von Maßnahmen und Entscheidungen mit sich, die schnell ablaufen — und Sie möchten dabei informiert sein, nicht überrascht. Hier ist, was in den ersten 24 Stunden wirklich passiert und worauf Sie Einfluss haben.',
+h2_1: 'Direkt nach der Geburt: Haut-zu-Haut-Kontakt',
+p1: 'Gemäß dem Standard 2026 (Gesetzblatt 2025 Pos. 1525) sollte das Baby für mindestens 2 Stunden ununterbrochenen Haut-zu-Haut-Kontakt erhalten — auch nach einem Kaiserschnitt, sofern der Zustand von Mutter und Kind es zulässt. Das reguliert Temperatur, Puls und Atmung des Neugeborenen und unterstützt den Milchbildungsstart.',
+h2_2: 'Abtrocknen statt Baden',
+p2: 'Es lohnt sich zu bitten, dass das Baby nur abgetrocknet wird und die Käseschmiere erhalten bleibt — kein Bad am ersten Tag. Die Käseschmiere hat eine schützende, feuchtigkeitsspendende Funktion.',
+h2_3: 'Apgar-Bewertung und erste Untersuchungen',
+p3: 'Die Apgar-Bewertung des Babys kann in vielen Fällen während des Haut-zu-Haut-Kontakts erfolgen, ohne unnötige Trennung. Wiegen, Messen und die ausführliche Untersuchung folgen nach dem ersten ununterbrochenen Kontakt, sofern kein Grund für einen früheren Eingriff besteht.',
+h2_4: 'Prophylaxe: Vitamin K und Screening-Untersuchungen',
+list1: '<li><strong>Vitamin K</strong> — verhindert gefährliche Blutungen durch Vitamin-K-Mangel. Die intramuskuläre Gabe ist der Goldstandard.</li><li><strong>Fersenblut-Screening</strong> — erkennt u. a. Phenylketonurie, Mukoviszidose und angeborene Schilddrüsenunterfunktion.</li><li><strong>Pulsoxymetrie</strong> — eine nicht-invasive Untersuchung zur Erkennung kritischer Herzfehler.</li><li><strong>Hörtest</strong> — Früherkennung von Hörstörungen.</li>',
+quote1: 'Das war für mich der wichtigste Abschnitt des gesamten Plans. Es geht nicht darum, Maßnahmen abzulehnen — im Gegenteil, die meisten retten Leben. Es geht darum zu wissen, was warum passiert, und dabei sein zu können.',
+h2_5: 'Impfungen in der Klinik',
+p5: 'Am ersten Tag werden Impfungen gegen Hepatitis B und Tuberkulose (BCG) angeboten. Dies ist eine Entscheidung der Eltern — es lohnt sich, Ihre Position vorher zu kennen. Mehr dazu in unserem separaten Artikel über <a href=\'/blog/szczepienia-noworodka-w-szpitalu\' class=\'text-teal underline\'>Impfungen des Neugeborenen in der Klinik</a>.',
+h2_6: 'Rooming-in und Stillen',
+p6: '24-Stunden-Rooming-in (Baby bleibt bei Mama) ist Standard — keine Trennung ohne medizinische Indikation. Das erste Anlegen erfolgt am besten noch im Kreißsaal, während des Haut-zu-Haut-Kontakts.',
+ctaT: 'Bereiten Sie den Neugeborenen-Abschnitt Ihres Plans vor',
+ctaP: 'Der Geburtsplan-Ersteller hat einen ausführlichen Abschnitt zur Neugeborenenversorgung — den wichtigsten Teil des gesamten Plans.',
+ctaBtn: 'Erstellen Sie Ihren Geburtsplan →',
+crossSellP: '<strong class="text-deep">😴 Die ersten 24 Stunden sind erst der Anfang.</strong> In den folgenden Wochen geht es um den Tag-Nacht-Rhythmus — der <a href="/produkty/sen-niemowlecia" class="text-teal font-semibold underline">Schlafguide fürs Baby (59 PLN)</a>, bevor sich das Chaos festsetzt.',
+relatedT: 'Verwandte Artikel'
+},
+uk: {
+navCta: 'Створити план',
+eyebrow: 'Путівник · Новонароджений · Оновлено: 12 липня 2026',
+h1: 'Перші 24 години життя новонародженого — що відбувається і на що ви можете впливати',
+authorLine: 'Автор: <a href="/o-michale" class="text-teal underline">Міхал</a>, тато і засновник PoródNaMiarę.pl · Оновлено: 12 липня 2026',
+boxT: 'Коротко:',
+boxP: 'Перша доба — це контакт шкіра до шкіри (мін. 2 год, навіть після кесаревого розтину), обсушування замість купання, оцінка за Апгар під час контакту, профілактика вітаміном K, скринінгові дослідження (п\'яткова кров, пульсоксиметрія, слух), рішення щодо щеплень і спільне перебування. На більшість із цього ви можете впливати.',
+intro: 'Перша доба життя дитини — це серія процедур і рішень, які відбуваються швидко, а ви хочете бути обізнаними, а не захопленими зненацька. Ось що справді відбувається в перші 24 години і на що ви можете вплинути.',
+h2_1: 'Одразу після пологів: контакт шкіра до шкіри',
+p1: 'Відповідно до Стандарту 2026 (Вісник законів 2025, поз. 1525), дитина повинна отримати безперервний контакт шкіра до шкіри щонайменше 2 години — навіть після кесаревого розтину, якщо стан мами і дитини дозволяє. Це регулює температуру, пульс і дихання новонародженого та підтримує початок лактації.',
+h2_2: 'Обсушування замість купання',
+p2: 'Варто попросити, щоб дитину лише обсушили, залишивши первородне мастило — без купання в першу добу. Первородне мастило має захисну й зволожувальну функцію.',
+h2_3: 'Оцінка за Апгар і перші огляди',
+p3: 'Оцінку стану дитини (шкала Апгар) у багатьох випадках можна провести під час контакту шкіра до шкіри, без зайвого розділення. Зважування, вимірювання і детальний огляд — після завершення першого безперервного контакту, якщо немає показань для раннього втручання.',
+h2_4: 'Профілактика: вітамін K і скринінгові дослідження',
+list1: '<li><strong>Вітамін K</strong> — запобігає небезпечним кровотечам через дефіцит вітаміну K. Внутрішньом\'язове введення — золотий стандарт.</li><li><strong>Скринінговий тест п\'яткової крові</strong> — виявляє, зокрема, фенілкетонурію, муковісцидоз, вроджений гіпотиреоз.</li><li><strong>Пульсоксиметрія</strong> — неінвазивне дослідження для виявлення критичних вад серця.</li><li><strong>Тест слуху</strong> — раннє виявлення порушень слуху.</li>',
+quote1: 'Для мене це був найважливіший розділ усього плану. Йдеться не про відмову від процедур — навпаки, більшість із них рятує здоров\'я. Йдеться про те, щоб знати, що і чому відбувається, і мати змогу бути поруч.',
+h2_5: 'Щеплення в лікарні',
+p5: 'У першу добу пропонуються щеплення проти гепатиту B і туберкульозу (БЦЖ). Це рішення батьків — варто знати свою позицію заздалегідь. Більше в окремій статті про <a href=\'/blog/szczepienia-noworodka-w-szpitalu\' class=\'text-teal underline\'>щеплення новонародженого в лікарні</a>.',
+h2_6: 'Спільне перебування і годування',
+p6: 'Цілодобове спільне перебування (дитина поруч з мамою) — це стандарт, без розділення без медичних показань. Перше прикладання до грудей найкраще ще в пологовій залі, під час контакту шкіра до шкіри.',
+ctaT: 'Підготуйте розділ про новонародженого у своєму плані',
+ctaP: 'Конструктор плану пологів має розгорнутий розділ догляду за новонародженим — найважливішу частину всього плану.',
+ctaBtn: 'Створіть свій план пологів →',
+crossSellP: '<strong class="text-deep">😴 Перші 24 години — лише початок.</strong> Наступні тижні — це навчання ритму дня і ночі — <a href="/produkty/sen-niemowlecia" class="text-teal font-semibold underline">Гід сну немовляти (59 zł)</a>, поки хаос не закріпився.',
+relatedT: "Пов'язані статті"
+}
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 </body></html>
