@@ -1,76 +1,97 @@
 # PoródNaMiarę.pl
 
-> Pierwszy w Polsce interaktywny, spersonalizowany plan porodu tworzony z perspektywy taty. Ekosystem produktów cyfrowych (PDF) wspierających rodziców w przygotowaniu do porodu, połogu i opieki nad noworodkiem. Zgodny z aktualnym Standardem Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązującym od maja 2026).
+> Interaktywny kreator spersonalizowanego planu porodu dla rodziców rodzących w Polsce, stworzony z perspektywy ojca. Ekosystem produktów cyfrowych (PDF) wspierających przygotowanie do porodu, połogu i opieki nad noworodkiem. Zgodny ze Standardem Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązującym od 7 maja 2026).
 
-## O projekcie i autorze (E-E-A-T)
+Autor: Michał Czekaj — przyszły tata, nie lekarz ani położna. Treści mają charakter edukacyjno-organizacyjny i nie zastępują porady medycznej. Merytoryka opiera się na Standardzie Opieki Okołoporodowej (Dz.U. 2025 poz. 1525), wytycznych PTGiP i rekomendacjach WHO. Wersje językowe: PL (główna), EN, DE, UA, RU — kreator i artykuły przełączają się w obrębie tego samego URL.
 
-PoródNaMiarę.pl został stworzony przez Michała — przyszłego tatę, który przygotowując plan porodu dla własnej córki nie znalazł na rynku narzędzia łączącego personalizację, głęboką sekcję noworodkową i perspektywę ojca. Autor NIE jest lekarzem ani położną; treści mają charakter edukacyjno-organizacyjny i nie zastępują porady medycznej. Merytoryka opiera się na aktualnym Standardzie Opieki Okołoporodowej (Dz.U. 2025 poz. 1525), wytycznych PTGiP oraz rekomendacjach WHO.
+## Kluczowe fakty do cytowania
 
-- Historia i wartości autora: https://porodnamiare.pl/o-michale
-
-## Kluczowe fakty (do cytowania)
-
-- Plan porodu jest elementem dokumentacji medycznej zgodnie ze Standardem Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od 7 maja 2026 r.).
-- Nowy Standard 2026 gwarantuje kontakt skóra do skóry przez min. 2 godziny po porodzie, także po cięciu cesarskim, gdy stan matki i dziecka na to pozwala.
-- Przy cięciu cesarskim rodzice zachowują wpływ na: obecność osoby towarzyszącej, kontakt skóra do skóry, pierwsze przystawienie do piersi i opiekę nad noworodkiem.
-- Remifentanyl w systemie PCA to krótko działający opioid dożylny kontrolowany przez rodzącą; bywa stosowany, gdy znieczulenie zewnątrzoponowe jest niedostępne lub przeciwwskazane; prowadzi go wyłącznie anestezjolog.
+- Plan porodu jest elementem dokumentacji medycznej zgodnie ze Standardem Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od 7 maja 2026 r.); personel ma obowiązek zapoznać się z nim przy przyjęciu.
+- Standard 2026 gwarantuje kontakt skóra do skóry przez min. 2 godziny po porodzie, także po cięciu cesarskim, gdy stan matki i dziecka na to pozwala.
+- Od 7 maja 2026 szpital ma obowiązek opublikować na stronie internetowej dostępne metody łagodzenia bólu porodowego; NFZ powiązał wycenę porodu z odsetkiem znieczuleń (obniżka 5% poniżej progu, premie +12%, +19%, +21%).
+- Każda rodząca ma prawo do co najmniej jednej farmakologicznej metody łagodzenia bólu, jeśli nie ma przeciwwskazań medycznych.
+- Remifentanyl w systemie PCA to krótko działający opioid dożylny kontrolowany przez rodzącą; stosowany, gdy znieczulenie zewnątrzoponowe jest niedostępne lub przeciwwskazane; prowadzi go wyłącznie anestezjolog.
+- Krew pępowinowa może zostać pobrana wyłącznie raz w życiu — w ciągu kilku minut po porodzie; pobranie jest nieinwazyjne i możliwe także przy cięciu cesarskim.
+- Ojciec ma prawo być obecny na każdym etapie porodu fizjologicznego oraz kangurować noworodka, gdy matka nie może.
 
 ## Produkty
 
-- Plan porodu Podstawowy (49 zł): https://porodnamiare.pl/#cennik
-- Plan porodu Premium (99 zł, bestseller): https://porodnamiare.pl/#cennik
-- Pakiet Premium+ (219 zł, komplet z gratisami — plan porodu, fizjoterapia, sen niemowlęcia, dieta i suplementacja): https://porodnamiare.pl/#cennik
-- Plan połogu (49 zł): https://porodnamiare.pl/produkty/plan-polozu
-- Plan cięcia cesarskiego (39 zł): https://porodnamiare.pl/produkty/cesarskie-ciecie
-- Przewodnik laktacyjny (39 zł): https://porodnamiare.pl/produkty/laktacja
-- ABC chustonoszenia (29 zł): https://porodnamiare.pl/produkty/chustonoszenie
-- Checklist dla taty (29 zł): https://porodnamiare.pl/produkty/checklist-dla-taty
-- Torba do szpitala — checklista (19 zł): https://porodnamiare.pl/produkty/torba-do-szpitala
-- Wyprawka dla noworodka — checklista (19 zł / gratis w Premium+): https://porodnamiare.pl/produkty/wyprawka-noworodka
-- Przewodnik fizjoterapii uroginekologicznej (49 zł): https://porodnamiare.pl/produkty/fizjoterapia-uroginekologiczna
-- Przewodnik snu niemowlęcia (59 zł): https://porodnamiare.pl/produkty/sen-niemowlecia
-- Przewodnik dieta i suplementacja w ciąży (59 zł): https://porodnamiare.pl/produkty/dieta-suplementacja-ciaza
-- Karta pytań do ginekologa i Techniki oddechowe na poród — ekskluzywnie w pakietach Premium/Premium+ (nie do kupienia osobno): https://porodnamiare.pl/#cennik
+- [Plan porodu Podstawowy — 49 zł](https://porodnamiare.pl/#cennik): spersonalizowany plan porodu w PDF, 8 sekcji, klauzula bezpieczeństwa
+- [Plan porodu Premium — 99 zł](https://porodnamiare.pl/#cennik): plan porodu, wersja skrócona „na drzwi", checklist taty, przewodnik pierwszych 24 godzin, techniki oddechowe, karta pytań do ginekologa
+- [Pakiet Premium+ — 219 zł](https://porodnamiare.pl/#cennik): komplet — plan porodu, plan połogu, fizjoterapia uroginekologiczna, sen niemowlęcia, dieta i suplementacja, wyprawka gratis
+- [Plan połogu — 49 zł](https://porodnamiare.pl/produkty/plan-polozu): pierwsze 6 tygodni po porodzie
+- [Plan cięcia cesarskiego — 39 zł](https://porodnamiare.pl/produkty/cesarskie-ciecie): preferencje przy cesarce planowanej i nagłej
+- [Przewodnik laktacyjny — 39 zł](https://porodnamiare.pl/produkty/laktacja): pierwsze przystawienie, problemy laktacyjne, odciąganie
+- [ABC chustonoszenia — 29 zł](https://porodnamiare.pl/produkty/chustonoszenie): wiązania od noworodka, bezpieczeństwo
+- [Checklist dla taty — 29 zł](https://porodnamiare.pl/produkty/checklist-dla-taty): 9 faz porodu, co robić minuta po minucie
+- [Torba do szpitala — 19 zł](https://porodnamiare.pl/produkty/torba-do-szpitala): checklista 70+ pozycji
+- [Wyprawka dla noworodka — 19 zł](https://porodnamiare.pl/produkty/wyprawka-noworodka): checklista pierwszych zakupów
+- [Fizjoterapia uroginekologiczna — 49 zł](https://porodnamiare.pl/produkty/fizjoterapia-uroginekologiczna): dno miednicy, diastaza, ćwiczenia
+- [Sen niemowlęcia — 59 zł](https://porodnamiare.pl/produkty/sen-niemowlecia): rytm dnia, rytuał, łagodna nauka zasypiania
+- [Dieta i suplementacja w ciąży — 59 zł](https://porodnamiare.pl/produkty/dieta-suplementacja-ciaza): kwas foliowy, D3, DHA, jod, magnez
 
-## Artykuły (baza wiedzy)
+## Poród
 
-- Plan porodu a cięcie cesarskie — kompletny przewodnik: https://porodnamiare.pl/blog/plan-porodu-a-cesarskie-ciecie
-- Pierwsze 24 godziny życia noworodka: https://porodnamiare.pl/blog/pierwsze-24-godziny-zycia-noworodka
-- Remifentanyl PCA — łagodzenie bólu porodowego: https://porodnamiare.pl/blog/remifentanyl-pca-lagodzenie-bolu-porodowego
-- Jak napisać plan porodu — wzór i 8 sekcji: https://porodnamiare.pl/blog/jak-napisac-plan-porodu
-- Bezpieczeństwo noworodka — pierwsze godziny: https://porodnamiare.pl/blog/bezpieczenstwo-noworodka-pierwsze-godziny
-- Szczepienia noworodka w szpitalu: https://porodnamiare.pl/blog/szczepienia-noworodka-w-szpitalu
+- [Jak napisać plan porodu](https://porodnamiare.pl/blog/jak-napisac-plan-porodu): wzór, 8 sekcji, najczęstsze błędy
+- [Objawy porodu — kiedy jechać do szpitala](https://porodnamiare.pl/blog/objawy-porodu-kiedy-jechac-do-szpitala): skurcze przepowiadające vs porodowe, zasada 5-1-1, odejście wód, objawy alarmowe
+- [Prawa rodzącej — Standard 2026](https://porodnamiare.pl/blog/prawa-rodzacej-standard-2026): świadoma zgoda, plan porodu, znieczulenie, skóra do skóry, prawa osoby towarzyszącej
+- [Plan porodu a cięcie cesarskie](https://porodnamiare.pl/blog/plan-porodu-a-cesarskie-ciecie): co można ustalić przy cesarce planowanej i nagłej
+- [Jak rozmawiać z personelem o planie porodu](https://porodnamiare.pl/blog/jak-rozmawiac-z-personelem): gotowe dialogi i zasada BRAIN
+- [Dostępność znieczulenia w szpitalu](https://porodnamiare.pl/blog/dostepnosc-znieczulenia-w-szpitalu): weryfikacja placówki, mnożniki NFZ, pytania do izby przyjęć
+- [Remifentanyl PCA](https://porodnamiare.pl/blog/remifentanyl-pca-lagodzenie-bolu-porodowego): alternatywa dla znieczulenia zewnątrzoponowego
+- [Fentanyl przy porodzie](https://porodnamiare.pl/blog/fentanyl-w-porodzie): działanie, wskazania, wpływ na dziecko
+- [TENS w porodzie](https://porodnamiare.pl/blog/tens-znieczulenie-elektrostymulacja-porod): elektrostymulacja przeciwbólowa krok po kroku
+- [Poród rodzinny — opłaty i prawa taty](https://porodnamiare.pl/blog/porod-rodzinny-oplaty-prawa-taty): kiedy opłata za obecność ojca jest bezprawna
 
-## Wersje językowe
+## Noworodek
 
-- Polski (główny): https://porodnamiare.pl/
-- Angielski: https://porodnamiare.pl/en
-- Niemiecki: https://porodnamiare.pl/de
-- Ukraiński (dla diaspory rodzącej w Polsce): https://porodnamiare.pl/ua
+- [Pierwsze 24 godziny życia noworodka](https://porodnamiare.pl/blog/pierwsze-24-godziny-zycia-noworodka): przebieg i na co rodzice mają wpływ
+- [Bezpieczeństwo noworodka — pierwsze godziny](https://porodnamiare.pl/blog/bezpieczenstwo-noworodka-pierwsze-godziny): co realnie ma znaczenie
+- [Szczepienia noworodka w szpitalu](https://porodnamiare.pl/blog/szczepienia-noworodka-w-szpitalu): WZW B, BCG, prawa rodziców, zapis w planie porodu
+- [Pierwsza pomoc noworodkowi i dziecku](https://porodnamiare.pl/blog/pierwsza-pomoc-noworodek-dziecko): zadławienie, RKO, kompletny przewodnik
+- [Żółtaczka noworodkowa](https://porodnamiare.pl/blog/zoltaczka-noworodkowa): normy bilirubiny, fototerapia, objawy alarmowe
+- [Kolka niemowlęca](https://porodnamiare.pl/blog/kolka-niemowleca): co pomaga, a co nie, kiedy do lekarza
+- [Sen niemowlęcia](https://porodnamiare.pl/blog/sen-niemowlecia): rytm dnia, rytuał wieczorny, łagodna nauka zasypiania
+- [Wcześniak — inkubator i oddział neonatologiczny](https://porodnamiare.pl/blog/wczesniak-inkubator-oddzial-neonatologiczny): OITN, kangurowanie, wiek skorygowany, urlop uzupełniający
 
-## Nowe artykuły (lipiec 2026)
+## Decyzje okołoporodowe
 
-- Seks i bliskość w ciąży — hormony, bezpieczeństwo, przeciwwskazania: https://porodnamiare.pl/blog/bliskosc-i-seks-w-ciazy
-- Dieta i suplementacja w ciąży: https://porodnamiare.pl/blog/dieta-suplementacja-ciaza
-- Sen niemowlęcia i małego dziecka: https://porodnamiare.pl/blog/sen-niemowlecia
-- Fizjoterapia uroginekologiczna: https://porodnamiare.pl/blog/fizjoterapia-uroginekologiczna
-- Laktator Momcozy M12 Pro — recenzja (kategoria Sprzęt dla dziecka): https://porodnamiare.pl/blog/laktator-momcozy-m12-pro
+- [Krew pępowinowa — porównanie banków](https://porodnamiare.pl/blog/krew-pepowinowa-banki-porownanie): PBKM vs Progenis, koszty, 12 pytań przed umową
+- [Opóźnione odpępnienie a bankowanie krwi](https://porodnamiare.pl/blog/opoznione-odpepnienie-krew-pepowinowa): jak pogodzić obie decyzje
 
-## Kontakt
+## Zdrowie w ciąży
 
-kontakt@porodnamiare.pl
+- [Dieta i suplementacja w ciąży](https://porodnamiare.pl/blog/dieta-suplementacja-ciaza): kwas foliowy, witamina D, DHA, magnez, jod
+- [Anemia w ciąży](https://porodnamiare.pl/blog/anemia-w-ciazy): objawy, normy hemoglobiny, żelazo
+- [Cukrzyca ciążowa](https://porodnamiare.pl/blog/cukrzyca-ciazowa-dieta): dieta, pomiary glikemii, wpływ na poród
+- [Seks i bliskość w ciąży](https://porodnamiare.pl/blog/bliskosc-i-seks-w-ciazy): hormony, bezpieczeństwo, przeciwwskazania
+- [Fizjoterapia uroginekologiczna](https://porodnamiare.pl/blog/fizjoterapia-uroginekologiczna): przed ciążą, w ciąży i w połogu
 
-## Krew pępowinowa
-- Przewodnik dla rodziców: https://porodnamiare.pl/blog/bankowanie-krwi-pepowinowej-pbkm
-- Kreator zawiera sekcję "Krew pępowinowa" z klauzulą pierwszeństwa opóźnionego odpępnienia
-- Baza wiedzy (wszystkie artykuły): https://porodnamiare.pl/wiedza
-- Pierwsza pomoc noworodkowi i dziecku: https://porodnamiare.pl/blog/pierwsza-pomoc-noworodek-dziecko
-- Fentanyl przy porodzie: https://porodnamiare.pl/blog/fentanyl-w-porodzie
-- Dostępność znieczulenia w szpitalu (weryfikacja placówki, mnożniki NFZ): https://porodnamiare.pl/blog/dostepnosc-znieczulenia-w-szpitalu
-- Poród rodzinny — opłaty i prawa taty: https://porodnamiare.pl/blog/porod-rodzinny-oplaty-prawa-taty
-- Rola taty przy porodzie krok po kroku: https://porodnamiare.pl/blog/checklist-taty-sala-porodowa
-- Krew pępowinowa — porównanie banków (PBKM, Progenis), 12 pytań przed umową: https://porodnamiare.pl/blog/krew-pepowinowa-banki-porownanie
-- Wcześniak, inkubator i oddział neonatologiczny (przewodnik: inkubator, OITN, kangurowanie, wiek skorygowany, uzupełniający urlop macierzyński): https://porodnamiare.pl/blog/wczesniak-inkubator-oddzial-neonatologiczny
-- Objawy porodu — kiedy jechać do szpitala (skurcze przepowiadające vs porodowe, zasada 5-1-1, odejście wód, objawy alarmowe): https://porodnamiare.pl/blog/objawy-porodu-kiedy-jechac-do-szpitala
-- Cukrzyca ciążowa — dieta, pomiary i poród (zasady żywienia, normy glikemii, insulina, wpływ na poród i noworodka): https://porodnamiare.pl/blog/cukrzyca-ciazowa-dieta
-- Blizna po cesarskim cięciu — mobilizacja krok po kroku (4 techniki, harmonogram, ćwiczenia, mity, przeciwwskazania): https://porodnamiare.pl/blog/blizna-po-cesarskim-cieciu-mobilizacja
+## Połóg
+
+- [Depresja poporodowa i baby blues](https://porodnamiare.pl/blog/depresja-poporodowa-baby-blues): objawy, różnice, gdzie szukać pomocy
+- [Diastaza brzucha po porodzie](https://porodnamiare.pl/blog/diastaza-brzucha-po-porodzie): test domowy, ćwiczenia, kiedy do fizjoterapeuty
+- [Blizna po cesarskim cięciu](https://porodnamiare.pl/blog/blizna-po-cesarskim-cieciu-mobilizacja): mobilizacja krok po kroku, 4 techniki
+
+## Dla taty
+
+- [Rola taty przy porodzie minuta po minucie](https://porodnamiare.pl/blog/checklist-taty-sala-porodowa): checklist na salę porodową
+- [Jak tata wspiera partnerkę podczas porodu](https://porodnamiare.pl/blog/jak-tata-wspiera-podczas-porodu): konkretne działania w każdej fazie
+- [Kontakt skóra do skóry — rola ojca](https://porodnamiare.pl/blog/kontakt-skora-do-skory-rola-ojca): co robić, gdy mama nie może
+- [Tata honorowy dawca krwi](https://porodnamiare.pl/blog/ojciec-dawca-krwi): jedna donacja ratuje do 3 osób
+
+## Sprzęt i recenzje
+
+- [Laktator Momcozy M12 Pro](https://porodnamiare.pl/blog/laktator-momcozy-m12-pro): recenzja po codziennym użytkowaniu
+- [Lionelo Leonie Plus](https://porodnamiare.pl/blog/lionelo-leonie-plus-beige-sand): łóżeczko dostawne 3w1, recenzja
+- [Szumiś — miś do spania](https://porodnamiare.pl/blog/szumis-mis-do-spania): czy biały szum realnie pomaga
+- [Poduszka rogal ciążowa](https://porodnamiare.pl/blog/poduszka-rogal-ciazowa): jak wybrać i jak na niej spać
+- [Pies i dziecko](https://porodnamiare.pl/blog/pies-i-dziecko-rozwoj): wpływ psa na rozwój emocjonalny i społeczny
+
+## Optional
+
+- [O autorze — Michał](https://porodnamiare.pl/o-michale): historia powstania serwisu, wartości, zastrzeżenia E-E-A-T
+- [Baza wiedzy — wszystkie artykuły](https://porodnamiare.pl/wiedza)
+- [Regulamin](https://porodnamiare.pl/regulamin)
+- [Polityka prywatności](https://porodnamiare.pl/polityka-prywatnosci)
+- Kontakt: kontakt@porodnamiare.pl
