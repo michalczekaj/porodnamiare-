@@ -375,6 +375,43 @@ Kreator: 0 braków. `wiedza.html`: 17 kluczy. `dziekujemy.html`: 14 kluczy.
   dla rodzica.
 
 ═══════════════════════════════════════════
+## NAPRAWIONE — sesja debugowania po pierwszym teście na żywo
+═══════════════════════════════════════════
+
+### 1. Deploy fail: „Node.js 20.x is deprecated"
+Vercel wycofuje Node 20.x z buildów od 1 października 2026. `package.json`
+zaktualizowany na `"node": "22.x"`. Wystarczy zwykły redeploy.
+
+### 2. Realna przyczyna: „Pobierz plan" nie działał mimo udanej płatności
+**To był Twój testowy produkt za 2 zł.** Webhook rozpoznaje płatności wyłącznie
+po `product_key` z trzech prawdziwych linków (Podstawowy/Premium/Premium+) —
+to świadome zabezpieczenie (biała lista), nie błąd. Nowy, osobny produkt
+testowy ma inny `product_key`, którego webhook nie zna → nigdy nie zapisał
+tokenu w bazie → strona `/dziekujemy` czekała w nieskończoność → kreator nigdy
+się nie odblokował.
+
+**Jak testować poprawnie:** nie twórz osobnego produktu testowego. W PayHip
+wejdź w istniejący produkt „Plan porodu Podstawowy", tymczasowo zmień cenę na
+np. 2 zł, przetestuj, potem przywróć 49 zł. Wtedy `product_key` się zgadza
+i cały mechanizm zadziała.
+
+*(Jeśli mimo to chcesz mieć trwały tani produkt testowy: napisz do mnie
+`product_key` z jego linku PayHip — dopiszę go do białej listy w kodzie
+jednym wierszem.)*
+
+### 3. Strona /dziekujemy: komunikat o statusie płatności nie tłumaczył się
+Był zaszyty na sztywno po polsku w JS (`setStatus('Płatność jeszcze się...')`),
+z pominięciem systemu tłumaczeń. Przeniesiony do słownika PL/EN/DE/UK,
+z odświeżeniem przy zmianie języka w locie.
+
+### 4. Popup „Zapisać postęp?" czasem nie w tym języku, co oczekiwano
+Popup jest elementem STRONY i domyślnie podążał za przełącznikiem w nagłówku
+(`#langSwitch`), a nie za przełącznikiem TREŚCI kreatora (`#kreatorLang`).
+Jeśli ustawiałeś inny język w środku kreatora niż na stronie, popup
+pokazywał się w języku strony — mylące, bo pojawia się w trakcie kreatora.
+Teraz popup podąża za językiem kreatora, gdy oba się rozjeżdżają.
+
+═══════════════════════════════════════════
 ## AUDYT SEO / GEO — sierpień 2026
 ═══════════════════════════════════════════
 

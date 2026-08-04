@@ -2019,6 +2019,7 @@ tailwind.config = {
         renderPreview();
         refreshProgressLabels();
         if (cur === TOTAL-1) renderSummary();
+        syncEmailGateLang(lang);
       };
       if (lang === 'pl' && !window.PNM_I18N){
         // powrót do PL bez pobranego słownika — nie ma czego tłumaczyć
@@ -2032,6 +2033,24 @@ tailwind.config = {
       });
     }
     window.PNM_setKreatorLang = setKreatorLang;
+
+    // emailGate (popup "Zapisać postęp?") wyświetla się W TRAKCIE wypełniania kreatora,
+    // więc podąża za językiem TREŚCI kreatora, a nie za ogólnym językiem strony —
+    // te dwa przełączniki bywają ustawione inaczej i to myli.
+    function syncEmailGateLang(lang){
+      var dict = (typeof I18N !== 'undefined' && I18N[lang]) ? I18N[lang] : null;
+      document.querySelectorAll('#emailGate [data-i18n]').forEach(function(el){
+        var k = el.dataset.i18n;
+        if (lang === 'pl' || !dict || !dict[k]) return; // PL_DEFAULTS zadba o powrót do polskiego
+        el.innerHTML = dict[k];
+      });
+      if (lang === 'pl' && typeof PL_DEFAULTS !== 'undefined'){
+        document.querySelectorAll('#emailGate [data-i18n]').forEach(function(el){
+          var k = el.dataset.i18n;
+          if (PL_DEFAULTS[k]) el.innerHTML = PL_DEFAULTS[k];
+        });
+      }
+    }
 
     (function(){
       var saved = 'pl', manual = false;

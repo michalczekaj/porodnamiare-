@@ -174,15 +174,25 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
   // otworzyć ręcznie) — realne odblokowanie następuje wyłącznie po potwierdzeniu przez webhook
   // PayHip i odebraniu jednorazowego tokenu (sid zapisany w tej przeglądarce przed checkoutem).
   var statusEl = document.getElementById('pnmPayStatus');
-  function setStatus(txt){ if(statusEl) statusEl.textContent = txt; }
+  var STATUS_I18N = {
+    pl: {found:'Znaleźliśmy Wasze odpowiedzi ✓', confirmed:'Płatność potwierdzona ✓ Możecie pobrać plan.', pending:'Płatność jeszcze się przetwarza — odśwież stronę za chwilę albo kliknij "Otwórz kreator", spróbujemy ponownie.'},
+    en: {found:'We found your answers ✓', confirmed:'Payment confirmed ✓ You can download your plan.', pending:'Your payment is still processing — refresh in a moment or click "Open creator", we\'ll try again.'},
+    de: {found:'Wir haben Ihre Antworten gefunden ✓', confirmed:'Zahlung bestätigt ✓ Sie können Ihren Plan herunterladen.', pending:'Ihre Zahlung wird noch verarbeitet — aktualisieren Sie in einem Moment oder klicken Sie auf „Generator öffnen\u201c, wir versuchen es erneut.'},
+    uk: {found:'Ми знайшли ваші відповіді ✓', confirmed:'Оплату підтверджено ✓ Ви можете завантажити план.', pending:'Ваш платіж ще обробляється — оновіть за мить або натисніть «Відкрити конструктор», спробуємо ще раз.'}
+  };
+  function curLang(){ var l='pl'; try{ l=localStorage.getItem('lang')||'pl'; }catch(e){} return l; }
+  var lastStatusKey='found';
+  function setStatus(key){ lastStatusKey=key; if(statusEl) statusEl.textContent = (STATUS_I18N[curLang()]||STATUS_I18N.pl)[key]; }
+  var lsSel=document.getElementById('langSwitch');
+  if(lsSel) lsSel.addEventListener('change', function(){ setTimeout(function(){ setStatus(lastStatusKey); }, 0); });
   function tryClaim(attempt){
     attempt = attempt || 0;
     var sid, ts;
     try{ sid = localStorage.getItem('pnm_sid'); ts = parseInt(localStorage.getItem('pnm_sid_ts')||'0',10); }catch(e){ sid = null; }
-    if(!sid){ setStatus('Znaleźliśmy Wasze odpowiedzi ✓'); return; }
+    if(!sid){ setStatus('found'); return; }
     if(ts && (Date.now()-ts) > 24*60*60*1000){
       try{ localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts'); }catch(e){}
-      setStatus('Znaleźliśmy Wasze odpowiedzi ✓'); return;
+      setStatus('found'); return;
     }
     fetch('/api/unlock?sid=' + encodeURIComponent(sid)).then(function(r){
       if(r.status===200) return r.json().then(function(d){ return {ok:true,d:d}; });
@@ -194,13 +204,13 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
           localStorage.setItem('pnm_jwt', res.d.jwt);
           localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts');
         }catch(e){}
-        setStatus('Płatność potwierdzona ✓ Możecie pobrać plan.');
+        setStatus('confirmed');
         return;
       }
       if(res.pending && attempt < 8){
         setTimeout(function(){ tryClaim(attempt+1); }, Math.min(2000*Math.pow(1.4, attempt), 8000));
       } else {
-        setStatus('Płatność jeszcze się przetwarza — odśwież stronę za chwilę albo kliknij "Otwórz kreator", spróbujemy ponownie.');
+        setStatus('pending');
       }
     }).catch(function(){
       if(attempt < 8) setTimeout(function(){ tryClaim(attempt+1); }, 3000);
