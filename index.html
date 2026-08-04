@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PoródNaMiarę.pl</title>
+<title>Plan porodu — spersonalizowany kreator PDF | PoródNaMiarę.pl</title>
 <meta name="description" content="Interaktywny kreator spersonalizowanego planu porodu. Zgodny ze Standardem Opieki Okołoporodowej 2026. Gotowy PDF w kilka minut — stworzony przez tatę.">
 <meta name="keywords" content="spersonalizowany plan porodu, plan porodu na zamówienie, plan porodu wzór, plan porodu pdf, bezpieczny poród dziecko, plan porodu noworodek, kreator planu porodu, poród na miarę">
 <meta name="geo.region" content="PL"><meta name="geo.placename" content="Polska">
@@ -1335,6 +1335,12 @@ tailwind.config = {
 
     <!-- Drugi wiersz: nowe artykuły (kompaktowe karty) -->
     <div class="grid md:grid-cols-3 gap-6 mt-6">
+      <a href="/blog/imie-dla-dziecka-znaczenie-wybor" class="group bg-white rounded-2xl border border-sanddark p-6 flex flex-col hover:border-teal transition-colors">
+        <span class="text-2xl mb-3">✨</span>
+        <h3 data-i18n="ct4" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Imię dla dziecka — jak wybrać i co naprawdę znaczy</h3>
+        <p data-i18n="ce4" class="text-sm text-ink/80 leading-relaxed flex-1">Siedem kryteriów, przepisy USC, co mówią badania — i dlaczego po miesiącach analiz u nas wygrała Wiktoria.</p>
+        <span data-i18n="readMore" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
+      </a>
       <a href="blog/plan-porodu-a-cesarskie-ciecie.html" class="group bg-white rounded-2xl border border-sanddark p-6 flex flex-col hover:border-teal transition-colors">
         <span class="text-2xl mb-3">🏥</span>
         <h3 data-i18n="ct1" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Plan porodu a cięcie cesarskie — kompletny przewodnik</h3>
@@ -2368,7 +2374,9 @@ tailwind.config = {
       buyP219: '— 219 PLN',
       valueSep: 'Separately: 432 PLN ·',
       newBadge: 'NEW',
-      footPriv: 'Privacy policy'
+      footPriv: 'Privacy policy',
+      ct4: 'Choosing a baby name — how to decide and what names really mean',
+      ce4: 'Seven criteria, Polish registry rules, what the research shows — and why Wiktoria won for us after months of deliberation.'
     },
     uk: {
       ctaTop: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u043b\u0430\u043d', navWhy: '\u0427\u043e\u043c\u0443 \u043c\u0438', navHow: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454', navCreator: '\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440', navPricing: '\u0426\u0456\u043d\u0438', navProducts: '\u041f\u0440\u043e\u0434\u0443\u043a\u0442\u0438', navBlog: '\u0421\u0442\u0430\u0442\u0442\u0456',
@@ -2489,7 +2497,9 @@ tailwind.config = {
       buyP219: '— 219 злотих',
       valueSep: 'Окремо: 432 злотих ·',
       newBadge: 'НОВИНКА',
-      footPriv: 'Політика конфіденційності'
+      footPriv: 'Політика конфіденційності',
+      ct4: 'Ім\'я для дитини — як обрати і що насправді означають імена',
+      ce4: 'Сім критеріїв, приписи РАЦСу, що показують дослідження — і чому в нас після місяців аналізу перемогла Вікторія.'
     },
     de: {
       ctaTop: 'Plan erstellen', navWhy: 'Warum wir', navHow: 'So geht\u2019s', navCreator: 'Geburtsplan-Generator', navPricing: 'Preise', navProducts: 'Produkte', navBlog: 'Wissen',
@@ -2610,7 +2620,9 @@ tailwind.config = {
       buyP219: '— 219 PLN',
       valueSep: 'Einzeln: 432 PLN ·',
       newBadge: 'NEU',
-      footPriv: 'Datenschutzerklärung'
+      footPriv: 'Datenschutzerklärung',
+      ct4: 'Der Name fürs Kind — wie man wählt und was Namen wirklich bedeuten',
+      ce4: 'Sieben Kriterien, die Standesamtsregeln, was die Forschung zeigt — und warum bei uns nach Monaten Wiktoria gewann.'
     }
   };
   const PL_DEFAULTS = {};

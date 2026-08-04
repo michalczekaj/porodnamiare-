@@ -375,6 +375,36 @@ Kreator: 0 braków. `wiedza.html`: 17 kluczy. `dziekujemy.html`: 14 kluczy.
   dla rodzica.
 
 ═══════════════════════════════════════════
+## AUDYT SEO / GEO — sierpień 2026
+═══════════════════════════════════════════
+
+### Naprawione
+- **Tytuł strony głównej** był ustawiony na samo „PoródNaMiarę.pl" (15 znaków, zero
+  słów kluczowych). Teraz: „Plan porodu — spersonalizowany kreator PDF | PoródNaMiarę.pl".
+  To była najpoważniejsza pojedyncza wada SEO w całym serwisie.
+- 4 tytuły artykułów za krótkie (14–29 znaków) — rozbudowane do 54–56 znaków.
+- 5 meta description poniżej 120 znaków — uzupełnione do 147–155.
+- Przełącznik języka na /dziekujemy przeniesiony z pozycjonowania fixed do normalnego
+  przepływu (ryzyko nakładania się na treść na wąskich ekranach).
+
+### Zweryfikowane jako poprawne
+- robots.txt: 20 botów AI/GEO jawnie dopuszczonych (GPTBot, ClaudeBot, PerplexityBot,
+  Google-Extended, Applebot-Extended i in.), scrapery SEO zablokowane, /dziekujemy
+  i parametr ?unlocked= wyłączone z indeksowania.
+- sitemap.xml: 58 URL-i, XML poprawny, zero rozbieżności z plikami na dysku.
+- llms.txt: sekcja „Kluczowe fakty do cytowania" — dobrze zaprojektowana pod GEO.
+- JSON-LD: 48 bloków, wszystkie parsują się poprawnie.
+- Dokładnie jeden H1 na każdej stronie.
+- Mobile: viewport poprawny wszędzie, brak blokady zoomu (dostępność), fix iOS 16px
+  na polach formularzy, wszystkie obrazy z width/height (CLS), lazy loading.
+
+### Do rozważenia
+- Wersje /en /de /ua /ru to osobne landing page. Strona główna ma jednocześnie
+  hreflang do nich ORAZ przełącznik JS tłumaczący w miejscu. To potencjalne
+  rozmycie sygnału — do decyzji, czy utrzymywać oba mechanizmy.
+- /ru nie jest ujęte w hreflang na stronie głównej.
+
+═══════════════════════════════════════════
 ## CHECKLISTA PRZED PUBLIKACJĄ
 ═══════════════════════════════════════════
 
