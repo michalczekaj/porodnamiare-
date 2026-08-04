@@ -180,13 +180,21 @@ Artykuł SEO → Kreator (13 kroków, ZA DARMO)
 i zobaczył imię swojego dziecka w dokumencie, psychologicznie już go posiada.
 Płatność jest odebraniem czegoś swojego, a nie zakupem czegoś nieznanego.
 
-**Zabezpieczenie:** podgląd ma blur na dalszych sekcjach, diagonalny znak wodny,
-blokadę kopiowania i menu kontekstowego. Bramka pobierania działa na fladze
-w przeglądarce. To ochrona miękka — kilka procent osób technicznych ją obejdzie,
-ale ci i tak by nie zapłacili. Twoja grupa to rodzice w trzecim trymestrze.
-Twardą bramkę (webhook PayHip + token serwerowy) wdrażamy dopiero przy
-ok. 10 zamówieniach tygodniowo — wcześniej to zabezpieczanie przychodu,
-którego jeszcze nie ma.
+**Zabezpieczenie (3 warstwy):**
+1. **Podgląd na żywo** — blur na sekcjach 3+, diagonalny znak wodny, blokada
+   kopiowania i menu kontekstowego (user-select:none).
+2. **Podsumowanie (krok 12)** — pokazuje w całości tylko 2 pierwsze sekcje;
+   pozostałe rozmyte pod kłódką aż do zakupu. Wcześniej ujawniało cały plan.
+3. **Generator PDF** — wymaga flagi zakupu (window.__freshUnlock). Odblokowanie
+   po powrocie z PayHip wymaga też markera rozpoczęcia zakupu (klik pay-link
+   lub dotarcie na /dziekujemy), więc samo wpisanie ?unlocked=1 z palca nie działa.
+
+To wciąż ochrona po stronie przeglądarki — zaawansowany użytkownik może ją obejść
+(kod działa lokalnie), ale poprzeczka jest realnie wysoka, a cały plan nie jest
+już dostępny za darmo w podsumowaniu. Twoja grupa to rodzice w trzecim trymestrze.
+Twardą bramkę (webhook PayHip + token serwerowy generujący jednorazowy link)
+wdrażamy przy ok. 10 zamówieniach tygodniowo — wcześniej to zabezpieczanie
+przychodu, którego jeszcze nie ma.
 
 ═══════════════════════════════════════════
 ## KOSZTY

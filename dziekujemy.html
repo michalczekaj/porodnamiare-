@@ -164,7 +164,9 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
     }
   }catch(e){ has=false; }
   (has?ready:missing).classList.remove('hidden');
-  try{ localStorage.setItem('pnm_unlocked_v1','1'); }catch(e){}
+  // Dotarcie na /dziekujemy = PayHip przekierował po płatności → ustaw marker,
+  // by odblokowanie planu w kreatorze zadziałało (spójne z warunkiem w index.html).
+  try{ localStorage.setItem('pnm_unlocked_v1','1'); localStorage.setItem('pnm_co_ls', String(Date.now())); }catch(e){}
 })();
 </script>
 <script src="js/email-protect.js" defer></script>
