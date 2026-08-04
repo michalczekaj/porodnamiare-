@@ -75,12 +75,17 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
 </script>
 </head>
 <body class="font-body bg-sand text-ink antialiased">
+<div style="position:fixed;top:12px;right:12px;z-index:50">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option>
+  </select>
+</div>
 <main id="main" class="max-w-2xl mx-auto px-4 py-14">
 
   <div class="text-center mb-10">
     <div class="text-5xl mb-4" aria-hidden="true">&#128151;</div>
-    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep mb-3">Dziękujemy za zakup!</h1>
-    <p class="text-lg text-ink/80">Wasz plan porodu jest już w drodze.</p>
+    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep mb-3" data-i18n="dzH1">Dziękujemy za zakup!</h1>
+    <p class="text-lg text-ink/80" data-i18n="dzSub">Wasz plan porodu jest już w drodze.</p>
   </div>
 
   <!-- KROK 1: plan z kreatora -->
@@ -88,17 +93,17 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
     <div class="flex items-start gap-4">
       <span class="flex-shrink-0 w-9 h-9 rounded-full bg-teal text-white font-bold flex items-center justify-center">1</span>
       <div class="min-w-0 flex-1">
-        <h2 class="font-display text-xl font-semibold text-deep mb-2">Pobierz swój plan porodu</h2>
-        <p class="text-[15px] text-ink/80 leading-relaxed mb-4">Wasze odpowiedzi z kreatora są zapisane w tej przeglądarce. Kliknijcie poniżej — dokument wygeneruje się i pobierze od razu.</p>
+        <h2 class="font-display text-xl font-semibold text-deep mb-2" data-i18n="dzS1H">Pobierz swój plan porodu</h2>
+        <p class="text-[15px] text-ink/80 leading-relaxed mb-4" data-i18n="dzS1P">Wasze odpowiedzi z kreatora są zapisane w tej przeglądarce. Kliknijcie poniżej — dokument wygeneruje się i pobierze od razu.</p>
         <div id="planReady" class="hidden">
-          <a id="pnmGoKreator" href="/#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">Pobierz swój plan porodu &rarr;</a>
+          <a id="pnmGoKreator" href="/#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors" data-i18n="dzS1Btn">Pobierz swój plan porodu &rarr;</a>
           <p id="pnmPayStatus" class="text-xs text-ink/60 mt-2">Znaleźliśmy Wasze odpowiedzi &#10003; &middot; potwierdzamy płatność&hellip;</p>
         </div>
         <div id="planMissing" class="hidden">
           <div class="bg-tealsoft rounded-xl px-4 py-3 mb-4">
-            <p class="text-[15px] text-ink/85 leading-relaxed"><strong class="text-deep">Nie widzimy tu Waszych odpowiedzi.</strong> To normalne, jeśli kreator wypełnialiście na innym urządzeniu albo w innej przeglądarce — dane zapisują się lokalnie i nie wędrują między urządzeniami.</p>
+            <p class="text-[15px] text-ink/85 leading-relaxed" data-i18n="dzMissP"><strong class="text-deep">Nie widzimy tu Waszych odpowiedzi.</strong> To normalne, jeśli kreator wypełnialiście na innym urządzeniu albo w innej przeglądarce — dane zapisują się lokalnie i nie wędrują między urządzeniami.</p>
           </div>
-          <p class="font-semibold text-deep text-[15px] mb-2">Co zrobić:</p>
+          <p class="font-semibold text-deep text-[15px] mb-2" data-i18n="dzMissH">Co zrobić:</p>
           <ul class="space-y-2 text-[15px] text-ink/80 mb-4">
             <li class="flex gap-2.5"><span class="text-teal font-bold flex-shrink-0">1.</span><span>Otwórzcie <strong>ten sam link</strong> na urządzeniu, na którym wypełnialiście kreator (np. na telefonie)</span></li>
             <li class="flex gap-2.5"><span class="text-teal font-bold flex-shrink-0">2.</span><span>Albo wypełnijcie kreator ponownie tutaj — zajmie to kilkanaście minut, a płatność jest już zaksięgowana</span></li>
@@ -119,8 +124,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
     <div class="flex items-start gap-4">
       <span class="flex-shrink-0 w-9 h-9 rounded-full bg-deep text-white font-bold flex items-center justify-center">2</span>
       <div class="min-w-0">
-        <h2 class="font-display text-xl font-semibold text-deep mb-2">Sprawdź skrzynkę e-mail</h2>
-        <p class="text-[15px] text-ink/80 leading-relaxed mb-3">Jeśli kupiliście pakiet Premium lub Premium+, poradniki PDF wysłaliśmy na adres podany przy płatności. Wiadomość przychodzi zwykle w ciągu minuty.</p>
+        <h2 class="font-display text-xl font-semibold text-deep mb-2" data-i18n="dzS2H">Sprawdź skrzynkę e-mail</h2>
+        <p class="text-[15px] text-ink/80 leading-relaxed mb-3" data-i18n="dzS2P">Jeśli kupiliście pakiet Premium lub Premium+, poradniki PDF wysłaliśmy na adres podany przy płatności. Wiadomość przychodzi zwykle w ciągu minuty.</p>
         <p class="text-sm text-ink/70 bg-tealsoft rounded-xl px-4 py-3">Nie widzicie jej? Sprawdźcie folder <strong>Spam</strong> lub <strong>Oferty</strong>. Jeśli po 15 minutach nadal jej nie ma — napiszcie na <a href="#" class="text-teal font-semibold underline pnm-email" data-u="kontakt" data-d="porodnamiare.pl" rel="nofollow"></a>.</p>
       </div>
     </div>
@@ -130,19 +135,19 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
     <div class="flex items-start gap-4">
       <span class="flex-shrink-0 w-9 h-9 rounded-full bg-teal text-white font-bold flex items-center justify-center">3</span>
       <div>
-        <h2 class="font-display text-xl font-semibold text-deep mb-2">Wydrukujcie w dwóch egzemplarzach</h2>
-        <p class="text-[15px] text-ink/80 leading-relaxed">Jeden zostaje w torbie do szpitala, drugi wręczacie położnej przy przyjęciu. Warto też omówić plan wcześniej z położną prowadzącą lub na zajęciach szkoły rodzenia.</p>
+        <h2 class="font-display text-xl font-semibold text-deep mb-2" data-i18n="dzS3H">Wydrukujcie w dwóch egzemplarzach</h2>
+        <p class="text-[15px] text-ink/80 leading-relaxed" data-i18n="dzS3P">Jeden zostaje w torbie do szpitala, drugi wręczacie położnej przy przyjęciu. Warto też omówić plan wcześniej z położną prowadzącą lub na zajęciach szkoły rodzenia.</p>
       </div>
     </div>
   </section>
 
   <div class="bg-white border border-sanddark rounded-2xl p-6 text-center mb-8">
-    <p class="font-display text-lg font-semibold text-deep mb-2">Gwarancja spokojnej głowy</p>
-    <p class="text-[15px] text-ink/80">Macie 30 dni na kontakt, jeśli plik nie dotarł lub coś wymaga poprawki — reagujemy tego samego dnia.</p>
+    <p class="font-display text-lg font-semibold text-deep mb-2" data-i18n="dzGuarH">Gwarancja spokojnej głowy</p>
+    <p class="text-[15px] text-ink/80" data-i18n="dzGuarP">Macie 30 dni na kontakt, jeśli plik nie dotarł lub coś wymaga poprawki — reagujemy tego samego dnia.</p>
   </div>
 
   <div class="text-center">
-    <a href="/" class="inline-block border border-deep/30 font-semibold px-7 py-3.5 rounded-full hover:bg-sanddark transition-colors">&larr; Wróć na stronę główną</a>
+    <a href="/" class="inline-block border border-deep/30 font-semibold px-7 py-3.5 rounded-full hover:bg-sanddark transition-colors" data-i18n="dzBack">&larr; Wróć na stronę główną</a>
     <p class="mt-6 text-sm text-ink/70">Trzymamy kciuki za Wasz poród &#129293;<br><span class="font-display text-teal">— Michał, tata i założyciel</span></p>
   </div>
 
@@ -204,6 +209,59 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
   if(has) tryClaim(0);
 })();
 </script>
+<script>
+window.PAGE_I18N = {
+  en: {
+    dzH1: "Thank you for your purchase!",
+    dzSub: "Your birth plan is on its way.",
+    dzS1H: "Download your birth plan",
+    dzS1P: "Your answers from the creator are saved in this browser. Click below and the document will generate and download straight away.",
+    dzS1Btn: "Download your birth plan →",
+    dzMissP: "<strong class=\"text-deep\">We can't see your answers here.</strong> That's normal if you filled in the creator on another device or in another browser — the data is stored locally and doesn't travel between devices.",
+    dzMissH: "What to do:",
+    dzS2H: "Check your e-mail",
+    dzS2P: "If you bought the Premium or Premium+ package, we've sent the PDF guides to the address you gave at checkout. The message usually arrives within a minute.",
+    dzS3H: "Print two copies",
+    dzS3P: "One stays in your hospital bag, the other you hand to the midwife on admission. It's also worth discussing the plan in advance with your lead midwife or at antenatal classes.",
+    dzGuarH: "Peace-of-mind guarantee",
+    dzGuarP: "You have 30 days to get in touch if the file didn't arrive or something needs fixing — we respond the same day.",
+    dzBack: "← Back to the homepage"
+  },
+  de: {
+    dzH1: "Vielen Dank für Ihren Kauf!",
+    dzSub: "Ihr Geburtsplan ist unterwegs.",
+    dzS1H: "Laden Sie Ihren Geburtsplan herunter",
+    dzS1P: "Ihre Antworten aus dem Generator sind in diesem Browser gespeichert. Klicken Sie unten — das Dokument wird sofort erstellt und heruntergeladen.",
+    dzS1Btn: "Geburtsplan herunterladen →",
+    dzMissP: "<strong class=\"text-deep\">Wir sehen hier Ihre Antworten nicht.</strong> Das ist normal, wenn Sie den Generator auf einem anderen Gerät oder in einem anderen Browser ausgefüllt haben — die Daten werden lokal gespeichert und wandern nicht zwischen Geräten.",
+    dzMissH: "Was zu tun ist:",
+    dzS2H: "Prüfen Sie Ihr E-Mail-Postfach",
+    dzS2P: "Wenn Sie das Premium- oder Premium+-Paket gekauft haben, haben wir die PDF-Ratgeber an die bei der Zahlung angegebene Adresse geschickt. Die Nachricht kommt in der Regel innerhalb einer Minute an.",
+    dzS3H: "Drucken Sie zwei Exemplare",
+    dzS3P: "Eines bleibt in der Kliniktasche, das andere übergeben Sie der Hebamme bei der Aufnahme. Es lohnt sich auch, den Plan vorab mit Ihrer Hebamme oder im Geburtsvorbereitungskurs zu besprechen.",
+    dzGuarH: "Sorglos-Garantie",
+    dzGuarP: "Sie haben 30 Tage Zeit, sich zu melden, falls die Datei nicht angekommen ist oder etwas korrigiert werden muss — wir reagieren noch am selben Tag.",
+    dzBack: "← Zurück zur Startseite"
+  },
+  uk: {
+    dzH1: "Дякуємо за покупку!",
+    dzSub: "Ваш план пологів уже в дорозі.",
+    dzS1H: "Завантажте свій план пологів",
+    dzS1P: "Ваші відповіді з конструктора збережені в цьому браузері. Натисніть нижче — документ згенерується і завантажиться одразу.",
+    dzS1Btn: "Завантажити свій план пологів →",
+    dzMissP: "<strong class=\"text-deep\">Ми не бачимо тут ваших відповідей.</strong> Це нормально, якщо ви заповнювали конструктор на іншому пристрої чи в іншому браузері — дані зберігаються локально і не переносяться між пристроями.",
+    dzMissH: "Що робити:",
+    dzS2H: "Перевірте поштову скриньку",
+    dzS2P: "Якщо ви придбали пакет Premium або Premium+, PDF-довідники надіслані на адресу, вказану при оплаті. Повідомлення зазвичай приходить протягом хвилини.",
+    dzS3H: "Роздрукуйте у двох примірниках",
+    dzS3P: "Один залишається в сумці до лікарні, другий передаєте акушерці при поступленні. Варто також обговорити план заздалегідь з провідною акушеркою або на курсах підготовки до пологів.",
+    dzGuarH: "Гарантія спокою",
+    dzGuarP: "У вас є 30 днів, щоб звернутися, якщо файл не дійшов або щось потребує виправлення — реагуємо того ж дня.",
+    dzBack: "← Повернутись на головну"
+  }
+};
+</script>
+<script src="js/i18n-page.js" defer></script>
 <script src="js/email-protect.js" defer></script>
 </body>
 </html>

@@ -136,16 +136,25 @@ tailwind.config = {
   if(consent === 'granted'){ loadGA(); }
   else if(consent !== 'denied'){
     document.addEventListener('DOMContentLoaded', function(){
+      var CKL = {
+        pl: {txt:'Używamy Google Analytics, żeby wiedzieć, które treści są przydatne — wyłącznie za Twoją zgodą, bez profilowania reklamowego. Szczegóły:', pp:'polityka prywatności', yes:'Akceptuję', no:'Odrzucam'},
+        en: {txt:'We use Google Analytics to learn which content is useful — only with your consent, with no advertising profiling. Details:', pp:'privacy policy', yes:'Accept', no:'Decline'},
+        de: {txt:'Wir nutzen Google Analytics, um zu erfahren, welche Inhalte nützlich sind — ausschließlich mit Ihrer Einwilligung, ohne Werbeprofilierung. Details:', pp:'Datenschutzerklärung', yes:'Akzeptieren', no:'Ablehnen'},
+        uk: {txt:'Ми використовуємо Google Analytics, щоб знати, який вміст корисний — виключно за вашою згодою, без рекламного профілювання. Деталі:', pp:'політика конфіденційності', yes:'Приймаю', no:'Відхиляю'}
+      };
+      var CKlang = 'pl';
+      try { CKlang = localStorage.getItem('lang') || 'pl'; } catch(e){}
+      var CK = CKL[CKlang] || CKL.pl;
       var b = document.createElement('div');
       b.id = 'cookieConsent';
       b.setAttribute('role','dialog');
       b.setAttribute('aria-label','Zgoda na pliki cookie');
       b.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#3E3852;color:#FAF5EF;padding:16px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.15);font-family:Figtree,sans-serif';
       b.innerHTML = '<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">' +
-        '<p style="font-size:13.5px;line-height:1.5;margin:0;flex:1;min-width:240px">Używamy Google Analytics, żeby wiedzieć, które treści są przydatne — wyłącznie za Twoją zgodą, bez profilowania reklamowego. Szczegóły: <a href="/polityka-prywatnosci" style="color:#A0525E;text-decoration:underline">polityka prywatności</a>.</p>' +
+        '<p style="font-size:13.5px;line-height:1.5;margin:0;flex:1;min-width:240px">'+CK.txt+' <a href="/polityka-prywatnosci" style="color:#A0525E;text-decoration:underline">'+CK.pp+'</a>.</p>' +
         '<div style="display:flex;gap:8px;flex-shrink:0">' +
-        '<button id="cookieDeny" style="background:transparent;border:1px solid rgba(250,245,239,.4);color:#FAF5EF;font-weight:600;font-size:13px;padding:9px 16px;border-radius:999px;cursor:pointer">Odrzucam</button>' +
-        '<button id="cookieAccept" style="background:#A0525E;border:none;color:#fff;font-weight:600;font-size:13px;padding:9px 18px;border-radius:999px;cursor:pointer">Akceptuję</button>' +
+        '<button id="cookieDeny" style="background:transparent;border:1px solid rgba(250,245,239,.4);color:#FAF5EF;font-weight:600;font-size:13px;padding:9px 16px;border-radius:999px;cursor:pointer">'+CK.no+'</button>' +
+        '<button id="cookieAccept" style="background:#A0525E;border:none;color:#fff;font-weight:600;font-size:13px;padding:9px 18px;border-radius:999px;cursor:pointer">'+CK.yes+'</button>' +
         '</div></div>';
       document.body.appendChild(b);
       document.getElementById('cookieAccept').addEventListener('click', function(){
@@ -162,7 +171,7 @@ tailwind.config = {
 </script>
 </head>
 <body class="font-body bg-sand text-ink antialiased">
-<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Przejdź do treści</a>
+<a data-i18n="skipLink" href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Przejdź do treści</a>
 
 <!-- ===== NAVBAR ===== -->
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
@@ -226,7 +235,7 @@ tailwind.config = {
         <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       </a>
     </nav>
-    <a href="#kreator" class="mob-link mt-4 block text-center bg-teal text-white font-semibold py-3.5 rounded-full hover:bg-deep transition-colors">Stwórz swój plan porodu →</a>
+    <a data-i18n="mmCta" href="#kreator" class="mob-link mt-4 block text-center bg-teal text-white font-semibold py-3.5 rounded-full hover:bg-deep transition-colors">Stwórz swój plan porodu →</a>
   </div>
 </header>
 
@@ -252,7 +261,7 @@ tailwind.config = {
   <figure class="rounded-3xl overflow-hidden plan-doc au au-3 relative">
     <!-- ZDJĘCIE: Unsplash/Pexels — "father holding newborn baby skin to skin, warm light" -->
     <img src="img/hero.webp" alt="Tata trzymający noworodka w kontakcie skóra do skóry — bezpieczny poród" width="900" height="1125" fetchpriority="high" decoding="async" class="w-full h-full object-cover aspect-[4/5]">
-    <figcaption class="sr-only">Kontakt skóra do skóry taty z noworodkiem</figcaption>
+    <figcaption data-i18n="heroFigcap" class="sr-only">Kontakt skóra do skóry taty z noworodkiem</figcaption>
   </figure>
 </section>
 
@@ -293,7 +302,7 @@ tailwind.config = {
     <span data-i18n="trust4">✓ Gotowy PDF w 24 h</span>
   </div>
   <div class="border-t border-sanddark bg-tealsoft/50">
-    <p class="max-w-6xl mx-auto px-4 py-2.5 text-center text-sm">🌍 Rodzisz w Polsce, ale nie mówisz po polsku? Wersje językowe:
+    <p data-i18n="langNote" class="max-w-6xl mx-auto px-4 py-2.5 text-center text-sm">🌍 Rodzisz w Polsce, ale nie mówisz po polsku? Wersje językowe:
       <a href="/en" class="font-semibold text-teal underline mx-1">🇬🇧 English</a> ·
       <a href="/de" class="font-semibold text-teal underline mx-1">🇩🇪 Deutsch</a> ·
       <a href="/ua" class="font-semibold text-teal underline mx-1">🇺🇦 Українська</a>
@@ -391,7 +400,7 @@ tailwind.config = {
 
     <div class="text-center mt-12">
       <a href="#kreator" class="inline-flex items-center gap-2 bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors">
-        Zacznij tworzyć swój plan
+        <span data-i18n="howCta">Zacznij tworzyć swój plan</span>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
       </a>
       <p data-i18n="heroFreeNote" class="text-xs text-ink/60 mt-3">Darmowy podgląd · płatność dopiero przy pobraniu</p>
@@ -416,8 +425,8 @@ tailwind.config = {
         <!-- Progress bar -->
         <div class="bg-sand/60 px-6 pt-5 pb-4 border-b border-sanddark">
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-semibold text-deep">Krok <span id="stepNum">1</span> z 13</span>
-            <span class="text-xs text-ink/60"><span id="stepPct">8</span>% ukończone</span>
+            <span class="text-xs font-semibold text-deep"><span id="stepWord">Krok</span> <span id="stepNum">1</span> <span id="stepOfWord">z</span> 13</span>
+            <span class="text-xs text-ink/60"><span id="stepPct">8</span><span id="stepPctWord">% ukończone</span></span>
           </div>
           <div class="flex items-center justify-end gap-1.5 mb-2">
             <span class="text-[11px] text-ink/50">🌍 Język treści kreatora:</span>
@@ -817,8 +826,8 @@ tailwind.config = {
 
   <div class="text-center mb-8">
     <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="pricingH">Produkty dla rodziców</p>
-    <h2 class="font-display text-4xl md:text-5xl font-semibold text-deep mb-4">Wybierz swój zestaw</h2>
-    <p class="text-ink/70 max-w-xl mx-auto">Każdy PDF oparty na wiedzy medycznej i doświadczeniu rodziców. Gotowy do druku, do szpitala i do domu.</p>
+    <h2 data-i18n="pricingH2" class="font-display text-4xl md:text-5xl font-semibold text-deep mb-4">Wybierz swój zestaw</h2>
+    <p data-i18n="pricingSub" class="text-ink/70 max-w-xl mx-auto">Każdy PDF oparty na wiedzy medycznej i doświadczeniu rodziców. Gotowy do druku, do szpitala i do domu.</p>
   </div>
 
   <!-- BADGE STANDARDU (nad kartami, centralny) -->
@@ -864,7 +873,7 @@ tailwind.config = {
       </label>
       <a id="cta-podstawowy" href="https://payhip.com/b/jUaCl" target="_blank" rel="noopener" aria-disabled="true"
          class="block text-center border-2 border-deep/25 text-deep font-bold py-4 rounded-2xl hover:bg-sanddark transition-colors pointer-events-none opacity-50">
-        <span data-i18n="buyBtn">Kup teraz</span> — 49 zł
+        <span data-i18n="buyBtn">Kup teraz</span> <span data-i18n="buyP49">— 49 zł</span>
       </a>
     </article>
 
@@ -897,7 +906,7 @@ tailwind.config = {
       </label>
       <a id="cta-premium" href="https://payhip.com/b/PAcED" target="_blank" rel="noopener" aria-disabled="true"
          class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-white hover:text-deep transition-colors pointer-events-none opacity-50">
-        <span data-i18n="buyBtn">Kup teraz</span> — 99 zł
+        <span data-i18n="buyBtn">Kup teraz</span> <span data-i18n="buyP99">— 99 zł</span>
       </a>
     </article>
 
@@ -912,7 +921,7 @@ tailwind.config = {
           <span class="font-display text-5xl font-semibold text-deep">219</span>
           <span class="text-xl text-ink/60 mb-2">zł</span>
         </div>
-        <p class="text-xs text-ink/70 mt-1">Wartość osobno: 432 zł · <span class="text-teal font-semibold">oszczędzasz 213 zł</span></p>
+        <p class="text-xs text-ink/70 mt-1"><span data-i18n="valueSep">Wartość osobno: 432 zł ·</span> <span data-i18n="saveBadge" class="text-teal font-semibold">oszczędzasz 213 zł</span></p>
       </div>
       <ul class="space-y-3 text-[14px] flex-1 mb-6">
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="plus1">Plan porodu Premium (kompletny)</span></li>
@@ -940,7 +949,7 @@ tailwind.config = {
       </label>
       <a id="cta-premiumplus" href="https://payhip.com/b/JjgRA" target="_blank" rel="noopener" aria-disabled="true"
          class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg pointer-events-none opacity-50">
-        <span data-i18n="buyBtn">Kup teraz</span> — 219 zł
+        <span data-i18n="buyBtn">Kup teraz</span> <span data-i18n="buyP219">— 219 zł</span>
       </a>
     </article>
 
@@ -950,11 +959,11 @@ tailwind.config = {
   <div class="max-w-5xl mx-auto mb-10 bg-deep rounded-3xl p-7 md:p-8 text-sand relative overflow-hidden">
     <div class="absolute -right-6 -top-6 text-8xl opacity-10 select-none pointer-events-none" aria-hidden="true">🅿️</div>
     <div class="relative">
-      <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-2">Bonus, o którym mało kto wie</p>
-      <h3 class="font-display text-2xl md:text-3xl font-semibold text-white mb-3">Wiesz, że masz prawo ubiegać się o miejsce w wózkowni?</h3>
-      <p class="text-sand/85 leading-relaxed mb-2 max-w-3xl">W wielu blokach i spółdzielniach istnieją wózkownie — pomieszczenia na wózki dziecięce. Większość rodziców nie wie, że może złożyć oficjalny wniosek o przydział miejsca. Wózek 2w1 nie mieści się w windzie, a noszenie go codziennie po schodach to koszmar pierwszych miesięcy.</p>
-      <p class="text-sand/85 leading-relaxed mb-5 max-w-3xl">W pakiecie <strong class="text-white">Premium+</strong> dodajemy gotowe, profesjonalnie przygotowane <strong class="text-white">pismo-wniosek w PDF</strong> z pustymi rubrykami — wystarczy wydrukować, uzupełnić dane i złożyć u zarządcy. Jeden dokument, który potrafi zaoszczędzić Wam miesięcy dźwigania.</p>
-      <a href="#cennik" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors text-sm">Odbierz wniosek w pakiecie Premium+ →</a>
+      <p data-i18n="strollKicker" class="text-teal font-semibold text-xs uppercase tracking-widest mb-2">Bonus, o którym mało kto wie</p>
+      <h3 data-i18n="strollH" class="font-display text-2xl md:text-3xl font-semibold text-white mb-3">Wiesz, że masz prawo ubiegać się o miejsce w wózkowni?</h3>
+      <p data-i18n="strollP1" class="text-sand/85 leading-relaxed mb-2 max-w-3xl">W wielu blokach i spółdzielniach istnieją wózkownie — pomieszczenia na wózki dziecięce. Większość rodziców nie wie, że może złożyć oficjalny wniosek o przydział miejsca. Wózek 2w1 nie mieści się w windzie, a noszenie go codziennie po schodach to koszmar pierwszych miesięcy.</p>
+      <p data-i18n="strollP2" class="text-sand/85 leading-relaxed mb-5 max-w-3xl">W pakiecie <strong class="text-white">Premium+</strong> dodajemy gotowe, profesjonalnie przygotowane <strong class="text-white">pismo-wniosek w PDF</strong> z pustymi rubrykami — wystarczy wydrukować, uzupełnić dane i złożyć u zarządcy. Jeden dokument, który potrafi zaoszczędzić Wam miesięcy dźwigania.</p>
+      <a data-i18n="strollCta" href="#cennik" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors text-sm">Odbierz wniosek w pakiecie Premium+ →</a>
     </div>
   </div>
 
@@ -977,8 +986,8 @@ tailwind.config = {
           <img src="/img/produkty/thumb/plan-pologu.webp" width="720" height="1080" alt="Plan połogu — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
         </div>
         <div class="p-3 text-center">
-          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Plan połogu</p>
-          <p class="text-xs text-ink/60 mt-1">49 zł · PDF</p>
+          <p data-i18n="sp1N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Plan połogu</p>
+          <p data-i18n="sp1P" class="text-xs text-ink/60 mt-1">49 zł · PDF</p>
         </div>
       </a>
       <a href="/produkty/laktacja" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-lg transition-all">
@@ -986,8 +995,8 @@ tailwind.config = {
           <img src="/img/produkty/thumb/laktacja.webp" width="720" height="1080" alt="Przewodnik laktacyjny — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
         </div>
         <div class="p-3 text-center">
-          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Przewodnik laktacyjny</p>
-          <p class="text-xs text-ink/60 mt-1">39 zł · PDF</p>
+          <p data-i18n="sp2N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Przewodnik laktacyjny</p>
+          <p data-i18n="spPdf39" class="text-xs text-ink/60 mt-1">39 zł · PDF</p>
         </div>
       </a>
       <a href="/produkty/cesarskie-ciecie" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-lg transition-all">
@@ -995,8 +1004,8 @@ tailwind.config = {
           <img src="/img/produkty/thumb/cesarskie-ciecie.webp" width="720" height="1080" alt="Plan cięcia cesarskiego — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
         </div>
         <div class="p-3 text-center">
-          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Plan cięcia cesarskiego</p>
-          <p class="text-xs text-ink/60 mt-1">39 zł · PDF</p>
+          <p data-i18n="sp3N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Plan cięcia cesarskiego</p>
+          <p data-i18n="spPdf39" class="text-xs text-ink/60 mt-1">39 zł · PDF</p>
         </div>
       </a>
       <a href="/produkty/chustonoszenie" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-lg transition-all">
@@ -1004,8 +1013,8 @@ tailwind.config = {
           <img src="/img/produkty/thumb/chustonoszenie.webp" width="720" height="1080" alt="ABC chustonoszenia — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
         </div>
         <div class="p-3 text-center">
-          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">ABC chustonoszenia</p>
-          <p class="text-xs text-ink/60 mt-1">29 zł · przewodnik PDF</p>
+          <p data-i18n="sp4N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">ABC chustonoszenia</p>
+          <p data-i18n="sp4P" class="text-xs text-ink/60 mt-1">29 zł · przewodnik PDF</p>
         </div>
       </a>
       <a href="/produkty/checklist-dla-taty" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-lg transition-all">
@@ -1013,8 +1022,8 @@ tailwind.config = {
           <img src="/img/produkty/thumb/checklist-dla-taty.webp" width="720" height="1080" alt="Checklist dla taty — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
         </div>
         <div class="p-3 text-center">
-          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Checklist dla taty</p>
-          <p class="text-xs text-ink/60 mt-1">29 zł · PDF</p>
+          <p data-i18n="sp5N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Checklist dla taty</p>
+          <p data-i18n="sp5P" class="text-xs text-ink/60 mt-1">29 zł · PDF</p>
         </div>
       </a>
       <a href="/produkty/torba-do-szpitala" class="group relative flex flex-col bg-white border border-sanddark rounded-2xl overflow-hidden hover:border-teal hover:shadow-lg transition-all">
@@ -1022,38 +1031,38 @@ tailwind.config = {
           <img src="/img/produkty/thumb/torba-do-szpitala.webp" width="720" height="1080" alt="Torba do szpitala — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
         </div>
         <div class="p-3 text-center">
-          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Torba do szpitala</p>
-          <p class="text-xs text-ink/60 mt-1">19 zł · checklista PDF</p>
+          <p data-i18n="sp6N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Torba do szpitala</p>
+          <p data-i18n="sp6P" class="text-xs text-ink/60 mt-1">19 zł · checklista PDF</p>
         </div>
       </a>
       <a href="/produkty/fizjoterapia-uroginekologiczna" class="group relative flex flex-col bg-white border-2 border-teal rounded-2xl overflow-hidden hover:bg-tealsoft hover:shadow-lg transition-all">
-        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NOWOŚĆ</span>
+        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full" data-i18n="newBadge">NOWOŚĆ</span>
         <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
           <img src="/img/produkty/thumb/fizjoterapia.webp" width="720" height="1080" alt="Fizjoterapia uroginekologiczna — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
         </div>
         <div class="p-3 text-center">
-          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Fizjoterapia uroginekologiczna</p>
-          <p class="text-xs text-ink/60 mt-1">49 zł · ćwiczeniownik PDF, 16 str.</p>
+          <p data-i18n="sp7N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Fizjoterapia uroginekologiczna</p>
+          <p data-i18n="sp7P" class="text-xs text-ink/60 mt-1">49 zł · ćwiczeniownik PDF, 16 str.</p>
         </div>
       </a>
       <a href="/produkty/sen-niemowlecia" class="group relative flex flex-col bg-white border-2 border-teal rounded-2xl overflow-hidden hover:bg-tealsoft hover:shadow-lg transition-all">
-        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NOWOŚĆ</span>
+        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full" data-i18n="newBadge">NOWOŚĆ</span>
         <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
           <img src="/img/produkty/thumb/sen-niemowlecia.webp" width="720" height="1080" alt="Sen niemowlęcia — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
         </div>
         <div class="p-3 text-center">
-          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Sen niemowlęcia</p>
-          <p class="text-xs text-ink/60 mt-1">59 zł · przewodnik PDF, 16 str.</p>
+          <p data-i18n="sp8N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Sen niemowlęcia</p>
+          <p data-i18n="spGuide59" class="text-xs text-ink/60 mt-1">59 zł · przewodnik PDF, 16 str.</p>
         </div>
       </a>
       <a href="/produkty/dieta-suplementacja-ciaza" class="group relative flex flex-col bg-white border-2 border-teal rounded-2xl overflow-hidden hover:bg-tealsoft hover:shadow-lg transition-all">
-        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NOWOŚĆ</span>
+        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full" data-i18n="newBadge">NOWOŚĆ</span>
         <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
           <img src="/img/produkty/thumb/dieta-suplementacja.webp" width="720" height="1080" alt="Dieta i suplementacja — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
         </div>
         <div class="p-3 text-center">
-          <p class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Dieta i suplementacja</p>
-          <p class="text-xs text-ink/60 mt-1">59 zł · przewodnik PDF, 16 str.</p>
+          <p data-i18n="sp9N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Dieta i suplementacja</p>
+          <p data-i18n="spGuide59" class="text-xs text-ink/60 mt-1">59 zł · przewodnik PDF, 16 str.</p>
         </div>
       </a>
     </div>
@@ -1063,8 +1072,8 @@ tailwind.config = {
   <div class="mt-10 max-w-5xl mx-auto bg-white border border-sanddark rounded-2xl p-6">
     <div class="flex flex-wrap items-center gap-5 justify-between">
       <div class="flex-1 min-w-[260px]">
-        <p class="font-display text-lg font-semibold text-deep mb-1">Dwie zaufane metody płatności</p>
-        <p class="text-sm text-ink/70 leading-relaxed"><strong>PayHip</strong> — karta, Apple Pay, Google Pay, PayPal, Przelewy24 (międzynarodowo). <strong>BLIK</strong> — szybki przelew, którym płaci większość Polaków. Wybierasz to, co wygodne.</p>
+        <p data-i18n="payH" class="font-display text-lg font-semibold text-deep mb-1">Dwie zaufane metody płatności</p>
+        <p data-i18n="payP" class="text-sm text-ink/70 leading-relaxed"><strong>PayHip</strong> — karta, Apple Pay, Google Pay, PayPal, Przelewy24 (międzynarodowo). <strong>BLIK</strong> — szybki przelew, którym płaci większość Polaków. Wybierasz to, co wygodne.</p>
       </div>
       <div class="flex items-center gap-3">
         <span class="inline-flex items-center gap-1.5 bg-tealsoft rounded-xl px-4 py-2.5 font-bold text-deep text-sm">💳 PayHip</span>
@@ -1072,7 +1081,7 @@ tailwind.config = {
       </div>
     </div>
     <div class="mt-4 pt-4 border-t border-sanddark bg-tealsoft/40 -mx-6 -mb-6 px-6 pb-6 rounded-b-2xl">
-      <p class="text-sm text-ink/80"><strong>Płatność BLIK-iem:</strong> po kliknięciu „Kup" wybierz BLIK w bramce PayHip i potwierdź w aplikacji bankowej — plan do pobrania od razu po płatności.</p>
+      <p data-i18n="payBlik" class="text-sm text-ink/80"><strong>Płatność BLIK-iem:</strong> po kliknięciu „Kup" wybierz BLIK w bramce PayHip i potwierdź w aplikacji bankowej — plan do pobrania od razu po płatności.</p>
     </div>
   </div>
 
@@ -1080,11 +1089,11 @@ tailwind.config = {
   <div class="mt-6 max-w-5xl mx-auto bg-white border border-sanddark rounded-2xl p-6 flex flex-wrap items-center gap-4 justify-between">
     <div>
       <p class="font-display text-lg font-semibold text-deep mb-1" data-i18n="guarantee">Gwarancja spokojnej głowy: 30 dni zwrotu — bez pytań, bez formularzy.</p>
-      <p class="font-display text-teal text-sm">— Michał, tata i założyciel</p>
+      <p data-i18n="paySign" class="font-display text-teal text-sm">— Michał, tata i założyciel</p>
     </div>
     <p class="text-sm text-ink/70">Pytania: <a href="#" class="text-teal font-semibold underline pnm-email" data-u="kontakt" data-d="porodnamiare.pl" rel="nofollow"></a></p>
   </div>
-  <p class="text-xs text-ink/45 mt-4 max-w-4xl mx-auto text-center">Kupując, wyrażasz zgodę na dostarczenie treści cyfrowej przed upływem terminu odstąpienia od umowy i przyjmujesz do wiadomości utratę ustawowego prawa odstąpienia (art. 38 ust. 1 pkt 13 ustawy o prawach konsumenta). Obowiązuje 30-dniowa gwarancja zwrotu. Szczegóły w <a href="regulamin.html" class="underline">regulaminie</a>.</p>
+  <p data-i18n="payLegal" class="text-xs text-ink/45 mt-4 max-w-4xl mx-auto text-center">Kupując, wyrażasz zgodę na dostarczenie treści cyfrowej przed upływem terminu odstąpienia od umowy i przyjmujesz do wiadomości utratę ustawowego prawa odstąpienia (art. 38 ust. 1 pkt 13 ustawy o prawach konsumenta). Obowiązuje 30-dniowa gwarancja zwrotu. Szczegóły w <a href="regulamin.html" class="underline">regulaminie</a>.</p>
 
 </div>
 </section>
@@ -1261,66 +1270,66 @@ tailwind.config = {
     <h2 data-i18n="blogH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-12">Wiedza dla świadomych rodziców</h2>
     <div class="grid md:grid-cols-3 gap-6">
       <a href="/blog/blizna-po-cesarskim-cieciu-mobilizacja" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Połóg</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Blizna po cesarce — mobilizacja krok po kroku</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Cztery techniki, harmonogram tydzień po tygodniu i cztery mity, które szkodzą.</p>
+        <p data-i18n="bk1" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Połóg</p>
+        <h3 data-i18n="bt1" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Blizna po cesarce — mobilizacja krok po kroku</h3>
+        <p data-i18n="be1" class="text-[15px] text-ink/75 leading-relaxed">Cztery techniki, harmonogram tydzień po tygodniu i cztery mity, które szkodzą.</p>
       </a>
 
       <a href="/blog/objawy-porodu-kiedy-jechac-do-szpitala" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Poród</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Objawy porodu — kiedy jechać do szpitala?</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Zasada 5-1-1, odejście wód, objawy alarmowe. Wszystko, co trzeba wiedzieć zawczasu.</p>
+        <p data-i18n="bk2" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Poród</p>
+        <h3 data-i18n="bt2" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Objawy porodu — kiedy jechać do szpitala?</h3>
+        <p data-i18n="be2" class="text-[15px] text-ink/75 leading-relaxed">Zasada 5-1-1, odejście wód, objawy alarmowe. Wszystko, co trzeba wiedzieć zawczasu.</p>
       </a>
       <a href="/blog/cukrzyca-ciazowa-dieta" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Zdrowie w ciąży</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Cukrzyca ciążowa — dieta i poród</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Zasady diety, normy cukru, wpływ na poród i opiekę nad noworodkiem.</p>
+        <p data-i18n="bk3" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Zdrowie w ciąży</p>
+        <h3 data-i18n="bt3" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Cukrzyca ciążowa — dieta i poród</h3>
+        <p data-i18n="be3" class="text-[15px] text-ink/75 leading-relaxed">Zasady diety, normy cukru, wpływ na poród i opiekę nad noworodkiem.</p>
       </a>
 
       <a href="/blog/wczesniak-inkubator-oddzial-neonatologiczny" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Wcześniak</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Wcześniak, inkubator i oddział neonatologiczny</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Kompletny przewodnik: inkubator, sprzęt na OITN, kangurowanie, wiek skorygowany i urlop do 15 tygodni.</p>
+        <p data-i18n="bk4" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Wcześniak</p>
+        <h3 data-i18n="bt4" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Wcześniak, inkubator i oddział neonatologiczny</h3>
+        <p data-i18n="be4" class="text-[15px] text-ink/75 leading-relaxed">Kompletny przewodnik: inkubator, sprzęt na OITN, kangurowanie, wiek skorygowany i urlop do 15 tygodni.</p>
       </a>
 
       <a href="/blog/krew-pepowinowa-banki-porownanie" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Decyzje</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Krew pępowinowa — PBKM czy Progenis?</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Bezstronne porównanie banków, 12 pytań przed umową i wzór zapisu w planie porodu.</p>
+        <p data-i18n="bk5" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Decyzje</p>
+        <h3 data-i18n="bt5" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Krew pępowinowa — PBKM czy Progenis?</h3>
+        <p data-i18n="be5" class="text-[15px] text-ink/75 leading-relaxed">Bezstronne porównanie banków, 12 pytań przed umową i wzór zapisu w planie porodu.</p>
       </a>
 
       <a href="/blog/dostepnosc-znieczulenia-w-szpitalu" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Wybór szpitala</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Czy w tym szpitalu dostanę znieczulenie?</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Jak zweryfikować placówkę przed porodem i o co pytać w izbie przyjęć.</p>
+        <p data-i18n="bk6" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Wybór szpitala</p>
+        <h3 data-i18n="bt6" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Czy w tym szpitalu dostanę znieczulenie?</h3>
+        <p data-i18n="be6" class="text-[15px] text-ink/75 leading-relaxed">Jak zweryfikować placówkę przed porodem i o co pytać w izbie przyjęć.</p>
       </a>
 
       <a href="/blog/pierwsza-pomoc-noworodek-dziecko" class="group bg-white rounded-2xl border-2 border-teal p-6 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Bezpieczeństwo</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Pierwsza pomoc noworodkowi i małemu dziecku</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Zadławienie, brak oddechu, gorączka, drgawki, oparzenia. Procedury krok po kroku i sygnały alarmowe.</p>
+        <p data-i18n="bk7" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Nowość · Bezpieczeństwo</p>
+        <h3 data-i18n="bt7" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Pierwsza pomoc noworodkowi i małemu dziecku</h3>
+        <p data-i18n="be7" class="text-[15px] text-ink/75 leading-relaxed">Zadławienie, brak oddechu, gorączka, drgawki, oparzenia. Procedury krok po kroku i sygnały alarmowe.</p>
       </a>
 
       <a href="/blog/krew-pepowinowa-banki-porownanie" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Decyzje okołoporodowe</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Bankowanie krwi pępowinowej — przewodnik dla rodziców</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Jedyna szansa jest w dniu porodu. Jak wygląda pobranie, ile kosztuje i dlaczego opóźnione odpępnienie ma pierwszeństwo.</p>
+        <p data-i18n="bk8" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Decyzje okołoporodowe</p>
+        <h3 data-i18n="bt8" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Bankowanie krwi pępowinowej — przewodnik dla rodziców</h3>
+        <p data-i18n="be8" class="text-[15px] text-ink/75 leading-relaxed">Jedyna szansa jest w dniu porodu. Jak wygląda pobranie, ile kosztuje i dlaczego opóźnione odpępnienie ma pierwszeństwo.</p>
       </a>
 
       <a href="/blog/bezpieczenstwo-noworodka-pierwsze-godziny" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Noworodek · Bezpieczeństwo</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Bezpieczeństwo noworodka podczas porodu — co naprawdę ma znaczenie</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Kontakt skóra do skóry, opóźnione odpępnienie i stała obecność rodzica przy zabiegach to interwencje o udokumentowanym wpływie na zdrowie dziecka.</p>
+        <p data-i18n="bk9" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Noworodek · Bezpieczeństwo</p>
+        <h3 data-i18n="bt9" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Bezpieczeństwo noworodka podczas porodu — co naprawdę ma znaczenie</h3>
+        <p data-i18n="be9" class="text-[15px] text-ink/75 leading-relaxed">Kontakt skóra do skóry, opóźnione odpępnienie i stała obecność rodzica przy zabiegach to interwencje o udokumentowanym wpływie na zdrowie dziecka.</p>
       </a>
       <a href="/blog/szczepienia-noworodka-w-szpitalu" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Noworodek · Decyzje</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Szczepienia noworodka — fakty, wybór rodziców i aktualne rekomendacje</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Szczepienia chronią dziecko — a rodzice mają prawo świadomie zdecydować, gdzie i kiedy je zrealizują.</p>
+        <p data-i18n="bk10" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Noworodek · Decyzje</p>
+        <h3 data-i18n="bt10" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Szczepienia noworodka — fakty, wybór rodziców i aktualne rekomendacje</h3>
+        <p data-i18n="be10" class="text-[15px] text-ink/75 leading-relaxed">Szczepienia chronią dziecko — a rodzice mają prawo świadomie zdecydować, gdzie i kiedy je zrealizują.</p>
       </a>
       <a href="/blog/jak-napisac-plan-porodu" class="group bg-white rounded-2xl border border-sanddark p-6 hover:border-teal/50 hover:shadow-lg transition-all">
-        <p class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Poród · Planowanie</p>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Jak napisać plan porodu — wzór, 8 sekcji i najczęstsze błędy</h3>
-        <p class="text-[15px] text-ink/75 leading-relaxed">Kompletny przewodnik: co musi zawierać skuteczny plan porodu, jak formułować oczekiwania i jakich zapisów unikać.</p>
+        <p data-i18n="bk11" class="text-xs font-semibold text-teal uppercase tracking-wider mb-2">Poród · Planowanie</p>
+        <h3 data-i18n="bt11" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal transition-colors">Jak napisać plan porodu — wzór, 8 sekcji i najczęstsze błędy</h3>
+        <p data-i18n="be11" class="text-[15px] text-ink/75 leading-relaxed">Kompletny przewodnik: co musi zawierać skuteczny plan porodu, jak formułować oczekiwania i jakich zapisów unikać.</p>
       </a>
     </div>
 
@@ -1328,27 +1337,27 @@ tailwind.config = {
     <div class="grid md:grid-cols-3 gap-6 mt-6">
       <a href="blog/plan-porodu-a-cesarskie-ciecie.html" class="group bg-white rounded-2xl border border-sanddark p-6 flex flex-col hover:border-teal transition-colors">
         <span class="text-2xl mb-3">🏥</span>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Plan porodu a cięcie cesarskie — kompletny przewodnik</h3>
-        <p class="text-sm text-ink/80 leading-relaxed flex-1">Czy przy cesarce można mieć plan? Tak. Kontakt skóra do skóry na sali operacyjnej, obecność partnera, pierwsze przystawienie — zgodnie ze Standardem 2026.</p>
-        <span class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
+        <h3 data-i18n="ct1" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Plan porodu a cięcie cesarskie — kompletny przewodnik</h3>
+        <p data-i18n="ce1" class="text-sm text-ink/80 leading-relaxed flex-1">Czy przy cesarce można mieć plan? Tak. Kontakt skóra do skóry na sali operacyjnej, obecność partnera, pierwsze przystawienie — zgodnie ze Standardem 2026.</p>
+        <span data-i18n="readMore" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
       </a>
       <a href="blog/pierwsze-24-godziny-zycia-noworodka.html" class="group bg-white rounded-2xl border border-sanddark p-6 flex flex-col hover:border-teal transition-colors">
         <span class="text-2xl mb-3">👶</span>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Pierwsze 24 godziny życia noworodka — co się dzieje</h3>
-        <p class="text-sm text-ink/80 leading-relaxed flex-1">Kontakt skóra do skóry, witamina K, badania przesiewowe, szczepienia, rooming-in. Pierwsza doba krok po kroku i na co macie realny wpływ.</p>
-        <span class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
+        <h3 data-i18n="ct2" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Pierwsze 24 godziny życia noworodka — co się dzieje</h3>
+        <p data-i18n="ce2" class="text-sm text-ink/80 leading-relaxed flex-1">Kontakt skóra do skóry, witamina K, badania przesiewowe, szczepienia, rooming-in. Pierwsza doba krok po kroku i na co macie realny wpływ.</p>
+        <span data-i18n="readMore" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
       </a>
       <a href="blog/remifentanyl-pca-lagodzenie-bolu-porodowego.html" class="group bg-white rounded-2xl border border-sanddark p-6 flex flex-col hover:border-teal transition-colors">
         <span class="text-2xl mb-3">💉</span>
-        <h3 class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Remifentanyl PCA — łagodzenie bólu, o którym mało kto wie</h3>
-        <p class="text-sm text-ink/80 leading-relaxed flex-1">Krótko działający opioid kontrolowany przez rodzącą — bywa ratunkiem, gdy znieczulenie zewnątrzoponowe jest niedostępne. Kiedy i dla kogo.</p>
-        <span class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
+        <h3 data-i18n="ct3" class="font-display text-lg font-semibold text-deep mb-2 group-hover:text-teal">Remifentanyl PCA — łagodzenie bólu, o którym mało kto wie</h3>
+        <p data-i18n="ce3" class="text-sm text-ink/80 leading-relaxed flex-1">Krótko działający opioid kontrolowany przez rodzącą — bywa ratunkiem, gdy znieczulenie zewnątrzoponowe jest niedostępne. Kiedy i dla kogo.</p>
+        <span data-i18n="readMore" class="text-teal font-semibold text-sm mt-4">Czytaj więcej →</span>
       </a>
     </div>
   </div>
   <div class="text-center mt-8">
     <a href="/wiedza" class="inline-flex items-center gap-2 border-2 border-teal text-teal font-semibold px-8 py-3.5 rounded-full hover:bg-teal hover:text-white transition-colors">
-      Zobacz wszystkie artykuły
+      <span data-i18n="blogAll">Zobacz wszystkie artykuły</span>
       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
     </a>
   </div>
@@ -1360,29 +1369,29 @@ tailwind.config = {
   <div class="max-w-3xl mx-auto px-4 mb-3">
     <div class="flex items-center justify-center gap-2 bg-tealsoft rounded-full px-4 py-2.5 text-center">
       <svg class="w-4 h-4 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      <p class="text-[13px] leading-snug text-deep"><strong>Cały kreator jest darmowy.</strong> Płacisz dopiero na końcu, jeśli zechcesz pobrać gotowy PDF.</p>
+      <p data-i18n="freeBox" class="text-[13px] leading-snug text-deep"><strong>Cały kreator jest darmowy.</strong> Płacisz dopiero na końcu, jeśli zechcesz pobrać gotowy PDF.</p>
     </div>
   </div>
   <div class="max-w-3xl mx-auto px-4 mb-5">
     <div class="flex items-start gap-3 bg-white border border-sanddark rounded-2xl px-4 py-3">
       <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-      <p class="text-[13px] leading-relaxed text-ink/80 min-w-0"><strong class="text-deep">Wasze dane zostają w tej przeglądarce.</strong> Odpowiedzi — łącznie z informacjami o zdrowiu, takimi jak grupa krwi, HBsAg czy GBS — zapisujemy wyłącznie lokalnie na Waszym urządzeniu. <strong>Nie wysyłamy ich na żaden serwer</strong>, bo go nie mamy. Możecie je usunąć w każdej chwili przyciskiem „Zacznij od nowa". <a href="/polityka-prywatnosci" class="text-tealsoft underline">Polityka prywatności</a></p>
+      <p data-i18n="privBox" class="text-[13px] leading-relaxed text-ink/80 min-w-0"><strong class="text-deep">Wasze dane zostają w tej przeglądarce.</strong> Odpowiedzi — łącznie z informacjami o zdrowiu, takimi jak grupa krwi, HBsAg czy GBS — zapisujemy wyłącznie lokalnie na Waszym urządzeniu. <strong>Nie wysyłamy ich na żaden serwer</strong>, bo go nie mamy. Możecie je usunąć w każdej chwili przyciskiem „Zacznij od nowa". <a href="/polityka-prywatnosci" class="text-tealsoft underline">Polityka prywatności</a></p>
     </div>
   </div>
   <div class="max-w-3xl mx-auto px-4 text-center">
     <img src="img/brand.webp" width="800" height="1200" alt="Mama z noworodkiem i tabliczką porodnamiare.pl" class="w-40 mx-auto rounded-2xl mb-6" loading="lazy">
-    <h2 class="font-display text-3xl font-semibold text-white mb-3">Bezpłatna mini-checklista: „7 pytań o bezpieczeństwo dziecka, które warto zadać w szpitalu”</h2>
-    <p class="text-sand/80 mb-8">Konkretna, jednostronicowa lista od Michała. Zostaw adres — wyślemy PDF i damy znać, gdy wystartują nowe narzędzia.</p>
+    <h2 data-i18n="lmH" class="font-display text-3xl font-semibold text-white mb-3">Bezpłatna mini-checklista: „7 pytań o bezpieczeństwo dziecka, które warto zadać w szpitalu”</h2>
+    <p data-i18n="lmP" class="text-sand/80 mb-8">Konkretna, jednostronicowa lista od Michała. Zostaw adres — wyślemy PDF i damy znać, gdy wystartują nowe narzędzia.</p>
     <!-- Brevo: podmien TWOJ-LIST-ID na ID listy z Brevo → Contacts → Lists -->
     <form class="max-w-md mx-auto" action="https://db2b4ec1.sibforms.com/serve/MUIFANfnleGibrfjnDwpUW_V5m46u3Aouh4DXKEmRLhrMxgEZLH7_3xjnQO1hdmpfmxxLWYy7KfG5HKQ7Qcv8XmnDP6_5R0GHQZjd6lcKwsaD2mArSK3jPYhFnpwydsQXvqljTzG0qGFcEJ026n5C8xi6diuvi_4l8B_lteWoz73ihBQDfoH1SbAlT-Jj0BFtTZp2U8lbQ5dpf5WGA==" method="post" target="_blank">
       <div class="flex flex-col sm:flex-row gap-3">
         <label for="lead" class="sr-only">Adres e-mail</label>
         <input id="lead" name="EMAIL" type="email" required autocomplete="email" placeholder="Twój e-mail" class="flex-1 rounded-full px-5 py-3 text-ink">
-        <button type="submit" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors whitespace-nowrap">Wyślij checklistę</button>
+        <button type="submit" class="bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors whitespace-nowrap" data-i18n="lmBtn">Wyślij checklistę</button>
       </div>
-      <label class="flex items-start gap-2 mt-4 text-left text-xs text-sand/70"><input type="checkbox" name="rodo" value="1" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu otrzymania checklisty i informacji o narzędziach, zgodnie z <a href="/polityka-prywatnosci" class="underline">polityką prywatności</a>. Zgodę mogę wycofać w każdej chwili.</span></label>
+      <label class="flex items-start gap-2 mt-4 text-left text-xs text-sand/70"><input type="checkbox" name="rodo" value="1" required class="mt-0.5 flex-shrink-0"><span data-i18n="lmConsent">Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu otrzymania checklisty i informacji o narzędziach, zgodnie z <a href="/polityka-prywatnosci" class="underline">polityką prywatności</a>. Zgodę mogę wycofać w każdej chwili.</span></label>
     </form>
-    <p class="text-xs text-sand/50 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem.</p>
+    <p data-i18n="lmSpam" class="text-xs text-sand/50 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem.</p>
   </div>
 </section>
 
@@ -1392,15 +1401,15 @@ tailwind.config = {
     <button id="popupClose" class="absolute top-4 right-4 text-ink/70 hover:text-ink text-2xl leading-none" aria-label="Zamknij">×</button>
     <p data-i18n="popupPre" class="text-tealsoft font-semibold text-xs uppercase tracking-widest mb-2">Zanim wyjdziesz…</p>
     <h3 id="popupTitle" data-i18n="popupH" class="font-display text-2xl font-semibold text-deep mb-3">Odbierz bezpłatną checklistę „7 pytań o bezpieczeństwo dziecka”</h3>
-    <p class="text-[15px] text-ink/80 mb-5">Jedna strona konkretów od taty dla rodziców — co sprawdzić w szpitalu, zanim urodzi się Wasze dziecko.</p>
+    <p data-i18n="popupP" class="text-[15px] text-ink/80 mb-5">Jedna strona konkretów od taty dla rodziców — co sprawdzić w szpitalu, zanim urodzi się Wasze dziecko.</p>
     <!-- Brevo: podmien TWOJ-LIST-ID na ID listy z Brevo → Contacts → Lists -->
     <form class="flex flex-col gap-3" action="https://db2b4ec1.sibforms.com/serve/MUIFANfnleGibrfjnDwpUW_V5m46u3Aouh4DXKEmRLhrMxgEZLH7_3xjnQO1hdmpfmxxLWYy7KfG5HKQ7Qcv8XmnDP6_5R0GHQZjd6lcKwsaD2mArSK3jPYhFnpwydsQXvqljTzG0qGFcEJ026n5C8xi6diuvi_4l8B_lteWoz73ihBQDfoH1SbAlT-Jj0BFtTZp2U8lbQ5dpf5WGA==" method="post" target="_blank">
       <label for="popup-email" class="sr-only">Adres e-mail</label>
       <input id="popup-email" name="EMAIL" type="email" required placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3">
-      <label class="flex items-start gap-2 text-left text-xs text-ink/70"><input type="checkbox" name="rodo" value="1" required class="mt-0.5 flex-shrink-0"><span>Wyrażam zgodę na przetwarzanie e-maila w celu przesłania checklisty, zgodnie z <a href="/polityka-prywatnosci" class="underline">polityką prywatności</a>.</span></label>
-      <button type="submit" class="bg-teal text-white font-semibold py-3 rounded-full hover:bg-deep transition-colors">Wyślij checklistę</button>
+      <label class="flex items-start gap-2 text-left text-xs text-ink/70"><input type="checkbox" name="rodo" value="1" required class="mt-0.5 flex-shrink-0"><span data-i18n="popupConsent">Wyrażam zgodę na przetwarzanie e-maila w celu przesłania checklisty, zgodnie z <a href="/polityka-prywatnosci" class="underline">polityką prywatności</a>.</span></label>
+      <button type="submit" class="bg-teal text-white font-semibold py-3 rounded-full hover:bg-deep transition-colors" data-i18n="popupBtn">Wyślij checklistę</button>
     </form>
-    <p class="text-xs text-ink/70 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem.</p>
+    <p data-i18n="popupSpam" class="text-xs text-ink/70 mt-3">Zero spamu. Wypisujesz się jednym kliknięciem.</p>
   </div>
 </div>
 
@@ -1414,7 +1423,7 @@ tailwind.config = {
       <button id="searchClose" class="text-ink/50 hover:text-ink text-2xl leading-none flex-shrink-0" aria-label="Zamknij wyszukiwarkę">×</button>
     </div>
     <div id="searchResults" class="overflow-y-auto flex-1 px-2 py-2"></div>
-    <p id="searchHint" class="text-xs text-ink/40 px-5 py-3 border-t border-sanddark flex-shrink-0">Wpisz co najmniej 2 znaki · <kbd class="border border-sanddark rounded px-1.5 py-0.5">↑↓</kbd> nawigacja · <kbd class="border border-sanddark rounded px-1.5 py-0.5">Enter</kbd> przejdź · <kbd class="border border-sanddark rounded px-1.5 py-0.5">Esc</kbd> zamknij</p>
+    <p data-i18n="searchHint" id="searchHint" class="text-xs text-ink/40 px-5 py-3 border-t border-sanddark flex-shrink-0">Wpisz co najmniej 2 znaki · <kbd class="border border-sanddark rounded px-1.5 py-0.5">↑↓</kbd> nawigacja · <kbd class="border border-sanddark rounded px-1.5 py-0.5">Enter</kbd> przejdź · <kbd class="border border-sanddark rounded px-1.5 py-0.5">Esc</kbd> zamknij</p>
   </div>
 </div>
 
@@ -1502,9 +1511,9 @@ tailwind.config = {
       <p data-i18n="footNavH" class="font-semibold text-white mb-3">Nawigacja i informacje</p>
       <ul class="space-y-1.5">
         <li><a href="/o-michale" class="underline hover:text-white">O Michale — historia projektu</a></li>
-        <li><a href="#blog" class="underline hover:text-white">Wiedza / artykuły</a></li>
+        <li><a data-i18n="footBlog" href="#blog" class="underline hover:text-white">Wiedza / artykuły</a></li>
         <li><a href="regulamin.html" class="underline hover:text-white">Regulamin</a></li>
-        <li><a href="/polityka-prywatnosci" class="underline hover:text-white">Polityka prywatności</a></li>
+        <li><a href="/polityka-prywatnosci" class="underline hover:text-white" data-i18n="footPriv">Polityka prywatności</a></li>
         <li class="pnm-email" data-u="kontakt" data-d="porodnamiare.pl"></li>
       </ul>
     </div>
@@ -1513,7 +1522,7 @@ tailwind.config = {
       <p data-i18n="footLegal" class="leading-relaxed">Serwis prowadzi tata przygotowujący się do narodzin dziecka — nie lekarz. Treści i plany mają charakter edukacyjno-organizacyjny i nie stanowią porady medycznej ani jej nie zastępują. Wszystkie decyzje dotyczące porodu i dziecka skonsultuj z lekarzem lub położną. W nagłych przypadkach dzwoń pod 112 lub 999.</p>
     </div>
   </div>
-  <p class="text-center text-xs text-sand/50 mt-10">© 2026 PoródNaMiarę.pl · Twój poród. Twój plan. · #planporodu #porodnamiare #swiadomyporod</p>
+  <p data-i18n="footCopy" class="text-center text-xs text-sand/50 mt-10">© 2026 PoródNaMiarę.pl · Twój poród. Twój plan. · #planporodu #porodnamiare #swiadomyporod</p>
 </footer>
 
 <script>
@@ -1688,22 +1697,49 @@ tailwind.config = {
       else { buyBtn.classList.add('hidden'); }
     }
 
+    // Etykiety licznika kroków i paska postępu w języku kreatora
+    function refreshProgressLabels(){
+      var kl = window.__pnmKreatorLang || 'pl';
+      var S = (window.PNM_I18N && window.PNM_I18N.s) ? window.PNM_I18N.s(kl) : {step:'Krok', of:'z', complete:'% ukończone'};
+      var w = document.getElementById('stepWord'), o = document.getElementById('stepOfWord'), pw = document.getElementById('stepPctWord');
+      if(w) w.textContent = S.step;
+      if(o) o.textContent = S.of;
+      if(pw) pw.textContent = S.complete;
+    }
+    window.PNM_refreshProgress = function(){ refreshProgressLabels(); if(typeof renderSummary==='function' && cur===TOTAL-1) renderSummary(); };
+
+    // Tłumaczy pojedynczą pozycję planu na język kreatora (dane pozostają kanoniczne po polsku)
+    function trK(v){
+      var kl = window.__pnmKreatorLang || 'pl';
+      if(kl==='pl' || !window.PNM_I18N) return v;
+      try{ return window.PNM_I18N.t(v, kl); }catch(e){ return v; }
+    }
+
     // ===== Podsumowanie z możliwością edycji =====
     const STEP_OF = {'hbsag+gbs':0,setting:1,people:2,prep:3,labor:4,pain:5,perineum:6,csection:7,newborn:8,cordblood:8,nicu:8,vitk:9,prophylaxis:9,vacc:10,postpartum:11};
     function renderSummary(){
       const box = document.getElementById('summaryBox');
       if(!box) return;
+      const kl = window.__pnmKreatorLang || 'pl';
+      const S = (window.PNM_I18N && window.PNM_I18N.s) ? window.PNM_I18N.s(kl) : {basic:'Dane podstawowe',change:'Zmień',mother:'Rodząca',partner:'Osoba towarzysząca',child:'Dziecko',due:'Termin',doctor:'Lekarz/położna',blood:'Grupa krwi i Rh matki',items:'poz.',none:'Nie zaznaczyliście jeszcze żadnych preferencji. Wróćcie do wcześniejszych kroków.',fullPre:'Wasz kompletny plan —',fullMid:'preferencji w',fullEnd:'sekcjach.',selPre:'Wybraliście',selMid:'preferencji w',selEnd:'sekcjach. Pierwsze',selEnd2:'widzicie w całości — pozostałe odblokujecie po zakupie.',ctaH:'Gotowe — czas odebrać swój plan',ctaP:'Po zakupie pobierzesz pełny dokument PDF z brandem, formatowaniem i miejscem na podpisy.',ctaBtn:'Wybierz pakiet i pobierz plan →'};
+      // tytuł sekcji w języku kreatora (indeks zgodny z tablicą SECTIONS)
+      const secTitle = (t)=>{
+        if(kl==='pl' || !window.PNM_I18N) return t;
+        var i = SECTIONS.findIndex(function(x){ return x[1]===t; });
+        var arr = window.PNM_I18N.steps && window.PNM_I18N.steps[kl];
+        return (i>-1 && arr && arr[i]) ? arr[i] : t;
+      };
       const mama=field('mama'), tata=field('tata'), dziecko=field('dziecko'), termin=field('termin'), lekarz=field('lekarz');
       let h = '<div class="bg-tealsoft rounded-2xl p-4">'
-        + '<div class="flex items-start justify-between gap-3"><p class="font-semibold text-deep">Dane podstawowe</p>'
-        + '<button type="button" class="edit-step text-teal font-semibold text-xs underline" data-goto="0">Zmień</button></div>'
+        + '<div class="flex items-start justify-between gap-3"><p class="font-semibold text-deep">'+esc(S.basic)+'</p>'
+        + '<button type="button" class="edit-step text-teal font-semibold text-xs underline" data-goto="0">'+esc(S.change)+'</button></div>'
         + '<ul class="mt-2 space-y-0.5 text-[14px] text-ink/80">'
-        + '<li>Rodząca: <strong>'+esc(mama||'—')+'</strong></li>'
-        + '<li>Osoba towarzysząca: <strong>'+esc(tata||'—')+'</strong></li>'
-        + (dziecko?'<li>Dziecko: <strong>'+esc(dziecko)+'</strong></li>':'')
-        + '<li>Termin: <strong>'+esc(termin||'—')+'</strong></li>'
-        + (lekarz?'<li>Lekarz/położna: <strong>'+esc(lekarz)+'</strong></li>':'')
-        + (field('krew')?'<li>Grupa krwi i Rh matki: <strong>'+esc(field('krew'))+'</strong></li>':'')
+        + '<li>'+esc(S.mother)+': <strong>'+esc(mama||'—')+'</strong></li>'
+        + '<li>'+esc(S.partner)+': <strong>'+esc(tata||'—')+'</strong></li>'
+        + (dziecko?'<li>'+esc(S.child)+': <strong>'+esc(dziecko)+'</strong></li>':'')
+        + '<li>'+esc(S.due)+': <strong>'+esc(termin||'—')+'</strong></li>'
+        + (lekarz?'<li>'+esc(S.doctor)+': <strong>'+esc(lekarz)+'</strong></li>':'')
+        + (field('krew')?'<li>'+esc(S.blood)+': <strong>'+esc(field('krew'))+'</strong></li>':'')
         + '</ul></div>';
       var unlockedNow = (window.__freshUnlock === true);
       let total = 0;
@@ -1717,37 +1753,37 @@ tailwind.config = {
       var FREE_SUM = 2;
       filledSecs.forEach(([g,t,it], idx)=>{
         var reveal = unlockedNow || idx < FREE_SUM;
-        var editBtn = '<button type="button" class="edit-step text-teal font-semibold text-xs underline" data-goto="'+(STEP_OF[g]||0)+'">Zmień</button>';
+        var editBtn = '<button type="button" class="edit-step text-teal font-semibold text-xs underline" data-goto="'+(STEP_OF[g]||0)+'">'+esc(S.change)+'</button>';
         if(reveal){
           h += '<div class="bg-white border border-sanddark rounded-2xl p-4">'
-            + '<div class="flex items-start justify-between gap-3"><p class="font-semibold text-deep">'+esc(t)+'</p>'+editBtn+'</div>'
+            + '<div class="flex items-start justify-between gap-3"><p class="font-semibold text-deep">'+esc(secTitle(t))+'</p>'+editBtn+'</div>'
             + '<ul class="mt-2 space-y-1 text-[13px] text-ink/80 list-disc pl-5">'
-            + it.map(v=>'<li>'+esc(v)+'</li>').join('') + '</ul></div>';
+            + it.map(v=>'<li>'+esc(trK(v))+'</li>').join('') + '</ul></div>';
         } else {
           // Sekcja zablokowana: pokaż tytuł + liczbę pozycji, treść rozmyta pod nakładką
           var blur = '<ul class="mt-2 space-y-1 text-[13px] text-ink/80 list-disc pl-5">'
-            + it.map(v=>'<li>'+esc(v)+'</li>').join('') + '</ul>';
+            + it.map(v=>'<li>'+esc(trK(v))+'</li>').join('') + '</ul>';
           h += '<div class="bg-white border border-sanddark rounded-2xl p-4 relative overflow-hidden">'
-            + '<div class="flex items-start justify-between gap-3"><p class="font-semibold text-deep">'+esc(t)+'</p>'
-            + '<span class="text-xs text-ink/50">'+it.length+' poz.</span></div>'
+            + '<div class="flex items-start justify-between gap-3"><p class="font-semibold text-deep">'+esc(secTitle(t))+'</p>'
+            + '<span class="text-xs text-ink/50">'+it.length+' '+esc(S.items)+'</span></div>'
             + '<div class="pointer-events-none select-none" style="filter:blur(6px);opacity:.5" aria-hidden="true">'+blur+'</div>'
             + '<div class="absolute inset-0 flex items-center justify-center" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.85) 60%)">'
             + '<span class="text-xl">🔒</span></div>'
             + '</div>';
         }
       });
-      if(!total) h += '<p class="text-ink/70 italic">Nie zaznaczyliście jeszcze żadnych preferencji. Wróćcie do wcześniejszych kroków.</p>';
+      if(!total) h += '<p class="text-ink/70 italic">'+esc(S.none)+'</p>';
       else {
         var hedText = unlockedNow
-          ? '<p class="text-sm text-ink/70">Wasz kompletny plan — <strong>'+total+'</strong> preferencji w '+filledSecs.length+' sekcjach.</p>'
-          : '<p class="text-sm text-ink/70">Wybraliście <strong>'+total+'</strong> preferencji w '+filledSecs.length+' sekcjach. Pierwsze '+Math.min(FREE_SUM,filledSecs.length)+' widzicie w całości — pozostałe odblokujecie po zakupie.</p>';
+          ? '<p class="text-sm text-ink/70">'+esc(S.fullPre)+' <strong>'+total+'</strong> '+esc(S.fullMid)+' '+filledSecs.length+' '+esc(S.fullEnd)+'</p>'
+          : '<p class="text-sm text-ink/70">'+esc(S.selPre)+' <strong>'+total+'</strong> '+esc(S.selMid)+' '+filledSecs.length+' '+esc(S.selEnd)+' '+Math.min(FREE_SUM,filledSecs.length)+' '+esc(S.selEnd2)+'</p>';
         h = hedText + h;
       }
       if(!unlockedNow){
         h += '<div class="rounded-2xl p-5 text-center" style="background:var(--accent-soft,#F7E9E7)">'
-          + '<p class="font-display text-lg font-semibold text-deep mb-1">Gotowe — czas odebrać swój plan</p>'
-          + '<p class="text-sm text-ink/70 mb-4">Po zakupie pobierzesz pełny dokument PDF z brandem, formatowaniem i miejscem na podpisy.</p>'
-          + '<a href="#cennik" class="inline-block text-white font-semibold px-8 py-3.5 rounded-full" style="background:var(--accent,#A0525E)">Wybierz pakiet i pobierz plan →</a></div>';
+          + '<p class="font-display text-lg font-semibold text-deep mb-1">'+esc(S.ctaH)+'</p>'
+          + '<p class="text-sm text-ink/70 mb-4">'+esc(S.ctaP)+'</p>'
+          + '<a href="#cennik" class="inline-block text-white font-semibold px-8 py-3.5 rounded-full" style="background:var(--accent,#A0525E)">'+esc(S.ctaBtn)+'</a></div>';
       }
       box.innerHTML = h;
       box.querySelectorAll('.edit-step').forEach(btn=>{
@@ -1814,6 +1850,7 @@ tailwind.config = {
       const pct = Math.round(((cur+1)/TOTAL)*100);
       bar.style.width = pct+'%'; bar.setAttribute('aria-valuenow', pct);
       stepNum.textContent = cur+1; stepPct.textContent = pct;
+      refreshProgressLabels();
       hideError();
       steps[cur].focus({preventScroll:true});
       prevBtn.classList.toggle('invisible', cur===0);
@@ -1943,29 +1980,72 @@ tailwind.config = {
         document.head.appendChild(t);
       });
     }
-    // ===== Osobny przełącznik języka TREŚCI kreatora (niezależny od #langSwitch całej strony) =====
+    // ===== Język TREŚCI kreatora =====
+    // Domyślnie podąża za językiem całej strony (#langSwitch). Użytkownik może go nadpisać
+    // osobnym przełącznikiem #kreatorLang — wtedy wybór jest zapamiętany i już nie nadpisywany.
     var kreatorLangSel = document.getElementById('kreatorLang');
-    if (kreatorLangSel) {
-      var applyKreatorLangSaved = function () {
-        var saved = 'pl';
-        try { saved = localStorage.getItem('pnm_kreator_lang') || 'pl'; } catch (e) {}
-        kreatorLangSel.value = saved;
-        window.__pnmKreatorLang = saved;
-        if (saved !== 'pl') {
-          loadScript('/js/i18n-kreator.js').then(function () { window.PNM_I18N.applyToKreator(saved); renderPreview(); }).catch(function(){});
-        }
-      };
-      applyKreatorLangSaved();
-      kreatorLangSel.addEventListener('change', function (e) {
-        var lang = e.target.value;
-        window.__pnmKreatorLang = lang;
-        var go = function () { window.PNM_I18N.applyToKreator(lang); renderPreview(); };
-        if (window.PNM_I18N) go();
-        else loadScript('/js/i18n-kreator.js').then(go).catch(function () {
-          kreatorLangSel.value = 'pl';
-          window.__pnmKreatorLang = 'pl';
+
+    // Ładuje oba pliki i18n (słownik fraz + warstwa UI), zwraca Promise
+    var i18nChain = null;
+    function loadKreatorI18n(){
+      if (i18nChain) return i18nChain;
+      i18nChain = (window.PNM_I18N ? Promise.resolve() : loadScript('/js/i18n-kreator.js'))
+        .then(function(){ return (window.PNM_I18N && window.PNM_I18N.txt) ? null : loadScript('/js/i18n-kreator-ui.js'); })
+        .then(function(){
+          // i18n-kreator-ui.js dopina się asynchronicznie — poczekaj aż wystawi słownik
+          return new Promise(function(res){
+            var n = 0;
+            (function wait(){
+              if ((window.PNM_I18N && window.PNM_I18N.txt) || ++n > 60) return res();
+              setTimeout(wait, 25);
+            })();
+          });
         });
+      return i18nChain;
+    }
+
+    function setKreatorLang(lang, remember){
+      window.__pnmKreatorLang = lang;
+      if (kreatorLangSel) kreatorLangSel.value = lang;
+      if (remember){ try { localStorage.setItem('pnm_kreator_lang_manual', '1'); } catch(e){} }
+      var apply = function(){
+        try { window.PNM_I18N.applyToKreator(lang); } catch(e){}
+        renderPreview();
+        refreshProgressLabels();
+        if (cur === TOTAL-1) renderSummary();
+      };
+      if (lang === 'pl' && !window.PNM_I18N){
+        // powrót do PL bez pobranego słownika — nie ma czego tłumaczyć
+        renderPreview(); refreshProgressLabels(); if (cur === TOTAL-1) renderSummary();
+        try { localStorage.setItem('pnm_kreator_lang','pl'); } catch(e){}
+        return;
+      }
+      loadKreatorI18n().then(apply).catch(function(){
+        if (kreatorLangSel) kreatorLangSel.value = 'pl';
+        window.__pnmKreatorLang = 'pl';
       });
+    }
+    window.PNM_setKreatorLang = setKreatorLang;
+
+    (function(){
+      var saved = 'pl', manual = false;
+      try {
+        saved = localStorage.getItem('pnm_kreator_lang') || 'pl';
+        manual = localStorage.getItem('pnm_kreator_lang_manual') === '1';
+      } catch (e) {}
+      // Jeśli użytkownik nie wybrał ręcznie języka kreatora — podążaj za językiem strony.
+      if (!manual){
+        var pageLang = 'pl';
+        try { pageLang = localStorage.getItem('lang') || 'pl'; } catch(e){}
+        if (pageLang !== 'pl') saved = pageLang;
+      }
+      if (kreatorLangSel) kreatorLangSel.value = saved;
+      window.__pnmKreatorLang = saved;
+      if (saved !== 'pl') setKreatorLang(saved, false);
+    })();
+
+    if (kreatorLangSel) {
+      kreatorLangSel.addEventListener('change', function (e) { setKreatorLang(e.target.value, true); });
     }
 
     var dlBtn=document.getElementById('dlBtn'), dlStatus=document.getElementById('dlStatus');
@@ -2188,7 +2268,107 @@ tailwind.config = {
       bnCreator: 'Creator', bnPricing: 'Pricing', bnProducts: 'Products', bnMusic: 'Lullaby',
       popupPre: 'Before you go\u2026', popupH: 'Get the free checklist \u201c7 safety questions to ask at the hospital\u201d',
       whySub: 'In Poland you get a free official template. Abroad — a consultation with a doula for a few hundred euros. We fill the gap: a self-service, interactive product based on the current care standard.', why1T: 'A father\'s perspective', why1P: 'Most materials ignore the partner. Here dad is an active participant: he knows what to ask, what to watch, and how to really support mum and baby.', why2T: 'Newborn safety', why2P: 'The most detailed part of the plan covers the first hours: skin-to-skin contact, delayed cord clamping, breastfeeding support, prophylaxis and screening tests.', why3T: 'Compliant with the standard', why3P: 'Every option is based on the Perinatal Care Standard (Journal of Laws 2025, item 1525) — not on guesswork.', how1T: 'You fill in the creator', how1P: 'You go through 13 steps: birth conditions, pain relief, newborn care, vaccinations, postpartum.', how2T: 'You see a live preview', how2P: 'The plan builds itself live with every click. At the end you review the summary and can edit any section.', how3T: 'You buy the package', how3P: 'You pay by card, BLIK, PayPal or Apple/Google Pay via PayHip. Right after payment you get a download link by email.', how4T: 'You go in prepared', how4P: 'Print two copies: one for your bag, one for the midwife. Staff know what you want — you know what to watch for.', footTagline: 'Personalised birth plans built with your baby\u2019s safety in mind. From a dad — for parents.', footNavH: 'Navigation and information', footLegalH: 'Important disclaimer', footLegal: 'This service is run by a dad preparing for the birth of his child \u2014 not a doctor. Content and plans are organisational and educational and do not constitute medical advice. Consult a doctor or midwife on every decision about the birth and your baby. In an emergency call 112 or 999.', whistleKicker: 'Few people know this', whistleH: 'Do you know what a birth whistle is?', whistleCta: 'See the Premium package →', bloodKicker: 'A dad who changes the world', bloodH: 'I donate blood. And you can save 3 lives in 45 minutes.', intimKicker: 'A topic worth talking about', intimH: 'Sex and intimacy in pregnancy — without taboo', singleProdH: 'Or choose a single product:',
-      badge1: 'Dad, not a doctor', badge2: '📋 Based on the 2026 Standard', badge3: '🏥 Reviewed with midwives', dadKicker: 'Origin story', dadH: 'Made by a dad. Not a corporation, not a startup — a dad awaiting his daughter\'s birth.', dadP1: 'When my partner and I signed up for antenatal classes, I was handed a standard hospital form. Two pages, empty boxes, zero explanation. I started looking for something better — for our safety, not as a business project.', dadP2: 'I didn\'t find it. So I built it. For weeks I read the Perinatal Care Standard, talked to midwives, and looked at how other plans work in hospitals. The result went first into our own hospital bag — and now it\'s here, for you.', dadWhyH: 'Why does it matter that a dad made this?', dadLi1: 'A partner\'s perspective', dadLi2: 'Questions midwives don\'t ask', dadLi3: 'Zero corporate distance', dadDisc: 'Important: I\'m a dad, not a doctor. Content is educational and organisational — all medical decisions are made by your doctor or midwife.', trust1: '✓ Compliant with the Perinatal Care Standard', trust2: '✓ 30-day money-back guarantee', trust3: '✓ Your data never leaves your browser', trust4: '✓ Ready PDF in 24 h', whistleP1: 'A simple but brilliant breathing technique for contractions. A controlled, long exhale through a whistle (or straw) helps you relax, manage tension and "ride out" a contraction — instead of holding your breath and tensing up. A simple thing most classes never mention.', whistleP2: 'The Premium birth plan package includes a step-by-step birth-whistle guide and a recommended, tested model — ready to drop into your hospital bag.', bloodP1: 'When Anna was eight months pregnant, I donated blood for the first time. Not to be a hero. Because I wanted to do something concrete. One donation can save up to three lives — blood is split into components. After 25 years in medicine I know: blood cannot be manufactured in a lab.', bloodP2: 'Poland needs 1,500 litres of blood a day. Group O Rh– is especially short. Blood keeps for only 42 days — supplies must be constantly replenished. Fewer than 2% of Poles donate. 4% would be enough.', bloodCta: 'Read: why donating blood matters →', intimP: 'Hormones shift desire in waves, and many couples are afraid to ask outright whether sex is safe for the baby. An OB-GYN and sexologist with 25 years of experience answers plainly — no shame, no dancing around it.', intimCta: 'Read the article →', honKicker: 'Honestly, where we stand', honH: 'We\'re just starting. We don\'t have hundreds of reviews yet — and we won\'t pretend we do.', honP1: 'I could paste five made-up quotes with smiling stock photos here. Many sites do. I won\'t — because if I\'m selling a document you\'ll trust on one of the most important days of your life, I can\'t start with a lie.', honP2: 'Instead of reviews, I\'ll show you what you can check for yourself.', honStat0: 'birth plans created by parents in the creator', honStat1: 'creator steps covering birth, caesarean, newborn and postpartum', honStat2: 'ready-made preferences — each grounded in the current standard', honStat3: 'free knowledge-base articles — no registration', honStat4: '2025 item 1525 — the standard every option is based on', honBox1T: 'I have the same document for my own daughter', honBox1P: 'The birth plan for Anna and Wiktoria went through five versions and runs eleven pages. I\'m not selling you something I wouldn\'t use myself — I\'ll be using it in a few weeks.', honBox2T: 'Check it before you pay', honBox2P: 'The whole creator is free. Go through all 13 steps, see the summary, and only then decide if you want to download the document.', honCtaKicker: 'For our first parents', honCtaH: 'Be among the first reviews here', honCtaP: 'If you buy the plan in these first weeks — write to me after the birth and tell me how it went. I\'ll put your words here, signed however you like. And if the document lets you down in any way, I\'ll refund you, no questions asked.', honCtaBtn: 'Create your plan →', honFoot: 'Reviews will be published only from people who actually bought the package — in line with consumer-review verification requirements.', howKicker: 'How it works', howSub: 'The whole process takes a few minutes. Progress saves automatically, so you can come back anytime.', how1T: 'You fill in the creator', how2T: 'You see a live preview', how3T: 'You buy the package', how4T: 'You go in prepared', heroFreeNote: 'Free preview · you pay only when you download', cordKicker: 'A once-in-a-lifetime decision', cordH: 'Cord blood — your only chance is on the day of birth', cordP1: 'After the cord is cut, blood rich in stem cells remains in the cord and placenta. It can be collected only once in a lifetime — within minutes of birth. After that, it\'s gone for good.', cordP2: 'Collection is non-invasive for mother and baby, doesn\'t disrupt labour, and is possible even with a caesarean. It doesn\'t require shortening skin-to-skin contact.', cordBoxT: 'Our position: the baby\'s wellbeing comes first', cordBoxP: 'In the birth plan we state plainly that delayed cord clamping takes priority over the volume of blood collected. If the baby\'s or mother\'s condition requires it — we skip the collection.', cordCta: 'Compare banks and get a question list', cordListH: 'What to know before the birth', cordLi1T: 'The contract is signed during pregnancy', cordLi1P: 'The collection kit arrives by post — you bring it with you to the hospital.', cordLi2T: 'Inform staff at admission', cordLi2P: 'You hand the kit and paperwork to the midwife — best noted in your birth plan in advance.', cordLi3T: 'Collection takes a few minutes', cordLi3P: 'Blood is drawn from the umbilical vein right after the cord is cut.', cordLi4T: 'A courier collects the sample', cordLi4P: 'You arrange pickup — transport and paperwork are handled by the bank.', cordDisc: 'We\'re not affiliated with any stem-cell bank and receive no commission. We write about this because we use it ourselves.', schoolKicker: 'Antenatal education', schoolH: 'Going to antenatal classes? Great call — bring your plan along', schoolP1: 'Antenatal classes are the best investment in a calm birth: breathing and labour positions, breastfeeding, newborn first aid, the father\'s role in birth. Classes are often free through your local midwife — worth asking.', schoolP2: 'A birth plan and antenatal classes work best together: classes give you knowledge, the plan turns it into concrete, written decisions. Generate a preview and discuss it with your midwife — the best review you can get before the birth.', schoolCta: 'Prepare a plan for class', faqQ1: 'Is the birth plan binding for the hospital?', faqA1: 'The birth plan is a documentation element required by the Organisational Perinatal Care Standard. Staff must review it and discuss it with you. Medical decisions always depend on the clinical situation — but a well-prepared plan means your priorities are known from minute one.', faqQ2: 'When is the best time to prepare a birth plan?', faqA2: 'Between weeks 30 and 36 of pregnancy. That leaves time to discuss it with your doctor and midwife and check what your hospital offers.', faqQ3: 'How is this different from free templates?', faqA3: 'Templates are generic and often outdated. Our plan is personalised, based on current recommendations, with the most detailed newborn-care section on the market and a practical checklist for dad. It\'s a document staff read with respect.', faqQ4: 'Newborn vaccinations in hospital — how do we record our decision in the plan?', faqA4: 'Vaccination is an emotional topic, but the facts are simple: hepatitis B and BCG vaccination protect the baby and are standard practice on day one in Poland. Parents also have the right to informed consent — some families choose to have vaccinations done later by their chosen paediatrician, on an agreed schedule. Our creator lets you record either decision clearly and respectfully, along with an important safety caveat (e.g. hepatitis B vaccination in hospital if the mother\'s HBsAg result is positive or unknown). This means the conversation with staff is grounded in a document, not a hallway discussion. Whatever you decide, we encourage you to discuss vaccination with your doctor — the birth plan is meant to make that conversation easier, not replace it.', faqQ5: 'What if the birth doesn\'t go according to plan?', faqA5: 'The plan isn\'t a script, just a map of your priorities. The Premium package includes a "plan B" section — caesarean, induction, unexpected situations — so you\'re prepared for any scenario.', popupSubmit: 'Send me the plan link', popupSkip: 'Not now, continue →', popupNote: 'Your progress is saved in this browser either way.', whyStat1: 'creator steps', whyStat2: 'ready-made preferences', whyStat3: 'of skin-to-skin contact', whyStat4: 'language versions', planBadge1: 'Starter', planBadge2: 'Recommended · 2 new PDFs', planName1: 'Birth planBasic', planName2: 'Birth planPremium', planName3: 'PackagePremium+', planStd: 'Compliant with the 2025 item 1525 Standard', buyBtn: 'Buy now', consentText: 'I agree to immediate delivery of digital content and acknowledge the loss of the statutory right of withdrawal (I keep the <a href="/formularz-odstapienia" class="underline">30-day money-back guarantee</a>).', basic1: 'Personalised birth plan PDF', basic2: '8 sections: from conditions to postpartum', basic3: 'Overriding safety clause', basic4: 'Print-ready A4 format', prem1: 'Everything from Basic', prem2: 'Short "door of the room" version', prem3: 'Checklist for dad (contraction to discharge)', prem4: '"First 24 hours" guide', prem5: 'Birth-whistle instructions + model recommendation', prem6: '🫁 NEW: Breathing techniques and relaxation for birth', prem7: '📋 NEW: Questions for your OB-GYN', prem8: 'Plan update up to your due date', plus1: 'Premium birth plan (complete)', plus2: 'Postpartum plan — first 6 weeks', plus3: 'Premium hospital bag list (70+ items)', plus4: 'Checklist for dad (9 stages)', plus5: '🧘‍♀️ NEW: Pelvic-floor physiotherapy guide', plus6: '😴 NEW: Infant sleep guide', plus7: '🥗 NEW: Diet & supplementation guide', plus8: '🫁 Breathing techniques and relaxation', plus9: '📋 Questions for your OB-GYN', plus10: '🎁 FREE: Newborn essentials checklist', plus11: '🅿️ BONUS: Stroller-storage request letter'
+      badge1: 'Dad, not a doctor', badge2: '📋 Based on the 2026 Standard', badge3: '🏥 Reviewed with midwives', dadKicker: 'Origin story', dadH: 'Made by a dad. Not a corporation, not a startup — a dad awaiting his daughter\'s birth.', dadP1: 'When my partner and I signed up for antenatal classes, I was handed a standard hospital form. Two pages, empty boxes, zero explanation. I started looking for something better — for our safety, not as a business project.', dadP2: 'I didn\'t find it. So I built it. For weeks I read the Perinatal Care Standard, talked to midwives, and looked at how other plans work in hospitals. The result went first into our own hospital bag — and now it\'s here, for you.', dadWhyH: 'Why does it matter that a dad made this?', dadLi1: 'A partner\'s perspective', dadLi2: 'Questions midwives don\'t ask', dadLi3: 'Zero corporate distance', dadDisc: 'Important: I\'m a dad, not a doctor. Content is educational and organisational — all medical decisions are made by your doctor or midwife.', trust1: '✓ Compliant with the Perinatal Care Standard', trust2: '✓ 30-day money-back guarantee', trust3: '✓ Your data never leaves your browser', trust4: '✓ Ready PDF in 24 h', whistleP1: 'A simple but brilliant breathing technique for contractions. A controlled, long exhale through a whistle (or straw) helps you relax, manage tension and "ride out" a contraction — instead of holding your breath and tensing up. A simple thing most classes never mention.', whistleP2: 'The Premium birth plan package includes a step-by-step birth-whistle guide and a recommended, tested model — ready to drop into your hospital bag.', bloodP1: 'When Anna was eight months pregnant, I donated blood for the first time. Not to be a hero. Because I wanted to do something concrete. One donation can save up to three lives — blood is split into components. After 25 years in medicine I know: blood cannot be manufactured in a lab.', bloodP2: 'Poland needs 1,500 litres of blood a day. Group O Rh– is especially short. Blood keeps for only 42 days — supplies must be constantly replenished. Fewer than 2% of Poles donate. 4% would be enough.', bloodCta: 'Read: why donating blood matters →', intimP: 'Hormones shift desire in waves, and many couples are afraid to ask outright whether sex is safe for the baby. An OB-GYN and sexologist with 25 years of experience answers plainly — no shame, no dancing around it.', intimCta: 'Read the article →', honKicker: 'Honestly, where we stand', honH: 'We\'re just starting. We don\'t have hundreds of reviews yet — and we won\'t pretend we do.', honP1: 'I could paste five made-up quotes with smiling stock photos here. Many sites do. I won\'t — because if I\'m selling a document you\'ll trust on one of the most important days of your life, I can\'t start with a lie.', honP2: 'Instead of reviews, I\'ll show you what you can check for yourself.', honStat0: 'birth plans created by parents in the creator', honStat1: 'creator steps covering birth, caesarean, newborn and postpartum', honStat2: 'ready-made preferences — each grounded in the current standard', honStat3: 'free knowledge-base articles — no registration', honStat4: '2025 item 1525 — the standard every option is based on', honBox1T: 'I have the same document for my own daughter', honBox1P: 'The birth plan for Anna and Wiktoria went through five versions and runs eleven pages. I\'m not selling you something I wouldn\'t use myself — I\'ll be using it in a few weeks.', honBox2T: 'Check it before you pay', honBox2P: 'The whole creator is free. Go through all 13 steps, see the summary, and only then decide if you want to download the document.', honCtaKicker: 'For our first parents', honCtaH: 'Be among the first reviews here', honCtaP: 'If you buy the plan in these first weeks — write to me after the birth and tell me how it went. I\'ll put your words here, signed however you like. And if the document lets you down in any way, I\'ll refund you, no questions asked.', honCtaBtn: 'Create your plan →', honFoot: 'Reviews will be published only from people who actually bought the package — in line with consumer-review verification requirements.', howKicker: 'How it works', howSub: 'The whole process takes a few minutes. Progress saves automatically, so you can come back anytime.', how1T: 'You fill in the creator', how2T: 'You see a live preview', how3T: 'You buy the package', how4T: 'You go in prepared', heroFreeNote: 'Free preview · you pay only when you download', cordKicker: 'A once-in-a-lifetime decision', cordH: 'Cord blood — your only chance is on the day of birth', cordP1: 'After the cord is cut, blood rich in stem cells remains in the cord and placenta. It can be collected only once in a lifetime — within minutes of birth. After that, it\'s gone for good.', cordP2: 'Collection is non-invasive for mother and baby, doesn\'t disrupt labour, and is possible even with a caesarean. It doesn\'t require shortening skin-to-skin contact.', cordBoxT: 'Our position: the baby\'s wellbeing comes first', cordBoxP: 'In the birth plan we state plainly that delayed cord clamping takes priority over the volume of blood collected. If the baby\'s or mother\'s condition requires it — we skip the collection.', cordCta: 'Compare banks and get a question list', cordListH: 'What to know before the birth', cordLi1T: 'The contract is signed during pregnancy', cordLi1P: 'The collection kit arrives by post — you bring it with you to the hospital.', cordLi2T: 'Inform staff at admission', cordLi2P: 'You hand the kit and paperwork to the midwife — best noted in your birth plan in advance.', cordLi3T: 'Collection takes a few minutes', cordLi3P: 'Blood is drawn from the umbilical vein right after the cord is cut.', cordLi4T: 'A courier collects the sample', cordLi4P: 'You arrange pickup — transport and paperwork are handled by the bank.', cordDisc: 'We\'re not affiliated with any stem-cell bank and receive no commission. We write about this because we use it ourselves.', schoolKicker: 'Antenatal education', schoolH: 'Going to antenatal classes? Great call — bring your plan along', schoolP1: 'Antenatal classes are the best investment in a calm birth: breathing and labour positions, breastfeeding, newborn first aid, the father\'s role in birth. Classes are often free through your local midwife — worth asking.', schoolP2: 'A birth plan and antenatal classes work best together: classes give you knowledge, the plan turns it into concrete, written decisions. Generate a preview and discuss it with your midwife — the best review you can get before the birth.', schoolCta: 'Prepare a plan for class', faqQ1: 'Is the birth plan binding for the hospital?', faqA1: 'The birth plan is a documentation element required by the Organisational Perinatal Care Standard. Staff must review it and discuss it with you. Medical decisions always depend on the clinical situation — but a well-prepared plan means your priorities are known from minute one.', faqQ2: 'When is the best time to prepare a birth plan?', faqA2: 'Between weeks 30 and 36 of pregnancy. That leaves time to discuss it with your doctor and midwife and check what your hospital offers.', faqQ3: 'How is this different from free templates?', faqA3: 'Templates are generic and often outdated. Our plan is personalised, based on current recommendations, with the most detailed newborn-care section on the market and a practical checklist for dad. It\'s a document staff read with respect.', faqQ4: 'Newborn vaccinations in hospital — how do we record our decision in the plan?', faqA4: 'Vaccination is an emotional topic, but the facts are simple: hepatitis B and BCG vaccination protect the baby and are standard practice on day one in Poland. Parents also have the right to informed consent — some families choose to have vaccinations done later by their chosen paediatrician, on an agreed schedule. Our creator lets you record either decision clearly and respectfully, along with an important safety caveat (e.g. hepatitis B vaccination in hospital if the mother\'s HBsAg result is positive or unknown). This means the conversation with staff is grounded in a document, not a hallway discussion. Whatever you decide, we encourage you to discuss vaccination with your doctor — the birth plan is meant to make that conversation easier, not replace it.', faqQ5: 'What if the birth doesn\'t go according to plan?', faqA5: 'The plan isn\'t a script, just a map of your priorities. The Premium package includes a "plan B" section — caesarean, induction, unexpected situations — so you\'re prepared for any scenario.', popupSubmit: 'Send me the plan link', popupSkip: 'Not now, continue →', popupNote: 'Your progress is saved in this browser either way.', whyStat1: 'creator steps', whyStat2: 'ready-made preferences', whyStat3: 'of skin-to-skin contact', whyStat4: 'language versions', planBadge1: 'Starter', planBadge2: 'Recommended · 2 new PDFs', planName1: 'Birth planBasic', planName2: 'Birth planPremium', planName3: 'PackagePremium+', planStd: 'Compliant with the 2025 item 1525 Standard', buyBtn: 'Buy now', consentText: 'I agree to immediate delivery of digital content and acknowledge the loss of the statutory right of withdrawal (I keep the <a href="/formularz-odstapienia" class="underline">30-day money-back guarantee</a>).', basic1: 'Personalised birth plan PDF', basic2: '8 sections: from conditions to postpartum', basic3: 'Overriding safety clause', basic4: 'Print-ready A4 format', prem1: 'Everything from Basic', prem2: 'Short "door of the room" version', prem3: 'Checklist for dad (contraction to discharge)', prem4: '"First 24 hours" guide', prem5: 'Birth-whistle instructions + model recommendation', prem6: '🫁 NEW: Breathing techniques and relaxation for birth', prem7: '📋 NEW: Questions for your OB-GYN', prem8: 'Plan update up to your due date', plus1: 'Premium birth plan (complete)', plus2: 'Postpartum plan — first 6 weeks', plus3: 'Premium hospital bag list (70+ items)', plus4: 'Checklist for dad (9 stages)', plus5: '🧘‍♀️ NEW: Pelvic-floor physiotherapy guide', plus6: '😴 NEW: Infant sleep guide', plus7: '🥗 NEW: Diet & supplementation guide', plus8: '🫁 Breathing techniques and relaxation', plus9: '📋 Questions for your OB-GYN', plus10: '🎁 FREE: Newborn essentials checklist', plus11: '🅿️ BONUS: Stroller-storage request letter',
+      skipLink: 'Skip to content',
+      mmCta: 'Create your birth plan →',
+      heroFigcap: 'Skin-to-skin contact between dad and newborn',
+      langNote: '🌍 Giving birth in Poland but don\'t speak Polish? Language versions: 🇬🇧 English · 🇩🇪 Deutsch · 🇺🇦 Українська',
+      howCta: 'Start creating your plan',
+      pricingH2: 'Choose your set',
+      pricingSub: 'Every PDF is grounded in medical evidence and parents\' experience. Print-ready — for the hospital and for home.',
+      saveBadge: 'you save 213 PLN',
+      strollKicker: 'A bonus few people know about',
+      strollH: 'Did you know you can apply for a pram-storage space?',
+      strollP1: 'Many blocks of flats and housing co-operatives have pram rooms — spaces for children\'s prams. Most parents don\'t know they can file a formal application for a space. A 2-in-1 pram won\'t fit in a lift, and carrying it up the stairs every day is a nightmare for the first months.',
+      strollP2: 'With the Premium+ package we include a ready, professionally drafted application letter in PDF with blank fields — just print it, fill in your details and submit it to the building manager. One document that can save you months of heavy lifting.',
+      strollCta: 'Get the letter in the Premium+ package →',
+      payH: 'Two trusted payment methods',
+      payP: '<strong>PayHip</strong> — card, Apple Pay, Google Pay, PayPal, Przelewy24 (international). <strong>BLIK</strong> — the instant transfer most Poles use. Pick whatever suits you.',
+      payBlik: '<strong>Paying by BLIK:</strong> after clicking "Buy", choose BLIK in the PayHip gateway and confirm in your banking app — the plan is ready to download right after payment.',
+      paySign: '— Michał, dad and founder',
+      payLegal: 'By buying, you consent to delivery of digital content before the withdrawal period expires and acknowledge the loss of the statutory right of withdrawal (Art. 38(1)(13) of the Consumer Rights Act). A 30-day money-back guarantee applies. Details in the <a href="/regulamin" class="underline">terms</a>.',
+      sp1N: 'Postpartum plan',
+      sp2N: 'Breastfeeding guide',
+      sp3N: 'Caesarean section plan',
+      sp4N: 'Babywearing basics',
+      sp5N: 'Checklist for dad',
+      sp6N: 'Hospital bag',
+      sp7N: 'Uro-gynaecological physiotherapy',
+      sp8N: 'Infant sleep',
+      sp9N: 'Diet and supplementation',
+      spPdf39: '39 PLN · PDF',
+      spGuide59: '59 PLN · PDF guide, 16 pp.',
+      spPdf29: '29 PLN · PDF',
+      sp1P: '49 PLN · PDF',
+      sp4P: '29 PLN · PDF guide',
+      sp5P: '29 PLN · PDF',
+      sp6P: '19 PLN · PDF checklist',
+      sp7P: '49 PLN · PDF workbook, 16 pp.',
+      freeBox: '<strong class="text-white">The whole creator is free.</strong> You pay only at the end, if you decide to download the finished PDF.',
+      privBox: '<strong class="text-deep">Your data stays in this browser.</strong> Your answers — including health information such as blood group, HBsAg or GBS — are stored locally on your device only. <strong>We don\'t send them to any server</strong>, because we don\'t have one. You can delete them at any time with the "Start over" button. <a href="/polityka-prywatnosci" class="underline">Privacy policy</a>',
+      lmH: 'Free mini-checklist: "7 questions about your baby\'s safety worth asking at the hospital"',
+      lmP: 'A concrete, one-page list from Michał. Leave your address — we\'ll send the PDF and let you know when new tools launch.',
+      lmBtn: 'Send me the checklist',
+      lmConsent: 'I consent to the processing of my e-mail address in order to receive the checklist and information about tools, in line with the <a href="/polityka-prywatnosci" class="underline">privacy policy</a>. I can withdraw consent at any time.',
+      lmSpam: 'No spam. Unsubscribe with one click.',
+      popupP: 'One page of specifics from a dad for parents — what to check at the hospital before your baby is born.',
+      popupConsent: 'I consent to the processing of my e-mail in order to receive the checklist, in line with the <a href="/polityka-prywatnosci" class="underline">privacy policy</a>.',
+      popupBtn: 'Send me the checklist',
+      popupSpam: 'No spam. Unsubscribe with one click.',
+      egKicker: 'You\'re halfway there',
+      egH: 'Save your progress?',
+      egP: 'We\'ll send a link so you can come back to your plan on any device. No spam — just that link and a few practical tips before the birth.',
+      egConsent: 'I agree to receive the link and e-mail messages. Data is processed by PoródNaMiarę.pl in line with the <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">privacy policy</a>. I can unsubscribe at any time.',
+      searchHint: 'Type at least 2 characters · ↑↓ navigate · Enter open · Esc close',
+      footBlog: 'Knowledge / articles',
+      footCopy: '© 2026 PoródNaMiarę.pl · Your birth. Your plan. · #birthplan #porodnamiare #consciousbirth',
+      blogAll: 'See all articles',
+      readMore: 'Read more →',
+      bk1: 'New · Postpartum',
+      bk2: 'New · Birth',
+      bk3: 'Pregnancy health',
+      bk4: 'New · Premature baby',
+      bk5: 'New · Decisions',
+      bk6: 'New · Choosing a hospital',
+      bk7: 'New · Safety',
+      bk8: 'Perinatal decisions',
+      bk9: 'Newborn · Safety',
+      bk10: 'Newborn · Decisions',
+      bk11: 'Birth · Planning',
+      bt1: 'Caesarean scar — mobilisation step by step',
+      bt2: 'Signs of labour — when to go to hospital',
+      bt3: 'Gestational diabetes — diet and birth',
+      bt4: 'Premature baby, incubator and the neonatal unit',
+      bt5: 'Cord blood — PBKM or Progenis?',
+      bt6: 'Will I get an epidural at this hospital?',
+      bt7: 'First aid for newborns and small children',
+      bt8: 'Cord blood banking — a guide for parents',
+      bt9: 'Newborn safety during birth — what really matters',
+      bt10: 'Newborn vaccinations — facts, parental choice and current recommendations',
+      bt11: 'How to write a birth plan — template, 8 sections and the most common mistakes',
+      be1: 'Four techniques, a week-by-week schedule and four myths that do harm.',
+      be2: 'The 5-1-1 rule, waters breaking, warning signs. Everything worth knowing in advance.',
+      be3: 'Dietary rules, glucose targets, impact on birth and newborn care.',
+      be4: 'A complete guide: incubator, NICU equipment, kangaroo care, corrected age and leave of up to 15 weeks.',
+      be5: 'An impartial comparison of banks, 12 questions before signing and a sample wording for your birth plan.',
+      be6: 'How to check a facility before the birth and what to ask in the admissions room.',
+      be7: 'Choking, not breathing, fever, seizures, burns. Step-by-step procedures and red flags.',
+      be8: 'Your only chance is on the day of birth. How collection works, what it costs and why delayed cord clamping comes first.',
+      be9: 'Skin-to-skin contact, delayed cord clamping and a parent present during procedures are interventions with documented effects on a baby\'s health.',
+      be10: 'Vaccines protect children — and parents have the right to decide knowingly where and when to have them.',
+      be11: 'A complete guide: what an effective birth plan must contain, how to phrase your expectations and which wordings to avoid.',
+      ct1: 'A birth plan and caesarean section — a complete guide',
+      ct2: 'The first 24 hours of a newborn\'s life — what happens',
+      ct3: 'Remifentanil PCA — the pain relief few people know about',
+      ce1: 'Can you have a plan with a caesarean? Yes. Skin-to-skin in the operating room, your partner present, the first latch — in line with the 2026 Standard.',
+      ce2: 'Skin-to-skin contact, vitamin K, screening tests, vaccinations, rooming-in. The first day step by step and where you have real influence.',
+      ce3: 'A short-acting opioid controlled by the mother — sometimes a lifeline when an epidural isn\'t available. When and for whom.',
+      buyP49: '— 49 PLN',
+      buyP99: '— 99 PLN',
+      buyP219: '— 219 PLN',
+      valueSep: 'Separately: 432 PLN ·',
+      newBadge: 'NEW',
+      footPriv: 'Privacy policy'
     },
     uk: {
       ctaTop: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u043b\u0430\u043d', navWhy: '\u0427\u043e\u043c\u0443 \u043c\u0438', navHow: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454', navCreator: '\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440', navPricing: '\u0426\u0456\u043d\u0438', navProducts: '\u041f\u0440\u043e\u0434\u0443\u043a\u0442\u0438', navBlog: '\u0421\u0442\u0430\u0442\u0442\u0456',
@@ -2209,7 +2389,107 @@ tailwind.config = {
       bnCreator: '\u041f\u043b\u0430\u043d', bnPricing: '\u0426\u0456\u043d\u0438', bnProducts: '\u041f\u0440\u043e\u0434\u0443\u043a\u0442\u0438', bnMusic: '\u041a\u043e\u043b\u0438\u0441\u043a\u043e\u0432\u0430',
       popupPre: '\u041f\u0435\u0440\u0448 \u043d\u0456\u0436 \u043f\u0456\u0442\u0438\u2026', popupH: '\u041e\u0442\u0440\u0438\u043c\u0430\u0439\u0442\u0435 \u0431\u0435\u0437\u043a\u043e\u0448\u0442\u043e\u0432\u043d\u0438\u0439 \u0447\u0435\u043a-\u043b\u0438\u0441\u0442',
       whySub: 'У Польщі ви отримаєте безкоштовний офіційний шаблон. За кордоном — консультацію з дулою за кілька сотень євро. Ми заповнюємо прогалину: самостійний, інтерактивний продукт на основі чинного стандарту допомоги.', why1T: 'Погляд тата', why1P: 'Більшість матеріалів ігнорують партнера. У нас тато — активний учасник: знає, про що питати, за чим стежити і як реально підтримати маму й дитину.', why2T: 'Безпека новонародженого', why2P: 'Найдетальніша частина плану стосується перших годин життя: контакт шкіра до шкіри, відстрочене перетискання пуповини, підтримка лактації, профілактика та скринінги.', why3T: 'Відповідає стандарту', why3P: 'Кожен пункт базується на Стандарті перинатальної допомоги (Dz.U. 2025 поз. 1525) — а не на здогадках.', how1T: 'Заповнюєте конструктор', how1P: 'Проходите 13 кроків: умови пологів, знеболення, догляд за новонародженим, щеплення, післяпологовий період.', how2T: 'Бачите живий перегляд', how2P: 'План формується наживо з кожним кліком. Наприкінці перевіряєте підсумок і можете виправити будь-який розділ.', how3T: 'Купуєте пакет', how3P: 'Оплачуєте карткою, BLIK, PayPal або Apple/Google Pay через PayHip. Одразу після оплати отримуєте посилання для завантаження на е-пошту.', how4T: 'Йдете підготовленими', how4P: 'Роздрукуйте два примірники: один у сумку, другий для акушерки. Персонал знає, чого ви хочете — ви знаєте, за чим стежити.', footTagline: 'Персоналізовані плани пологів, створені з думкою про безпеку дитини. Від тата — для батьків.', footNavH: 'Навігація та інформація', footLegalH: 'Важливе застереження', footLegal: 'Сервіс веде тато, який готується до народження дитини \u2014 не лікар. Зміст і плани мають організаційно-освітній характер і не є медичною консультацією. Усі рішення щодо пологів і дитини узгоджуйте з лікарем або акушеркою. В екстрених випадках телефонуйте 112 або 999.', whistleKicker: 'Мало хто це знає', whistleH: 'Знаєте, що таке пологовий свисток?', whistleCta: 'Переглянути пакет Premium →', bloodKicker: 'Тато, який змінює світ', bloodH: 'Я здаю кров. І ти можеш врятувати 3 життя за 45 хвилин.', intimKicker: 'Тема, про яку варто говорити', intimH: 'Секс та близькість під час вагітності — без табу', singleProdH: 'Або оберіть окремий продукт:',
-      badge1: 'Тато, не лікар', badge2: '📋 На основі Стандарту 2026', badge3: '🏥 Перевірено з акушерками', dadKicker: 'Історія створення', dadH: 'Створено татом. Не корпорацією, не стартапом — татом, який чекає на народження доньки.', dadP1: 'Коли ми з нареченою записались на курси підготовки до пологів, мені дали стандартну лікарняну анкету. Дві сторінки, порожні клітинки й жодних пояснень. Я почав шукати щось краще — для нашої безпеки, а не як бізнес-проєкт.', dadP2: 'Не знайшов. Тож створив сам. Кілька тижнів читав Стандарт перинатальної допомоги, розмовляв з акушерками і дивився, як виглядають інші плани в лікарнях. Результат спершу потрапив у нашу власну сумку в пологовий — а тепер сюди, для вас.', dadWhyH: 'Чому важливо, що це зробив тато?', dadLi1: 'Погляд партнера', dadLi2: 'Питання, які не задають акушерки', dadLi3: 'Нуль корпоративної дистанції', dadDisc: 'Важливо: я тато, не лікар. Зміст має освітній та організаційний характер — усі медичні рішення приймає ваш лікар або акушерка.', trust1: '✓ Відповідає Стандарту перинатальної допомоги', trust2: '✓ 30 днів гарантії повернення коштів', trust3: '✓ Ваші дані не залишають браузер', trust4: '✓ Готовий PDF за 24 год.', whistleP1: 'Простий, але геніальний спосіб дихання під час перейм. Контрольований, довгий видих через свисток (або трубочку) допомагає розслабитись, впоратись із напругою і "проїхати" переймy — замість затримувати подих і напружувати тіло. Проста річ, про яку не говорять на більшості занять.', whistleP2: 'У пакеті Premium ви знайдете покрокову інструкцію використання пологового свистка та рекомендацію перевіреної моделі — готову покласти в сумку в пологовий.', bloodP1: 'Коли Анна була на восьмому місяці вагітності, я вперше здав кров. Не тому, що хотів бути героєм. Тому, що хотів зробити щось конкретне. Одна донація може врятувати аж три життя — кров розділяють на компоненти. Після 25 років у медицині я знаю: кров не можна виробити в лабораторії.', bloodP2: 'Польщі потрібно 1500 літрів крові щодня. Особливо бракує групи 0 Rh–. Кров зберігається лише 42 дні — запаси треба постійно поповнювати. Кров здають менше 2% поляків. Вистачило б 4%.', bloodCta: 'Читати: чому варто здавати кров →', intimP: 'Гормони змінюють бажання хвилеподібно, і багато пар бояться прямо запитати, чи безпечний секс для дитини. Гінеколог і сексолог з 25-річним досвідом відповідає прямо — без сорому й манівців.', intimCta: 'Читати статтю →', honKicker: 'Чесно про те, де ми зараз', honH: 'Ми щойно стартуємо. У нас ще немає сотень відгуків — і ми не вдаватимемо, що є.', honP1: 'Я міг би вставити сюди п\'ять вигаданих цитат з усміхненими фото зі стоку. Так роблять багато сайтів. Я цього не зроблю — бо якщо продаю документ, якому ви довірите один з найважливіших днів життя, я не можу починати з брехні.', honP2: 'Замість відгуків покажу те, що можна перевірити самостійно.', honStat0: 'планів пологів, створених батьками в конструкторі', honStat1: 'кроків конструктора, що охоплюють пологи, кесарів розтин, новонародженого й післяпологовий період', honStat2: 'готових побажань — кожне обґрунтоване чинним стандартом', honStat3: 'статей у базі знань — безкоштовних, без реєстрації', honStat4: '2025 поз. 1525 — стандарт, на якому базується кожен пункт', honBox1T: 'Той самий документ маю для власної доньки', honBox1P: 'План пологів для Анни та Вікторії пройшов п\'ять версій і має одинадцять сторінок. Я не продаю вам те, чим сам би не користувався — використаю це за кілька тижнів.', honBox2T: 'Перевірте, перш ніж платити', honBox2P: 'Весь конструктор безкоштовний. Пройдіть усі 13 кроків, перегляньте підсумок і лише тоді вирішуйте, чи хочете завантажити документ.', honCtaKicker: 'Для перших батьків', honCtaH: 'Будьте серед перших відгуків тут', honCtaP: 'Якщо купите план у ці перші тижні — напишіть мені після пологів, як пройшло. Розміщу ваші слова тут, підписані так, як забажаєте. А якщо документ вас чимось підведе — поверну гроші без зайвих питань.', honCtaBtn: 'Створити свій план →', honFoot: 'Відгуки публікуватимуться виключно від людей, які дійсно купили пакет — відповідно до вимог верифікації споживчих відгуків.', howKicker: 'Як це працює', howSub: 'Весь процес займає кілька хвилин. Прогрес зберігається автоматично, тож можете повернутись будь-коли.', how1T: 'Заповнюєте конструктор', how2T: 'Бачите живий перегляд', how3T: 'Купуєте пакет', how4T: 'Йдете підготовленими', heroFreeNote: 'Безкоштовний перегляд · оплата лише при завантаженні', cordKicker: 'Рішення на все життя', cordH: 'Пуповинна кров — єдиний шанс саме в день пологів', cordP1: 'Після перетискання пуповини в ній та плаценті залишається кров, багата на стовбурові клітини. Її можна зібрати лише раз у житті — протягом кількох хвилин після народження. Пізніше цей матеріал втрачається назавжди.', cordP2: 'Забір неінвазивний для мами й дитини, не порушує перебігу пологів і можливий навіть при кесаревому розтині. Не потребує скорочення контакту шкіра до шкіри.', cordBoxT: 'Наша позиція: благополуччя дитини — понад усе', cordBoxP: 'У плані пологів ми прямо вказуємо, що відстрочене перетискання пуповини має пріоритет над обсягом зібраної крові. Якщо стан дитини або мами цього вимагатиме — відмовляємось від забору.', cordCta: 'Порівняти банки й отримати список питань', cordListH: 'Що варто знати перед пологами', cordLi1T: 'Договір підписується під час вагітності', cordLi1P: 'Набір для забору приходить поштою — берете його з собою до лікарні.', cordLi2T: 'Повідомте персонал при поступленні', cordLi2P: 'Передаєте набір і документацію акушерці — краще заздалегідь записати це в плані пологів.', cordLi3T: 'Забір триває кілька хвилин', cordLi3P: 'Кров беруть з пуповинної вени одразу після перетискання пуповини дитини.', cordLi4T: 'Кур\'єр забирає матеріал', cordLi4P: 'Ви повідомляєте про готовність — транспортування й формальності на боці банку.', cordDisc: 'Ми не пов\'язані з жодним банком стовбурових клітин і не отримуємо комісії. Пишемо про це, бо самі цим користуємось.', schoolKicker: 'Допологова освіта', schoolH: 'Йдете на курси підготовки до пологів? Чудове рішення — візьміть із собою план', schoolP1: 'Курси підготовки до пологів — найкраща інвестиція у спокійні пологи: дихання й положення тіла, лактація, перша допомога немовляті, роль тата під час пологів. Заняття часто безкоштовні у багатьох акушерок — варто запитати.', schoolP2: 'План пологів і курси підготовки найкраще працюють разом: на заняттях здобуваєте знання, а план перетворює їх на конкретні, записані рішення. Створіть перегляд плану і обговоріть його з акушеркою — найкраща рецензія, яку можна отримати перед пологами.', schoolCta: 'Підготувати план для занять', faqQ1: 'Чи план пологів є обов\'язковим для лікарні?', faqA1: 'План пологів — елемент документації, передбачений Організаційним стандартом перинатальної допомоги. Персонал зобов\'язаний ознайомитись з ним і обговорити його з вами. Медичні рішення завжди залежать від клінічної ситуації — але добре підготовлений план означає, що ваші пріоритети відомі з першої хвилини.', faqQ2: 'Коли найкраще підготувати план пологів?', faqA2: 'Між 30-м та 36-м тижнем вагітності. Залишається час обговорити план з лікарем і акушеркою та дізнатись, що пропонує ваша лікарня.', faqQ3: 'Чим ви відрізняєтесь від безкоштовних шаблонів?', faqA3: 'Шаблони загальні й часто застарілі. Наш план персоналізований, базується на актуальних рекомендаціях, з найдетальнішим розділом про новонародженого на ринку та практичним чек-листом для тата. Це документ, який персонал читає з повагою.', faqQ4: 'Щеплення новонародженого в лікарні — як записати наше рішення в плані?', faqA4: 'Щеплення викликають емоції, але факти прості: щеплення проти гепатиту B і туберкульозу (БЦЖ) захищають дитину і є стандартом першої доби в Польщі. Водночас батьки мають право на усвідомлену згоду — деякі родини вирішують зробити щеплення пізніше в обраного педіатра за узгодженим графіком. Наш конструктор дозволяє чітко й культурно записати обидва рішення, разом із важливим застереженням безпеки (напр. щеплення від гепатиту B у лікарні, якщо результат HBsAg мами позитивний або невідомий). Завдяки цьому розмова з персоналом базується на документі, а не на дискусії в коридорі. Незалежно від рішення радимо: обговоріть щеплення з лікарем — план пологів має полегшити цю розмову, а не замінити її.', faqQ5: 'Що якщо пологи пройдуть інакше, ніж у плані?', faqA5: 'План — це не сценарій, а карта ваших пріоритетів. У пакеті Premium ви знайдете розділ "план Б" — кесарів розтин, індукція, непередбачені ситуації — щоб бути готовими до будь-якого варіанту.', popupSubmit: 'Надішліть мені посилання на план', popupSkip: 'Не зараз, продовжити →', popupNote: 'Прогрес все одно зберігається в цьому браузері.', whyStat1: 'кроків конструктора', whyStat2: 'готових побажань', whyStat3: 'контакту шкіра до шкіри', whyStat4: 'мовні версії', planBadge1: 'Стартовий', planBadge2: 'Рекомендовано · 2 нові PDF', planName1: 'План пологівБазовий', planName2: 'План пологівPremium', planName3: 'ПакетPremium+', planStd: 'Відповідає Стандарту 2025 поз. 1525', buyBtn: 'Купити зараз', consentText: 'Погоджуюсь на негайне надання цифрового контенту і приймаю до відома втрату права відкликання (зберігаю <a href="/formularz-odstapienia" class="underline">30-денну гарантію повернення</a>).', basic1: 'Персоналізований план пологів PDF', basic2: '8 розділів: від умов до післяпологового періоду', basic3: 'Найвищий пункт безпеки', basic4: 'Формат A4, готовий до друку', prem1: 'Все з Базового', prem2: 'Скорочена версія "на двері палати"', prem3: 'Чек-лист для тата (від перейм до виписки)', prem4: 'Гід "Перші 24 години"', prem5: 'Інструкція пологового свистка + рекомендація моделі', prem6: '🫁 НОВИНКА: Техніки дихання та релаксації для пологів', prem7: '📋 НОВИНКА: Питання до гінеколога', prem8: 'Оновлення плану до дати пологів', plus1: 'План пологів Premium (повний)', plus2: 'План післяпологового періоду — перші 6 тижнів', plus3: 'Список сумки Premium (70+ позицій)', plus4: 'Чек-лист для тата (9 етапів)', plus5: '🧘‍♀️ НОВИНКА: Гід з фізіотерапії тазового дна', plus6: '😴 НОВИНКА: Гід сну немовляти', plus7: '🥗 НОВИНКА: Гід з харчування та добавок', plus8: '🫁 Техніки дихання та релаксації', plus9: '📋 Питання до гінеколога', plus10: '🎁 БЕЗКОШТОВНО: Чек-лист для новонародженого', plus11: '🅿️ БОНУС: Лист-заява на місце для візка'
+      badge1: 'Тато, не лікар', badge2: '📋 На основі Стандарту 2026', badge3: '🏥 Перевірено з акушерками', dadKicker: 'Історія створення', dadH: 'Створено татом. Не корпорацією, не стартапом — татом, який чекає на народження доньки.', dadP1: 'Коли ми з нареченою записались на курси підготовки до пологів, мені дали стандартну лікарняну анкету. Дві сторінки, порожні клітинки й жодних пояснень. Я почав шукати щось краще — для нашої безпеки, а не як бізнес-проєкт.', dadP2: 'Не знайшов. Тож створив сам. Кілька тижнів читав Стандарт перинатальної допомоги, розмовляв з акушерками і дивився, як виглядають інші плани в лікарнях. Результат спершу потрапив у нашу власну сумку в пологовий — а тепер сюди, для вас.', dadWhyH: 'Чому важливо, що це зробив тато?', dadLi1: 'Погляд партнера', dadLi2: 'Питання, які не задають акушерки', dadLi3: 'Нуль корпоративної дистанції', dadDisc: 'Важливо: я тато, не лікар. Зміст має освітній та організаційний характер — усі медичні рішення приймає ваш лікар або акушерка.', trust1: '✓ Відповідає Стандарту перинатальної допомоги', trust2: '✓ 30 днів гарантії повернення коштів', trust3: '✓ Ваші дані не залишають браузер', trust4: '✓ Готовий PDF за 24 год.', whistleP1: 'Простий, але геніальний спосіб дихання під час перейм. Контрольований, довгий видих через свисток (або трубочку) допомагає розслабитись, впоратись із напругою і "проїхати" переймy — замість затримувати подих і напружувати тіло. Проста річ, про яку не говорять на більшості занять.', whistleP2: 'У пакеті Premium ви знайдете покрокову інструкцію використання пологового свистка та рекомендацію перевіреної моделі — готову покласти в сумку в пологовий.', bloodP1: 'Коли Анна була на восьмому місяці вагітності, я вперше здав кров. Не тому, що хотів бути героєм. Тому, що хотів зробити щось конкретне. Одна донація може врятувати аж три життя — кров розділяють на компоненти. Після 25 років у медицині я знаю: кров не можна виробити в лабораторії.', bloodP2: 'Польщі потрібно 1500 літрів крові щодня. Особливо бракує групи 0 Rh–. Кров зберігається лише 42 дні — запаси треба постійно поповнювати. Кров здають менше 2% поляків. Вистачило б 4%.', bloodCta: 'Читати: чому варто здавати кров →', intimP: 'Гормони змінюють бажання хвилеподібно, і багато пар бояться прямо запитати, чи безпечний секс для дитини. Гінеколог і сексолог з 25-річним досвідом відповідає прямо — без сорому й манівців.', intimCta: 'Читати статтю →', honKicker: 'Чесно про те, де ми зараз', honH: 'Ми щойно стартуємо. У нас ще немає сотень відгуків — і ми не вдаватимемо, що є.', honP1: 'Я міг би вставити сюди п\'ять вигаданих цитат з усміхненими фото зі стоку. Так роблять багато сайтів. Я цього не зроблю — бо якщо продаю документ, якому ви довірите один з найважливіших днів життя, я не можу починати з брехні.', honP2: 'Замість відгуків покажу те, що можна перевірити самостійно.', honStat0: 'планів пологів, створених батьками в конструкторі', honStat1: 'кроків конструктора, що охоплюють пологи, кесарів розтин, новонародженого й післяпологовий період', honStat2: 'готових побажань — кожне обґрунтоване чинним стандартом', honStat3: 'статей у базі знань — безкоштовних, без реєстрації', honStat4: '2025 поз. 1525 — стандарт, на якому базується кожен пункт', honBox1T: 'Той самий документ маю для власної доньки', honBox1P: 'План пологів для Анни та Вікторії пройшов п\'ять версій і має одинадцять сторінок. Я не продаю вам те, чим сам би не користувався — використаю це за кілька тижнів.', honBox2T: 'Перевірте, перш ніж платити', honBox2P: 'Весь конструктор безкоштовний. Пройдіть усі 13 кроків, перегляньте підсумок і лише тоді вирішуйте, чи хочете завантажити документ.', honCtaKicker: 'Для перших батьків', honCtaH: 'Будьте серед перших відгуків тут', honCtaP: 'Якщо купите план у ці перші тижні — напишіть мені після пологів, як пройшло. Розміщу ваші слова тут, підписані так, як забажаєте. А якщо документ вас чимось підведе — поверну гроші без зайвих питань.', honCtaBtn: 'Створити свій план →', honFoot: 'Відгуки публікуватимуться виключно від людей, які дійсно купили пакет — відповідно до вимог верифікації споживчих відгуків.', howKicker: 'Як це працює', howSub: 'Весь процес займає кілька хвилин. Прогрес зберігається автоматично, тож можете повернутись будь-коли.', how1T: 'Заповнюєте конструктор', how2T: 'Бачите живий перегляд', how3T: 'Купуєте пакет', how4T: 'Йдете підготовленими', heroFreeNote: 'Безкоштовний перегляд · оплата лише при завантаженні', cordKicker: 'Рішення на все життя', cordH: 'Пуповинна кров — єдиний шанс саме в день пологів', cordP1: 'Після перетискання пуповини в ній та плаценті залишається кров, багата на стовбурові клітини. Її можна зібрати лише раз у житті — протягом кількох хвилин після народження. Пізніше цей матеріал втрачається назавжди.', cordP2: 'Забір неінвазивний для мами й дитини, не порушує перебігу пологів і можливий навіть при кесаревому розтині. Не потребує скорочення контакту шкіра до шкіри.', cordBoxT: 'Наша позиція: благополуччя дитини — понад усе', cordBoxP: 'У плані пологів ми прямо вказуємо, що відстрочене перетискання пуповини має пріоритет над обсягом зібраної крові. Якщо стан дитини або мами цього вимагатиме — відмовляємось від забору.', cordCta: 'Порівняти банки й отримати список питань', cordListH: 'Що варто знати перед пологами', cordLi1T: 'Договір підписується під час вагітності', cordLi1P: 'Набір для забору приходить поштою — берете його з собою до лікарні.', cordLi2T: 'Повідомте персонал при поступленні', cordLi2P: 'Передаєте набір і документацію акушерці — краще заздалегідь записати це в плані пологів.', cordLi3T: 'Забір триває кілька хвилин', cordLi3P: 'Кров беруть з пуповинної вени одразу після перетискання пуповини дитини.', cordLi4T: 'Кур\'єр забирає матеріал', cordLi4P: 'Ви повідомляєте про готовність — транспортування й формальності на боці банку.', cordDisc: 'Ми не пов\'язані з жодним банком стовбурових клітин і не отримуємо комісії. Пишемо про це, бо самі цим користуємось.', schoolKicker: 'Допологова освіта', schoolH: 'Йдете на курси підготовки до пологів? Чудове рішення — візьміть із собою план', schoolP1: 'Курси підготовки до пологів — найкраща інвестиція у спокійні пологи: дихання й положення тіла, лактація, перша допомога немовляті, роль тата під час пологів. Заняття часто безкоштовні у багатьох акушерок — варто запитати.', schoolP2: 'План пологів і курси підготовки найкраще працюють разом: на заняттях здобуваєте знання, а план перетворює їх на конкретні, записані рішення. Створіть перегляд плану і обговоріть його з акушеркою — найкраща рецензія, яку можна отримати перед пологами.', schoolCta: 'Підготувати план для занять', faqQ1: 'Чи план пологів є обов\'язковим для лікарні?', faqA1: 'План пологів — елемент документації, передбачений Організаційним стандартом перинатальної допомоги. Персонал зобов\'язаний ознайомитись з ним і обговорити його з вами. Медичні рішення завжди залежать від клінічної ситуації — але добре підготовлений план означає, що ваші пріоритети відомі з першої хвилини.', faqQ2: 'Коли найкраще підготувати план пологів?', faqA2: 'Між 30-м та 36-м тижнем вагітності. Залишається час обговорити план з лікарем і акушеркою та дізнатись, що пропонує ваша лікарня.', faqQ3: 'Чим ви відрізняєтесь від безкоштовних шаблонів?', faqA3: 'Шаблони загальні й часто застарілі. Наш план персоналізований, базується на актуальних рекомендаціях, з найдетальнішим розділом про новонародженого на ринку та практичним чек-листом для тата. Це документ, який персонал читає з повагою.', faqQ4: 'Щеплення новонародженого в лікарні — як записати наше рішення в плані?', faqA4: 'Щеплення викликають емоції, але факти прості: щеплення проти гепатиту B і туберкульозу (БЦЖ) захищають дитину і є стандартом першої доби в Польщі. Водночас батьки мають право на усвідомлену згоду — деякі родини вирішують зробити щеплення пізніше в обраного педіатра за узгодженим графіком. Наш конструктор дозволяє чітко й культурно записати обидва рішення, разом із важливим застереженням безпеки (напр. щеплення від гепатиту B у лікарні, якщо результат HBsAg мами позитивний або невідомий). Завдяки цьому розмова з персоналом базується на документі, а не на дискусії в коридорі. Незалежно від рішення радимо: обговоріть щеплення з лікарем — план пологів має полегшити цю розмову, а не замінити її.', faqQ5: 'Що якщо пологи пройдуть інакше, ніж у плані?', faqA5: 'План — це не сценарій, а карта ваших пріоритетів. У пакеті Premium ви знайдете розділ "план Б" — кесарів розтин, індукція, непередбачені ситуації — щоб бути готовими до будь-якого варіанту.', popupSubmit: 'Надішліть мені посилання на план', popupSkip: 'Не зараз, продовжити →', popupNote: 'Прогрес все одно зберігається в цьому браузері.', whyStat1: 'кроків конструктора', whyStat2: 'готових побажань', whyStat3: 'контакту шкіра до шкіри', whyStat4: 'мовні версії', planBadge1: 'Стартовий', planBadge2: 'Рекомендовано · 2 нові PDF', planName1: 'План пологівБазовий', planName2: 'План пологівPremium', planName3: 'ПакетPremium+', planStd: 'Відповідає Стандарту 2025 поз. 1525', buyBtn: 'Купити зараз', consentText: 'Погоджуюсь на негайне надання цифрового контенту і приймаю до відома втрату права відкликання (зберігаю <a href="/formularz-odstapienia" class="underline">30-денну гарантію повернення</a>).', basic1: 'Персоналізований план пологів PDF', basic2: '8 розділів: від умов до післяпологового періоду', basic3: 'Найвищий пункт безпеки', basic4: 'Формат A4, готовий до друку', prem1: 'Все з Базового', prem2: 'Скорочена версія "на двері палати"', prem3: 'Чек-лист для тата (від перейм до виписки)', prem4: 'Гід "Перші 24 години"', prem5: 'Інструкція пологового свистка + рекомендація моделі', prem6: '🫁 НОВИНКА: Техніки дихання та релаксації для пологів', prem7: '📋 НОВИНКА: Питання до гінеколога', prem8: 'Оновлення плану до дати пологів', plus1: 'План пологів Premium (повний)', plus2: 'План післяпологового періоду — перші 6 тижнів', plus3: 'Список сумки Premium (70+ позицій)', plus4: 'Чек-лист для тата (9 етапів)', plus5: '🧘‍♀️ НОВИНКА: Гід з фізіотерапії тазового дна', plus6: '😴 НОВИНКА: Гід сну немовляти', plus7: '🥗 НОВИНКА: Гід з харчування та добавок', plus8: '🫁 Техніки дихання та релаксації', plus9: '📋 Питання до гінеколога', plus10: '🎁 БЕЗКОШТОВНО: Чек-лист для новонародженого', plus11: '🅿️ БОНУС: Лист-заява на місце для візка',
+      skipLink: 'Перейти до вмісту',
+      mmCta: 'Створити план пологів →',
+      heroFigcap: 'Контакт шкіра до шкіри тата з новонародженим',
+      langNote: '🌍 Народжуєте в Польщі, але не розмовляєте польською? Мовні версії: 🇬🇧 English · 🇩🇪 Deutsch · 🇺🇦 Українська',
+      howCta: 'Почніть створювати свій план',
+      pricingH2: 'Оберіть свій набір',
+      pricingSub: 'Кожен PDF ґрунтується на медичних знаннях і досвіді батьків. Готовий до друку — для лікарні та для дому.',
+      saveBadge: 'заощаджуєте 213 злотих',
+      strollKicker: 'Бонус, про який мало хто знає',
+      strollH: 'Чи знаєте ви, що маєте право подати заяву на місце у візковій?',
+      strollP1: 'У багатьох будинках і кооперативах є візкові — приміщення для дитячих візків. Більшість батьків не знає, що може подати офіційну заяву на надання місця. Візок 2в1 не вміщується в ліфт, а щоденне носіння сходами — кошмар перших місяців.',
+      strollP2: 'У пакеті Premium+ додаємо готову, професійно підготовлену заяву у форматі PDF з порожніми полями — достатньо роздрукувати, заповнити дані й подати управителю. Один документ, який здатен зекономити вам місяці носіння.',
+      strollCta: 'Отримати заяву в пакеті Premium+ →',
+      payH: 'Два надійні способи оплати',
+      payP: '<strong>PayHip</strong> — картка, Apple Pay, Google Pay, PayPal, Przelewy24 (міжнародно). <strong>BLIK</strong> — швидкий переказ, яким платить більшість поляків. Обираєте те, що зручно.',
+      payBlik: '<strong>Оплата через BLIK:</strong> після натискання «Купити» оберіть BLIK у шлюзі PayHip і підтвердіть у банківському застосунку — план доступний для завантаження одразу після оплати.',
+      paySign: '— Міхал, тато і засновник',
+      payLegal: 'Купуючи, ви даєте згоду на надання цифрового вмісту до закінчення строку відмови від договору та визнаєте втрату законного права на відмову (ст. 38 ч. 1 п. 13 Закону про права споживачів). Діє 30-денна гарантія повернення коштів. Деталі в <a href="/regulamin" class="underline">регламенті</a>.',
+      sp1N: 'План післяпологового періоду',
+      sp2N: 'Довідник з лактації',
+      sp3N: 'План кесаревого розтину',
+      sp4N: 'Основи слінгоносіння',
+      sp5N: 'Чекліст для тата',
+      sp6N: 'Сумка до лікарні',
+      sp7N: 'Урогінекологічна фізіотерапія',
+      sp8N: 'Сон немовляти',
+      sp9N: 'Дієта і добавки',
+      spPdf39: '39 злотих · PDF',
+      spGuide59: '59 злотих · PDF-довідник, 16 стор.',
+      spPdf29: '29 злотих · PDF',
+      sp1P: '49 злотих · PDF',
+      sp4P: '29 злотих · PDF-довідник',
+      sp5P: '29 злотих · PDF',
+      sp6P: '19 злотих · PDF-чекліст',
+      sp7P: '49 злотих · PDF-зошит вправ, 16 стор.',
+      freeBox: '<strong class="text-white">Весь конструктор безкоштовний.</strong> Ви платите лише наприкінці, якщо захочете завантажити готовий PDF.',
+      privBox: '<strong class="text-deep">Ваші дані залишаються в цьому браузері.</strong> Відповіді — включно з інформацією про здоров\'я, як-от група крові, HBsAg чи СГБ — зберігаємо виключно локально на вашому пристрої. <strong>Ми не надсилаємо їх на жоден сервер</strong>, бо його не маємо. Ви можете видалити їх будь-коли кнопкою «Почати спочатку». <a href="/polityka-prywatnosci" class="underline">Політика конфіденційності</a>',
+      lmH: 'Безкоштовний міні-чекліст: «7 запитань про безпеку дитини, які варто поставити в лікарні»',
+      lmP: 'Конкретний, односторінковий список від Міхала. Залиште адресу — надішлемо PDF і повідомимо, коли з\'являться нові інструменти.',
+      lmBtn: 'Надіслати чекліст',
+      lmConsent: 'Даю згоду на обробку моєї електронної адреси з метою отримання чекліста та інформації про інструменти, згідно з <a href="/polityka-prywatnosci" class="underline">політикою конфіденційності</a>. Згоду можу відкликати будь-коли.',
+      lmSpam: 'Жодного спаму. Відписка одним кліком.',
+      popupP: 'Одна сторінка конкретики від тата для батьків — що перевірити в лікарні, перш ніж народиться ваша дитина.',
+      popupConsent: 'Даю згоду на обробку електронної пошти з метою надсилання чекліста, згідно з <a href="/polityka-prywatnosci" class="underline">політикою конфіденційності</a>.',
+      popupBtn: 'Надіслати чекліст',
+      popupSpam: 'Жодного спаму. Відписка одним кліком.',
+      egKicker: 'Ви на половині шляху',
+      egH: 'Зберегти ваш прогрес?',
+      egP: 'Надішлемо посилання, завдяки якому ви повернетесь до плану на будь-якому пристрої. Без спаму — лише це посилання й кілька практичних порад перед пологами.',
+      egConsent: 'Погоджуюсь на отримання посилання та повідомлень електронною поштою. Дані обробляє PoródNaMiarę.pl згідно з <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">політикою конфіденційності</a>. Можу відписатись будь-коли.',
+      searchHint: 'Введіть щонайменше 2 символи · ↑↓ навігація · Enter відкрити · Esc закрити',
+      footBlog: 'Знання / статті',
+      footCopy: '© 2026 PoródNaMiarę.pl · Ваші пологи. Ваш план. · #планпологів #porodnamiare #свідомніпологи',
+      blogAll: 'Переглянути всі статті',
+      readMore: 'Читати далі →',
+      bk1: 'Новинка · Післяпологовий період',
+      bk2: 'Новинка · Пологи',
+      bk3: 'Здоров\'я у вагітності',
+      bk4: 'Новинка · Недоношена дитина',
+      bk5: 'Новинка · Рішення',
+      bk6: 'Новинка · Вибір лікарні',
+      bk7: 'Новинка · Безпека',
+      bk8: 'Перинатальні рішення',
+      bk9: 'Новонароджений · Безпека',
+      bk10: 'Новонароджений · Рішення',
+      bk11: 'Пологи · Планування',
+      bt1: 'Рубець після кесаревого — мобілізація крок за кроком',
+      bt2: 'Ознаки пологів — коли їхати до лікарні',
+      bt3: 'Гестаційний діабет — дієта і пологи',
+      bt4: 'Недоношена дитина, інкубатор і відділення неонатології',
+      bt5: 'Пуповинна кров — PBKM чи Progenis?',
+      bt6: 'Чи отримаю я знеболення в цій лікарні?',
+      bt7: 'Перша допомога новонародженому та малій дитині',
+      bt8: 'Банкування пуповинної крові — довідник для батьків',
+      bt9: 'Безпека новонародженого під час пологів — що справді має значення',
+      bt10: 'Щеплення новонародженого — факти, вибір батьків і чинні рекомендації',
+      bt11: 'Як написати план пологів — зразок, 8 розділів і найчастіші помилки',
+      be1: 'Чотири техніки, графік тиждень за тижнем і чотири міфи, які шкодять.',
+      be2: 'Правило 5-1-1, відходження вод, тривожні симптоми. Усе, що варто знати заздалегідь.',
+      be3: 'Правила дієти, норми цукру, вплив на пологи та догляд за новонародженим.',
+      be4: 'Повний довідник: інкубатор, обладнання реанімації, кенгуру-метод, скоригований вік і відпустка до 15 тижнів.',
+      be5: 'Неупереджене порівняння банків, 12 запитань перед укладенням договору та зразок формулювання в плані пологів.',
+      be6: 'Як перевірити заклад перед пологами і про що питати у приймальному відділенні.',
+      be7: 'Удавлення, зупинка дихання, гарячка, судоми, опіки. Покрокові процедури й тривожні сигнали.',
+      be8: 'Єдиний шанс — у день пологів. Як відбувається забір, скільки коштує і чому відстрочене перетискання пуповини має пріоритет.',
+      be9: 'Контакт шкіра до шкіри, відстрочене перетискання пуповини та постійна присутність батьків під час процедур — втручання з доведеним впливом на здоров\'я дитини.',
+      be10: 'Щеплення захищають дитину — а батьки мають право свідомо вирішити, де і коли їх зробити.',
+      be11: 'Повний довідник: що має містити дієвий план пологів, як формулювати очікування і яких формулювань уникати.',
+      ct1: 'План пологів і кесарів розтин — повний довідник',
+      ct2: 'Перші 24 години життя новонародженого — що відбувається',
+      ct3: 'Ремифентаніл PCA — знеболення, про яке мало хто знає',
+      ce1: 'Чи можна мати план при кесаревому? Так. Контакт шкіра до шкіри в операційній, присутність партнера, перше прикладання — згідно зі Стандартом 2026.',
+      ce2: 'Контакт шкіра до шкіри, вітамін K, скринінгові обстеження, щеплення, рухумінг. Перша доба крок за кроком і на що ви реально впливаєте.',
+      ce3: 'Короткодіючий опіоїд, який контролює сама породілля — буває порятунком, коли епідуральна анестезія недоступна. Коли і для кого.',
+      buyP49: '— 49 злотих',
+      buyP99: '— 99 злотих',
+      buyP219: '— 219 злотих',
+      valueSep: 'Окремо: 432 злотих ·',
+      newBadge: 'НОВИНКА',
+      footPriv: 'Політика конфіденційності'
     },
     de: {
       ctaTop: 'Plan erstellen', navWhy: 'Warum wir', navHow: 'So geht\u2019s', navCreator: 'Geburtsplan-Generator', navPricing: 'Preise', navProducts: 'Produkte', navBlog: 'Wissen',
@@ -2230,23 +2510,144 @@ tailwind.config = {
       bnCreator: 'Generator', bnPricing: 'Preise', bnProducts: 'Produkte', bnMusic: 'Schlaflied',
       popupPre: 'Bevor Sie gehen\u2026', popupH: 'Holen Sie sich die kostenlose Checkliste \u201e7 Sicherheitsfragen f\u00fcr die Klinik\u201c',
       whySub: 'In Polen bekommen Sie eine kostenlose Standardvorlage. Im Ausland — eine Doula-Beratung für mehrere hundert Euro. Wir schließen die Lücke: ein eigenständiges, interaktives Produkt auf Basis des aktuellen Versorgungsstandards.', why1T: 'Aus Vatersicht', why1P: 'Die meisten Materialien übergehen den Partner. Bei uns ist der Vater aktiv beteiligt: Er weiß, was zu fragen ist, worauf zu achten ist und wie er Mutter und Kind wirklich unterstützt.', why2T: 'Sicherheit des Neugeborenen', why2P: 'Der ausführlichste Teil des Plans betrifft die ersten Stunden: Hautkontakt, spätes Abnabeln, Stillunterstützung, Prophylaxe und Screening.', why3T: 'Konform mit dem Standard', why3P: 'Jede Option basiert auf dem Standard der perinatalen Versorgung (GBl. 2025 Pos. 1525) — nicht auf Vermutungen.', how1T: 'Sie füllen den Generator aus', how1P: 'Sie durchlaufen 13 Schritte: Geburtsbedingungen, Schmerzlinderung, Neugeborenenversorgung, Impfungen, Wochenbett.', how2T: 'Sie sehen eine Live-Vorschau', how2P: 'Der Plan entsteht live bei jedem Klick. Am Ende prüfen Sie die Zusammenfassung und können jeden Abschnitt bearbeiten.', how3T: 'Sie kaufen das Paket', how3P: 'Sie zahlen per Karte, BLIK, PayPal oder Apple/Google Pay über PayHip. Sofort nach der Zahlung erhalten Sie einen Download-Link per E-Mail.', how4T: 'Sie gehen vorbereitet hin', how4P: 'Drucken Sie zwei Exemplare: eines für die Tasche, eines für die Hebamme. Das Personal weiß, was Sie wollen — Sie wissen, worauf zu achten ist.', footTagline: 'Persönliche Geburtspläne, entwickelt im Hinblick auf die Sicherheit Ihres Babys. Von einem Vater — für Eltern.', footNavH: 'Navigation und Informationen', footLegalH: 'Wichtiger Hinweis', footLegal: 'Dieser Dienst wird von einem werdenden Vater betrieben \u2014 nicht von einem Arzt. Inhalte und Pläne sind organisatorisch und edukativ und stellen keine medizinische Beratung dar. Konsultieren Sie bei jeder Entscheidung zur Geburt und zum Kind einen Arzt oder eine Hebamme. Im Notfall wählen Sie 112 oder 999.', whistleKicker: 'Das wissen nur wenige', whistleH: 'Wissen Sie, was eine Geburtspfeife ist?', whistleCta: 'Premium-Paket ansehen →', bloodKicker: 'Ein Vater, der die Welt verändert', bloodH: 'Ich spende Blut. Und Sie können in 45 Minuten 3 Leben retten.', intimKicker: 'Ein Thema, über das man sprechen sollte', intimH: 'Sex und Nähe in der Schwangerschaft — ohne Tabu', singleProdH: 'Oder wählen Sie ein einzelnes Produkt:',
-      badge1: 'Vater, kein Arzt', badge2: '📋 Basiert auf dem Standard 2026', badge3: '🏥 Mit Hebammen geprüft', dadKicker: 'Entstehungsgeschichte', dadH: 'Von einem Vater gemacht. Kein Konzern, kein Startup — ein Vater, der auf die Geburt seiner Tochter wartet.', dadP1: 'Als wir uns für den Geburtsvorbereitungskurs anmeldeten, bekam ich ein Standard-Klinikformular. Zwei Seiten, leere Kästchen, keine Erklärung. Ich suchte nach etwas Besserem — für unsere Sicherheit, nicht als Geschäftsprojekt.', dadP2: 'Ich fand nichts. Also habe ich es selbst gebaut. Wochenlang las ich den Standard der perinatalen Versorgung, sprach mit Hebammen und sah mir an, wie andere Pläne in Kliniken aussehen. Das Ergebnis kam zuerst in unsere eigene Kliniktasche — und jetzt hierher, für Sie.', dadWhyH: 'Warum ist es wichtig, dass ein Vater das gemacht hat?', dadLi1: 'Die Perspektive des Partners', dadLi2: 'Fragen, die Hebammen nicht stellen', dadLi3: 'Keine Konzern-Distanz', dadDisc: 'Wichtig: Ich bin Vater, kein Arzt. Die Inhalte sind edukativ und organisatorisch — alle medizinischen Entscheidungen trifft Ihr Arzt oder Ihre Hebamme.', trust1: '✓ Konform mit dem Standard der perinatalen Versorgung', trust2: '✓ 30 Tage Geld-zurück-Garantie', trust3: '✓ Ihre Daten verlassen nie Ihren Browser', trust4: '✓ Fertiges PDF in 24 Std.', whistleP1: 'Eine einfache, aber geniale Atemtechnik für Wehen. Ein kontrolliertes, langes Ausatmen durch eine Pfeife (oder einen Strohhalm) hilft beim Entspannen, Spannung abzubauen und eine Wehe zu „durchfahren" — statt die Luft anzuhalten und sich zu verkrampfen. Eine einfache Sache, über die in den meisten Kursen nicht gesprochen wird.', whistleP2: 'Im Premium-Geburtsplan-Paket finden Sie eine Schritt-für-Schritt-Anleitung zur Geburtspfeife sowie die Empfehlung eines bewährten Modells — bereit für die Kliniktasche.', bloodP1: 'Als Anna im achten Monat schwanger war, spendete ich zum ersten Mal Blut. Nicht um ein Held zu sein. Weil ich etwas Konkretes tun wollte. Eine Spende kann bis zu drei Leben retten — Blut wird in Bestandteile aufgeteilt. Nach 25 Jahren in der Medizin weiß ich: Blut kann man nicht im Labor herstellen.', bloodP2: 'Polen braucht täglich 1.500 Liter Blut. Besonders knapp ist Gruppe 0 Rh–. Blut ist nur 42 Tage haltbar — die Vorräte müssen ständig aufgefüllt werden. Weniger als 2% der Polen spenden. 4% würden reichen.', bloodCta: 'Lesen: warum Blutspenden wichtig ist →', intimP: 'Hormone verändern die Lust wellenförmig, und viele Paare trauen sich nicht zu fragen, ob Sex für das Baby sicher ist. Ein Gynäkologe und Sexualtherapeut mit 25 Jahren Erfahrung antwortet sachlich — ohne Scham, ohne Umschweife.', intimCta: 'Artikel lesen →', honKicker: 'Ehrlich, wo wir stehen', honH: 'Wir starten gerade. Wir haben noch keine hunderten Bewertungen — und wir tun nicht so, als hätten wir sie.', honP1: 'Ich könnte hier fünf erfundene Zitate mit lächelnden Stockfotos einfügen. Viele Seiten tun das. Ich werde es nicht tun — denn wenn ich Ihnen ein Dokument verkaufen will, dem Sie an einem der wichtigsten Tage Ihres Lebens vertrauen, kann ich nicht mit einer Lüge beginnen.', honP2: 'Statt Bewertungen zeige ich Ihnen, was Sie selbst überprüfen können.', honStat0: 'von Eltern im Generator erstellte Geburtspläne', honStat1: 'Generator-Schritte zu Geburt, Kaiserschnitt, Neugeborenem und Wochenbett', honStat2: 'fertige Präferenzen — jede mit Bezug zum geltenden Standard', honStat3: 'kostenlose Wissensartikel — ohne Registrierung', honStat4: '2025 Pos. 1525 — der Standard, auf dem jede Option basiert', honBox1T: 'Dasselbe Dokument habe ich für meine eigene Tochter', honBox1P: 'Der Geburtsplan für Anna und Wiktoria durchlief fünf Versionen und hat elf Seiten. Ich verkaufe Ihnen nichts, was ich nicht selbst nutzen würde — ich werde es in wenigen Wochen selbst verwenden.', honBox2T: 'Prüfen Sie, bevor Sie zahlen', honBox2P: 'Der ganze Generator ist kostenlos. Durchlaufen Sie alle 13 Schritte, sehen Sie die Zusammenfassung, und entscheiden Sie erst dann, ob Sie das Dokument herunterladen möchten.', honCtaKicker: 'Für unsere ersten Eltern', honCtaH: 'Seien Sie unter den ersten Bewertungen hier', honCtaP: 'Wenn Sie den Plan in diesen ersten Wochen kaufen — schreiben Sie mir nach der Geburt, wie es gelaufen ist. Ich stelle Ihre Worte hier ein, signiert wie Sie möchten. Und sollte Sie das Dokument in irgendeiner Weise enttäuschen, erstatte ich Ihr Geld ohne Fragen.', honCtaBtn: 'Erstellen Sie Ihren Plan →', honFoot: 'Bewertungen werden ausschließlich von Personen veröffentlicht, die das Paket tatsächlich gekauft haben — gemäß den Anforderungen zur Verifizierung von Verbraucherbewertungen.', howKicker: 'So funktioniert\'s', howSub: 'Der gesamte Prozess dauert nur wenige Minuten. Der Fortschritt wird automatisch gespeichert, sodass Sie jederzeit zurückkehren können.', how1T: 'Sie füllen den Generator aus', how2T: 'Sie sehen eine Live-Vorschau', how3T: 'Sie kaufen das Paket', how4T: 'Sie gehen vorbereitet hin', heroFreeNote: 'Kostenlose Vorschau · Zahlung erst beim Download', cordKicker: 'Eine einmalige Entscheidung im Leben', cordH: 'Nabelschnurblut — Ihre einzige Chance ist am Tag der Geburt', cordP1: 'Nach dem Abnabeln bleibt in Nabelschnur und Plazenta stammzellenreiches Blut zurück. Es kann nur einmal im Leben entnommen werden — innerhalb weniger Minuten nach der Geburt. Danach ist das Material unwiederbringlich verloren.', cordP2: 'Die Entnahme ist für Mutter und Kind nicht-invasiv, stört den Geburtsverlauf nicht und ist auch bei einem Kaiserschnitt möglich. Sie erfordert keine Verkürzung des Haut-zu-Haut-Kontakts.', cordBoxT: 'Unsere Haltung: Das Wohl des Kindes hat Vorrang', cordBoxP: 'Im Geburtsplan halten wir ausdrücklich fest, dass das verzögerte Abnabeln Vorrang vor der Menge des entnommenen Blutes hat. Wenn der Zustand von Kind oder Mutter es erfordert — verzichten wir auf die Entnahme.', cordCta: 'Banken vergleichen und Fragenliste erhalten', cordListH: 'Was Sie vor der Geburt wissen sollten', cordLi1T: 'Der Vertrag wird während der Schwangerschaft unterzeichnet', cordLi1P: 'Das Entnahmeset kommt per Post — Sie bringen es mit in die Klinik.', cordLi2T: 'Informieren Sie das Personal bei der Aufnahme', cordLi2P: 'Sie übergeben Set und Unterlagen der Hebamme — am besten im Geburtsplan vermerkt.', cordLi3T: 'Die Entnahme dauert wenige Minuten', cordLi3P: 'Blut wird direkt nach dem Abnabeln des Kindes aus der Nabelschnurvene entnommen.', cordLi4T: 'Ein Kurier holt das Material ab', cordLi4P: 'Sie melden die Abholung — Transport und Formalitäten übernimmt die Bank.', cordDisc: 'Wir sind mit keiner Stammzellenbank verbunden und erhalten keine Provision. Wir schreiben darüber, weil wir es selbst nutzen.', schoolKicker: 'Geburtsvorbereitung', schoolH: 'Sie gehen zum Geburtsvorbereitungskurs? Gute Entscheidung — nehmen Sie Ihren Plan mit', schoolP1: 'Ein Geburtsvorbereitungskurs ist die beste Investition in eine ruhige Geburt: Atmung und Gebärpositionen, Stillen, Erste Hilfe beim Neugeborenen, die Rolle des Vaters bei der Geburt. Kurse sind bei vielen Hebammen kostenlos — fragen Sie nach.', schoolP2: 'Geburtsplan und Geburtsvorbereitungskurs funktionieren am besten zusammen: Im Kurs erwerben Sie Wissen, der Plan macht daraus konkrete, festgehaltene Entscheidungen. Erstellen Sie eine Vorschau und besprechen Sie sie mit Ihrer Hebamme — die beste Rückmeldung vor der Geburt.', schoolCta: 'Plan für den Kurs vorbereiten', faqQ1: 'Ist der Geburtsplan für die Klinik bindend?', faqA1: 'Der Geburtsplan ist ein Dokumentationselement, das im Organisatorischen Standard der perinatalen Versorgung vorgesehen ist. Das Personal muss ihn zur Kenntnis nehmen und mit Ihnen besprechen. Medizinische Entscheidungen hängen immer von der klinischen Situation ab — aber ein gut vorbereiteter Plan sorgt dafür, dass Ihre Prioritäten von der ersten Minute an bekannt sind.', faqQ2: 'Wann ist der beste Zeitpunkt für die Erstellung eines Geburtsplans?', faqA2: 'Zwischen der 30. und 36. Schwangerschaftswoche. So bleibt Zeit, den Plan mit Ihrem Arzt und Ihrer Hebamme zu besprechen und zu prüfen, was Ihre Klinik anbietet.', faqQ3: 'Was unterscheidet Sie von kostenlosen Vorlagen?', faqA3: 'Vorlagen sind allgemein und oft veraltet. Unser Plan ist personalisiert, basiert auf aktuellen Empfehlungen, mit dem umfangreichsten Neugeborenen-Abschnitt am Markt und einer praktischen Checkliste für den Vater. Ein Dokument, das das Personal mit Respekt liest.', faqQ4: 'Neugeborenen-Impfungen in der Klinik — wie halten wir unsere Entscheidung im Plan fest?', faqA4: 'Impfungen sind ein emotionales Thema, aber die Fakten sind einfach: Hepatitis-B- und BCG-Impfungen schützen das Kind und sind in Polen Standard am ersten Tag. Eltern haben zugleich das Recht auf informierte Zustimmung — manche Familien lassen die Impfungen später beim gewählten Kinderarzt nach einem vereinbarten Zeitplan durchführen. Unser Generator lässt Sie beide Entscheidungen klar und respektvoll festhalten, samt einem wichtigen Sicherheitshinweis (z. B. Hepatitis-B-Impfung in der Klinik, wenn der HBsAg-Befund der Mutter positiv oder unbekannt ist). So basiert das Gespräch mit dem Personal auf einem Dokument, nicht auf einer Flurdiskussion. Unabhängig von der Entscheidung empfehlen wir: Sprechen Sie mit Ihrem Arzt über Impfungen — der Geburtsplan soll dieses Gespräch erleichtern, nicht ersetzen.', faqQ5: 'Was, wenn die Geburt anders verläuft als geplant?', faqA5: 'Der Plan ist kein Drehbuch, sondern eine Landkarte Ihrer Prioritäten. Im Premium-Paket finden Sie einen „Plan B"-Abschnitt — Kaiserschnitt, Einleitung, unvorhergesehene Situationen — damit Sie auf jedes Szenario vorbereitet sind.', popupSubmit: 'Sende mir den Plan-Link', popupSkip: 'Nicht jetzt, weiter →', popupNote: 'Ihr Fortschritt wird in diesem Browser trotzdem gespeichert.', whyStat1: 'Generator-Schritte', whyStat2: 'fertige Präferenzen', whyStat3: 'Haut-zu-Haut-Kontakt', whyStat4: 'Sprachversionen', planBadge1: 'Starter', planBadge2: 'Empfohlen · 2 neue PDFs', planName1: 'GeburtsplanBasis', planName2: 'GeburtsplanPremium', planName3: 'PaketPremium+', planStd: 'Konform mit dem Standard 2025 Pos. 1525', buyBtn: 'Jetzt kaufen', consentText: 'Ich stimme der sofortigen Bereitstellung digitaler Inhalte zu und nehme den Verlust des gesetzlichen Widerrufsrechts zur Kenntnis (die <a href="/formularz-odstapienia" class="underline">30-Tage-Geld-zurück-Garantie</a> bleibt bestehen).', basic1: 'Personalisierter Geburtsplan als PDF', basic2: '8 Abschnitte: von Bedingungen bis Wochenbett', basic3: 'Übergeordnete Sicherheitsklausel', basic4: 'Druckfertiges A4-Format', prem1: 'Alles aus Basis', prem2: 'Kurzversion „für die Zimmertür"', prem3: 'Checkliste für den Vater (Wehen bis Entlassung)', prem4: 'Leitfaden „Erste 24 Stunden"', prem5: 'Anleitung zur Geburtspfeife + Modellempfehlung', prem6: '🫁 NEU: Atemtechniken und Entspannung für die Geburt', prem7: '📋 NEU: Fragen an Ihren Frauenarzt', prem8: 'Planaktualisierung bis zum Geburtstermin', plus1: 'Premium-Geburtsplan (komplett)', plus2: 'Wochenbett-Plan — erste 6 Wochen', plus3: 'Premium-Kliniktaschen-Liste (70+ Posten)', plus4: 'Checkliste für den Vater (9 Phasen)', plus5: '🧘‍♀️ NEU: Leitfaden Beckenboden-Physiotherapie', plus6: '😴 NEU: Leitfaden Babyschlaf', plus7: '🥗 NEU: Leitfaden Ernährung & Nahrungsergänzung', plus8: '🫁 Atemtechniken und Entspannung', plus9: '📋 Fragen an Ihren Frauenarzt', plus10: '🎁 GRATIS: Checkliste Erstausstattung Baby', plus11: '🅿️ BONUS: Antragsschreiben Kinderwagenraum'
+      badge1: 'Vater, kein Arzt', badge2: '📋 Basiert auf dem Standard 2026', badge3: '🏥 Mit Hebammen geprüft', dadKicker: 'Entstehungsgeschichte', dadH: 'Von einem Vater gemacht. Kein Konzern, kein Startup — ein Vater, der auf die Geburt seiner Tochter wartet.', dadP1: 'Als wir uns für den Geburtsvorbereitungskurs anmeldeten, bekam ich ein Standard-Klinikformular. Zwei Seiten, leere Kästchen, keine Erklärung. Ich suchte nach etwas Besserem — für unsere Sicherheit, nicht als Geschäftsprojekt.', dadP2: 'Ich fand nichts. Also habe ich es selbst gebaut. Wochenlang las ich den Standard der perinatalen Versorgung, sprach mit Hebammen und sah mir an, wie andere Pläne in Kliniken aussehen. Das Ergebnis kam zuerst in unsere eigene Kliniktasche — und jetzt hierher, für Sie.', dadWhyH: 'Warum ist es wichtig, dass ein Vater das gemacht hat?', dadLi1: 'Die Perspektive des Partners', dadLi2: 'Fragen, die Hebammen nicht stellen', dadLi3: 'Keine Konzern-Distanz', dadDisc: 'Wichtig: Ich bin Vater, kein Arzt. Die Inhalte sind edukativ und organisatorisch — alle medizinischen Entscheidungen trifft Ihr Arzt oder Ihre Hebamme.', trust1: '✓ Konform mit dem Standard der perinatalen Versorgung', trust2: '✓ 30 Tage Geld-zurück-Garantie', trust3: '✓ Ihre Daten verlassen nie Ihren Browser', trust4: '✓ Fertiges PDF in 24 Std.', whistleP1: 'Eine einfache, aber geniale Atemtechnik für Wehen. Ein kontrolliertes, langes Ausatmen durch eine Pfeife (oder einen Strohhalm) hilft beim Entspannen, Spannung abzubauen und eine Wehe zu „durchfahren" — statt die Luft anzuhalten und sich zu verkrampfen. Eine einfache Sache, über die in den meisten Kursen nicht gesprochen wird.', whistleP2: 'Im Premium-Geburtsplan-Paket finden Sie eine Schritt-für-Schritt-Anleitung zur Geburtspfeife sowie die Empfehlung eines bewährten Modells — bereit für die Kliniktasche.', bloodP1: 'Als Anna im achten Monat schwanger war, spendete ich zum ersten Mal Blut. Nicht um ein Held zu sein. Weil ich etwas Konkretes tun wollte. Eine Spende kann bis zu drei Leben retten — Blut wird in Bestandteile aufgeteilt. Nach 25 Jahren in der Medizin weiß ich: Blut kann man nicht im Labor herstellen.', bloodP2: 'Polen braucht täglich 1.500 Liter Blut. Besonders knapp ist Gruppe 0 Rh–. Blut ist nur 42 Tage haltbar — die Vorräte müssen ständig aufgefüllt werden. Weniger als 2% der Polen spenden. 4% würden reichen.', bloodCta: 'Lesen: warum Blutspenden wichtig ist →', intimP: 'Hormone verändern die Lust wellenförmig, und viele Paare trauen sich nicht zu fragen, ob Sex für das Baby sicher ist. Ein Gynäkologe und Sexualtherapeut mit 25 Jahren Erfahrung antwortet sachlich — ohne Scham, ohne Umschweife.', intimCta: 'Artikel lesen →', honKicker: 'Ehrlich, wo wir stehen', honH: 'Wir starten gerade. Wir haben noch keine hunderten Bewertungen — und wir tun nicht so, als hätten wir sie.', honP1: 'Ich könnte hier fünf erfundene Zitate mit lächelnden Stockfotos einfügen. Viele Seiten tun das. Ich werde es nicht tun — denn wenn ich Ihnen ein Dokument verkaufen will, dem Sie an einem der wichtigsten Tage Ihres Lebens vertrauen, kann ich nicht mit einer Lüge beginnen.', honP2: 'Statt Bewertungen zeige ich Ihnen, was Sie selbst überprüfen können.', honStat0: 'von Eltern im Generator erstellte Geburtspläne', honStat1: 'Generator-Schritte zu Geburt, Kaiserschnitt, Neugeborenem und Wochenbett', honStat2: 'fertige Präferenzen — jede mit Bezug zum geltenden Standard', honStat3: 'kostenlose Wissensartikel — ohne Registrierung', honStat4: '2025 Pos. 1525 — der Standard, auf dem jede Option basiert', honBox1T: 'Dasselbe Dokument habe ich für meine eigene Tochter', honBox1P: 'Der Geburtsplan für Anna und Wiktoria durchlief fünf Versionen und hat elf Seiten. Ich verkaufe Ihnen nichts, was ich nicht selbst nutzen würde — ich werde es in wenigen Wochen selbst verwenden.', honBox2T: 'Prüfen Sie, bevor Sie zahlen', honBox2P: 'Der ganze Generator ist kostenlos. Durchlaufen Sie alle 13 Schritte, sehen Sie die Zusammenfassung, und entscheiden Sie erst dann, ob Sie das Dokument herunterladen möchten.', honCtaKicker: 'Für unsere ersten Eltern', honCtaH: 'Seien Sie unter den ersten Bewertungen hier', honCtaP: 'Wenn Sie den Plan in diesen ersten Wochen kaufen — schreiben Sie mir nach der Geburt, wie es gelaufen ist. Ich stelle Ihre Worte hier ein, signiert wie Sie möchten. Und sollte Sie das Dokument in irgendeiner Weise enttäuschen, erstatte ich Ihr Geld ohne Fragen.', honCtaBtn: 'Erstellen Sie Ihren Plan →', honFoot: 'Bewertungen werden ausschließlich von Personen veröffentlicht, die das Paket tatsächlich gekauft haben — gemäß den Anforderungen zur Verifizierung von Verbraucherbewertungen.', howKicker: 'So funktioniert\'s', howSub: 'Der gesamte Prozess dauert nur wenige Minuten. Der Fortschritt wird automatisch gespeichert, sodass Sie jederzeit zurückkehren können.', how1T: 'Sie füllen den Generator aus', how2T: 'Sie sehen eine Live-Vorschau', how3T: 'Sie kaufen das Paket', how4T: 'Sie gehen vorbereitet hin', heroFreeNote: 'Kostenlose Vorschau · Zahlung erst beim Download', cordKicker: 'Eine einmalige Entscheidung im Leben', cordH: 'Nabelschnurblut — Ihre einzige Chance ist am Tag der Geburt', cordP1: 'Nach dem Abnabeln bleibt in Nabelschnur und Plazenta stammzellenreiches Blut zurück. Es kann nur einmal im Leben entnommen werden — innerhalb weniger Minuten nach der Geburt. Danach ist das Material unwiederbringlich verloren.', cordP2: 'Die Entnahme ist für Mutter und Kind nicht-invasiv, stört den Geburtsverlauf nicht und ist auch bei einem Kaiserschnitt möglich. Sie erfordert keine Verkürzung des Haut-zu-Haut-Kontakts.', cordBoxT: 'Unsere Haltung: Das Wohl des Kindes hat Vorrang', cordBoxP: 'Im Geburtsplan halten wir ausdrücklich fest, dass das verzögerte Abnabeln Vorrang vor der Menge des entnommenen Blutes hat. Wenn der Zustand von Kind oder Mutter es erfordert — verzichten wir auf die Entnahme.', cordCta: 'Banken vergleichen und Fragenliste erhalten', cordListH: 'Was Sie vor der Geburt wissen sollten', cordLi1T: 'Der Vertrag wird während der Schwangerschaft unterzeichnet', cordLi1P: 'Das Entnahmeset kommt per Post — Sie bringen es mit in die Klinik.', cordLi2T: 'Informieren Sie das Personal bei der Aufnahme', cordLi2P: 'Sie übergeben Set und Unterlagen der Hebamme — am besten im Geburtsplan vermerkt.', cordLi3T: 'Die Entnahme dauert wenige Minuten', cordLi3P: 'Blut wird direkt nach dem Abnabeln des Kindes aus der Nabelschnurvene entnommen.', cordLi4T: 'Ein Kurier holt das Material ab', cordLi4P: 'Sie melden die Abholung — Transport und Formalitäten übernimmt die Bank.', cordDisc: 'Wir sind mit keiner Stammzellenbank verbunden und erhalten keine Provision. Wir schreiben darüber, weil wir es selbst nutzen.', schoolKicker: 'Geburtsvorbereitung', schoolH: 'Sie gehen zum Geburtsvorbereitungskurs? Gute Entscheidung — nehmen Sie Ihren Plan mit', schoolP1: 'Ein Geburtsvorbereitungskurs ist die beste Investition in eine ruhige Geburt: Atmung und Gebärpositionen, Stillen, Erste Hilfe beim Neugeborenen, die Rolle des Vaters bei der Geburt. Kurse sind bei vielen Hebammen kostenlos — fragen Sie nach.', schoolP2: 'Geburtsplan und Geburtsvorbereitungskurs funktionieren am besten zusammen: Im Kurs erwerben Sie Wissen, der Plan macht daraus konkrete, festgehaltene Entscheidungen. Erstellen Sie eine Vorschau und besprechen Sie sie mit Ihrer Hebamme — die beste Rückmeldung vor der Geburt.', schoolCta: 'Plan für den Kurs vorbereiten', faqQ1: 'Ist der Geburtsplan für die Klinik bindend?', faqA1: 'Der Geburtsplan ist ein Dokumentationselement, das im Organisatorischen Standard der perinatalen Versorgung vorgesehen ist. Das Personal muss ihn zur Kenntnis nehmen und mit Ihnen besprechen. Medizinische Entscheidungen hängen immer von der klinischen Situation ab — aber ein gut vorbereiteter Plan sorgt dafür, dass Ihre Prioritäten von der ersten Minute an bekannt sind.', faqQ2: 'Wann ist der beste Zeitpunkt für die Erstellung eines Geburtsplans?', faqA2: 'Zwischen der 30. und 36. Schwangerschaftswoche. So bleibt Zeit, den Plan mit Ihrem Arzt und Ihrer Hebamme zu besprechen und zu prüfen, was Ihre Klinik anbietet.', faqQ3: 'Was unterscheidet Sie von kostenlosen Vorlagen?', faqA3: 'Vorlagen sind allgemein und oft veraltet. Unser Plan ist personalisiert, basiert auf aktuellen Empfehlungen, mit dem umfangreichsten Neugeborenen-Abschnitt am Markt und einer praktischen Checkliste für den Vater. Ein Dokument, das das Personal mit Respekt liest.', faqQ4: 'Neugeborenen-Impfungen in der Klinik — wie halten wir unsere Entscheidung im Plan fest?', faqA4: 'Impfungen sind ein emotionales Thema, aber die Fakten sind einfach: Hepatitis-B- und BCG-Impfungen schützen das Kind und sind in Polen Standard am ersten Tag. Eltern haben zugleich das Recht auf informierte Zustimmung — manche Familien lassen die Impfungen später beim gewählten Kinderarzt nach einem vereinbarten Zeitplan durchführen. Unser Generator lässt Sie beide Entscheidungen klar und respektvoll festhalten, samt einem wichtigen Sicherheitshinweis (z. B. Hepatitis-B-Impfung in der Klinik, wenn der HBsAg-Befund der Mutter positiv oder unbekannt ist). So basiert das Gespräch mit dem Personal auf einem Dokument, nicht auf einer Flurdiskussion. Unabhängig von der Entscheidung empfehlen wir: Sprechen Sie mit Ihrem Arzt über Impfungen — der Geburtsplan soll dieses Gespräch erleichtern, nicht ersetzen.', faqQ5: 'Was, wenn die Geburt anders verläuft als geplant?', faqA5: 'Der Plan ist kein Drehbuch, sondern eine Landkarte Ihrer Prioritäten. Im Premium-Paket finden Sie einen „Plan B"-Abschnitt — Kaiserschnitt, Einleitung, unvorhergesehene Situationen — damit Sie auf jedes Szenario vorbereitet sind.', popupSubmit: 'Sende mir den Plan-Link', popupSkip: 'Nicht jetzt, weiter →', popupNote: 'Ihr Fortschritt wird in diesem Browser trotzdem gespeichert.', whyStat1: 'Generator-Schritte', whyStat2: 'fertige Präferenzen', whyStat3: 'Haut-zu-Haut-Kontakt', whyStat4: 'Sprachversionen', planBadge1: 'Starter', planBadge2: 'Empfohlen · 2 neue PDFs', planName1: 'GeburtsplanBasis', planName2: 'GeburtsplanPremium', planName3: 'PaketPremium+', planStd: 'Konform mit dem Standard 2025 Pos. 1525', buyBtn: 'Jetzt kaufen', consentText: 'Ich stimme der sofortigen Bereitstellung digitaler Inhalte zu und nehme den Verlust des gesetzlichen Widerrufsrechts zur Kenntnis (die <a href="/formularz-odstapienia" class="underline">30-Tage-Geld-zurück-Garantie</a> bleibt bestehen).', basic1: 'Personalisierter Geburtsplan als PDF', basic2: '8 Abschnitte: von Bedingungen bis Wochenbett', basic3: 'Übergeordnete Sicherheitsklausel', basic4: 'Druckfertiges A4-Format', prem1: 'Alles aus Basis', prem2: 'Kurzversion „für die Zimmertür"', prem3: 'Checkliste für den Vater (Wehen bis Entlassung)', prem4: 'Leitfaden „Erste 24 Stunden"', prem5: 'Anleitung zur Geburtspfeife + Modellempfehlung', prem6: '🫁 NEU: Atemtechniken und Entspannung für die Geburt', prem7: '📋 NEU: Fragen an Ihren Frauenarzt', prem8: 'Planaktualisierung bis zum Geburtstermin', plus1: 'Premium-Geburtsplan (komplett)', plus2: 'Wochenbett-Plan — erste 6 Wochen', plus3: 'Premium-Kliniktaschen-Liste (70+ Posten)', plus4: 'Checkliste für den Vater (9 Phasen)', plus5: '🧘‍♀️ NEU: Leitfaden Beckenboden-Physiotherapie', plus6: '😴 NEU: Leitfaden Babyschlaf', plus7: '🥗 NEU: Leitfaden Ernährung & Nahrungsergänzung', plus8: '🫁 Atemtechniken und Entspannung', plus9: '📋 Fragen an Ihren Frauenarzt', plus10: '🎁 GRATIS: Checkliste Erstausstattung Baby', plus11: '🅿️ BONUS: Antragsschreiben Kinderwagenraum',
+      skipLink: 'Zum Inhalt springen',
+      mmCta: 'Geburtsplan erstellen →',
+      heroFigcap: 'Haut-zu-Haut-Kontakt zwischen Vater und Neugeborenem',
+      langNote: '🌍 Sie gebären in Polen, sprechen aber kein Polnisch? Sprachversionen: 🇬🇧 English · 🇩🇪 Deutsch · 🇺🇦 Українська',
+      howCta: 'Erstellen Sie Ihren Plan',
+      pricingH2: 'Wählen Sie Ihr Set',
+      pricingSub: 'Jedes PDF basiert auf medizinischem Wissen und der Erfahrung von Eltern. Druckfertig — für die Klinik und für zu Hause.',
+      saveBadge: 'Sie sparen 213 PLN',
+      strollKicker: 'Ein Bonus, den kaum jemand kennt',
+      strollH: 'Wussten Sie, dass Sie einen Kinderwagenstellplatz beantragen können?',
+      strollP1: 'In vielen Wohnblocks und Genossenschaften gibt es Kinderwagenräume. Die meisten Eltern wissen nicht, dass sie einen offiziellen Antrag auf einen Stellplatz stellen können. Ein 2-in-1-Kinderwagen passt nicht in den Aufzug, und ihn täglich die Treppe hochzutragen ist in den ersten Monaten ein Albtraum.',
+      strollP2: 'Im Premium+-Paket legen wir ein fertiges, professionell verfasstes Antragsschreiben als PDF mit leeren Feldern bei — einfach ausdrucken, Daten eintragen und bei der Hausverwaltung einreichen. Ein Dokument, das Ihnen monatelanges Schleppen ersparen kann.',
+      strollCta: 'Antragsschreiben im Premium+-Paket sichern →',
+      payH: 'Zwei vertrauenswürdige Zahlungsmethoden',
+      payP: '<strong>PayHip</strong> — Karte, Apple Pay, Google Pay, PayPal, Przelewy24 (international). <strong>BLIK</strong> — die Sofortüberweisung, die die meisten Polen nutzen. Sie wählen, was Ihnen passt.',
+      payBlik: '<strong>Zahlung per BLIK:</strong> Nach dem Klick auf „Kaufen“ wählen Sie BLIK im PayHip-Gateway und bestätigen in Ihrer Banking-App — der Plan steht sofort nach der Zahlung zum Download bereit.',
+      paySign: '— Michał, Vater und Gründer',
+      payLegal: 'Mit dem Kauf stimmen Sie der Lieferung digitaler Inhalte vor Ablauf der Widerrufsfrist zu und nehmen den Verlust des gesetzlichen Widerrufsrechts zur Kenntnis (Art. 38 Abs. 1 Nr. 13 des polnischen Verbraucherrechtsgesetzes). Es gilt eine 30-tägige Geld-zurück-Garantie. Details in den <a href="/regulamin" class="underline">AGB</a>.',
+      sp1N: 'Wochenbettplan',
+      sp2N: 'Stillratgeber',
+      sp3N: 'Kaiserschnittplan',
+      sp4N: 'Tragetuch-Basics',
+      sp5N: 'Checkliste für den Vater',
+      sp6N: 'Kliniktasche',
+      sp7N: 'Urogynäkologische Physiotherapie',
+      sp8N: 'Babyschlaf',
+      sp9N: 'Ernährung und Supplementierung',
+      spPdf39: '39 PLN · PDF',
+      spGuide59: '59 PLN · PDF-Ratgeber, 16 S.',
+      spPdf29: '29 PLN · PDF',
+      sp1P: '49 PLN · PDF',
+      sp4P: '29 PLN · PDF-Ratgeber',
+      sp5P: '29 PLN · PDF',
+      sp6P: '19 PLN · PDF-Checkliste',
+      sp7P: '49 PLN · PDF-Übungsheft, 16 S.',
+      freeBox: '<strong class="text-white">Der gesamte Generator ist kostenlos.</strong> Sie zahlen erst am Ende, wenn Sie das fertige PDF herunterladen möchten.',
+      privBox: '<strong class="text-deep">Ihre Daten bleiben in diesem Browser.</strong> Ihre Antworten — einschließlich Gesundheitsangaben wie Blutgruppe, HBsAg oder GBS — speichern wir ausschließlich lokal auf Ihrem Gerät. <strong>Wir senden sie an keinen Server</strong>, denn wir haben keinen. Sie können sie jederzeit über die Schaltfläche „Neu beginnen“ löschen. <a href="/polityka-prywatnosci" class="underline">Datenschutzerklärung</a>',
+      lmH: 'Kostenlose Mini-Checkliste: „7 Fragen zur Sicherheit Ihres Kindes, die Sie in der Klinik stellen sollten“',
+      lmP: 'Eine konkrete, einseitige Liste von Michał. Hinterlassen Sie Ihre Adresse — wir senden das PDF und melden uns, wenn neue Tools starten.',
+      lmBtn: 'Checkliste senden',
+      lmConsent: 'Ich willige in die Verarbeitung meiner E-Mail-Adresse zum Erhalt der Checkliste und von Informationen über Tools ein, gemäß der <a href="/polityka-prywatnosci" class="underline">Datenschutzerklärung</a>. Ich kann die Einwilligung jederzeit widerrufen.',
+      lmSpam: 'Kein Spam. Abmeldung mit einem Klick.',
+      popupP: 'Eine Seite Konkretes von einem Vater für Eltern — was Sie in der Klinik prüfen sollten, bevor Ihr Kind geboren wird.',
+      popupConsent: 'Ich willige in die Verarbeitung meiner E-Mail zum Versand der Checkliste ein, gemäß der <a href="/polityka-prywatnosci" class="underline">Datenschutzerklärung</a>.',
+      popupBtn: 'Checkliste senden',
+      popupSpam: 'Kein Spam. Abmeldung mit einem Klick.',
+      egKicker: 'Sie sind auf halbem Weg',
+      egH: 'Fortschritt speichern?',
+      egP: 'Wir senden Ihnen einen Link, mit dem Sie auf jedem Gerät zu Ihrem Plan zurückkehren können. Kein Spam — nur dieser Link und einige praktische Hinweise vor der Geburt.',
+      egConsent: 'Ich stimme dem Erhalt des Links und von E-Mail-Nachrichten zu. Die Daten verarbeitet PoródNaMiarę.pl gemäß der <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">Datenschutzerklärung</a>. Ich kann mich jederzeit abmelden.',
+      searchHint: 'Mindestens 2 Zeichen eingeben · ↑↓ navigieren · Enter öffnen · Esc schließen',
+      footBlog: 'Wissen / Artikel',
+      footCopy: '© 2026 PoródNaMiarę.pl · Ihre Geburt. Ihr Plan. · #geburtsplan #porodnamiare #bewusstegeburt',
+      blogAll: 'Alle Artikel ansehen',
+      readMore: 'Weiterlesen →',
+      bk1: 'Neu · Wochenbett',
+      bk2: 'Neu · Geburt',
+      bk3: 'Gesundheit in der Schwangerschaft',
+      bk4: 'Neu · Frühgeborenes',
+      bk5: 'Neu · Entscheidungen',
+      bk6: 'Neu · Klinikwahl',
+      bk7: 'Neu · Sicherheit',
+      bk8: 'Perinatale Entscheidungen',
+      bk9: 'Neugeborenes · Sicherheit',
+      bk10: 'Neugeborenes · Entscheidungen',
+      bk11: 'Geburt · Planung',
+      bt1: 'Kaiserschnittnarbe — Mobilisation Schritt für Schritt',
+      bt2: 'Geburtsanzeichen — wann in die Klinik',
+      bt3: 'Schwangerschaftsdiabetes — Ernährung und Geburt',
+      bt4: 'Frühgeborenes, Inkubator und die Neugeborenenstation',
+      bt5: 'Nabelschnurblut — PBKM oder Progenis?',
+      bt6: 'Bekomme ich in dieser Klinik eine PDA?',
+      bt7: 'Erste Hilfe bei Neugeborenen und Kleinkindern',
+      bt8: 'Nabelschnurblut-Banking — ein Ratgeber für Eltern',
+      bt9: 'Sicherheit des Neugeborenen während der Geburt — worauf es wirklich ankommt',
+      bt10: 'Impfungen des Neugeborenen — Fakten, Elternentscheidung und aktuelle Empfehlungen',
+      bt11: 'Wie man einen Geburtsplan schreibt — Vorlage, 8 Abschnitte und die häufigsten Fehler',
+      be1: 'Vier Techniken, ein Wochenplan und vier Mythen, die schaden.',
+      be2: 'Die 5-1-1-Regel, Blasensprung, Warnzeichen. Alles, was man vorher wissen sollte.',
+      be3: 'Ernährungsregeln, Zuckerwerte, Auswirkungen auf Geburt und Neugeborenenversorgung.',
+      be4: 'Ein kompletter Ratgeber: Inkubator, Ausstattung der Intensivstation, Känguru-Methode, korrigiertes Alter und Urlaub bis zu 15 Wochen.',
+      be5: 'Ein unparteiischer Vergleich der Banken, 12 Fragen vor Vertragsabschluss und eine Musterformulierung für den Geburtsplan.',
+      be6: 'Wie Sie eine Einrichtung vor der Geburt prüfen und was Sie in der Aufnahme fragen sollten.',
+      be7: 'Verschlucken, Atemstillstand, Fieber, Krampfanfälle, Verbrennungen. Schritt-für-Schritt-Vorgehen und Warnsignale.',
+      be8: 'Die einzige Chance ist der Tag der Geburt. Wie die Entnahme abläuft, was sie kostet und warum verzögertes Abnabeln Vorrang hat.',
+      be9: 'Haut-zu-Haut-Kontakt, verzögertes Abnabeln und die ständige Anwesenheit eines Elternteils bei Eingriffen sind Maßnahmen mit belegter Wirkung auf die Gesundheit des Kindes.',
+      be10: 'Impfungen schützen das Kind — und Eltern haben das Recht, bewusst zu entscheiden, wo und wann sie erfolgen.',
+      be11: 'Ein kompletter Ratgeber: Was ein wirksamer Geburtsplan enthalten muss, wie man Erwartungen formuliert und welche Formulierungen man vermeiden sollte.',
+      ct1: 'Geburtsplan und Kaiserschnitt — ein kompletter Ratgeber',
+      ct2: 'Die ersten 24 Stunden im Leben eines Neugeborenen — was passiert',
+      ct3: 'Remifentanil-PCA — die Schmerzlinderung, die kaum jemand kennt',
+      ce1: 'Kann man beim Kaiserschnitt einen Plan haben? Ja. Haut-zu-Haut im OP, Partner anwesend, erstes Anlegen — gemäß dem Standard 2026.',
+      ce2: 'Haut-zu-Haut-Kontakt, Vitamin K, Screening-Untersuchungen, Impfungen, Rooming-in. Der erste Tag Schritt für Schritt und wo Sie wirklich Einfluss haben.',
+      ce3: 'Ein kurz wirksames Opioid, das die Gebärende selbst steuert — manchmal die Rettung, wenn keine PDA verfügbar ist. Wann und für wen.',
+      buyP49: '— 49 PLN',
+      buyP99: '— 99 PLN',
+      buyP219: '— 219 PLN',
+      valueSep: 'Einzeln: 432 PLN ·',
+      newBadge: 'NEU',
+      footPriv: 'Datenschutzerklärung'
     }
   };
   const PL_DEFAULTS = {};
   document.querySelectorAll('[data-i18n]').forEach(el => { PL_DEFAULTS[el.dataset.i18n] = el.innerHTML; });
-  function setLang(l) {
+  const PL_PH = {};
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { PL_PH[el.dataset.i18nPh] = el.placeholder; });
+  const PL_ARIA = {};
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => { PL_ARIA[el.dataset.i18nAria] = el.getAttribute('aria-label') || ''; });
+
+  function setLang(l, fromUser) {
     document.documentElement.lang = l === 'uk' ? 'uk' : l;
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const k = el.dataset.i18n;
       el.innerHTML = (l === 'pl') ? PL_DEFAULTS[k] : (I18N[l] && I18N[l][k]) || PL_DEFAULTS[k];
     });
-    localStorage.setItem('lang', l);
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      const k = el.dataset.i18nPh;
+      el.placeholder = (l === 'pl') ? PL_PH[k] : (I18N[l] && I18N[l][k]) || PL_PH[k];
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+      const k = el.dataset.i18nAria;
+      el.setAttribute('aria-label', (l === 'pl') ? PL_ARIA[k] : (I18N[l] && I18N[l][k]) || PL_ARIA[k]);
+    });
+    try { localStorage.setItem('lang', l); } catch(e){}
+    // Kreator podąża za językiem strony, chyba że użytkownik nadpisał go ręcznie.
+    var manual = false;
+    try { manual = localStorage.getItem('pnm_kreator_lang_manual') === '1'; } catch(e){}
+    if (!manual && typeof window.PNM_setKreatorLang === 'function') {
+      try { window.PNM_setKreatorLang(l, false); } catch(e){}
+    }
   }
+  window.PNM_setPageLang = setLang;
   const langSel = document.getElementById('langSwitch');
-  const saved = localStorage.getItem('lang') || 'pl';
+  let saved = 'pl';
+  try { saved = localStorage.getItem('lang') || 'pl'; } catch(e){}
   langSel.value = saved; if (saved !== 'pl') setLang(saved);
-  langSel.addEventListener('change', e => setLang(e.target.value));
+  langSel.addEventListener('change', e => setLang(e.target.value, true));
 
   // ===== Menu mobilne =====
   const menuBtn = document.getElementById('menuBtn');
@@ -2343,18 +2744,18 @@ tailwind.config = {
   <div class="bg-sand rounded-3xl max-w-md w-full p-6 md:p-7 shadow-2xl">
     <div class="flex items-start justify-between gap-3 mb-3">
       <div>
-        <p class="text-tealsoft font-semibold text-xs uppercase tracking-[0.2em] mb-1.5">Jesteście w połowie</p>
-        <h3 id="egTitle" class="font-display text-xl font-semibold text-deep">Zapisać Wasz postęp?</h3>
+        <p data-i18n="egKicker" class="text-tealsoft font-semibold text-xs uppercase tracking-[0.2em] mb-1.5">Jesteście w połowie</p>
+        <h3 data-i18n="egH" id="egTitle" class="font-display text-xl font-semibold text-deep">Zapisać Wasz postęp?</h3>
       </div>
       <button type="button" id="egClose" aria-label="Zamknij" class="flex-shrink-0 w-9 h-9 rounded-full hover:bg-sanddark flex items-center justify-center text-ink/60 text-xl leading-none">&times;</button>
     </div>
-    <p class="text-[15px] text-ink/80 leading-relaxed mb-4">Wyślemy link, dzięki któremu wrócicie do planu na dowolnym urządzeniu. Bez spamu — tylko ten link i kilka praktycznych wskazówek przed porodem.</p>
+    <p data-i18n="egP" class="text-[15px] text-ink/80 leading-relaxed mb-4">Wyślemy link, dzięki któremu wrócicie do planu na dowolnym urządzeniu. Bez spamu — tylko ten link i kilka praktycznych wskazówek przed porodem.</p>
     <form id="egForm" class="flex flex-col gap-3" action="https://db2b4ec1.sibforms.com/serve/MUIFANfnleGibrfjnDwpUW_V5m46u3Aouh4DXKEmRLhrMxgEZLH7_3xjnQO1hdmpfmxxLWYy7KfG5HKQ7Qcv8XmnDP6_5R0GHQZjd6lcKwsaD2mArSK3jPYhFnpwydsQXvqljTzG0qGFcEJ026n5C8xi6diuvi_4l8B_lteWoz73ihBQDfoH1SbAlT-Jj0BFtTZp2U8lbQ5dpf5WGA==" method="post" target="_blank">
       <label for="eg-email" class="sr-only">Adres e-mail</label>
       <input id="eg-email" name="EMAIL" type="email" required autocomplete="email" placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3 bg-white text-[15px]">
       <label class="flex gap-2.5 items-start text-xs text-ink/70 leading-relaxed">
         <input type="checkbox" name="rodo" required class="mt-0.5 flex-shrink-0">
-        <span>Zgadzam się na otrzymanie linku i wiadomości e-mail. Dane przetwarza PoródNaMiarę.pl zgodnie z <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">polityką prywatności</a>. Mogę wypisać się w każdej chwili.</span>
+        <span data-i18n="egConsent">Zgadzam się na otrzymanie linku i wiadomości e-mail. Dane przetwarza PoródNaMiarę.pl zgodnie z <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">polityką prywatności</a>. Mogę wypisać się w każdej chwili.</span>
       </label>
       <button type="submit" data-i18n="popupSubmit" class="bg-teal text-white font-semibold px-6 py-3.5 rounded-full hover:bg-deep transition-colors">Wyślij mi link do planu</button>
     </form>

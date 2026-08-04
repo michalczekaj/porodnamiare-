@@ -167,37 +167,101 @@
       var e = VALUES[pl];
       return (e && e[lang]) ? e[lang] : pl;
     },
-    // Na żywo tłumaczy widoczną treść kreatora w DOM: nagłówki kroków, przyciski, etykiety opcji.
+    // Na żywo tłumaczy widoczną treść kreatora w DOM: nagłówki kroków, opisy, etykiety pól,
+    // placeholdery, przyciski, strefy zakupu/pobrania.
     // Nie rusza atrybutu value="" (dane kreatora pozostają kanoniczne po polsku).
     applyToKreator: function (lang) {
       var root = document.getElementById('kreator');
       if (!root) return;
       lang = lang || 'pl';
-      // 1) Nagłówki H2 kroków
-      var heads = root.querySelectorAll('.creator-step h3, [data-step] h3');
-      heads.forEach(function (h) {
-        if (!h.dataset.plOrig) h.dataset.plOrig = h.textContent.trim();
-        var idx = UI_STEP_TITLES.pl.indexOf(h.dataset.plOrig);
-        h.textContent = (idx > -1 && UI_STEP_TITLES[lang]) ? UI_STEP_TITLES[lang][idx] : h.dataset.plOrig;
+      var TXT = (global.PNM_I18N && global.PNM_I18N.txt) || {};
+
+      // Zapamiętuje oryginał PL raz, żeby przełączanie tam i z powrotem było bezstratne.
+      function orig(el, prop, getter) {
+        var key = 'plOrig' + prop;
+        if (el.dataset[key] === undefined) el.dataset[key] = getter();
+        return el.dataset[key];
+      }
+      function tx(pl) {
+        if (lang === 'pl') return pl;
+        var e = TXT[pl];
+        return (e && e[lang]) ? e[lang] : pl;
+      }
+
+      // 1) Nagłówki H3 kroków (osobna tablica, inna niż tytuły sekcji PDF)
+      root.querySelectorAll('.creator-step h3, [data-step] h3').forEach(function (h) {
+        var pl = orig(h, 'Txt', function () { return h.textContent.trim(); });
+        var idx = UI_STEP_TITLES.pl.indexOf(pl);
+        h.textContent = (idx > -1 && UI_STEP_TITLES[lang]) ? UI_STEP_TITLES[lang][idx] : tx(pl);
       });
+
       // 2) Etykiety opcji (span obok input w <label>) — klucz słownika to ZAWSZE input.value
-      //    (pełne zdanie kliniczne), span pokazuje zwykle skróconą etykietę PL — przy tłumaczeniu
+      //    (pełne zdanie kliniczne); span pokazuje skróconą etykietę PL, przy tłumaczeniu
       //    pokazujemy pełne, precyzyjne zdanie (dłuższe, ale poprawne merytorycznie).
+      var optionSpans = [];
       root.querySelectorAll('label > input[value]').forEach(function (inp) {
         var span = inp.nextElementSibling;
         if (!span) return;
-        if (!span.dataset.plOrig) span.dataset.plOrig = span.textContent;
-        var pl = inp.value;
-        span.textContent = (lang === 'pl') ? span.dataset.plOrig : (VALUES[pl] && VALUES[pl][lang] ? VALUES[pl][lang] : span.dataset.plOrig);
+        optionSpans.push(span);
+        var plShort = orig(span, 'Txt', function () { return span.textContent; });
+        var plFull = inp.value;
+        if (lang === 'pl') { span.textContent = plShort; return; }
+        span.textContent = (VALUES[plFull] && VALUES[plFull][lang]) ? VALUES[plFull][lang] : tx(plShort);
       });
-      // 3) Przyciski nawigacji i pobierania
+
+      // 3) Pozostałe teksty statyczne — tłumaczymy pojedyncze WĘZŁY TEKSTOWE, nie całe elementy.
+      //    Dzięki temu działają też etykiety z zagnieżdżonym <span> (np. „Imię i nazwisko rodzącej *”)
+      //    i nie niszczymy struktury HTML wewnątrz akapitów.
+      if (!root.__pnmTextNodes) {
+        var nodes = [];
+        var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+          acceptNode: function (n) {
+            if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+            var pEl = n.parentElement;
+            if (!pEl) return NodeFilter.FILTER_REJECT;
+            var tag = pEl.tagName;
+            if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'OPTION') return NodeFilter.FILTER_REJECT;
+            // treść generowana w JS ma własną ścieżkę tłumaczenia
+            if (pEl.closest('#summaryBox, #planPreview')) return NodeFilter.FILTER_REJECT;
+            if (optionSpans.indexOf(pEl) > -1) return NodeFilter.FILTER_REJECT;
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        });
+        var nd;
+        while ((nd = walker.nextNode())) nodes.push({ node: nd, pl: nd.nodeValue });
+        root.__pnmTextNodes = nodes;
+      }
+      root.__pnmTextNodes.forEach(function (rec) {
+        var pEl = rec.node.parentElement;
+        if (!pEl) return;
+        // nagłówki kroków i etykiety opcji obsłużone wcześniej — nie ruszamy ich ponownie
+        if (pEl.tagName === 'H3' || optionSpans.indexOf(pEl) > -1) return;
+        if (lang === 'pl') { rec.node.nodeValue = rec.pl; return; }
+        var key = rec.pl.trim();
+        if (!key) return;
+        var t = TXT[key];
+        if (t && t[lang]) rec.node.nodeValue = rec.pl.replace(key, t[lang]);
+      });
+
+      // 4) Placeholdery pól tekstowych
+      root.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(function (el) {
+        var pl = orig(el, 'Ph', function () { return el.placeholder; });
+        el.placeholder = (lang === 'pl') ? pl : tx(pl.trim());
+      });
+
+      // 5) Przyciski nawigacji i pobierania (własny słownik UI, ma pierwszeństwo)
       var map = {prevBtn: 'back', nextBtn: 'next', dlBtn: 'download'};
       Object.keys(map).forEach(function (id) {
         var el = document.getElementById(id);
         if (!el) return;
-        if (!el.dataset.plOrig) el.dataset.plOrig = el.textContent.trim();
-        el.textContent = (lang === 'pl') ? el.dataset.plOrig : (UI[lang] && UI[lang][map[id]]) || el.dataset.plOrig;
+        var pl = orig(el, 'Txt', function () { return el.textContent.trim(); });
+        el.textContent = (lang === 'pl') ? pl : ((UI[lang] && UI[lang][map[id]]) || tx(pl));
       });
+
+      // 6) Etykieta postępu i licznik kroków — przerysowywane przez showStep()
+      if (typeof global.PNM_refreshProgress === 'function') { try { global.PNM_refreshProgress(); } catch (e) {} }
+
+      document.documentElement.setAttribute('data-kreator-lang', lang);
       try { localStorage.setItem('pnm_kreator_lang', lang); } catch (e) {}
     }
   };

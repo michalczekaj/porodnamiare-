@@ -317,6 +317,64 @@ utrzymania. Na teraz zaimplementowane rozwiązanie usuwa realne, łatwe do
 znalezienia obejście i jest współmierne do ryzyka.
 
 ═══════════════════════════════════════════
+## WIELOJĘZYCZNOŚĆ — jak to teraz działa
+═══════════════════════════════════════════
+
+### Dwa niezależne mechanizmy
+
+**1. Język strony** (`#langSwitch` w nagłówku) — silnik `js/i18n-page.js`
+lub kod wbudowany w `index.html`. Tłumaczy elementy z atrybutem
+`data-i18n="klucz"` (a także `data-i18n-ph` dla placeholderów i
+`data-i18n-aria` dla etykiet dostępności). Słownik siedzi w `const I18N`
+w `index.html`, a na podstronach w `window.PAGE_I18N`.
+
+**2. Język treści kreatora** (`#kreatorLang`) — pliki `js/i18n-kreator.js`
+(96 fraz klinicznych + tytuły sekcji) oraz `js/i18n-kreator-ui.js`
+(opisy kroków, etykiety pól, placeholdery, strefy zakupu, podsumowanie).
+
+Kreator **domyślnie podąża za językiem strony**. Jeśli użytkownik ręcznie
+zmieni `#kreatorLang`, w localStorage zapisuje się `pnm_kreator_lang_manual=1`
+i od tej chwili wybór strony już go nie nadpisuje.
+
+### Jak dodać nowy tekst, żeby się tłumaczył
+
+**Na stronie (poza kreatorem):**
+1. Dodaj atrybut: `<p data-i18n="mojKlucz">Polski tekst</p>`
+2. Dopisz `mojKlucz: 'English text',` do bloków `en`, `de` i `uk` w `const I18N`.
+
+**W kreatorze:**
+1. Nic nie dodawaj w HTML — kluczem jest sam polski tekst.
+2. Dopisz wpis do słownika `TXT` w `js/i18n-kreator-ui.js`:
+   `"Polski tekst": { en: "...", de: "...", uk: "..." },`
+   Musi to być **dokładny** tekst z DOM (razem z gwiazdką `*` przy polach
+   wymaganych, jeśli jest częścią tego samego węzła tekstowego).
+
+**Nowa opcja (checkbox) w planie:**
+Kluczem jest `value=""` inputa (pełne zdanie kliniczne). Wpis dopisujesz do
+słownika `VALUES` w `js/i18n-kreator.js` — jest używany zarówno w UI, jak i
+przy generowaniu przetłumaczonego PDF.
+
+### Kontrola pokrycia przed wdrożeniem
+
+Aktualny stan: **272 klucze na stronie głównej, 0 braków w EN/DE/UK.**
+Kreator: 0 braków. `wiedza.html`: 17 kluczy. `dziekujemy.html`: 14 kluczy.
+
+### Co ŚWIADOMIE zostało po polsku
+
+- **Treść 39 artykułów w `/blog/`** — nagłówki i nawigacja tych stron mają
+  własne słowniki (`PAGE_I18N` w każdym pliku), ale sama treść merytoryczna
+  jest po polsku. To decyzja projektowa, nie brak: sekcja wiedzy jest opisana
+  na stronie głównej jako „(in Polish)”, a treści medyczno-prawne wymagają
+  adaptacji do systemu opieki danego kraju, nie tłumaczenia słowo w słowo.
+- **Karty artykułów na `wiedza.html`** (38 tytułów i zajawek) — z tego samego
+  powodu; przetłumaczony tytuł prowadzący do polskiego artykułu byłby mylący.
+  Na stronie głównej karty są przetłumaczone, bo nagłówek sekcji wprost
+  informuje, że artykuły są po polsku.
+- **Dokument PDF dla personelu** — zawsze po polsku, z założenia. Przy języku
+  innym niż PL kreator generuje DWA pliki: polski dla szpitala i przetłumaczony
+  dla rodzica.
+
+═══════════════════════════════════════════
 ## CHECKLISTA PRZED PUBLIKACJĄ
 ═══════════════════════════════════════════
 
@@ -332,3 +390,4 @@ znalezienia obejście i jest współmierne do ryzyka.
 - [ ] Webhook PayHip wskazuje na /api/payhip-webhook, zdarzenia paid+refunded
 - [ ] Redirect po checkoucie ustawiony na /dziekujemy dla wszystkich produktów
 - [ ] Test end-to-end: zakup → /dziekujemy pokazuje "Płatność potwierdzona" → PDF się pobiera
+- [ ] Test przełącznika języka: EN/DE/UA na stronie głównej, w kreatorze, na /wiedza i /dziekujemy
