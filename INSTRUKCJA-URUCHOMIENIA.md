@@ -214,6 +214,109 @@ Generator PDF działa lokalnie w przeglądarce klienta — brak kosztów serwero
 brak limitów, brak opłat za wygenerowany dokument.
 
 ═══════════════════════════════════════════
+## BEZPIECZNE ODBLOKOWANIE PO PŁATNOŚCI (webhook PayHip + JWT) — ~30 min
+═══════════════════════════════════════════
+
+Co się zmieniło: dawna flaga `__freshUnlock` (ustawiana samym wejściem na URL
+z `?unlocked=1`) była trywialna do obejścia z konsoli przeglądarki i przez
+ręczne wejście na /dziekujemy. Teraz odblokowanie następuje WYŁĄCZNIE po
+potwierdzeniu realnej płatności przez webhook PayHip, zapisanym w bazie Redis
+i wydanym jako podpisany token JWT (RS256, ważny 30 dni). Klucz prywatny
+nigdy nie opuszcza serwera. Nowe pliki: `api/payhip-webhook.js`,
+`api/unlock.js`, `api/verify.js`, `api/_lib/common.js`, `package.json`.
+
+### 1. Baza Redis (Upstash) — 3 minuty
+Uwaga: dawne „Vercel KV” zostało wycofane. Teraz robi się to przez Marketplace:
+1. Vercel → Twój projekt → zakładka **Storage** → **Marketplace Database
+   Integrations** → wybierz **Upstash** → **Redis** → Create.
+2. Połącz z projektem porodnamiare.pl → Vercel sam doda zmienne środowiskowe
+   (najczęściej `KV_REST_API_URL` i `KV_REST_API_TOKEN` — jeśli nazwy będą
+   inne, sprawdź w Settings → Environment Variables i dopisz brakujące pod
+   dokładnie tymi dwiema nazwami, bo tak czyta je kod).
+
+### 2. Klucz API PayHip — 1 minuta
+Payhip → Account → Settings → Developer → skopiuj **API key**.
+To NIE jest osobny „webhook secret” — PayHip liczy podpis webhooka jako
+sha256 z tego samego klucza API, więc jedna wartość służy do obu celów.
+
+### 3. Para kluczy RSA (do podpisywania JWT) — 2 minuty
+W terminalu (na swoim komputerze, nie na Vercelu):
+```
+openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out private.pem
+openssl rsa -pubout -in private.pem -out public.pem
+cat private.pem
+cat public.pem
+```
+Skopiuj całą zawartość obu plików (razem z liniami `-----BEGIN...-----`
+i `-----END...-----`) — wkleisz je do zmiennych środowiskowych w kroku 4.
+Po wklejeniu usuń `private.pem`/`public.pem` ze swojego dysku (nie trzymaj
+ich w repo, w mailu ani w chmurze bez szyfrowania).
+
+### 4. Zmienne środowiskowe w Vercel — 5 minut
+Vercel → projekt → Settings → Environment Variables, dodaj (Production +
+Preview):
+
+| Nazwa | Wartość |
+|---|---|
+| `PAYHIP_API_KEY` | klucz API z kroku 2 |
+| `RSA_PRIVATE_KEY` | pełna zawartość `private.pem` (wklej z prawdziwymi znakami nowej linii — pole Vercel jest wieloliniowe, nie trzeba nic zamieniać na `\n`) |
+| `RSA_PUBLIC_KEY` | pełna zawartość `public.pem` |
+
+Po dodaniu: **Redeploy** projektu (zmienne środowiskowe działają dopiero po
+nowym wdrożeniu).
+
+### 5. Webhook w PayHip — 2 minuty
+Payhip → Settings → Developer → **Webhooks** → wklej:
+```
+https://porodnamiare.pl/api/payhip-webhook
+```
+Zaznacz zdarzenia: **paid** i **refunded** (refunded pozwala automatycznie
+cofnąć dostęp przy zwrocie płatności).
+
+### 6. Redirect po checkoucie — 1 minuta
+Payhip → Settings → Advanced Settings → Checkout Settings → włącz redirect
+i ustaw:
+```
+https://porodnamiare.pl/dziekujemy
+```
+(dla wszystkich 3 produktów). To jedyny sposób na PayHip — redirect jest
+statyczny i nie doklei numeru transakcji, dlatego identyfikator (`sid`)
+generujemy po stronie przeglądarki PRZED wysłaniem na PayHip i wracamy po
+niego sami z Reditem po powrocie — nic więcej nie musisz tu konfigurować,
+to już działa w kodzie.
+
+### 7. Test end-to-end — 5 minut
+1. Wejdź na stronę w trybie incognito, wypełnij kreator, kliknij pakiet
+   Podstawowy, zapłać (PayHip ma tryb testowy/sandbox — sprawdź w ich
+   dokumentacji jak go włączyć dla Twojego konta, albo zrób jedną realną
+   transakcję na 49 zł i zwróć ją sobie potem).
+2. Po powrocie na /dziekujemy napis powinien zmienić się na „Płatność
+   potwierdzona ✓” w ciągu kilku sekund.
+3. Sprawdź w logach Vercel (Deployments → ostatni deploy → Functions →
+   `payhip-webhook`), czy webhook faktycznie przyszedł i zwrócił `200`.
+4. **Ważne:** w tych samych logach sprawdź w polu `body` prawdziwy kształt
+   pola `metadata` — dokumentacja PayHip nie pokazuje jednoznacznie, czy
+   dotrze jako `metadata: {sid: "..."}` czy inaczej. Jeśli w logu zobaczysz
+   ostrzeżenie „brak sid w metadata”, otwórz `api/payhip-webhook.js`,
+   znajdź funkcję `extractSid()` i dopisz właściwą ścieżkę do pola — to
+   dosłownie jeden dodatkowy `if`.
+5. Kliknij „Pobierz swój plan porodu” — PDF powinien się pobrać bez
+   komunikatu „Dokończ zakup”.
+
+### Co to realnie daje, a czego nie
+Podpięcie realnej płatności + serwerowa weryfikacja JWT zamyka najprostsze
+obejście (ręczne wejście na URL, edycja localStorage) i to jest sedno tego
+zadania. Generowanie PDF nadal dzieje się w przeglądarce (jsPDF), więc
+technicznie zaawansowany użytkownik może wywołać funkcję generującą wprost
+z konsoli deweloperskiej, omijając bramkę w JS — to ograniczenie każdego
+rozwiązania czysto klienckiego. Żeby to całkowicie zamknąć, trzeba by
+przenieść generowanie PDF na serwer (klient wysyłałby odpowiedzi + JWT,
+serwer weryfikowałby token i dopiero wtedy budował PDF do pobrania) — to
+osobny, większy projekt, wart rozważenia gdy skala sprzedaży uzasadni koszt
+utrzymania. Na teraz zaimplementowane rozwiązanie usuwa realne, łatwe do
+znalezienia obejście i jest współmierne do ryzyka.
+
+═══════════════════════════════════════════
 ## CHECKLISTA PRZED PUBLIKACJĄ
 ═══════════════════════════════════════════
 
@@ -225,3 +328,7 @@ brak limitów, brak opłat za wygenerowany dokument.
 - [ ] Plausible odkomentowany
 - [ ] Test zakupu na własnym koncie (PayHip ma tryb testowy)
 - [ ] Test pełnej ścieżki na telefonie: kreator → płatność → pobranie PDF
+- [ ] Baza Redis (Upstash) podłączona, zmienne env ustawione, redeploy wykonany
+- [ ] Webhook PayHip wskazuje na /api/payhip-webhook, zdarzenia paid+refunded
+- [ ] Redirect po checkoucie ustawiony na /dziekujemy dla wszystkich produktów
+- [ ] Test end-to-end: zakup → /dziekujemy pokazuje "Płatność potwierdzona" → PDF się pobiera

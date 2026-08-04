@@ -1833,44 +1833,85 @@ tailwind.config = {
       }
     }
 
-    // ===== ODBLOKOWANIE PO ZAKUPIE + GENEROWANIE PDF =====
-    const UKEY='pnm_unlocked_v1';
-    function isUnlocked(){ try{ return localStorage.getItem(UKEY)==='1'; }catch(e){ return false; } }
-    function setUnlocked(){ try{ localStorage.setItem(UKEY,'1'); }catch(e){} }
-    (function(){
-      var p=new URLSearchParams(location.search);
-      if(p.get('unlocked')==='1' || p.get('payhip')==='1'){
-        // Warunek dodatkowy: odblokowanie tylko jeśli w tej przeglądarce rozpoczęto zakup
-        // (klik pay-link ustawił marker). Utrudnia trywialne wpisanie ?unlocked=1 z palca.
-        var coOk = false;
-        try{
-          if(sessionStorage.getItem('pnm_co')==='1') coOk = true;
-          var ls = parseInt(localStorage.getItem('pnm_co_ls')||'0',10);
-          if(ls && (Date.now()-ls) < 24*60*60*1000) coOk = true; // powrót z PayHip w 24h
-        }catch(e){}
-        if(coOk){
-          setUnlocked();
-          window.__freshUnlock = true;  // powrót z płatności po realnym rozpoczęciu zakupu
-          try{ sessionStorage.removeItem('pnm_co'); localStorage.removeItem('pnm_co_ls'); }catch(e){}
-        }
-        try{ history.replaceState(null,'',location.pathname+location.hash); }catch(e){}
-      }
-    })();
+    // ===== ODBLOKOWANIE PO ZAKUPIE (JWT RS256 potwierdzony przez webhook PayHip) =====
+    // Zamiast lokalnego markera po powrocie z PayHip: przed wyjsciem do checkoutu generujemy
+    // losowy sid, doklejamy go jako metadata[sid] do linku PayHip. Webhook (api/payhip-webhook.js)
+    // po realnej platnosci zapisuje w Redis one-time claim pod tym sid. Po powrocie przegladarka
+    // odbiera claim (api/unlock.js, zuzywalny jednorazowo) i dostaje podpisany JWT (30 dni),
+    // ktory kazdorazowo weryfikujemy serwerowo (api/verify.js) - klucz prywatny nigdy nie
+    // opuszcza serwera. To zastepuje dawna, latwa do podrobienia flage __freshUnlock.
     function syncZones(){
       var bz=document.getElementById('buyZone'), dz=document.getElementById('downloadZone');
       if(!bz||!dz) return;
-      // Pobranie dostępne WYŁĄCZNIE przy świeżym powrocie z płatności (flaga w tej sesji),
-      // nie z trwałego localStorage — to zamyka lukę darmowego pobrania po wcześniejszym odblokowaniu.
       var u = window.__freshUnlock === true;
       bz.classList.toggle('hidden', u);
       dz.classList.toggle('hidden', !u);
     }
-    // Zapisz postep + oznacz rozpoczęcie zakupu tuz przed wyjsciem do PayHip.
-    // Marker checkout jest warunkiem odblokowania po powrocie (utrudnia ręczne ?unlocked=1).
-    function markCheckoutStarted(){ try{ sessionStorage.setItem('pnm_co','1'); localStorage.setItem('pnm_co_ls', String(Date.now())); }catch(e){} }
+    function pnmUuid(){
+      try{ if(window.crypto && crypto.randomUUID) return crypto.randomUUID(); }catch(e){}
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c){
+        var r = Math.random()*16|0, v = c==='x' ? r : (r&0x3|0x8);
+        return v.toString(16);
+      });
+    }
+    function pnmProductKeyFromHref(href){
+      var m = /\/b\/([A-Za-z0-9]+)/.exec(href||'');
+      return m ? m[1] : null;
+    }
+    // Przed przejsciem do PayHip: zapisz postep, wygeneruj sid do odebrania tokenu po powrocie.
     document.querySelectorAll('.pay-link, #cta-podstawowy, #cta-premium, #cta-premiumplus').forEach(function(a){
-      a.addEventListener('click', function(){ saveProgress(); markCheckoutStarted(); });
+      a.addEventListener('click', function(){
+        saveProgress();
+        var key = pnmProductKeyFromHref(a.getAttribute('href'));
+        if(!key) return;
+        var sid = pnmUuid();
+        try{ localStorage.setItem('pnm_sid', sid); localStorage.setItem('pnm_sid_ts', String(Date.now())); }catch(e){}
+        a.href = 'https://payhip.com/buy?link=' + encodeURIComponent(key) + '&metadata[sid]=' + encodeURIComponent(sid);
+      });
     });
+    function pnmVerifyStoredJwt(){
+      var tok; try{ tok = localStorage.getItem('pnm_jwt'); }catch(e){ tok = null; }
+      if(!tok) return Promise.resolve(false);
+      return fetch('/api/verify', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({jwt: tok}) })
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if(d && d.valid){ window.__freshUnlock = true; window.__unlockedTier = d.tier; syncZones(); return true; }
+          try{ localStorage.removeItem('pnm_jwt'); }catch(e){}
+          return false;
+        })
+        .catch(function(){ return false; });
+    }
+    function pnmTryClaim(attempt){
+      attempt = attempt || 0;
+      var sid, ts;
+      try{ sid = localStorage.getItem('pnm_sid'); ts = parseInt(localStorage.getItem('pnm_sid_ts')||'0',10); }catch(e){ sid = null; }
+      if(!sid) return;
+      if(ts && (Date.now()-ts) > 24*60*60*1000){ try{ localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts'); }catch(e){} return; }
+      fetch('/api/unlock?sid=' + encodeURIComponent(sid)).then(function(r){
+        if(r.status===200) return r.json().then(function(d){ return {ok:true, d:d}; });
+        if(r.status===404) return {ok:false, pending:true};
+        return {ok:false};
+      }).then(function(res){
+        if(res.ok && res.d && res.d.jwt){
+          try{ localStorage.setItem('pnm_jwt', res.d.jwt); localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts'); }catch(e){}
+          window.__freshUnlock = true; window.__unlockedTier = res.d.tier;
+          syncZones();
+          return;
+        }
+        if(res.pending && attempt < 8){
+          setTimeout(function(){ pnmTryClaim(attempt+1); }, Math.min(2000*Math.pow(1.4, attempt), 8000));
+        }
+      }).catch(function(){
+        if(attempt < 8) setTimeout(function(){ pnmTryClaim(attempt+1); }, 3000);
+      });
+    }
+    (function(){
+      try{
+        var p = new URLSearchParams(location.search);
+        if(p.has('unlocked') || p.has('payhip')){ history.replaceState(null,'',location.pathname+location.hash); }
+      }catch(e){}
+      pnmVerifyStoredJwt().then(function(ok){ if(!ok) pnmTryClaim(0); });
+    })();
 
     var INFO={
       labor:['Gwizdek porodowy — czym jest','Niewielki ustnik oddechowy wspierający kontrolowany wydech w II okresie porodu. Pomaga utrzymać rytm oddechu i efektywne parcie bez wstrzymywania powietrza.'],

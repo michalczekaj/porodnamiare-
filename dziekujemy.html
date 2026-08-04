@@ -91,8 +91,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
         <h2 class="font-display text-xl font-semibold text-deep mb-2">Pobierz swój plan porodu</h2>
         <p class="text-[15px] text-ink/80 leading-relaxed mb-4">Wasze odpowiedzi z kreatora są zapisane w tej przeglądarce. Kliknijcie poniżej — dokument wygeneruje się i pobierze od razu.</p>
         <div id="planReady" class="hidden">
-          <a href="/?unlocked=1#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">Pobierz swój plan porodu &rarr;</a>
-          <p class="text-xs text-ink/60 mt-2">Znaleźliśmy Wasze odpowiedzi &#10003;</p>
+          <a id="pnmGoKreator" href="/#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">Pobierz swój plan porodu &rarr;</a>
+          <p id="pnmPayStatus" class="text-xs text-ink/60 mt-2">Znaleźliśmy Wasze odpowiedzi &#10003; &middot; potwierdzamy płatność&hellip;</p>
         </div>
         <div id="planMissing" class="hidden">
           <div class="bg-tealsoft rounded-xl px-4 py-3 mb-4">
@@ -105,11 +105,11 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
             <li class="flex gap-2.5"><span class="text-teal font-bold flex-shrink-0">3.</span><span>Albo napiszcie do nas — przygotuję plan ręcznie i wyślę mailem</span></li>
           </ul>
           <div class="flex flex-wrap gap-3">
-            <a href="/?unlocked=1#kreator" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors text-sm">Otwórz kreator &rarr;</a>
+            <a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors text-sm">Otwórz kreator &rarr;</a>
             <a href="#" class="pnm-email inline-block border border-deep/25 font-semibold px-6 py-3 rounded-full hover:bg-sanddark transition-colors text-sm" data-u="kontakt" data-d="porodnamiare.pl" data-p="?subject=Plan%20porodu%20-%20pomoc%20po%20zakupie" data-hide="1" rel="nofollow">Napisz do nas</a>
           </div>
         </div>
-        <noscript><a href="/?unlocked=1#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full">Pobierz swój plan porodu &rarr;</a></noscript>
+        <noscript><a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full">Pobierz swój plan porodu &rarr;</a></noscript>
       </div>
     </div>
   </section>
@@ -164,9 +164,44 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
     }
   }catch(e){ has=false; }
   (has?ready:missing).classList.remove('hidden');
-  // Dotarcie na /dziekujemy = PayHip przekierował po płatności → ustaw marker,
-  // by odblokowanie planu w kreatorze zadziałało (spójne z warunkiem w index.html).
-  try{ localStorage.setItem('pnm_unlocked_v1','1'); localStorage.setItem('pnm_co_ls', String(Date.now())); }catch(e){}
+
+  // Samo dotarcie na /dziekujemy NIE jest dowodem płatności (ten URL jest publiczny i można go
+  // otworzyć ręcznie) — realne odblokowanie następuje wyłącznie po potwierdzeniu przez webhook
+  // PayHip i odebraniu jednorazowego tokenu (sid zapisany w tej przeglądarce przed checkoutem).
+  var statusEl = document.getElementById('pnmPayStatus');
+  function setStatus(txt){ if(statusEl) statusEl.textContent = txt; }
+  function tryClaim(attempt){
+    attempt = attempt || 0;
+    var sid, ts;
+    try{ sid = localStorage.getItem('pnm_sid'); ts = parseInt(localStorage.getItem('pnm_sid_ts')||'0',10); }catch(e){ sid = null; }
+    if(!sid){ setStatus('Znaleźliśmy Wasze odpowiedzi ✓'); return; }
+    if(ts && (Date.now()-ts) > 24*60*60*1000){
+      try{ localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts'); }catch(e){}
+      setStatus('Znaleźliśmy Wasze odpowiedzi ✓'); return;
+    }
+    fetch('/api/unlock?sid=' + encodeURIComponent(sid)).then(function(r){
+      if(r.status===200) return r.json().then(function(d){ return {ok:true,d:d}; });
+      if(r.status===404) return {ok:false, pending:true};
+      return {ok:false};
+    }).then(function(res){
+      if(res.ok && res.d && res.d.jwt){
+        try{
+          localStorage.setItem('pnm_jwt', res.d.jwt);
+          localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts');
+        }catch(e){}
+        setStatus('Płatność potwierdzona ✓ Możecie pobrać plan.');
+        return;
+      }
+      if(res.pending && attempt < 8){
+        setTimeout(function(){ tryClaim(attempt+1); }, Math.min(2000*Math.pow(1.4, attempt), 8000));
+      } else {
+        setStatus('Płatność jeszcze się przetwarza — odśwież stronę za chwilę albo kliknij "Otwórz kreator", spróbujemy ponownie.');
+      }
+    }).catch(function(){
+      if(attempt < 8) setTimeout(function(){ tryClaim(attempt+1); }, 3000);
+    });
+  }
+  if(has) tryClaim(0);
 })();
 </script>
 <script src="js/email-protect.js" defer></script>
