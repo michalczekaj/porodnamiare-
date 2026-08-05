@@ -412,6 +412,32 @@ pokazywał się w języku strony — mylące, bo pojawia się w trakcie kreatora
 Teraz popup podąża za językiem kreatora, gdy oba się rozjeżdżają.
 
 ═══════════════════════════════════════════
+## NOWE ZDJĘCIA I SEKCJA HISTORII (5 sierpnia 2026, wieczór)
+═══════════════════════════════════════════
+
+7 nowych zdjęć (Michał + Anna w ciąży) przekonwertowanych na WebP, ~65 KB
+średnio, łącznie 468 KB dla wszystkich siedmiu:
+
+- **Hero na /o-michale** zmieniony na zdjęcie z OBOMA widocznymi twarzami
+  (silniejszy sygnał E-E-A-T niż poprzednie, gdzie twarz Ani była poza kadrem)
+- **Galeria na /o-michale** rozszerzona do 6 zdjęć w dwóch rzędach
+- **Zdjęcie w ramce** (artystyczna sylwetka córki widoczna w brzuchu) jako
+  emocjonalny akcent tuż przed końcowym CTA — celowo zostawiłem cienki brzeg
+  ramki, bo to prawdziwe zdjęcie wiszące w Waszym domu, nie stockowa grafika
+- **Strona główna**: nowa sekcja "Nasza historia" (~1000 słów) ze zdjęciem
+  zachodu słońca, między sekcją zaufania a resztą strony
+
+### WAŻNE — jedna świadoma decyzja o tokenach
+
+Sekcja "Nasza historia" na stronie głównej jest **tylko po polsku**.
+Przetłumaczenie ~1000 słów literackiej prozy na EN/DE/UK to ogromny koszt
+tokenów, a to nie jest treść krytyczna dla konwersji obcojęzycznych
+klientów (Ci widzą już przetłumaczony kreator i cennik). System i18n ma
+wbudowany bezpieczny fallback: jeśli ktoś przełączy język na EN/DE/UK,
+zobaczy tę sekcję **po polsku** (nie pusto, nie zepsuty layout) — sprawdzone
+testem automatycznym. Jeśli chcesz pełne tłumaczenie, daj znać osobno.
+
+═══════════════════════════════════════════
 ## LOGO I BANER — nowa identyfikacja wizualna (5 sierpnia 2026)
 ═══════════════════════════════════════════
 
