@@ -1,0 +1,94 @@
+/* ==========================================================================
+   WhatsApp Business — styl marki.
+   Celowo NIEZALEŻNY od Tailwind (bez klas z nawiasami []): ten projekt używa
+   wstępnie skompilowanego CSS, a klasy typu bg-[#25D366] wymagają rebuildu
+   po każdej zmianie i łatwo je przeoczyć. Ten plik gwarantuje, że przycisk
+   WhatsApp zawsze wygląda tak, jak powinien — niezależnie od stanu builda.
+   ========================================================================== */
+
+.wa-fab, .wa-btn {
+  --wa-1: #2CE374;
+  --wa-2: #25D366;
+  --wa-3: #1DAF56;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--wa-1) 0%, var(--wa-2) 55%, var(--wa-3) 100%);
+  color: #ffffff;
+  font-family: 'Figtree', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(29, 175, 86, .40), 0 2px 6px rgba(20, 20, 30, .10);
+  transition: transform .16s ease, box-shadow .2s ease, filter .2s ease;
+}
+.wa-fab:hover, .wa-btn:hover {
+  transform: translateY(-2px) scale(1.035);
+  box-shadow: 0 12px 28px rgba(29, 175, 86, .5), 0 4px 10px rgba(20, 20, 30, .12);
+  filter: brightness(1.04);
+  color: #ffffff;
+}
+.wa-fab:active, .wa-btn:active { transform: translateY(0) scale(.96); }
+.wa-fab:focus-visible, .wa-btn:focus-visible { outline: 3px solid #1DAF56; outline-offset: 3px; }
+
+.wa-fab svg, .wa-btn svg { flex-shrink: 0; position: relative; z-index: 2; }
+
+/* --- Pływający przycisk (floating action button) --- */
+.wa-fab {
+  position: fixed;
+  z-index: 50;
+  bottom: 84px;
+  left: 16px;
+  width: 56px;
+  height: 56px;
+  justify-content: center;
+  padding: 0;
+}
+.wa-fab svg { width: 27px; height: 27px; }
+.wa-fab .wa-label { display: none; }
+
+.wa-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--wa-2);
+  z-index: 1;
+  pointer-events: none;
+  animation: wa-pulse 2.4s cubic-bezier(.4, 0, .35, 1) infinite;
+}
+@keyframes wa-pulse {
+  0%   { transform: scale(1);    opacity: .5; }
+  70%  { transform: scale(1.85); opacity: 0; }
+  100% { transform: scale(1.85); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-ring { animation: none; }
+}
+
+@media (min-width: 768px) {
+  .wa-fab {
+    bottom: 24px;
+    left: auto;
+    right: 24px;
+    width: auto;
+    height: auto;
+    padding: 15px 24px 15px 17px;
+  }
+  .wa-fab .wa-label {
+    display: inline;
+    font-size: 14.5px;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* --- Przycisk osadzony w treści (np. sekcja kontakt, boxy CTA) --- */
+.wa-btn {
+  padding: 15px 28px;
+  font-size: 15.5px;
+}
+.wa-btn svg { width: 21px; height: 21px; }
