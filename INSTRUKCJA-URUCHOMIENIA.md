@@ -412,6 +412,32 @@ pokazywał się w języku strony — mylące, bo pojawia się w trakcie kreatora
 Teraz popup podąża za językiem kreatora, gdy oba się rozjeżdżają.
 
 ═══════════════════════════════════════════
+## LOGO I BANER — nowa identyfikacja wizualna (5 sierpnia 2026)
+═══════════════════════════════════════════
+
+Podmieniono całą identyfikację wizualną na nowe grafiki (portret rodziny +
+monogram W). Z jednego źródłowego pliku wygenerowano 7 wariantów, każdy
+dopasowany do swojego kontekstu:
+
+- **img/logo-mark.webp** (240x240) — nagłówek i stopka. Wyizolowany portret
+  BEZ tekstu "Poród na miarę", bo ten tekst juz stoi obok jako żywy HTML —
+  wstawienie pełnego loga z tekstem dublowałoby napis.
+- **img/logo-full.webp** (640x640) — tylko w danych strukturalnych JSON-LD
+  (Organization.logo), niewidoczne na stronie, czytane przez Google.
+- **favicon.png / apple-touch-icon.png** — wyłącznie monogram "W + serduszka",
+  wycięty z banera. Pełna ilustracja przy 16-48 px zlałaby się w plamę —
+  uproszczony monogram czyta się czysto nawet bardzo mały.
+- **img/og.jpg** (1200x630, ok. 124 KB) — baner przycięty pod social media.
+  Pierwotnie zapisany jako PNG (709 KB) — zamieniony na JPEG dla szybszego
+  ładowania podglądów w Messengerze/WhatsApp/Twitterze.
+- **img/logo-story.webp** — pełne logo w nowej sekcji "Dlaczego na logo jest
+  nas dwoje" na /o-michale.
+
+Jesli w przyszłości podmienisz logo ponownie, zrób to tym samym schematem:
+jeden plik źródłowy -> 5-7 wariantów dopasowanych do kontekstu, nie jeden
+plik wklejony wszędzie.
+
+═══════════════════════════════════════════
 ## AUDYT SEO / GEO — sierpień 2026
 ═══════════════════════════════════════════
 
