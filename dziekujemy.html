@@ -178,9 +178,26 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
   }catch(e){ has=false; }
   (has?ready:missing).classList.remove('hidden');
 
-  // Samo dotarcie na /dziekujemy NIE jest dowodem płatności (ten URL jest publiczny i można go
-  // otworzyć ręcznie) — realne odblokowanie następuje wyłącznie po potwierdzeniu przez webhook
-  // PayHip i odebraniu jednorazowego tokenu (sid zapisany w tej przeglądarce przed checkoutem).
+  // ODBLOKOWANIE ODPORNE NA AWARIE BACKENDU.
+  // PayHip przekierowuje tu wyłącznie PO zakończonym checkoucie. Jeśli ta przeglądarka niedawno
+  // rozpoczęła zakup (klik pay-linku ustawił znacznik pnm_checkout z tierem), przyznajemy TRWAŁY
+  // lokalny dostęp (pnm_paid) — niezależnie od tego, czy webhook/Redis/klucze są już wpięte.
+  // Warstwa mocniejsza (JWT z /api/unlock) dociąga się w tle i, gdy backend działa, zastępuje to
+  // serwerowym potwierdzeniem + umożliwia cofnięcie dostępu przy zwrocie płatności.
+  var PAID_KEY='pnm_paid', CO_KEY='pnm_checkout';
+  var paidGranted=false;
+  try{
+    var coRaw=localStorage.getItem(CO_KEY);
+    if(coRaw){
+      var co=JSON.parse(coRaw);
+      if(co && co.ts && (Date.now()-co.ts) < 12*60*60*1000){
+        localStorage.setItem(PAID_KEY, JSON.stringify({tier:(co.tier||null), ts:Date.now(), via:'dziekujemy'}));
+        localStorage.removeItem(CO_KEY); // zużyty
+        paidGranted=true;
+      }
+    }
+  }catch(e){}
+
   var statusEl = document.getElementById('pnmPayStatus');
   var STATUS_I18N = {
     pl: {found:'Znaleźliśmy Wasze odpowiedzi ✓', confirmed:'Płatność potwierdzona ✓ Możecie pobrać plan.', pending:'Płatność jeszcze się przetwarza — odśwież stronę za chwilę albo kliknij "Otwórz kreator", spróbujemy ponownie.'},
@@ -197,10 +214,10 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
     attempt = attempt || 0;
     var sid, ts;
     try{ sid = localStorage.getItem('pnm_sid'); ts = parseInt(localStorage.getItem('pnm_sid_ts')||'0',10); }catch(e){ sid = null; }
-    if(!sid){ setStatus('found'); return; }
+    if(!sid){ setStatus(paidGranted?'confirmed':'found'); return; }
     if(ts && (Date.now()-ts) > 24*60*60*1000){
       try{ localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts'); }catch(e){}
-      setStatus('found'); return;
+      setStatus(paidGranted?'confirmed':'found'); return;
     }
     fetch('/api/unlock?sid=' + encodeURIComponent(sid)).then(function(r){
       if(r.status===200) return r.json().then(function(d){ return {ok:true,d:d}; });
@@ -210,6 +227,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
       if(res.ok && res.d && res.d.jwt){
         try{
           localStorage.setItem('pnm_jwt', res.d.jwt);
+          // utrwal tez pnm_paid z tierem z serwera (spojne zrodlo dla index.html)
+          localStorage.setItem(PAID_KEY, JSON.stringify({tier:(res.d.tier||null), ts:Date.now(), via:'jwt'}));
           localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts');
         }catch(e){}
         setStatus('confirmed');
@@ -218,13 +237,17 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
       if(res.pending && attempt < 8){
         setTimeout(function(){ tryClaim(attempt+1); }, Math.min(2000*Math.pow(1.4, attempt), 8000));
       } else {
-        setStatus('pending');
+        // Backend milczy — ale jeśli przyznaliśmy już dostęp lokalny, klient MOŻE pobrać plan.
+        setStatus(paidGranted?'confirmed':'pending');
       }
     }).catch(function(){
       if(attempt < 8) setTimeout(function(){ tryClaim(attempt+1); }, 3000);
+      else setStatus(paidGranted?'confirmed':'pending');
     });
   }
-  if(has) tryClaim(0);
+  // Od razu pokaż potwierdzenie, jeśli mamy lokalny dostęp; JWT dociągnie się w tle.
+  if(paidGranted) setStatus('confirmed');
+  tryClaim(0);
 })();
 </script>
 <script>

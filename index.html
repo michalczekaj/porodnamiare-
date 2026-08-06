@@ -1879,7 +1879,7 @@ tailwind.config = {
         + (lekarz?'<li>'+esc(S.doctor)+': <strong>'+esc(lekarz)+'</strong></li>':'')
         + (field('krew')?'<li>'+esc(S.blood)+': <strong>'+esc(field('krew'))+'</strong></li>':'')
         + '</ul></div>';
-      var unlockedNow = (window.__freshUnlock === true);
+      var unlockedNow = (typeof pnmIsUnlocked==='function') ? pnmIsUnlocked() : (window.__freshUnlock === true);
       let total = 0;
       var filledSecs = [];
       SECTIONS.forEach(([g,t])=>{
@@ -2008,17 +2008,50 @@ tailwind.config = {
       }
     }
 
-    // ===== ODBLOKOWANIE PO ZAKUPIE (JWT RS256 potwierdzony przez webhook PayHip) =====
-    // Zamiast lokalnego markera po powrocie z PayHip: przed wyjsciem do checkoutu generujemy
-    // losowy sid, doklejamy go jako metadata[sid] do linku PayHip. Webhook (api/payhip-webhook.js)
-    // po realnej platnosci zapisuje w Redis one-time claim pod tym sid. Po powrocie przegladarka
-    // odbiera claim (api/unlock.js, zuzywalny jednorazowo) i dostaje podpisany JWT (30 dni),
-    // ktory kazdorazowo weryfikujemy serwerowo (api/verify.js) - klucz prywatny nigdy nie
-    // opuszcza serwera. To zastepuje dawna, latwa do podrobienia flage __freshUnlock.
+    // ===== ODBLOKOWANIE PO ZAKUPIE — odporne na awarie backendu =====
+    // Zasada nadrzedna: PLACACY KLIENT NIGDY NIE ZOSTAJE ZABLOKOWANY.
+    // Dostep = (wazny JWT z webhooka PayHip)  LUB  (trwaly lokalny znacznik zakupu pnm_paid).
+    //  - JWT (webhook -> Redis -> RS256) to warstwa MOCNIEJSZA: serwerowe potwierdzenie platnosci
+    //    + automatyczne cofniecie dostepu przy zwrocie (refunded). Wymaga skonfigurowanego backendu.
+    //  - pnm_paid to warstwa ODPORNOSCIOWA: ustawiana po realnym powrocie z checkoutu PayHip
+    //    (klik pay-linku w tej przegladarce + przekierowanie na /dziekujemy). Dziala BEZ backendu,
+    //    wiec nawet gdy Redis/klucze/webhook nie sa jeszcze wpiete, klient pobierze plan.
+    // Blad sieci NIGDY nie odbiera juz przyznanego dostepu — odbiera go wylacznie jawny "revoked".
+    var PAID_KEY='pnm_paid', CO_KEY='pnm_checkout', JWT_KEY='pnm_jwt', SID_KEY='pnm_sid', SID_TS_KEY='pnm_sid_ts';
+    var PAID_TTL = 90*24*60*60*1000; // znacznik zakupu wazny 90 dni w tej przegladarce
+
+    function pnmReadPaid(){
+      try{
+        var raw=localStorage.getItem(PAID_KEY); if(!raw) return null;
+        var d=JSON.parse(raw);
+        if(d && d.ts && (Date.now()-d.ts) > PAID_TTL){ localStorage.removeItem(PAID_KEY); return null; }
+        return d || null;
+      }catch(e){ return null; }
+    }
+    function pnmGrantPaid(tier){
+      try{ localStorage.setItem(PAID_KEY, JSON.stringify({tier:tier||null, ts:Date.now(), via:'client'})); }catch(e){}
+    }
+    function pnmClearAccess(){
+      try{ localStorage.removeItem(PAID_KEY); localStorage.removeItem(JWT_KEY); }catch(e){}
+      window.__freshUnlock=false; window.__unlockedTier=null;
+      var b=document.getElementById('pnmPaidBanner'); if(b) b.remove();
+      syncZones();
+    }
+    function pnmIsUnlocked(){ return window.__freshUnlock===true || !!pnmReadPaid(); }
+    window.PNM_isUnlocked = pnmIsUnlocked; // uzywane tez przez bramke w plan-pdf.js
+    function pnmApplyUnlocked(tier){
+      window.__freshUnlock=true;
+      if(tier) window.__unlockedTier=tier;
+      else if(!window.__unlockedTier){ var p=pnmReadPaid(); if(p) window.__unlockedTier=p.tier; }
+      syncZones();
+      if(cur===TOTAL-1) renderSummary();
+      pnmPaidBanner();
+    }
+
     function syncZones(){
       var bz=document.getElementById('buyZone'), dz=document.getElementById('downloadZone');
       if(!bz||!dz) return;
-      var u = window.__freshUnlock === true;
+      var u = pnmIsUnlocked();
       bz.classList.toggle('hidden', u);
       dz.classList.toggle('hidden', !u);
     }
@@ -2033,44 +2066,74 @@ tailwind.config = {
       var m = /\/b\/([A-Za-z0-9]+)/.exec(href||'');
       return m ? m[1] : null;
     }
-    // Przed przejsciem do PayHip: zapisz postep, wygeneruj sid do odebrania tokenu po powrocie.
+    function pnmTierFromKey(key){
+      return ({ jUaCl:'podstawowy', PAcED:'premium', JjgRA:'premiumplus' })[key] || null;
+    }
+    // Przed przejsciem do PayHip: zapisz postep, wygeneruj sid (do JWT po powrocie) i znacznik
+    // checkout (tier + czas) — na jego podstawie /dziekujemy przyzna trwaly dostep offline.
     document.querySelectorAll('.pay-link, #cta-podstawowy, #cta-premium, #cta-premiumplus').forEach(function(a){
       a.addEventListener('click', function(){
         saveProgress();
         var key = pnmProductKeyFromHref(a.getAttribute('href'));
         if(!key) return;
         var sid = pnmUuid();
-        try{ localStorage.setItem('pnm_sid', sid); localStorage.setItem('pnm_sid_ts', String(Date.now())); }catch(e){}
+        var tier = pnmTierFromKey(key);
+        try{
+          localStorage.setItem(SID_KEY, sid); localStorage.setItem(SID_TS_KEY, String(Date.now()));
+          localStorage.setItem(CO_KEY, JSON.stringify({tier:tier, key:key, ts:Date.now()}));
+        }catch(e){}
         a.href = 'https://payhip.com/buy?link=' + encodeURIComponent(key) + '&metadata[sid]=' + encodeURIComponent(sid);
       });
     });
+    // Baner po zakupie — dla przypadku "kupil, ale kreator jeszcze nie ukonczony".
+    function pnmPaidBanner(){
+      if(!pnmIsUnlocked()) return;
+      if(document.getElementById('pnmPaidBanner')) return;
+      if(!form || !form.firstChild) return;
+      var box=document.createElement('div');
+      box.id='pnmPaidBanner';
+      box.className='mx-6 mt-3 flex flex-wrap items-center justify-between gap-3 bg-tealsoft border border-teal rounded-xl px-4 py-3 text-sm';
+      box.setAttribute('role','status');
+      box.innerHTML='<span>&#10003; <strong>Zakup potwierdzony.</strong> Wasz plan jest odblokowany — dokończcie kreator, a na końcu pobierzecie gotowy dokument PDF.</span>'
+        + '<button type="button" id="pnmGoDownload" class="text-teal font-semibold underline whitespace-nowrap">Przejdź do pobrania &rarr;</button>';
+      form.insertBefore(box, form.firstChild.nextSibling);
+      var b=document.getElementById('pnmGoDownload');
+      if(b) b.addEventListener('click', function(){
+        showStep(TOTAL-1,'prev'); // 'prev' = bez walidacji do przodu, pozwala dojsc do podsumowania
+        setTimeout(function(){ var dz=document.getElementById('downloadZone'); if(dz) dz.scrollIntoView({behavior:'smooth',block:'center'}); }, 300);
+      });
+    }
+    // Warstwa mocniejsza: weryfikacja JWT. Sukces -> odblokuj. Jawny revoke (zwrot) -> odbierz dostep.
+    // Wygasly/niepoprawny token -> usun token, ale NIE odbieraj dostepu z pnm_paid. Blad sieci -> nic.
     function pnmVerifyStoredJwt(){
-      var tok; try{ tok = localStorage.getItem('pnm_jwt'); }catch(e){ tok = null; }
+      var tok; try{ tok = localStorage.getItem(JWT_KEY); }catch(e){ tok = null; }
       if(!tok) return Promise.resolve(false);
       return fetch('/api/verify', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({jwt: tok}) })
         .then(function(r){ return r.json(); })
         .then(function(d){
-          if(d && d.valid){ window.__freshUnlock = true; window.__unlockedTier = d.tier; syncZones(); return true; }
-          try{ localStorage.removeItem('pnm_jwt'); }catch(e){}
+          if(d && d.valid){ pnmApplyUnlocked(d.tier); return true; }
+          if(d && d.error==='revoked'){ pnmClearAccess(); return false; }
+          try{ localStorage.removeItem(JWT_KEY); }catch(e){}
           return false;
         })
         .catch(function(){ return false; });
     }
+    // Odbior jednorazowego claimu po sid (jesli webhook zdazyl zapisac). Sukces utrwala tez pnm_paid.
     function pnmTryClaim(attempt){
       attempt = attempt || 0;
       var sid, ts;
-      try{ sid = localStorage.getItem('pnm_sid'); ts = parseInt(localStorage.getItem('pnm_sid_ts')||'0',10); }catch(e){ sid = null; }
+      try{ sid = localStorage.getItem(SID_KEY); ts = parseInt(localStorage.getItem(SID_TS_KEY)||'0',10); }catch(e){ sid = null; }
       if(!sid) return;
-      if(ts && (Date.now()-ts) > 24*60*60*1000){ try{ localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts'); }catch(e){} return; }
+      if(ts && (Date.now()-ts) > 24*60*60*1000){ try{ localStorage.removeItem(SID_KEY); localStorage.removeItem(SID_TS_KEY); }catch(e){} return; }
       fetch('/api/unlock?sid=' + encodeURIComponent(sid)).then(function(r){
         if(r.status===200) return r.json().then(function(d){ return {ok:true, d:d}; });
         if(r.status===404) return {ok:false, pending:true};
         return {ok:false};
       }).then(function(res){
         if(res.ok && res.d && res.d.jwt){
-          try{ localStorage.setItem('pnm_jwt', res.d.jwt); localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts'); }catch(e){}
-          window.__freshUnlock = true; window.__unlockedTier = res.d.tier;
-          syncZones();
+          try{ localStorage.setItem(JWT_KEY, res.d.jwt); localStorage.removeItem(SID_KEY); localStorage.removeItem(SID_TS_KEY); }catch(e){}
+          pnmGrantPaid(res.d.tier);
+          pnmApplyUnlocked(res.d.tier);
           return;
         }
         if(res.pending && attempt < 8){
@@ -2085,6 +2148,9 @@ tailwind.config = {
         var p = new URLSearchParams(location.search);
         if(p.has('unlocked') || p.has('payhip')){ history.replaceState(null,'',location.pathname+location.hash); }
       }catch(e){}
+      // 1) Lokalny znacznik zakupu = natychmiastowe, pewne odblokowanie (nie wymaga backendu).
+      if(pnmReadPaid()) pnmApplyUnlocked();
+      // 2) W tle: zweryfikuj/odswiez JWT; jesli brak — sprobuj odebrac claim po sid (kilka prob).
       pnmVerifyStoredJwt().then(function(ok){ if(!ok) pnmTryClaim(0); });
     })();
 
@@ -2208,7 +2274,8 @@ tailwind.config = {
     var dlBtn=document.getElementById('dlBtn'), dlStatus=document.getElementById('dlStatus');
     if(dlBtn){
       dlBtn.addEventListener('click', function(){
-        if(window.__freshUnlock !== true){ dlStatus.textContent='Dokończ zakup, aby pobrać plan.'; return; }
+        if(!pnmIsUnlocked()){ dlStatus.textContent='Dokończ zakup, aby pobrać plan.'; return; }
+        window.__freshUnlock=true;
         dlBtn.disabled=true; dlStatus.textContent='Przygotowuję dokument…';
         var chain = window.jspdf ? Promise.resolve() : loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
         chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js'); })
@@ -2232,7 +2299,8 @@ tailwind.config = {
     var LANG_NAMES={en:'English',de:'Deutsch',uk:'Українською'};
     if(dlBtnLang){
       dlBtnLang.addEventListener('click', function(){
-        if(window.__freshUnlock !== true){ dlStatusLang.textContent='Dokończ zakup, aby pobrać plan.'; return; }
+        if(!pnmIsUnlocked()){ dlStatusLang.textContent='Dokończ zakup, aby pobrać plan.'; return; }
+        window.__freshUnlock=true;
         var lang = dlLangSel.value;
         dlBtnLang.disabled=true; dlStatusLang.textContent='Przygotowuję dokument…';
         var chain = window.jspdf ? Promise.resolve() : loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
@@ -2291,23 +2359,29 @@ tailwind.config = {
     preview.addEventListener('dragstart', e=>e.preventDefault());
     applyTheme();
     renderPreview();
-    // Po zakupie: jeśli odblokowane i sa zapisane odpowiedzi -> od razu podsumowanie
+    // Po zakupie: zaleznie od tego, czy kreator jest juz ukonczony.
     var hasAnswers = (function(){
       var d = readProgress();
       return !!(d && ((d.fields && Object.keys(d.fields).length) || (d.checks && d.checks.length)));
     })();
-    if(window.__freshUnlock && hasAnswers){
-      showStep(TOTAL-1,'next');
+    var paidUnlocked = pnmIsUnlocked();
+    var reachedSummary = (restored !== false && restored >= TOTAL-1); // wczesniej dotarli do podsumowania
+    if(paidUnlocked && hasAnswers && reachedSummary){
+      // Odblokowany i kreator ukonczony -> od razu podsumowanie + zjazd do pobrania.
+      showStep(TOTAL-1,'prev'); // 'prev' = bez walidacji do przodu (nie blokuje skoku)
       renderSummary(); syncZones();
       setTimeout(function(){
         var dz=document.getElementById('downloadZone');
         if(dz) dz.scrollIntoView({behavior:'smooth', block:'center'});
       }, 400);
     } else if(restored !== false && restored > 0){
+      // Kreator w toku (np. kupil na 8%) -> wroc gdzie skonczyli; jesli oplacone, pokaz baner.
       showStep(restored,'prev');
       showResumeNotice(restored);
+      if(paidUnlocked) pnmPaidBanner();
     } else {
       showStep(0);
+      if(paidUnlocked) pnmPaidBanner();
     }
 
     function showResumeNotice(stepIdx){

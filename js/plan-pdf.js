@@ -190,7 +190,8 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
     // Bramka: pełny PDF generujemy wyłącznie po odblokowaniu zakupu.
     // Nie eliminuje to obejścia przez zaawansowanego użytkownika (kod działa w przeglądarce),
     // ale zamyka najprostszą ścieżkę wywołania generatora z konsoli bez płatności.
-    if(window.__freshUnlock !== true){
+    var _unlocked = (typeof window.PNM_isUnlocked === 'function') ? window.PNM_isUnlocked() : (window.__freshUnlock === true);
+    if(!_unlocked){
       try{ console.warn('[PoródNaMiarę] Pobranie planu dostępne po zakupie pakietu.'); }catch(e){}
       throw new Error('locked');
     }

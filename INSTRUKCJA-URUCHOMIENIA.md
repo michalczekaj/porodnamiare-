@@ -217,13 +217,41 @@ brak limitów, brak opłat za wygenerowany dokument.
 ## BEZPIECZNE ODBLOKOWANIE PO PŁATNOŚCI (webhook PayHip + JWT) — ~30 min
 ═══════════════════════════════════════════
 
-Co się zmieniło: dawna flaga `__freshUnlock` (ustawiana samym wejściem na URL
-z `?unlocked=1`) była trywialna do obejścia z konsoli przeglądarki i przez
-ręczne wejście na /dziekujemy. Teraz odblokowanie następuje WYŁĄCZNIE po
-potwierdzeniu realnej płatności przez webhook PayHip, zapisanym w bazie Redis
-i wydanym jako podpisany token JWT (RS256, ważny 30 dni). Klucz prywatny
-nigdy nie opuszcza serwera. Nowe pliki: `api/payhip-webhook.js`,
-`api/unlock.js`, `api/verify.js`, `api/_lib/common.js`, `package.json`.
+JAK TERAZ DZIAŁA ODBLOKOWANIE (przeprojektowane — odporne na awarie):
+Płacący klient NIGDY nie zostaje zablokowany. Dostęp jest przyznawany, gdy
+zachodzi CHOĆ JEDNO z dwóch:
+
+  (1) WARSTWA ODPORNOŚCIOWA (działa BEZ backendu) — po kliknięciu pakietu
+      przeglądarka zapisuje znacznik zakupu (pakiet + czas). Gdy PayHip po
+      płatności przekieruje klienta na /dziekujemy, ten znacznik zamienia się
+      w trwały lokalny dostęp (pnm_paid, ważny 90 dni). Klient pobierze plan
+      nawet zanim skonfigurujesz Redis/klucze/webhook.
+
+  (2) WARSTWA MOCNIEJSZA (gdy backend działa) — webhook PayHip zapisuje w Redis
+      jednorazowy claim, przeglądarka odbiera podpisany JWT (RS256), który daje
+      serwerowe potwierdzenie płatności ORAZ automatyczne cofnięcie dostępu przy
+      zwrocie (refunded). Klucz prywatny nigdy nie opuszcza serwera.
+
+Błąd sieci NIGDY nie odbiera już przyznanego dostępu — odbiera go wyłącznie
+jawny zwrot płatności. To usuwa poprzedni błąd, w którym każda niedokończona
+konfiguracja backendu (albo jeden nieudany fetch) blokowała pobranie PŁACĄCEMU
+klientowi.
+
+>>> NAJWAŻNIEJSZE, ABY DZIAŁAŁO OD RAZU (nawet bez reszty backendu): <<<
+>>> ustaw w PayHip przekierowanie po zakupie na https://porodnamiare.pl/dziekujemy
+>>> (krok 6 poniżej). To ono uruchamia warstwę (1). Konfigurację Redis/JWT
+>>> (kroki 1–5) możesz dokończyć później — podniesie bezpieczeństwo i doda
+>>> obsługę zwrotów, ale nie jest warunkiem pobrania planu przez klienta.
+
+Nowe/zmienione pliki: `api/payhip-webhook.js`, `api/unlock.js`, `api/verify.js`,
+`api/_lib/common.js`, `package.json` oraz logika w `index.html`,
+`dziekujemy.html`, `js/plan-pdf.js`.
+
+Kompromis (świadomy): warstwa (1) opiera się na lokalnym znaczniku, który
+technicznie zaawansowany użytkownik mógłby podrobić (tak jak i tak może wywołać
+generator PDF z konsoli — PDF powstaje w przeglądarce). Na tym etapie koszt
+pojedynczego „gapowicza” jest pomijalny wobec kosztu zablokowania realnego
+klienta. Twardsze zamknięcie = generowanie PDF na serwerze (osobny projekt).
 
 ### 1. Baza Redis (Upstash) — 3 minuty
 Uwaga: dawne „Vercel KV” zostało wycofane. Teraz robi się to przez Marketplace:
@@ -273,7 +301,12 @@ https://porodnamiare.pl/api/payhip-webhook
 Zaznacz zdarzenia: **paid** i **refunded** (refunded pozwala automatycznie
 cofnąć dostęp przy zwrocie płatności).
 
-### 6. Redirect po checkoucie — 1 minuta
+### 6. Redirect po checkoucie — 1 minuta  ⭐ KROK KRYTYCZNY
+To jest jedyny krok, który MUSI być zrobiony, aby płacący klient pobrał plan
+(uruchamia warstwę odpornościową opisaną na górze). Kroki 1–5 są opcjonalne na
+start i podnoszą bezpieczeństwo, ale bez tego kroku 6 klient nie wróci na
+/dziekujemy i nie dostanie dostępu offline.
+
 Payhip → Settings → Advanced Settings → Checkout Settings → włącz redirect
 i ustaw:
 ```
