@@ -442,11 +442,14 @@ tailwind.config = {
             <span class="text-xs font-semibold text-deep"><span id="stepWord">Krok</span> <span id="stepNum">1</span> <span id="stepOfWord">z</span> 13</span>
             <span class="text-xs text-ink/60"><span id="stepPct">8</span><span id="stepPctWord">% ukończone</span></span>
           </div>
-          <div class="flex items-center justify-end gap-1.5 mb-2">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <button type="button" id="resetProgressTop" class="text-[11px] font-semibold text-teal underline whitespace-nowrap hover:text-deep transition-colors">↺ Zacznij od nowa</button>
+            <div class="flex items-center gap-1.5">
             <span class="text-[11px] text-ink/50">🌍 Język treści kreatora:</span>
             <select id="kreatorLang" class="text-[11px] font-semibold border border-sanddark rounded-full px-2 py-1 bg-white cursor-pointer" aria-label="Język treści kreatora">
               <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option>
             </select>
+            </div>
           </div>
           <div class="h-2 bg-sanddark rounded-full overflow-hidden">
             <div id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8" aria-label="Postęp wypełniania kreatora" class="h-full bg-teal transition-all duration-300" style="width:8%"></div>
@@ -552,6 +555,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Bez zabiegów przygotowujących (lewatywa, golenie), chyba że o nie poproszę" class="mt-0.5 flex-shrink-0"><span>Bez lewatywy i golenia (chyba że poproszę)</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Proszę o lewatywę przy przyjęciu" class="mt-0.5 flex-shrink-0"><span>Proszę o lewatywę przy przyjęciu</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Zgoda na założenie wenflonu przy przyjęciu" class="mt-0.5 flex-shrink-0"><span>Zgoda na wenflon przy przyjęciu</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Krocze ogolę samodzielnie w domu przed przyjazdem do szpitala" class="mt-0.5 flex-shrink-0"><span>Krocze ogolę samodzielnie w domu</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Bez wenflonu, chyba że wystąpi konieczność podania leków dożylnie (akceptujemy założenie w razie wskazań)" class="mt-0.5 flex-shrink-0"><span>Bez wenflonu rutynowego (akceptujemy w razie wskazań)</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prep" value="Możliwość jedzenia i picia w trakcie porodu, o ile nie ma przeciwwskazań" class="mt-0.5 flex-shrink-0"><span>Możliwość jedzenia i picia (o ile brak przeciwwskazań)</span></label>
         </div>
@@ -607,6 +611,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Preferuję ochronę krocza i uniknięcie nacięcia (epizjotomii), o ile nie ma wskazań" checked class="mt-0.5 flex-shrink-0"><span>Ochrona krocza, bez nacięcia bez wskazań</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Nacięcie krocza tylko przy wyraźnych wskazaniach medycznych, po poinformowaniu" checked class="mt-0.5 flex-shrink-0"><span>Nacięcie tylko ze wskazań, po poinformowaniu</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Miejscowe znieczulenie przy ewentualnym zszywaniu krocza" class="mt-0.5 flex-shrink-0"><span>Znieczulenie miejscowe przy zszywaniu</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Proszę o instruktaż położnej podczas parcia, aby chronić krocze" class="mt-0.5 flex-shrink-0"><span>Instruktaż położnej podczas parcia (ochrona krocza)</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Bez wywoływania porodu (w tym amniotomii), jeśli brak wyraźnych wskazań" class="mt-0.5 flex-shrink-0"><span>Bez indukcji bez wyraźnych wskazań</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Najpierw próba metod naturalnych (ruch, aktywność), jeśli stan dziecka pozwala" class="mt-0.5 flex-shrink-0"><span>Najpierw metody naturalne, jeśli stan dziecka pozwala</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="perineum" value="Jeśli indukcja konieczna — najpierw prostaglandyna, potem oksytocyna" class="mt-0.5 flex-shrink-0"><span>Indukcja: najpierw prostaglandyna, potem oksytocyna</span></label>
@@ -653,6 +658,8 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Dokarmianie wyłącznie na wskazanie lekarskie, z preferencją odciągniętej siary zamiast mleka modyfikowanego" checked class="mt-0.5 flex-shrink-0"><span>Dokarmianie tylko na wskazanie (preferencja siary)</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Bez rutynowego podawania smoczka w okresie ustalania laktacji" checked class="mt-0.5 flex-shrink-0"><span>Bez rutynowego smoczka</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Rooming-in całodobowy — bez rozdzielania mamy i dziecka bez wskazań medycznych" checked class="mt-0.5 flex-shrink-0"><span>Rooming-in 24 h</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Przy żółtaczce — pomiar bilirubiny i ewentualna fototerapia przy mamie, z zachowaniem karmienia piersią" class="mt-0.5 flex-shrink-0"><span>Żółtaczka: fototerapia przy mamie, z karmieniem piersią</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="newborn" value="Przy hipoglikemii najpierw dokarmienie siarą lub odciągniętym mlekiem matki; mleko modyfikowane tylko na wskazanie lekarskie" class="mt-0.5 flex-shrink-0"><span>Hipoglikemia: najpierw siara/mleko matki, modyfikowane tylko na wskazanie</span></label>
             <div class="mt-4 mb-2 bg-tealsoft/60 rounded-2xl p-4">
               <p class="font-semibold text-deep text-sm mb-1">Gdyby dziecko wymagało opieki neonatologicznej</p>
               <p class="text-xs text-ink/70 mb-2">Scenariusz, o którym nikt nie chce myśleć — i właśnie dlatego warto zapisać go wcześniej. Dotyczy porodu przedwczesnego, adaptacji noworodka lub przeniesienia na oddział.</p>
@@ -681,6 +688,7 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prophylaxis" value="Wyrażamy zgodę na wszystkie badania przesiewowe (test z piętki, pulsoksymetria, badanie słuchu) — w miarę możliwości w naszej obecności" checked class="mt-0.5 flex-shrink-0"><span>Wszystkie badania przesiewowe, w naszej obecności</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prophylaxis" value="Profilaktyka zakażeń oczu — zgodnie z wynikiem badań matki (przy wyniku ujemnym akceptujemy odstąpienie)" checked class="mt-0.5 flex-shrink-0"><span>Profilaktyka oczu zależnie od wyniku badań matki</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prophylaxis" value="Prosimy o informację o każdym leku lub suplemencie podawanym dziecku" checked class="mt-0.5 flex-shrink-0"><span>Informacja o każdym leku podawanym dziecku</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="prophylaxis" value="Codzienne badanie pediatryczne dziecka w obecności rodzica, z omówieniem wyników i zaleceń" class="mt-0.5 flex-shrink-0"><span>Codzienne badanie pediatryczne w obecności rodzica</span></label>
         </div>
       </div>
       <div class="creator-step hidden" data-step="10" role="group" tabindex="-1">
@@ -713,6 +721,8 @@ tailwind.config = {
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Wsparcie laktacyjne w czasie całego pobytu" checked class="mt-0.5 flex-shrink-0"><span>Wsparcie laktacyjne przez cały pobyt</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Prosimy o informację o zakresie danych przekazywanych podmiotom zewnętrznym w związku z opieką nad dzieckiem" class="mt-0.5 flex-shrink-0"><span>Informacja o danych przekazywanych na zewnątrz</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Wypis do domu możliwie szybko, jeśli stan matki i dziecka jest dobry" class="mt-0.5 flex-shrink-0"><span>Możliwie szybki wypis przy dobrym stanie</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Regularna ocena nasilenia bólu w połogu i jego skuteczne łagodzenie" class="mt-0.5 flex-shrink-0"><span>Regularna ocena i łagodzenie bólu w połogu</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="checkbox" name="postpartum" value="Pisemna informacja o prawie do wizyt patronażowych położnej POZ wraz z danymi kontaktowymi" class="mt-0.5 flex-shrink-0"><span>Pisemna informacja o wizytach patronażowych położnej POZ</span></label>
         </div>
       </div>
       <div class="creator-step hidden" data-step="12" role="group" tabindex="-1">
@@ -2092,10 +2102,25 @@ tailwind.config = {
       if(!form || !form.firstChild) return;
       var box=document.createElement('div');
       box.id='pnmPaidBanner';
-      box.className='mx-6 mt-3 flex flex-wrap items-center justify-between gap-3 bg-tealsoft border border-teal rounded-xl px-4 py-3 text-sm';
       box.setAttribute('role','status');
-      box.innerHTML='<span>&#10003; <strong>Zakup potwierdzony.</strong> Wasz plan jest odblokowany — dokończcie kreator, a na końcu pobierzecie gotowy dokument PDF.</span>'
-        + '<button type="button" id="pnmGoDownload" class="text-teal font-semibold underline whitespace-nowrap">Przejdź do pobrania &rarr;</button>';
+      box.style.cssText='margin:14px 20px 4px;border-radius:18px;padding:18px 20px;color:#fff;background:linear-gradient(135deg,#2C7A7B 0%,#1D4044 100%);box-shadow:0 10px 30px rgba(44,122,123,.38);animation:pnmGlow 2.4s ease-in-out infinite';
+      box.innerHTML=''
+        + '<div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap">'
+        +   '<div style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:24px" aria-hidden="true">&#127881;</div>'
+        +   '<div style="flex:1;min-width:210px">'
+        +     '<p style="font-weight:800;font-size:19px;margin:0 0 3px;letter-spacing:.2px">Zakup potwierdzony &#10003;</p>'
+        +     '<p style="font-size:14px;opacity:.93;margin:0 0 13px;line-height:1.55">Wasz plan porodu jest <strong>odblokowany</strong>. Dokończcie kreator, a na końcu <strong>wygenerujecie i pobierzecie gotowy dokument PDF</strong> — a jeśli chcecie, także własną kopię w innym języku (🇬🇧 EN / 🇩🇪 DE / 🇺🇦 UK).</p>'
+        +     '<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">'
+        +       '<button type="button" id="pnmGoDownload" style="background:#fff;color:#1D4044;font-weight:800;border:none;border-radius:999px;padding:13px 24px;font-size:15px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18)"><span style="text-decoration:underline">Przejdź do pobrania</span> &rarr;</button>'
+        +       '<span style="font-size:13px;opacity:.85">Plan gotowy do wygenerowania w PDF</span>'
+        +     '</div>'
+        +   '</div>'
+        + '</div>';
+      if(!document.getElementById('pnmGlowStyle')){
+        var st=document.createElement('style'); st.id='pnmGlowStyle';
+        st.textContent='@keyframes pnmGlow{0%,100%{box-shadow:0 10px 30px rgba(44,122,123,.30)}50%{box-shadow:0 12px 40px rgba(44,122,123,.55)}}';
+        document.head.appendChild(st);
+      }
       form.insertBefore(box, form.firstChild.nextSibling);
       var b=document.getElementById('pnmGoDownload');
       if(b) b.addEventListener('click', function(){
@@ -2174,7 +2199,7 @@ tailwind.config = {
       var hb=collect('hbsag')[0]; if(hb) rows.push(['HBsAg matki', hb.replace(/^HBsAg matki:\s*/,'')]);
       var gb=collect('gbs')[0];   if(gb) rows.push(['GBS', gb.replace(/^GBS:\s*/,'')]);
       var sections=SECTIONS.filter(function(x){ return x[0]!=='hbsag+gbs'; }).map(function(x){
-        return {title:x[1], items:collect(x[0]), info:INFO[x[0]]||null};
+        return {title:x[1], items:collect(x[0]), info:INFO[x[0]] ? [INFO[x[0]][0], INFO[x[0]][1], x[0]] : null};
       });
       return {gender:g, dziecko:dziecko||'Nasze dziecko', rodzice:rodzice, termin:termin, rows:rows, sections:sections};
     }
@@ -2384,6 +2409,20 @@ tailwind.config = {
       if(paidUnlocked) pnmPaidBanner();
     }
 
+    function pnmResetCreator(box){
+      try{ localStorage.removeItem(SKEY); sessionStorage.removeItem(SKEY); }catch(e){}
+      form.reset();
+      form.querySelectorAll('.gender-opt').forEach(o=>o.classList.remove('border-teal','bg-tealsoft'));
+      if(box) box.remove();
+      showStep(0);
+      renderPreview();
+    }
+    (function(){
+      var rt=document.getElementById('resetProgressTop');
+      if(rt) rt.addEventListener('click', function(){
+        if(confirm('Wyczyścić wszystkie odpowiedzi i zacząć kreator od nowa?')) pnmResetCreator();
+      });
+    })();
     function showResumeNotice(stepIdx){
       const box = document.createElement('div');
       box.className = 'mx-6 mt-3 flex flex-wrap items-center justify-between gap-3 bg-tealsoft border border-sanddark rounded-xl px-4 py-3 text-sm';
@@ -2391,14 +2430,7 @@ tailwind.config = {
       box.innerHTML = '<span>Wróciliśmy do kroku <strong>'+(stepIdx+1)+'</strong> — Wasze wybory zostały zachowane.</span>'
         + '<button type="button" id="resetProgress" class="text-teal font-semibold underline whitespace-nowrap">Zacznij od nowa</button>';
       form.insertBefore(box, form.firstChild.nextSibling);
-      document.getElementById('resetProgress').addEventListener('click', ()=>{
-        try{ localStorage.removeItem(SKEY); sessionStorage.removeItem(SKEY); }catch(e){}
-        form.reset();
-        form.querySelectorAll('.gender-opt').forEach(o=>o.classList.remove('border-teal','bg-tealsoft'));
-        box.remove();
-        showStep(0);
-        renderPreview();
-      });
+      document.getElementById('resetProgress').addEventListener('click', ()=> pnmResetCreator(box));
     }
   }
 
