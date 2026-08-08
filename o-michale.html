@@ -95,13 +95,13 @@ blockquote{border-left:3px solid #A0525E}
 <body class="font-body bg-sand text-ink antialiased">
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Przejdź do treści</a>
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
-  <nav class="max-w-4xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
-    <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <div class="flex items-center gap-2">
-      <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
+  <nav class="max-w-4xl mx-auto flex items-center justify-between gap-1.5 px-3 sm:px-4 py-3" aria-label="Nawigacja główna">
+    <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-display text-sm sm:text-lg text-deep font-semibold flex-shrink-0 whitespace-nowrap min-w-0"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-6 sm:w-8 h-auto flex-shrink-0">Poród<span class="text-teal">NaMiarę</span>.pl</a>
+    <div class="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+      <select id="langSwitch" class="text-[10px] sm:text-xs font-semibold border border-deep/30 rounded-full px-1 py-1 sm:px-2 sm:py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
         <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option>
       </select>
-      <a href="/#kreator" data-i18n="navCta" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors">Stwórz plan</a>
+      <a href="/#kreator" data-i18n="navCta" class="bg-teal text-white text-xs sm:text-sm font-semibold px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full hover:bg-deep transition-colors whitespace-nowrap"><span class="sm:hidden">Plan</span><span class="hidden sm:inline">Stwórz plan</span></a>
     </div>
   </nav>
 </header>
@@ -354,18 +354,42 @@ blockquote{border-left:3px solid #A0525E}
   </div>
 </section>
 
-<!-- KLUCZ DO MIŁOŚCI — unikalny wyróżnik: handstand jako osobisty gest miłości -->
-<section class="bg-tealsoft/40 py-16 md:py-20">
-  <div class="max-w-4xl mx-auto px-4 grid md:grid-cols-[1fr_1.1fr] gap-10 items-center">
-    <figure class="m-0 order-2 md:order-1">
-      <img src="/img/michal-czekaj-handstand-krasiczyn-ciaza-milosc.webp" alt="Michał w staniu na rękach nad leżącą na ławce Anną w ciąży, przed zamkiem w Krasiczynie — twórca PoródNaMiarę.pl, pasjonat crossfitu i zdrowego stylu życia" width="900" height="1211" loading="lazy" decoding="async" class="rounded-3xl w-full object-cover shadow-xl aspect-[3/4]">
-      <figcaption class="text-xs text-ink/55 text-center mt-3 italic">Krasiczyn, długo przed tym, jak dowiedzieliśmy się o Wiktorii</figcaption>
-    </figure>
-    <div class="order-1 md:order-2">
+<!-- KLUCZ DO MIŁOŚCI — unikalny wyróżnik: prawdziwa historia róży podanej w locie, oś czasu dwóch zdjęć -->
+<section class="bg-tealsoft/40 py-16 md:py-20 overflow-hidden">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto mb-10">
       <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Coś, czego nie znajdziecie w żadnym planie porodu</p>
-      <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mb-5 leading-tight">Kiedyś balansowałem dla jednej kobiety. Dziś robię to dla dwóch.</h2>
-      <p class="leading-relaxed text-ink/85 mb-4">Od lat crossfit, bieganie i zdrowy styl życia są częścią tego, kim jestem — a stanie na rękach stało się moim prywatnym sposobem mówienia „kocham cię" bez słów: całym ciałem, na głowie, z pełnym zaufaniem, że ta druga osoba mnie utrzyma. Dawno temu wyobrażałem sobie, że w ten sposób wręczę wyjątkowej kobiecie różę — gest, którego nikt nie zapomni.</p>
-      <p class="leading-relaxed text-ink/85">Dziś, kiedy do narodzin Wiktorii zostało już bardzo niewiele, wiem, że tą różą nigdy nie był kwiat. Była nią moja obecność, stabilność i gotowość, żeby nie upaść — dla Anny najpierw, a od kilku tygodni także dla naszej córki. Ta sama dyscyplina, którą wkładam w trening, wkładam dziś w przygotowanie do porodu: bo bezpieczeństwo dwóch najważniejszych kobiet w moim życiu wymaga tej samej determinacji, co utrzymanie równowagi.</p>
+      <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep leading-tight">Kiedyś balansowałem dla jednej kobiety. Dziś robię to dla dwóch.</h2>
+    </div>
+
+    <!-- Oś czasu jednego gestu — dwa zdjęcia połączone wizualnie -->
+    <div class="grid md:grid-cols-[1fr_auto_1fr] gap-5 md:gap-3 items-center mb-10">
+      <figure class="m-0">
+        <div class="relative">
+          <span class="absolute top-3 left-3 z-10 bg-white/90 backdrop-blur text-deep text-[11px] font-semibold px-3 py-1 rounded-full shadow">Kilka miesięcy przed ciążą</span>
+          <img src="/img/michal-anna-roza-w-ustach-handstand.webp" alt="Michał w staniu na rękach podaje Annie różę trzymaną w ustach — realizacja gestu wizualizowanego wiele lat wcześniej, kilka miesięcy przed ciążą" width="900" height="1624" loading="lazy" decoding="async" class="rounded-3xl w-full h-auto shadow-xl">
+        </div>
+        <figcaption class="text-xs text-ink/60 text-center mt-3 italic leading-relaxed">Gest, który wizualizowałem sam wiele lat wcześniej — w końcu naprawdę podałem tę różę.</figcaption>
+      </figure>
+
+      <div class="flex md:flex-col items-center justify-center gap-2 text-teal py-2" aria-hidden="true">
+        <span class="hidden md:block w-px h-14 bg-teal/30"></span>
+        <span class="text-2xl">🌹</span>
+        <span class="hidden md:block w-px h-14 bg-teal/30"></span>
+      </div>
+
+      <figure class="m-0">
+        <div class="relative">
+          <span class="absolute top-3 left-3 z-10 bg-teal text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow">Drugi trymestr ciąży</span>
+          <img src="/img/michal-czekaj-handstand-krasiczyn-ciaza-milosc.webp" alt="Michał w staniu na rękach nad leżącą na ławce Anną w drugim trymestrze ciąży, przed zamkiem w Krasiczynie" width="900" height="1211" loading="lazy" decoding="async" class="rounded-3xl w-full h-auto shadow-xl">
+        </div>
+        <figcaption class="text-xs text-ink/60 text-center mt-3 italic leading-relaxed">Krasiczyn — ten sam gest, powtórzony, kiedy balansowałem już dla dwojga.</figcaption>
+      </figure>
+    </div>
+
+    <div class="max-w-2xl mx-auto space-y-4">
+      <p class="leading-relaxed text-ink/85">Od lat crossfit, bieganie i zdrowy styl życia są częścią tego, kim jestem — a stanie na rękach stało się moim prywatnym sposobem mówienia „kocham cię" bez słów. Wiele lat temu ćwiczyłem to sam, wizualizując moment, w którym unosząc się na rękach, wręczę wyjątkowej kobiecie różę trzymaną w ustach. Kilka miesięcy przed tym, jak dowiedzieliśmy się o Wiktorii, w końcu zrobiłem to naprawdę — dla Anny.</p>
+      <p class="leading-relaxed text-ink/85">W drugim trymestrze ciąży, przed zamkiem w Krasiczynie, powtórzyłem ten sam gest — tym razem wiedząc, że nie balansuję już tylko dla jednej osoby. Ta sama dyscyplina, którą wkładam w trening, dziś służy czemuś ważniejszemu: przygotowaniu do porodu. Bo bezpieczeństwo dwóch najważniejszych kobiet w moim życiu wymaga tej samej determinacji, co utrzymanie równowagi.</p>
     </div>
   </div>
 </section>
