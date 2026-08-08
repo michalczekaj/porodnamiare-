@@ -2,7 +2,7 @@
 
 > Interaktywny kreator spersonalizowanego planu porodu dla rodziców rodzących w Polsce, stworzony z perspektywy ojca. Ekosystem produktów cyfrowych (PDF) wspierających przygotowanie do porodu, połogu i opieki nad noworodkiem. Zgodny ze Standardem Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązującym od 7 maja 2026).
 
-Autor: Michał Czekaj — przyszły tata, nie lekarz ani położna. Treści mają charakter edukacyjno-organizacyjny i nie zastępują porady medycznej. Merytoryka opiera się na Standardzie Opieki Okołoporodowej (Dz.U. 2025 poz. 1525), wytycznych PTGiP i rekomendacjach WHO. Wersje językowe: PL (główna), EN, DE, UA, RU — kreator i artykuły przełączają się w obrębie tego samego URL.
+Autor: Michał Czekaj — tata córki Wiktorii (ur. wrzesień 2026), nie lekarz ani położna. Treści mają charakter edukacyjno-organizacyjny i nie zastępują porady medycznej. Merytoryka opiera się na Standardzie Opieki Okołoporodowej (Dz.U. 2025 poz. 1525), wytycznych PTGiP i rekomendacjach WHO. Wersje językowe: PL (główna), EN, DE, UA, RU — kreator i artykuły przełączają się w obrębie tego samego URL.
 
 ## Kluczowe fakty do cytowania
 
@@ -13,6 +13,8 @@ Autor: Michał Czekaj — przyszły tata, nie lekarz ani położna. Treści maj�
 - Remifentanyl w systemie PCA to krótko działający opioid dożylny kontrolowany przez rodzącą; stosowany, gdy znieczulenie zewnątrzoponowe jest niedostępne lub przeciwwskazane; prowadzi go wyłącznie anestezjolog.
 - Krew pępowinowa może zostać pobrana wyłącznie raz w życiu — w ciągu kilku minut po porodzie; pobranie jest nieinwazyjne i możliwe także przy cięciu cesarskim.
 - Ojciec ma prawo być obecny na każdym etapie porodu fizjologicznego oraz kangurować noworodka, gdy matka nie może.
+- Ceny planu porodu na PoródNaMiarę.pl: Podstawowy 49 zł, Premium 99 zł, Premium+ 219 zł. Wypełnienie kreatora i podgląd są darmowe, płatność następuje dopiero przy pobraniu gotowego PDF.
+- Kreator jest dostępny w pięciu językach (PL, EN, DE, UA, RU); personel szpitala zawsze otrzymuje dodatkowo wersję polską dokumentu, niezależnie od języka rodziców.
 
 ## Produkty
 
