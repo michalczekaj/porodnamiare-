@@ -126,16 +126,16 @@ blockquote{border-left:3px solid #A0525E}
 
   <!-- GALERIA — trzy kadry z tego samego oczekiwania -->
   <div class="grid grid-cols-3 gap-3 md:gap-4 mt-8">
-    <figure class="lb-fig m-0">
-      <img src="/img/michal-anna-buziak-brzuszek-ciaza.webp" alt="Michał całuje brzuch w ciąży Anny — twórca PoródNaMiarę.pl w oczekiwaniu na córkę" width="720" height="900" loading="lazy" decoding="async" class="rounded-2xl w-full object-cover aspect-[4/5]">
+    <figure class="lb-fig m-0 min-w-0">
+      <img src="/img/michal-anna-buziak-brzuszek-ciaza.webp" alt="Michał całuje brzuch w ciąży Anny — twórca PoródNaMiarę.pl w oczekiwaniu na córkę" width="720" height="900" loading="lazy" decoding="async" class="block rounded-2xl w-full h-auto object-cover aspect-[4/5]">
       <figcaption data-i18n="galCap1" class="text-[11px] text-ink/50 text-center mt-2">Ostatnie tygodnie ciąży</figcaption>
     </figure>
-    <figure class="lb-fig m-0">
-      <img src="/img/michal-anna-serce-brzuch-ciaza.webp" alt="Dłonie Michała i Anny układające serce na brzuchu w ciąży — rodzice tworzący PoródNaMiarę.pl" width="720" height="720" loading="lazy" decoding="async" class="rounded-2xl w-full object-cover aspect-square">
+    <figure class="lb-fig m-0 min-w-0">
+      <img src="/img/michal-anna-serce-brzuch-ciaza.webp" alt="Dłonie Michała i Anny układające serce na brzuchu w ciąży — rodzice tworzący PoródNaMiarę.pl" width="720" height="720" loading="lazy" decoding="async" class="block rounded-2xl w-full h-auto object-cover aspect-square">
       <figcaption data-i18n="galCap2" class="text-[11px] text-ink/50 text-center mt-2">Serduszko dla Wiktorii</figcaption>
     </figure>
-    <figure class="lb-fig m-0">
-      <img src="/img/michal-anna-obraczki-malzenstwo-ciaza.webp" alt="Złączone dłonie małżeństwa Michała i Anny z obrączkami, w oczekiwaniu na dziecko" width="720" height="720" loading="lazy" decoding="async" class="rounded-2xl w-full object-cover aspect-square">
+    <figure class="lb-fig m-0 min-w-0">
+      <img src="/img/michal-anna-obraczki-malzenstwo-ciaza.webp" alt="Złączone dłonie małżeństwa Michała i Anny z obrączkami, w oczekiwaniu na dziecko" width="720" height="720" loading="lazy" decoding="async" class="block rounded-2xl w-full h-auto object-cover aspect-square">
       <figcaption data-i18n="galCap3" class="text-[11px] text-ink/50 text-center mt-2">Razem od lat, teraz we troje</figcaption>
     </figure>
   </div>
@@ -240,66 +240,60 @@ blockquote{border-left:3px solid #A0525E}
   </div>
 </section>
 
-<!-- KOŁYSANKA DLA WIKTORII — wyjątkowy odtwarzacz audio -->
+<!-- KOŁYSANKA DLA WIKTORII — odtwarzacz w stylu sekcji "Posłuchajcie mnie" -->
 <section class="py-16 md:py-20" style="background:linear-gradient(160deg,#3E3852 0%,#4A4468 55%,#5B4C6E 100%)" aria-labelledby="lullabyH">
   <div class="max-w-2xl mx-auto px-4">
     <div class="text-center mb-8">
       <p class="text-tealsoft font-semibold text-xs uppercase tracking-[0.25em] mb-3">Pierwsza kołysanka</p>
       <h2 id="lullabyH" class="font-display text-2xl md:text-3xl font-semibold text-white mb-4">„Wiki, już Cię kochamy"</h2>
-      <p class="text-sand/75 leading-relaxed max-w-lg mx-auto">Napisałem ją, zanim Wiktoria przyszła na świat — pierwszą piosenkę, którą usłyszy od taty. Możecie posłuchać jej razem ze mną.</p>
+      <p class="text-sand/75 leading-relaxed max-w-lg mx-auto">Ta kołysanka powstała specjalnie dla Wiktorii. Choć jeszcze nie ma jej z nami, już teraz może słuchać jej głosu taty i czuć jego miłość. To utwór dla niej — pierwsza kołysanka, którą słyszy jeszcze w brzuchu mamy. ❤️</p>
     </div>
 
-    <div class="relative rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden" style="background:rgba(255,255,255,.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14)">
-      <!-- dekoracyjna poświata -->
-      <div class="pointer-events-none absolute -top-16 -right-16 w-56 h-56 rounded-full opacity-25 blur-3xl" style="background:radial-gradient(circle,#7FB5AE 0%,transparent 70%)"></div>
-
-      <div class="relative flex items-center gap-5">
-        <!-- przycisk play/pauza + pierścień animowany -->
-        <button id="lullabyBtn" type="button" aria-label="Odtwórz kołysankę" class="relative flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full bg-tealsoft text-deep flex items-center justify-center shadow-lg hover:scale-105 transition-transform focus:outline-none focus:ring-4 focus:ring-tealsoft/40">
-          <span id="lullabyPulse" class="hidden absolute inset-0 rounded-full animate-ping" style="background:rgba(127,181,174,.5)"></span>
-          <svg id="lullabyPlayIcon" class="w-7 h-7 md:w-9 md:h-9 relative" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          <svg id="lullabyPauseIcon" class="hidden w-7 h-7 md:w-9 md:h-9 relative" fill="currentColor" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+    <div class="rounded-3xl p-6 md:p-7" style="background:rgba(255,255,255,.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14)">
+      <div class="flex items-start gap-4">
+        <button id="lullabyBtn" type="button" aria-pressed="false" aria-label="Odtwórz kołysankę"
+          class="flex-shrink-0 w-14 h-14 rounded-full bg-tealsoft text-deep flex items-center justify-center hover:scale-105 transition-transform shadow-lg">
+          <span id="lullabyIcon" class="text-xl leading-none select-none" aria-hidden="true">▶</span>
         </button>
-
-        <div class="flex-1 min-w-0">
-          <!-- pasek postępu -->
-          <div id="lullabyTrack" class="relative h-2 rounded-full bg-white/15 cursor-pointer mb-2 group">
-            <div id="lullabyProgress" class="absolute inset-y-0 left-0 rounded-full bg-tealsoft" style="width:0%"></div>
-            <div id="lullabyThumb" class="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-white shadow opacity-0 group-hover:opacity-100 transition-opacity" style="left:0%"></div>
+        <div class="min-w-0 flex-1 pt-1.5">
+          <div id="lullabyTrack" class="flex items-center gap-3 cursor-pointer">
+            <div class="flex-1 h-1.5 rounded-full bg-white/15 overflow-hidden">
+              <div id="lullabyBar" class="h-full bg-tealsoft rounded-full transition-[width] duration-200" style="width:0%"></div>
+            </div>
+            <span id="lullabyTime" class="text-xs text-sand/70 tabular-nums flex-shrink-0">0:00</span>
           </div>
-          <div class="flex justify-between text-xs text-sand/70 font-medium tabular-nums">
-            <span id="lullabyCurrent">0:00</span>
-            <span id="lullabyDuration">3:38</span>
-          </div>
+          <p id="lullabyFallback" class="hidden text-xs text-sand/60 mt-2">Nagranie chwilowo niedostępne — spróbujcie odświeżyć stronę.</p>
         </div>
       </div>
-
       <audio id="lullabyAudio" preload="none">
         <source src="/audio/wiki-juz-cie-kochamy-kolysanka.mp3" type="audio/mpeg">
         Twoja przeglądarka nie obsługuje odtwarzania audio.
       </audio>
-
-      <p class="relative text-center text-sand/45 text-[11px] mt-5 italic">słowa i wykonanie: Michał, dla Wiktorii · 2026</p>
+      <p class="text-center text-sand/45 text-[11px] mt-5 italic">słowa i wykonanie: Michał, dla Wiktorii · 2026</p>
     </div>
   </div>
 </section>
 
 <script>
 (function(){
-  var a=document.getElementById('lullabyAudio'),btn=document.getElementById('lullabyBtn');
-  if(!a||!btn)return;
-  var play=document.getElementById('lullabyPlayIcon'),pause=document.getElementById('lullabyPauseIcon'),
-      pulse=document.getElementById('lullabyPulse'),prog=document.getElementById('lullabyProgress'),
-      thumb=document.getElementById('lullabyThumb'),cur=document.getElementById('lullabyCurrent'),
-      dur=document.getElementById('lullabyDuration'),track=document.getElementById('lullabyTrack');
-  function fmt(s){s=Math.floor(s||0);return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2);}
-  btn.addEventListener('click',function(){a.paused?a.play():a.pause();});
-  a.addEventListener('play',function(){play.classList.add('hidden');pause.classList.remove('hidden');pulse.classList.remove('hidden');btn.setAttribute('aria-label','Wstrzymaj kołysankę');});
-  a.addEventListener('pause',function(){play.classList.remove('hidden');pause.classList.add('hidden');pulse.classList.add('hidden');btn.setAttribute('aria-label','Odtwórz kołysankę');});
-  a.addEventListener('loadedmetadata',function(){if(isFinite(a.duration))dur.textContent=fmt(a.duration);});
-  a.addEventListener('timeupdate',function(){var p=a.duration?(a.currentTime/a.duration*100):0;prog.style.width=p+'%';thumb.style.left=p+'%';cur.textContent=fmt(a.currentTime);});
-  a.addEventListener('ended',function(){prog.style.width='0%';thumb.style.left='0%';cur.textContent='0:00';});
-  track.addEventListener('click',function(e){if(!a.duration)return;var r=track.getBoundingClientRect();a.currentTime=Math.min(Math.max((e.clientX-r.left)/r.width,0),1)*a.duration;});
+  var a=document.getElementById('lullabyAudio'), btn=document.getElementById('lullabyBtn');
+  if(!a||!btn) return;
+  var icon=document.getElementById('lullabyIcon'), bar=document.getElementById('lullabyBar'),
+      time=document.getElementById('lullabyTime'), fb=document.getElementById('lullabyFallback'),
+      track=document.getElementById('lullabyTrack');
+  function fmt(s){ s=Math.floor(s||0); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+  btn.addEventListener('click', function(){
+    if(a.paused){
+      a.play().then(function(){ icon.textContent='⏸'; btn.setAttribute('aria-pressed','true'); btn.setAttribute('aria-label','Wstrzymaj kołysankę'); })
+       .catch(function(){ fb.classList.remove('hidden'); });
+    } else {
+      a.pause(); icon.textContent='▶'; btn.setAttribute('aria-pressed','false'); btn.setAttribute('aria-label','Odtwórz kołysankę');
+    }
+  });
+  a.addEventListener('timeupdate', function(){ if(a.duration){ bar.style.width=(a.currentTime/a.duration*100)+'%'; time.textContent=fmt(a.currentTime); } });
+  a.addEventListener('ended', function(){ icon.textContent='▶'; btn.setAttribute('aria-pressed','false'); bar.style.width='0%'; time.textContent='0:00'; });
+  a.addEventListener('error', function(){ fb.classList.remove('hidden'); btn.disabled=true; btn.classList.add('opacity-50'); });
+  track.addEventListener('click', function(e){ if(!a.duration) return; var r=track.getBoundingClientRect(); a.currentTime=Math.min(Math.max((e.clientX-r.left)/r.width,0),1)*a.duration; });
 })();
 </script>
 
@@ -347,7 +341,13 @@ blockquote{border-left:3px solid #A0525E}
       <img src="/img/anna-ciaza-medalik-dlon-michala-niedziela.webp" alt="Anna w ciąży w kremowej koronkowej sukience z medalikiem, dłoń Michała na brzuchu — niedzielne popołudnie" width="800" height="1387" loading="lazy" decoding="async" class="rounded-2xl w-full object-cover aspect-square shadow-lg group-hover:opacity-90 transition-opacity">
     </button>
     <button type="button" class="lb-open m-0 p-0 border-0 bg-transparent cursor-zoom-in group" data-full="/img/anna-relaks-rynek-przemysl-ciaza-przed-porodem.webp" data-cap="Chwila oddechu na rynku w Przemyślu — na krótko przed porodem">
-      <img src="/img/anna-relaks-rynek-przemysl-ciaza-przed-porodem.webp" alt="Anna w ciąży odpoczywa na ławce na rynku w Przemyślu w słoneczny dzień, obok kwitnące petunie — spokój przed porodem" width="800" height="1387" loading="lazy" decoding="async" class="rounded-2xl w-full object-cover aspect-square shadow-lg group-hover:opacity-90 transition-opacity col-span-2 md:col-span-1">
+      <img src="/img/anna-relaks-rynek-przemysl-ciaza-przed-porodem.webp" alt="Anna w ciąży odpoczywa na ławce na rynku w Przemyślu w słoneczny dzień, obok kwitnące petunie — spokój przed porodem" width="800" height="1387" loading="lazy" decoding="async" class="rounded-2xl w-full object-cover aspect-square shadow-lg group-hover:opacity-90 transition-opacity">
+    </button>
+    <button type="button" class="lb-open m-0 p-0 border-0 bg-transparent cursor-zoom-in group" data-full="/img/michal-anna-fontanna-przemysl-ciaza-lato.webp" data-cap="Pocałunek dla Wiktorii przy fontannie na rynku w Przemyślu — letnie popołudnie">
+      <img src="/img/michal-anna-fontanna-przemysl-ciaza-lato.webp" alt="Michał klęczy i całuje brzuch Anny w białej sukience przy fontannie na rynku w Przemyślu — letni dzień w oczekiwaniu na Wiktorię" width="1083" height="1452" loading="lazy" decoding="async" class="rounded-2xl w-full object-cover aspect-square shadow-lg group-hover:opacity-90 transition-opacity col-span-2 md:col-span-1">
+    </button>
+    <button type="button" class="lb-open m-0 p-0 border-0 bg-transparent cursor-zoom-in group" data-full="/img/michal-czapka-pan-tata-rodzicielstwo.webp" data-cap="„Pan Tata" — nowa czapka na nowy rozdział życia">
+      <img src="/img/michal-czapka-pan-tata-rodzicielstwo.webp" alt="Michał w dżinsowej czapce z haftowanym napisem „Pan Tata" — przygotowania do roli ojca" width="941" height="1672" loading="lazy" decoding="async" class="rounded-2xl w-full object-cover aspect-square shadow-lg group-hover:opacity-90 transition-opacity">
     </button>
   </div>
 </section>
