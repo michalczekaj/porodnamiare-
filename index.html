@@ -2519,6 +2519,62 @@ tailwind.config = {
       kreatorLangSel.addEventListener('change', function (e) { setKreatorLang(e.target.value, true); });
     }
 
+    // ===== Tłumaczenie wolnego tekstu rodziców („Wasze dodatkowe uwagi") =====
+    // Pole „uwagi" to swobodny tekst, więc nie ma go w słowniku fraz kreatora. Tłumaczymy je
+    // WYŁĄCZNIE na urządzeniu (Translator API w Chrome/Edge) — treść medyczna nigdy nie wychodzi
+    // z przeglądarki. Gdy API nie jest dostępne, tekst zostaje w oryginale, a pod nagłówkiem
+    // sekcji w PDF pojawia się adnotacja o jego pochodzeniu.
+    // Działa w obie strony: także na polski, gdy rodzic wpisał uwagi po angielsku/ukraińsku/rosyjsku
+    // — polski PDF jest dokumentem dla personelu i musi być zrozumiały w kilka sekund.
+    var TR_BCP = {pl:'pl', en:'en', de:'de', uk:'uk', ru:'ru'};
+    function pnmDetectNotesLang(text){
+      // 1) próba detekcji przez API przeglądarki, 2) fallback: alfabet + język kreatora
+      var api = (typeof self!=='undefined') ? self.LanguageDetector : null;
+      var guess = function(){
+        if(/[\u0400-\u04FF]/.test(text)) return /[іїєґІЇЄҐ]/.test(text) ? 'uk' : 'ru';
+        var kl = window.__pnmKreatorLang || 'pl';
+        return (kl==='uk'||kl==='ru') ? 'pl' : kl;
+      };
+      if(!api || !api.create) return Promise.resolve(guess());
+      return api.create().then(function(det){
+        return det.detect(text).then(function(res){
+          var top = (res && res[0]) ? res[0] : null;
+          if(top && top.confidence > 0.5 && TR_BCP[top.detectedLanguage]) return top.detectedLanguage;
+          return guess();
+        });
+      }).catch(function(){ return guess(); });
+    }
+    // Zwraca {text, caption} — caption trafia małym drukiem pod nagłówek sekcji w PDF.
+    function pnmPrepareNotes(text, targetLang){
+      var lbl = function(key, fb){
+        try{ var p = window.PNM_I18N.pdf[targetLang]; if(p && p[key]) return p[key]; }catch(e){}
+        return fb;
+      };
+      var capOrig = function(){ return lbl('notesOriginal','Tekst rodziców w oryginalnym brzmieniu.'); };
+      if(!text) return Promise.resolve({text:text, caption:''});
+      var Tr = (typeof self!=='undefined') ? self.Translator : null;
+      if(!Tr || !Tr.create) return Promise.resolve({text:text, caption:capOrig()});
+      return pnmDetectNotesLang(text).then(function(src){
+        if(src === targetLang) return {text:text, caption:''};
+        var opts = {sourceLanguage:src, targetLanguage:targetLang};
+        var avail = Tr.availability ? Tr.availability(opts) : Promise.resolve('available');
+        return Promise.resolve(avail).then(function(st){
+          if(st === 'unavailable' || !st) return {text:text, caption:capOrig()};
+          return Tr.create(opts).then(function(tr){
+            return tr.translate(text);
+          }).then(function(out){
+            return (out && out.trim()) ? {text:out, caption:lbl('notesAuto','Tłumaczenie automatyczne, wykonane na urządzeniu rodziców.')}
+                                       : {text:text, caption:capOrig()};
+          });
+        });
+      }).catch(function(){ return {text:text, caption:capOrig()}; });
+    }
+    // Zabezpieczenie: model tłumaczenia bywa pobierany przy pierwszym użyciu — nie blokujemy
+    // generowania PDF w nieskończoność.
+    function pnmWithTimeout(promise, ms, fallback){
+      return Promise.race([promise, new Promise(function(res){ setTimeout(function(){ res(fallback); }, ms); })]);
+    }
+
     var dlBtn=document.getElementById('dlBtn'), dlStatus=document.getElementById('dlStatus');
     if(dlBtn){
       dlBtn.addEventListener('click', function(){
@@ -2527,8 +2583,13 @@ tailwind.config = {
         dlBtn.disabled=true; dlStatus.textContent='Przygotowuję dokument…';
         var chain = window.jspdf ? Promise.resolve() : loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
         chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js'); })
+          .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js'); })
           .then(function(){
             var data=planData();
+            return pnmWithTimeout(pnmPrepareNotes(data.notes,'pl'), 12000, {text:data.notes, caption:''})
+              .then(function(n){ data.notes=n.text; data.notesCaption=n.caption; return data; });
+          })
+          .then(function(data){
             var doc=window.PNM_buildPlanPDF(data);
             var nm=(data.dziecko||'plan').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
             doc.save('Plan-porodu-'+nm+'.pdf');
@@ -2542,9 +2603,9 @@ tailwind.config = {
       });
     }
 
-    // ===== Pobranie kopii dla rodzica w jego języku (EN/DE/UK) — obok wersji PL dla personelu =====
+    // ===== Pobranie kopii dla rodzica w jego języku (EN/DE/UK/RU) — obok wersji PL dla personelu =====
     var dlBtnLang=document.getElementById('dlBtnLang'), dlStatusLang=document.getElementById('dlStatusLang'), dlLangSel=document.getElementById('dlLang');
-    var LANG_NAMES={en:'English',de:'Deutsch',uk:'Українською'};
+    var LANG_NAMES={en:'English',de:'Deutsch',uk:'Українською',ru:'Русский'};
     if(dlBtnLang){
       dlBtnLang.addEventListener('click', function(){
         if(!pnmIsUnlocked()){ dlStatusLang.textContent='Dokończ zakup, aby pobrać plan.'; return; }
@@ -2556,6 +2617,10 @@ tailwind.config = {
           .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js'); })
           .then(function(){
             var data=planData();
+            return pnmWithTimeout(pnmPrepareNotes(data.notes, lang), 12000, {text:data.notes, caption:''})
+              .then(function(n){ data.notes=n.text; data.notesCaption=n.caption; return data; });
+          })
+          .then(function(data){
             var doc=window.PNM_buildPlanPDF(data, lang);
             var nm=(data.dziecko||'plan').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
             doc.save('Birth-plan-'+nm+'-'+lang+'.pdf');

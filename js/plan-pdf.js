@@ -154,32 +154,37 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
   }
 
   // Tłumaczenia ramek informacyjnych (PDF) — kanoniczny tekst pozostaje polski w kreatorze,
-  // tu tłumaczymy tylko warstwę wyświetlaną, spójnie z resztą planu (EN/DE/UK).
+  // tu tłumaczymy tylko warstwę wyświetlaną, spójnie z resztą planu (EN/DE/UK/RU).
   var PDF_INFO={
     labor:{
       en:['Birth whistle — what it is','A small breathing mouthpiece supporting controlled exhalation in the second stage of labour. It helps keep a steady breathing rhythm and effective pushing without holding the breath.'],
       de:['Geburtspfeife — was das ist','Ein kleines Atem-Mundstück, das die kontrollierte Ausatmung in der Austreibungsphase unterstützt. Es hilft, den Atemrhythmus zu halten und effektiv zu pressen, ohne die Luft anzuhalten.'],
-      uk:['Пологовий свисток — що це','Невеликий дихальний мундштук, що підтримує контрольований видих у II періоді пологів. Допомагає тримати ритм дихання та ефективні потуги без затримки повітря.']
+      uk:['Пологовий свисток — що це','Невеликий дихальний мундштук, що підтримує контрольований видих у II періоді пологів. Допомагає тримати ритм дихання та ефективні потуги без затримки повітря.'],
+      ru:['Родовой свисток — что это','Небольшой дыхательный мундштук, поддерживающий контролируемый выдох во II периоде родов. Помогает сохранять ритм дыхания и эффективные потуги без задержки воздуха.']
     },
     pain:{
       en:['Remifentanil PCA — information','A short-acting opioid delivered by a patient-controlled pump — the mother triggers each dose during a contraction. Rapid onset and offset; requires oxygen-saturation monitoring.'],
       de:['Remifentanil-PCA — Information','Ein kurzwirksames Opioid über eine patientengesteuerte Pumpe — die Gebärende löst jede Dosis während einer Wehe selbst aus. Schneller Wirkeintritt und -abbau; erfordert Sättigungsüberwachung.'],
-      uk:['Ремифентаніл PCA — інформація','Короткодіючий опіоїд через помпу з кнопкою — породілля сама вмикає дозу під час перейми. Швидкий початок і кінець дії; потребує моніторингу сатурації.']
+      uk:['Ремифентаніл PCA — інформація','Короткодіючий опіоїд через помпу з кнопкою — породілля сама вмикає дозу під час перейми. Швидкий початок і кінець дії; потребує моніторингу сатурації.'],
+      ru:['Ремифентанил PCA — информация','Короткодействующий опиоид через помпу с кнопкой — роженица сама включает дозу во время схватки. Быстрое начало и окончание действия; требует мониторинга сатурации.']
     },
     cordblood:{
       en:['Cord blood banking — logistics','Collected from the umbilical vein after cord clamping; non-invasive, also possible during a caesarean. Please note the collection in the records — we notify the courier ourselves.'],
       de:['Nabelschnurblut-Banking — Logistik','Entnahme aus der Nabelvene nach dem Abnabeln; nicht-invasiv, auch beim Kaiserschnitt möglich. Bitte die Entnahme dokumentieren — den Kurier benachrichtigen wir selbst.'],
-      uk:['Банкування пуповинної крові — логістика','Забір із пуповинної вени після перетискання; неінвазивний, можливий і при кесаревому розтині. Просимо відзначити забір у документації — курʼєра сповіщаємо самі.']
+      uk:['Банкування пуповинної крові — логістика','Забір із пуповинної вени після перетискання; неінвазивний, можливий і при кесаревому розтині. Просимо відзначити забір у документації — курʼєра сповіщаємо самі.'],
+      ru:['Банкирование пуповинной крови — логистика','Забор из пуповинной вены после пересечения пуповины; неинвазивный, возможен и при кесаревом сечении. Просим отметить забор в документации — курьера уведомляем сами.']
     },
     nicu:{
       en:['Neonatal care — our priorities','Please treat the points above as the parents\u2019 priorities if the baby needs specialist care. We understand clinical decisions rest with the team — we only ask to be informed and for the earliest possible contact with the baby.'],
       de:['Neonatologische Betreuung — unsere Prioritäten','Bitte betrachten Sie die obigen Punkte als Prioritäten der Eltern, falls das Kind spezialisierte Betreuung braucht. Klinische Entscheidungen liegen beim Team — wir bitten nur um Information und möglichst frühen Kontakt zum Kind.'],
-      uk:['Неонатальна допомога — наші пріоритети','Просимо вважати наведені пункти пріоритетами батьків, якщо дитина потребує спеціалізованої допомоги. Клінічні рішення — за командою; просимо лише інформувати нас і про якнайшвидший контакт з дитиною.']
+      uk:['Неонатальна допомога — наші пріоритети','Просимо вважати наведені пункти пріоритетами батьків, якщо дитина потребує спеціалізованої допомоги. Клінічні рішення — за командою; просимо лише інформувати нас і про якнайшвидший контакт з дитиною.'],
+      ru:['Неонатальная помощь — наши приоритеты','Просим считать приведённые пункты приоритетами родителей, если ребёнку требуется специализированная помощь. Клинические решения остаются за командой; просим лишь информировать нас и обеспечить как можно более ранний контакт с ребёнком.']
     },
     postpartum:{
       en:['Family room — rationale','The father\u2019s constant presence in the first days supports bonding, helps breastfeeding and relieves the mother. Please let us know about availability and the cost of the hotel service.'],
       de:['Familienzimmer — Begründung','Die ständige Anwesenheit des Vaters in den ersten Tagen stärkt die Bindung, erleichtert das Stillen und entlastet die Mutter. Bitte informieren Sie uns über Verfügbarkeit und Kosten des Hotelservice.'],
-      uk:['Сімейна палата — обґрунтування','Постійна присутність батька в перші дні зміцнює звʼязок, полегшує лактацію і розвантажує маму. Просимо повідомити про наявність і вартість готельної послуги.']
+      uk:['Сімейна палата — обґрунтування','Постійна присутність батька в перші дні зміцнює звʼязок, полегшує лактацію і розвантажує маму. Просимо повідомити про наявність і вартість готельної послуги.'],
+      ru:['Семейная палата — обоснование','Постоянное присутствие отца в первые дни укрепляет связь с ребёнком, облегчает лактацию и разгружает маму. Просим сообщить о наличии и стоимости гостиничной услуги.']
     }
   };
   function infoBox(c, title, txt, key, lang){
@@ -235,12 +240,16 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
     return out;
   }
 
-  function notesBox(c, text){
+  function notesBox(c, text, caption){
     if(!text) return;
     var d=c.d, t=c.t, lang=c.lang;
     var title = pdfLabel(lang,'notesTitle','Dodatkowe uwagi rodziców');
     var lines = layoutNotes(d, text, W-52, 9);
-    var bh = lines.length*4.6 + 16;
+    // Adnotacja o pochodzeniu tekstu (tłumaczenie automatyczne / oryginalne brzmienie)
+    var capLines = [];
+    if(caption){ d.setFont('Lato','normal'); d.setFontSize(7.5); capLines = d.splitTextToSize(caption, W-52); }
+    var capH = capLines.length ? capLines.length*3.4 + 2 : 0;
+    var bh = lines.length*4.6 + 16 + capH;
     need(c, bh+6);
     d.setFillColor(255,255,255); d.setDrawColor(t.ac[0],t.ac[1],t.ac[2]); d.setLineWidth(0.5);
     d.roundedRect(16,c.y,W-32,bh,3,3,'FD');
@@ -248,6 +257,11 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
     d.setTextColor(DEEP[0],DEEP[1],DEEP[2]); d.setFont('Lato','bold'); d.setFontSize(10.5);
     d.text(title,26,c.y+8.5);
     var yy=c.y+15;
+    if(capLines.length){
+      d.setTextColor(GREY[0],GREY[1],GREY[2]); d.setFont('Lato','normal'); d.setFontSize(7.5);
+      capLines.forEach(function(l){ d.text(l,22,yy); yy+=3.4; });
+      yy += 2;
+    }
     lines.forEach(function(line){
       var xx = 22 + line.indent;
       if(line.bullet){ d.setFillColor(t.ac[0],t.ac[1],t.ac[2]); d.circle(xx-3,yy-1.3,0.7,'F'); }
@@ -313,7 +327,7 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
         if(s.info) infoBox(c, s.info[0], s.info[1], s.info[2], lang);
       }
     });
-    notesBox(c, data.notes);
+    notesBox(c, data.notes, data.notesCaption);
     signatures(c);
     return c.d;
   };

@@ -78,20 +78,79 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 </head>
 <body class="font-body bg-sand text-ink antialiased">
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold" data-i18n="skipLink">Przejdź do treści</a>
-<header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark">
-  <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3" aria-label="Nawigacja główna">
-    <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <div class="flex items-center gap-2">
-      <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2 py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
+<header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
+  <nav class="max-w-6xl mx-auto flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-3" aria-label="Nawigacja główna">
+    <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-display text-sm sm:text-lg text-deep font-semibold flex-shrink-0 whitespace-nowrap min-w-0"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-6 sm:w-8 h-auto flex-shrink-0">Poród<span class="text-teal">NaMiarę</span>.pl</a>
+
+    <div class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium mx-auto whitespace-nowrap">
+      <a href="/#dlaczego" data-i18n="navWhy" class="py-1 hover:text-teal transition-colors">Dlaczego my</a>
+      <a href="/#jak" data-i18n="navHow" class="py-1 hover:text-teal transition-colors">Jak to działa</a>
+      <a href="/#kreator" data-i18n="navCreator" class="py-1 hover:text-teal transition-colors">Kreator planu</a>
+      <a href="/#cennik" data-i18n="navPricing" class="py-1 hover:text-teal transition-colors">Cennik</a>
+      <a href="/wiedza" data-i18n="navBlog" class="py-1 text-teal font-semibold" aria-current="page">Wiedza</a>
+      <a href="/o-michale" data-i18n="navAbout" class="py-1 hover:text-teal transition-colors">O Michale</a>
+    </div>
+
+    <div class="flex items-center gap-1 sm:gap-2 ml-auto lg:ml-0 flex-shrink-0">
+      <select id="langSwitch" class="text-[10px] sm:text-xs font-semibold border border-deep/30 rounded-full px-1 py-1 sm:px-2 sm:py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
         <option value="pl">PL</option>
         <option value="en">EN</option>
         <option value="de">DE</option>
         <option value="uk">UA</option>
       </select>
-      <a href="/#kreator" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep transition-colors" data-i18n="navCta">Stwórz plan</a>
+      <a href="/#kreator" class="bg-teal text-white text-xs sm:text-sm font-semibold px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full hover:bg-deep transition-colors whitespace-nowrap"><span class="sm:hidden" data-i18n="navCtaShort">Plan</span><span class="hidden sm:inline" data-i18n="navCta">Stwórz plan</span></a>
+      <button id="menuBtn" type="button" class="lg:hidden p-1.5 -mr-1 flex-shrink-0" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3E3852" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </nav>
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-sanddark bg-sand/95 backdrop-blur px-4 py-5">
+    <nav class="space-y-1 text-[16px] font-medium" aria-label="Nawigacja mobilna">
+      <a href="/#dlaczego" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">💗</span><span data-i18n="navWhy">Dlaczego my</span></span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/#jak" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">🧭</span><span data-i18n="navHow">Jak to działa</span></span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/#kreator" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl bg-tealsoft/60 hover:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">📋</span><span class="font-semibold text-deep" data-i18n="navCreator">Kreator planu</span></span>
+        <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/#cennik" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">🛍️</span><span data-i18n="navPricing">Cennik</span></span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/wiedza" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl bg-tealsoft/40" aria-current="page">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">📖</span><span class="font-semibold text-deep" data-i18n="navBlog">Wiedza</span></span>
+        <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/o-michale" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">👨‍👧</span><span data-i18n="navAbout">O Michale</span></span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/#faq" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">❓</span><span data-i18n="navFaq">FAQ</span></span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+    <a href="/#kreator" data-i18n="mmCta" class="mob-link mt-4 block text-center bg-teal text-white font-semibold py-3.5 rounded-full hover:bg-deep transition-colors">Stwórz swój plan porodu →</a>
+  </div>
 </header>
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn'), menu=document.getElementById('mobileMenu');
+  if(!btn||!menu) return;
+  function close(){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
+  btn.addEventListener('click', function(){
+    var open = menu.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('.mob-link').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 
 <main id="main" class="max-w-5xl mx-auto px-4 py-12">
   <nav aria-label="Ścieżka nawigacji" class="text-xs text-ink/60 mb-6"><a href="/" class="hover:text-teal">Start</a> · <span>Wiedza</span></nav>
@@ -433,7 +492,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}:focus-visi
 <script>
 window.PAGE_I18N = {
   en: {
-    skipLink: 'Skip to content', navCta: 'Create a plan',
+        navWhy: 'Why us', navHow: 'How it works', navCreator: 'Birth plan creator', navPricing: 'Pricing', navBlog: 'Knowledge', navAbout: 'About Michał', navFaq: 'FAQ', navCtaShort: 'Plan', mmCta: 'Create your birth plan \u2192',
+skipLink: 'Skip to content', navCta: 'Create a plan',
     wH1: 'Knowledge that helps before and after the birth',
     wLead: 'We write about what we were looking for ourselves as expectant parents: concrete, in line with the current care standard, without filler. Articles are in Polish \u2014 the birth plan creator is available in English, German and Ukrainian.',
     catAll: 'All', catBirth: 'Birth', catNewborn: 'Newborn', catSafety: 'Safety', catPreemie: 'Premature baby',
@@ -443,7 +503,8 @@ window.PAGE_I18N = {
     waLabel: 'Chat on WhatsApp'
   },
   de: {
-    skipLink: 'Zum Inhalt springen', navCta: 'Plan erstellen',
+        navWhy: 'Warum wir', navHow: 'So funktioniert es', navCreator: 'Geburtsplan-Generator', navPricing: 'Preise', navBlog: 'Wissen', navAbout: '\u00dcber Micha\u0142', navFaq: 'FAQ', navCtaShort: 'Plan', mmCta: 'Geburtsplan erstellen \u2192',
+skipLink: 'Zum Inhalt springen', navCta: 'Plan erstellen',
     wH1: 'Wissen, das vor und nach der Geburt hilft',
     wLead: 'Wir schreiben \u00fcber das, wonach wir als werdende Eltern selbst gesucht haben: konkret, im Einklang mit dem aktuellen Versorgungsstandard, ohne F\u00fcllmaterial. Die Artikel sind auf Polnisch \u2014 der Geburtsplan-Generator ist auf Englisch, Deutsch und Ukrainisch verf\u00fcgbar.',
     catAll: 'Alle', catBirth: 'Geburt', catNewborn: 'Neugeborenes', catSafety: 'Sicherheit', catPreemie: 'Fr\u00fchgeborenes',
@@ -453,7 +514,8 @@ window.PAGE_I18N = {
     waLabel: 'Auf WhatsApp schreiben'
   },
   uk: {
-    skipLink: '\u041f\u0435\u0440\u0435\u0439\u0442\u0438 \u0434\u043e \u0432\u043c\u0456\u0441\u0442\u0443', navCta: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u043b\u0430\u043d',
+        navWhy: '\u0427\u043e\u043c\u0443 \u043c\u0438', navHow: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454', navCreator: '\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440 \u043f\u043b\u0430\u043d\u0443', navPricing: '\u0426\u0456\u043d\u0438', navBlog: '\u0417\u043d\u0430\u043d\u043d\u044f', navAbout: '\u041f\u0440\u043e \u041c\u0456\u0445\u0430\u043b\u0430', navFaq: 'FAQ', navCtaShort: '\u041f\u043b\u0430\u043d', mmCta: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u0441\u0432\u0456\u0439 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432 \u2192',
+skipLink: '\u041f\u0435\u0440\u0435\u0439\u0442\u0438 \u0434\u043e \u0432\u043c\u0456\u0441\u0442\u0443', navCta: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043f\u043b\u0430\u043d',
     wH1: '\u0417\u043d\u0430\u043d\u043d\u044f, \u044f\u043a\u0456 \u0437\u043d\u0430\u0434\u043e\u0431\u043b\u044f\u0442\u044c\u0441\u044f \u0434\u043e \u0456 \u043f\u0456\u0441\u043b\u044f \u043f\u043e\u043b\u043e\u0433\u0456\u0432',
     wLead: '\u041c\u0438 \u043f\u0438\u0448\u0435\u043c\u043e \u043f\u0440\u043e \u0442\u0435, \u0447\u043e\u0433\u043e \u0448\u0443\u043a\u0430\u043b\u0438 \u0441\u0430\u043c\u0456 \u044f\u043a \u043c\u0430\u0439\u0431\u0443\u0442\u043d\u0456 \u0431\u0430\u0442\u044c\u043a\u0438: \u043a\u043e\u043d\u043a\u0440\u0435\u0442\u043d\u043e, \u0437\u0433\u0456\u0434\u043d\u043e \u0437 \u0447\u0438\u043d\u043d\u0438\u043c \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043e\u043c \u0434\u043e\u043f\u043e\u043c\u043e\u0433\u0438, \u0431\u0435\u0437 \u0432\u043e\u0434\u0438. \u0421\u0442\u0430\u0442\u0442\u0456 \u043f\u043e\u043b\u044c\u0441\u044c\u043a\u043e\u044e \u2014 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440 \u043f\u043b\u0430\u043d\u0443 \u043f\u043e\u043b\u043e\u0433\u0456\u0432 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u0438\u0439 \u0430\u043d\u0433\u043b\u0456\u0439\u0441\u044c\u043a\u043e\u044e, \u043d\u0456\u043c\u0435\u0446\u044c\u043a\u043e\u044e \u0442\u0430 \u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u043e\u044e.',
     catAll: '\u0423\u0441\u0456', catBirth: '\u041f\u043e\u043b\u043e\u0433\u0438', catNewborn: '\u041d\u043e\u0432\u043e\u043d\u0430\u0440\u043e\u0434\u0436\u0435\u043d\u0438\u0439', catSafety: '\u0411\u0435\u0437\u043f\u0435\u043a\u0430', catPreemie: '\u041d\u0435\u0434\u043e\u043d\u043e\u0448\u0435\u043d\u0430 \u0434\u0438\u0442\u0438\u043d\u0430',

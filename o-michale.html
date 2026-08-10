@@ -15,7 +15,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
 {"@type":"AboutPage","name":"O Michale — twórcy PoródNaMiarę.pl","url":"https://porodnamiare.pl/o-michale","inLanguage":"pl","description":"Historia powstania PoródNaMiarę.pl opowiedziana przez jej twórcę — tatę, który zbudował ją dla własnej córki."},
-{"@type":"Person","name":"Michał Czekaj","jobTitle":"Twórca PoródNaMiarę.pl","image":"https://porodnamiare.pl/img/michal-anna-buziak-oczekiwanie-na-wiktorie.webp","description":"Tata i twórca interaktywnego kreatora planu porodu opartego na Standardzie Opieki Okołoporodowej. Pasjonat crossfitu, biegania i zdrowego stylu życia.","worksFor":{"@type":"Organization","name":"PoródNaMiarę.pl","url":"https://porodnamiare.pl"},"knowsAbout":["plan porodu","standard opieki okołoporodowej","opieka nad noworodkiem","rola ojca przy porodzie"]},
+{"@type":"Person","@id":"https://porodnamiare.pl/o-michale#person","name":"Michał Czekaj","jobTitle":"Twórca PoródNaMiarę.pl","image":"https://porodnamiare.pl/img/michal-anna-buziak-oczekiwanie-na-wiktorie.webp","description":"Tata i twórca interaktywnego kreatora planu porodu opartego na Standardzie Opieki Okołoporodowej. Pasjonat crossfitu, biegania i zdrowego stylu życia.","worksFor":{"@type":"Organization","name":"PoródNaMiarę.pl","url":"https://porodnamiare.pl"},"knowsAbout":["plan porodu","standard opieki okołoporodowej","opieka nad noworodkiem","rola ojca przy porodzie"]},
+{"@type":"ImageObject","contentUrl":"https://porodnamiare.pl/img/michal-anna-czapka-pan-tata-zalew-wakacje.webp","url":"https://porodnamiare.pl/img/michal-anna-czapka-pan-tata-zalew-wakacje.webp","width":675,"height":1200,"name":"„Pan Tata\" — Michał Czekaj i Anna w trzecim trymestrze ciąży nad zalewem","caption":"Anna wkłada Michałowi czapkę z haftem „Pan Tata\" podczas wakacji nad zalewem w trzecim trymestrze ciąży, kilka tygodni przed narodzinami córki Wiktorii.","description":"Michał Czekaj, twórca PoródNaMiarę.pl, leży z głową na kolanach Anny w trzecim trymestrze ciąży. Anna wkłada mu dżinsową czapkę z haftowanym napisem „Pan Tata\". Zdjęcie ilustruje założenie serwisu: ojcostwo zaczyna się od potwierdzenia ciąży, a nie od porodu.","representativeOfPage":false,"inLanguage":"pl","contentLocation":{"@type":"Place","name":"Zalew, Podkarpacie, Polska"},"about":{"@id":"https://porodnamiare.pl/o-michale#person"},"creditText":"PoródNaMiarę.pl","copyrightNotice":"© Michał Czekaj / PoródNaMiarę.pl"},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://porodnamiare.pl/"},{"@type":"ListItem","position":2,"name":"O Michale","item":"https://porodnamiare.pl/o-michale"}]},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Kto tworzy plany porodu na PoródNaMiarę.pl?","acceptedAnswer":{"@type":"Answer","text":"Serwis prowadzi Michał — tata, który przygotował plan porodu dla własnej córki Wiktorii. Nie jest lekarzem ani położną, a produkty mają charakter organizacyjny i edukacyjny. Każda opcja w kreatorze opiera się na Standardzie Organizacyjnym Opieki Okołoporodowej oraz aktualnych rekomendacjach."}},
@@ -95,16 +96,75 @@ blockquote{border-left:3px solid #A0525E}
 <body class="font-body bg-sand text-ink antialiased">
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Przejdź do treści</a>
 <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-sanddark no-print">
-  <nav class="max-w-4xl mx-auto flex items-center justify-between gap-1.5 px-3 sm:px-4 py-3" aria-label="Nawigacja główna">
+  <nav class="max-w-6xl mx-auto flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-3" aria-label="Nawigacja główna">
     <a href="/" class="flex items-center gap-1.5 sm:gap-2 font-display text-sm sm:text-lg text-deep font-semibold flex-shrink-0 whitespace-nowrap min-w-0"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-6 sm:w-8 h-auto flex-shrink-0">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-    <div class="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+
+    <div class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium mx-auto whitespace-nowrap">
+      <a href="/#dlaczego" data-i18n="navWhy" class="py-1 hover:text-teal transition-colors">Dlaczego my</a>
+      <a href="/#jak" data-i18n="navHow" class="py-1 hover:text-teal transition-colors">Jak to działa</a>
+      <a href="/#kreator" data-i18n="navCreator" class="py-1 hover:text-teal transition-colors">Kreator planu</a>
+      <a href="/#cennik" data-i18n="navPricing" class="py-1 hover:text-teal transition-colors">Cennik</a>
+      <a href="/wiedza" data-i18n="navBlog" class="py-1 hover:text-teal transition-colors">Wiedza</a>
+      <a href="/o-michale" data-i18n="navAbout" class="py-1 text-teal font-semibold" aria-current="page">O Michale</a>
+    </div>
+
+    <div class="flex items-center gap-1 sm:gap-2 ml-auto lg:ml-0 flex-shrink-0">
       <select id="langSwitch" class="text-[10px] sm:text-xs font-semibold border border-deep/30 rounded-full px-1 py-1 sm:px-2 sm:py-1.5 bg-transparent cursor-pointer" aria-label="Język / Language">
         <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option>
       </select>
-      <a href="/#kreator" data-i18n="navCta" class="bg-teal text-white text-xs sm:text-sm font-semibold px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full hover:bg-deep transition-colors whitespace-nowrap"><span class="sm:hidden">Plan</span><span class="hidden sm:inline">Stwórz plan</span></a>
+      <a href="/#kreator" class="bg-teal text-white text-xs sm:text-sm font-semibold px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full hover:bg-deep transition-colors whitespace-nowrap"><span class="sm:hidden" data-i18n="navCtaShort">Plan</span><span class="hidden sm:inline" data-i18n="navCta">Stwórz plan</span></a>
+      <button id="menuBtn" type="button" class="lg:hidden p-1.5 -mr-1 flex-shrink-0" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3E3852" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </nav>
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-sanddark bg-sand/95 backdrop-blur px-4 py-5">
+    <nav class="space-y-1 text-[16px] font-medium" aria-label="Nawigacja mobilna">
+      <a href="/#dlaczego" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">💗</span><span data-i18n="navWhy">Dlaczego my</span></span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/#jak" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">🧭</span><span data-i18n="navHow">Jak to działa</span></span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/#kreator" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl bg-tealsoft/60 hover:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">📋</span><span class="font-semibold text-deep" data-i18n="navCreator">Kreator planu</span></span>
+        <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/#cennik" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">🛍️</span><span data-i18n="navPricing">Cennik</span></span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/wiedza" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">📖</span><span data-i18n="navBlog">Wiedza</span></span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/o-michale" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl bg-tealsoft/40" aria-current="page">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">👨‍👧</span><span class="font-semibold text-deep" data-i18n="navAbout">O Michale</span></span>
+        <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/#faq" class="mob-link flex items-center justify-between py-3.5 px-3 rounded-2xl hover:bg-tealsoft active:bg-tealsoft transition-colors">
+        <span class="flex items-center gap-3"><span class="text-lg" aria-hidden="true">❓</span><span data-i18n="navFaq">FAQ</span></span>
+        <svg class="w-4 h-4 text-ink/30" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+    <a href="/#kreator" data-i18n="mmCta" class="mob-link mt-4 block text-center bg-teal text-white font-semibold py-3.5 rounded-full hover:bg-deep transition-colors">Stwórz swój plan porodu →</a>
+  </div>
 </header>
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn'), menu=document.getElementById('mobileMenu');
+  if(!btn||!menu) return;
+  function close(){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
+  btn.addEventListener('click', function(){
+    var open = menu.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('.mob-link').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
 
 <main id="main">
 
@@ -362,31 +422,37 @@ blockquote{border-left:3px solid #A0525E}
 </div>
 
 <script>
+// UWAGA: inicjalizacja MUSI czekać na pełny DOM — część galerii (.lb-fig) znajduje się
+// fizycznie PO tym skrypcie, więc odpytanie dokumentu w trakcie parsowania je pomijało.
 (function(){
-  var lb=document.getElementById('lightbox'),img=document.getElementById('lbImg'),
-      cap=document.getElementById('lbCap'),close=document.getElementById('lbClose');
-  if(!lb)return;
-  function open(src,alt,caption){img.src=src;img.alt=alt||'';cap.textContent=caption||'';lb.classList.remove('hidden');lb.classList.add('flex');document.body.style.overflow='hidden';}
-  function hide(){lb.classList.add('hidden');lb.classList.remove('flex');img.src='';document.body.style.overflow='';}
-  // 1) jawne przyciski galerii codzienności
-  document.querySelectorAll('.lb-open').forEach(function(b){
-    b.addEventListener('click',function(){
-      var im=b.querySelector('img');
-      open(b.getAttribute('data-full')||im.src, im.alt, b.getAttribute('data-cap'));
+  function initLightbox(){
+    var lb=document.getElementById('lightbox'),img=document.getElementById('lbImg'),
+        cap=document.getElementById('lbCap'),close=document.getElementById('lbClose');
+    if(!lb)return;
+    function open(src,alt,caption){img.src=src;img.alt=alt||'';cap.textContent=caption||'';lb.classList.remove('hidden');lb.classList.add('flex');document.body.style.overflow='hidden';}
+    function hide(){lb.classList.add('hidden');lb.classList.remove('flex');img.src='';document.body.style.overflow='';}
+    // 1) jawne przyciski galerii codzienności
+    document.querySelectorAll('.lb-open').forEach(function(b){
+      b.addEventListener('click',function(){
+        var im=b.querySelector('img');
+        open(b.getAttribute('data-full')||im.src, im.alt, b.getAttribute('data-cap'));
+      });
     });
-  });
-  // 2) figury galeryjne z klasą lb-fig — klik na obrazek powiększa, podpis z figcaption
-  document.querySelectorAll('figure.lb-fig').forEach(function(fig){
-    var im=fig.querySelector('img');if(!im)return;
-    im.style.cursor='zoom-in';
-    im.addEventListener('click',function(){
-      var fc=fig.querySelector('figcaption');
-      open(im.src, im.alt, fc?fc.textContent.trim():'');
+    // 2) figury galeryjne z klasą lb-fig — klik na obrazek powiększa, podpis z figcaption
+    document.querySelectorAll('figure.lb-fig').forEach(function(fig){
+      var im=fig.querySelector('img');if(!im)return;
+      im.style.cursor='zoom-in';
+      im.setAttribute('role','button'); im.setAttribute('tabindex','0');
+      function show(){ var fc=fig.querySelector('figcaption'); open(im.src, im.alt, fc?fc.textContent.trim():''); }
+      im.addEventListener('click',show);
+      im.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); show(); } });
     });
-  });
-  close.addEventListener('click',hide);
-  lb.addEventListener('click',function(e){if(e.target===lb)hide();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.classList.contains('hidden'))hide();});
+    close.addEventListener('click',hide);
+    lb.addEventListener('click',function(e){if(e.target===lb)hide();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.classList.contains('hidden'))hide();});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', initLightbox);
+  else initLightbox();
 })();
 </script>
 
@@ -478,6 +544,29 @@ blockquote{border-left:3px solid #A0525E}
       <img src="/img/michal-anna-selfie-brzuch-ciaza-usmiech.webp" alt="Michał przytula rosnący brzuch Anny w ciąży — twórca PoródNaMiarę.pl w domowym zaciszu przed narodzinami córki" width="1000" height="563" loading="lazy" decoding="async" class="rounded-3xl w-full object-cover shadow-lg aspect-square">
       <figcaption class="text-sm text-ink/65 text-center mt-3 italic leading-relaxed">Zwykłe popołudnie w domu. Najlepsze chwile tej ciąży nie miały żadnej okazji.</figcaption>
     </figure>
+  </div>
+</section>
+
+<!-- „PAN TATA" — kadr z wakacji nad zalewem; dedykowana sekcja z opisem pod SEO i cytowanie przez AI -->
+<section class="bg-white border-y border-sanddark py-16 md:py-20" aria-labelledby="panTataH">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+      <figure class="lb-fig m-0 order-1 md:order-none">
+        <img src="/img/michal-anna-czapka-pan-tata-zalew-wakacje.webp"
+             alt="Michał Czekaj leży z głową na kolanach Anny w trzecim trymestrze ciąży, a ona wkłada mu na głowę dżinsową czapkę z haftem „Pan Tata” — wakacyjne popołudnie nad zalewem"
+             width="675" height="1200" loading="lazy" decoding="async"
+             class="rounded-3xl w-full object-cover shadow-xl max-h-[540px]">
+        <figcaption class="text-sm text-ink/60 text-center mt-3 italic leading-relaxed">Nad zalewem, ostatnie wspólne wakacje we dwoje. Anna wkłada mi czapkę „Pan Tata” — awans, którego nie musiałem czekać do września.</figcaption>
+      </figure>
+      <div>
+        <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-3">Tytuł nadany przed terminem</p>
+        <h2 id="panTataH" class="font-display text-2xl md:text-3xl font-semibold text-deep leading-tight mb-5">„Pan Tata” — bo tatą jestem od dnia, w którym zobaczyłem dwie kreski</h2>
+        <p class="leading-relaxed text-ink/85 mb-4">To zdjęcie zrobiliśmy nad zalewem, w trzecim trymestrze ciąży — na ostatnich wakacjach, na które pojechaliśmy jeszcze we dwoje. Anna wyjęła czapkę z haftem <strong>„Pan Tata”</strong> i po prostu włożyła mi ją na głowę. Bez okazji, bez tortu, bez ogłoszenia. Zwykłe popołudnie na kocu, brzuch Wiktorii tuż nad moją głową i nagle bardzo konkretne poczucie, że ten tytuł już obowiązuje.</p>
+        <p class="leading-relaxed text-ink/85 mb-4">Nie „zostanę tatą za kilka tygodni”. <strong>Jestem tatą</strong> — od dnia, w którym zobaczyliśmy dwie kreski. Cała reszta: czytanie Standardu Opieki Okołoporodowej, wypytywanie położnej o procedury, budowanie tego kreatora po nocach — to nie są przygotowania do roli. To już jest ta rola.</p>
+        <p class="leading-relaxed text-ink/85">Dlatego PoródNaMiarę.pl nie brzmi jak broszura szpitalna. Bo pisze je ojciec, który sam siedzi z tym samym stresem, z tą samą listą pytań i z tą samą czapką na głowie.</p>
+      </div>
+    </div>
+    <p class="text-[13px] text-ink/55 leading-relaxed mt-8 max-w-3xl">Na zdjęciu: Michał Czekaj — twórca PoródNaMiarę.pl, oraz Anna, w trzecim trymestrze ciąży, na wakacjach nad zalewem, latem 2026 roku. Ich córka Wiktoria przychodzi na świat we wrześniu 2026. Serwis prowadzi jedna osoba — ojciec, nie firma ani zespół marketingu.</p>
   </div>
 </section>
 
@@ -616,7 +705,8 @@ blockquote{border-left:3px solid #A0525E}
 <script>
 window.PAGE_I18N = {
 en: {
-  navCta: 'Create a plan',
+      navWhy: 'Why us', navHow: 'How it works', navCreator: 'Birth plan creator', navPricing: 'Pricing', navBlog: 'Knowledge', navAbout: 'About Michał', navFaq: 'FAQ', navCtaShort: 'Plan', mmCta: 'Create your birth plan \u2192',
+navCta: 'Create a plan',
   kicker1: 'Dad, not a corporation',
   h1: "I'm not a doctor.<br>I'm a dad who was afraid he'd miss something.",
   heroP1: "My name is Michał. My daughter Wiktoria is due in September. This site exists because I was looking for a tool for her that didn't exist — so I ended up building it myself.",
@@ -678,7 +768,8 @@ en: {
   logoP4: "When you see this logo, I don't want you to think of a brand — I want you to picture something worth working toward: two parents who walked into birth prepared together, and walked out of it as a family."
 },
 de: {
-  navCta: 'Plan erstellen',
+      navWhy: 'Warum wir', navHow: 'So funktioniert es', navCreator: 'Geburtsplan-Generator', navPricing: 'Preise', navBlog: 'Wissen', navAbout: '\u00dcber Micha\u0142', navFaq: 'FAQ', navCtaShort: 'Plan', mmCta: 'Geburtsplan erstellen \u2192',
+navCta: 'Plan erstellen',
   kicker1: 'Vater, kein Unternehmen',
   h1: 'Ich bin kein Arzt.<br>Ich bin ein Vater, der Angst hatte, etwas zu übersehen.',
   heroP1: 'Ich heiße Michał. Im September kommt meine Tochter Wiktoria zur Welt. Diese Seite entstand, weil ich für sie ein Werkzeug suchte, das es nicht gab — also habe ich es selbst gebaut.',
@@ -740,7 +831,8 @@ de: {
   logoP4: 'Wenn Sie dieses Logo sehen, möchte ich nicht, dass Sie an eine Marke denken — ich möchte, dass Sie sich etwas vorstellen, das es wert ist, angestrebt zu werden: zwei Eltern, die gemeinsam vorbereitet in die Geburt gingen — und als Familie herausgingen.'
 },
 uk: {
-  navCta: 'Створити план',
+      navWhy: '\u0427\u043e\u043c\u0443 \u043c\u0438', navHow: '\u042f\u043a \u0446\u0435 \u043f\u0440\u0430\u0446\u044e\u0454', navCreator: '\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440 \u043f\u043b\u0430\u043d\u0443', navPricing: '\u0426\u0456\u043d\u0438', navBlog: '\u0417\u043d\u0430\u043d\u043d\u044f', navAbout: '\u041f\u0440\u043e \u041c\u0456\u0445\u0430\u043b\u0430', navFaq: 'FAQ', navCtaShort: '\u041f\u043b\u0430\u043d', mmCta: '\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u0441\u0432\u0456\u0439 \u043f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432 \u2192',
+navCta: 'Створити план',
   kicker1: 'Тато, не корпорація',
   h1: 'Я не лікар.<br>Я тато, який боявся щось упустити.',
   heroP1: 'Мене звати Міхал. У вересні народиться моя донька Вікторія. Цей сайт з\'явився тому, що я шукав для неї інструмент, якого не існувало — тож зрештою створив його сам.',
