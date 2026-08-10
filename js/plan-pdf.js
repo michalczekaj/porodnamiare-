@@ -201,6 +201,68 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
     c.y+=bh+6;
   }
 
+  // Łamie wolny tekst rodziców (pole "Dodatkowe uwagi") na wiersze gotowe do rysowania.
+  // Obsługuje wyłącznie znaczniki wpisane samodzielnie przez rodzica: **pogrubienie** oraz
+  // "- " na początku linii jako punkt listy. Kursywa (*...*) jest tu tylko oczyszczana ze
+  // znaczników (wbudowany font PDF nie ma osobnego kroju italic) — pełną kursywę widać
+  // w podglądzie na stronie. Brak jakiegokolwiek parsowania HTML/JS — to czysty tekst z <textarea>.
+  function layoutNotes(d, rawText, maxWidth, fontSize){
+    var out = [];
+    d.setFontSize(fontSize);
+    String(rawText).split('\n').forEach(function(rawLine){
+      var bullet = false, line = rawLine;
+      var bm = /^-\s+(.*)/.exec(line);
+      if(bm){ bullet = true; line = bm[1]; }
+      var parts = line.split(/\*\*(.+?)\*\*/);
+      var words = [];
+      parts.forEach(function(part, i){
+        var bold = (i % 2 === 1);
+        var clean = part.replace(/\*(.+?)\*/g, '$1');
+        clean.split(/(\s+)/).forEach(function(tok){ if(tok) words.push({text:tok, bold:bold}); });
+      });
+      var indent = bullet ? 4.5 : 0;
+      var avail = maxWidth - indent;
+      var visualLines = [], cur = [], curW = 0;
+      words.forEach(function(w){
+        d.setFont('Lato', w.bold ? 'bold' : 'normal');
+        var ww = d.getTextWidth(w.text);
+        if(curW + ww > avail && cur.length){ visualLines.push(cur); cur = []; curW = 0; }
+        cur.push(w); curW += ww;
+      });
+      visualLines.push(cur);
+      visualLines.forEach(function(runs, idx){ out.push({runs:runs, indent:indent, bullet: bullet && idx===0}); });
+    });
+    return out;
+  }
+
+  function notesBox(c, text){
+    if(!text) return;
+    var d=c.d, t=c.t, lang=c.lang;
+    var title = pdfLabel(lang,'notesTitle','Dodatkowe uwagi rodziców');
+    var lines = layoutNotes(d, text, W-52, 9);
+    var bh = lines.length*4.6 + 16;
+    need(c, bh+6);
+    d.setFillColor(255,255,255); d.setDrawColor(t.ac[0],t.ac[1],t.ac[2]); d.setLineWidth(0.5);
+    d.roundedRect(16,c.y,W-32,bh,3,3,'FD');
+    heart(d,22,c.y+7,2,t.ac);
+    d.setTextColor(DEEP[0],DEEP[1],DEEP[2]); d.setFont('Lato','bold'); d.setFontSize(10.5);
+    d.text(title,26,c.y+8.5);
+    var yy=c.y+15;
+    lines.forEach(function(line){
+      var xx = 22 + line.indent;
+      if(line.bullet){ d.setFillColor(t.ac[0],t.ac[1],t.ac[2]); d.circle(xx-3,yy-1.3,0.7,'F'); }
+      d.setFontSize(9);
+      line.runs.forEach(function(run){
+        d.setFont('Lato', run.bold ? 'bold':'normal');
+        d.setTextColor(INK[0],INK[1],INK[2]);
+        d.text(run.text, xx, yy);
+        xx += d.getTextWidth(run.text);
+      });
+      yy += 4.6;
+    });
+    c.y += bh + 6;
+  }
+
   function signatures(c){
     var d=c.d, lang=c.lang;
     need(c,52);
@@ -251,6 +313,7 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
         if(s.info) infoBox(c, s.info[0], s.info[1], s.info[2], lang);
       }
     });
+    notesBox(c, data.notes);
     signatures(c);
     return c.d;
   };

@@ -26,13 +26,13 @@
     ru: {"Rodząca":"Роженица","Osoba towarzysząca":"Сопровождающий","Termin porodu":"Дата родов","Lekarz / położna":"Врач / акушерка","Grupa krwi i Rh":"Группа крови и Rh","HBsAg matki":"HBsAg матери","GBS":"СГБ"}
   };
 
-  // ---- 1c. Nagłówki H2 13 kroków UI kreatora (inne niż tytuły sekcji PDF!) ----
+  // ---- 1c. Nagłówki H2 14 kroków UI kreatora (inne niż tytuły sekcji PDF!) ----
   var UI_STEP_TITLES = {
-    pl: ["Dane i informacje kluczowe","Warunki i miejsce porodu","Osoba towarzysząca i osoby obecne","Przygotowanie do porodu","Przebieg porodu — I i II okres","Łagodzenie bólu porodowego","Ochrona krocza, indukcja i łożysko","Gdyby konieczne było cięcie cesarskie","Opieka nad noworodkiem","Profilaktyka i badania noworodka","Szczepienia noworodka","Połóg i oddział położniczy","Podsumowanie Waszego planu"],
-    en: ["Key details","Birth conditions and place","Support person and people present","Preparing for birth","Labour — first and second stage","Pain relief in labour","Perineal protection, induction and placenta","If a caesarean section becomes necessary","Newborn care","Newborn screening and prophylaxis","Newborn vaccinations","Postpartum ward","Summary of your plan"],
-    de: ["Wichtige Angaben","Bedingungen und Ort der Geburt","Begleitperson und Anwesende","Vorbereitung auf die Geburt","Geburtsverlauf — Eröffnungs- und Austreibungsphase","Schmerzlinderung während der Geburt","Dammschutz, Einleitung und Plazenta","Falls ein Kaiserschnitt nötig wird","Versorgung des Neugeborenen","Screening und Prophylaxe des Neugeborenen","Impfungen des Neugeborenen","Wochenbett und Wochenbettstation","Zusammenfassung Ihres Plans"],
-    uk: ["Ключові дані","Умови та місце пологів","Особа супроводу та присутні","Підготовка до пологів","Перебіг пологів — I та II період","Знеболення під час пологів","Захист промежини, індукція та послід","Якщо знадобиться кесарів розтин","Догляд за новонародженим","Профілактика та обстеження новонародженого","Щеплення новонародженого","Післяпологовий період і відділення","Підсумок вашого плану"],
-    ru: ["Ключевые данные","Условия и место родов","Сопровождающий и присутствующие","Подготовка к родам","Течение родов — I и II период","Обезболивание родов","Защита промежности, индукция и плацента","Если понадобится кесарево сечение","Уход за новорождённым","Профилактика и обследование новорождённого","Прививки новорождённого","Послеродовой период и отделение","Итоги вашего плана"]
+    pl: ["Dane i informacje kluczowe","Warunki i miejsce porodu","Osoba towarzysząca i osoby obecne","Przygotowanie do porodu","Przebieg porodu — I i II okres","Łagodzenie bólu porodowego","Ochrona krocza, indukcja i łożysko","Gdyby konieczne było cięcie cesarskie","Opieka nad noworodkiem","Profilaktyka i badania noworodka","Szczepienia noworodka","Połóg i oddział położniczy","Wasze dodatkowe uwagi","Podsumowanie Waszego planu"],
+    en: ["Key details","Birth conditions and place","Support person and people present","Preparing for birth","Labour — first and second stage","Pain relief in labour","Perineal protection, induction and placenta","If a caesarean section becomes necessary","Newborn care","Newborn screening and prophylaxis","Newborn vaccinations","Postpartum ward","Your additional notes","Summary of your plan"],
+    de: ["Wichtige Angaben","Bedingungen und Ort der Geburt","Begleitperson und Anwesende","Vorbereitung auf die Geburt","Geburtsverlauf — Eröffnungs- und Austreibungsphase","Schmerzlinderung während der Geburt","Dammschutz, Einleitung und Plazenta","Falls ein Kaiserschnitt nötig wird","Versorgung des Neugeborenen","Screening und Prophylaxe des Neugeborenen","Impfungen des Neugeborenen","Wochenbett und Wochenbettstation","Ihre zusätzlichen Anmerkungen","Zusammenfassung Ihres Plans"],
+    uk: ["Ключові дані","Умови та місце пологів","Особа супроводу та присутні","Підготовка до пологів","Перебіг пологів — I та II період","Знеболення під час пологів","Захист промежини, індукція та послід","Якщо знадобиться кесарів розтин","Догляд за новонародженим","Профілактика та обстеження новонародженого","Щеплення новонародженого","Післяпологовий період і відділення","Ваші додаткові нотатки","Підсумок вашого плану"],
+    ru: ["Ключевые данные","Условия и место родов","Сопровождающий и присутствующие","Подготовка к родам","Течение родов — I и II период","Обезболивание родов","Защита промежности, индукция и плацента","Если понадобится кесарево сечение","Уход за новорождённым","Профилактика и обследование новорождённого","Прививки новорождённого","Послеродовой период и отделение","Ваши дополнительные заметки","Итоги вашего плана"]
   };
 
   // ---- 2. UI kreatora (nawigacja, przyciski, etykiety) ----------------
@@ -53,19 +53,19 @@
   var PDF_STATIC = {
     pl: {cover:"PLAN PORODU", brand:"PorodNaMiare.pl", parents:"Rodzice", term:"Przewidywany termin", footerNote:"Dokument organizacyjny — nie zastępuje porady lekarskiej.", standard:"Zgodny ze Standardem Opieki Okołoporodowej — Dz.U. 2025 poz. 1525",
       priority:"PRIORYTET NADRZĘDNY: zdrowie i życie dziecka oraz matki są bezwzględnym priorytetem, nadrzędnym wobec każdego punktu tego planu. W sytuacji zagrożenia akceptujemy wszystkie niezbędne interwencje medyczne. Prosimy jedynie o możliwie szybką informację o sytuacji.",
-      signTitle:"Oświadczenie i podpisy", signText:"Świadomie wyrażamy powyższe preferencje. Akceptujemy wszelkie niezbędne interwencje ratujące zdrowie i życie dziecka oraz matki.", signMother:"Matka", signFather:"Ojciec / osoba towarzysząca", signDate:"Data"},
+      notesTitle:"Dodatkowe uwagi rodziców", signTitle:"Oświadczenie i podpisy", signText:"Świadomie wyrażamy powyższe preferencje. Akceptujemy wszelkie niezbędne interwencje ratujące zdrowie i życie dziecka oraz matki.", signMother:"Matka", signFather:"Ojciec / osoba towarzysząca", signDate:"Data"},
     en: {cover:"BIRTH PLAN", brand:"PorodNaMiare.pl", parents:"Parents", term:"Expected due date", footerNote:"Organisational document — does not replace medical advice. Original Polish document remains the binding version for hospital staff.", standard:"Compliant with the Polish Perinatal Care Standard — Journal of Laws 2025, item 1525",
       priority:"OVERRIDING PRIORITY: the health and life of the baby and the mother are an absolute priority, taking precedence over every point of this plan. In an emergency we accept all necessary medical interventions. We only ask to be informed of the situation as promptly as possible.",
-      signTitle:"Declaration and signatures", signText:"We knowingly express the above preferences. We accept all interventions necessary to save the life and health of the baby and the mother.", signMother:"Mother", signFather:"Father / support person", signDate:"Date"},
+      notesTitle:"Additional parent notes", signTitle:"Declaration and signatures", signText:"We knowingly express the above preferences. We accept all interventions necessary to save the life and health of the baby and the mother.", signMother:"Mother", signFather:"Father / support person", signDate:"Date"},
     de: {cover:"GEBURTSPLAN", brand:"PorodNaMiare.pl", parents:"Eltern", term:"Voraussichtlicher Geburtstermin", footerNote:"Organisatorisches Dokument — ersetzt keine ärztliche Beratung. Das polnische Originaldokument bleibt für das Klinikpersonal maßgeblich.", standard:"Konform mit dem polnischen Standard der perinatalen Versorgung — GBl. 2025 Pos. 1525",
       priority:"ÜBERGEORDNETE PRIORITÄT: Gesundheit und Leben von Kind und Mutter haben absoluten Vorrang vor jedem Punkt dieses Plans. Im Notfall akzeptieren wir alle notwendigen medizinischen Maßnahmen. Wir bitten lediglich um möglichst rasche Information über die Situation.",
-      signTitle:"Erklärung und Unterschriften", signText:"Wir äußern die obigen Präferenzen bewusst. Wir akzeptieren alle Maßnahmen, die zur Rettung von Leben und Gesundheit von Kind und Mutter notwendig sind.", signMother:"Mutter", signFather:"Vater / Begleitperson", signDate:"Datum"},
+      notesTitle:"Zusätzliche Anmerkungen der Eltern", signTitle:"Erklärung und Unterschriften", signText:"Wir äußern die obigen Präferenzen bewusst. Wir akzeptieren alle Maßnahmen, die zur Rettung von Leben und Gesundheit von Kind und Mutter notwendig sind.", signMother:"Mutter", signFather:"Vater / Begleitperson", signDate:"Datum"},
     uk: {cover:"ПЛАН ПОЛОГІВ", brand:"PorodNaMiare.pl", parents:"Батьки", term:"Очікувана дата пологів", footerNote:"Організаційний документ — не замінює консультацію лікаря. Оригінальний польський документ залишається основним для персоналу лікарні.", standard:"Відповідає польському Стандарту перинатальної допомоги — Dz.U. 2025 поз. 1525",
       priority:"НАЙВИЩИЙ ПРІОРИТЕТ: здоров'я і життя дитини та матері є абсолютним пріоритетом, що переважає над кожним пунктом цього плану. У разі загрози ми погоджуємось на всі необхідні медичні втручання. Просимо лише про якнайшвидше інформування про ситуацію.",
-      signTitle:"Заява та підписи", signText:"Свідомо висловлюємо вищезазначені побажання. Погоджуємось на всі втручання, необхідні для порятунку життя і здоров'я дитини та матері.", signMother:"Мати", signFather:"Батько / особа супроводу", signDate:"Дата"},
+      notesTitle:"Додаткові нотатки батьків", signTitle:"Заява та підписи", signText:"Свідомо висловлюємо вищезазначені побажання. Погоджуємось на всі втручання, необхідні для порятунку життя і здоров'я дитини та матері.", signMother:"Мати", signFather:"Батько / особа супроводу", signDate:"Дата"},
     ru: {cover:"ПЛАН РОДОВ", brand:"PorodNaMiare.pl", parents:"Родители", term:"Предполагаемая дата родов", footerNote:"Организационный документ — не заменяет консультацию врача. Оригинальный польский документ остаётся основным для персонала больницы.", standard:"Соответствует польскому Стандарту перинатальной помощи — Dz.U. 2025 поз. 1525",
       priority:"НАИВЫСШИЙ ПРИОРИТЕТ: здоровье и жизнь ребёнка и матери являются абсолютным приоритетом, преобладающим над каждым пунктом этого плана. В случае угрозы мы соглашаемся на все необходимые медицинские вмешательства. Просим лишь о максимально быстром информировании о ситуации.",
-      signTitle:"Заявление и подписи", signText:"Осознанно выражаем вышеуказанные пожелания. Согласны на все вмешательства, необходимые для спасения жизни и здоровья ребёнка и матери.", signMother:"Мать", signFather:"Отец / сопровождающий", signDate:"Дата"}
+      notesTitle:"Дополнительные заметки родителей", signTitle:"Заявление и подписи", signText:"Осознанно выражаем вышеуказанные пожелания. Согласны на все вмешательства, необходимые для спасения жизни и здоровья ребёнка и матери.", signMother:"Мать", signFather:"Отец / сопровождающий", signDate:"Дата"}
   };
 
   // ---- 4. Słownik 96 fraz klinicznych/preferencji (PL -> EN/DE/UK) ----
@@ -176,7 +176,47 @@
 "Wypis do domu możliwie szybko, jeśli stan matki i dziecka jest dobry": {en:"Discharge home as soon as possible, if mother and baby are both well", de:"Möglichst frühe Entlassung nach Hause, sofern Mutter und Kind wohlauf sind", uk:"Виписка додому якнайшвидше, якщо стан матері й дитини добрий", ru:"Выписка домой как можно быстрее, если состояние матери и ребёнка хорошее"}
   };
 
-  global.PNM_I18N = { steps: STEP_TITLES, uiSteps: UI_STEP_TITLES, ui: UI, pdf: PDF_STATIC, values: VALUES, rowLabels: ROW_LABELS,
+  // ---- 4. Słowniczek trudnych terminów klinicznych (dymki "i" przy wybranych opcjach) ----
+  var GLOSSARY = {
+    kristeller: {
+      en:{t:"Kristeller manoeuvre", d:"Manual pressure on the top of the uterus during pushing, meant to help the baby descend. Current guidelines advise against routine use because of the risk of complications — acceptable only in exceptional emergencies."},
+      de:{t:"Kristeller-Handgriff", d:"Manueller Druck auf den Gebärmutterfundus während der Presswehen, der die Geburt unterstützen soll. Der aktuelle Standard rät wegen des Komplikationsrisikos von der routinemäßigen Anwendung ab — zulässig nur in Ausnahmesituationen bei Gefahr."},
+      uk:{t:"Прийом Крістеллера", d:"Ручний тиск на дно матки під час потуг, що має допомогти дитині вийти. Чинний стандарт не рекомендує рутинне застосування через ризик ускладнень — допустимий лише у виняткових загрозливих ситуаціях."},
+      ru:{t:"Приём Кристеллера", d:"Ручное давление на дно матки во время потуг, призванное помочь ребёнку выйти. Действующий стандарт не рекомендует рутинное применение из-за риска осложнений — допустим только в исключительных угрожающих ситуациях."}
+    },
+    tens: {
+      en:{t:"TENS", d:"Transcutaneous electrical nerve stimulation — small electrodes on the back send gentle pulses that can reduce the sensation of contraction pain. A safe, non-pharmacological method available from early labour."},
+      de:{t:"TENS", d:"Transkutane elektrische Nervenstimulation — kleine Elektroden am Rücken senden sanfte Impulse, die das Schmerzempfinden während der Wehen verringern können. Eine sichere, nicht-medikamentöse Methode, ab der frühen Geburtsphase nutzbar."},
+      uk:{t:"ТЕНС", d:"Черезшкірна електронейростимуляція: невеликі електроди на спині подають легкі імпульси, які можуть зменшувати відчуття болю під час перейм. Безпечний, нефармакологічний метод, доступний з ранньої фази пологів."},
+      ru:{t:"ТЕНС", d:"Чрескожная электронейростимуляция: небольшие электроды на спине посылают лёгкие импульсы, которые могут уменьшать ощущение боли во время схваток. Безопасный немедикаментозный метод, доступен с ранней фазы родов."}
+    },
+    remifentanyl: {
+      en:{t:"Remifentanil (PCA)", d:"A strong, short-acting painkiller given intravenously. With PCA, the mother herself presses a pump button to decide when to give the next dose — its effect wears off within minutes."},
+      de:{t:"Remifentanil (PCA)", d:"Ein starkes, kurz wirkendes Schmerzmittel, das intravenös verabreicht wird. Bei PCA entscheidet die Gebärende selbst per Knopfdruck an der Pumpe, wann die nächste Dosis verabreicht wird — die Wirkung lässt nach wenigen Minuten nach."},
+      uk:{t:"Ремифентаніл (PCA)", d:"Сильний короткодіючий знеболювальний засіб, що вводиться внутрішньовенно. У системі PCA породілля сама кнопкою на помпі вирішує, коли ввести наступну дозу — дія минає за кілька хвилин."},
+      ru:{t:"Ремифентанил (PCA)", d:"Сильное короткодействующее обезболивающее, вводимое внутривенно. В системе PCA роженица сама кнопкой на помпе решает, когда ввести следующую дозу — действие проходит через несколько минут."}
+    },
+    petydyna: {
+      en:{t:"Pethidine (meperidine)", d:"An older opioid painkiller given intramuscularly or intravenously. It can cause drowsiness in both mother and newborn, which is why it is increasingly replaced by methods such as an epidural or remifentanil."},
+      de:{t:"Pethidin (Dolantin)", d:"Ein älteres Opioid-Schmerzmittel, das intramuskulär oder intravenös verabreicht wird. Es kann bei Mutter und Neugeborenem Schläfrigkeit verursachen, weshalb es zunehmend durch Methoden wie EDA oder Remifentanil ersetzt wird."},
+      uk:{t:"Петидин (долантин)", d:"Старіший опіоїдний знеболювальний засіб, що вводиться внутрішньом'язово або внутрішньовенно. Може викликати сонливість у матері та новонародженого, тому його дедалі частіше замінюють методами на кшталт EDA чи ремифентанілу."},
+      ru:{t:"Петидин (долантин)", d:"Более старое опиоидное обезболивающее, вводимое внутримышечно или внутривенно. Может вызывать сонливость у матери и новорождённого, поэтому его всё чаще заменяют такими методами, как ЭДА или ремифентанил."}
+    },
+    amniotomia: {
+      en:{t:"Amniotomy", d:"A procedure that breaks the amniotic sac to speed up or induce labour. Painless for the baby, but irreversible — it's worth knowing when and why staff suggest it."},
+      de:{t:"Amniotomie", d:"Ein Eingriff, bei dem die Fruchtblase eröffnet wird, um die Geburt zu beschleunigen oder einzuleiten. Für das Kind schmerzlos, aber nicht umkehrbar — gut zu wissen, wann und warum das Personal dies vorschlägt."},
+      uk:{t:"Амніотомія", d:"Процедура проколювання плодового міхура для прискорення або стимуляції пологів. Безболісна для дитини, але незворотна — варто знати, коли і чому персонал її пропонує."},
+      ru:{t:"Амниотомия", d:"Процедура прокалывания плодного пузыря для ускорения или стимуляции родов. Безболезненна для ребёнка, но необратима — стоит знать, когда и почему персонал её предлагает."}
+    },
+    rooming: {
+      en:{t:"Rooming-in", d:"The baby stays in the same room as the mother around the clock, instead of a separate newborn nursery. It supports bonding and feeding on demand — the standard practice unless health requires otherwise."},
+      de:{t:"Rooming-in", d:"Das Kind bleibt rund um die Uhr im selben Zimmer wie die Mutter, statt in einem separaten Neugeborenenzimmer. Das fördert die Bindung und das Stillen nach Bedarf — Standard, sofern der Gesundheitszustand nichts anderes erfordert."},
+      uk:{t:"Рухумінг (спільне перебування)", d:"Дитина перебуває в одній палаті з мамою цілодобово, а не в окремій палаті новонароджених. Це сприяє зв'язку та годуванню на вимогу — стандартна практика, якщо стан здоров'я не вимагає іншого."},
+      ru:{t:"Совместное пребывание (руминг-ин)", d:"Ребёнок находится в одной палате с мамой круглосуточно, а не в отдельной палате для новорождённых. Это способствует привязанности и кормлению по требованию — стандартная практика, если состояние здоровья не требует иного."}
+    }
+  };
+
+  global.PNM_I18N = { steps: STEP_TITLES, uiSteps: UI_STEP_TITLES, ui: UI, pdf: PDF_STATIC, values: VALUES, rowLabels: ROW_LABELS, glossary: GLOSSARY,
     t: function (pl, lang) { // tłumaczy pojedynczą frazę; brak wpisu -> zwraca polski oryginał
       if (!lang || lang === 'pl') return pl;
       var e = VALUES[pl];
