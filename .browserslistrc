@@ -1,0 +1,9 @@
+# Realny ogon rynku dla serwisu konsumenckiego w PL (2026):
+# starsze iOS/Safari (rodzice często nie aktualizują), Android WebView, Samsung Internet.
+> 0.3%
+last 3 versions
+iOS >= 13
+Safari >= 13
+Android >= 8
+Samsung >= 12
+not dead

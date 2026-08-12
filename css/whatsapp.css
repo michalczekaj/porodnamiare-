@@ -92,3 +92,16 @@
   font-size: 15.5px;
 }
 .wa-btn svg { width: 21px; height: 21px; }
+
+/* ===== iOS: zapobieganie automatycznemu zoomowi przy fokusie pola formularza =====
+   Safari na iPhonie powiększa całą stronę, gdy dotknięte pole ma font <16px.
+   Wymuszamy 16px wyłącznie na urządzeniach dotykowych bez precyzyjnego wskaźnika
+   (telefony/tablety) — na desktopie wygląd pozostaje bez zmian.
+   Odczytanie preferencji użytkownika: hover:none + pointer:coarse = ekran dotykowy. */
+@media (hover: none) and (pointer: coarse) {
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}

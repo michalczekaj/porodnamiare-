@@ -26,7 +26,7 @@
 {"@type":"Question","name":"Czy można skontaktować się bezpośrednio z twórcą serwisu?","acceptedAnswer":{"@type":"Answer","text":"Tak. Nie ma tu działu obsługi klienta — wiadomości na e-mail i WhatsApp odbiera i odpisuje na nie osobiście Michał, zwykle tego samego dnia."}},
 {"@type":"Question","name":"Czy PoródNaMiarę.pl to duża firma czy jednoosobowa działalność?","acceptedAnswer":{"@type":"Answer","text":"To projekt prowadzony przez jedną osobę — Michała, ojca Wiktorii. Nie ma tu zespołu marketingu ani inwestorów; jest jeden twórca, który zbudował narzędzie najpierw dla własnej rodziny, a potem udostępnił je innym rodzicom."}}]}]}</script>
 <link rel="stylesheet" href="/css/tailwind.min.css">
-<link rel="stylesheet" href="/css/whatsapp.css">
+<link rel="stylesheet" href="/css/whatsapp.css?v=25">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -429,8 +429,12 @@ blockquote{border-left:3px solid #A0525E}
     var lb=document.getElementById('lightbox'),img=document.getElementById('lbImg'),
         cap=document.getElementById('lbCap'),close=document.getElementById('lbClose');
     if(!lb)return;
-    function open(src,alt,caption){img.src=src;img.alt=alt||'';cap.textContent=caption||'';lb.classList.remove('hidden');lb.classList.add('flex');document.body.style.overflow='hidden';}
-    function hide(){lb.classList.add('hidden');lb.classList.remove('flex');img.src='';document.body.style.overflow='';}
+    var lastFocus=null;
+    function open(src,alt,caption){lastFocus=document.activeElement;img.src=src;img.alt=alt||'';cap.textContent=caption||'';lb.classList.remove('hidden');lb.classList.add('flex');document.body.style.overflow='hidden';close.focus();}
+    function hide(){lb.classList.add('hidden');lb.classList.remove('flex');img.src='';document.body.style.overflow='';if(lastFocus&&lastFocus.focus){lastFocus.focus();lastFocus=null;}}
+    // Pułapka fokusu: w modalu jest jeden element interaktywny (przycisk zamknięcia),
+    // więc Tab/Shift+Tab utrzymujemy na nim — fokus nie ucieka do treści pod spodem.
+    lb.addEventListener('keydown',function(e){ if(e.key==='Tab'){ e.preventDefault(); close.focus(); } });
     // 1) jawne przyciski galerii codzienności
     document.querySelectorAll('.lb-open').forEach(function(b){
       b.addEventListener('click',function(){
@@ -958,6 +962,6 @@ navCta: 'Создать план',
   logoP4: "Когда вы видите этот логотип, я не хочу, чтобы вы думали о бренде — я хочу, чтобы вы представили то, ради чего стоит стремиться: двух родителей, которые вместе, подготовленными, вошли в роды — и вышли из них семьёй."
 }
 };</script>
-<script src="/js/i18n-page.js" defer></script>
+<script src="/js/i18n-page.js?v=25" defer></script>
 </body>
 </html>
