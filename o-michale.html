@@ -17,6 +17,7 @@
 {"@type":"AboutPage","name":"O Michale — twórcy PoródNaMiarę.pl","url":"https://porodnamiare.pl/o-michale","inLanguage":"pl","description":"Historia powstania PoródNaMiarę.pl opowiedziana przez jej twórcę — tatę, który zbudował ją dla własnej córki."},
 {"@type":"Person","@id":"https://porodnamiare.pl/o-michale#person","name":"Michał Czekaj","jobTitle":"Twórca PoródNaMiarę.pl","image":"https://porodnamiare.pl/img/michal-anna-buziak-oczekiwanie-na-wiktorie.webp","description":"Tata i twórca interaktywnego kreatora planu porodu opartego na Standardzie Opieki Okołoporodowej. Pasjonat crossfitu, biegania i zdrowego stylu życia.","worksFor":{"@type":"Organization","name":"PoródNaMiarę.pl","url":"https://porodnamiare.pl"},"knowsAbout":["plan porodu","standard opieki okołoporodowej","opieka nad noworodkiem","rola ojca przy porodzie"]},
 {"@type":"ImageObject","contentUrl":"https://porodnamiare.pl/img/michal-anna-czapka-pan-tata-zalew-wakacje.webp","url":"https://porodnamiare.pl/img/michal-anna-czapka-pan-tata-zalew-wakacje.webp","width":675,"height":1200,"name":"„Pan Tata\" — Michał Czekaj i Anna w trzecim trymestrze ciąży nad zalewem","caption":"Anna wkłada Michałowi czapkę z haftem „Pan Tata\" podczas wakacji nad zalewem w trzecim trymestrze ciąży, kilka tygodni przed narodzinami córki Wiktorii.","description":"Michał Czekaj, twórca PoródNaMiarę.pl, leży z głową na kolanach Anny w trzecim trymestrze ciąży. Anna wkłada mu dżinsową czapkę z haftowanym napisem „Pan Tata\". Zdjęcie ilustruje założenie serwisu: ojcostwo zaczyna się od potwierdzenia ciąży, a nie od porodu.","representativeOfPage":false,"inLanguage":"pl","contentLocation":{"@type":"Place","name":"Zalew, Podkarpacie, Polska"},"about":{"@id":"https://porodnamiare.pl/o-michale#person"},"creditText":"PoródNaMiarę.pl","copyrightNotice":"© Michał Czekaj / PoródNaMiarę.pl"},
+{"@type":"VideoObject","@id":"https://porodnamiare.pl/o-michale#video","name":"Kim jestem i dlaczego tata stworzył plan porodu dla tysięcy par w Polsce","description":"Michał Czekaj, twórca PoródNaMiarę.pl, opowiada własnym głosem — nagranym tuż obok oddziału, na którym urodzi się jego córka Wiktoria — dlaczego zbudował narzędzie do tworzenia planu porodu dla polskich rodziców.","thumbnailUrl":["https://i.ytimg.com/vi/7UdP22_D-kE/maxresdefault.jpg"],"uploadDate":"2026-08-12","embedUrl":"https://www.youtube-nocookie.com/embed/7UdP22_D-kE","contentUrl":"https://www.youtube.com/watch?v=7UdP22_D-kE","inLanguage":"pl","about":{"@id":"https://porodnamiare.pl/o-michale#person"}},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://porodnamiare.pl/"},{"@type":"ListItem","position":2,"name":"O Michale","item":"https://porodnamiare.pl/o-michale"}]},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Kto tworzy plany porodu na PoródNaMiarę.pl?","acceptedAnswer":{"@type":"Answer","text":"Serwis prowadzi Michał — tata, który przygotował plan porodu dla własnej córki Wiktorii. Nie jest lekarzem ani położną, a produkty mają charakter organizacyjny i edukacyjny. Każda opcja w kreatorze opiera się na Standardzie Organizacyjnym Opieki Okołoporodowej oraz aktualnych rekomendacjach."}},
@@ -614,30 +615,68 @@ blockquote{border-left:3px solid #A0525E}
   </div>
 </section>
 
-<!-- WIDEO OD MICHAŁA — placeholder gotowy pod wgranie realnego pliku.
-     IMPLEMENTACJA (dla Michała / dev):
-     1) Nagraj wideo poziomo, 1080p, mp4 (H.264) + WebM jako alternatywa. Umieść w /video/michal-o-stronie.mp4 i .webm.
-     2) Zrób kadr na okładkę (poster), zapisz jako /img/michal-video-poster.webp (np. 1200x675).
-     3) Podmień blok <video> poniżej: dodaj <source src="/video/michal-o-stronie.mp4" type="video/mp4"> i webm,
-        ustaw poster="/img/michal-video-poster.webp", usuń klasę "hidden" z <video> i usuń/ukryj #videoFallback.
-     4) SEO: dodaj do JSON-LD na górze strony obiekt {"@type":"VideoObject","name":"...","description":"...",
-        "thumbnailUrl":"...","uploadDate":"2026-MM-DD","contentUrl":"https://porodnamiare.pl/video/michal-o-stronie.mp4"}.
-     5) Jeśli wideo trafi też na YouTube — dodaj "embedUrl" z linkiem do filmu w tym samym obiekcie VideoObject
-        i osadź <iframe> jako alternatywę dla użytkowników mobilnych (YouTube ma lepszą kompresję na wolnym łączu). -->
+<!-- WIDEO OD MICHAŁA — nagranie z okolic oddziału położniczo-neonatologicznego szpitala,
+     w którym urodzi się Wiktoria. Facade pattern: statyczna miniatura + własny przycisk play,
+     iframe (youtube-nocookie.com, bez ciasteczek do momentu kliknięcia) ładowany dopiero po kliknięciu.
+     Brak linku wyjścia na kanał — po zakończeniu filmu YT może zasugerować tylko inne materiały
+     tego samego kanału (nie prowadzi na stronę główną YouTube). -->
 <section class="max-w-3xl mx-auto px-4 py-12 no-print">
   <div class="bg-white border-2 border-teal rounded-3xl p-6 md:p-8">
     <p class="text-teal font-semibold text-xs uppercase tracking-[0.2em] mb-2">Wideo, nie tylko tekst</p>
     <h2 class="font-display text-xl md:text-2xl font-semibold text-deep mb-3">Zobaczcie mnie, nie tylko czytajcie</h2>
-    <p class="text-[15px] leading-relaxed text-ink/80 mb-5">Przygotowuję krótkie nagranie, w którym opowiadam tę historię własnym głosem — i na końcu mówię kilka słów wprost do Anny i Wiktorii, na pamiątkę tych tygodni. Materiał pojawi się tutaj, gdy tylko będzie gotowy.</p>
-    <div class="relative rounded-2xl overflow-hidden bg-deep aspect-video flex items-center justify-center">
-      <video class="hidden w-full h-full object-cover" controls playsinline preload="none"></video>
-      <div id="videoFallback" class="text-center px-6">
-        <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/10 text-white text-2xl mb-3" aria-hidden="true">▶</span>
-        <p class="text-sand/80 text-sm">Nagranie wideo pojawi się tutaj wkrótce.</p>
+    <p class="text-[15px] leading-relaxed text-ink/80 mb-5">Nagrałem to krótkie wideo tuż obok oddziału, na którym we wrześniu urodzi się Wiktoria — chciałem, żebyście usłyszeli tę historię moim własnym głosem, w miejscu, które za kilka tygodni stanie się dla nas wszystkim.</p>
+
+    <div id="michalVideoBox" class="relative rounded-2xl overflow-hidden bg-deep aspect-video group cursor-pointer focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2" role="button" tabindex="0" aria-label="Odtwórz nagranie: Michał opowiada, dlaczego stworzył PoródNaMiarę.pl">
+      <img src="https://i.ytimg.com/vi/7UdP22_D-kE/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/7UdP22_D-kE/hqdefault.jpg'" alt="Michał Czekaj nagrywa wiadomość tuż przy oddziale, na którym urodzi się Wiktoria" width="1280" height="720" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-deep/85 via-deep/10 to-deep/40" aria-hidden="true"></div>
+
+      <!-- delikatna linia EKG na dole, motyw oddziału położniczego -->
+      <svg class="absolute bottom-0 left-0 w-full h-9 opacity-50" viewBox="0 0 400 36" preserveAspectRatio="none" aria-hidden="true">
+        <polyline points="0,20 130,20 145,6 160,32 175,20 400,20" fill="none" stroke="#F7E9E7" stroke-width="1.5"/>
+      </svg>
+
+      <span class="absolute top-3 left-3 right-3 z-10 inline-flex items-center gap-1.5 bg-white/95 backdrop-blur text-deep text-[11px] font-semibold px-3 py-1.5 rounded-full shadow w-fit max-w-[calc(100%-1.5rem)]">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="shrink-0"><path d="M12 21s-8-5.686-8-12a8 8 0 0 1 16 0c0 6.314-8 12-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span class="truncate">Nagrane przy oddziale, na którym urodzi się Wiktoria</span>
+      </span>
+
+      <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10 px-6 text-center">
+        <span class="relative inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-white text-teal shadow-2xl group-hover:scale-105 transition-transform">
+          <span class="absolute inset-0 rounded-full bg-white animate-ping opacity-40" aria-hidden="true"></span>
+          <svg class="relative w-6 h-6 md:w-7 md:h-7 ml-1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+        <span class="text-white font-semibold text-sm drop-shadow">Kliknij i posłuchaj — mówię wprost, moim głosem</span>
       </div>
     </div>
+    <p class="text-xs text-ink/50 mt-3">Film odtwarza się w miejscu, bez przenoszenia na inną stronę.</p>
   </div>
 </section>
+
+<script>
+(function(){
+  var box = document.getElementById('michalVideoBox');
+  if(!box) return;
+  var VIDEO_ID = '7UdP22_D-kE';
+  var played = false;
+  function playVideo(){
+    if(played) return; played = true;
+    var iframe = document.createElement('iframe');
+    iframe.className = 'absolute inset-0 w-full h-full';
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + VIDEO_ID + '?autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&color=white';
+    iframe.title = 'Michał Czekaj — kim jestem i dlaczego stworzyłem PoródNaMiarę.pl';
+    iframe.frameBorder = '0';
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+    iframe.allowFullscreen = true;
+    box.innerHTML = '';
+    box.appendChild(iframe);
+    box.removeAttribute('role'); box.removeAttribute('tabindex'); box.removeAttribute('aria-label');
+    box.classList.remove('cursor-pointer','group');
+    if(window.gtag){ gtag('event','video_play',{event_category:'engagement',event_label:'o_michale_wideo'}); }
+  }
+  box.addEventListener('click', playVideo);
+  box.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); playVideo(); } });
+})();
+</script>
 
 <section class="bg-white border-t border-sanddark py-14">
   <div class="max-w-3xl mx-auto px-4">
