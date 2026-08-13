@@ -185,6 +185,18 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
       de:['Familienzimmer — Begründung','Die ständige Anwesenheit des Vaters in den ersten Tagen stärkt die Bindung, erleichtert das Stillen und entlastet die Mutter. Bitte informieren Sie uns über Verfügbarkeit und Kosten des Hotelservice.'],
       uk:['Сімейна палата — обґрунтування','Постійна присутність батька в перші дні зміцнює звʼязок, полегшує лактацію і розвантажує маму. Просимо повідомити про наявність і вартість готельної послуги.'],
       ru:['Семейная палата — обоснование','Постоянное присутствие отца в первые дни укрепляет связь с ребёнком, облегчает лактацию и разгружает маму. Просим сообщить о наличии и стоимости гостиничной услуги.']
+    },
+    feeding:{
+      en:['Feeding — our request','Please respect our decision about how we feed our baby, without judgement or pressure in either direction. Practical support is always welcome.'],
+      de:['Ernährung — unsere Bitte','Bitte respektieren Sie unsere Entscheidung zur Ernährung unseres Babys, ohne Bewertung oder Druck in irgendeine Richtung. Praktische Unterstützung ist immer willkommen.'],
+      uk:['Годування — наше прохання','Просимо поважати наше рішення щодо способу годування дитини, без оцінювання і тиску в будь-який бік. Практична підтримка завжди вітається.'],
+      ru:['Кормление — наша просьба','Просим уважать наше решение о способе кормления ребёнка, без оценивания и давления в любую сторону. Практическая поддержка всегда приветствуется.']
+    },
+    needs:{
+      en:['Informed consent — our right','Before any procedure we ask for an explanation of its purpose, course, benefits and risks. We may withdraw consent at any time, except in situations of immediate danger to life.'],
+      de:['Informierte Einwilligung — unser Recht','Vor jedem Eingriff bitten wir um eine Erklärung von Zweck, Ablauf, Nutzen und Risiken. Wir können die Einwilligung jederzeit widerrufen, außer bei unmittelbarer Lebensgefahr.'],
+      uk:['Усвідомлена згода — наше право','Перед кожною процедурою просимо пояснення її мети, перебігу, користі та ризиків. Можемо відкликати згоду в будь-який момент, окрім ситуацій безпосередньої загрози життю.'],
+      ru:['Осознанное согласие — наше право','Перед каждой процедурой просим объяснения её цели, хода, пользы и рисков. Можем отозвать согласие в любой момент, кроме ситуаций непосредственной угрозы жизни.']
     }
   };
   function infoBox(c, title, txt, key, lang){
