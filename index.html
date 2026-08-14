@@ -894,8 +894,12 @@ tailwind.config = {
 
         <div id="downloadZone" class="hidden mt-6 bg-white border-2 border-teal rounded-2xl p-6 text-center">
           <p class="text-3xl mb-2" aria-hidden="true">🎉</p>
-          <p class="font-display text-xl font-semibold text-deep mb-2">Dziękujemy! Plan jest gotowy do pobrania</p>
-          <p class="text-[15px] text-ink/75 leading-relaxed mb-5">Kliknijcie poniżej, a dokument zapisze się na Waszym urządzeniu. Wydrukujcie dwa egzemplarze: jeden do torby, drugi dla położnej.</p>
+          <p class="font-display text-xl font-semibold text-deep mb-2" data-i18n="dlReadyH">Dziękujemy! Plan jest gotowy do pobrania</p>
+          <div class="bg-amber-50 border border-amber-300 rounded-xl px-4 py-3 mb-4 text-left flex gap-2.5 items-start">
+            <span class="text-amber-500 text-lg flex-shrink-0" aria-hidden="true">⚠️</span>
+            <p class="text-[13px] text-ink/80 leading-relaxed" data-i18n="dlCheckReminder"><strong class="text-deep">Zanim pobierzecie:</strong> upewnijcie się, że dane w kreatorze — termin porodu, dane dziecka, Wasze preferencje — są aktualne i kompletne. Kupiliście pakiet przed wypełnieniem kreatora? <a href="#" id="dlGoEdit" class="underline font-semibold">Wróćcie do wcześniejszych kroków</a> i je uzupełnijcie.</p>
+          </div>
+          <p class="text-[15px] text-ink/75 leading-relaxed mb-5" data-i18n="dlReadyP">Kliknijcie poniżej, a dokument zapisze się na Waszym urządzeniu. Wydrukujcie dwa egzemplarze: jeden do torby, drugi dla położnej.</p>
           <button type="button" id="dlBtn" class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors">Pobierz plan porodu (PDF)</button>
           <p id="dlStatus" class="text-sm text-ink/70 mt-3" aria-live="polite"></p>
 
@@ -987,6 +991,11 @@ tailwind.config = {
     <p data-i18n="pricingSub" class="text-ink/70 max-w-xl mx-auto">Każdy PDF oparty na wiedzy medycznej i doświadczeniu rodziców. Gotowy do druku, do szpitala i do domu.</p>
   </div>
 
+  <!-- CROSS-SELL: wcześniejszy etap ciąży -> tańszy produkt wejściowy zamiast planu porodu -->
+  <div class="flex justify-center mb-6">
+    <a href="/produkty/plan-opieki-prenatalnej" class="inline-flex items-center gap-2 bg-white border border-sanddark rounded-full px-4 py-2 text-xs font-semibold text-ink/70 hover:border-teal hover:text-teal transition-colors" data-i18n="prenatalCrossSell">🤰 Jesteście przed 30. tygodniem ciąży? Zacznijcie od Planu opieki prenatalnej (29 zł) →</a>
+  </div>
+
   <!-- BADGE STANDARDU (nad kartami, centralny) -->
   <div class="flex justify-center mb-10">
     <span class="inline-flex items-center gap-2 bg-white border border-teal/30 rounded-full px-4 py-2 text-xs font-semibold text-deep shadow-sm">
@@ -1045,6 +1054,11 @@ tailwind.config = {
           <span class="font-display text-5xl font-semibold text-white">99</span>
           <span class="text-xl text-sand/60 mb-2">zł</span>
         </div>
+        <div class="flex flex-wrap items-center gap-2 mt-2">
+          <span class="bg-amber-300 text-deep text-[11px] font-black px-2.5 py-1 rounded-full tracking-wide">-36%</span>
+          <span class="text-sm text-sand/50 line-through" data-i18n="premValueSep">Wartość osobno: 154 zł ·</span>
+          <span class="text-[13px] font-bold" style="color:#F5D68A" data-i18n="premSaveBadge">oszczędzasz 55 zł</span>
+        </div>
       </div>
       <ul class="space-y-3 text-[14px] text-sand/85 flex-1 mb-6">
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" style="color:#B4636F" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="prem1">Wszystko z Podstawowego</span></li>
@@ -1078,7 +1092,11 @@ tailwind.config = {
           <span class="font-display text-5xl font-semibold text-deep">219</span>
           <span class="text-xl text-ink/60 mb-2">zł</span>
         </div>
-        <p class="text-xs text-ink/70 mt-1"><span data-i18n="valueSep">Wartość osobno: 432 zł ·</span> <span data-i18n="saveBadge" class="text-teal font-semibold">oszczędzasz 213 zł</span></p>
+        <div class="flex flex-wrap items-center gap-2 mt-2">
+          <span class="bg-amber-400 text-deep text-[11px] font-black px-2.5 py-1 rounded-full tracking-wide">-49%</span>
+          <span class="text-sm text-ink/40 line-through" data-i18n="valueSep">Wartość osobno: 432 zł ·</span>
+          <span class="text-[13px] font-bold text-teal" data-i18n="saveBadge">oszczędzasz 213 zł</span>
+        </div>
       </div>
       <ul class="space-y-3 text-[14px] flex-1 mb-6">
         <li class="flex gap-2.5"><svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="plus1">Plan porodu Premium (kompletny)</span></li>
@@ -1836,6 +1854,7 @@ tailwind.config = {
     </div>
   </div>
   <p data-i18n="footCopy" class="text-center text-xs text-sand/50 mt-10">© 2026 PoródNaMiarę.pl · Twój poród. Twój plan. · #planporodu #porodnamiare #swiadomyporod</p>
+  <p class="text-center text-xs text-sand/40 mt-3 italic" data-i18n="footDedication">💛 Ta strona powstała z myślą o mojej córce Wiktorii — pierwszy plan porodu, który tu widzicie, naprawdę jest jej. Reszta to już dla Was. — Michał</p>
 </footer>
 
 <script>
@@ -2282,6 +2301,13 @@ tailwind.config = {
         return d;
       }catch(e){ return null; }
     }
+    // Czy w kreatorze są już realne dane (dziecko, termin, preferencje)? Rozróżnia klienta,
+    // który wypełnił kreator przed zakupem, od klienta, który kupił pakiet od razu — impulsywnie
+    // lub świadomie — i dopiero POTEM chce spersonalizować dokument.
+    function pnmHasAnswers(){
+      var d = readProgress();
+      return !!(d && ((d.fields && Object.keys(d.fields).length) || (d.checks && d.checks.length)));
+    }
     function restoreProgress(){
       const d = readProgress(); if(!d) return false;
       try{
@@ -2417,27 +2443,33 @@ tailwind.config = {
         a.href = 'https://payhip.com/buy?link=' + encodeURIComponent(key) + '&metadata[sid]=' + encodeURIComponent(sid);
       });
     });
-    // Baner po zakupie — dla przypadku "kupil, ale kreator jeszcze nie ukonczony".
+    // Baner po zakupie — dwa warianty zależnie od tego, czy w tej przeglądarce są już
+    // odpowiedzi z kreatora: (A) klient wypełnił kreator, potem kupił -> zachęcamy do pobrania;
+    // (B) klient kupił od razu (impulsywnie lub świadomie), kreator jest pusty -> jasne wezwanie
+    // do spersonalizowania dokumentu, bo bez tego PDF nie zawiera danych dziecka ani terminu.
     function pnmPaidBanner(){
       if(!pnmIsUnlocked()) return;
       if(document.getElementById('pnmPaidBanner')) return;
       if(!form || !form.firstChild) return;
       var kl = window.__pnmKreatorLang || 'pl';
       var T = (window.PNM_I18N && window.PNM_I18N.ui && window.PNM_I18N.ui[kl]) ? window.PNM_I18N.ui[kl] : (window.PNM_I18N && window.PNM_I18N.ui ? window.PNM_I18N.ui.pl : null);
-      T = T || {paidTitle:'Zakup potwierdzony ✓', paidDesc:'Wasz plan porodu jest <strong>odblokowany</strong>. Dokończcie kreator, a na końcu <strong>wygenerujecie i pobierzecie gotowy dokument PDF</strong> — a jeśli chcecie, także własną kopię w innym języku (🇬🇧 EN / 🇩🇪 DE / 🇺🇦 UK / 🇷🇺 RU).', paidBtn:'Przejdź do pobrania', paidNote:'Plan gotowy do wygenerowania w PDF'};
+      T = T || {paidTitle:'Zakup potwierdzony ✓', paidDesc:'Wasz plan porodu jest <strong>odblokowany</strong>. Dokończcie kreator, a na końcu <strong>wygenerujecie i pobierzecie gotowy dokument PDF</strong> — a jeśli chcecie, także własną kopię w innym języku (🇬🇧 EN / 🇩🇪 DE / 🇺🇦 UK / 🇷🇺 RU).', paidBtn:'Przejdź do pobrania', paidNote:'Plan gotowy do wygenerowania w PDF',
+        paidDescEmpty:'Zakup <strong>zaksięgowany</strong> — brakuje jeszcze Waszych danych. Uzupełnijcie krótki kreator (dane dziecka, termin porodu, Wasze preferencje), żeby plan był naprawdę Wasz, a nie pustym szablonem.', paidBtnEmpty:'Przejdź do przygotowania planu porodu', paidNoteEmpty:'Zajmie ok. 10–15 minut'};
+      var empty = !pnmHasAnswers();
       var box=document.createElement('div');
       box.id='pnmPaidBanner';
+      box.dataset.empty = empty ? '1' : '0';
       box.setAttribute('role','status');
       box.style.cssText='margin:14px 20px 4px;border-radius:18px;padding:18px 20px;color:#fff;background:linear-gradient(135deg,#2C7A7B 0%,#1D4044 100%);box-shadow:0 10px 30px rgba(44,122,123,.38);animation:pnmGlow 2.4s ease-in-out infinite';
       box.innerHTML=''
         + '<div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap">'
-        +   '<div style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:24px" aria-hidden="true">&#127881;</div>'
+        +   '<div style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:24px" aria-hidden="true">'+(empty?'&#9998;':'&#127881;')+'</div>'
         +   '<div style="flex:1;min-width:210px">'
         +     '<p style="font-weight:800;font-size:19px;margin:0 0 3px;letter-spacing:.2px">'+T.paidTitle+'</p>'
-        +     '<p style="font-size:14px;opacity:.93;margin:0 0 13px;line-height:1.55">'+T.paidDesc+'</p>'
+        +     '<p style="font-size:14px;opacity:.93;margin:0 0 13px;line-height:1.55">'+(empty?T.paidDescEmpty:T.paidDesc)+'</p>'
         +     '<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">'
-        +       '<button type="button" id="pnmGoDownload" style="background:#fff;color:#1D4044;font-weight:800;border:none;border-radius:999px;padding:13px 24px;font-size:15px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18)"><span style="text-decoration:underline">'+T.paidBtn+'</span> &rarr;</button>'
-        +       '<span style="font-size:13px;opacity:.85">'+T.paidNote+'</span>'
+        +       '<button type="button" id="pnmGoDownload" style="background:#fff;color:#1D4044;font-weight:800;border:none;border-radius:999px;padding:13px 24px;font-size:15px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18)"><span style="text-decoration:underline">'+(empty?T.paidBtnEmpty:T.paidBtn)+'</span> &rarr;</button>'
+        +       '<span style="font-size:13px;opacity:.85">'+(empty?T.paidNoteEmpty:T.paidNote)+'</span>'
         +     '</div>'
         +   '</div>'
         + '</div>';
@@ -2449,6 +2481,10 @@ tailwind.config = {
       form.insertBefore(box, form.firstChild.nextSibling);
       var b=document.getElementById('pnmGoDownload');
       if(b) b.addEventListener('click', function(){
+        if(box.dataset.empty==='1'){
+          showStep(0,'prev'); // kreator jest pusty -> zacznij od kroku 1, nie od podsumowania
+          return;
+        }
         showStep(TOTAL-1,'prev'); // 'prev' = bez walidacji do przodu, pozwala dojsc do podsumowania
         setTimeout(function(){ var dz=document.getElementById('downloadZone'); if(dz) dz.scrollIntoView({behavior:pnmScrollBehavior(),block:'center'}); }, 300);
       });
@@ -2461,14 +2497,15 @@ tailwind.config = {
       var kl = window.__pnmKreatorLang || 'pl';
       var T = (window.PNM_I18N && window.PNM_I18N.ui && window.PNM_I18N.ui[kl]) ? window.PNM_I18N.ui[kl] : (window.PNM_I18N && window.PNM_I18N.ui ? window.PNM_I18N.ui.pl : null);
       if(!T) return;
+      var empty = box.dataset.empty==='1';
       var titleEl = box.querySelector('p[style*="font-weight:800"]');
       var descEl = box.querySelector('p[style*="opacity:.93"]');
       var btnSpan = box.querySelector('#pnmGoDownload span');
       var noteEl = box.querySelector('span[style*="opacity:.85"]');
       if(titleEl) titleEl.textContent = T.paidTitle;
-      if(descEl) descEl.innerHTML = T.paidDesc;
-      if(btnSpan) btnSpan.textContent = T.paidBtn;
-      if(noteEl) noteEl.textContent = T.paidNote;
+      if(descEl) descEl.innerHTML = empty ? T.paidDescEmpty : T.paidDesc;
+      if(btnSpan) btnSpan.textContent = empty ? T.paidBtnEmpty : T.paidBtn;
+      if(noteEl) noteEl.textContent = empty ? T.paidNoteEmpty : T.paidNote;
     }
     // Warstwa mocniejsza: weryfikacja JWT. Sukces -> odblokuj. Jawny revoke (zwrot) -> odbierz dostep.
     // Wygasly/niepoprawny token -> usun token, ale NIE odbieraj dostepu z pnm_paid. Blad sieci -> nic.
@@ -2711,6 +2748,8 @@ tailwind.config = {
       return Promise.race([promise, new Promise(function(res){ setTimeout(function(){ res(fallback); }, ms); })]);
     }
 
+    var dlGoEdit=document.getElementById('dlGoEdit');
+    if(dlGoEdit) dlGoEdit.addEventListener('click', function(e){ e.preventDefault(); showStep(0,'prev'); });
     var dlBtn=document.getElementById('dlBtn'), dlStatus=document.getElementById('dlStatus');
     if(dlBtn){
       dlBtn.addEventListener('click', function(){
@@ -2809,10 +2848,7 @@ tailwind.config = {
     applyTheme();
     renderPreview();
     // Po zakupie: zaleznie od tego, czy kreator jest juz ukonczony.
-    var hasAnswers = (function(){
-      var d = readProgress();
-      return !!(d && ((d.fields && Object.keys(d.fields).length) || (d.checks && d.checks.length)));
-    })();
+    var hasAnswers = pnmHasAnswers();
     var paidUnlocked = pnmIsUnlocked();
     var reachedSummary = (restored !== false && restored >= TOTAL-1); // wczesniej dotarli do podsumowania
     if(paidUnlocked && hasAnswers && reachedSummary){

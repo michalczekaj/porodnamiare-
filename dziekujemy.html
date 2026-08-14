@@ -94,26 +94,24 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
     <div class="flex items-start gap-4">
       <span class="flex-shrink-0 w-9 h-9 rounded-full bg-teal text-white font-bold flex items-center justify-center">1</span>
       <div class="min-w-0 flex-1">
-        <h2 class="font-display text-xl font-semibold text-deep mb-2" data-i18n="dzS1H">Pobierz swój plan porodu</h2>
-        <p class="text-[15px] text-ink/80 leading-relaxed mb-4" data-i18n="dzS1P">Wasze odpowiedzi z kreatora są zapisane w tej przeglądarce. Kliknijcie poniżej — dokument wygeneruje się i pobierze od razu.</p>
         <div id="planReady" class="hidden">
+          <h2 class="font-display text-xl font-semibold text-deep mb-2" data-i18n="dzS1H">Pobierz swój plan porodu</h2>
+          <p class="text-[15px] text-ink/80 leading-relaxed mb-4" data-i18n="dzS1P">Wasze odpowiedzi z kreatora są zapisane w tej przeglądarce. Kliknijcie poniżej — dokument wygeneruje się i pobierze od razu.</p>
           <a id="pnmGoKreator" href="/#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors" data-i18n="dzS1Btn">Pobierz swój plan porodu &rarr;</a>
           <p id="pnmPayStatus" class="text-xs text-ink/60 mt-2">Znaleźliśmy Wasze odpowiedzi &#10003; &middot; potwierdzamy płatność&hellip;</p>
         </div>
         <div id="planMissing" class="hidden">
+          <h2 class="font-display text-xl font-semibold text-deep mb-2" data-i18n="dzMissH2">Spersonalizujcie swój plan porodu</h2>
           <div class="bg-tealsoft rounded-xl px-4 py-3 mb-4">
-            <p class="text-[15px] text-ink/85 leading-relaxed" data-i18n="dzMissP"><strong class="text-deep">Nie widzimy tu Waszych odpowiedzi.</strong> To normalne, jeśli kreator wypełnialiście na innym urządzeniu albo w innej przeglądarce — dane zapisują się lokalnie i nie wędrują między urządzeniami.</p>
+            <p class="text-[15px] text-ink/85 leading-relaxed" data-i18n="dzMissP"><strong class="text-deep">Wasz plan porodu czeka jeszcze na personalizację.</strong> Kupiliście pakiet — świetnie! Ale dokument sam się nie wypełni: potrzebuje danych Waszego dziecka, terminu porodu i Waszych preferencji. To normalne, jeśli kupiliście zanim dotarliście do kreatora.</p>
           </div>
-          <p class="font-semibold text-deep text-[15px] mb-2" data-i18n="dzMissH">Co zrobić:</p>
-          <ul class="space-y-2 text-[15px] text-ink/80 mb-4">
-            <li class="flex gap-2.5"><span class="text-teal font-bold flex-shrink-0">1.</span><span>Otwórzcie <strong>ten sam link</strong> na urządzeniu, na którym wypełnialiście kreator (np. na telefonie)</span></li>
-            <li class="flex gap-2.5"><span class="text-teal font-bold flex-shrink-0">2.</span><span>Albo wypełnijcie kreator ponownie tutaj — zajmie to kilkanaście minut, a płatność jest już zaksięgowana</span></li>
-            <li class="flex gap-2.5"><span class="text-teal font-bold flex-shrink-0">3.</span><span>Albo napiszcie do nas — przygotuję plan ręcznie i wyślę mailem</span></li>
-          </ul>
-          <div class="flex flex-wrap gap-3">
-            <a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors text-sm">Otwórz kreator &rarr;</a>
-            <a href="#" class="pnm-email inline-block border border-deep/25 font-semibold px-6 py-3 rounded-full hover:bg-sanddark transition-colors text-sm" data-u="kontakt" data-d="porodnamiare.pl" data-p="?subject=Plan%20porodu%20-%20pomoc%20po%20zakupie" data-hide="1" rel="nofollow">Napisz do nas</a>
-          </div>
+          <a href="/#kreator" id="pnmGoKreatorMissing" class="inline-block bg-teal text-white font-bold px-7 py-3.5 rounded-full hover:bg-deep transition-colors mb-4" data-i18n="dzMissBtn">Przejdź do przygotowania planu porodu &rarr;</a>
+          <p class="text-xs text-ink/60 mb-4" data-i18n="dzMissTime">Zajmie ok. 10–15 minut. Zapłaciliście już, więc przy pobraniu nic więcej nie zapłacicie.</p>
+          <details class="text-[13px] text-ink/70">
+            <summary class="cursor-pointer font-semibold text-deep" data-i18n="dzMissAltH">Wypełnialiście kreator na innym urządzeniu?</summary>
+            <p class="mt-2 leading-relaxed" data-i18n="dzMissAltP">Dane zapisują się lokalnie w przeglądarce i nie synchronizują się między urządzeniami. Otwórzcie ten sam link na urządzeniu, na którym wypełnialiście kreator (np. na telefonie), albo napiszcie do nas — przygotujemy plan ręcznie.</p>
+            <a href="#" class="pnm-email inline-block underline font-semibold mt-2 text-sm" data-u="kontakt" data-d="porodnamiare.pl" data-p="?subject=Plan%20porodu%20-%20pomoc%20po%20zakupie" data-hide="1" rel="nofollow">Napisz do nas</a>
+          </details>
         </div>
         <noscript><a href="/#kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full">Pobierz swój plan porodu &rarr;</a></noscript>
       </div>
@@ -258,8 +256,12 @@ window.PAGE_I18N = {
     dzS1H: "Download your birth plan",
     dzS1P: "Your answers from the creator are saved in this browser. Click below and the document will generate and download straight away.",
     dzS1Btn: "Download your birth plan →",
-    dzMissP: "<strong class=\"text-deep\">We can't see your answers here.</strong> That's normal if you filled in the creator on another device or in another browser — the data is stored locally and doesn't travel between devices.",
-    dzMissH: "What to do:",
+    dzMissH2: "Personalise your birth plan",
+    dzMissP: "<strong class=\"text-deep\">Your birth plan is still waiting to be personalised.</strong> You bought the package — great! But the document won't fill itself in: it needs your baby's details, due date and your preferences. That's normal if you bought before reaching the creator.",
+    dzMissBtn: "Go to prepare your birth plan →",
+    dzMissTime: "Takes about 10–15 minutes. You've already paid, so downloading costs nothing extra.",
+    dzMissAltH: "Filled in the creator on another device?",
+    dzMissAltP: "The data is stored locally in the browser and doesn't sync between devices. Open the same link on the device where you filled in the creator (e.g. your phone), or write to us — we'll prepare the plan manually.",
     dzS2H: "Check your e-mail",
     dzS2P: "If you bought the Premium or Premium+ package, we've sent the PDF guides to the address you gave at checkout. The message usually arrives within a minute.",
     dzS3H: "Print two copies",
@@ -275,8 +277,12 @@ window.PAGE_I18N = {
     dzS1H: "Laden Sie Ihren Geburtsplan herunter",
     dzS1P: "Ihre Antworten aus dem Generator sind in diesem Browser gespeichert. Klicken Sie unten — das Dokument wird sofort erstellt und heruntergeladen.",
     dzS1Btn: "Geburtsplan herunterladen →",
-    dzMissP: "<strong class=\"text-deep\">Wir sehen hier Ihre Antworten nicht.</strong> Das ist normal, wenn Sie den Generator auf einem anderen Gerät oder in einem anderen Browser ausgefüllt haben — die Daten werden lokal gespeichert und wandern nicht zwischen Geräten.",
-    dzMissH: "Was zu tun ist:",
+    dzMissH2: "Personalisieren Sie Ihren Geburtsplan",
+    dzMissP: "<strong class=\"text-deep\">Ihr Geburtsplan wartet noch auf die Personalisierung.</strong> Sie haben das Paket gekauft — toll! Aber das Dokument füllt sich nicht von selbst: Es braucht die Angaben zu Ihrem Baby, den Geburtstermin und Ihre Präferenzen. Das ist normal, wenn Sie gekauft haben, bevor Sie den Kreator erreicht haben.",
+    dzMissBtn: "Zur Vorbereitung des Geburtsplans →",
+    dzMissTime: "Dauert etwa 10–15 Minuten. Sie haben bereits bezahlt, der Download kostet also nichts zusätzlich.",
+    dzMissAltH: "Haben Sie den Kreator auf einem anderen Gerät ausgefüllt?",
+    dzMissAltP: "Die Daten werden lokal im Browser gespeichert und nicht zwischen Geräten synchronisiert. Öffnen Sie denselben Link auf dem Gerät, auf dem Sie den Kreator ausgefüllt haben (z. B. Ihrem Handy), oder schreiben Sie uns — wir erstellen den Plan manuell.",
     dzS2H: "Prüfen Sie Ihr E-Mail-Postfach",
     dzS2P: "Wenn Sie das Premium- oder Premium+-Paket gekauft haben, haben wir die PDF-Ratgeber an die bei der Zahlung angegebene Adresse geschickt. Die Nachricht kommt in der Regel innerhalb einer Minute an.",
     dzS3H: "Drucken Sie zwei Exemplare",
@@ -292,8 +298,12 @@ window.PAGE_I18N = {
     dzS1H: "Завантажте свій план пологів",
     dzS1P: "Ваші відповіді з конструктора збережені в цьому браузері. Натисніть нижче — документ згенерується і завантажиться одразу.",
     dzS1Btn: "Завантажити свій план пологів →",
-    dzMissP: "<strong class=\"text-deep\">Ми не бачимо тут ваших відповідей.</strong> Це нормально, якщо ви заповнювали конструктор на іншому пристрої чи в іншому браузері — дані зберігаються локально і не переносяться між пристроями.",
-    dzMissH: "Що робити:",
+    dzMissH2: "Персоналізуйте свій план пологів",
+    dzMissP: "<strong class=\"text-deep\">Ваш план пологів ще чекає на персоналізацію.</strong> Ви купили пакет — чудово! Але документ сам себе не заповнить: потрібні дані вашої дитини, дата пологів і ваші побажання. Це нормально, якщо ви купили до того, як дійшли до конструктора.",
+    dzMissBtn: "Перейти до підготовки плану пологів →",
+    dzMissTime: "Займе близько 10–15 хвилин. Ви вже оплатили, тож завантаження нічого не коштуватиме додатково.",
+    dzMissAltH: "Заповнювали конструктор на іншому пристрої?",
+    dzMissAltP: "Дані зберігаються локально в браузері й не синхронізуються між пристроями. Відкрийте те саме посилання на пристрої, де заповнювали конструктор (напр. на телефоні), або напишіть нам — підготуємо план вручну.",
     dzS2H: "Перевірте поштову скриньку",
     dzS2P: "Якщо ви придбали пакет Premium або Premium+, PDF-довідники надіслані на адресу, вказану при оплаті. Повідомлення зазвичай приходить протягом хвилини.",
     dzS3H: "Роздрукуйте у двох примірниках",
