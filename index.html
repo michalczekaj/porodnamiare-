@@ -1222,6 +1222,26 @@ tailwind.config = {
           <p data-i18n="spGuide59" class="text-xs text-ink/60 mt-1">59 zł · przewodnik PDF, 16 str.</p>
         </div>
       </a>
+      <a href="/produkty/plan-opieki-prenatalnej" class="group relative flex flex-col bg-white border-2 border-teal rounded-2xl overflow-hidden hover:bg-tealsoft hover:shadow-lg transition-all">
+        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full" data-i18n="newBadge">NOWOŚĆ</span>
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/thumb/plan-opieki-prenatalnej.webp" width="720" height="1080" alt="Plan opieki prenatalnej — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
+        </div>
+        <div class="p-3 text-center">
+          <p data-i18n="sp10N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Plan opieki prenatalnej</p>
+          <p data-i18n="spPdf29" class="text-xs text-ink/60 mt-1">29 zł · PDF</p>
+        </div>
+      </a>
+      <a href="/produkty/plan-porodu-po-stracie" class="group relative flex flex-col bg-white border-2 border-teal rounded-2xl overflow-hidden hover:bg-tealsoft hover:shadow-lg transition-all">
+        <span class="absolute top-2 right-2 z-10 bg-deep text-white text-[10px] font-bold px-2 py-0.5 rounded-full" data-i18n="newBadge">NOWOŚĆ</span>
+        <div class="aspect-[2/3] w-full bg-sand overflow-hidden">
+          <img src="/img/produkty/thumb/plan-porodu-po-stracie.webp" width="720" height="1080" alt="Plan porodu i ciąży po stracie — okładka PDF" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" style="image-rendering:auto">
+        </div>
+        <div class="p-3 text-center">
+          <p data-i18n="sp11N" class="font-semibold text-deep text-sm group-hover:text-teal transition-colors leading-tight">Plan porodu i ciąży po stracie</p>
+          <p data-i18n="sp1P" class="text-xs text-ink/60 mt-1">49 zł · PDF</p>
+        </div>
+      </a>
     </div>
   </div>
 
@@ -1957,7 +1977,10 @@ tailwind.config = {
         amniotomia: {t:"Amniotomia", d:"Zabiegowe przebicie pęcherza płodowego w celu przyspieszenia lub wywołania porodu. Bezbolesne dla dziecka, ale nieodwracalne — warto wiedzieć, kiedy i dlaczego personel je proponuje."},
         rooming: {t:"Rooming-in", d:"Dziecko przebywa razem z mamą w jednej sali przez całą dobę, zamiast w oddzielnej sali noworodkowej. Sprzyja więzi i karmieniu na żądanie — standard, chyba że stan zdrowia wymaga inaczej."},
         presjalaktacyjna: {t:"Presja laktacyjna", d:"Nacisk słowny lub niewerbalny na kontynuowanie karmienia piersią wbrew woli lub możliwościom matki. Dobra praktyka: personel wspiera każdą świadomą decyzję o sposobie karmienia, bez oceniania."},
-        swiadomazgoda: {t:"Świadoma zgoda", d:"Zgoda na procedurę medyczną wyrażona po zrozumiałym przedstawieniu jej celu, przebiegu, korzyści, ryzyka i dostępnych alternatyw. Można ją wycofać w każdej chwili — personel ma obowiązek to uszanować, poza sytuacjami bezpośredniego zagrożenia życia."}
+        swiadomazgoda: {t:"Świadoma zgoda", d:"Zgoda na procedurę medyczną wyrażona po zrozumiałym przedstawieniu jej celu, przebiegu, korzyści, ryzyka i dostępnych alternatyw. Można ją wycofać w każdej chwili — personel ma obowiązek to uszanować, poza sytuacjami bezpośredniego zagrożenia życia."},
+        ktg: {t:"Monitorowanie KTG", d:"Kardiotokografia — ciągły elektroniczny zapis tętna dziecka i skurczów macicy. Przydatne przy porodach podwyższonego ryzyka; przy porodzie przebiegającym prawidłowo, z niskim ryzykiem, Standard dopuszcza zamiast tego przerywane osłuchiwanie, dające większą swobodę ruchu."},
+        vbac: {t:"VBAC", d:"Poród drogami natury po wcześniejszym cięciu cesarskim (Vaginal Birth After Caesarean). U większości kobiet szanse powodzenia są wysokie, a ryzyko mniejsze niż przy kolejnym cesarskim cięciu — decyzję warto jednak indywidualnie omówić z lekarzem prowadzącym."},
+        epds: {t:"Edynburska Skala Depresji Poporodowej", d:"Krótki, standardowy test przesiewowy (10 pytań), stosowany na świecie do oceny nastroju po porodzie. To nie diagnoza — wysoki wynik oznacza jedynie, że warto porozmawiać z lekarzem lub psychologiem."}
       };
       function getDef(term, lang){
         try{
@@ -2399,6 +2422,9 @@ tailwind.config = {
       if(!pnmIsUnlocked()) return;
       if(document.getElementById('pnmPaidBanner')) return;
       if(!form || !form.firstChild) return;
+      var kl = window.__pnmKreatorLang || 'pl';
+      var T = (window.PNM_I18N && window.PNM_I18N.ui && window.PNM_I18N.ui[kl]) ? window.PNM_I18N.ui[kl] : (window.PNM_I18N && window.PNM_I18N.ui ? window.PNM_I18N.ui.pl : null);
+      T = T || {paidTitle:'Zakup potwierdzony ✓', paidDesc:'Wasz plan porodu jest <strong>odblokowany</strong>. Dokończcie kreator, a na końcu <strong>wygenerujecie i pobierzecie gotowy dokument PDF</strong> — a jeśli chcecie, także własną kopię w innym języku (🇬🇧 EN / 🇩🇪 DE / 🇺🇦 UK / 🇷🇺 RU).', paidBtn:'Przejdź do pobrania', paidNote:'Plan gotowy do wygenerowania w PDF'};
       var box=document.createElement('div');
       box.id='pnmPaidBanner';
       box.setAttribute('role','status');
@@ -2407,11 +2433,11 @@ tailwind.config = {
         + '<div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap">'
         +   '<div style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:24px" aria-hidden="true">&#127881;</div>'
         +   '<div style="flex:1;min-width:210px">'
-        +     '<p style="font-weight:800;font-size:19px;margin:0 0 3px;letter-spacing:.2px">Zakup potwierdzony &#10003;</p>'
-        +     '<p style="font-size:14px;opacity:.93;margin:0 0 13px;line-height:1.55">Wasz plan porodu jest <strong>odblokowany</strong>. Dokończcie kreator, a na końcu <strong>wygenerujecie i pobierzecie gotowy dokument PDF</strong> — a jeśli chcecie, także własną kopię w innym języku (🇬🇧 EN / 🇩🇪 DE / 🇺🇦 UK).</p>'
+        +     '<p style="font-weight:800;font-size:19px;margin:0 0 3px;letter-spacing:.2px">'+T.paidTitle+'</p>'
+        +     '<p style="font-size:14px;opacity:.93;margin:0 0 13px;line-height:1.55">'+T.paidDesc+'</p>'
         +     '<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">'
-        +       '<button type="button" id="pnmGoDownload" style="background:#fff;color:#1D4044;font-weight:800;border:none;border-radius:999px;padding:13px 24px;font-size:15px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18)"><span style="text-decoration:underline">Przejdź do pobrania</span> &rarr;</button>'
-        +       '<span style="font-size:13px;opacity:.85">Plan gotowy do wygenerowania w PDF</span>'
+        +       '<button type="button" id="pnmGoDownload" style="background:#fff;color:#1D4044;font-weight:800;border:none;border-radius:999px;padding:13px 24px;font-size:15px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18)"><span style="text-decoration:underline">'+T.paidBtn+'</span> &rarr;</button>'
+        +       '<span style="font-size:13px;opacity:.85">'+T.paidNote+'</span>'
         +     '</div>'
         +   '</div>'
         + '</div>';
@@ -2426,6 +2452,23 @@ tailwind.config = {
         showStep(TOTAL-1,'prev'); // 'prev' = bez walidacji do przodu, pozwala dojsc do podsumowania
         setTimeout(function(){ var dz=document.getElementById('downloadZone'); if(dz) dz.scrollIntoView({behavior:pnmScrollBehavior(),block:'center'}); }, 300);
       });
+    }
+    // Odświeża tekst już istniejącego banera po zmianie języka kreatora (np. jeśli klient
+    // przełączy język PO zakupie) — bez usuwania przycisku/listenera.
+    function pnmRefreshPaidBannerLang(){
+      var box = document.getElementById('pnmPaidBanner');
+      if(!box) return;
+      var kl = window.__pnmKreatorLang || 'pl';
+      var T = (window.PNM_I18N && window.PNM_I18N.ui && window.PNM_I18N.ui[kl]) ? window.PNM_I18N.ui[kl] : (window.PNM_I18N && window.PNM_I18N.ui ? window.PNM_I18N.ui.pl : null);
+      if(!T) return;
+      var titleEl = box.querySelector('p[style*="font-weight:800"]');
+      var descEl = box.querySelector('p[style*="opacity:.93"]');
+      var btnSpan = box.querySelector('#pnmGoDownload span');
+      var noteEl = box.querySelector('span[style*="opacity:.85"]');
+      if(titleEl) titleEl.textContent = T.paidTitle;
+      if(descEl) descEl.innerHTML = T.paidDesc;
+      if(btnSpan) btnSpan.textContent = T.paidBtn;
+      if(noteEl) noteEl.textContent = T.paidNote;
     }
     // Warstwa mocniejsza: weryfikacja JWT. Sukces -> odblokuj. Jawny revoke (zwrot) -> odbierz dostep.
     // Wygasly/niepoprawny token -> usun token, ale NIE odbieraj dostepu z pnm_paid. Blad sieci -> nic.
@@ -2545,6 +2588,7 @@ tailwind.config = {
         refreshProgressLabels();
         if (cur === TOTAL-1) renderSummary();
         syncEmailGateLang(lang);
+        pnmRefreshPaidBannerLang();
       };
       if (lang === 'pl' && !window.PNM_I18N){
         // powrót do PL bez pobranego słownika — nie ma czego tłumaczyć
