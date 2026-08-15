@@ -40,7 +40,8 @@
 <link rel="stylesheet" href="/css/whatsapp.css?v=25">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <script>
 tailwind.config = {
   theme: {
@@ -1054,10 +1055,9 @@ tailwind.config = {
           <span class="font-display text-5xl font-semibold text-white">99</span>
           <span class="text-xl text-sand/60 mb-2">zł</span>
         </div>
-        <div class="flex flex-wrap items-center gap-2 mt-2">
-          <span class="bg-amber-300 text-deep text-[11px] font-black px-2.5 py-1 rounded-full tracking-wide">-36%</span>
-          <span class="text-sm text-sand/50 line-through" data-i18n="premValueSep">Wartość osobno: 154 zł ·</span>
-          <span class="text-[13px] font-bold" style="color:#F5D68A" data-i18n="premSaveBadge">oszczędzasz 55 zł</span>
+        <div class="mt-3 rounded-2xl bg-white/10 border border-white/20 px-4 py-3">
+          <p class="font-display text-lg font-bold" style="color:#F5D68A" data-i18n="premValueSep">7 materiałów w cenie</p>
+          <p class="text-[13px] text-sand/70 mt-0.5" data-i18n="premSaveBadge">w tym 5 bonusów niedostępnych osobno</p>
         </div>
       </div>
       <ul class="space-y-3 text-[14px] text-sand/85 flex-1 mb-6">
@@ -1092,10 +1092,12 @@ tailwind.config = {
           <span class="font-display text-5xl font-semibold text-deep">219</span>
           <span class="text-xl text-ink/60 mb-2">zł</span>
         </div>
-        <div class="flex flex-wrap items-center gap-2 mt-2">
-          <span class="bg-amber-400 text-deep text-[11px] font-black px-2.5 py-1 rounded-full tracking-wide">-49%</span>
-          <span class="text-sm text-ink/40 line-through" data-i18n="valueSep">Wartość osobno: 432 zł ·</span>
-          <span class="text-[13px] font-bold text-teal" data-i18n="saveBadge">oszczędzasz 213 zł</span>
+        <div class="mt-3 rounded-2xl bg-teal/10 border border-teal/40 px-4 py-3">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-sm text-ink/50" data-i18n="valueSep">Osobno: <s class="text-ink/40 font-semibold">353 zł</s></span>
+            <span class="bg-teal text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">-38%</span>
+          </div>
+          <p class="mt-1.5 font-display text-2xl font-bold text-teal" data-i18n="saveBadge">Oszczędzasz 134 zł</p>
         </div>
       </div>
       <ul class="space-y-3 text-[14px] flex-1 mb-6">
