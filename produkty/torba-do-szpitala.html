@@ -83,34 +83,39 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#cennik" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+<div class="flex items-center gap-2">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2.5 py-2 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option><option value="ru">RU</option>
+  </select>
+  <a href="/#cennik" data-i18n="navProducts" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+</div>
 </nav></header>
 <main>
 
 <section class="max-w-5xl mx-auto px-4 pt-12 pb-10 grid md:grid-cols-2 gap-10 items-start">
   <div>
-    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Produkt #3 · Checklista PDF</p>
-    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Co zabrać do szpitala na poród — kompletna checklista dla mamy, taty i dziecka</h1>
+    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="kicker">Produkt #3 · Checklista PDF</p>
+    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4" data-i18n="h1">Co zabrać do szpitala na poród — kompletna checklista dla mamy, taty i dziecka</h1>
 
   <figure class="my-6">
     <img src="/img/produkty/torba-do-szpitala.webp" alt="Checklista co zabrać do szpitala — okładka PDF" width="600" height="900" loading="eager" decoding="async"
          class="w-full max-w-[280px] mx-auto rounded-2xl shadow-lg border border-sanddark">
   </figure>
-    <p class="text-lg leading-relaxed mb-6">70+ pozycji pogrupowanych tak, żeby nic nie wyleciało z głowy — nawet jeśli skurcze zaczną się w środku nocy. Z komentarzami doświadczonej mamy i taty: dlaczego, kiedy i w jakiej ilości.</p>
+    <p class="text-lg leading-relaxed mb-6" data-i18n="intro">70+ pozycji pogrupowanych tak, żeby nic nie wyleciało z głowy — nawet jeśli skurcze zaczną się w środku nocy. Z komentarzami doświadczonej mamy i taty: dlaczego, kiedy i w jakiej ilości.</p>
 
     <!-- Wersja PREMIUM -->
     <div class="bg-deep rounded-2xl p-6 text-sand relative overflow-hidden">
-      <span class="absolute top-3 right-3 bg-teal text-white text-xs font-bold px-2 py-0.5 rounded-full">POLECANA</span>
-      <p class="font-display text-lg font-semibold text-white mb-1">Wersja Premium — 19 zł</p>
-      <p class="text-sm text-sand/80 mb-3">Lista + komentarze mamy po 3 porodach: dlaczego, kiedy, w jakiej ilości i co naprawdę pominęłam za każdym razem.</p>
+      <span class="absolute top-3 right-3 bg-teal text-white text-xs font-bold px-2 py-0.5 rounded-full" data-i18n="badge">POLECANA</span>
+      <p class="font-display text-lg font-semibold text-white mb-1" data-i18n="premH">Wersja Premium — 19 zł</p>
+      <p class="text-sm text-sand/80 mb-3" data-i18n="premP">Lista + komentarze mamy po 3 porodach: dlaczego, kiedy, w jakiej ilości i co naprawdę pominęłam za każdym razem.</p>
       <ul class="space-y-1.5 text-[14px] text-sand/90 mb-4">
-        <li>✓ Komentarze przy każdej pozycji — po co to naprawdę</li>
-        <li>✓ Sekcja „pominięte przez inne mamy" (30+ pozycji, o których nikt nie mówi)</li>
-        <li>✓ Wersja dla CC (cięcie cesarskie) i porodu naturalnego</li>
-        <li>✓ Lista zakupów online — co zamówić z wyprzedzeniem</li>
+        <li data-i18n="li1">✓ Komentarze przy każdej pozycji — po co to naprawdę</li>
+        <li data-i18n="li2">✓ Sekcja „pominięte przez inne mamy" (30+ pozycji, o których nikt nie mówi)</li>
+        <li data-i18n="li3">✓ Wersja dla CC (cięcie cesarskie) i porodu naturalnego</li>
+        <li data-i18n="li4">✓ Lista zakupów online — co zamówić z wyprzedzeniem</li>
       </ul>
       <a href="https://payhip.com/b/gORJu" target="_blank" rel="noopener"
-         class="block text-center bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors">Kup wersję Premium — 19 zł</a>
+         class="block text-center bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-deep transition-colors" data-i18n="ctaBuy">Kup wersję Premium — 19 zł</a>
     </div>
   </div>
 
@@ -118,17 +123,58 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 
 <section class="bg-deep text-sand py-12 text-center">
   <div class="max-w-lg mx-auto px-4">
-    <h2 class="font-display text-2xl font-semibold text-white mb-3">Zaplanuj torbę przed skurczami, nie w ich trakcie.</h2>
-    <p class="text-sand/80 mb-6">Pełna checklista z komentarzami doświadczonej mamy — 19 zł i warta każdego grosza.</p>
+    <h2 class="font-display text-2xl font-semibold text-white mb-3" data-i18n="ctaH">Zaplanuj torbę przed skurczami, nie w ich trakcie.</h2>
+    <p class="text-sand/80 mb-6" data-i18n="ctaP">Pełna checklista z komentarzami doświadczonej mamy — 19 zł i warta każdego grosza.</p>
     <a href="https://payhip.com/b/gORJu" target="_blank" rel="noopener"
-       class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors">Kup Premium — 19 zł</a>
+       class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors" data-i18n="ctaBuy2">Kup Premium — 19 zł</a>
   </div>
 </section>
 
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm">
 <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
-<p class="mt-2 text-xs text-sand/40">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
+<p class="mt-2 text-xs text-sand/40" data-i18n="footDisc">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
 </footer>
+<script>
+window.PAGE_I18N = {
+  en: {
+    navProducts: "All products", kicker: "Product #3 · PDF checklist", h1: "What to pack for the hospital — a complete checklist for mum, dad and baby",
+    intro: "70+ items grouped so nothing slips your mind — even if contractions start in the middle of the night. With comments from an experienced mum and dad: why, when, and how much.",
+    badge: "RECOMMENDED", premH: "Premium version — 19 PLN", premP: "The list + comments from a mum after 3 births: why, when, how much, and what she really forgot each time.",
+    li1: "✓ Comments on every item — what it's actually for", li2: "✓ A \"what other mums forgot\" section (30+ items no one talks about)", li3: "✓ A version for a C-section and for a natural birth", li4: "✓ An online shopping list — what to order in advance",
+    ctaBuy: "Get the Premium version — 19 PLN",
+    ctaH: "Pack your bag before contractions start, not during them.", ctaP: "The full checklist with comments from an experienced mum — 19 PLN, worth every penny.", ctaBuy2: "Get Premium — 19 PLN",
+    footDisc: "This content is educational and does not replace medical or midwifery advice."
+  },
+  de: {
+    navProducts: "Alle Produkte", kicker: "Produkt Nr. 3 · PDF-Checkliste", h1: "Was Sie für die Klinik einpacken sollten — komplette Checkliste für Mama, Papa und Baby",
+    intro: "70+ Punkte, so gruppiert, dass nichts vergessen wird — selbst wenn die Wehen mitten in der Nacht beginnen. Mit Kommentaren einer erfahrenen Mama und eines Papas: warum, wann und wie viel.",
+    badge: "EMPFOHLEN", premH: "Premium-Version — 19 PLN", premP: "Die Liste + Kommentare einer Mama nach 3 Geburten: warum, wann, wie viel und was sie jedes Mal wirklich vergessen hat.",
+    li1: "✓ Kommentare zu jedem Punkt — wofür es wirklich ist", li2: "✓ Abschnitt „was andere Mamas vergessen haben“ (30+ Punkte, über die niemand spricht)", li3: "✓ Version für Kaiserschnitt und natürliche Geburt", li4: "✓ Online-Einkaufsliste — was Sie vorab bestellen sollten",
+    ctaBuy: "Premium-Version holen — 19 PLN",
+    ctaH: "Packen Sie Ihre Tasche vor den Wehen, nicht währenddessen.", ctaP: "Die vollständige Checkliste mit Kommentaren einer erfahrenen Mama — 19 PLN und jeden Cent wert.", ctaBuy2: "Premium holen — 19 PLN",
+    footDisc: "Diese Inhalte dienen Bildungszwecken und ersetzen keine ärztliche oder hebammliche Beratung."
+  },
+  uk: {
+    navProducts: "Усі продукти", kicker: "Продукт №3 · PDF-чекліст", h1: "Що взяти до лікарні на пологи — повний чекліст для мами, тата і дитини",
+    intro: "70+ пунктів, згрупованих так, щоб нічого не забути — навіть якщо перейми почнуться серед ночі. З коментарями досвідченої мами і тата: навіщо, коли і скільки.",
+    badge: "РЕКОМЕНДОВАНО", premH: "Преміум-версія — 19 злотих", premP: "Список + коментарі мами після 3 пологів: навіщо, коли, скільки і що вона насправді забувала щоразу.",
+    li1: "✓ Коментарі до кожного пункту — навіщо це насправді", li2: "✓ Розділ «забуте іншими мамами» (30+ пунктів, про які ніхто не говорить)", li3: "✓ Версія для КР (кесарів розтин) і природних пологів", li4: "✓ Список онлайн-покупок — що замовити заздалегідь",
+    ctaBuy: "Отримати преміум-версію — 19 злотих",
+    ctaH: "Зберіть сумку до перейм, а не під час них.", ctaP: "Повний чекліст з коментарями досвідченої мами — 19 злотих і вартий кожної копійки.", ctaBuy2: "Отримати преміум — 19 злотих",
+    footDisc: "Зміст має освітній характер і не замінює консультацію лікаря чи акушерки."
+  },
+  ru: {
+    navProducts: "Все продукты", kicker: "Продукт №3 · PDF-чек-лист", h1: "Что взять в роддом — полный чек-лист для мамы, папы и малыша",
+    intro: "70+ пунктов, сгруппированных так, чтобы ничего не забыть — даже если схватки начнутся посреди ночи. С комментариями опытной мамы и папы: зачем, когда и сколько.",
+    badge: "РЕКОМЕНДУЕТСЯ", premH: "Премиум-версия — 19 злотых", premP: "Список + комментарии мамы после 3 родов: зачем, когда, сколько и что она реально забывала каждый раз.",
+    li1: "✓ Комментарии к каждому пункту — зачем это на самом деле", li2: "✓ Раздел «забытое другими мамами» (30+ пунктов, о которых никто не говорит)", li3: "✓ Версия для КС (кесарево сечение) и естественных родов", li4: "✓ Список онлайн-покупок — что заказать заранее",
+    ctaBuy: "Получить премиум-версию — 19 злотых",
+    ctaH: "Соберите сумку до схваток, а не во время них.", ctaP: "Полный чек-лист с комментариями опытной мамы — 19 злотых и стоит каждой копейки.", ctaBuy2: "Получить премиум — 19 злотых",
+    footDisc: "Содержание носит образовательный характер и не заменяет консультацию врача или акушерки."
+  }
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 <script src="/js/consent-gate.js?v=25" defer></script>
 </body></html>

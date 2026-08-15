@@ -76,71 +76,76 @@
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#cennik" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+<div class="flex items-center gap-2">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2.5 py-2 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option><option value="ru">RU</option>
+  </select>
+  <a href="/#cennik" data-i18n="navProducts" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+</div>
 </nav></header>
 
 <main class="max-w-3xl mx-auto px-4 py-12">
-  <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Produkt PDF · 16 stron</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Przewodnik snu niemowlęcia i małego dziecka</h1>
+  <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="kicker">Produkt PDF · 16 stron</p>
+  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4" data-i18n="h1">Przewodnik snu niemowlęcia i małego dziecka</h1>
 
   <figure class="my-6">
     <img src="/img/produkty/sen-niemowlecia.webp" alt="Przewodnik snu niemowlęcia — okładka PDF" width="600" height="900" loading="eager" decoding="async"
          class="w-full max-w-[280px] mx-auto rounded-2xl shadow-lg border border-sanddark">
   </figure>
-  <p class="text-lg text-ink/80 leading-relaxed mb-6">Kompletny plan pracy ze snem dziecka — od fizjologii pierwszych tygodni, przez harmonogram drzemek i rytuał wieczorny, po łagodne metody nauki samodzielnego zasypiania i kalendarz regresji, aż do 24. miesiąca życia.</p>
+  <p class="text-lg text-ink/80 leading-relaxed mb-6" data-i18n="intro">Kompletny plan pracy ze snem dziecka — od fizjologii pierwszych tygodni, przez harmonogram drzemek i rytuał wieczorny, po łagodne metody nauki samodzielnego zasypiania i kalendarz regresji, aż do 24. miesiąca życia.</p>
 
   <div class="bg-white border-2 border-teal rounded-3xl p-6 mb-6 flex flex-wrap gap-6 items-center justify-between">
     <div>
       <p class="font-display text-4xl font-semibold text-deep">59 zł</p>
-      <p class="text-xs text-ink/60">Jednorazowa płatność · natychmiastowe pobranie PDF</p>
+      <p class="text-xs text-ink/60" data-i18n="payNote">Jednorazowa płatność · natychmiastowe pobranie PDF</p>
     </div>
-    <a href="https://payhip.com/b/BlFUs" target="_blank" rel="noopener" class="bg-teal text-white font-bold px-8 py-4 rounded-2xl hover:bg-deep transition-colors text-lg">Kup teraz — 59 zł</a>
+    <a href="https://payhip.com/b/BlFUs" target="_blank" rel="noopener" class="bg-teal text-white font-bold px-8 py-4 rounded-2xl hover:bg-deep transition-colors text-lg" data-i18n="ctaBuy">Kup teraz — 59 zł</a>
   </div>
-  <p class="text-center text-sm text-ink/60 mb-8">Profesjonalne konsultacje snu kosztują 200–1000 zł. Ten przewodnik to punkt startowy za ułamek tej ceny.</p>
+  <p class="text-center text-sm text-ink/60 mb-8" data-i18n="valueNote">Profesjonalne konsultacje snu kosztują 200–1000 zł. Ten przewodnik to punkt startowy za ułamek tej ceny.</p>
 
-  <h2 class="font-display text-xl font-semibold text-deep mb-4">Co zawiera przewodnik</h2>
+  <h2 class="font-display text-xl font-semibold text-deep mb-4" data-i18n="h2includes">Co zawiera przewodnik</h2>
   <div class="grid sm:grid-cols-2 gap-3 mb-8">
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Fizjologia snu niemowlęcia — podstawy</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Bezpieczne warunki snu (wg WHO/AAP)</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Harmonogram drzemek 0–24 miesiące</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Rytuał wieczorny krok po kroku</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ 3 łagodne metody nauki zasypiania</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Kalendarz wszystkich regresji snu</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Drabinka reagowania na nocne pobudki</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ 2-tygodniowy plan wdrożenia</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Lęki nocne vs koszmary — jak reagować</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Red flags — kiedy do pediatry</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat1">✓ Fizjologia snu niemowlęcia — podstawy</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat2">✓ Bezpieczne warunki snu (wg WHO/AAP)</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat3">✓ Harmonogram drzemek 0–24 miesiące</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat4">✓ Rytuał wieczorny krok po kroku</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat5">✓ 3 łagodne metody nauki zasypiania</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat6">✓ Kalendarz wszystkich regresji snu</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat7">✓ Drabinka reagowania na nocne pobudki</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat8">✓ 2-tygodniowy plan wdrożenia</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat9">✓ Lęki nocne vs koszmary — jak reagować</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat10">✓ Red flags — kiedy do pediatry</div>
   </div>
 
   <div class="bg-tealsoft rounded-2xl p-6 mb-8">
-    <p class="font-semibold text-deep mb-2">Bez metody wypłakiwania się</p>
-    <p class="text-[15px] text-ink/85">Wszystkie opisane metody są łagodne — oparte na stopniowym budowaniu samodzielności, nie na zostawianiu dziecka samego z płaczem. Wymagają więcej cierpliwości, ale są zgodne z potrzebą bliskości w pierwszych latach życia.</p>
+    <p class="font-semibold text-deep mb-2" data-i18n="noCryH">Bez metody wypłakiwania się</p>
+    <p class="text-[15px] text-ink/85" data-i18n="noCryP">Wszystkie opisane metody są łagodne — oparte na stopniowym budowaniu samodzielności, nie na zostawianiu dziecka samego z płaczem. Wymagają więcej cierpliwości, ale są zgodne z potrzebą bliskości w pierwszych latach życia.</p>
   </div>
 
-  <a href="https://payhip.com/b/BlFUs" target="_blank" rel="noopener" class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg mb-4">Kup teraz — 59 zł</a>
-  <p class="text-center text-xs text-ink/60 mb-10">Dostępny też w pakiecie <a href="/#cennik" class="text-teal underline">Premium+</a> w niższej cenie łącznej.</p>
+  <a href="https://payhip.com/b/BlFUs" target="_blank" rel="noopener" class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg mb-4" data-i18n="ctaBuy2">Kup teraz — 59 zł</a>
+  <p class="text-center text-xs text-ink/60 mb-10" data-i18n="bundleNote">Dostępny też w pakiecie <a href="/#cennik" class="text-teal underline">Premium+</a> w niższej cenie łącznej.</p>
 
   <div class="bg-white border-l-4 border-red-300 rounded-r-2xl p-5 mb-8">
-    <p class="font-semibold text-deep mb-1">Dlaczego zacząć teraz, nie „kiedyś"</p>
-    <p class="text-[14px] text-ink/80">Każdy tydzień utrwala nawyki — dobre i złe. Im dłużej dziecko zasypia w sposób, który chcecie zmienić, tym więcej powtórzeń trzeba „nadpisać" nowym wzorcem. Im wcześniej zaczniesz, tym szybciej zobaczysz efekt.</p>
+    <p class="font-semibold text-deep mb-1" data-i18n="whyNowH">Dlaczego zacząć teraz, nie „kiedyś"</p>
+    <p class="text-[14px] text-ink/80" data-i18n="whyNowP">Każdy tydzień utrwala nawyki — dobre i złe. Im dłużej dziecko zasypia w sposób, który chcecie zmienić, tym więcej powtórzeń trzeba „nadpisać" nowym wzorcem. Im wcześniej zaczniesz, tym szybciej zobaczysz efekt.</p>
   </div>
 
   <div class="bg-white border border-sanddark rounded-2xl p-5 mb-8">
-    <p class="font-semibold text-deep mb-3">Zobacz też</p>
+    <p class="font-semibold text-deep mb-3" data-i18n="seeAlsoH">Zobacz też</p>
     <div class="grid sm:grid-cols-2 gap-3">
       <a href="/produkty/fizjoterapia-uroginekologiczna" class="group flex gap-3 items-center hover:bg-tealsoft rounded-xl p-2 -m-2 transition-colors">
         <span class="text-2xl">🧘‍♀️</span>
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Fizjoterapia uroginekologiczna</p><p class="text-xs text-ink/60">49 zł</p></div>
+        <div><p class="font-semibold text-deep text-sm group-hover:text-teal" data-i18n="see1N">Fizjoterapia uroginekologiczna</p><p class="text-xs text-ink/60">49 zł</p></div>
       </a>
       <a href="/produkty/dieta-suplementacja-ciaza" class="group flex gap-3 items-center hover:bg-tealsoft rounded-xl p-2 -m-2 transition-colors">
         <span class="text-2xl">🥗</span>
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Dieta i suplementacja</p><p class="text-xs text-ink/60">59 zł</p></div>
+        <div><p class="font-semibold text-deep text-sm group-hover:text-teal" data-i18n="see2N">Dieta i suplementacja</p><p class="text-xs text-ink/60">59 zł</p></div>
       </a>
     </div>
   </div>
 
   <div class="mb-8">
-    <p class="font-semibold text-deep mb-3 text-sm">Powiązane artykuły</p>
+    <p class="font-semibold text-deep mb-3 text-sm" data-i18n="relArtH">Powiązane artykuły</p>
     <div class="grid sm:grid-cols-2 gap-3">
       <a href="/blog/kolka-niemowleca" class="bg-white border border-sanddark rounded-xl p-4 hover:border-teal transition-colors text-sm font-semibold text-deep">Kolka niemowlęca</a>
       <a href="/blog/pierwsze-24-godziny-zycia-noworodka" class="bg-white border border-sanddark rounded-xl p-4 hover:border-teal transition-colors text-sm font-semibold text-deep">Pierwsze 24 godziny życia noworodka</a>
@@ -148,14 +153,75 @@
   </div>
 
   <div class="bg-white border border-sanddark rounded-2xl p-6">
-    <p class="font-semibold text-deep mb-3">Najczęstsze pytania</p>
-    <details class="mb-3"><summary class="font-semibold text-deep cursor-pointer text-[15px]">Czy przewodnik zastępuje konsultanta snu?</summary><p class="mt-2 text-[14px] text-ink/80">Nie zastępuje indywidualnej pracy z certyfikowanym konsultantem, ale daje kompletną bazę i konkretny plan — punkt startowy za ułamek ceny konsultacji (200–1000 zł).</p></details>
-    <details><summary class="font-semibold text-deep cursor-pointer text-[15px]">Czy metody wymagają zostawiania dziecka z płaczem?</summary><p class="mt-2 text-[14px] text-ink/80">Nie. Przewodnik opisuje łagodne metody — bez metody wypłakiwania się w wersji ekstremalnej.</p></details>
+    <p class="font-semibold text-deep mb-3" data-i18n="faqH">Najczęstsze pytania</p>
+    <details class="mb-3"><summary class="font-semibold text-deep cursor-pointer text-[15px]" data-i18n="faq1q">Czy przewodnik zastępuje konsultanta snu?</summary><p class="mt-2 text-[14px] text-ink/80" data-i18n="faq1a">Nie zastępuje indywidualnej pracy z certyfikowanym konsultantem, ale daje kompletną bazę i konkretny plan — punkt startowy za ułamek ceny konsultacji (200–1000 zł).</p></details>
+    <details><summary class="font-semibold text-deep cursor-pointer text-[15px]" data-i18n="faq2q">Czy metody wymagają zostawiania dziecka z płaczem?</summary><p class="mt-2 text-[14px] text-ink/80" data-i18n="faq2a">Nie. Przewodnik opisuje łagodne metody — bez metody wypłakiwania się w wersji ekstremalnej.</p></details>
   </div>
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm mt-10">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+  en: {
+    navProducts: "All products", kicker: "PDF product · 16 pages", h1: "Infant and Toddler Sleep Guide",
+    intro: "A complete plan for working with your child's sleep — from the physiology of the first weeks, through a nap schedule and evening ritual, to gentle methods for learning to fall asleep independently and a regression calendar, up to 24 months of age.",
+    payNote: "One-time payment · instant PDF download", ctaBuy: "Buy now — 59 PLN",
+    valueNote: "Professional sleep consultations cost 200–1000 PLN. This guide is a starting point for a fraction of that price.",
+    h2includes: "What the guide includes",
+    feat1: "✓ Infant sleep physiology — the basics", feat2: "✓ Safe sleep conditions (per WHO/AAP)", feat3: "✓ Nap schedule, 0–24 months", feat4: "✓ Evening ritual step by step", feat5: "✓ 3 gentle methods for learning to fall asleep", feat6: "✓ Calendar of all sleep regressions", feat7: "✓ A response ladder for night wakings", feat8: "✓ A 2-week implementation plan", feat9: "✓ Night terrors vs. nightmares — how to respond", feat10: "✓ Red flags — when to see a paediatrician",
+    noCryH: "No cry-it-out method", noCryP: "All the methods described are gentle — based on gradually building independence, not leaving a child alone to cry. They require more patience, but respect the need for closeness in the first years of life.",
+    ctaBuy2: "Buy now — 59 PLN", bundleNote: "Also available in the <a href=\"/#cennik\" class=\"text-teal underline\">Premium+</a> package at a lower combined price.",
+    whyNowH: "Why start now, not \"someday\"", whyNowP: "Every week reinforces habits — good and bad. The longer a child falls asleep in a way you want to change, the more repetitions it takes to \"overwrite\" it with a new pattern. The earlier you start, the sooner you'll see results.",
+    seeAlsoH: "You may also like", see1N: "Uro-gynaecological physiotherapy", see2N: "Diet and supplementation",
+    relArtH: "Related articles",
+    faqH: "Frequently asked questions", faq1q: "Does the guide replace a sleep consultant?", faq1a: "It doesn't replace individual work with a certified consultant, but it gives you a complete knowledge base and a concrete plan — a starting point for a fraction of the price of a consultation (200–1000 PLN).", faq2q: "Do the methods require leaving a child to cry?", faq2a: "No. The guide describes gentle methods — without the extreme version of the cry-it-out method."
+  },
+  de: {
+    navProducts: "Alle Produkte", kicker: "PDF-Produkt · 16 Seiten", h1: "Schlaf-Ratgeber für Baby und Kleinkind",
+    intro: "Ein vollständiger Plan für den Umgang mit dem Schlaf Ihres Kindes — von der Physiologie der ersten Wochen über den Mittagsschlaf-Zeitplan und das Abendritual bis zu sanften Methoden des selbstständigen Einschlafens und einem Regressionskalender bis zum 24. Lebensmonat.",
+    payNote: "Einmalige Zahlung · sofortiger PDF-Download", ctaBuy: "Jetzt kaufen — 59 PLN",
+    valueNote: "Professionelle Schlafberatung kostet 200–1000 PLN. Dieser Ratgeber ist ein Startpunkt für einen Bruchteil dieses Preises.",
+    h2includes: "Was der Ratgeber enthält",
+    feat1: "✓ Physiologie des Babyschlafs — Grundlagen", feat2: "✓ Sichere Schlafbedingungen (nach WHO/AAP)", feat3: "✓ Mittagsschlaf-Zeitplan 0–24 Monate", feat4: "✓ Abendritual Schritt für Schritt", feat5: "✓ 3 sanfte Methoden des Einschlaflernens", feat6: "✓ Kalender aller Schlafregressionen", feat7: "✓ Reaktionsleiter für nächtliches Aufwachen", feat8: "✓ 2-Wochen-Umsetzungsplan", feat9: "✓ Nachtangst vs. Albträume — wie reagieren", feat10: "✓ Warnzeichen — wann zum Kinderarzt",
+    noCryH: "Ohne Schreienlassen-Methode", noCryP: "Alle beschriebenen Methoden sind sanft — basierend auf schrittweisem Aufbau von Selbstständigkeit, nicht auf dem Alleinlassen des Kindes mit dem Weinen. Sie erfordern mehr Geduld, entsprechen aber dem Bedürfnis nach Nähe in den ersten Lebensjahren.",
+    ctaBuy2: "Jetzt kaufen — 59 PLN", bundleNote: "Auch im Paket <a href=\"/#cennik\" class=\"text-teal underline\">Premium+</a> zu einem günstigeren Gesamtpreis erhältlich.",
+    whyNowH: "Warum jetzt anfangen, nicht „irgendwann“", whyNowP: "Jede Woche festigt Gewohnheiten — gute und schlechte. Je länger ein Kind auf eine Weise einschläft, die Sie ändern möchten, desto mehr Wiederholungen braucht es, um sie durch ein neues Muster zu „überschreiben“. Je früher Sie anfangen, desto schneller sehen Sie Ergebnisse.",
+    seeAlsoH: "Das könnte Sie auch interessieren", see1N: "Urogynäkologische Physiotherapie", see2N: "Ernährung und Supplementierung",
+    relArtH: "Verwandte Artikel",
+    faqH: "Häufige Fragen", faq1q: "Ersetzt der Ratgeber eine Schlafberaterin?", faq1a: "Er ersetzt keine individuelle Arbeit mit einer zertifizierten Beraterin, bietet aber eine vollständige Wissensbasis und einen konkreten Plan — ein Startpunkt für einen Bruchteil des Preises einer Beratung (200–1000 PLN).", faq2q: "Erfordern die Methoden, das Kind weinen zu lassen?", faq2a: "Nein. Der Ratgeber beschreibt sanfte Methoden — ohne die extreme Version des Schreienlassens."
+  },
+  uk: {
+    navProducts: "Усі продукти", kicker: "PDF-продукт · 16 сторінок", h1: "Посібник зі сну немовляти та малої дитини",
+    intro: "Повний план роботи зі сном дитини — від фізіології перших тижнів, через графік денного сну та вечірній ритуал, до м'яких методів навчання самостійного засинання і календаря регресій, аж до 24-місячного віку.",
+    payNote: "Одноразова оплата · миттєве завантаження PDF", ctaBuy: "Купити зараз — 59 злотих",
+    valueNote: "Професійні консультації зі сну коштують 200–1000 злотих. Цей посібник — стартова точка за частку цієї ціни.",
+    h2includes: "Що містить посібник",
+    feat1: "✓ Фізіологія сну немовляти — основи", feat2: "✓ Безпечні умови сну (за ВООЗ/AAP)", feat3: "✓ Графік денного сну 0–24 місяці", feat4: "✓ Вечірній ритуал крок за кроком", feat5: "✓ 3 м'яких методи навчання засинання", feat6: "✓ Календар усіх регресій сну", feat7: "✓ Драбина реагування на нічні пробудження", feat8: "✓ 2-тижневий план впровадження", feat9: "✓ Нічні страхи проти кошмарів — як реагувати", feat10: "✓ Тривожні ознаки — коли до педіатра",
+    noCryH: "Без методу «виплакатися»", noCryP: "Усі описані методи м'які — засновані на поступовому вибудовуванні самостійності, а не на залишанні дитини самої з плачем. Вони вимагають більше терпіння, але відповідають потребі близькості в перші роки життя.",
+    ctaBuy2: "Купити зараз — 59 злотих", bundleNote: "Також доступний у пакеті <a href=\"/#cennik\" class=\"text-teal underline\">Premium+</a> за нижчою сукупною ціною.",
+    whyNowH: "Чому почати зараз, а не «колись»", whyNowP: "Кожен тиждень закріплює звички — хороші і погані. Чим довше дитина засинає у спосіб, який ви хочете змінити, тим більше повторень потрібно, щоб «перезаписати» його новим патерном. Що раніше ви почнете, то швидше побачите результат.",
+    seeAlsoH: "Дивіться також", see1N: "Урогінекологічна фізіотерапія", see2N: "Дієта і добавки",
+    relArtH: "Пов'язані статті",
+    faqH: "Часті запитання", faq1q: "Чи замінює посібник консультанта зі сну?", faq1a: "Він не замінює індивідуальну роботу із сертифікованим консультантом, але дає повну базу знань і конкретний план — стартову точку за частку ціни консультації (200–1000 злотих).", faq2q: "Чи вимагають методи залишати дитину плакати?", faq2a: "Ні. Посібник описує м'які методи — без екстремальної версії методу «виплакатися»."
+  },
+  ru: {
+    navProducts: "Все продукты", kicker: "PDF-продукт · 16 страниц", h1: "Руководство по сну младенца и маленького ребёнка",
+    intro: "Полный план работы со сном ребёнка — от физиологии первых недель, через график дневного сна и вечерний ритуал, до мягких методов обучения самостоятельному засыпанию и календаря регрессий, вплоть до 24-месячного возраста.",
+    payNote: "Разовая оплата · мгновенное скачивание PDF", ctaBuy: "Купить сейчас — 59 злотых",
+    valueNote: "Профессиональные консультации по сну стоят 200–1000 злотых. Это руководство — отправная точка за малую часть этой цены.",
+    h2includes: "Что включает руководство",
+    feat1: "✓ Физиология сна младенца — основы", feat2: "✓ Безопасные условия сна (по ВОЗ/AAP)", feat3: "✓ График дневного сна 0–24 месяца", feat4: "✓ Вечерний ритуал шаг за шагом", feat5: "✓ 3 мягких метода обучения засыпанию", feat6: "✓ Календарь всех регрессий сна", feat7: "✓ Лестница реагирования на ночные пробуждения", feat8: "✓ 2-недельный план внедрения", feat9: "✓ Ночные страхи против кошмаров — как реагировать", feat10: "✓ Тревожные признаки — когда к педиатру",
+    noCryH: "Без метода «выплакаться»", noCryP: "Все описанные методы мягкие — основаны на постепенном выстраивании самостоятельности, а не на оставлении ребёнка одного с плачем. Они требуют больше терпения, но соответствуют потребности в близости в первые годы жизни.",
+    ctaBuy2: "Купить сейчас — 59 злотых", bundleNote: "Также доступен в пакете <a href=\"/#cennik\" class=\"text-teal underline\">Premium+</a> по более низкой совокупной цене.",
+    whyNowH: "Почему начать сейчас, а не «когда-нибудь»", whyNowP: "Каждая неделя закрепляет привычки — хорошие и плохие. Чем дольше ребёнок засыпает способом, который вы хотите изменить, тем больше повторений нужно, чтобы «перезаписать» его новым паттерном. Чем раньше вы начнёте, тем быстрее увидите результат.",
+    seeAlsoH: "Смотрите также", see1N: "Урогинекологическая физиотерапия", see2N: "Диета и добавки",
+    relArtH: "Похожие статьи",
+    faqH: "Частые вопросы", faq1q: "Заменяет ли руководство консультанта по сну?", faq1a: "Оно не заменяет индивидуальную работу с сертифицированным консультантом, но даёт полную базу знаний и конкретный план — отправную точку за малую часть цены консультации (200–1000 злотых).", faq2q: "Требуют ли методы оставлять ребёнка плакать?", faq2a: "Нет. Руководство описывает мягкие методы — без экстремальной версии метода «выплакаться»."
+  }
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 <script src="/js/consent-gate.js?v=25" defer></script>
 </body>
 </html>

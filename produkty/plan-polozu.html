@@ -83,46 +83,51 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#cennik" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+<div class="flex items-center gap-2">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2.5 py-2 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option><option value="ru">RU</option>
+  </select>
+  <a href="/#cennik" data-i18n="navProducts" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+</div>
 </nav></header>
 <main>
 
 <!-- HERO produktu -->
 <section class="max-w-5xl mx-auto px-4 pt-12 pb-10 grid md:grid-cols-2 gap-10 items-center">
   <div>
-    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Produkt #2 · PDF do pobrania</p>
-    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Plan połogu — pierwsze 6 tygodni po porodzie</h1>
+    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="kicker">Produkt #2 · PDF do pobrania</p>
+    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4" data-i18n="h1">Plan połogu — pierwsze 6 tygodni po porodzie</h1>
 
   <figure class="my-6">
     <img src="/img/produkty/plan-pologu.webp" alt="Plan połogu — okładka PDF" width="600" height="900" loading="eager" decoding="async"
          class="w-full max-w-[280px] mx-auto rounded-2xl shadow-lg border border-sanddark">
   </figure>
-    <p class="text-lg leading-relaxed mb-6">Kompletny przewodnik dla rodziców: co dzieje się z ciałem mamy dzień po dniu, jak wygląda prawidłowa laktacja, kiedy dzwonić do lekarza i jak podzielić obowiązki, żeby oboje przetrwali pierwsze tygodnie.</p>
+    <p class="text-lg leading-relaxed mb-6" data-i18n="intro">Kompletny przewodnik dla rodziców: co dzieje się z ciałem mamy dzień po dniu, jak wygląda prawidłowa laktacja, kiedy dzwonić do lekarza i jak podzielić obowiązki, żeby oboje przetrwali pierwsze tygodnie.</p>
     <div class="flex flex-wrap gap-3 mb-6 text-sm">
-      <span class="bg-tealsoft px-3 py-1.5 rounded-full font-semibold">📋 18 stron PDF</span>
-      <span class="bg-tealsoft px-3 py-1.5 rounded-full font-semibold">🤱 Sekcja laktacyjna</span>
-      <span class="bg-tealsoft px-3 py-1.5 rounded-full font-semibold">🚨 Sygnały alarmowe</span>
-      <span class="bg-tealsoft px-3 py-1.5 rounded-full font-semibold">👨 Rola taty</span>
+      <span class="bg-tealsoft px-3 py-1.5 rounded-full font-semibold" data-i18n="badge1">📋 18 stron PDF</span>
+      <span class="bg-tealsoft px-3 py-1.5 rounded-full font-semibold" data-i18n="badge2">🤱 Sekcja laktacyjna</span>
+      <span class="bg-tealsoft px-3 py-1.5 rounded-full font-semibold" data-i18n="badge3">🚨 Sygnały alarmowe</span>
+      <span class="bg-tealsoft px-3 py-1.5 rounded-full font-semibold" data-i18n="badge4">👨 Rola taty</span>
     </div>
     <div class="flex items-center gap-4 flex-wrap">
       <span class="font-display text-4xl font-semibold text-deep">49 zł</span>
       <a href="https://payhip.com/b/ZY1b8" target="_blank" rel="noopener"
-         class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors text-lg">Kup plan połogu →</a>
+         class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors text-lg" data-i18n="ctaBuy">Kup plan połogu →</a>
     </div>
-    <p class="text-xs text-ink/50 mt-3">30 dni gwarancji zwrotu · BLIK, karta, Apple/Google Pay, PayPal · PDF w ciągu 24 h</p>
+    <p class="text-xs text-ink/50 mt-3" data-i18n="guarNote">30 dni gwarancji zwrotu · BLIK, karta, Apple/Google Pay, PayPal · PDF w ciągu 24 h</p>
   </div>
   <div class="bg-deep rounded-3xl p-8 text-sand relative overflow-hidden">
     <div class="absolute top-0 right-0 text-9xl opacity-5 select-none leading-none" aria-hidden="true">🤱</div>
-    <h2 class="font-display text-xl font-semibold text-white mb-6">Co zawiera plan połogu</h2>
+    <h2 class="font-display text-xl font-semibold text-white mb-6" data-i18n="h2includes">Co zawiera plan połogu</h2>
     <ul class="space-y-3 text-[15px] text-sand/90">
-      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">1.</span><span><strong class="text-white">Harmonogram 6 tygodni</strong> — co sprawdzić, kiedy i z kim: wizyta patronażowa położnej (do 8. doby), wizyta kontrolna (ok. 4.–6. tygodnia), kiedy zdjąć szwy, kiedy wrócić do aktywności</span></li>
-      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">2.</span><span><strong class="text-white">Regeneracja mamy dzień po dniu</strong> — lochia (odchody poporodowe): co jest normalne, co nie; gojenie krocza lub rany po CC; ból, krwawienie, temperatura — tabela „kiedy dzwonić"</span></li>
-      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">3.</span><span><strong class="text-white">Laktacja krok po kroku</strong> — nabrzmienie piersi (2.–4. doba), zatkane przewody, zastój mleka vs mastitis, prawidłowe przystawienie, karmienie na żądanie vs harmonogram, gdy mleka jest za mało</span></li>
-      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">4.</span><span><strong class="text-white">Noworodek w pierwszych tygodniach</strong> — żółtaczka fizjologiczna (kiedy normalna, kiedy alarm), ubytek masy i przyrost, pępek, ciemieniucha, kolka, sen</span></li>
-      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">5.</span><span><strong class="text-white">Sygnały alarmowe MATKI</strong> — krwotok, gorączka >38°C, ból piersi z zaczerwienieniem, objawy zakrzepicy, depresja poporodowa — numery i kiedy dzwonić pod 112</span></li>
-      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">6.</span><span><strong class="text-white">Sygnały alarmowe NOWORODKA</strong> — sinica, apatia, brak przyrostu masy, żółtaczka nasilająca się po 5. dobie, krwawienie z pępka</span></li>
-      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">7.</span><span><strong class="text-white">Rola taty / partnera</strong> — konkretna lista: co robić, co powiedzieć, czego unikać, jak rozpoznać, że mama potrzebuje pomocy psychologicznej</span></li>
-      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">8.</span><span><strong class="text-white">Wizyty patronażowe</strong> — czego oczekiwać, co przygotować, lista pytań do położnej patronażowej</span></li>
+      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">1.</span><span data-i18n="li1"><strong class="text-white">Harmonogram 6 tygodni</strong> — co sprawdzić, kiedy i z kim: wizyta patronażowa położnej (do 8. doby), wizyta kontrolna (ok. 4.–6. tygodnia), kiedy zdjąć szwy, kiedy wrócić do aktywności</span></li>
+      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">2.</span><span data-i18n="li2"><strong class="text-white">Regeneracja mamy dzień po dniu</strong> — lochia (odchody poporodowe): co jest normalne, co nie; gojenie krocza lub rany po CC; ból, krwawienie, temperatura — tabela „kiedy dzwonić"</span></li>
+      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">3.</span><span data-i18n="li3"><strong class="text-white">Laktacja krok po kroku</strong> — nabrzmienie piersi (2.–4. doba), zatkane przewody, zastój mleka vs mastitis, prawidłowe przystawienie, karmienie na żądanie vs harmonogram, gdy mleka jest za mało</span></li>
+      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">4.</span><span data-i18n="li4"><strong class="text-white">Noworodek w pierwszych tygodniach</strong> — żółtaczka fizjologiczna (kiedy normalna, kiedy alarm), ubytek masy i przyrost, pępek, ciemieniucha, kolka, sen</span></li>
+      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">5.</span><span data-i18n="li5"><strong class="text-white">Sygnały alarmowe MATKI</strong> — krwotok, gorączka >38°C, ból piersi z zaczerwienieniem, objawy zakrzepicy, depresja poporodowa — numery i kiedy dzwonić pod 112</span></li>
+      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">6.</span><span data-i18n="li6"><strong class="text-white">Sygnały alarmowe NOWORODKA</strong> — sinica, apatia, brak przyrostu masy, żółtaczka nasilająca się po 5. dobie, krwawienie z pępka</span></li>
+      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">7.</span><span data-i18n="li7"><strong class="text-white">Rola taty / partnera</strong> — konkretna lista: co robić, co powiedzieć, czego unikać, jak rozpoznać, że mama potrzebuje pomocy psychologicznej</span></li>
+      <li class="flex gap-3"><span class="text-teal font-bold flex-shrink-0">8.</span><span data-i18n="li8"><strong class="text-white">Wizyty patronażowe</strong> — czego oczekiwać, co przygotować, lista pytań do położnej patronażowej</span></li>
     </ul>
   </div>
 </section>
@@ -130,19 +135,19 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <!-- Dlaczego potrzebujesz -->
 <section class="bg-white border-y border-sanddark py-12">
   <div class="max-w-5xl mx-auto px-4">
-    <h2 class="font-display text-2xl font-semibold text-deep mb-6 text-center">Połóg zaskakuje prawie każdą mamę. I każdego tatę.</h2>
+    <h2 class="font-display text-2xl font-semibold text-deep mb-6 text-center" data-i18n="whyH">Połóg zaskakuje prawie każdą mamę. I każdego tatę.</h2>
     <div class="grid md:grid-cols-3 gap-6 text-[15px]">
       <div class="bg-tealsoft rounded-2xl p-6">
-        <p class="font-display text-lg font-semibold text-deep mb-3">Ze szpitala wychodzisz po 2–3 dniach</p>
-        <p class="text-ink/80">I nagle jesteś sama z noworodkiem, bolącym kroczem i piersiami, które robią coś, czego się nie spodziewałaś. Nikt Cię na to w pełni nie przygotuje — ale dobry plan pomaga.</p>
+        <p class="font-display text-lg font-semibold text-deep mb-3" data-i18n="why1H">Ze szpitala wychodzisz po 2–3 dniach</p>
+        <p class="text-ink/80" data-i18n="why1P">I nagle jesteś sama z noworodkiem, bolącym kroczem i piersiami, które robią coś, czego się nie spodziewałaś. Nikt Cię na to w pełni nie przygotuje — ale dobry plan pomaga.</p>
       </div>
       <div class="bg-tealsoft rounded-2xl p-6">
-        <p class="font-display text-lg font-semibold text-deep mb-3">Laktacja to sztuka, nie instynkt</p>
-        <p class="text-ink/80">Zastój mleka, ból przy karmieniu, wątpliwości „czy dziecko się najada" — 70% mam ma problemy w pierwszych tygodniach. Wiemy, jak przez to przejść.</p>
+        <p class="font-display text-lg font-semibold text-deep mb-3" data-i18n="why2H">Laktacja to sztuka, nie instynkt</p>
+        <p class="text-ink/80" data-i18n="why2P">Zastój mleka, ból przy karmieniu, wątpliwości „czy dziecko się najada" — 70% mam ma problemy w pierwszych tygodniach. Wiemy, jak przez to przejść.</p>
       </div>
       <div class="bg-tealsoft rounded-2xl p-6">
-        <p class="font-display text-lg font-semibold text-deep mb-3">Sygnały alarmowe, których nie wolno zbagatelizować</p>
-        <p class="text-ink/80">Gorączka po porodzie, nasilające się krwawienie, ból w piersi z zaczerwienieniem — każdy z tych objawów może wymagać natychmiastowej pomocy. Masz to w jednym miejscu.</p>
+        <p class="font-display text-lg font-semibold text-deep mb-3" data-i18n="why3H">Sygnały alarmowe, których nie wolno zbagatelizować</p>
+        <p class="text-ink/80" data-i18n="why3P">Gorączka po porodzie, nasilające się krwawienie, ból w piersi z zaczerwienieniem — każdy z tych objawów może wymagać natychmiastowej pomocy. Masz to w jednym miejscu.</p>
       </div>
     </div>
   </div>
@@ -150,20 +155,20 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 
 <!-- Opinie / autorytet -->
 <section class="max-w-5xl mx-auto px-4 py-12">
-  <h2 class="font-display text-2xl font-semibold text-deep mb-6">Opracowane z doświadczeniem</h2>
+  <h2 class="font-display text-2xl font-semibold text-deep mb-6" data-i18n="authH">Opracowane z doświadczeniem</h2>
   <div class="grid md:grid-cols-2 gap-6">
     <blockquote class="bg-white border border-sanddark rounded-2xl p-6">
-      <p class="text-[15px] leading-relaxed text-ink/80 italic mb-4">„Plan połogu to produkt, którego szukałam przez 3 ciąże. Za każdym razem wychodziłam ze szpitala z notatką na karteczce. Ten dokument zbiera to, co każda kobieta powinna wiedzieć — i co każdy tata powinien mieć pod ręką."</p>
-      <p class="font-semibold text-deep text-sm">Mama trojki, szkoła rodzenia Poznań</p>
+      <p class="text-[15px] leading-relaxed text-ink/80 italic mb-4" data-i18n="quote1">„Plan połogu to produkt, którego szukałam przez 3 ciąże. Za każdym razem wychodziłam ze szpitala z notatką na karteczce. Ten dokument zbiera to, co każda kobieta powinna wiedzieć — i co każdy tata powinien mieć pod ręką."</p>
+      <p class="font-semibold text-deep text-sm" data-i18n="quote1Attr">Mama trojki, szkoła rodzenia Poznań</p>
     </blockquote>
     <div class="bg-tealsoft rounded-2xl p-6">
-      <p class="font-display text-lg font-semibold text-deep mb-3">Podstawa merytoryczna</p>
+      <p class="font-display text-lg font-semibold text-deep mb-3" data-i18n="basisH">Podstawa merytoryczna</p>
       <ul class="space-y-2 text-[14px] text-ink/80">
-        <li>✓ Zgodny ze Standardem Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525)</li>
-        <li>✓ Oparty na wytycznych PTGiP (Polskie Towarzystwo Ginekologów i Położników)</li>
-        <li>✓ Rekomendacje WHO dotyczące karmienia piersią</li>
-        <li>✓ Kryteria sygnałów alarmowych zgodne z wytycznymi NICE i PTGiP</li>
-        <li class="pt-1 text-xs text-ink/50">Dokument ma charakter edukacyjny i nie zastępuje opieki medycznej.</li>
+        <li data-i18n="basis1">✓ Zgodny ze Standardem Organizacyjnym Opieki Okołoporodowej (Dz.U. 2025 poz. 1525)</li>
+        <li data-i18n="basis2">✓ Oparty na wytycznych PTGiP (Polskie Towarzystwo Ginekologów i Położników)</li>
+        <li data-i18n="basis3">✓ Rekomendacje WHO dotyczące karmienia piersią</li>
+        <li data-i18n="basis4">✓ Kryteria sygnałów alarmowych zgodne z wytycznymi NICE i PTGiP</li>
+        <li class="pt-1 text-xs text-ink/50" data-i18n="basisDisc">Dokument ma charakter edukacyjny i nie zastępuje opieki medycznej.</li>
       </ul>
     </div>
   </div>
@@ -172,29 +177,158 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <!-- CTA -->
 <section class="bg-deep text-sand py-14 text-center">
   <div class="max-w-xl mx-auto px-4">
-    <h2 class="font-display text-2xl font-semibold text-white mb-3">Połóg zaczyna się zaraz po porodzie. Bądź gotowa — teraz.</h2>
-    <p class="text-sand/80 mb-6">Kup plan połogu teraz i miej go wydrukowanego zanim pojedziesz do szpitala. PDF w ciągu 24 h na Twój e-mail.</p>
+    <h2 class="font-display text-2xl font-semibold text-white mb-3" data-i18n="ctaH">Połóg zaczyna się zaraz po porodzie. Bądź gotowa — teraz.</h2>
+    <p class="text-sand/80 mb-6" data-i18n="ctaP">Kup plan połogu teraz i miej go wydrukowanego zanim pojedziesz do szpitala. PDF w ciągu 24 h na Twój e-mail.</p>
     <a href="https://payhip.com/b/ZY1b8" target="_blank" rel="noopener"
-       class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors text-lg">Kup teraz — 49 zł</a>
-    <p class="text-xs text-sand/40 mt-4">30 dni gwarancji zwrotu bez pytań · BLIK, karta, Apple Pay, Google Pay, PayPal</p>
+       class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors text-lg" data-i18n="ctaBuy2">Kup teraz — 49 zł</a>
+    <p class="text-xs text-sand/40 mt-4" data-i18n="ctaNote">30 dni gwarancji zwrotu bez pytań · BLIK, karta, Apple Pay, Google Pay, PayPal</p>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="max-w-3xl mx-auto px-4 py-14">
-  <h2 class="font-display text-2xl font-semibold text-deep mb-6">Pytania</h2>
+  <h2 class="font-display text-2xl font-semibold text-deep mb-6" data-i18n="faqH">Pytania</h2>
   <div class="space-y-3">
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold cursor-pointer">Kiedy najlepiej kupić plan połogu?</summary><p class="mt-3 text-[15px] leading-relaxed text-ink/80">Najlepiej w III trymestrze ciąży — masz czas przeczytać go spokojnie i wydrukować przed porodem. Plan przyda się od pierwszej doby po powrocie ze szpitala.</p></details>
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold cursor-pointer">Czy plan połogu dotyczy też porodu przez CC?</summary><p class="mt-3 text-[15px] leading-relaxed text-ink/80">Tak — plan zawiera osobną sekcję dla mam po cięciu cesarskim: gojenie rany, ograniczenia aktywności, pielęgnacja blizny i powrót do sprawności.</p></details>
-    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold cursor-pointer">Co jeśli mam pytania po zakupie?</summary><p class="mt-3 text-[15px] leading-relaxed text-ink/80">Napisz na <span class="pnm-email" data-u="kontakt" data-d="porodnamiare.pl"></span>. Odpowiadamy w 24 h. Pytania dotyczące zdrowia kieruj zawsze do lekarza lub położnej.</p></details>
+    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold cursor-pointer" data-i18n="faq1q">Kiedy najlepiej kupić plan połogu?</summary><p class="mt-3 text-[15px] leading-relaxed text-ink/80" data-i18n="faq1a">Najlepiej w III trymestrze ciąży — masz czas przeczytać go spokojnie i wydrukować przed porodem. Plan przyda się od pierwszej doby po powrocie ze szpitala.</p></details>
+    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold cursor-pointer" data-i18n="faq2q">Czy plan połogu dotyczy też porodu przez CC?</summary><p class="mt-3 text-[15px] leading-relaxed text-ink/80" data-i18n="faq2a">Tak — plan zawiera osobną sekcję dla mam po cięciu cesarskim: gojenie rany, ograniczenia aktywności, pielęgnacja blizny i powrót do sprawności.</p></details>
+    <details class="bg-white border border-sanddark rounded-2xl p-5"><summary class="font-semibold cursor-pointer" data-i18n="faq3q">Co jeśli mam pytania po zakupie?</summary><p class="mt-3 text-[15px] leading-relaxed text-ink/80" data-i18n="faq3a">Napisz na <span class="pnm-email" data-u="kontakt" data-d="porodnamiare.pl"></span>. Odpowiadamy w 24 h. Pytania dotyczące zdrowia kieruj zawsze do lekarza lub położnej.</p></details>
   </div>
 </section>
 
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm">
 <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
-<p class="mt-2 text-xs text-sand/40">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
+<p class="mt-2 text-xs text-sand/40" data-i18n="footDisc">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
 </footer>
+<script>
+window.PAGE_I18N = {
+  en: {
+    navProducts: "All products", kicker: "Product #2 · PDF download", h1: "Postpartum Plan — the first 6 weeks after birth",
+    intro: "A complete guide for parents: what happens to mum's body day by day, what healthy breastfeeding looks like, when to call a doctor, and how to split responsibilities so you both make it through the first weeks.",
+    badge1: "📋 18-page PDF", badge2: "🤱 Breastfeeding section", badge3: "🚨 Warning signs", badge4: "👨 The father's role",
+    ctaBuy: "Get the postpartum plan →", guarNote: "30-day money-back guarantee · BLIK, card, Apple/Google Pay, PayPal · PDF within 24 h",
+    h2includes: "What the postpartum plan includes",
+    li1: "<strong class=\"text-white\">6-week timeline</strong> — what to check, when, and with whom: the midwife's home visit (by day 8), the follow-up check-up (around weeks 4–6), when stitches come out, when to resume activity",
+    li2: "<strong class=\"text-white\">Mum's recovery, day by day</strong> — lochia (postpartum discharge): what's normal and what isn't; healing of the perineum or a C-section wound; pain, bleeding, temperature — a \"when to call\" table",
+    li3: "<strong class=\"text-white\">Breastfeeding step by step</strong> — breast engorgement (days 2–4), blocked ducts, milk stasis vs. mastitis, correct latch, feeding on demand vs. a schedule, when milk supply seems low",
+    li4: "<strong class=\"text-white\">Your newborn in the first weeks</strong> — physiological jaundice (when it's normal, when it's alarming), weight loss and gain, the umbilical cord, cradle cap, colic, sleep",
+    li5: "<strong class=\"text-white\">Warning signs for MUM</strong> — haemorrhage, fever above 38°C, breast pain with redness, signs of thrombosis, postpartum depression — numbers and when to call 112",
+    li6: "<strong class=\"text-white\">Warning signs for the NEWBORN</strong> — bluish skin, lethargy, no weight gain, jaundice worsening after day 5, bleeding from the umbilical stump",
+    li7: "<strong class=\"text-white\">The father's / partner's role</strong> — a concrete list: what to do, what to say, what to avoid, how to recognise when mum needs psychological support",
+    li8: "<strong class=\"text-white\">Home midwife visits</strong> — what to expect, what to prepare, a list of questions for the visiting midwife",
+    whyH: "The postpartum period surprises almost every mum. And every dad.",
+    why1H: "You leave hospital after 2–3 days", why1P: "And suddenly you're alone with a newborn, a sore perineum, and breasts doing something you didn't expect. No one fully prepares you for it — but a good plan helps.",
+    why2H: "Breastfeeding is a skill, not an instinct", why2P: "Milk stasis, pain while feeding, wondering \"is the baby getting enough\" — 70% of mums have difficulties in the first weeks. We know how to get through it.",
+    why3H: "Warning signs you should never brush off", why3P: "Fever after birth, worsening bleeding, breast pain with redness — any of these can require immediate help. You'll have it all in one place.",
+    authH: "Developed with real experience",
+    quote1: "\"A postpartum plan is the product I searched for through 3 pregnancies. Every time I left hospital with notes scribbled on a piece of paper. This document gathers everything every woman should know — and what every dad should have on hand.\"",
+    quote1Attr: "Mother of three, antenatal classes, Poznań",
+    basisH: "Evidence base",
+    basis1: "✓ Compliant with the Organisational Standard of Perinatal Care (Journal of Laws 2025, item 1525)", basis2: "✓ Based on PTGiP guidelines (Polish Society of Gynaecologists and Obstetricians)", basis3: "✓ WHO recommendations on breastfeeding", basis4: "✓ Warning-sign criteria consistent with NICE and PTGiP guidelines",
+    basisDisc: "This document is educational and does not replace medical care.",
+    ctaH: "The postpartum period starts right after birth. Be ready — now.", ctaP: "Buy the postpartum plan now and have it printed before you head to hospital. PDF within 24 h to your inbox.", ctaBuy2: "Buy now — 49 PLN", ctaNote: "30-day no-questions-asked money-back guarantee · BLIK, card, Apple Pay, Google Pay, PayPal",
+    faqH: "Questions",
+    faq1q: "When is the best time to buy the postpartum plan?", faq1a: "Ideally in the third trimester — you'll have time to read it calmly and print it before birth. The plan becomes useful from day one back home from hospital.",
+    faq2q: "Does the postpartum plan also cover a C-section birth?", faq2a: "Yes — the plan includes a separate section for mums after a caesarean: wound healing, activity limits, scar care, and returning to full mobility.",
+    faq3q: "What if I have questions after buying?", faq3a: "Write to <span class=\"pnm-email\" data-u=\"kontakt\" data-d=\"porodnamiare.pl\"></span>. We reply within 24 h. Always direct health questions to your doctor or midwife.",
+    footDisc: "This content is educational and does not replace medical or midwifery advice."
+  },
+  de: {
+    navProducts: "Alle Produkte", kicker: "Produkt Nr. 2 · PDF-Download", h1: "Wochenbett-Plan — die ersten 6 Wochen nach der Geburt",
+    intro: "Ein vollständiger Ratgeber für Eltern: was Tag für Tag mit dem Körper der Mutter passiert, wie gesundes Stillen aussieht, wann man den Arzt anruft und wie man sich die Aufgaben aufteilt, damit beide die ersten Wochen gut überstehen.",
+    badge1: "📋 18-seitiges PDF", badge2: "🤱 Stillabschnitt", badge3: "🚨 Alarmzeichen", badge4: "👨 Die Rolle des Vaters",
+    ctaBuy: "Wochenbett-Plan holen →", guarNote: "30 Tage Geld-zurück-Garantie · BLIK, Karte, Apple/Google Pay, PayPal · PDF innerhalb von 24 Std.",
+    h2includes: "Was der Wochenbett-Plan enthält",
+    li1: "<strong class=\"text-white\">6-Wochen-Zeitplan</strong> — was, wann und mit wem zu prüfen ist: Hausbesuch der Hebamme (bis zum 8. Tag), Kontrolltermin (ca. 4.–6. Woche), wann die Fäden gezogen werden, wann Aktivität wieder aufgenommen werden kann",
+    li2: "<strong class=\"text-white\">Erholung der Mutter, Tag für Tag</strong> — Wochenfluss: was normal ist, was nicht; Heilung des Damms oder der Kaiserschnittwunde; Schmerz, Blutung, Temperatur — eine „Wann anrufen“-Tabelle",
+    li3: "<strong class=\"text-white\">Stillen Schritt für Schritt</strong> — Milcheinschuss (2.–4. Tag), verstopfte Milchgänge, Milchstau vs. Mastitis, richtiges Anlegen, Stillen nach Bedarf vs. Zeitplan, wenn die Milchmenge gering erscheint",
+    li4: "<strong class=\"text-white\">Ihr Neugeborenes in den ersten Wochen</strong> — physiologische Gelbsucht (wann normal, wann alarmierend), Gewichtsverlust und -zunahme, Nabel, Kopfgneis, Koliken, Schlaf",
+    li5: "<strong class=\"text-white\">Alarmzeichen bei der MUTTER</strong> — Blutung, Fieber über 38 °C, Brustschmerz mit Rötung, Anzeichen einer Thrombose, Wochenbettdepression — Nummern und wann 112 anzurufen ist",
+    li6: "<strong class=\"text-white\">Alarmzeichen beim NEUGEBORENEN</strong> — bläuliche Haut, Teilnahmslosigkeit, keine Gewichtszunahme, Gelbsucht, die sich nach dem 5. Tag verstärkt, Blutung aus dem Nabel",
+    li7: "<strong class=\"text-white\">Die Rolle von Vater / Partner</strong> — eine konkrete Liste: was zu tun ist, was zu sagen ist, was zu vermeiden ist, wie man erkennt, dass die Mutter psychologische Hilfe braucht",
+    li8: "<strong class=\"text-white\">Nachsorgebesuche der Hebamme</strong> — was Sie erwartet, was Sie vorbereiten sollten, eine Liste von Fragen an die Nachsorge-Hebamme",
+    whyH: "Das Wochenbett überrascht fast jede Mutter. Und jeden Vater.",
+    why1H: "Sie verlassen die Klinik nach 2–3 Tagen", why1P: "Und plötzlich sind Sie allein mit einem Neugeborenen, einem schmerzenden Damm und Brüsten, die etwas tun, das Sie nicht erwartet haben. Niemand bereitet Sie darauf vollständig vor — aber ein guter Plan hilft.",
+    why2H: "Stillen ist eine Kunst, kein Instinkt", why2P: "Milchstau, Schmerzen beim Stillen, die Frage „bekommt das Baby genug“ — 70 % der Mütter haben in den ersten Wochen Schwierigkeiten. Wir wissen, wie man das übersteht.",
+    why3H: "Alarmzeichen, die man nie ignorieren darf", why3P: "Fieber nach der Geburt, zunehmende Blutung, Brustschmerz mit Rötung — jedes dieser Symptome kann sofortige Hilfe erfordern. Sie haben alles an einem Ort.",
+    authH: "Mit echter Erfahrung entwickelt",
+    quote1: "„Der Wochenbett-Plan ist das Produkt, das ich durch 3 Schwangerschaften gesucht habe. Jedes Mal verließ ich die Klinik mit Notizen auf einem Zettel. Dieses Dokument sammelt alles, was jede Frau wissen sollte — und was jeder Vater griffbereit haben sollte.“",
+    quote1Attr: "Mutter von drei Kindern, Geburtsvorbereitungskurs Posen",
+    basisH: "Fachliche Grundlage",
+    basis1: "✓ Konform mit dem Organisatorischen Standard der perinatalen Versorgung (GBl. 2025, Pos. 1525)", basis2: "✓ Basierend auf den Leitlinien der PTGiP (Polnische Gesellschaft für Gynäkologen und Geburtshelfer)", basis3: "✓ WHO-Empfehlungen zum Stillen", basis4: "✓ Kriterien für Alarmzeichen gemäß NICE- und PTGiP-Leitlinien",
+    basisDisc: "Dieses Dokument dient Bildungszwecken und ersetzt keine medizinische Versorgung.",
+    ctaH: "Das Wochenbett beginnt direkt nach der Geburt. Seien Sie jetzt bereit.", ctaP: "Kaufen Sie den Wochenbett-Plan jetzt und haben Sie ihn ausgedruckt, bevor Sie in die Klinik fahren. PDF innerhalb von 24 Std. per E-Mail.", ctaBuy2: "Jetzt kaufen — 49 PLN", ctaNote: "30 Tage Geld-zurück-Garantie ohne Fragen · BLIK, Karte, Apple Pay, Google Pay, PayPal",
+    faqH: "Fragen",
+    faq1q: "Wann ist der beste Zeitpunkt, den Wochenbett-Plan zu kaufen?", faq1a: "Am besten im dritten Trimester — Sie haben Zeit, ihn in Ruhe zu lesen und vor der Geburt auszudrucken. Der Plan ist ab dem ersten Tag zu Hause nach der Klinik nützlich.",
+    faq2q: "Gilt der Wochenbett-Plan auch für die Geburt per Kaiserschnitt?", faq2a: "Ja — der Plan enthält einen eigenen Abschnitt für Mütter nach Kaiserschnitt: Wundheilung, Bewegungseinschränkungen, Narbenpflege und Rückkehr zur vollen Belastbarkeit.",
+    faq3q: "Was, wenn ich nach dem Kauf Fragen habe?", faq3a: "Schreiben Sie an <span class=\"pnm-email\" data-u=\"kontakt\" data-d=\"porodnamiare.pl\"></span>. Wir antworten innerhalb von 24 Std. Gesundheitsfragen richten Sie immer an Ihren Arzt oder Ihre Hebamme.",
+    footDisc: "Diese Inhalte dienen Bildungszwecken und ersetzen keine ärztliche oder hebammliche Beratung."
+  },
+  uk: {
+    navProducts: "Усі продукти", kicker: "Продукт №2 · PDF для завантаження", h1: "План післяпологового періоду — перші 6 тижнів після пологів",
+    intro: "Повний посібник для батьків: що відбувається з тілом мами день за днем, як виглядає правильна лактація, коли дзвонити лікарю та як розподілити обов'язки, щоб обоє пережили перші тижні.",
+    badge1: "📋 18 сторінок PDF", badge2: "🤱 Розділ про лактацію", badge3: "🚨 Тривожні сигнали", badge4: "👨 Роль тата",
+    ctaBuy: "Отримати план післяпологового періоду →", guarNote: "30 днів гарантії повернення коштів · BLIK, картка, Apple/Google Pay, PayPal · PDF протягом 24 год",
+    h2includes: "Що містить план післяпологового періоду",
+    li1: "<strong class=\"text-white\">Графік на 6 тижнів</strong> — що перевірити, коли і з ким: патронажний візит акушерки (до 8-ї доби), контрольний візит (прибл. 4–6 тиждень), коли знімають шви, коли повертатися до активності",
+    li2: "<strong class=\"text-white\">Відновлення мами день за днем</strong> — лохії (післяпологові виділення): що є нормою, що ні; загоєння промежини або рани після КС; біль, кровотеча, температура — таблиця «коли дзвонити»",
+    li3: "<strong class=\"text-white\">Лактація крок за кроком</strong> — нагрубання грудей (2–4 доба), закупорені протоки, застій молока проти маститу, правильне прикладання, годування на вимогу проти графіку, коли молока здається замало",
+    li4: "<strong class=\"text-white\">Новонароджений у перші тижні</strong> — фізіологічна жовтяниця (коли нормально, коли тривожно), втрата та набір ваги, пупок, себорейні кірочки, кольки, сон",
+    li5: "<strong class=\"text-white\">Тривожні сигнали для МАМИ</strong> — кровотеча, температура понад 38°C, біль у грудях з почервонінням, ознаки тромбозу, післяпологова депресія — номери та коли дзвонити 112",
+    li6: "<strong class=\"text-white\">Тривожні сигнали для НОВОНАРОДЖЕНОГО</strong> — синюшність, млявість, відсутність набору ваги, жовтяниця, що посилюється після 5-ї доби, кровотеча з пупка",
+    li7: "<strong class=\"text-white\">Роль тата / партнера</strong> — конкретний список: що робити, що казати, чого уникати, як розпізнати, що мамі потрібна психологічна допомога",
+    li8: "<strong class=\"text-white\">Патронажні візити</strong> — чого очікувати, що підготувати, список питань до патронажної акушерки",
+    whyH: "Післяпологовий період дивує майже кожну маму. І кожного тата.",
+    why1H: "Зі шпиталю виписують через 2–3 дні", why1P: "І раптом ви сам на сам з новонародженим, болючою промежиною та грудьми, які роблять щось несподіване. Ніхто не готує вас до цього повністю — але хороший план допомагає.",
+    why2H: "Лактація — це мистецтво, а не інстинкт", why2P: "Застій молока, біль під час годування, сумніви «чи наїдається дитина» — 70% мам мають труднощі в перші тижні. Ми знаємо, як це подолати.",
+    why3H: "Тривожні сигнали, які не можна ігнорувати", why3P: "Гарячка після пологів, посилення кровотечі, біль у грудях з почервонінням — кожен з цих симптомів може вимагати негайної допомоги. Все це в одному місці.",
+    authH: "Розроблено з реальним досвідом",
+    quote1: "«План післяпологового періоду — це продукт, який я шукала протягом 3 вагітностей. Щоразу я виходила зі шпиталю з нотатками на клаптику паперу. Цей документ зібрав усе, що повинна знати кожна жінка — і що повинен мати під рукою кожен тато».",
+    quote1Attr: "Мама трьох дітей, школа пологів Познань",
+    basisH: "Фахова основа",
+    basis1: "✓ Відповідає Організаційному стандарту перинатальної допомоги (Dz.U. 2025 поз. 1525)", basis2: "✓ Базується на рекомендаціях PTGiP (Польське товариство гінекологів і акушерів)", basis3: "✓ Рекомендації ВООЗ щодо грудного вигодовування", basis4: "✓ Критерії тривожних сигналів відповідно до рекомендацій NICE та PTGiP",
+    basisDisc: "Документ має освітній характер і не замінює медичну допомогу.",
+    ctaH: "Післяпологовий період починається одразу після пологів. Будьте готові — вже зараз.", ctaP: "Купіть план післяпологового періоду зараз і роздрукуйте його до поїздки в лікарню. PDF протягом 24 год на вашу пошту.", ctaBuy2: "Купити зараз — 49 злотих", ctaNote: "30 днів гарантії повернення коштів без запитань · BLIK, картка, Apple Pay, Google Pay, PayPal",
+    faqH: "Питання",
+    faq1q: "Коли найкраще купити план післяпологового періоду?", faq1a: "Найкраще в III триместрі вагітності — у вас буде час спокійно його прочитати та роздрукувати до пологів. План стане в нагоді з першої доби після повернення з лікарні.",
+    faq2q: "Чи стосується план післяпологового періоду також пологів через КС?", faq2a: "Так — план містить окремий розділ для мам після кесаревого розтину: загоєння рани, обмеження активності, догляд за рубцем і повернення до форми.",
+    faq3q: "Що якщо у мене виникнуть питання після покупки?", faq3a: "Напишіть на <span class=\"pnm-email\" data-u=\"kontakt\" data-d=\"porodnamiare.pl\"></span>. Відповідаємо протягом 24 год. Питання щодо здоров'я завжди адресуйте лікарю або акушерці.",
+    footDisc: "Зміст має освітній характер і не замінює консультацію лікаря чи акушерки."
+  },
+  ru: {
+    navProducts: "Все продукты", kicker: "Продукт №2 · PDF для скачивания", h1: "План послеродового периода — первые 6 недель после родов",
+    intro: "Полное руководство для родителей: что происходит с телом мамы день за днём, как выглядит правильная лактация, когда звонить врачу и как разделить обязанности, чтобы оба пережили первые недели.",
+    badge1: "📋 18 страниц PDF", badge2: "🤱 Раздел о лактации", badge3: "🚨 Тревожные сигналы", badge4: "👨 Роль папы",
+    ctaBuy: "Получить план послеродового периода →", guarNote: "30 дней гарантии возврата денег · BLIK, карта, Apple/Google Pay, PayPal · PDF в течение 24 ч",
+    h2includes: "Что включает план послеродового периода",
+    li1: "<strong class=\"text-white\">График на 6 недель</strong> — что проверить, когда и с кем: патронажный визит акушерки (до 8-х суток), контрольный визит (ок. 4–6 недели), когда снимают швы, когда возвращаться к активности",
+    li2: "<strong class=\"text-white\">Восстановление мамы день за днём</strong> — лохии (послеродовые выделения): что нормально, что нет; заживление промежности или раны после КС; боль, кровотечение, температура — таблица «когда звонить»",
+    li3: "<strong class=\"text-white\">Лактация шаг за шагом</strong> — нагрубание груди (2–4 сутки), закупорка протоков, застой молока против мастита, правильное прикладывание, кормление по требованию против графика, когда молока кажется мало",
+    li4: "<strong class=\"text-white\">Новорождённый в первые недели</strong> — физиологическая желтуха (когда норма, когда тревога), потеря и набор веса, пупок, себорейные корочки, колики, сон",
+    li5: "<strong class=\"text-white\">Тревожные сигналы для МАМЫ</strong> — кровотечение, температура выше 38°C, боль в груди с покраснением, признаки тромбоза, послеродовая депрессия — номера и когда звонить 112",
+    li6: "<strong class=\"text-white\">Тревожные сигналы для НОВОРОЖДЁННОГО</strong> — синюшность, вялость, отсутствие набора веса, желтуха, усиливающаяся после 5-х суток, кровотечение из пупка",
+    li7: "<strong class=\"text-white\">Роль папы / партнёра</strong> — конкретный список: что делать, что говорить, чего избегать, как распознать, что маме нужна психологическая помощь",
+    li8: "<strong class=\"text-white\">Патронажные визиты</strong> — чего ожидать, что подготовить, список вопросов к патронажной акушерке",
+    whyH: "Послеродовой период удивляет почти каждую маму. И каждого папу.",
+    why1H: "Из больницы выписывают через 2–3 дня", why1P: "И вдруг вы одна с новорождённым, болезненной промежностью и грудью, которая делает что-то неожиданное. Никто не готовит вас к этому полностью — но хороший план помогает.",
+    why2H: "Лактация — это искусство, а не инстинкт", why2P: "Застой молока, боль при кормлении, сомнения «наедается ли ребёнок» — у 70% мам возникают трудности в первые недели. Мы знаем, как через это пройти.",
+    why3H: "Тревожные сигналы, которые нельзя игнорировать", why3P: "Температура после родов, усиливающееся кровотечение, боль в груди с покраснением — каждый из этих симптомов может потребовать немедленной помощи. Всё это в одном месте.",
+    authH: "Разработано с реальным опытом",
+    quote1: "«План послеродового периода — это продукт, который я искала на протяжении 3 беременностей. Каждый раз я выходила из больницы с записями на клочке бумаги. Этот документ собрал всё, что должна знать каждая женщина — и что должен иметь под рукой каждый папа».",
+    quote1Attr: "Мама троих детей, школа родов Познань",
+    basisH: "Профессиональная основа",
+    basis1: "✓ Соответствует Организационному стандарту перинатальной помощи (Dz.U. 2025 поз. 1525)", basis2: "✓ Основан на рекомендациях PTGiP (Польское общество гинекологов и акушеров)", basis3: "✓ Рекомендации ВОЗ по грудному вскармливанию", basis4: "✓ Критерии тревожных сигналов согласно рекомендациям NICE и PTGiP",
+    basisDisc: "Документ носит образовательный характер и не заменяет медицинскую помощь.",
+    ctaH: "Послеродовой период начинается сразу после родов. Будьте готовы — уже сейчас.", ctaP: "Купите план послеродового периода сейчас и распечатайте его до поездки в больницу. PDF в течение 24 ч на вашу почту.", ctaBuy2: "Купить сейчас — 49 злотых", ctaNote: "30 дней гарантии возврата денег без вопросов · BLIK, карта, Apple Pay, Google Pay, PayPal",
+    faqH: "Вопросы",
+    faq1q: "Когда лучше всего купить план послеродового периода?", faq1a: "Лучше всего в III триместре беременности — у вас будет время спокойно его прочитать и распечатать до родов. План пригодится с первых суток после возвращения из больницы.",
+    faq2q: "Касается ли план послеродового периода родов через КС?", faq2a: "Да — план включает отдельный раздел для мам после кесарева сечения: заживление раны, ограничения активности, уход за рубцом и возвращение к форме.",
+    faq3q: "Что если у меня возникнут вопросы после покупки?", faq3a: "Напишите на <span class=\"pnm-email\" data-u=\"kontakt\" data-d=\"porodnamiare.pl\"></span>. Отвечаем в течение 24 ч. Вопросы о здоровье всегда адресуйте врачу или акушерке.",
+    footDisc: "Содержание носит образовательный характер и не заменяет консультацию врача или акушерки."
+  }
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 <script src="../js/email-protect.js" defer></script>
 <script src="/js/consent-gate.js?v=25" defer></script>
 </body></html>

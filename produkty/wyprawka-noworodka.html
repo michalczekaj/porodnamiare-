@@ -82,32 +82,70 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#cennik" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+<div class="flex items-center gap-2">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2.5 py-2 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option><option value="ru">RU</option>
+  </select>
+  <a href="/#cennik" data-i18n="navProducts" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+</div>
 </nav></header>
 <main>
 <section class="max-w-5xl mx-auto px-4 pt-12 pb-10 grid md:grid-cols-2 gap-10 items-start">
   <div>
-    <div class="inline-flex items-center gap-2 bg-teal text-white text-xs font-bold px-3 py-1.5 rounded-full mb-4">
+    <div class="inline-flex items-center gap-2 bg-teal text-white text-xs font-bold px-3 py-1.5 rounded-full mb-4" data-i18n="badge">
       🎁 GRATIS w pakiecie Premium+
     </div>
-    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Wyprawka dla noworodka — kompletna checklista PDF</h1>
-    <p class="text-lg leading-relaxed mb-6">9 kategorii, 70+ pozycji. Wszystko, co noworodek i mama potrzebują w pierwszych tygodniach — pogrupowane, przemyślane, gotowe do druku i zawieszenia na lodówce.</p>
+    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4" data-i18n="h1">Wyprawka dla noworodka — kompletna checklista PDF</h1>
+    <p class="text-lg leading-relaxed mb-6" data-i18n="intro">9 kategorii, 70+ pozycji. Wszystko, co noworodek i mama potrzebują w pierwszych tygodniach — pogrupowane, przemyślane, gotowe do druku i zawieszenia na lodówce.</p>
     <div class="bg-tealsoft border border-teal/30 rounded-2xl p-6 mb-6">
-      <p class="font-display text-lg font-semibold text-deep mb-2">Dostępna bezpłatnie w pakiecie Premium+</p>
-      <p class="text-[15px] text-ink/80 mb-4">Kup pakiet Premium+ i otrzymaj checklistę wyprawki automatycznie — razem z planem porodu, planem połogu, checklistą dla taty i torbą do szpitala.</p>
-      <a href="/#cennik" class="block text-center bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors">Zobacz pakiet Premium+ →</a>
+      <p class="font-display text-lg font-semibold text-deep mb-2" data-i18n="bundleH">Dostępna bezpłatnie w pakiecie Premium+</p>
+      <p class="text-[15px] text-ink/80 mb-4" data-i18n="bundleP">Kup pakiet Premium+ i otrzymaj checklistę wyprawki automatycznie — razem z planem porodu, planem połogu, checklistą dla taty i torbą do szpitala.</p>
+      <a href="/#cennik" class="block text-center bg-teal text-white font-semibold px-6 py-3 rounded-full hover:bg-deep transition-colors" data-i18n="bundleCta">Zobacz pakiet Premium+ →</a>
     </div>
-    <p class="text-sm text-ink/60">Lub pobierz samą checklistę wyprawki:</p>
-    <a href="https://payhip.com/b/Xd1UK" target="_blank" rel="noopener" class="inline-block mt-2 border-2 border-deep/20 font-semibold px-6 py-3 rounded-full hover:bg-sanddark text-sm">Kup samodzielnie — 19 zł</a>
+    <p class="text-sm text-ink/60" data-i18n="aloneNote">Lub pobierz samą checklistę wyprawki:</p>
+    <a href="https://payhip.com/b/Xd1UK" target="_blank" rel="noopener" class="inline-block mt-2 border-2 border-deep/20 font-semibold px-6 py-3 rounded-full hover:bg-sanddark text-sm" data-i18n="aloneCta">Kup samodzielnie — 19 zł</a>
   </div>
   <div>
     <img src="/img/wyprawka-dla-noworodka-preview.webp" alt="Wyprawka dla noworodka — podgląd checklisty PDF z 9 kategoriami i 70+ pozycjami" width="1024" height="1536" class="w-full rounded-3xl shadow-xl" loading="eager" fetchpriority="high">
-    <p class="text-xs text-ink/50 mt-3 text-center">Format: A4 PDF, jednostronicowa — gotowa do druku i zawieszenia na lodówce.</p>
+    <p class="text-xs text-ink/50 mt-3 text-center" data-i18n="formatNote">Format: A4 PDF, jednostronicowa — gotowa do druku i zawieszenia na lodówce.</p>
   </div>
 </section>
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm mt-4">
 <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+  en: {
+    navProducts: "All products", badge: "🎁 FREE in the Premium+ package", h1: "Newborn Layette — complete PDF checklist",
+    intro: "9 categories, 70+ items. Everything your newborn and you need in the first weeks — grouped, thought through, ready to print and stick on the fridge.",
+    bundleH: "Included free in the Premium+ package", bundleP: "Buy the Premium+ package and get the layette checklist automatically — together with the birth plan, postpartum plan, dad's checklist, and hospital bag checklist.", bundleCta: "See the Premium+ package →",
+    aloneNote: "Or get just the layette checklist:", aloneCta: "Buy separately — 19 PLN",
+    formatNote: "Format: single-page A4 PDF — ready to print and stick on the fridge."
+  },
+  de: {
+    navProducts: "Alle Produkte", badge: "🎁 GRATIS im Premium+-Paket", h1: "Babyerstausstattung — vollständige PDF-Checkliste",
+    intro: "9 Kategorien, 70+ Punkte. Alles, was Neugeborenes und Mama in den ersten Wochen brauchen — gruppiert, durchdacht, bereit zum Ausdrucken und an den Kühlschrank hängen.",
+    bundleH: "Kostenlos im Premium+-Paket enthalten", bundleP: "Kaufen Sie das Premium+-Paket und erhalten Sie die Erstausstattungs-Checkliste automatisch — zusammen mit Geburtsplan, Wochenbett-Plan, Väter-Checkliste und Kliniktaschen-Checkliste.", bundleCta: "Premium+-Paket ansehen →",
+    aloneNote: "Oder nur die Erstausstattungs-Checkliste holen:", aloneCta: "Einzeln kaufen — 19 PLN",
+    formatNote: "Format: einseitiges A4-PDF — bereit zum Ausdrucken und an den Kühlschrank hängen."
+  },
+  uk: {
+    navProducts: "Усі продукти", badge: "🎁 БЕЗКОШТОВНО в пакеті Premium+", h1: "Придане для новонародженого — повний PDF-чекліст",
+    intro: "9 категорій, 70+ пунктів. Все, що потрібно новонародженому і мамі в перші тижні — згруповано, продумано, готово до друку і на холодильник.",
+    bundleH: "Доступний безкоштовно в пакеті Premium+", bundleP: "Купіть пакет Premium+ і отримайте чекліст приданого автоматично — разом із планом пологів, планом післяпологового періоду, чеклістом для тата і чеклістом сумки до лікарні.", bundleCta: "Переглянути пакет Premium+ →",
+    aloneNote: "Або отримайте лише чекліст приданого:", aloneCta: "Купити окремо — 19 злотих",
+    formatNote: "Формат: односторінковий A4 PDF — готовий до друку і на холодильник."
+  },
+  ru: {
+    navProducts: "Все продукты", badge: "🎁 БЕСПЛАТНО в пакете Premium+", h1: "Приданое для новорождённого — полный PDF-чек-лист",
+    intro: "9 категорий, 70+ пунктов. Всё, что нужно новорождённому и маме в первые недели — сгруппировано, продумано, готово к печати и на холодильник.",
+    bundleH: "Доступен бесплатно в пакете Premium+", bundleP: "Купите пакет Premium+ и получите чек-лист приданого автоматически — вместе с планом родов, планом послеродового периода, чек-листом для папы и чек-листом сумки в роддом.", bundleCta: "Посмотреть пакет Premium+ →",
+    aloneNote: "Или получите только чек-лист приданого:", aloneCta: "Купить отдельно — 19 злотых",
+    formatNote: "Формат: односторничный A4 PDF — готов к печати и на холодильник."
+  }
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 <script src="/js/consent-gate.js?v=25" defer></script>
 </body></html>

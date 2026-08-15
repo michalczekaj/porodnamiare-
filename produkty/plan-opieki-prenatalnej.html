@@ -27,68 +27,118 @@
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#cennik" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+<div class="flex items-center gap-2">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2.5 py-2 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option><option value="ru">RU</option>
+  </select>
+  <a href="/#cennik" data-i18n="navProducts" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+</div>
 </nav></header>
 
 <main class="max-w-3xl mx-auto px-4 py-12">
-  <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Produkt PDF · 11 stron</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Plan opieki prenatalnej</h1>
+  <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="kicker">Produkt PDF · 11 stron</p>
+  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4" data-i18n="h1">Plan opieki prenatalnej</h1>
 
   <figure class="my-6">
     <img src="/img/produkty/plan-opieki-prenatalnej.webp" alt="Plan opieki prenatalnej — okładka PDF" width="600" height="900" loading="eager" decoding="async"
          class="w-full max-w-[280px] mx-auto rounded-2xl shadow-lg border border-sanddark">
   </figure>
 
-  <p class="text-lg text-ink/80 leading-relaxed mb-6">Harmonogram wizyt i badań, karta pytań do lekarza na 4 kolejne wizyty, dziennik samopoczucia, jasna lista „kiedy dzwonić od razu" oraz checklista formalności. Wypełniacie sami, w swoim tempie — z każdej wizyty wychodzicie z odpowiedziami, nie z nowymi pytaniami na następny raz.</p>
+  <p class="text-lg text-ink/80 leading-relaxed mb-6" data-i18n="intro">Harmonogram wizyt i badań, karta pytań do lekarza na 4 kolejne wizyty, dziennik samopoczucia, jasna lista „kiedy dzwonić od razu" oraz checklista formalności. Wypełniacie sami, w swoim tempie — z każdej wizyty wychodzicie z odpowiedziami, nie z nowymi pytaniami na następny raz.</p>
 
   <div class="bg-white border-2 border-teal rounded-3xl p-6 mb-6 flex flex-wrap gap-6 items-center justify-between">
     <div>
       <p class="font-display text-4xl font-semibold text-deep">29 zł</p>
-      <p class="text-xs text-ink/60">Jednorazowa płatność · natychmiastowe pobranie PDF</p>
+      <p class="text-xs text-ink/60" data-i18n="payNote">Jednorazowa płatność · natychmiastowe pobranie PDF</p>
     </div>
-    <a href="https://payhip.com/b/gA3U0" target="_blank" rel="noopener" class="bg-teal text-white font-bold px-8 py-4 rounded-2xl hover:bg-deep transition-colors text-lg">Kup teraz — 29 zł</a>
+    <a href="https://payhip.com/b/gA3U0" target="_blank" rel="noopener" class="bg-teal text-white font-bold px-8 py-4 rounded-2xl hover:bg-deep transition-colors text-lg" data-i18n="ctaBuy">Kup teraz — 29 zł</a>
   </div>
 
-  <h2 class="font-display text-xl font-semibold text-deep mb-4">Co zawiera planer</h2>
+  <h2 class="font-display text-xl font-semibold text-deep mb-4" data-i18n="h2feat">Co zawiera planer</h2>
   <div class="grid sm:grid-cols-2 gap-3 mb-8">
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Orientacyjny harmonogram wizyt i badań I–III trymestr</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Karta pytań do lekarza — miejsce na 4 wizyty</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Dziennik samopoczucia — tygodniowe notatki</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Czerwone flagi — kiedy dzwonić od razu</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Notatnik decyzji przedporodowych</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Checklista formalności administracyjnych</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat1">✓ Orientacyjny harmonogram wizyt i badań I–III trymestr</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat2">✓ Karta pytań do lekarza — miejsce na 4 wizyty</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat3">✓ Dziennik samopoczucia — tygodniowe notatki</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat4">✓ Czerwone flagi — kiedy dzwonić od razu</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat5">✓ Notatnik decyzji przedporodowych</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat6">✓ Checklista formalności administracyjnych</div>
   </div>
 
   <div class="bg-tealsoft rounded-2xl p-6 mb-8">
-    <p class="font-semibold text-deep mb-2">Nie zastępuje lekarza</p>
-    <p class="text-[15px] text-ink/85">Harmonogram badań ma charakter orientacyjny — mapa do rozmowy, nie gotowy plan. Dokładny zakres i terminy zawsze ustala prowadzący lekarz ginekolog, indywidualnie do przebiegu Waszej ciąży.</p>
+    <p class="font-semibold text-deep mb-2" data-i18n="notDocH">Nie zastępuje lekarza</p>
+    <p class="text-[15px] text-ink/85" data-i18n="notDocP">Harmonogram badań ma charakter orientacyjny — mapa do rozmowy, nie gotowy plan. Dokładny zakres i terminy zawsze ustala prowadzący lekarz ginekolog, indywidualnie do przebiegu Waszej ciąży.</p>
   </div>
 
-  <a href="https://payhip.com/b/gA3U0" target="_blank" rel="noopener" class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg mb-4">Kup teraz — 29 zł</a>
+  <a href="https://payhip.com/b/gA3U0" target="_blank" rel="noopener" class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg mb-4" data-i18n="ctaBuy">Kup teraz — 29 zł</a>
 
   <div class="bg-white border border-sanddark rounded-2xl p-5 mb-8">
-    <p class="font-semibold text-deep mb-3">Naturalny kolejny krok</p>
+    <p class="font-semibold text-deep mb-3" data-i18n="nextH">Naturalny kolejny krok</p>
     <div class="grid sm:grid-cols-2 gap-3">
       <a href="/#kreator" class="group flex gap-3 items-center hover:bg-tealsoft rounded-xl p-2 -m-2 transition-colors">
         <span class="text-2xl">📋</span>
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Kreator planu porodu</p><p class="text-xs text-ink/60">bezpłatny podgląd</p></div>
+        <div><p class="font-semibold text-deep text-sm group-hover:text-teal" data-i18n="next1N">Kreator planu porodu</p><p class="text-xs text-ink/60" data-i18n="next1P">bezpłatny podgląd</p></div>
       </a>
       <a href="/produkty/torba-do-szpitala" class="group flex gap-3 items-center hover:bg-tealsoft rounded-xl p-2 -m-2 transition-colors">
         <span class="text-2xl">🎒</span>
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Torba do szpitala</p><p class="text-xs text-ink/60">checklist</p></div>
+        <div><p class="font-semibold text-deep text-sm group-hover:text-teal" data-i18n="next2N">Torba do szpitala</p><p class="text-xs text-ink/60" data-i18n="next2P">checklist</p></div>
       </a>
     </div>
   </div>
 
   <div class="bg-white border border-sanddark rounded-2xl p-6">
-    <p class="font-semibold text-deep mb-3">Najczęstsze pytania</p>
-    <details class="mb-3"><summary class="font-semibold text-deep cursor-pointer text-[15px]">Czy harmonogram badań jest wiążący?</summary><p class="mt-2 text-[14px] text-ink/80">Nie — ma charakter orientacyjny i informacyjny. Dokładny zakres i terminy badań zawsze ustala prowadzący lekarz ginekolog indywidualnie.</p></details>
-    <details><summary class="font-semibold text-deep cursor-pointer text-[15px]">Czy to zastępuje plan porodu?</summary><p class="mt-2 text-[14px] text-ink/80">Nie. To planer na wcześniejszy etap ciąży — pomaga przygotować się do wizyt. Plan porodu tworzycie osobno w naszym bezpłatnym kreatorze.</p></details>
+    <p class="font-semibold text-deep mb-3" data-i18n="faqH">Najczęstsze pytania</p>
+    <details class="mb-3"><summary class="font-semibold text-deep cursor-pointer text-[15px]" data-i18n="faq1q">Czy harmonogram badań jest wiążący?</summary><p class="mt-2 text-[14px] text-ink/80" data-i18n="faq1a">Nie — ma charakter orientacyjny i informacyjny. Dokładny zakres i terminy badań zawsze ustala prowadzący lekarz ginekolog indywidualnie.</p></details>
+    <details><summary class="font-semibold text-deep cursor-pointer text-[15px]" data-i18n="faq2q">Czy to zastępuje plan porodu?</summary><p class="mt-2 text-[14px] text-ink/80" data-i18n="faq2a">Nie. To planer na wcześniejszy etap ciąży — pomaga przygotować się do wizyt. Plan porodu tworzycie osobno w naszym bezpłatnym kreatorze.</p></details>
   </div>
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm mt-10">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+  en: {
+    navProducts: "All products", kicker: "PDF product · 11 pages", h1: "Prenatal Care Plan",
+    intro: "A schedule of visits and tests, a question card for 4 upcoming appointments, a wellbeing journal, a clear \"when to call right away\" list, and an administrative checklist. Fill it in yourselves, at your own pace — you leave every appointment with answers, not new questions for next time.",
+    payNote: "One-time payment · instant PDF download", ctaBuy: "Buy now — 29 PLN",
+    h2feat: "What the planner includes",
+    feat1: "✓ Indicative schedule of visits and tests, trimesters I–III", feat2: "✓ Doctor's question card — space for 4 visits", feat3: "✓ Wellbeing journal — weekly notes", feat4: "✓ Red flags — when to call right away", feat5: "✓ Prenatal decision notebook", feat6: "✓ Administrative checklist",
+    notDocH: "Doesn't replace your doctor", notDocP: "The test schedule is indicative — a map for conversation, not a ready-made plan. The exact scope and timing is always set individually by your lead gynaecologist, based on how your pregnancy is progressing.",
+    nextH: "The natural next step", next1N: "Birth plan creator", next1P: "free preview", next2N: "Hospital bag", next2P: "checklist",
+    faqH: "Frequently asked questions", faq1q: "Is the test schedule binding?", faq1a: "No — it's indicative and informational. The exact scope and timing of tests is always set individually by your lead gynaecologist.", faq2q: "Does this replace a birth plan?", faq2a: "No. This is a planner for an earlier stage of pregnancy — it helps you prepare for appointments. You create the birth plan separately in our free creator."
+  },
+  de: {
+    navProducts: "Alle Produkte", kicker: "PDF-Produkt · 11 Seiten", h1: "Schwangerschaftsvorsorge-Plan",
+    intro: "Terminplan für Vorsorgeuntersuchungen, eine Fragenkarte für die nächsten 4 Termine, ein Wohlbefindens-Tagebuch, eine klare „wann sofort anrufen“-Liste sowie eine Checkliste für Formalitäten. Sie füllen es selbst aus, in Ihrem Tempo — nach jedem Termin haben Sie Antworten statt neuer Fragen fürs nächste Mal.",
+    payNote: "Einmalige Zahlung · sofortiger PDF-Download", ctaBuy: "Jetzt kaufen — 29 PLN",
+    h2feat: "Was der Planer enthält",
+    feat1: "✓ Orientierender Terminplan für Untersuchungen, 1.–3. Trimester", feat2: "✓ Fragenkarte für den Arzt — Platz für 4 Termine", feat3: "✓ Wohlbefindens-Tagebuch — wöchentliche Notizen", feat4: "✓ Alarmzeichen — wann sofort anrufen", feat5: "✓ Notizheft für Entscheidungen vor der Geburt", feat6: "✓ Checkliste für Formalitäten",
+    notDocH: "Ersetzt nicht den Arzt", notDocP: "Der Untersuchungsplan ist orientierend — eine Gesprächsgrundlage, kein fertiger Plan. Umfang und Termine legt immer Ihr betreuender Gynäkologe individuell fest, passend zum Verlauf Ihrer Schwangerschaft.",
+    nextH: "Der natürliche nächste Schritt", next1N: "Geburtsplan-Kreator", next1P: "kostenlose Vorschau", next2N: "Kliniktasche", next2P: "Checkliste",
+    faqH: "Häufige Fragen", faq1q: "Ist der Untersuchungsplan verbindlich?", faq1a: "Nein — er ist orientierend und informativ. Umfang und Termine legt stets Ihr betreuender Gynäkologe individuell fest.", faq2q: "Ersetzt das den Geburtsplan?", faq2a: "Nein. Das ist ein Planer für eine frühere Schwangerschaftsphase — er hilft bei der Vorbereitung auf Termine. Den Geburtsplan erstellen Sie separat in unserem kostenlosen Kreator."
+  },
+  uk: {
+    navProducts: "Усі продукти", kicker: "PDF-продукт · 11 сторінок", h1: "План допологового спостереження",
+    intro: "Графік візитів і обстежень, картка питань до лікаря на 4 наступні візити, щоденник самопочуття, чіткий список «коли дзвонити негайно» та чекліста формальностей. Заповнюєте самі, у своєму темпі — з кожного візиту виходите з відповідями, а не з новими питаннями на наступний раз.",
+    payNote: "Одноразова оплата · миттєве завантаження PDF", ctaBuy: "Купити зараз — 29 злотих",
+    h2feat: "Що містить планер",
+    feat1: "✓ Орієнтовний графік візитів і обстежень I–III триместр", feat2: "✓ Картка питань до лікаря — місце на 4 візити", feat3: "✓ Щоденник самопочуття — щотижневі нотатки", feat4: "✓ Червоні прапорці — коли дзвонити негайно", feat5: "✓ Нотатник допологових рішень", feat6: "✓ Чекліста адміністративних формальностей",
+    notDocH: "Не замінює лікаря", notDocP: "Графік обстежень має орієнтовний характер — карта для розмови, а не готовий план. Точний обсяг і терміни завжди визначає лікар-гінеколог індивідуально, відповідно до перебігу вашої вагітності.",
+    nextH: "Природний наступний крок", next1N: "Конструктор плану пологів", next1P: "безкоштовний перегляд", next2N: "Сумка до лікарні", next2P: "чекліст",
+    faqH: "Часті запитання", faq1q: "Чи графік обстежень є обов'язковим?", faq1a: "Ні — він має орієнтовний та інформаційний характер. Точний обсяг і терміни обстежень завжди визначає лікар-гінеколог індивідуально.", faq2q: "Чи це замінює план пологів?", faq2a: "Ні. Це планер для раннішого етапу вагітності — допомагає підготуватися до візитів. План пологів створюєте окремо в нашому безкоштовному конструкторі."
+  },
+  ru: {
+    navProducts: "Все продукты", kicker: "PDF-продукт · 11 страниц", h1: "План дородового наблюдения",
+    intro: "График визитов и обследований, карта вопросов к врачу на 4 следующих визита, дневник самочувствия, чёткий список «когда звонить немедленно» и чек-лист формальностей. Заполняете сами, в своём темпе — с каждого визита выходите с ответами, а не с новыми вопросами на следующий раз.",
+    payNote: "Разовая оплата · мгновенное скачивание PDF", ctaBuy: "Купить сейчас — 29 злотых",
+    h2feat: "Что включает планер",
+    feat1: "✓ Ориентировочный график визитов и обследований I–III триместр", feat2: "✓ Карта вопросов к врачу — место на 4 визита", feat3: "✓ Дневник самочувствия — еженедельные заметки", feat4: "✓ Красные флаги — когда звонить немедленно", feat5: "✓ Блокнот дородовых решений", feat6: "✓ Чек-лист административных формальностей",
+    notDocH: "Не заменяет врача", notDocP: "График обследований носит ориентировочный характер — карта для разговора, а не готовый план. Точный объём и сроки всегда индивидуально определяет ведущий гинеколог, в зависимости от течения вашей беременности.",
+    nextH: "Естественный следующий шаг", next1N: "Конструктор плана родов", next1P: "бесплатный просмотр", next2N: "Сумка в больницу", next2P: "чек-лист",
+    faqH: "Частые вопросы", faq1q: "Обязателен ли график обследований?", faq1a: "Нет — он носит ориентировочный и информационный характер. Точный объём и сроки обследований всегда индивидуально определяет ведущий гинеколог.", faq2q: "Заменяет ли это план родов?", faq2a: "Нет. Это планер для более раннего этапа беременности — он помогает подготовиться к визитам. План родов вы создаёте отдельно в нашем бесплатном конструкторе."
+  }
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 <script src="/js/consent-gate.js?v=25" defer></script>
 </body>
 </html>

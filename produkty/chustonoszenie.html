@@ -82,46 +82,124 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#cennik" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+<div class="flex items-center gap-2">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2.5 py-2 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option><option value="ru">RU</option>
+  </select>
+  <a href="/#cennik" data-i18n="navProducts" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+</div>
 </nav></header>
 <main>
 <section class="max-w-5xl mx-auto px-4 pt-12 pb-10 grid md:grid-cols-2 gap-10 items-start">
   <div>
-    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Produkt · przewodnik PDF</p>
-    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">ABC chustonoszenia — bezpieczne noszenie noworodka od pierwszych dni</h1>
+    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="kicker">Produkt · przewodnik PDF</p>
+    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4" data-i18n="h1">ABC chustonoszenia — bezpieczne noszenie noworodka od pierwszych dni</h1>
 
   <figure class="my-6">
     <img src="/img/produkty/chustonoszenie.webp" alt="ABC chustonoszenia — okładka PDF" width="600" height="900" loading="eager" decoding="async"
          class="w-full max-w-[280px] mx-auto rounded-2xl shadow-lg border border-sanddark">
   </figure>
-    <p class="text-lg leading-relaxed mb-6">Chustonoszenie uspokaja dziecko, wspiera więź i zostawia Wam wolne ręce. Ale źle zawiązana chusta może być niebezpieczna. Ten przewodnik uczy bezpiecznego noszenia krok po kroku — także dla taty.</p>
+    <p class="text-lg leading-relaxed mb-6" data-i18n="intro">Chustonoszenie uspokaja dziecko, wspiera więź i zostawia Wam wolne ręce. Ale źle zawiązana chusta może być niebezpieczna. Ten przewodnik uczy bezpiecznego noszenia krok po kroku — także dla taty.</p>
     <div class="inline-flex items-start gap-2 text-xs text-ink/70 bg-white border border-sanddark rounded-xl px-3 py-2 mb-6">
       <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      <span>Zgodny ze Standardem Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od maja 2026)</span>
+      <span data-i18n="standardNote">Zgodny ze Standardem Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od maja 2026)</span>
     </div>
     <div class="flex items-center gap-4 flex-wrap mb-3">
       <span class="font-display text-4xl font-semibold text-deep">29 zł</span>
-      <a href="https://payhip.com/b/C8w4i" target="_blank" rel="noopener" class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors text-lg">Kup przewodnik →</a>
+      <a href="https://payhip.com/b/C8w4i" target="_blank" rel="noopener" class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors text-lg" data-i18n="ctaBuy">Kup przewodnik →</a>
     </div>
-    <p class="text-xs text-ink/50">30 dni gwarancji zwrotu · PayHip + BLIK, karta, Apple/Google Pay, PayPal · PDF natychmiast po zakupie</p>
+    <p class="text-xs text-ink/50" data-i18n="guarNote">30 dni gwarancji zwrotu · PayHip + BLIK, karta, Apple/Google Pay, PayPal · PDF natychmiast po zakupie</p>
   </div>
   <div class="bg-deep rounded-3xl p-8 text-sand">
-    <h2 class="font-display text-xl font-semibold text-white mb-5">Co zawiera przewodnik</h2>
-    <ul class="space-y-3 text-[15px] text-sand/90"><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Zasada bezpieczeństwa TICKS</strong> — 5 reguł, które musisz znać</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Wiązania krok po kroku</strong> — od najprostszego dla noworodka</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Chusta tkana vs elastyczna vs nosidło</strong> — co wybrać i kiedy</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Prawidłowa pozycja bioder dziecka</strong> — profilaktyka dysplazji</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Chustonoszenie dla taty</strong> — tak, to też Twoja rola</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Najczęstsze błędy</strong> — i jak ich uniknąć</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Od kiedy i jak długo nosić</strong> — bezpieczne ramy</span></li></ul>
+    <h2 class="font-display text-xl font-semibold text-white mb-5" data-i18n="h2includes">Co zawiera przewodnik</h2>
+    <ul class="space-y-3 text-[15px] text-sand/90"><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li1"><strong class='text-white'>Zasada bezpieczeństwa TICKS</strong> — 5 reguł, które musisz znać</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li2"><strong class='text-white'>Wiązania krok po kroku</strong> — od najprostszego dla noworodka</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li3"><strong class='text-white'>Chusta tkana vs elastyczna vs nosidło</strong> — co wybrać i kiedy</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li4"><strong class='text-white'>Prawidłowa pozycja bioder dziecka</strong> — profilaktyka dysplazji</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li5"><strong class='text-white'>Chustonoszenie dla taty</strong> — tak, to też Twoja rola</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li6"><strong class='text-white'>Najczęstsze błędy</strong> — i jak ich uniknąć</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li7"><strong class='text-white'>Od kiedy i jak długo nosić</strong> — bezpieczne ramy</span></li></ul>
   </div>
 </section>
-<section class="max-w-5xl mx-auto px-4 py-12"><div class="bg-tealsoft rounded-2xl p-6 text-[15px] text-ink/80"><p class="font-display text-lg font-semibold text-deep mb-2">Bezpieczeństwo przede wszystkim</p><p>Przewodnik oparty na zasadzie TICKS i wytycznych International Hip Dysplasia Institute dotyczących zdrowej pozycji bioder. Treść ma charakter edukacyjny i nie zastępuje kursu z certyfikowanym doradcą noszenia.</p></div></section>
+<section class="max-w-5xl mx-auto px-4 py-12"><div class="bg-tealsoft rounded-2xl p-6 text-[15px] text-ink/80"><p class="font-display text-lg font-semibold text-deep mb-2" data-i18n="basisH">Bezpieczeństwo przede wszystkim</p><p data-i18n="basisP">Przewodnik oparty na zasadzie TICKS i wytycznych International Hip Dysplasia Institute dotyczących zdrowej pozycji bioder. Treść ma charakter edukacyjny i nie zastępuje kursu z certyfikowanym doradcą noszenia.</p></div></section>
 <section class="bg-deep text-sand py-12 text-center">
   <div class="max-w-lg mx-auto px-4">
-    <h2 class="font-display text-2xl font-semibold text-white mb-3">Noś bezpiecznie od pierwszego dnia</h2>
-    <p class="text-sand/80 mb-6">29 zł. PDF w 24 h. 30 dni gwarancji zwrotu.</p>
-    <a href="https://payhip.com/b/C8w4i" target="_blank" rel="noopener" class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors text-lg">Kup przewodnik — 29 zł</a>
+    <h2 class="font-display text-2xl font-semibold text-white mb-3" data-i18n="ctaH">Noś bezpiecznie od pierwszego dnia</h2>
+    <p class="text-sand/80 mb-6" data-i18n="ctaP">29 zł. PDF w 24 h. 30 dni gwarancji zwrotu.</p>
+    <a href="https://payhip.com/b/C8w4i" target="_blank" rel="noopener" class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors text-lg" data-i18n="ctaBuy2">Kup przewodnik — 29 zł</a>
   </div>
 </section>
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm border-t border-sand/10">
 <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
-<p class="mt-2 text-xs text-sand/40">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
+<p class="mt-2 text-xs text-sand/40" data-i18n="footDisc">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
 </footer>
+<script>
+window.PAGE_I18N = {
+  en: {
+    navProducts: "All products", kicker: "Product · PDF guide", h1: "Babywearing ABC — safe carrying from the first days",
+    intro: "Babywearing calms your baby, supports bonding, and leaves your hands free. But a badly tied wrap can be dangerous. This guide teaches safe carrying step by step — for dads too.",
+    standardNote: "Compliant with the Perinatal Care Standard (Journal of Laws 2025, item 1525, effective May 2026)",
+    ctaBuy: "Get the guide →", guarNote: "30-day money-back guarantee · PayHip + BLIK, card, Apple/Google Pay, PayPal · PDF instantly after purchase",
+    h2includes: "What the guide includes",
+    li1: "<strong class='text-white'>The TICKS safety rule</strong> — 5 rules you need to know",
+    li2: "<strong class='text-white'>Carries step by step</strong> — starting with the simplest for newborns",
+    li3: "<strong class='text-white'>Woven wrap vs. stretchy wrap vs. carrier</strong> — what to choose and when",
+    li4: "<strong class='text-white'>Correct hip position for your baby</strong> — dysplasia prevention",
+    li5: "<strong class='text-white'>Babywearing for dads</strong> — yes, this is your role too",
+    li6: "<strong class='text-white'>Common mistakes</strong> — and how to avoid them",
+    li7: "<strong class='text-white'>When to start and how long to carry</strong> — safe guidelines",
+    basisH: "Safety first", basisP: "This guide is based on the TICKS rule and the International Hip Dysplasia Institute's guidelines on healthy hip positioning. The content is educational and does not replace a course with a certified babywearing consultant.",
+    ctaH: "Carry safely from day one", ctaP: "29 PLN. PDF within 24 h. 30-day money-back guarantee.", ctaBuy2: "Get the guide — 29 PLN",
+    footDisc: "This content is educational and does not replace medical or midwifery advice."
+  },
+  de: {
+    navProducts: "Alle Produkte", kicker: "Produkt · PDF-Ratgeber", h1: "Tragetuch-ABC — sicheres Tragen ab den ersten Tagen",
+    intro: "Tragen beruhigt Ihr Baby, fördert die Bindung und lässt Ihre Hände frei. Aber ein falsch gebundenes Tuch kann gefährlich sein. Dieser Ratgeber lehrt sicheres Tragen Schritt für Schritt — auch für Väter.",
+    standardNote: "Konform mit dem Standard der perinatalen Versorgung (GBl. 2025, Pos. 1525, gültig ab Mai 2026)",
+    ctaBuy: "Ratgeber holen →", guarNote: "30 Tage Geld-zurück-Garantie · PayHip + BLIK, Karte, Apple/Google Pay, PayPal · PDF sofort nach dem Kauf",
+    h2includes: "Was der Ratgeber enthält",
+    li1: "<strong class='text-white'>Die TICKS-Sicherheitsregel</strong> — 5 Regeln, die Sie kennen müssen",
+    li2: "<strong class='text-white'>Bindeanleitungen Schritt für Schritt</strong> — angefangen bei der einfachsten für Neugeborene",
+    li3: "<strong class='text-white'>Gewebtes Tuch vs. elastisches Tuch vs. Trage</strong> — was wählen und wann",
+    li4: "<strong class='text-white'>Richtige Hüftposition des Babys</strong> — Dysplasie-Prävention",
+    li5: "<strong class='text-white'>Tragen für Väter</strong> — ja, das ist auch Ihre Aufgabe",
+    li6: "<strong class='text-white'>Häufigste Fehler</strong> — und wie man sie vermeidet",
+    li7: "<strong class='text-white'>Ab wann und wie lange tragen</strong> — sichere Rahmenbedingungen",
+    basisH: "Sicherheit an erster Stelle", basisP: "Der Ratgeber basiert auf der TICKS-Regel und den Leitlinien des International Hip Dysplasia Institute zur gesunden Hüftposition. Die Inhalte dienen Bildungszwecken und ersetzen keinen Kurs bei einer zertifizierten Trageberaterin.",
+    ctaH: "Tragen Sie sicher ab dem ersten Tag", ctaP: "29 PLN. PDF innerhalb von 24 Std. 30 Tage Geld-zurück-Garantie.", ctaBuy2: "Ratgeber holen — 29 PLN",
+    footDisc: "Diese Inhalte dienen Bildungszwecken und ersetzen keine ärztliche oder hebammliche Beratung."
+  },
+  uk: {
+    navProducts: "Усі продукти", kicker: "Продукт · PDF-посібник", h1: "АБВ слінгоносіння — безпечне носіння новонародженого з перших днів",
+    intro: "Слінгоносіння заспокоює дитину, підтримує зв'язок і залишає ваші руки вільними. Але неправильно зав'язана хустка може бути небезпечною. Цей посібник навчає безпечного носіння крок за кроком — також для тата.",
+    standardNote: "Відповідає Стандарту перинатальної допомоги (Dz.U. 2025 поз. 1525, чинний з травня 2026)",
+    ctaBuy: "Отримати посібник →", guarNote: "30 днів гарантії повернення коштів · PayHip + BLIK, картка, Apple/Google Pay, PayPal · PDF одразу після покупки",
+    h2includes: "Що містить посібник",
+    li1: "<strong class='text-white'>Правило безпеки TICKS</strong> — 5 правил, які потрібно знати",
+    li2: "<strong class='text-white'>Способи пов'язування крок за кроком</strong> — від найпростішого для новонародженого",
+    li3: "<strong class='text-white'>Тканий слінг проти еластичного проти ерго-рюкзака</strong> — що обрати і коли",
+    li4: "<strong class='text-white'>Правильна позиція стегон дитини</strong> — профілактика дисплазії",
+    li5: "<strong class='text-white'>Слінгоносіння для тата</strong> — так, це теж ваша роль",
+    li6: "<strong class='text-white'>Найчастіші помилки</strong> — і як їх уникнути",
+    li7: "<strong class='text-white'>З якого віку і як довго носити</strong> — безпечні рамки",
+    basisH: "Безпека понад усе", basisP: "Посібник базується на правилі TICKS та рекомендаціях International Hip Dysplasia Institute щодо здорової позиції стегон. Зміст має освітній характер і не замінює курс із сертифікованим консультантом зі слінгоносіння.",
+    ctaH: "Носіть безпечно з першого дня", ctaP: "29 злотих. PDF протягом 24 год. 30 днів гарантії повернення коштів.", ctaBuy2: "Отримати посібник — 29 злотих",
+    footDisc: "Зміст має освітній характер і не замінює консультацію лікаря чи акушерки."
+  },
+  ru: {
+    navProducts: "Все продукты", kicker: "Продукт · PDF-руководство", h1: "АБВ слингоношения — безопасное ношение новорождённого с первых дней",
+    intro: "Слингоношение успокаивает ребёнка, поддерживает связь и оставляет ваши руки свободными. Но неправильно завязанный слинг может быть опасным. Это руководство учит безопасному ношению шаг за шагом — также для папы.",
+    standardNote: "Соответствует Стандарту перинатальной помощи (Dz.U. 2025 поз. 1525, действует с мая 2026)",
+    ctaBuy: "Получить руководство →", guarNote: "30 дней гарантии возврата денег · PayHip + BLIK, карта, Apple/Google Pay, PayPal · PDF сразу после покупки",
+    h2includes: "Что включает руководство",
+    li1: "<strong class='text-white'>Правило безопасности TICKS</strong> — 5 правил, которые нужно знать",
+    li2: "<strong class='text-white'>Способы завязывания шаг за шагом</strong> — от самого простого для новорождённого",
+    li3: "<strong class='text-white'>Тканый слинг против эластичного против эрго-рюкзака</strong> — что выбрать и когда",
+    li4: "<strong class='text-white'>Правильное положение бёдер ребёнка</strong> — профилактика дисплазии",
+    li5: "<strong class='text-white'>Слингоношение для папы</strong> — да, это тоже ваша роль",
+    li6: "<strong class='text-white'>Частые ошибки</strong> — и как их избежать",
+    li7: "<strong class='text-white'>С какого возраста и как долго носить</strong> — безопасные рамки",
+    basisH: "Безопасность прежде всего", basisP: "Руководство основано на правиле TICKS и рекомендациях International Hip Dysplasia Institute о здоровом положении бёдер. Содержание носит образовательный характер и не заменяет курс с сертифицированным консультантом по слингоношению.",
+    ctaH: "Носите безопасно с первого дня", ctaP: "29 злотых. PDF в течение 24 ч. 30 дней гарантии возврата денег.", ctaBuy2: "Получить руководство — 29 злотых",
+    footDisc: "Содержание носит образовательный характер и не заменяет консультацию врача или акушерки."
+  }
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 <script src="/js/consent-gate.js?v=25" defer></script>
 </body></html>

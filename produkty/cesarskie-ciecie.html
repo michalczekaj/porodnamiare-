@@ -82,46 +82,124 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#cennik" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+<div class="flex items-center gap-2">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2.5 py-2 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option><option value="ru">RU</option>
+  </select>
+  <a href="/#cennik" data-i18n="navProducts" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+</div>
 </nav></header>
 <main>
 <section class="max-w-5xl mx-auto px-4 pt-12 pb-10 grid md:grid-cols-2 gap-10 items-start">
   <div>
-    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Produkt · PDF do pobrania</p>
-    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Plan cięcia cesarskiego — kompletny przewodnik dla mam po CC</h1>
+    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="kicker">Produkt · PDF do pobrania</p>
+    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4" data-i18n="h1">Plan cięcia cesarskiego — kompletny przewodnik dla mam po CC</h1>
 
   <figure class="my-6">
     <img src="/img/produkty/cesarskie-ciecie.webp" alt="Plan cięcia cesarskiego — okładka PDF" width="600" height="900" loading="eager" decoding="async"
          class="w-full max-w-[280px] mx-auto rounded-2xl shadow-lg border border-sanddark">
   </figure>
-    <p class="text-lg leading-relaxed mb-6">Cięcie cesarskie to poród operacyjny — a mimo to możesz mieć plan i wpływ na jego przebieg. Kontakt skóra do skóry na sali operacyjnej, obecność partnera, pierwsze przystawienie. Ten dokument pokazuje, o co prosić i jak przygotować się do CC.</p>
+    <p class="text-lg leading-relaxed mb-6" data-i18n="intro">Cięcie cesarskie to poród operacyjny — a mimo to możesz mieć plan i wpływ na jego przebieg. Kontakt skóra do skóry na sali operacyjnej, obecność partnera, pierwsze przystawienie. Ten dokument pokazuje, o co prosić i jak przygotować się do CC.</p>
     <div class="inline-flex items-start gap-2 text-xs text-ink/70 bg-white border border-sanddark rounded-xl px-3 py-2 mb-6">
       <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      <span>Zgodny ze Standardem Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od maja 2026)</span>
+      <span data-i18n="standardNote">Zgodny ze Standardem Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od maja 2026)</span>
     </div>
     <div class="flex items-center gap-4 flex-wrap mb-3">
       <span class="font-display text-4xl font-semibold text-deep">39 zł</span>
-      <a href="https://payhip.com/b/H1o4p" target="_blank" rel="noopener" class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors text-lg">Kup plan CC →</a>
+      <a href="https://payhip.com/b/H1o4p" target="_blank" rel="noopener" class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors text-lg" data-i18n="ctaBuy">Kup plan CC →</a>
     </div>
-    <p class="text-xs text-ink/50">30 dni gwarancji zwrotu · PayHip + BLIK, karta, Apple/Google Pay, PayPal · PDF natychmiast po zakupie</p>
+    <p class="text-xs text-ink/50" data-i18n="guarNote">30 dni gwarancji zwrotu · PayHip + BLIK, karta, Apple/Google Pay, PayPal · PDF natychmiast po zakupie</p>
   </div>
   <div class="bg-deep rounded-3xl p-8 text-sand">
-    <h2 class="font-display text-xl font-semibold text-white mb-5">Co zawiera plan CC</h2>
-    <ul class="space-y-3 text-[15px] text-sand/90"><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Przygotowanie do operacji</strong> — co się dzieje krok po kroku</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Cesarskie planowane vs ze wskazań nagłych</strong> — czego się spodziewać</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Kontakt skóra do skóry na sali operacyjnej</strong> — gwarantowany Standardem 2026</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Obecność osoby towarzyszącej</strong> podczas operacji</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Pierwsze przystawienie po CC</strong> — jak najszybciej</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Połóg po cięciu</strong> — gojenie rany, ograniczenia, pielęgnacja blizny</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Sygnały alarmowe</strong> po CC — kiedy pilnie do lekarza</span></li></ul>
+    <h2 class="font-display text-xl font-semibold text-white mb-5" data-i18n="h2includes">Co zawiera plan CC</h2>
+    <ul class="space-y-3 text-[15px] text-sand/90"><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li1"><strong class='text-white'>Przygotowanie do operacji</strong> — co się dzieje krok po kroku</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li2"><strong class='text-white'>Cesarskie planowane vs ze wskazań nagłych</strong> — czego się spodziewać</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li3"><strong class='text-white'>Kontakt skóra do skóry na sali operacyjnej</strong> — gwarantowany Standardem 2026</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li4"><strong class='text-white'>Obecność osoby towarzyszącej</strong> podczas operacji</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li5"><strong class='text-white'>Pierwsze przystawienie po CC</strong> — jak najszybciej</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li6"><strong class='text-white'>Połóg po cięciu</strong> — gojenie rany, ograniczenia, pielęgnacja blizny</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li7"><strong class='text-white'>Sygnały alarmowe</strong> po CC — kiedy pilnie do lekarza</span></li></ul>
   </div>
 </section>
-<section class="max-w-5xl mx-auto px-4 py-12"><div class="bg-tealsoft rounded-2xl p-6 text-[15px] text-ink/80"><p class="font-display text-lg font-semibold text-deep mb-2">Zgodny z nowym Standardem</p><p>Nowy Standard Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od maja 2026) gwarantuje kontakt skóra do skóry także po cięciu cesarskim, gdy stan matki i dziecka na to pozwala. Plan pomaga Wam wyegzekwować to prawo. Treść ma charakter edukacyjny.</p></div></section>
+<section class="max-w-5xl mx-auto px-4 py-12"><div class="bg-tealsoft rounded-2xl p-6 text-[15px] text-ink/80"><p class="font-display text-lg font-semibold text-deep mb-2" data-i18n="basisH">Zgodny z nowym Standardem</p><p data-i18n="basisP">Nowy Standard Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od maja 2026) gwarantuje kontakt skóra do skóry także po cięciu cesarskim, gdy stan matki i dziecka na to pozwala. Plan pomaga Wam wyegzekwować to prawo. Treść ma charakter edukacyjny.</p></div></section>
 <section class="bg-deep text-sand py-12 text-center">
   <div class="max-w-lg mx-auto px-4">
-    <h2 class="font-display text-2xl font-semibold text-white mb-3">Przygotuj się do cięcia — miej wpływ na jego przebieg</h2>
-    <p class="text-sand/80 mb-6">39 zł. PDF w 24 h. 30 dni gwarancji zwrotu.</p>
-    <a href="https://payhip.com/b/H1o4p" target="_blank" rel="noopener" class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors text-lg">Kup plan CC — 39 zł</a>
+    <h2 class="font-display text-2xl font-semibold text-white mb-3" data-i18n="ctaH">Przygotuj się do cięcia — miej wpływ na jego przebieg</h2>
+    <p class="text-sand/80 mb-6" data-i18n="ctaP">39 zł. PDF w 24 h. 30 dni gwarancji zwrotu.</p>
+    <a href="https://payhip.com/b/H1o4p" target="_blank" rel="noopener" class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors text-lg" data-i18n="ctaBuy2">Kup plan CC — 39 zł</a>
   </div>
 </section>
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm border-t border-sand/10">
 <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
-<p class="mt-2 text-xs text-sand/40">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
+<p class="mt-2 text-xs text-sand/40" data-i18n="footDisc">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
 </footer>
+<script>
+window.PAGE_I18N = {
+  en: {
+    navProducts: "All products", kicker: "Product · PDF download", h1: "Caesarean Birth Plan — a complete guide for mums after a C-section",
+    intro: "A caesarean is a surgical birth — yet you can still have a plan and influence how it goes. Skin-to-skin contact in the operating theatre, your partner's presence, the first latch. This document shows what to ask for and how to prepare for a C-section.",
+    standardNote: "Compliant with the Perinatal Care Standard (Journal of Laws 2025, item 1525, effective May 2026)",
+    ctaBuy: "Get the C-section plan →", guarNote: "30-day money-back guarantee · PayHip + BLIK, card, Apple/Google Pay, PayPal · PDF instantly after purchase",
+    h2includes: "What the C-section plan includes",
+    li1: "<strong class='text-white'>Preparing for surgery</strong> — what happens step by step",
+    li2: "<strong class='text-white'>Planned vs. emergency caesarean</strong> — what to expect",
+    li3: "<strong class='text-white'>Skin-to-skin contact in the operating theatre</strong> — guaranteed by the 2026 Standard",
+    li4: "<strong class='text-white'>Your support person's presence</strong> during the surgery",
+    li5: "<strong class='text-white'>First latch after a C-section</strong> — as soon as possible",
+    li6: "<strong class='text-white'>Postpartum recovery after a caesarean</strong> — wound healing, limitations, scar care",
+    li7: "<strong class='text-white'>Warning signs</strong> after a C-section — when to see a doctor urgently",
+    basisH: "Compliant with the new Standard", basisP: "The new Perinatal Care Standard (Journal of Laws 2025, item 1525, effective May 2026) guarantees skin-to-skin contact also after a caesarean, when the condition of mother and baby allows it. This plan helps you claim that right. The content is educational.",
+    ctaH: "Prepare for your caesarean — have a say in how it goes", ctaP: "39 PLN. PDF within 24 h. 30-day money-back guarantee.", ctaBuy2: "Get the C-section plan — 39 PLN",
+    footDisc: "This content is educational and does not replace medical or midwifery advice."
+  },
+  de: {
+    navProducts: "Alle Produkte", kicker: "Produkt · PDF-Download", h1: "Kaiserschnitt-Plan — vollständiger Ratgeber für Mütter nach einem Kaiserschnitt",
+    intro: "Ein Kaiserschnitt ist eine operative Geburt — trotzdem können Sie einen Plan haben und den Verlauf mitgestalten. Haut-zu-Haut-Kontakt im OP, Anwesenheit des Partners, erstes Anlegen. Dieses Dokument zeigt, worum Sie bitten können und wie Sie sich auf den Kaiserschnitt vorbereiten.",
+    standardNote: "Konform mit dem Standard der perinatalen Versorgung (GBl. 2025, Pos. 1525, gültig ab Mai 2026)",
+    ctaBuy: "Kaiserschnitt-Plan holen →", guarNote: "30 Tage Geld-zurück-Garantie · PayHip + BLIK, Karte, Apple/Google Pay, PayPal · PDF sofort nach dem Kauf",
+    h2includes: "Was der Kaiserschnitt-Plan enthält",
+    li1: "<strong class='text-white'>Vorbereitung auf die Operation</strong> — was Schritt für Schritt passiert",
+    li2: "<strong class='text-white'>Geplanter vs. notfallmäßiger Kaiserschnitt</strong> — was Sie erwartet",
+    li3: "<strong class='text-white'>Haut-zu-Haut-Kontakt im OP</strong> — garantiert durch den Standard 2026",
+    li4: "<strong class='text-white'>Anwesenheit der Begleitperson</strong> während der Operation",
+    li5: "<strong class='text-white'>Erstes Anlegen nach dem Kaiserschnitt</strong> — so früh wie möglich",
+    li6: "<strong class='text-white'>Wochenbett nach dem Kaiserschnitt</strong> — Wundheilung, Einschränkungen, Narbenpflege",
+    li7: "<strong class='text-white'>Alarmzeichen</strong> nach dem Kaiserschnitt — wann dringend zum Arzt",
+    basisH: "Konform mit dem neuen Standard", basisP: "Der neue Standard der perinatalen Versorgung (GBl. 2025, Pos. 1525, gültig ab Mai 2026) garantiert Haut-zu-Haut-Kontakt auch nach einem Kaiserschnitt, sofern der Zustand von Mutter und Kind dies zulässt. Der Plan hilft Ihnen, dieses Recht durchzusetzen. Der Inhalt dient Bildungszwecken.",
+    ctaH: "Bereiten Sie sich auf den Kaiserschnitt vor — gestalten Sie den Ablauf mit", ctaP: "39 PLN. PDF innerhalb von 24 Std. 30 Tage Geld-zurück-Garantie.", ctaBuy2: "Kaiserschnitt-Plan holen — 39 PLN",
+    footDisc: "Diese Inhalte dienen Bildungszwecken und ersetzen keine ärztliche oder hebammliche Beratung."
+  },
+  uk: {
+    navProducts: "Усі продукти", kicker: "Продукт · PDF для завантаження", h1: "План кесаревого розтину — повний посібник для мам після КР",
+    intro: "Кесарів розтин — це оперативні пологи, але ви все одно можете мати план і впливати на їх перебіг. Контакт шкіра до шкіри в операційній, присутність партнера, перше прикладання. Цей документ показує, про що просити та як підготуватися до КР.",
+    standardNote: "Відповідає Стандарту перинатальної допомоги (Dz.U. 2025 поз. 1525, чинний з травня 2026)",
+    ctaBuy: "Отримати план КР →", guarNote: "30 днів гарантії повернення коштів · PayHip + BLIK, картка, Apple/Google Pay, PayPal · PDF одразу після покупки",
+    h2includes: "Що містить план КР",
+    li1: "<strong class='text-white'>Підготовка до операції</strong> — що відбувається крок за кроком",
+    li2: "<strong class='text-white'>Плановий кесарів розтин проти екстреного</strong> — чого очікувати",
+    li3: "<strong class='text-white'>Контакт шкіра до шкіри в операційній</strong> — гарантований Стандартом 2026",
+    li4: "<strong class='text-white'>Присутність супроводжуючої особи</strong> під час операції",
+    li5: "<strong class='text-white'>Перше прикладання після КР</strong> — якнайшвидше",
+    li6: "<strong class='text-white'>Післяпологовий період після розтину</strong> — загоєння рани, обмеження, догляд за рубцем",
+    li7: "<strong class='text-white'>Тривожні сигнали</strong> після КР — коли терміново до лікаря",
+    basisH: "Відповідає новому Стандарту", basisP: "Новий Стандарт перинатальної допомоги (Dz.U. 2025 поз. 1525, чинний з травня 2026) гарантує контакт шкіра до шкіри також після кесаревого розтину, коли стан матері та дитини це дозволяє. План допомагає вам реалізувати це право. Зміст має освітній характер.",
+    ctaH: "Підготуйтеся до розтину — впливайте на його перебіг", ctaP: "39 злотих. PDF протягом 24 год. 30 днів гарантії повернення коштів.", ctaBuy2: "Отримати план КР — 39 злотих",
+    footDisc: "Зміст має освітній характер і не замінює консультацію лікаря чи акушерки."
+  },
+  ru: {
+    navProducts: "Все продукты", kicker: "Продукт · PDF для скачивания", h1: "План кесарева сечения — полное руководство для мам после КС",
+    intro: "Кесарево сечение — это оперативные роды, но у вас всё равно может быть план и влияние на его ход. Контакт кожа к коже в операционной, присутствие партнёра, первое прикладывание. Этот документ показывает, о чём просить и как подготовиться к КС.",
+    standardNote: "Соответствует Стандарту перинатальной помощи (Dz.U. 2025 поз. 1525, действует с мая 2026)",
+    ctaBuy: "Получить план КС →", guarNote: "30 дней гарантии возврата денег · PayHip + BLIK, карта, Apple/Google Pay, PayPal · PDF сразу после покупки",
+    h2includes: "Что включает план КС",
+    li1: "<strong class='text-white'>Подготовка к операции</strong> — что происходит шаг за шагом",
+    li2: "<strong class='text-white'>Плановое кесарево против экстренного</strong> — чего ожидать",
+    li3: "<strong class='text-white'>Контакт кожа к коже в операционной</strong> — гарантирован Стандартом 2026",
+    li4: "<strong class='text-white'>Присутствие сопровождающего</strong> во время операции",
+    li5: "<strong class='text-white'>Первое прикладывание после КС</strong> — как можно скорее",
+    li6: "<strong class='text-white'>Послеродовой период после кесарева</strong> — заживление раны, ограничения, уход за рубцом",
+    li7: "<strong class='text-white'>Тревожные сигналы</strong> после КС — когда срочно к врачу",
+    basisH: "Соответствует новому Стандарту", basisP: "Новый Стандарт перинатальной помощи (Dz.U. 2025 поз. 1525, действует с мая 2026) гарантирует контакт кожа к коже также после кесарева сечения, если состояние матери и ребёнка это позволяет. План помогает вам реализовать это право. Содержание носит образовательный характер.",
+    ctaH: "Подготовьтесь к кесареву — влияйте на его ход", ctaP: "39 злотых. PDF в течение 24 ч. 30 дней гарантии возврата денег.", ctaBuy2: "Получить план КС — 39 злотых",
+    footDisc: "Содержание носит образовательный характер и не заменяет консультацию врача или акушерки."
+  }
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 <script src="/js/consent-gate.js?v=25" defer></script>
 </body></html>

@@ -27,75 +27,129 @@
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#cennik" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+<div class="flex items-center gap-2">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2.5 py-2 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option><option value="ru">RU</option>
+  </select>
+  <a href="/#cennik" data-i18n="navProducts" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+</div>
 </nav></header>
 
 <main class="max-w-3xl mx-auto px-4 py-12">
-  <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Produkt PDF · 12 stron</p>
-  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Plan porodu i ciąży po stracie</h1>
+  <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="kicker">Produkt PDF · 12 stron</p>
+  <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4" data-i18n="h1">Plan porodu i ciąży po stracie</h1>
 
   <figure class="my-6">
     <img src="/img/produkty/plan-porodu-po-stracie.webp" alt="Plan porodu i ciąży po stracie — okładka PDF" width="600" height="900" loading="eager" decoding="async"
          class="w-full max-w-[280px] mx-auto rounded-2xl shadow-lg border border-sanddark">
   </figure>
 
-  <p class="text-lg text-ink/80 leading-relaxed mb-6">Jak rozmawiać ze szpitalem w kolejnej ciąży po wcześniejszej stracie — i jakie macie prawa, gdy trzeba się pożegnać. Dwie niezależne części: dla rodziców w ciąży po stracie oraz dla rodzin, które właśnie przechodzą przez stratę. Czytacie tylko to, czego teraz potrzebujecie.</p>
+  <p class="text-lg text-ink/80 leading-relaxed mb-6" data-i18n="intro">Jak rozmawiać ze szpitalem w kolejnej ciąży po wcześniejszej stracie — i jakie macie prawa, gdy trzeba się pożegnać. Dwie niezależne części: dla rodziców w ciąży po stracie oraz dla rodzin, które właśnie przechodzą przez stratę. Czytacie tylko to, czego teraz potrzebujecie.</p>
 
   <div class="bg-white border-2 border-teal rounded-3xl p-6 mb-6 flex flex-wrap gap-6 items-center justify-between">
     <div>
       <p class="font-display text-4xl font-semibold text-deep">49 zł</p>
-      <p class="text-xs text-ink/60">Jednorazowa płatność · natychmiastowe pobranie PDF</p>
+      <p class="text-xs text-ink/60" data-i18n="payNote">Jednorazowa płatność · natychmiastowe pobranie PDF</p>
     </div>
-    <a href="https://payhip.com/b/An9Q0" target="_blank" rel="noopener" class="bg-teal text-white font-bold px-8 py-4 rounded-2xl hover:bg-deep transition-colors text-lg">Kup teraz — 49 zł</a>
+    <a href="https://payhip.com/b/An9Q0" target="_blank" rel="noopener" class="bg-teal text-white font-bold px-8 py-4 rounded-2xl hover:bg-deep transition-colors text-lg" data-i18n="ctaBuy">Kup teraz — 49 zł</a>
   </div>
 
-  <h2 class="font-display text-xl font-semibold text-deep mb-4">Co zawiera przewodnik</h2>
+  <h2 class="font-display text-xl font-semibold text-deep mb-4" data-i18n="h2feat">Co zawiera przewodnik</h2>
   <div class="grid sm:grid-cols-2 gap-3 mb-8">
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Karta informacyjna dla personelu szpitala</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Dodatkowe punkty do standardowego planu porodu</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Praktyczne zarządzanie niepokojem w ciąży</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Kiedy dzwonić od razu — jasne kryteria</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Wasze prawa i wybory przy pożegnaniu</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Pamiątki, obecność bliskich, wsparcie duchowe</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Gdzie szukać wsparcia i pomocy psychologicznej</div>
-    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]">✓ Karta szybka do wydruku na drzwi sali</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat1">✓ Karta informacyjna dla personelu szpitala</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat2">✓ Dodatkowe punkty do standardowego planu porodu</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat3">✓ Praktyczne zarządzanie niepokojem w ciąży</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat4">✓ Kiedy dzwonić od razu — jasne kryteria</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat5">✓ Wasze prawa i wybory przy pożegnaniu</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat6">✓ Pamiątki, obecność bliskich, wsparcie duchowe</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat7">✓ Gdzie szukać wsparcia i pomocy psychologicznej</div>
+    <div class="bg-white border border-sanddark rounded-xl p-4 text-[14px]" data-i18n="feat8">✓ Karta szybka do wydruku na drzwi sali</div>
   </div>
 
   <div class="bg-tealsoft rounded-2xl p-6 mb-8">
-    <p class="font-semibold text-deep mb-2">Dlaczego to istnieje</p>
-    <p class="text-[15px] text-ink/85">Personel zmienia się co dyżur. Bez zapisanej informacji musicie wielokrotnie opowiadać swoją historię obcym osobom — co samo w sobie bywa wyczerpujące. Ten dokument mówi za Was raz, dla całego zespołu.</p>
+    <p class="font-semibold text-deep mb-2" data-i18n="whyH">Dlaczego to istnieje</p>
+    <p class="text-[15px] text-ink/85" data-i18n="whyP">Personel zmienia się co dyżur. Bez zapisanej informacji musicie wielokrotnie opowiadać swoją historię obcym osobom — co samo w sobie bywa wyczerpujące. Ten dokument mówi za Was raz, dla całego zespołu.</p>
   </div>
 
-  <a href="https://payhip.com/b/An9Q0" target="_blank" rel="noopener" class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg mb-4">Kup teraz — 49 zł</a>
+  <a href="https://payhip.com/b/An9Q0" target="_blank" rel="noopener" class="block text-center bg-teal text-white font-bold py-4 rounded-2xl hover:bg-deep transition-colors text-lg mb-4" data-i18n="ctaBuy">Kup teraz — 49 zł</a>
 
   <div class="bg-white border-l-4 border-deep rounded-r-2xl p-5 mb-8">
-    <p class="font-semibold text-deep mb-1">Ważne zastrzeżenie</p>
-    <p class="text-[14px] text-ink/80">Treści mają charakter organizacyjny i informacyjny, nie medyczny ani terapeutyczny. W kryzysie emocjonalnym najważniejszy jest kontakt z psychologiem, psychiatrą lub telefonem zaufania — ten dokument jest dodatkiem do takiej pomocy, nigdy jej zamiennikiem. W nagłych sytuacjach zdrowotnych dzwońcie pod 112.</p>
+    <p class="font-semibold text-deep mb-1" data-i18n="discH">Ważne zastrzeżenie</p>
+    <p class="text-[14px] text-ink/80" data-i18n="discP">Treści mają charakter organizacyjny i informacyjny, nie medyczny ani terapeutyczny. W kryzysie emocjonalnym najważniejszy jest kontakt z psychologiem, psychiatrą lub telefonem zaufania — ten dokument jest dodatkiem do takiej pomocy, nigdy jej zamiennikiem. W nagłych sytuacjach zdrowotnych dzwońcie pod 112.</p>
   </div>
 
   <div class="bg-white border border-sanddark rounded-2xl p-5 mb-8">
-    <p class="font-semibold text-deep mb-3">Zobacz też</p>
+    <p class="font-semibold text-deep mb-3" data-i18n="seeAlsoH">Zobacz też</p>
     <div class="grid sm:grid-cols-2 gap-3">
       <a href="/produkty/plan-opieki-prenatalnej" class="group flex gap-3 items-center hover:bg-tealsoft rounded-xl p-2 -m-2 transition-colors">
         <span class="text-2xl">🤰</span>
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Plan opieki prenatalnej</p><p class="text-xs text-ink/60">29 zł</p></div>
+        <div><p class="font-semibold text-deep text-sm group-hover:text-teal" data-i18n="see1N">Plan opieki prenatalnej</p><p class="text-xs text-ink/60">29 zł</p></div>
       </a>
       <a href="/#kreator" class="group flex gap-3 items-center hover:bg-tealsoft rounded-xl p-2 -m-2 transition-colors">
         <span class="text-2xl">📋</span>
-        <div><p class="font-semibold text-deep text-sm group-hover:text-teal">Kreator planu porodu</p><p class="text-xs text-ink/60">bezpłatny podgląd</p></div>
+        <div><p class="font-semibold text-deep text-sm group-hover:text-teal" data-i18n="see2N">Kreator planu porodu</p><p class="text-xs text-ink/60" data-i18n="see2P">bezpłatny podgląd</p></div>
       </a>
     </div>
   </div>
 
   <div class="bg-white border border-sanddark rounded-2xl p-6">
-    <p class="font-semibold text-deep mb-3">Najczęstsze pytania</p>
-    <details class="mb-3"><summary class="font-semibold text-deep cursor-pointer text-[15px]">Czy ten przewodnik zastępuje wsparcie psychologa?</summary><p class="mt-2 text-[14px] text-ink/80">Nie. To dokument organizacyjny — pomaga rozmawiać ze szpitalem i porządkuje Wasze prawa i wybory. W żałobie i lęku najważniejszy jest kontakt z psychologiem, psychiatrą lub telefonem zaufania.</p></details>
-    <details><summary class="font-semibold text-deep cursor-pointer text-[15px]">Dla kogo jest ta publikacja?</summary><p class="mt-2 text-[14px] text-ink/80">Część I jest dla rodziców w ciąży po wcześniejszej stracie. Część II jest dla rodzin, które obecnie przechodzą przez stratę. Możecie czytać tylko tę część, której teraz potrzebujecie.</p></details>
+    <p class="font-semibold text-deep mb-3" data-i18n="faqH">Najczęstsze pytania</p>
+    <details class="mb-3"><summary class="font-semibold text-deep cursor-pointer text-[15px]" data-i18n="faq1q">Czy ten przewodnik zastępuje wsparcie psychologa?</summary><p class="mt-2 text-[14px] text-ink/80" data-i18n="faq1a">Nie. To dokument organizacyjny — pomaga rozmawiać ze szpitalem i porządkuje Wasze prawa i wybory. W żałobie i lęku najważniejszy jest kontakt z psychologiem, psychiatrą lub telefonem zaufania.</p></details>
+    <details><summary class="font-semibold text-deep cursor-pointer text-[15px]" data-i18n="faq2q">Dla kogo jest ta publikacja?</summary><p class="mt-2 text-[14px] text-ink/80" data-i18n="faq2a">Część I jest dla rodziców w ciąży po wcześniejszej stracie. Część II jest dla rodzin, które obecnie przechodzą przez stratę. Możecie czytać tylko tę część, której teraz potrzebujecie.</p></details>
   </div>
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm mt-10">
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
 </footer>
+<script>
+window.PAGE_I18N = {
+  en: {
+    navProducts: "All products", kicker: "PDF product · 12 pages", h1: "Birth Plan and Pregnancy After Loss",
+    intro: "How to talk to hospital staff in a pregnancy following an earlier loss — and what rights you have when you need to say goodbye. Two independent parts: for parents pregnant after a loss, and for families currently going through a loss. You only read the part you need right now.",
+    payNote: "One-time payment · instant PDF download", ctaBuy: "Buy now — 49 PLN",
+    h2feat: "What the guide includes",
+    feat1: "✓ Information card for hospital staff", feat2: "✓ Additional points for a standard birth plan", feat3: "✓ Practical ways to manage anxiety in pregnancy", feat4: "✓ When to call right away — clear criteria", feat5: "✓ Your rights and choices when saying goodbye", feat6: "✓ Keepsakes, presence of loved ones, spiritual support", feat7: "✓ Where to find support and psychological help", feat8: "✓ Quick-reference card to print for the room door",
+    whyH: "Why this exists", whyP: "Staff change with every shift. Without something written down, you have to retell your story to strangers again and again — which is exhausting in itself. This document speaks for you once, for the whole team.",
+    discH: "Important note", discP: "This content is organisational and informational, not medical or therapeutic. In an emotional crisis, the most important thing is contact with a psychologist, psychiatrist, or a crisis helpline — this document is a supplement to that help, never a substitute for it. In a medical emergency, call 112.",
+    seeAlsoH: "You may also like", see1N: "Prenatal Care Plan", see2N: "Birth plan creator", see2P: "free preview",
+    faqH: "Frequently asked questions", faq1q: "Does this guide replace support from a psychologist?", faq1a: "No. This is an organisational document — it helps you talk to hospital staff and sets out your rights and choices clearly. In grief and anxiety, the most important thing is contact with a psychologist, psychiatrist, or a crisis helpline.", faq2q: "Who is this publication for?", faq2a: "Part I is for parents who are pregnant after an earlier loss. Part II is for families currently going through a loss. You can read only the part you need right now."
+  },
+  de: {
+    navProducts: "Alle Produkte", kicker: "PDF-Produkt · 12 Seiten", h1: "Geburtsplan und Schwangerschaft nach Verlust",
+    intro: "Wie Sie in einer Schwangerschaft nach einem früheren Verlust mit dem Klinikpersonal sprechen — und welche Rechte Sie haben, wenn Sie Abschied nehmen müssen. Zwei unabhängige Teile: für Eltern, die nach einem Verlust schwanger sind, und für Familien, die gerade einen Verlust durchleben. Sie lesen nur den Teil, den Sie jetzt brauchen.",
+    payNote: "Einmalige Zahlung · sofortiger PDF-Download", ctaBuy: "Jetzt kaufen — 49 PLN",
+    h2feat: "Was der Ratgeber enthält",
+    feat1: "✓ Informationskarte für das Klinikpersonal", feat2: "✓ Zusätzliche Punkte für einen Standard-Geburtsplan", feat3: "✓ Praktischer Umgang mit Ängsten in der Schwangerschaft", feat4: "✓ Wann sofort anrufen — klare Kriterien", feat5: "✓ Ihre Rechte und Entscheidungen beim Abschiednehmen", feat6: "✓ Erinnerungsstücke, Anwesenheit von Angehörigen, seelsorgerische Begleitung", feat7: "✓ Wo Sie Unterstützung und psychologische Hilfe finden", feat8: "✓ Kurzkarte zum Ausdrucken für die Zimmertür",
+    whyH: "Warum es das gibt", whyP: "Das Personal wechselt mit jeder Schicht. Ohne schriftliche Informationen müssen Sie Ihre Geschichte immer wieder fremden Menschen erzählen — das allein ist erschöpfend. Dieses Dokument spricht einmal für Sie, für das ganze Team.",
+    discH: "Wichtiger Hinweis", discP: "Die Inhalte sind organisatorischer und informativer, nicht medizinischer oder therapeutischer Natur. In einer emotionalen Krise ist der Kontakt zu einem Psychologen, Psychiater oder einer Krisenhotline am wichtigsten — dieses Dokument ergänzt diese Hilfe, ersetzt sie aber nie. Im medizinischen Notfall wählen Sie 112.",
+    seeAlsoH: "Das könnte Sie auch interessieren", see1N: "Schwangerschaftsvorsorge-Plan", see2N: "Geburtsplan-Kreator", see2P: "kostenlose Vorschau",
+    faqH: "Häufige Fragen", faq1q: "Ersetzt dieser Ratgeber die Unterstützung durch einen Psychologen?", faq1a: "Nein. Dies ist ein organisatorisches Dokument — es hilft beim Gespräch mit dem Klinikpersonal und ordnet Ihre Rechte und Entscheidungen. Bei Trauer und Angst ist der Kontakt zu einem Psychologen, Psychiater oder einer Krisenhotline am wichtigsten.", faq2q: "Für wen ist diese Publikation?", faq2a: "Teil I richtet sich an Eltern, die nach einem früheren Verlust schwanger sind. Teil II richtet sich an Familien, die gerade einen Verlust durchleben. Sie können nur den Teil lesen, den Sie jetzt brauchen."
+  },
+  uk: {
+    navProducts: "Усі продукти", kicker: "PDF-продукт · 12 сторінок", h1: "План пологів і вагітності після втрати",
+    intro: "Як говорити з персоналом лікарні під час вагітності після попередньої втрати — і які у вас права, коли потрібно попрощатися. Дві незалежні частини: для батьків у вагітності після втрати та для родин, які зараз переживають втрату. Читаєте лише ту частину, яка потрібна вам зараз.",
+    payNote: "Одноразова оплата · миттєве завантаження PDF", ctaBuy: "Купити зараз — 49 злотих",
+    h2feat: "Що містить посібник",
+    feat1: "✓ Інформаційна картка для персоналу лікарні", feat2: "✓ Додаткові пункти до стандартного плану пологів", feat3: "✓ Практичне управління тривогою під час вагітності", feat4: "✓ Коли дзвонити негайно — чіткі критерії", feat5: "✓ Ваші права та вибір під час прощання", feat6: "✓ Пам'ятні речі, присутність близьких, духовна підтримка", feat7: "✓ Де шукати підтримку та психологічну допомогу", feat8: "✓ Швидка картка для друку на двері палати",
+    whyH: "Навіщо це існує", whyP: "Персонал змінюється з кожним чергуванням. Без записаної інформації вам доводиться неодноразово розповідати свою історію незнайомим людям — а це саме по собі виснажує. Цей документ говорить за вас один раз, для всієї команди.",
+    discH: "Важливе застереження", discP: "Зміст має організаційний та інформаційний характер, а не медичний чи терапевтичний. У емоційній кризі найважливіший контакт з психологом, психіатром або гарячою лінією допомоги — цей документ є доповненням до такої допомоги, ніколи її заміною. У невідкладних медичних ситуаціях телефонуйте 112.",
+    seeAlsoH: "Дивіться також", see1N: "План допологового спостереження", see2N: "Конструктор плану пологів", see2P: "безкоштовний перегляд",
+    faqH: "Часті запитання", faq1q: "Чи замінює цей посібник підтримку психолога?", faq1a: "Ні. Це організаційний документ — він допомагає говорити з персоналом лікарні та впорядковує ваші права і вибір. У горі та тривозі найважливіший контакт з психологом, психіатром або гарячою лінією допомоги.", faq2q: "Для кого це видання?", faq2a: "Частина I — для батьків у вагітності після попередньої втрати. Частина II — для родин, які зараз переживають втрату. Ви можете читати лише ту частину, яка потрібна вам зараз."
+  },
+  ru: {
+    navProducts: "Все продукты", kicker: "PDF-продукт · 12 страниц", h1: "План родов и беременности после потери",
+    intro: "Как говорить с персоналом больницы во время беременности после предыдущей потери — и какие у вас права, когда нужно попрощаться. Две независимые части: для родителей в беременности после потери и для семей, которые сейчас переживают потерю. Вы читаете только ту часть, которая нужна вам сейчас.",
+    payNote: "Разовая оплата · мгновенное скачивание PDF", ctaBuy: "Купить сейчас — 49 злотых",
+    h2feat: "Что включает руководство",
+    feat1: "✓ Информационная карта для персонала больницы", feat2: "✓ Дополнительные пункты к стандартному плану родов", feat3: "✓ Практическое управление тревогой во время беременности", feat4: "✓ Когда звонить немедленно — чёткие критерии", feat5: "✓ Ваши права и выбор при прощании", feat6: "✓ Памятные вещи, присутствие близких, духовная поддержка", feat7: "✓ Где искать поддержку и психологическую помощь", feat8: "✓ Быстрая карта для печати на дверь палаты",
+    whyH: "Зачем это существует", whyP: "Персонал меняется с каждой сменой. Без записанной информации вам приходится неоднократно рассказывать свою историю незнакомым людям — а это само по себе изматывает. Этот документ говорит за вас один раз, для всей команды.",
+    discH: "Важное примечание", discP: "Содержание носит организационный и информационный характер, а не медицинский или терапевтический. В эмоциональном кризисе важнее всего контакт с психологом, психиатром или горячей линией помощи — этот документ является дополнением к такой помощи, никогда не заменяя её. В неотложных медицинских ситуациях звоните 112.",
+    seeAlsoH: "Смотрите также", see1N: "План дородового наблюдения", see2N: "Конструктор плана родов", see2P: "бесплатный просмотр",
+    faqH: "Частые вопросы", faq1q: "Заменяет ли это руководство поддержку психолога?", faq1a: "Нет. Это организационный документ — он помогает говорить с персоналом больницы и упорядочивает ваши права и выбор. В горе и тревоге важнее всего контакт с психологом, психиатром или горячей линией помощи.", faq2q: "Для кого это издание?", faq2a: "Часть I — для родителей в беременности после предыдущей потери. Часть II — для семей, которые сейчас переживают потерю. Вы можете читать только ту часть, которая нужна вам сейчас."
+  }
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 <script src="/js/consent-gate.js?v=25" defer></script>
 </body>
 </html>

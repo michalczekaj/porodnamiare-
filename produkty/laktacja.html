@@ -82,46 +82,124 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#cennik" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+<div class="flex items-center gap-2">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2.5 py-2 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option><option value="ru">RU</option>
+  </select>
+  <a href="/#cennik" data-i18n="navProducts" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+</div>
 </nav></header>
 <main>
 <section class="max-w-5xl mx-auto px-4 pt-12 pb-10 grid md:grid-cols-2 gap-10 items-start">
   <div>
-    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Produkt · PDF do pobrania</p>
-    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Przewodnik laktacyjny — karmienie piersią krok po kroku</h1>
+    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="kicker">Produkt · PDF do pobrania</p>
+    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4" data-i18n="h1">Przewodnik laktacyjny — karmienie piersią krok po kroku</h1>
 
   <figure class="my-6">
     <img src="/img/produkty/laktacja.webp" alt="Przewodnik laktacyjny — okładka PDF" width="600" height="900" loading="eager" decoding="async"
          class="w-full max-w-[280px] mx-auto rounded-2xl shadow-lg border border-sanddark">
   </figure>
-    <p class="text-lg leading-relaxed mb-6">70% mam ma trudności z laktacją w pierwszych tygodniach. Ten przewodnik prowadzi Cię przez każdy etap: od pierwszego przystawienia po rozwiązywanie problemów, których nikt nie tłumaczy przed porodem.</p>
+    <p class="text-lg leading-relaxed mb-6" data-i18n="intro">70% mam ma trudności z laktacją w pierwszych tygodniach. Ten przewodnik prowadzi Cię przez każdy etap: od pierwszego przystawienia po rozwiązywanie problemów, których nikt nie tłumaczy przed porodem.</p>
     <div class="inline-flex items-start gap-2 text-xs text-ink/70 bg-white border border-sanddark rounded-xl px-3 py-2 mb-6">
       <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      <span>Zgodny ze Standardem Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od maja 2026)</span>
+      <span data-i18n="standardNote">Zgodny ze Standardem Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, obowiązuje od maja 2026)</span>
     </div>
     <div class="flex items-center gap-4 flex-wrap mb-3">
       <span class="font-display text-4xl font-semibold text-deep">39 zł</span>
-      <a href="https://payhip.com/b/jvaNw" target="_blank" rel="noopener" class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors text-lg">Kup przewodnik →</a>
+      <a href="https://payhip.com/b/jvaNw" target="_blank" rel="noopener" class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors text-lg" data-i18n="ctaBuy">Kup przewodnik →</a>
     </div>
-    <p class="text-xs text-ink/50">30 dni gwarancji zwrotu · PayHip + BLIK, karta, Apple/Google Pay, PayPal · PDF natychmiast po zakupie</p>
+    <p class="text-xs text-ink/50" data-i18n="guarNote">30 dni gwarancji zwrotu · PayHip + BLIK, karta, Apple/Google Pay, PayPal · PDF natychmiast po zakupie</p>
   </div>
   <div class="bg-deep rounded-3xl p-8 text-sand">
-    <h2 class="font-display text-xl font-semibold text-white mb-5">Co zawiera przewodnik</h2>
-    <ul class="space-y-3 text-[15px] text-sand/90"><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Prawidłowe przystawienie</strong> — technika, pozycje, oznaki dobrego chwytu</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Nawał i zastój mleka</strong> (2.–4. doba) — jak przejść bez bólu</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Mastitis vs zastój</strong> — jak rozpoznać i kiedy pilnie do lekarza</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Kryzysy laktacyjne</strong> — 3. tydzień, 6. tydzień, 3. miesiąc</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Karmienie po cięciu cesarskim</strong> — pozycje odciążające ranę</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Dokarmianie i odciąganie</strong> — kiedy, ile, jak przechowywać pokarm</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span><strong class='text-white'>Wskaźniki skutecznego karmienia</strong> — czy dziecko się najada</span></li></ul>
+    <h2 class="font-display text-xl font-semibold text-white mb-5" data-i18n="h2includes">Co zawiera przewodnik</h2>
+    <ul class="space-y-3 text-[15px] text-sand/90"><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li1"><strong class='text-white'>Prawidłowe przystawienie</strong> — technika, pozycje, oznaki dobrego chwytu</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li2"><strong class='text-white'>Nawał i zastój mleka</strong> (2.–4. doba) — jak przejść bez bólu</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li3"><strong class='text-white'>Mastitis vs zastój</strong> — jak rozpoznać i kiedy pilnie do lekarza</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li4"><strong class='text-white'>Kryzysy laktacyjne</strong> — 3. tydzień, 6. tydzień, 3. miesiąc</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li5"><strong class='text-white'>Karmienie po cięciu cesarskim</strong> — pozycje odciążające ranę</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li6"><strong class='text-white'>Dokarmianie i odciąganie</strong> — kiedy, ile, jak przechowywać pokarm</span></li><li class="flex gap-3"><span class="text-tealsoft font-bold flex-shrink-0">✓</span><span data-i18n="li7"><strong class='text-white'>Wskaźniki skutecznego karmienia</strong> — czy dziecko się najada</span></li></ul>
   </div>
 </section>
-<section class="max-w-5xl mx-auto px-4 py-12"><div class="bg-tealsoft rounded-2xl p-6 text-[15px] text-ink/80"><p class="font-display text-lg font-semibold text-deep mb-2">Podstawa merytoryczna</p><p>Opracowany na podstawie rekomendacji WHO dotyczących karmienia piersią, wytycznych Centrum Nauki o Laktacji oraz aktualnego Standardu Opieki Okołoporodowej (Dz.U. 2025 poz. 1525). Treść ma charakter edukacyjny i nie zastępuje konsultacji z doradcą laktacyjnym.</p></div></section>
+<section class="max-w-5xl mx-auto px-4 py-12"><div class="bg-tealsoft rounded-2xl p-6 text-[15px] text-ink/80"><p class="font-display text-lg font-semibold text-deep mb-2" data-i18n="basisH">Podstawa merytoryczna</p><p data-i18n="basisP">Opracowany na podstawie rekomendacji WHO dotyczących karmienia piersią, wytycznych Centrum Nauki o Laktacji oraz aktualnego Standardu Opieki Okołoporodowej (Dz.U. 2025 poz. 1525). Treść ma charakter edukacyjny i nie zastępuje konsultacji z doradcą laktacyjnym.</p></div></section>
 <section class="bg-deep text-sand py-12 text-center">
   <div class="max-w-lg mx-auto px-4">
-    <h2 class="font-display text-2xl font-semibold text-white mb-3">Przygotuj się do karmienia, zanim przyjdzie nawał</h2>
-    <p class="text-sand/80 mb-6">39 zł. PDF w 24 h. 30 dni gwarancji zwrotu.</p>
-    <a href="https://payhip.com/b/jvaNw" target="_blank" rel="noopener" class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors text-lg">Kup przewodnik — 39 zł</a>
+    <h2 class="font-display text-2xl font-semibold text-white mb-3" data-i18n="ctaH">Przygotuj się do karmienia, zanim przyjdzie nawał</h2>
+    <p class="text-sand/80 mb-6" data-i18n="ctaP">39 zł. PDF w 24 h. 30 dni gwarancji zwrotu.</p>
+    <a href="https://payhip.com/b/jvaNw" target="_blank" rel="noopener" class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors text-lg" data-i18n="ctaBuy2">Kup przewodnik — 39 zł</a>
   </div>
 </section>
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm border-t border-sand/10">
 <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
-<p class="mt-2 text-xs text-sand/40">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
+<p class="mt-2 text-xs text-sand/40" data-i18n="footDisc">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
 </footer>
+<script>
+window.PAGE_I18N = {
+  en: {
+    navProducts: "All products", kicker: "Product · PDF download", h1: "Breastfeeding Guide — nursing step by step",
+    intro: "70% of mums struggle with breastfeeding in the first weeks. This guide walks you through every stage: from the first latch to solving problems no one explains before birth.",
+    standardNote: "Compliant with the Perinatal Care Standard (Journal of Laws 2025, item 1525, effective May 2026)",
+    ctaBuy: "Get the guide →", guarNote: "30-day money-back guarantee · PayHip + BLIK, card, Apple/Google Pay, PayPal · PDF instantly after purchase",
+    h2includes: "What the guide includes",
+    li1: "<strong class='text-white'>Correct latch</strong> — technique, positions, signs of a good latch",
+    li2: "<strong class='text-white'>Engorgement and milk stasis</strong> (days 2–4) — how to get through it pain-free",
+    li3: "<strong class='text-white'>Mastitis vs. stasis</strong> — how to tell them apart and when to see a doctor urgently",
+    li4: "<strong class='text-white'>Breastfeeding crises</strong> — week 3, week 6, month 3",
+    li5: "<strong class='text-white'>Feeding after a C-section</strong> — positions that keep pressure off the wound",
+    li6: "<strong class='text-white'>Supplementing and pumping</strong> — when, how much, how to store milk",
+    li7: "<strong class='text-white'>Signs of effective feeding</strong> — is the baby getting enough",
+    basisH: "Evidence base", basisP: "Developed based on WHO breastfeeding recommendations, guidelines from the Center for Breastfeeding Science, and the current Perinatal Care Standard (Journal of Laws 2025, item 1525). This content is educational and does not replace a consultation with a lactation consultant.",
+    ctaH: "Get ready for feeding before engorgement hits", ctaP: "39 PLN. PDF within 24 h. 30-day money-back guarantee.", ctaBuy2: "Get the guide — 39 PLN",
+    footDisc: "This content is educational and does not replace medical or midwifery advice."
+  },
+  de: {
+    navProducts: "Alle Produkte", kicker: "Produkt · PDF-Download", h1: "Stillratgeber — Stillen Schritt für Schritt",
+    intro: "70 % der Mütter haben in den ersten Wochen Stillschwierigkeiten. Dieser Ratgeber führt Sie durch jede Phase: vom ersten Anlegen bis zur Lösung von Problemen, die vor der Geburt niemand erklärt.",
+    standardNote: "Konform mit dem Standard der perinatalen Versorgung (GBl. 2025, Pos. 1525, gültig ab Mai 2026)",
+    ctaBuy: "Ratgeber holen →", guarNote: "30 Tage Geld-zurück-Garantie · PayHip + BLIK, Karte, Apple/Google Pay, PayPal · PDF sofort nach dem Kauf",
+    h2includes: "Was der Ratgeber enthält",
+    li1: "<strong class='text-white'>Richtiges Anlegen</strong> — Technik, Positionen, Anzeichen eines guten Anlegens",
+    li2: "<strong class='text-white'>Milcheinschuss und Milchstau</strong> (2.–4. Tag) — schmerzfrei durchkommen",
+    li3: "<strong class='text-white'>Mastitis vs. Milchstau</strong> — Unterscheidung und wann dringend zum Arzt",
+    li4: "<strong class='text-white'>Stillkrisen</strong> — 3. Woche, 6. Woche, 3. Monat",
+    li5: "<strong class='text-white'>Stillen nach Kaiserschnitt</strong> — Positionen, die die Wunde entlasten",
+    li6: "<strong class='text-white'>Zufüttern und Abpumpen</strong> — wann, wie viel, wie Milch aufbewahren",
+    li7: "<strong class='text-white'>Anzeichen für effektives Stillen</strong> — bekommt das Baby genug",
+    basisH: "Fachliche Grundlage", basisP: "Entwickelt auf Basis der WHO-Stillempfehlungen, der Leitlinien des Zentrums für Stillwissenschaft und des aktuellen Standards der perinatalen Versorgung (GBl. 2025, Pos. 1525). Die Inhalte dienen Bildungszwecken und ersetzen keine Beratung durch eine Stillberaterin.",
+    ctaH: "Bereiten Sie sich aufs Stillen vor, bevor der Milcheinschuss kommt", ctaP: "39 PLN. PDF innerhalb von 24 Std. 30 Tage Geld-zurück-Garantie.", ctaBuy2: "Ratgeber holen — 39 PLN",
+    footDisc: "Diese Inhalte dienen Bildungszwecken und ersetzen keine ärztliche oder hebammliche Beratung."
+  },
+  uk: {
+    navProducts: "Усі продукти", kicker: "Продукт · PDF для завантаження", h1: "Посібник з лактації — грудне вигодовування крок за кроком",
+    intro: "70% мам мають труднощі з лактацією в перші тижні. Цей посібник проведе вас через кожен етап: від першого прикладання до вирішення проблем, про які ніхто не розповідає до пологів.",
+    standardNote: "Відповідає Стандарту перинатальної допомоги (Dz.U. 2025 поз. 1525, чинний з травня 2026)",
+    ctaBuy: "Отримати посібник →", guarNote: "30 днів гарантії повернення коштів · PayHip + BLIK, картка, Apple/Google Pay, PayPal · PDF одразу після покупки",
+    h2includes: "Що містить посібник",
+    li1: "<strong class='text-white'>Правильне прикладання</strong> — техніка, позиції, ознаки хорошого захоплення",
+    li2: "<strong class='text-white'>Нагрубання та застій молока</strong> (2–4 доба) — як пройти без болю",
+    li3: "<strong class='text-white'>Мастит проти застою</strong> — як розпізнати і коли терміново до лікаря",
+    li4: "<strong class='text-white'>Лактаційні кризи</strong> — 3-й тиждень, 6-й тиждень, 3-й місяць",
+    li5: "<strong class='text-white'>Годування після кесаревого розтину</strong> — позиції, що не тиснуть на рану",
+    li6: "<strong class='text-white'>Догодовування та зціджування</strong> — коли, скільки, як зберігати молоко",
+    li7: "<strong class='text-white'>Ознаки ефективного годування</strong> — чи наїдається дитина",
+    basisH: "Фахова основа", basisP: "Розроблено на основі рекомендацій ВООЗ щодо грудного вигодовування, настанов Центру науки про лактацію та чинного Стандарту перинатальної допомоги (Dz.U. 2025 поз. 1525). Зміст має освітній характер і не замінює консультацію з консультантом з лактації.",
+    ctaH: "Підготуйтеся до годування до того, як прийде нагрубання", ctaP: "39 злотих. PDF протягом 24 год. 30 днів гарантії повернення коштів.", ctaBuy2: "Отримати посібник — 39 злотих",
+    footDisc: "Зміст має освітній характер і не замінює консультацію лікаря чи акушерки."
+  },
+  ru: {
+    navProducts: "Все продукты", kicker: "Продукт · PDF для скачивания", h1: "Руководство по лактации — грудное вскармливание шаг за шагом",
+    intro: "70% мам испытывают трудности с лактацией в первые недели. Это руководство проведёт вас через каждый этап: от первого прикладывания до решения проблем, о которых никто не рассказывает до родов.",
+    standardNote: "Соответствует Стандарту перинатальной помощи (Dz.U. 2025 поз. 1525, действует с мая 2026)",
+    ctaBuy: "Получить руководство →", guarNote: "30 дней гарантии возврата денег · PayHip + BLIK, карта, Apple/Google Pay, PayPal · PDF сразу после покупки",
+    h2includes: "Что включает руководство",
+    li1: "<strong class='text-white'>Правильное прикладывание</strong> — техника, позиции, признаки хорошего захвата",
+    li2: "<strong class='text-white'>Нагрубание и застой молока</strong> (2–4 сутки) — как пройти без боли",
+    li3: "<strong class='text-white'>Мастит против застоя</strong> — как распознать и когда срочно к врачу",
+    li4: "<strong class='text-white'>Лактационные кризисы</strong> — 3-я неделя, 6-я неделя, 3-й месяц",
+    li5: "<strong class='text-white'>Кормление после кесарева сечения</strong> — позиции, не давящие на рану",
+    li6: "<strong class='text-white'>Докорм и сцеживание</strong> — когда, сколько, как хранить молоко",
+    li7: "<strong class='text-white'>Признаки эффективного кормления</strong> — наедается ли ребёнок",
+    basisH: "Профессиональная основа", basisP: "Разработано на основе рекомендаций ВОЗ по грудному вскармливанию, руководств Центра науки о лактации и действующего Стандарта перинатальной помощи (Dz.U. 2025 поз. 1525). Содержание носит образовательный характер и не заменяет консультацию с консультантом по грудному вскармливанию.",
+    ctaH: "Подготовьтесь к кормлению до прихода нагрубания", ctaP: "39 злотых. PDF в течение 24 ч. 30 дней гарантии возврата денег.", ctaBuy2: "Получить руководство — 39 злотых",
+    footDisc: "Содержание носит образовательный характер и не заменяет консультацию врача или акушерки."
+  }
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 <script src="/js/consent-gate.js?v=25" defer></script>
 </body></html>

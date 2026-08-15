@@ -83,40 +83,45 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
 <header class="sticky top-0 z-50 bg-sand/90 backdrop-blur border-b border-sanddark">
 <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
 <a href="/" class="flex items-center gap-2 font-display text-lg text-deep font-semibold"><img src="/img/logo-mark.webp" alt="" width="34" height="32" class="w-8 h-auto">Poród<span class="text-teal">NaMiarę</span>.pl</a>
-<a href="/#cennik" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+<div class="flex items-center gap-2">
+  <select id="langSwitch" class="text-xs font-semibold border border-deep/30 rounded-full px-2.5 py-2 bg-sand cursor-pointer" aria-label="Język / Language">
+    <option value="pl">PL</option><option value="en">EN</option><option value="de">DE</option><option value="uk">UA</option><option value="ru">RU</option>
+  </select>
+  <a href="/#cennik" data-i18n="navProducts" class="bg-teal text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-deep">Wszystkie produkty</a>
+</div>
 </nav></header>
 <main>
 
 <section class="max-w-5xl mx-auto px-4 pt-12 pb-10 grid md:grid-cols-2 gap-10 items-start">
   <div>
-    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Produkt #4 · PDF dla taty</p>
-    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4">Checklist dla taty przy porodzie — od pierwszego skurczu do pierwszych tygodni w domu</h1>
+    <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3" data-i18n="kicker">Produkt #4 · PDF dla taty</p>
+    <h1 class="font-display text-3xl md:text-4xl font-semibold text-deep leading-tight mb-4" data-i18n="h1">Checklist dla taty przy porodzie — od pierwszego skurczu do pierwszych tygodni w domu</h1>
 
   <figure class="my-6">
     <img src="/img/produkty/checklist-dla-taty.webp" alt="Checklist dla taty — okładka PDF" width="600" height="900" loading="eager" decoding="async"
          class="w-full max-w-[280px] mx-auto rounded-2xl shadow-lg border border-sanddark">
   </figure>
-    <p class="text-lg leading-relaxed mb-4">Większość poradników porodowych jest pisana dla kobiet. Ten jest dla Ciebie. Co zrobić, co powiedzieć, czego unikać — konkretne punkty zamiast ogólnych rad. Napisane przez tatę, który siedział na tej samej sali i nie wiedział połowy tego, co tu znajdziesz.</p>
-    <p class="text-base leading-relaxed mb-6 text-ink/80">Nie musisz znać się na medycynie. Musisz wiedzieć, jakie masz zadanie na każdym etapie — i to właśnie tu znajdziesz.</p>
+    <p class="text-lg leading-relaxed mb-4" data-i18n="intro1">Większość poradników porodowych jest pisana dla kobiet. Ten jest dla Ciebie. Co zrobić, co powiedzieć, czego unikać — konkretne punkty zamiast ogólnych rad. Napisane przez tatę, który siedział na tej samej sali i nie wiedział połowy tego, co tu znajdziesz.</p>
+    <p class="text-base leading-relaxed mb-6 text-ink/80" data-i18n="intro2">Nie musisz znać się na medycynie. Musisz wiedzieć, jakie masz zadanie na każdym etapie — i to właśnie tu znajdziesz.</p>
     <div class="flex items-center gap-4 flex-wrap mb-4">
       <span class="font-display text-4xl font-semibold text-deep">29 zł</span>
       <a href="https://payhip.com/b/GTrSm" target="_blank" rel="noopener"
-         class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors text-lg">Kup checklist dla taty →</a>
+         class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors text-lg" data-i18n="ctaBuy">Kup checklist dla taty →</a>
     </div>
-    <p class="text-xs text-ink/50 mb-8">30 dni gwarancji zwrotu · BLIK, karta, Apple/Google Pay, PayPal · PDF w 24 h</p>
+    <p class="text-xs text-ink/50 mb-8" data-i18n="guarNote">30 dni gwarancji zwrotu · BLIK, karta, Apple/Google Pay, PayPal · PDF w 24 h</p>
 
     <div class="bg-tealsoft rounded-2xl p-6">
-      <p class="font-display text-lg font-semibold text-deep mb-4">Co zawiera checklist</p>
+      <p class="font-display text-lg font-semibold text-deep mb-4" data-i18n="h2includes">Co zawiera checklist</p>
       <ul class="space-y-3 text-[15px]">
-        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">1.</span><span><strong>Zanim wyjdziecie</strong> — co spakować do swojej torby, jak dojechać, gdzie zaparkować, kogo powiadomić i kiedy</span></li>
-        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">2.</span><span><strong>Pierwsze skurcze w domu</strong> — jak mierzyć skurcze (reguła 5-1-1), co mówić, jak nie panikować i nie zarażać partnerki paniką</span></li>
-        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">3.</span><span><strong>Izba przyjęć i przyjęcie do szpitala</strong> — o co pytasz przy przyjęciu, jak wręczyć plan porodu, co mówić personelowi</span></li>
-        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">4.</span><span><strong>Sala porodowa — Twoja rola</strong> — masaż lędźwi, pozycje, oddech razem z partnerką, kiedy wezwać położną (i jak), jak zadbać o atmosferę w sali (światło, cisza, muzyka)</span></li>
-        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">5.</span><span><strong>Rzeczy, które możesz powiedzieć — i których NIE mówić</strong> — lista konkretnych zdań na każdy etap, żebyś nie szukał słów w najtrudniejszym momencie</span></li>
-        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">6.</span><span><strong>Tuż po porodzie</strong> — kontakt skóra do skóry z dzieckiem gdy mama nie może, co zapamiętać, co fotografować, kogo powiadomić i kiedy</span></li>
-        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">7.</span><span><strong>Oddział i wypis</strong> — jak pilnować, żeby plan połogu był respektowany, lista pytań do neonatologa przed wypisem, fotelik i powrót do domu</span></li>
-        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">8.</span><span><strong>Pierwsze 4 tygodnie w domu</strong> — jak realnie pomagać (nie chwalić, że „tak dobrze dajesz radę"), jak rozpoznać depresję poporodową u partnerki, kiedy dzwonić do lekarza</span></li>
-        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">9.</span><span><strong>Sygnały alarmowe — noworodek i mama</strong> — kiedy jedziesz na izbę bez czekania na rano</span></li>
+        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">1.</span><span data-i18n="li1"><strong>Zanim wyjdziecie</strong> — co spakować do swojej torby, jak dojechać, gdzie zaparkować, kogo powiadomić i kiedy</span></li>
+        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">2.</span><span data-i18n="li2"><strong>Pierwsze skurcze w domu</strong> — jak mierzyć skurcze (reguła 5-1-1), co mówić, jak nie panikować i nie zarażać partnerki paniką</span></li>
+        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">3.</span><span data-i18n="li3"><strong>Izba przyjęć i przyjęcie do szpitala</strong> — o co pytasz przy przyjęciu, jak wręczyć plan porodu, co mówić personelowi</span></li>
+        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">4.</span><span data-i18n="li4"><strong>Sala porodowa — Twoja rola</strong> — masaż lędźwi, pozycje, oddech razem z partnerką, kiedy wezwać położną (i jak), jak zadbać o atmosferę w sali (światło, cisza, muzyka)</span></li>
+        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">5.</span><span data-i18n="li5"><strong>Rzeczy, które możesz powiedzieć — i których NIE mówić</strong> — lista konkretnych zdań na każdy etap, żebyś nie szukał słów w najtrudniejszym momencie</span></li>
+        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">6.</span><span data-i18n="li6"><strong>Tuż po porodzie</strong> — kontakt skóra do skóry z dzieckiem gdy mama nie może, co zapamiętać, co fotografować, kogo powiadomić i kiedy</span></li>
+        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">7.</span><span data-i18n="li7"><strong>Oddział i wypis</strong> — jak pilnować, żeby plan połogu był respektowany, lista pytań do neonatologa przed wypisem, fotelik i powrót do domu</span></li>
+        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">8.</span><span data-i18n="li8"><strong>Pierwsze 4 tygodnie w domu</strong> — jak realnie pomagać (nie chwalić, że „tak dobrze dajesz radę"), jak rozpoznać depresję poporodową u partnerki, kiedy dzwonić do lekarza</span></li>
+        <li class="flex gap-3"><span class="text-teal font-bold w-6 flex-shrink-0">9.</span><span data-i18n="li9"><strong>Sygnały alarmowe — noworodek i mama</strong> — kiedy jedziesz na izbę bez czekania na rano</span></li>
       </ul>
     </div>
   </div>
@@ -125,44 +130,157 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2,h3{fo
     <!-- Cytat taty -->
     <div class="bg-deep rounded-2xl p-7 text-sand">
       <p class="text-sand/40 font-display text-4xl leading-none mb-3">"</p>
-      <p class="text-[16px] leading-relaxed text-sand/90 mb-4">Byłem przy porodzie. Byłem pełen dobrych chęci i nie wiedziałem, co robić z rękami. Nie wiedziałem, że mam pilnować ciszy na sali. Nie wiedziałem, co zrobić, gdy partnerka krzyczała. Gdybym miał tę listę, byłbym tatą, a nie przestraszonym gościem.</p>
-      <p class="font-semibold text-tealsoft text-sm">Michał, tata i twórca PoródNaMiarę.pl</p>
+      <p class="text-[16px] leading-relaxed text-sand/90 mb-4" data-i18n="quote1">Byłem przy porodzie. Byłem pełen dobrych chęci i nie wiedziałem, co robić z rękami. Nie wiedziałem, że mam pilnować ciszy na sali. Nie wiedziałem, co zrobić, gdy partnerka krzyczała. Gdybym miał tę listę, byłbym tatą, a nie przestraszonym gościem.</p>
+      <p class="font-semibold text-tealsoft text-sm" data-i18n="quote1Attr">Michał, tata i twórca PoródNaMiarę.pl</p>
     </div>
 
     <!-- Statystyki dla taty -->
     <div class="bg-white border border-sanddark rounded-2xl p-6">
-      <p class="font-display text-lg font-semibold text-deep mb-4">Dlaczego tata robi różnicę</p>
+      <p class="font-display text-lg font-semibold text-deep mb-4" data-i18n="statsH">Dlaczego tata robi różnicę</p>
       <ul class="space-y-3 text-[15px] text-ink/80">
-        <li class="flex gap-2"><span class="text-teal">→</span><span>Aktywne wsparcie partnera skraca I fazę porodu o ok. 25% (badania Hodnett et al.)</span></li>
-        <li class="flex gap-2"><span class="text-teal">→</span><span>Obecność taty zmniejsza zapotrzebowanie na znieczulenie zewnątrzoponowe</span></li>
-        <li class="flex gap-2"><span class="text-teal">→</span><span>Tata, który wie, co ma robić, redukuje stres partnerki — a kortyzol bezpośrednio wpływa na przebieg porodu</span></li>
-        <li class="flex gap-2"><span class="text-teal">→</span><span>Kontakt skóra do skóry taty z noworodkiem stabilizuje temperaturę i tętno dziecka tak samo jak kontakt z mamą</span></li>
-        <li class="text-xs text-ink/40 pt-1">Dane mają charakter orientacyjny i poglądowy. Nie są to twierdzenia medyczne ani wyniki kliniczne dla tego produktu.</li>
+        <li class="flex gap-2"><span class="text-teal">→</span><span data-i18n="stat1">Aktywne wsparcie partnera skraca I fazę porodu o ok. 25% (badania Hodnett et al.)</span></li>
+        <li class="flex gap-2"><span class="text-teal">→</span><span data-i18n="stat2">Obecność taty zmniejsza zapotrzebowanie na znieczulenie zewnątrzoponowe</span></li>
+        <li class="flex gap-2"><span class="text-teal">→</span><span data-i18n="stat3">Tata, który wie, co ma robić, redukuje stres partnerki — a kortyzol bezpośrednio wpływa na przebieg porodu</span></li>
+        <li class="flex gap-2"><span class="text-teal">→</span><span data-i18n="stat4">Kontakt skóra do skóry taty z noworodkiem stabilizuje temperaturę i tętno dziecka tak samo jak kontakt z mamą</span></li>
+        <li class="text-xs text-ink/40 pt-1" data-i18n="statsDisc">Dane mają charakter orientacyjny i poglądowy. Nie są to twierdzenia medyczne ani wyniki kliniczne dla tego produktu.</li>
       </ul>
     </div>
 
     <!-- Upsell -->
     <div class="bg-tealsoft rounded-2xl p-6 border border-sanddark">
-      <p class="font-semibold text-deep mb-2">Najlepiej działa w zestawie</p>
-      <p class="text-sm text-ink/80 mb-4">Checklist dla taty + Plan porodu Premium = kompletne przygotowanie obojga. Razem 128 zł zamiast 128 zł — i oboje wiecie, czego chcecie i co robić.</p>
-      <a href="/#cennik" class="block text-center bg-deep text-white font-semibold px-6 py-3 rounded-full hover:bg-teal transition-colors text-sm">Zobacz wszystkie pakiety →</a>
+      <p class="font-semibold text-deep mb-2" data-i18n="upsellH">Najlepiej działa w zestawie</p>
+      <p class="text-sm text-ink/80 mb-4" data-i18n="upsellP">Checklist dla taty + Plan porodu Premium = kompletne przygotowanie obojga. Razem 128 zł zamiast 128 zł — i oboje wiecie, czego chcecie i co robić.</p>
+      <a href="/#cennik" class="block text-center bg-deep text-white font-semibold px-6 py-3 rounded-full hover:bg-teal transition-colors text-sm" data-i18n="upsellCta">Zobacz wszystkie pakiety →</a>
     </div>
   </div>
 </section>
 
 <section class="bg-deep text-sand py-12 text-center">
   <div class="max-w-lg mx-auto px-4">
-    <h2 class="font-display text-2xl font-semibold text-white mb-3">Bądź tatą, nie świadkiem. Przygotuj się.</h2>
-    <p class="text-sand/80 mb-6">29 zł. PDF w 24 h. 30 dni gwarancji zwrotu. Żadnego marketingowego szumu — tylko to, co naprawdę potrzebujesz wiedzieć.</p>
+    <h2 class="font-display text-2xl font-semibold text-white mb-3" data-i18n="ctaH">Bądź tatą, nie świadkiem. Przygotuj się.</h2>
+    <p class="text-sand/80 mb-6" data-i18n="ctaP">29 zł. PDF w 24 h. 30 dni gwarancji zwrotu. Żadnego marketingowego szumu — tylko to, co naprawdę potrzebujesz wiedzieć.</p>
     <a href="https://payhip.com/b/GTrSm" target="_blank" rel="noopener"
-       class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors text-lg">Kup checklist dla taty — 29 zł</a>
+       class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-white hover:text-deep transition-colors text-lg" data-i18n="ctaBuy2">Kup checklist dla taty — 29 zł</a>
   </div>
 </section>
 
 </main>
 <footer class="bg-deep text-sand/70 py-8 text-center text-sm">
 <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Regulamin</a> · <a href="/polityka-prywatnosci" class="underline">Prywatność</a> · <a href="/formularz-odstapienia" class="underline">Odstąpienie od umowy</a></p>
-<p class="mt-2 text-xs text-sand/40">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
+<p class="mt-2 text-xs text-sand/40" data-i18n="footDisc">Treści mają charakter edukacyjny i nie zastępują porady lekarskiej ani położniczej.</p>
 </footer>
+<script>
+window.PAGE_I18N = {
+  en: {
+    navProducts: "All products", kicker: "Product #4 · PDF for dads", h1: "Dad's Birth Checklist — from the first contraction to the first weeks at home",
+    intro1: "Most birth guides are written for women. This one is for you. What to do, what to say, what to avoid — concrete points instead of general advice. Written by a dad who sat in that same room and didn't know half of what you'll find here.",
+    intro2: "You don't need to know medicine. You need to know your job at every stage — and that's exactly what you'll find here.",
+    ctaBuy: "Get dad's checklist →", guarNote: "30-day money-back guarantee · BLIK, card, Apple/Google Pay, PayPal · PDF within 24 h",
+    h2includes: "What the checklist includes",
+    li1: "<strong>Before you leave</strong> — what to pack in your own bag, how to get there, where to park, who to notify and when",
+    li2: "<strong>First contractions at home</strong> — how to time contractions (the 5-1-1 rule), what to say, how not to panic or spread panic to your partner",
+    li3: "<strong>Admissions and hospital check-in</strong> — what to ask at admission, how to hand over the birth plan, what to tell staff",
+    li4: "<strong>The delivery room — your role</strong> — lower-back massage, positions, breathing together with your partner, when to call the midwife (and how), how to manage the room's atmosphere (light, quiet, music)",
+    li5: "<strong>Things you can say — and things NOT to say</strong> — a list of concrete phrases for every stage, so you're not searching for words at the hardest moment",
+    li6: "<strong>Right after birth</strong> — skin-to-skin with the baby when mum can't, what to remember, what to photograph, who to notify and when",
+    li7: "<strong>The ward and discharge</strong> — how to make sure the postpartum plan is respected, a list of questions for the neonatologist before discharge, the car seat and going home",
+    li8: "<strong>The first 4 weeks at home</strong> — how to actually help (not just praising \"you're doing so well\"), how to recognise postpartum depression in your partner, when to call a doctor",
+    li9: "<strong>Warning signs — newborn and mum</strong> — when you go to A&E without waiting until morning",
+    quote1: "I was there for the birth. I was full of good intentions and didn't know what to do with my hands. I didn't know I was supposed to keep the room quiet. I didn't know what to do when my partner screamed. If I'd had this list, I'd have been a dad, not a scared bystander.",
+    quote1Attr: "Michał, dad and founder of PoródNaMiarę.pl",
+    statsH: "Why dad makes a difference",
+    stat1: "Active partner support shortens the first stage of labour by about 25% (Hodnett et al. research)",
+    stat2: "A dad's presence reduces the need for epidural anaesthesia",
+    stat3: "A dad who knows what to do reduces his partner's stress — and cortisol directly affects how labour progresses",
+    stat4: "Skin-to-skin contact between dad and newborn stabilises the baby's temperature and heart rate just as well as contact with mum",
+    statsDisc: "This data is indicative and illustrative. It is not a medical claim or clinical result for this product.",
+    upsellH: "Works best as a set", upsellP: "Dad's checklist + Premium birth plan = complete preparation for both of you. Together for the same price as buying the birth plan alone — and you both know what you want and what to do.", upsellCta: "See all packages →",
+    ctaH: "Be a dad, not a bystander. Get ready.", ctaP: "29 PLN. PDF within 24 h. 30-day money-back guarantee. No marketing noise — just what you actually need to know.", ctaBuy2: "Get dad's checklist — 29 PLN",
+    footDisc: "This content is educational and does not replace medical or midwifery advice."
+  },
+  de: {
+    navProducts: "Alle Produkte", kicker: "Produkt Nr. 4 · PDF für Väter", h1: "Checkliste für Väter bei der Geburt — von der ersten Wehe bis zu den ersten Wochen zu Hause",
+    intro1: "Die meisten Geburtsratgeber sind für Frauen geschrieben. Dieser ist für Sie. Was tun, was sagen, was vermeiden — konkrete Punkte statt allgemeiner Ratschläge. Geschrieben von einem Vater, der im selben Kreißsaal saß und die Hälfte von dem, was Sie hier finden, nicht wusste.",
+    intro2: "Sie müssen kein Mediziner sein. Sie müssen wissen, was Ihre Aufgabe in jeder Phase ist — und genau das finden Sie hier.",
+    ctaBuy: "Väter-Checkliste holen →", guarNote: "30 Tage Geld-zurück-Garantie · BLIK, Karte, Apple/Google Pay, PayPal · PDF innerhalb von 24 Std.",
+    h2includes: "Was die Checkliste enthält",
+    li1: "<strong>Bevor Sie losfahren</strong> — was in Ihre eigene Tasche gehört, wie Sie hinkommen, wo Sie parken, wen Sie wann informieren",
+    li2: "<strong>Erste Wehen zu Hause</strong> — wie man Wehen misst (die 5-1-1-Regel), was zu sagen ist, wie man nicht in Panik gerät und die Partnerin nicht ansteckt",
+    li3: "<strong>Aufnahme in der Klinik</strong> — was Sie bei der Aufnahme fragen, wie Sie den Geburtsplan übergeben, was Sie dem Personal sagen",
+    li4: "<strong>Der Kreißsaal — Ihre Rolle</strong> — Lendenmassage, Positionen, gemeinsames Atmen mit der Partnerin, wann die Hebamme rufen (und wie), wie Sie für die richtige Atmosphäre im Raum sorgen (Licht, Ruhe, Musik)",
+    li5: "<strong>Dinge, die Sie sagen können — und Dinge, die Sie NICHT sagen sollten</strong> — eine Liste konkreter Sätze für jede Phase, damit Sie im schwierigsten Moment nicht nach Worten suchen",
+    li6: "<strong>Direkt nach der Geburt</strong> — Haut-zu-Haut mit dem Baby, wenn Mama nicht kann, was Sie sich merken sollten, was Sie fotografieren, wen Sie wann informieren",
+    li7: "<strong>Station und Entlassung</strong> — wie Sie sicherstellen, dass der Wochenbett-Plan respektiert wird, eine Liste von Fragen an den Neonatologen vor der Entlassung, der Autositz und der Weg nach Hause",
+    li8: "<strong>Die ersten 4 Wochen zu Hause</strong> — wie man wirklich hilft (nicht nur loben, dass sie „das so gut macht“), wie man eine Wochenbettdepression bei der Partnerin erkennt, wann man den Arzt anruft",
+    li9: "<strong>Alarmzeichen — Neugeborenes und Mama</strong> — wann Sie in die Notaufnahme fahren, ohne bis zum Morgen zu warten",
+    quote1: "Ich war bei der Geburt dabei. Ich war voller guter Absichten und wusste nicht, wohin mit meinen Händen. Ich wusste nicht, dass ich für Ruhe im Raum sorgen sollte. Ich wusste nicht, was zu tun ist, wenn meine Partnerin schrie. Hätte ich diese Liste gehabt, wäre ich ein Vater gewesen, kein verängstigter Zuschauer.",
+    quote1Attr: "Michał, Vater und Gründer von PoródNaMiarę.pl",
+    statsH: "Warum der Vater einen Unterschied macht",
+    stat1: "Aktive Unterstützung des Partners verkürzt die Eröffnungsphase um ca. 25 % (Studie von Hodnett et al.)",
+    stat2: "Die Anwesenheit des Vaters verringert den Bedarf an einer Epiduralanästhesie",
+    stat3: "Ein Vater, der weiß, was zu tun ist, reduziert den Stress der Partnerin — und Cortisol beeinflusst den Geburtsverlauf direkt",
+    stat4: "Haut-zu-Haut-Kontakt zwischen Vater und Neugeborenem stabilisiert Temperatur und Herzfrequenz des Babys genauso gut wie der Kontakt mit der Mutter",
+    statsDisc: "Diese Angaben sind orientierend und veranschaulichend. Es handelt sich nicht um medizinische Aussagen oder klinische Ergebnisse für dieses Produkt.",
+    upsellH: "Funktioniert am besten im Set", upsellP: "Väter-Checkliste + Premium-Geburtsplan = komplette Vorbereitung für Sie beide. Zusammen zum Preis des Geburtsplans allein — und Sie wissen beide, was Sie wollen und was zu tun ist.", upsellCta: "Alle Pakete ansehen →",
+    ctaH: "Sei ein Vater, kein Zuschauer. Bereiten Sie sich vor.", ctaP: "29 PLN. PDF innerhalb von 24 Std. 30 Tage Geld-zurück-Garantie. Kein Marketing-Lärm — nur das, was Sie wirklich wissen müssen.", ctaBuy2: "Väter-Checkliste holen — 29 PLN",
+    footDisc: "Diese Inhalte dienen Bildungszwecken und ersetzen keine ärztliche oder hebammliche Beratung."
+  },
+  uk: {
+    navProducts: "Усі продукти", kicker: "Продукт №4 · PDF для тата", h1: "Чекліст для тата на пологах — від першої перейми до перших тижнів удома",
+    intro1: "Більшість посібників з пологів написані для жінок. Цей — для вас. Що робити, що казати, чого уникати — конкретні пункти замість загальних порад. Написано татом, який сидів у тій самій залі і не знав половини того, що ви тут знайдете.",
+    intro2: "Вам не потрібно розбиратися в медицині. Вам потрібно знати своє завдання на кожному етапі — саме це ви тут знайдете.",
+    ctaBuy: "Отримати чекліст для тата →", guarNote: "30 днів гарантії повернення коштів · BLIK, картка, Apple/Google Pay, PayPal · PDF протягом 24 год",
+    h2includes: "Що містить чекліст",
+    li1: "<strong>Перед виходом</strong> — що спакувати у власну сумку, як дістатися, де паркуватися, кого і коли повідомити",
+    li2: "<strong>Перші перейми вдома</strong> — як вимірювати перейми (правило 5-1-1), що казати, як не панікувати і не заражати партнерку панікою",
+    li3: "<strong>Приймальне відділення і госпіталізація</strong> — про що питати при прийомі, як передати план пологів, що казати персоналу",
+    li4: "<strong>Пологова зала — ваша роль</strong> — масаж попереку, позиції, дихання разом з партнеркою, коли викликати акушерку (і як), як подбати про атмосферу в залі (світло, тиша, музика)",
+    li5: "<strong>Що можна казати — і чого НЕ казати</strong> — список конкретних фраз для кожного етапу, щоб не шукати слів у найважчий момент",
+    li6: "<strong>Одразу після пологів</strong> — контакт шкіра до шкіри з дитиною, коли мама не може, що запам'ятати, що фотографувати, кого і коли повідомити",
+    li7: "<strong>Відділення і виписка</strong> — як стежити, щоб план післяпологового періоду поважали, список питань до неонатолога перед випискою, автокрісло і повернення додому",
+    li8: "<strong>Перші 4 тижні вдома</strong> — як реально допомагати (не лише хвалити, що «так добре справляєшся»), як розпізнати післяпологову депресію у партнерки, коли дзвонити лікарю",
+    li9: "<strong>Тривожні сигнали — новонароджений і мама</strong> — коли їхати у приймальне відділення, не чекаючи до ранку",
+    quote1: "Я був на пологах. Був сповнений добрих намірів і не знав, куди подіти руки. Не знав, що маю стежити за тишею в залі. Не знав, що робити, коли партнерка кричала. Якби я мав цей список, я був би татом, а не переляканим гостем.",
+    quote1Attr: "Міхал, тато і засновник PoródNaMiarę.pl",
+    statsH: "Чому тато має значення",
+    stat1: "Активна підтримка партнера скорочує I період пологів приблизно на 25% (дослідження Hodnett et al.)",
+    stat2: "Присутність тата зменшує потребу в епідуральній анестезії",
+    stat3: "Тато, який знає, що робити, знижує стрес партнерки — а кортизол безпосередньо впливає на перебіг пологів",
+    stat4: "Контакт шкіра до шкіри тата з новонародженим стабілізує температуру і пульс дитини так само добре, як контакт з мамою",
+    statsDisc: "Дані мають орієнтовний та ілюстративний характер. Це не медичні твердження чи клінічні результати для цього продукту.",
+    upsellH: "Найкраще працює в комплекті", upsellP: "Чекліст для тата + План пологів Premium = повна підготовка для вас обох. Разом за ціною самого плану пологів — і ви обидва знаєте, чого хочете і що робити.", upsellCta: "Переглянути всі пакети →",
+    ctaH: "Будь татом, а не свідком. Підготуйся.", ctaP: "29 злотих. PDF протягом 24 год. 30 днів гарантії повернення коштів. Жодного маркетингового шуму — лише те, що реально потрібно знати.", ctaBuy2: "Отримати чекліст для тата — 29 злотих",
+    footDisc: "Зміст має освітній характер і не замінює консультацію лікаря чи акушерки."
+  },
+  ru: {
+    navProducts: "Все продукты", kicker: "Продукт №4 · PDF для папы", h1: "Чек-лист для папы на родах — от первой схватки до первых недель дома",
+    intro1: "Большинство пособий о родах написаны для женщин. Это — для вас. Что делать, что говорить, чего избегать — конкретные пункты вместо общих советов. Написано папой, который сидел в той же палате и не знал половины того, что вы здесь найдёте.",
+    intro2: "Вам не нужно разбираться в медицине. Вам нужно знать свою задачу на каждом этапе — именно это вы здесь найдёте.",
+    ctaBuy: "Получить чек-лист для папы →", guarNote: "30 дней гарантии возврата денег · BLIK, карта, Apple/Google Pay, PayPal · PDF в течение 24 ч",
+    h2includes: "Что включает чек-лист",
+    li1: "<strong>Перед выездом</strong> — что упаковать в свою сумку, как добраться, где парковаться, кого и когда уведомить",
+    li2: "<strong>Первые схватки дома</strong> — как измерять схватки (правило 5-1-1), что говорить, как не паниковать и не заражать партнёршу паникой",
+    li3: "<strong>Приёмное отделение и госпитализация</strong> — о чём спрашивать при поступлении, как передать план родов, что говорить персоналу",
+    li4: "<strong>Родильный зал — ваша роль</strong> — массаж поясницы, позиции, дыхание вместе с партнёршей, когда вызывать акушерку (и как), как позаботиться об атмосфере в зале (свет, тишина, музыка)",
+    li5: "<strong>Что можно говорить — и чего НЕ говорить</strong> — список конкретных фраз для каждого этапа, чтобы не искать слов в самый трудный момент",
+    li6: "<strong>Сразу после родов</strong> — контакт кожа к коже с ребёнком, когда мама не может, что запомнить, что фотографировать, кого и когда уведомить",
+    li7: "<strong>Отделение и выписка</strong> — как следить, чтобы план послеродового периода соблюдался, список вопросов к неонатологу перед выпиской, автокресло и возвращение домой",
+    li8: "<strong>Первые 4 недели дома</strong> — как реально помогать (не просто хвалить, что «так хорошо справляешься»), как распознать послеродовую депрессию у партнёрши, когда звонить врачу",
+    li9: "<strong>Тревожные сигналы — новорождённый и мама</strong> — когда ехать в приёмное отделение, не дожидаясь утра",
+    quote1: "Я был на родах. Был полон благих намерений и не знал, куда деть руки. Не знал, что должен следить за тишиной в зале. Не знал, что делать, когда партнёрша кричала. Если бы у меня был этот список, я был бы папой, а не испуганным гостем.",
+    quote1Attr: "Михал, папа и основатель PoródNaMiarę.pl",
+    statsH: "Почему папа имеет значение",
+    stat1: "Активная поддержка партнёра сокращает I период родов примерно на 25% (исследование Hodnett et al.)",
+    stat2: "Присутствие папы снижает потребность в эпидуральной анестезии",
+    stat3: "Папа, который знает, что делать, снижает стресс партнёрши — а кортизол напрямую влияет на течение родов",
+    stat4: "Контакт кожа к коже папы с новорождённым стабилизирует температуру и пульс ребёнка так же хорошо, как контакт с мамой",
+    statsDisc: "Данные носят ориентировочный и иллюстративный характер. Это не медицинские утверждения и не клинические результаты для данного продукта.",
+    upsellH: "Лучше всего работает в комплекте", upsellP: "Чек-лист для папы + План родов Premium = полная подготовка для вас обоих. Вместе по цене самого плана родов — и вы оба знаете, чего хотите и что делать.", upsellCta: "Посмотреть все пакеты →",
+    ctaH: "Будь папой, а не свидетелем. Подготовься.", ctaP: "29 злотых. PDF в течение 24 ч. 30 дней гарантии возврата денег. Никакого маркетингового шума — только то, что действительно нужно знать.", ctaBuy2: "Получить чек-лист для папы — 29 злотых",
+    footDisc: "Содержание носит образовательный характер и не заменяет консультацию врача или акушерки."
+  }
+};
+</script>
+<script src="/js/i18n-page.js" defer></script>
 <script src="/js/consent-gate.js?v=25" defer></script>
 </body></html>
