@@ -12,7 +12,7 @@
 <meta property="og:description" content="Interaktywny kreator spersonalizowanego planu porodu. Zgodny ze Standardem Opieki Okołoporodowej 2026. Gotowy PDF w kilka minut — stworzony przez tatę.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://porodnamiare.pl/kreator">
-<meta property="og:image" content="https://porodnamiare.pl/img/og.jpg">
+<meta property="og:image" content="https://porodnamiare.pl/img/og-kreator.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/jpeg">
@@ -1076,6 +1076,30 @@ tailwind.config = {
   </div>
 </div>
 
+<!-- ===== BRAMKA E-MAIL (po kroku 6) ===== -->
+<div id="emailGate" class="hidden fixed inset-0 z-[70] bg-deep/60 backdrop-blur-sm items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="egTitle">
+  <div class="bg-sand rounded-3xl max-w-md w-full p-6 md:p-7 shadow-2xl">
+    <div class="flex items-start justify-between gap-3 mb-3">
+      <div>
+        <p data-i18n="egKicker" class="text-tealsoft font-semibold text-xs uppercase tracking-[0.2em] mb-1.5">Jesteście w połowie</p>
+        <h3 data-i18n="egH" id="egTitle" class="font-display text-xl font-semibold text-deep">Zapisać Wasz postęp?</h3>
+      </div>
+      <button type="button" id="egClose" aria-label="Zamknij" class="flex-shrink-0 w-9 h-9 rounded-full hover:bg-sanddark flex items-center justify-center text-ink/60 text-xl leading-none">&times;</button>
+    </div>
+    <p data-i18n="egP" class="text-[15px] text-ink/80 leading-relaxed mb-4">Wyślemy link, dzięki któremu wrócicie do planu na dowolnym urządzeniu. Bez spamu — tylko ten link i kilka praktycznych wskazówek przed porodem.</p>
+    <form id="egForm" class="flex flex-col gap-3" action="https://db2b4ec1.sibforms.com/serve/MUIFANfnleGibrfjnDwpUW_V5m46u3Aouh4DXKEmRLhrMxgEZLH7_3xjnQO1hdmpfmxxLWYy7KfG5HKQ7Qcv8XmnDP6_5R0GHQZjd6lcKwsaD2mArSK3jPYhFnpwydsQXvqljTzG0qGFcEJ026n5C8xi6diuvi_4l8B_lteWoz73ihBQDfoH1SbAlT-Jj0BFtTZp2U8lbQ5dpf5WGA==" method="post" target="_blank" rel="noopener">
+      <label for="eg-email" class="sr-only">Adres e-mail</label>
+      <input id="eg-email" name="EMAIL" type="email" required autocomplete="email" placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3 bg-white text-[15px]">
+      <label class="flex gap-2.5 items-start text-xs text-ink/70 leading-relaxed">
+        <input type="checkbox" name="rodo" required class="mt-0.5 flex-shrink-0">
+        <span data-i18n="egConsent">Zgadzam się na otrzymanie linku i wiadomości e-mail. Dane przetwarza PoródNaMiarę.pl zgodnie z <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">polityką prywatności</a>. Mogę wypisać się w każdej chwili.</span>
+      </label>
+      <button type="submit" data-i18n="popupSubmit" class="bg-teal text-white font-semibold px-6 py-3.5 rounded-full hover:bg-deep transition-colors">Wyślij mi link do planu</button>
+    </form>
+    <button type="button" id="egSkip" data-i18n="popupSkip" class="w-full text-center text-sm text-ink/60 hover:text-teal mt-3 py-2">Nie teraz, kontynuuję →</button>
+    <p data-i18n="popupNote" class="text-xs text-ink/55 text-center mt-2">Postęp i tak zapisuje się w tej przeglądarce.</p>
+  </div>
+</div>
 </main>
 <!-- ===== STICKY CTA (mobile) ===== -->
 <!-- WHATSAPP BUSINESS — floating, widoczny na wszystkich rozdzielczościach.
