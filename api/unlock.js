@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { getRedis, getPrivateKey } = require('./_lib/common');
+const { getRedis, getPrivateKey, rateLimit } = require('./_lib/common');
 
 const SID_RE = /^[a-zA-Z0-9_-]{8,64}$/;
 const JWT_TTL = '30d';
@@ -20,6 +20,12 @@ module.exports = async (req, res) => {
   let redis;
   try { redis = getRedis(); }
   catch (e) { console.error('[unlock]', e.message); res.status(500).json({ error: 'kv_unconfigured' }); return; }
+
+  // Anty-enumeracja SID: 30 zapytan/min per IP (klient legalnie odpytuje co kilka sekund przez ~1 min).
+  if (!(await rateLimit(redis, req, 'unlock', 30, 60))) {
+    res.status(429).json({ error: 'rate_limited' });
+    return;
+  }
 
   let raw;
   try {

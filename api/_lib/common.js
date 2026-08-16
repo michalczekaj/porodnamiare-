@@ -40,4 +40,21 @@ function hashEmail(email) {
   return crypto.createHash('sha256').update(String(email || '').trim().toLowerCase()).digest('hex');
 }
 
-module.exports = { getRedis, timingSafeEqualStr, PRODUCTS, getPrivateKey, getPublicKey, hashEmail };
+// Prosty rate limiter (fixed window) na Upstash: max `limit` zadan na `windowSec` per klucz (IP+endpoint).
+// Fail-open: awaria Redis nie blokuje legalnego ruchu (limiter to obrona pomocnicza, nie krytyczna).
+async function rateLimit(redis, req, endpoint, limit, windowSec) {
+  try {
+    const fwd = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+    const ip = fwd || req.socket && req.socket.remoteAddress || 'unknown';
+    const win = Math.floor(Date.now() / (windowSec * 1000));
+    const key = `rl:${endpoint}:${ip}:${win}`;
+    const n = await redis.incr(key);
+    if (n === 1) await redis.expire(key, windowSec + 1);
+    return n <= limit;
+  } catch (e) {
+    console.warn('[rateLimit] fail-open', e && e.message);
+    return true;
+  }
+}
+
+module.exports = { getRedis, timingSafeEqualStr, PRODUCTS, getPrivateKey, getPublicKey, hashEmail, rateLimit };

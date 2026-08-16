@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { getRedis, getPublicKey } = require('./_lib/common');
+const { getRedis, getPublicKey, rateLimit } = require('./_lib/common');
 
 const ISSUER = 'porodnamiare.pl';
 
@@ -8,6 +8,14 @@ module.exports = async (req, res) => {
     res.status(405).json({ valid: false, error: 'method_not_allowed' });
     return;
   }
+
+  // 60 weryfikacji/min per IP - z zapasem ponad normalne uzycie (kilka na sesje).
+  try {
+    if (!(await rateLimit(getRedis(), req, 'verify', 60, 60))) {
+      res.status(429).json({ valid: false, error: 'rate_limited' });
+      return;
+    }
+  } catch (e) { /* brak KV -> fail-open, dalsza logika i tak to obsluzy */ }
 
   let token = '';
   const auth = req.headers['authorization'] || '';

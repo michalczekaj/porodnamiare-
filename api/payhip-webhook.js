@@ -85,9 +85,13 @@ module.exports = async (req, res) => {
   }
 
   // Kontrola ceny/waluty - obrona w glab (podpis PayHip nie chroni tresci payloadu, patrz komentarz wyzej).
+  // Rozbieznosc = NIE wystawiamy claimu (potencjalnie sfabrykowany payload); 200 zeby PayHip nie ponawial,
+  // a legalna transakcja (np. po zmianie ceny w panelu bez aktualizacji PRODUCTS) trafi do logow do recznej obslugi.
   if (typeof body.price === 'number' && body.currency &&
       (body.price !== product.priceMinor || body.currency !== product.currency)) {
-    console.error('[payhip-webhook] rozbieznosc ceny/waluty', { productKey, got: { price: body.price, currency: body.currency }, expected: product });
+    console.error('[payhip-webhook] ODRZUCONO claim - rozbieznosc ceny/waluty', { tx: txId, productKey, got: { price: body.price, currency: body.currency }, expected: { price: product.priceMinor, currency: product.currency } });
+    res.status(200).json({ ok: true, warning: 'price_mismatch_claim_withheld' });
+    return;
   }
 
   const sid = extractSid(body);
