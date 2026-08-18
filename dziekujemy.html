@@ -126,7 +126,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
       <div class="min-w-0">
         <h2 class="font-display text-xl font-semibold text-deep mb-2" data-i18n="dzS2H">Sprawdź skrzynkę e-mail</h2>
         <p class="text-[15px] text-ink/80 leading-relaxed mb-3" data-i18n="dzS2P">Jeśli kupiliście pakiet Premium lub Premium+, poradniki PDF wysłaliśmy na adres podany przy płatności. Wiadomość przychodzi zwykle w ciągu minuty.</p>
-        <p class="text-sm text-ink/70 bg-tealsoft rounded-xl px-4 py-3">Nie widzicie jej? Sprawdźcie folder <strong>Spam</strong> lub <strong>Oferty</strong>. Jeśli po 15 minutach nadal jej nie ma — napiszcie na <a href="#" class="text-teal font-semibold underline pnm-email" data-u="kontakt" data-d="porodnamiare.pl" rel="nofollow"></a>.</p>
+        <p data-i18n="dzSpam" class="text-sm text-ink/70 bg-tealsoft rounded-xl px-4 py-3">Nie widzicie jej? Sprawdźcie folder <strong>Spam</strong> lub <strong>Oferty</strong>. Jeśli po 15 minutach nadal jej nie ma — napiszcie na <a href="#" class="text-teal font-semibold underline pnm-email" data-u="kontakt" data-d="porodnamiare.pl" rel="nofollow"></a>.</p>
       </div>
     </div>
   </section>
@@ -148,7 +148,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
 
   <div class="text-center">
     <a href="/" class="inline-block border border-deep/30 font-semibold px-7 py-3.5 rounded-full hover:bg-sanddark transition-colors" data-i18n="dzBack">&larr; Wróć na stronę główną</a>
-    <p class="mt-6 text-sm text-ink/70">Trzymamy kciuki za Wasz poród &#129293;<br><span class="font-display text-teal">— Michał, tata i założyciel</span></p>
+    <p data-i18n="dzSign" class="mt-6 text-sm text-ink/70">Trzymamy kciuki za Wasz poród &#129293;<br><span class="font-display text-teal">— Michał, tata i założyciel</span></p>
   </div>
 
 </main>
@@ -251,7 +251,13 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
 </script>
 <script>
 window.PAGE_I18N = {
+  ru: {
+    dzSpam: 'Не видите её? Проверьте папку <strong>Спам</strong> или <strong>Акции</strong>. Если через 15 минут её всё ещё нет — напишите на <a href="mailto:kontakt@porodnamiare.pl" class="underline font-semibold">kontakt@porodnamiare.pl</a>.',
+    dzSign: 'Держим кулаки за ваши роды 🤍 — Михал, папа и основатель'
+  },
   en: {
+    dzSpam: 'Can’t see it? Check your <strong>Spam</strong> or <strong>Promotions</strong> folder. If it still hasn’t arrived after 15 minutes — write to <a href="mailto:kontakt@porodnamiare.pl" class="underline font-semibold">kontakt@porodnamiare.pl</a>.',
+    dzSign: 'We’re keeping our fingers crossed for your birth 🤍 — Michał, dad and founder',
     dzH1: "Thank you for your purchase!",
     dzSub: "Your birth plan is on its way.",
     dzS1H: "Download your birth plan",
@@ -273,6 +279,8 @@ window.PAGE_I18N = {
     waLabel: "Chat on WhatsApp"
   },
   de: {
+    dzSpam: 'Nicht zu sehen? Prüfen Sie den <strong>Spam</strong>- oder <strong>Werbung</strong>-Ordner. Wenn sie nach 15 Minuten immer noch fehlt — schreiben Sie an <a href="mailto:kontakt@porodnamiare.pl" class="underline font-semibold">kontakt@porodnamiare.pl</a>.',
+    dzSign: 'Wir drücken die Daumen für Ihre Geburt 🤍 — Michał, Vater und Gründer',
     dzH1: "Vielen Dank für Ihren Kauf!",
     dzSub: "Ihr Geburtsplan ist unterwegs.",
     dzS1H: "Laden Sie Ihren Geburtsplan herunter",
@@ -294,6 +302,8 @@ window.PAGE_I18N = {
     waLabel: "Auf WhatsApp schreiben"
   },
   uk: {
+    dzSpam: 'Не бачите її? Перевірте папку <strong>Спам</strong> або <strong>Промоакції</strong>. Якщо через 15 хвилин її все ще немає — напишіть на <a href="mailto:kontakt@porodnamiare.pl" class="underline font-semibold">kontakt@porodnamiare.pl</a>.',
+    dzSign: 'Тримаємо кулаки за ваші пологи 🤍 — Міхал, тато й засновник',
     dzH1: "Дякуємо за покупку!",
     dzSub: "Ваш план пологів уже в дорозі.",
     dzS1H: "Завантажте свій план пологів",

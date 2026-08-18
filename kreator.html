@@ -250,7 +250,7 @@ tailwind.config = {
 <main id="main">
 
 <section class="max-w-4xl mx-auto px-4 pt-10 pb-2 text-center">
-  <p class="text-teal font-semibold text-sm uppercase tracking-widest">Darmowy kreator · płatność dopiero przy pobraniu PDF</p>
+  <p id="krKicker" class="text-teal font-semibold text-sm uppercase tracking-widest">Darmowy kreator · płatność dopiero przy pobraniu PDF</p>
   <h1 data-i18n="krHeroH" class="font-display text-3xl md:text-5xl text-deep font-semibold mt-3">Kreator planu porodu</h1>
   <p data-i18n="krHeroP" class="mt-4 text-lg text-ink/80 max-w-2xl mx-auto">16 kroków z wyjaśnieniami przy każdej decyzji, podgląd na żywo i gotowy PDF zgodny ze Standardem Opieki Okołoporodowej 2026 — po polsku dla personelu i w Waszym języku dla Was.</p>
 </section>
@@ -258,7 +258,7 @@ tailwind.config = {
 <section id="kreator" class="bg-tealsoft py-16 md:py-24">
   <div class="max-w-5xl mx-auto px-4">
     <div class="text-center mb-8">
-      <p class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Kreator krok po kroku</p>
+      <p id="krStepKicker" class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Kreator krok po kroku</p>
       <h2 data-i18n="creatorH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-3">Stwórz swój plan porodu</h2>
       <p class="text-ink/70 max-w-2xl mx-auto">Przejdź przez 16 kroków — zaznacz to, co dla Was ważne. Podgląd tworzy się na bieżąco. Pełny, profesjonalny dokument PDF (z brandem i formatowaniem) otrzymasz po zakupie.</p>
       <p data-i18n="creatorNote" class="text-sm text-ink/60 mt-2 max-w-2xl mx-auto">Interfejs w 4 językach; dokument planu generujemy po polsku — tak, aby personel szpitala w Polsce mógł go w pełni wykorzystać.</p>
@@ -657,25 +657,29 @@ tailwind.config = {
         <div id="buyZone" class="mt-6 bg-deep text-sand rounded-2xl p-6">
           <p class="font-display text-xl font-semibold text-white mb-2">Wasz plan jest gotowy</p>
           <p class="text-[15px] text-sand/85 leading-relaxed mb-5">Wybierzcie pakiet, a zaraz po płatności wrócicie tutaj i pobierzecie gotowy dokument PDF. Wasze odpowiedzi są zapisane w tej przeglądarce.</p>
-          <div class="grid sm:grid-cols-3 gap-3 mb-4">
-            <a href="https://payhip.com/b/jUaCl" class="pay-link block bg-white/10 border border-white/15 rounded-xl p-4 hover:bg-white/20 transition-colors">
+          <div class="grid sm:grid-cols-3 gap-3 mb-4 items-stretch">
+            <a href="https://payhip.com/b/jUaCl" class="pay-link flex flex-col bg-white/10 border border-white/15 rounded-xl p-4 hover:bg-white/20 transition-colors">
               <p class="font-semibold text-white text-sm">Podstawowy</p>
-              <p class="font-display text-2xl font-semibold text-white my-1">49 zł</p>
-              <p class="text-xs text-sand/75">Plan porodu PDF</p>
+              <p class="font-display text-3xl font-semibold text-white my-1">49 zł</p>
+              <p class="text-xs text-sand/75 flex-1">Plan porodu PDF — dokument gotowy do wydruku</p>
+              <p class="mt-3 text-[11px] font-semibold text-sand/60 border-t border-white/10 pt-2">Sam plan, bez dodatków</p>
             </a>
-            <a href="https://payhip.com/b/PAcED" class="pay-link block bg-teal border-2 border-teal rounded-xl p-4 hover:brightness-110 transition-all relative">
-              <span class="absolute -top-2 right-3 bg-white text-tealsoft text-[10px] font-bold px-2 py-0.5 rounded-full">POLECANY</span>
-              <p class="font-semibold text-white text-sm">Premium</p>
-              <p class="font-display text-2xl font-semibold text-white my-1">99 zł</p>
-              <p class="text-xs text-white/90">Plan + 3 poradniki PDF</p>
+            <a href="https://payhip.com/b/PAcED" class="pay-link flex flex-col bg-teal border-2 border-white/70 rounded-xl p-4 hover:brightness-110 transition-all relative shadow-lg sm:scale-[1.04]">
+              <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-white text-teal text-[10px] font-black px-3 py-0.5 rounded-full whitespace-nowrap">⭐ NAJCZĘŚCIEJ WYBIERANY</span>
+              <p class="font-semibold text-white text-sm mt-1.5">Premium</p>
+              <p class="font-display text-3xl font-semibold text-white my-1">99 zł</p>
+              <p class="text-xs text-white/90 flex-1">Plan + wersja „na drzwi sali” + checklist dla taty + „Pierwsze 24 godziny”</p>
+              <p class="mt-3 text-[11px] font-semibold text-white/90 border-t border-white/25 pt-2">✓ Aktualizacja planu aż do dnia porodu</p>
             </a>
-            <a href="https://payhip.com/b/JjgRA" class="pay-link block bg-white/10 border border-white/15 rounded-xl p-4 hover:bg-white/20 transition-colors">
-              <p class="font-semibold text-white text-sm">Premium+</p>
-              <p class="font-display text-2xl font-semibold text-white my-1">219 zł</p>
-              <p class="text-xs text-sand/75">Plan + 7 PDF + przegląd</p>
+            <a href="https://payhip.com/b/JjgRA" class="pay-link flex flex-col bg-white/10 border border-white/15 rounded-xl p-4 hover:bg-white/20 transition-colors relative">
+              <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-300 text-deep text-[10px] font-black px-3 py-0.5 rounded-full whitespace-nowrap">NAJWIĘKSZA OSZCZĘDNOŚĆ</span>
+              <p class="font-semibold text-white text-sm mt-1.5">Premium+</p>
+              <p class="font-display text-3xl font-semibold text-white my-1">219 zł</p>
+              <p class="text-xs text-sand/75 flex-1">Plan + 7 poradników PDF + przegląd przed porodem</p>
+              <p class="mt-3 text-[11px] font-bold text-amber-300 border-t border-white/10 pt-2">Osobno: <s class="text-sand/50">353 zł</s> · oszczędzasz 134 zł (−38%)</p>
             </a>
           </div>
-          <p class="text-xs text-sand/70">💳 BLIK, karta, Apple&nbsp;Pay, Google&nbsp;Pay, PayPal przez PayHip · dostawa natychmiast</p>
+          <p id="payNote" class="text-xs text-sand/70">💳 BLIK, karta, Apple&nbsp;Pay, Google&nbsp;Pay, PayPal przez PayHip · dostawa natychmiast</p>
         </div>
 
         <div id="downloadZone" class="hidden mt-6 bg-white border-2 border-teal rounded-2xl p-6 text-center">
@@ -683,7 +687,7 @@ tailwind.config = {
           <p class="font-display text-xl font-semibold text-deep mb-2" data-i18n="dlReadyH">Dziękujemy! Plan jest gotowy do pobrania</p>
           <div class="bg-amber-50 border border-amber-300 rounded-xl px-4 py-3 mb-4 text-left flex gap-2.5 items-start">
             <span class="text-amber-500 text-lg flex-shrink-0" aria-hidden="true">⚠️</span>
-            <p class="text-[13px] text-ink/80 leading-relaxed" data-i18n="dlCheckReminder"><strong class="text-deep">Zanim pobierzecie:</strong> upewnijcie się, że dane w kreatorze — termin porodu, dane dziecka, Wasze preferencje — są aktualne i kompletne. Kupiliście pakiet przed wypełnieniem kreatora? <a href="#" id="dlGoEdit" class="underline font-semibold">Wróćcie do wcześniejszych kroków</a> i je uzupełnijcie.</p>
+            <p id="dlCheck" class="text-[13px] text-ink/80 leading-relaxed"><strong class="text-deep">Zanim pobierzecie:</strong> upewnijcie się, że dane w kreatorze — termin porodu, dane dziecka, Wasze preferencje — są aktualne i kompletne. Kupiliście pakiet przed wypełnieniem kreatora? <a href="#" id="dlGoEdit" class="underline font-semibold">Wróćcie do wcześniejszych kroków</a> i je uzupełnijcie.</p>
           </div>
           <p class="text-[15px] text-ink/75 leading-relaxed mb-5" data-i18n="dlReadyP">Kliknijcie poniżej, a dokument zapisze się na Waszym urządzeniu. Wydrukujcie dwa egzemplarze: jeden do torby, drugi dla położnej.</p>
           <button type="button" id="dlBtn" class="bg-teal text-white font-semibold px-8 py-4 rounded-full hover:bg-deep transition-colors">Pobierz plan porodu (PDF)</button>
@@ -714,6 +718,7 @@ tailwind.config = {
         <div class="flex items-center justify-between gap-3 px-6 py-5 bg-sand/40 border-t border-sanddark">
           <button type="button" id="prevBtn" class="border border-deep/25 font-semibold px-5 min-h-[48px] py-3 rounded-full hover:bg-sand transition-colors invisible">← Wstecz</button>
           <button type="button" id="nextBtn" class="bg-teal text-white font-semibold px-6 min-h-[48px] py-3 rounded-full hover:bg-deep transition-colors">Dalej →</button>
+          <button type="button" id="saveEditBtn" class="hidden w-full sm:w-auto bg-deep text-sand font-semibold px-5 py-3 rounded-full hover:bg-teal transition-colors text-sm">💾 Zapisz zmiany i wróć do pobrania</button>
           <button type="button" id="finishBtn" class="bg-deep text-white font-semibold px-6 min-h-[48px] py-3 rounded-full hover:bg-teal transition-colors hidden">Zobacz podsumowanie ✓</button>
         </div>
       </form>
@@ -1682,6 +1687,7 @@ tailwind.config = {
     form.addEventListener('change', hideError);
 
     function showStep(n, dir){
+      setTimeout(updateEditShortcut, 0);
       // walidacja tylko przy przejściu DO PRZODU
       if(dir==='next'){
         const v = validateStep(cur);
@@ -1969,6 +1975,41 @@ tailwind.config = {
       return i18nChain;
     }
 
+    
+    // ---- Teksty strony kreatora tlumaczone JEZYKIEM KREATORA (nie jezykiem strony) ----
+    var UI2={
+      kick:{pl:'Darmowy kreator \u00b7 p\u0142atno\u015b\u0107 dopiero przy pobraniu PDF',en:'Free creator \u00b7 you pay only when downloading the PDF',de:'Kostenloser Kreator \u00b7 Zahlung erst beim PDF-Download',uk:'\u0411\u0435\u0437\u043a\u043e\u0448\u0442\u043e\u0432\u043d\u0438\u0439 \u043a\u0440\u0435\u0430\u0442\u043e\u0440 \u00b7 \u043e\u043f\u043b\u0430\u0442\u0430 \u043b\u0438\u0448\u0435 \u043f\u0440\u0438 \u0437\u0430\u0432\u0430\u043d\u0442\u0430\u0436\u0435\u043d\u043d\u0456 PDF',ru:'\u0411\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u044b\u0439 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440 \u00b7 \u043e\u043f\u043b\u0430\u0442\u0430 \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u0438 \u0441\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u0438 PDF'},
+      step:{pl:'Kreator krok po kroku',en:'Step-by-step creator',de:'Kreator Schritt f\u00fcr Schritt',uk:'\u041a\u0440\u0435\u0430\u0442\u043e\u0440 \u043a\u0440\u043e\u043a \u0437\u0430 \u043a\u0440\u043e\u043a\u043e\u043c',ru:'\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440 \u0448\u0430\u0433 \u0437\u0430 \u0448\u0430\u0433\u043e\u043c'},
+      reset:{pl:'\u21ba Zacznij od nowa',en:'\u21ba Start over',de:'\u21ba Neu beginnen',uk:'\u21ba \u041f\u043e\u0447\u0430\u0442\u0438 \u0437\u0430\u043d\u043e\u0432\u043e',ru:'\u21ba \u041d\u0430\u0447\u0430\u0442\u044c \u0437\u0430\u043d\u043e\u0432\u043e'},
+      pay:{pl:'\U0001f4b3 BLIK, karta, Apple\u00a0Pay, Google\u00a0Pay, PayPal przez PayHip \u00b7 dostawa natychmiast',en:'\U0001f4b3 BLIK, card, Apple\u00a0Pay, Google\u00a0Pay, PayPal via PayHip \u00b7 instant delivery',de:'\U0001f4b3 BLIK, Karte, Apple\u00a0Pay, Google\u00a0Pay, PayPal \u00fcber PayHip \u00b7 sofortige Lieferung',uk:'\U0001f4b3 BLIK, \u043a\u0430\u0440\u0442\u043a\u0430, Apple\u00a0Pay, Google\u00a0Pay, PayPal \u0447\u0435\u0440\u0435\u0437 PayHip \u00b7 \u043c\u0438\u0442\u0442\u0454\u0432\u0430 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0430',ru:'\U0001f4b3 BLIK, \u043a\u0430\u0440\u0442\u0430, Apple\u00a0Pay, Google\u00a0Pay, PayPal \u0447\u0435\u0440\u0435\u0437 PayHip \u00b7 \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u043d\u0430\u044f \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0430'},
+      check:{pl:'<strong class="text-deep">Zanim pobierzecie:</strong> upewnijcie si\u0119, \u017ce dane w kreatorze \u2014 termin porodu, dane dziecka, Wasze preferencje \u2014 s\u0105 aktualne i kompletne. Kupili\u015bcie pakiet przed wype\u0142nieniem kreatora? <a href="#" id="dlGoEdit" class="underline font-semibold">Wr\u00f3\u0107cie do wcze\u015bniejszych krok\u00f3w</a> i je uzupe\u0142nijcie.',en:'<strong class="text-deep">Before you download:</strong> make sure the creator data \u2014 due date, baby details, your preferences \u2014 is current and complete. Bought a package before filling in the creator? <a href="#" id="dlGoEdit" class="underline font-semibold">Go back to the earlier steps</a> and complete them.',de:'<strong class="text-deep">Vor dem Download:</strong> pr\u00fcfen Sie, ob die Daten im Kreator \u2014 Geburtstermin, Angaben zum Kind, Ihre W\u00fcnsche \u2014 aktuell und vollst\u00e4ndig sind. Paket vor dem Ausf\u00fcllen gekauft? <a href="#" id="dlGoEdit" class="underline font-semibold">Gehen Sie zu den fr\u00fcheren Schritten zur\u00fcck</a> und erg\u00e4nzen Sie sie.',uk:'<strong class="text-deep">\u041f\u0435\u0440\u0435\u0434 \u0437\u0430\u0432\u0430\u043d\u0442\u0430\u0436\u0435\u043d\u043d\u044f\u043c:</strong> \u043f\u0435\u0440\u0435\u043a\u043e\u043d\u0430\u0439\u0442\u0435\u0441\u044f, \u0449\u043e \u0434\u0430\u043d\u0456 \u0432 \u043a\u0440\u0435\u0430\u0442\u043e\u0440\u0456 \u2014 \u0434\u0430\u0442\u0430 \u043f\u043e\u043b\u043e\u0433\u0456\u0432, \u0434\u0430\u043d\u0456 \u0434\u0438\u0442\u0438\u043d\u0438, \u0432\u0430\u0448\u0456 \u043f\u043e\u0431\u0430\u0436\u0430\u043d\u043d\u044f \u2014 \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u0456 \u0442\u0430 \u043f\u043e\u0432\u043d\u0456. \u041a\u0443\u043f\u0438\u043b\u0438 \u043f\u0430\u043a\u0435\u0442 \u0434\u043e \u0437\u0430\u043f\u043e\u0432\u043d\u0435\u043d\u043d\u044f? <a href="#" id="dlGoEdit" class="underline font-semibold">\u041f\u043e\u0432\u0435\u0440\u043d\u0456\u0442\u044c\u0441\u044f \u0434\u043e \u043f\u043e\u043f\u0435\u0440\u0435\u0434\u043d\u0456\u0445 \u043a\u0440\u043e\u043a\u0456\u0432</a> \u0456 \u0437\u0430\u043f\u043e\u0432\u043d\u0456\u0442\u044c \u0457\u0445.',ru:'<strong class="text-deep">\u041f\u0435\u0440\u0435\u0434 \u0441\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u0435\u043c:</strong> \u0443\u0431\u0435\u0434\u0438\u0442\u0435\u0441\u044c, \u0447\u0442\u043e \u0434\u0430\u043d\u043d\u044b\u0435 \u0432 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0435 \u2014 \u0434\u0430\u0442\u0430 \u0440\u043e\u0434\u043e\u0432, \u0434\u0430\u043d\u043d\u044b\u0435 \u0440\u0435\u0431\u0451\u043d\u043a\u0430, \u0432\u0430\u0448\u0438 \u043f\u043e\u0436\u0435\u043b\u0430\u043d\u0438\u044f \u2014 \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u044b \u0438 \u043f\u043e\u043b\u043d\u044b. \u041a\u0443\u043f\u0438\u043b\u0438 \u043f\u0430\u043a\u0435\u0442 \u0434\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f? <a href="#" id="dlGoEdit" class="underline font-semibold">\u0412\u0435\u0440\u043d\u0438\u0442\u0435\u0441\u044c \u043a \u043f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0438\u043c \u0448\u0430\u0433\u0430\u043c</a> \u0438 \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0438\u0445.'},
+      done:{pl:'Gotowe! Sprawd\u017acie folder Pobrane.',en:'Done! Check your Downloads folder.',de:'Fertig! Pr\u00fcfen Sie Ihren Download-Ordner.',uk:'\u0413\u043e\u0442\u043e\u0432\u043e! \u041f\u0435\u0440\u0435\u0432\u0456\u0440\u0442\u0435 \u043f\u0430\u043f\u043a\u0443 \u0417\u0430\u0432\u0430\u043d\u0442\u0430\u0436\u0435\u043d\u043d\u044f.',ru:'\u0413\u043e\u0442\u043e\u0432\u043e! \u041f\u0440\u043e\u0432\u0435\u0440\u044c\u0442\u0435 \u043f\u0430\u043f\u043a\u0443 \u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0438.'},
+      save:{pl:'\U0001f4be Zapisz zmiany i wr\u00f3\u0107 do pobrania',en:'\U0001f4be Save changes and return to download',de:'\U0001f4be \u00c4nderungen speichern und zum Download zur\u00fcck',uk:'\U0001f4be \u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438 \u0437\u043c\u0456\u043d\u0438 \u0439 \u043f\u043e\u0432\u0435\u0440\u043d\u0443\u0442\u0438\u0441\u044f \u0434\u043e \u0437\u0430\u0432\u0430\u043d\u0442\u0430\u0436\u0435\u043d\u043d\u044f',ru:'\U0001f4be \u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f \u0438 \u0432\u0435\u0440\u043d\u0443\u0442\u044c\u0441\u044f \u043a \u0441\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u044e'}
+    };
+    function ui2(k){var l=window.__pnmKreatorLang||'pl';var e=UI2[k];return (e&&(e[l]||e.pl))||'';}
+    function applyUi2(){
+      var el;
+      if((el=document.getElementById('krKicker'))) el.textContent=ui2('kick');
+      if((el=document.getElementById('krStepKicker'))) el.textContent=ui2('step');
+      if((el=document.getElementById('resetProgressTop'))) el.textContent=ui2('reset');
+      if((el=document.getElementById('payNote'))) el.textContent=ui2('pay');
+      if((el=document.getElementById('saveEditBtn'))) el.textContent=ui2('save');
+      if((el=document.getElementById('dlCheck'))){
+        el.innerHTML=ui2('check');
+        var g=document.getElementById('dlGoEdit');
+        if(g) g.addEventListener('click', function(e){ e.preventDefault(); showStep(0,'prev'); });
+      }
+    }
+    // ---- Skrot edycji dla oplaconych: 1 poprawka bez przechodzenia wszystkich krokow ----
+    function updateEditShortcut(){
+      var b=document.getElementById('saveEditBtn'), dz=document.getElementById('downloadZone');
+      if(!b) return;
+      var paid = dz && !dz.classList.contains('hidden');
+      b.classList.toggle('hidden', !(paid && cur < TOTAL-1));
+    }
+    var seBtn=document.getElementById('saveEditBtn');
+    if(seBtn) seBtn.addEventListener('click', function(){ showStep(TOTAL-1,'next'); });
+
     function setKreatorLang(lang, remember){
       window.__pnmKreatorLang = lang;
       if (kreatorLangSel) kreatorLangSel.value = lang;
@@ -1980,6 +2021,8 @@ tailwind.config = {
         if (cur === TOTAL-1) renderSummary();
         syncEmailGateLang(lang);
         pnmRefreshPaidBannerLang();
+        applyUi2();
+        updateEditShortcut();
       };
       if (lang === 'pl' && !window.PNM_I18N){
         // powrót do PL bez pobranego słownika — nie ma czego tłumaczyć
@@ -2122,7 +2165,7 @@ tailwind.config = {
             var doc=window.PNM_buildPlanPDF(data);
             var nm=(data.dziecko||'plan').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
             doc.save('Plan-porodu-'+nm+'.pdf');
-            dlStatus.textContent='Gotowe! Sprawdźcie folder Pobrane.';
+            dlStatus.textContent=ui2('done');
             dlBtn.disabled=false;
           })
           .catch(function(){

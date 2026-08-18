@@ -45,7 +45,9 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
     heart(d, W/2, 32, 7, [255,255,255]);
     d.setTextColor(255,255,255);
     d.setFont('Lato','bold'); d.setFontSize(10);
-    d.text(pdfLabel(lang,'cover','PLAN PORODU'), W/2, 62, {align:'center', charSpace:1.2});
+    var _cv=pdfLabel(lang,'cover','PLAN PORODU');
+    // jsPDF: align:'center' nie uwzglednia charSpace -> kompensacja przesuniecia w lewo o polowe sumy trackingow
+    d.text(_cv, W/2 - ((_cv.length-1)*1.2)/2, 62, {align:'center', charSpace:1.2});
     d.setFontSize(dziecko && dziecko.length>12 ? 26 : 32);
     d.text(dziecko||pdfLabel(lang,'parents','Nasze dziecko'), W/2, 80, {align:'center'});
     d.setFont('Lato','normal'); d.setFontSize(12);
