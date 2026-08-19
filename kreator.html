@@ -622,6 +622,37 @@ tailwind.config = {
       </div>
       <div class="creator-step hidden" data-step="14" role="group" tabindex="-1">
         <div class="flex items-start gap-3 mb-5">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">📇</span>
+          <div>
+            <h3 class="font-display text-xl md:text-2xl font-semibold text-deep" data-ui2="contactsH">Dokumenty, kontakty i opieka po wypisie</h3>
+            <p class="text-sm text-ink/70 mt-1" data-ui2="contactsP">Telefony wpiszcie opcjonalnie — trafią do planu, by personel i osoba towarzysząca mieli je pod ręką.</p>
+          </div>
+        </div>
+        <div class="bg-white border border-sanddark rounded-2xl p-4 sm:p-5 space-y-3 mb-5">
+          <div>
+            <label for="f-telMama" class="block text-sm font-semibold text-deep mb-1" data-ui2="contactMama">Telefon do matki</label>
+            <input id="f-telMama" name="telMama" type="tel" inputmode="tel" autocomplete="tel" maxlength="24" placeholder="+48 ___ ___ ___" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]">
+          </div>
+          <div>
+            <label for="f-telTata" class="block text-sm font-semibold text-deep mb-1" data-ui2="contactTata">Telefon do ojca dziecka</label>
+            <input id="f-telTata" name="telTata" type="tel" inputmode="tel" autocomplete="tel" maxlength="24" placeholder="+48 ___ ___ ___" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]">
+          </div>
+          <div>
+            <label for="f-telPoloznaP" class="block text-sm font-semibold text-deep mb-1" data-ui2="contactPolozna">Położna (wizyty patronażowe)</label>
+            <input id="f-telPoloznaP" name="telPolozna" type="tel" inputmode="tel" autocomplete="tel" maxlength="24" placeholder="+48 ___ ___ ___" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]">
+          </div>
+        </div>
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-4 sm:p-5 mb-6 flex gap-3 items-start">
+          <span class="text-amber-500 text-xl flex-shrink-0" aria-hidden="true">⚠️</span>
+          <div>
+            <p class="font-semibold text-deep mb-1.5" data-ui2="docsH">Dokumenty i rzeczy, które przywozimy do szpitala</p>
+            <ul class="text-[13.5px] text-ink/85 leading-relaxed space-y-1.5 list-disc pl-4">
+              <li data-ui2="docsLi1"><strong>Dokumentacja:</strong> dowody osobiste, karta przebiegu ciąży, komplet wyników badań (grupa krwi z przeciwciałami, HBsAg, GBS, morfologia, badania w kierunku zakażeń).</li>
+              <li data-ui2="docsLi2"><strong>Plan porodu:</strong> dwa egzemplarze — jeden do dołączenia do dokumentacji medycznej, drugi dla nas.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 mb-5">
           <span class="text-3xl flex-shrink-0" aria-hidden="true">📝</span>
           <div>
             <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Wasze dodatkowe uwagi</h3>
@@ -1948,7 +1979,17 @@ tailwind.config = {
         return {title:x[1], items:collect(x[0]), info:INFO[x[0]] ? [INFO[x[0]][0], INFO[x[0]][1], x[0]] : null};
       });
       var uwagi = field('uwagi').slice(0, NOTES_MAX);
-      return {gender:g, dziecko:dziecko||'Nasze dziecko', rodzice:rodzice, termin:termin, rows:rows, sections:sections, notes:uwagi};
+      // Kontakty (opcjonalne) — do sekcji po wypisie w PDF
+      var contacts = [];
+      if(field('telMama')) contacts.push(['Telefon do matki', field('telMama')]);
+      if(field('telTata')) contacts.push(['Telefon do ojca dziecka', field('telTata')]);
+      if(field('telPolozna')) contacts.push(['Położna (wizyty patronażowe)', field('telPolozna')]);
+      // Flagi warunkowe dla segmentów PDF
+      var settingVals = collect('setting').join(' ');
+      var wantsMedia = /zdj\u0119\u0107|nagrywania wideo/i.test(settingVals);
+      var vaccVal = (form.querySelector('input[name="vacc"]:checked')||{}).value||'';
+      var selfVacc = /w\u0142asnym zakresie/i.test(vaccVal);
+      return {gender:g, dziecko:dziecko||'Nasze dziecko', rodzice:rodzice, termin:termin, rows:rows, sections:sections, notes:uwagi, contacts:contacts, wantsMedia:wantsMedia, selfVacc:selfVacc};
     }
     function loadScript(src){
       return new Promise(function(res,rej){
@@ -1993,8 +2034,23 @@ tailwind.config = {
       done:{pl:'Gotowe! Sprawd\u017acie folder Pobrane.',en:'Done! Check your Downloads folder.',de:'Fertig! Pr\u00fcfen Sie Ihren Download-Ordner.',uk:'\u0413\u043e\u0442\u043e\u0432\u043e! \u041f\u0435\u0440\u0435\u0432\u0456\u0440\u0442\u0435 \u043f\u0430\u043f\u043a\u0443 \u0417\u0430\u0432\u0430\u043d\u0442\u0430\u0436\u0435\u043d\u043d\u044f.',ru:'\u0413\u043e\u0442\u043e\u0432\u043e! \u041f\u0440\u043e\u0432\u0435\u0440\u044c\u0442\u0435 \u043f\u0430\u043f\u043a\u0443 \u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0438.'},
     };
     function ui2(k){var l=window.__pnmKreatorLang||'pl';var e=UI2[k];return (e&&(e[l]||e.pl))||'';}
+    // Slownik data-ui2 dla nowych elementow kroku "kontakty/dokumenty" (jezyk kreatora)
+    var UI2X={
+      contactsH:{pl:'Dokumenty, kontakty i opieka po wypisie',en:'Documents, contacts and post-discharge care',de:'Dokumente, Kontakte und Betreuung nach der Entlassung',uk:'\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0438, \u043a\u043e\u043d\u0442\u0430\u043a\u0442\u0438 \u0442\u0430 \u0434\u043e\u0433\u043b\u044f\u0434 \u043f\u0456\u0441\u043b\u044f \u0432\u0438\u043f\u0438\u0441\u043a\u0438',ru:'\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b, \u043a\u043e\u043d\u0442\u0430\u043a\u0442\u044b \u0438 \u0443\u0445\u043e\u0434 \u043f\u043e\u0441\u043b\u0435 \u0432\u044b\u043f\u0438\u0441\u043a\u0438'},
+      contactsP:{pl:'Telefony wpiszcie opcjonalnie \u2014 trafi\u0105 do planu, by personel i osoba towarzysz\u0105ca mieli je pod r\u0119k\u0105.',en:'Phone numbers are optional \u2014 they go into the plan so staff and the support person have them at hand.',de:'Telefonnummern sind optional \u2014 sie kommen in den Plan, damit Personal und Begleitperson sie zur Hand haben.',uk:'\u0422\u0435\u043b\u0435\u0444\u043e\u043d\u0438 \u0432\u043a\u0430\u0436\u0456\u0442\u044c \u0437\u0430 \u0431\u0430\u0436\u0430\u043d\u043d\u044f\u043c \u2014 \u0432\u043e\u043d\u0438 \u043f\u043e\u0442\u0440\u0430\u043f\u043b\u044f\u0442\u044c \u0434\u043e \u043f\u043b\u0430\u043d\u0443, \u0449\u043e\u0431 \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b \u0456 \u0441\u0443\u043f\u0440\u043e\u0432\u0456\u0434 \u043c\u0430\u043b\u0438 \u0457\u0445 \u043f\u0456\u0434 \u0440\u0443\u043a\u043e\u044e.',ru:'\u0422\u0435\u043b\u0435\u0444\u043e\u043d\u044b \u0443\u043a\u0430\u0436\u0438\u0442\u0435 \u043f\u043e \u0436\u0435\u043b\u0430\u043d\u0438\u044e \u2014 \u043e\u043d\u0438 \u043f\u043e\u043f\u0430\u0434\u0443\u0442 \u0432 \u043f\u043b\u0430\u043d, \u0447\u0442\u043e\u0431\u044b \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b \u0438 \u0441\u043e\u043f\u0440\u043e\u0432\u043e\u0436\u0434\u0430\u044e\u0449\u0438\u0439 \u0431\u044b\u043b\u0438 \u043f\u043e\u0434 \u0440\u0443\u043a\u043e\u0439.'},
+      contactMama:{pl:'Telefon do matki',en:'Mother\u2019s phone',de:'Telefon der Mutter',uk:'\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u043c\u0430\u0442\u0435\u0440\u0456',ru:'\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u043c\u0430\u0442\u0435\u0440\u0438'},
+      contactTata:{pl:'Telefon do ojca dziecka',en:'Baby\u2019s father\u2019s phone',de:'Telefon des Vaters',uk:'\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u0431\u0430\u0442\u044c\u043a\u0430 \u0434\u0438\u0442\u0438\u043d\u0438',ru:'\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u043e\u0442\u0446\u0430 \u0440\u0435\u0431\u0451\u043d\u043a\u0430'},
+      contactPolozna:{pl:'Po\u0142o\u017cna (wizyty patrona\u017cowe)',en:'Community midwife (postnatal visits)',de:'Hebamme (Nachsorgebesuche)',uk:'\u0410\u043a\u0443\u0448\u0435\u0440\u043a\u0430 (\u043f\u0430\u0442\u0440\u043e\u043d\u0430\u0436\u043d\u0456 \u0432\u0456\u0437\u0438\u0442\u0438)',ru:'\u0410\u043a\u0443\u0448\u0435\u0440\u043a\u0430 (\u043f\u0430\u0442\u0440\u043e\u043d\u0430\u0436\u043d\u044b\u0435 \u0432\u0438\u0437\u0438\u0442\u044b)'},
+      docsH:{pl:'Dokumenty i rzeczy, kt\u00f3re przywozimy do szpitala',en:'Documents and items we bring to the hospital',de:'Dokumente und Dinge, die wir in die Klinik mitbringen',uk:'\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0438 \u0442\u0430 \u0440\u0435\u0447\u0456, \u044f\u043a\u0456 \u043c\u0438 \u0431\u0435\u0440\u0435\u043c\u043e \u0434\u043e \u043b\u0456\u043a\u0430\u0440\u043d\u0456',ru:'\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u0438 \u0432\u0435\u0449\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043c\u044b \u0431\u0435\u0440\u0451\u043c \u0432 \u0431\u043e\u043b\u044c\u043d\u0438\u0446\u0443'},
+      docsLi1:{pl:'<strong>Dokumentacja:</strong> dowody osobiste, karta przebiegu ci\u0105\u017cy, komplet wynik\u00f3w bada\u0144 (grupa krwi z przeciwcia\u0142ami, HBsAg, GBS, morfologia, badania w kierunku zaka\u017ce\u0144).',en:'<strong>Documentation:</strong> ID cards, pregnancy record card, full set of test results (blood group with antibodies, HBsAg, GBS, blood count, infection screening).',de:'<strong>Unterlagen:</strong> Ausweise, Mutterpass, vollst\u00e4ndige Befunde (Blutgruppe mit Antik\u00f6rpern, HBsAg, GBS, Blutbild, Infektionsscreening).',uk:'<strong>\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0456\u044f:</strong> \u043f\u043e\u0441\u0432\u0456\u0434\u0447\u0435\u043d\u043d\u044f \u043e\u0441\u043e\u0431\u0438, \u043e\u0431\u043c\u0456\u043d\u043d\u0430 \u043a\u0430\u0440\u0442\u0430 \u0432\u0430\u0433\u0456\u0442\u043d\u043e\u0457, \u043f\u043e\u0432\u043d\u0438\u0439 \u043a\u043e\u043c\u043f\u043b\u0435\u043a\u0442 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u0456\u0432 (\u0433\u0440\u0443\u043f\u0430 \u043a\u0440\u043e\u0432\u0456 \u0437 \u0430\u043d\u0442\u0438\u0442\u0456\u043b\u0430\u043c\u0438, HBsAg, GBS, \u0437\u0430\u0433\u0430\u043b\u044c\u043d\u0438\u0439 \u0430\u043d\u0430\u043b\u0456\u0437 \u043a\u0440\u043e\u0432\u0456, \u0441\u043a\u0440\u0438\u043d\u0456\u043d\u0433 \u0456\u043d\u0444\u0435\u043a\u0446\u0456\u0439).',ru:'<strong>\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f:</strong> \u0443\u0434\u043e\u0441\u0442\u043e\u0432\u0435\u0440\u0435\u043d\u0438\u044f \u043b\u0438\u0447\u043d\u043e\u0441\u0442\u0438, \u043e\u0431\u043c\u0435\u043d\u043d\u0430\u044f \u043a\u0430\u0440\u0442\u0430 \u0431\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0439, \u043f\u043e\u043b\u043d\u044b\u0439 \u043a\u043e\u043c\u043f\u043b\u0435\u043a\u0442 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u043e\u0432 (\u0433\u0440\u0443\u043f\u043f\u0430 \u043a\u0440\u043e\u0432\u0438 \u0441 \u0430\u043d\u0442\u0438\u0442\u0435\u043b\u0430\u043c\u0438, HBsAg, GBS, \u043e\u0431\u0449\u0438\u0439 \u0430\u043d\u0430\u043b\u0438\u0437 \u043a\u0440\u043e\u0432\u0438, \u0441\u043a\u0440\u0438\u043d\u0438\u043d\u0433 \u0438\u043d\u0444\u0435\u043a\u0446\u0438\u0439).'},
+      docsLi2:{pl:'<strong>Plan porodu:</strong> dwa egzemplarze \u2014 jeden do do\u0142\u0105czenia do dokumentacji medycznej, drugi dla nas.',en:'<strong>Birth plan:</strong> two copies \u2014 one to attach to the medical records, one for us.',de:'<strong>Geburtsplan:</strong> zwei Exemplare \u2014 eines f\u00fcr die Krankenakte, eines f\u00fcr uns.',uk:'<strong>\u041f\u043b\u0430\u043d \u043f\u043e\u043b\u043e\u0433\u0456\u0432:</strong> \u0434\u0432\u0430 \u043f\u0440\u0438\u043c\u0456\u0440\u043d\u0438\u043a\u0438 \u2014 \u043e\u0434\u0438\u043d \u0434\u043e \u043c\u0435\u0434\u0438\u0447\u043d\u043e\u0457 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0456\u0457, \u0456\u043d\u0448\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0441.',ru:'<strong>\u041f\u043b\u0430\u043d \u0440\u043e\u0434\u043e\u0432:</strong> \u0434\u0432\u0430 \u044d\u043a\u0437\u0435\u043c\u043f\u043b\u044f\u0440\u0430 \u2014 \u043e\u0434\u0438\u043d \u0434\u043b\u044f \u043c\u0435\u0434\u0438\u0446\u0438\u043d\u0441\u043a\u043e\u0439 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u0438, \u0434\u0440\u0443\u0433\u043e\u0439 \u0434\u043b\u044f \u043d\u0430\u0441.'}
+    };
     function applyUi2(){
       var el;
+      var L=window.__pnmKreatorLang||'pl';
+      document.querySelectorAll('[data-ui2]').forEach(function(n){
+        var e=UI2X[n.getAttribute('data-ui2')]; if(e) n.innerHTML=(e[L]||e.pl);
+      });
       if((el=document.getElementById('krKicker'))) el.textContent=ui2('kick');
       if((el=document.getElementById('krStepKicker'))) el.textContent=ui2('step');
       if((el=document.getElementById('resetProgressTop'))) el.textContent=ui2('reset');

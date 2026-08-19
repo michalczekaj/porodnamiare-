@@ -33,7 +33,7 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
 
   function pdfLabel(lang, key, fallback){
     try{
-      if(lang && lang!=='pl' && window.PNM_I18N && window.PNM_I18N.pdf[lang]) return window.PNM_I18N.pdf[lang][key];
+      if(lang && lang!=='pl' && window.PNM_I18N && window.PNM_I18N.pdf[lang] && window.PNM_I18N.pdf[lang][key]!=null) return window.PNM_I18N.pdf[lang][key];
     }catch(e){}
     return fallback;
   }
@@ -113,17 +113,126 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
     c.y+=bh+6;
   }
 
+  function legalStatement(c){
+    var d=c.d, t=c.t;
+    var title=pdfLabel(c.lang,'legalT','Oświadczenie i podstawa prawna');
+    var txt=pdfLabel(c.lang,'legalBody','Niniejszy Plan Porodu przedstawia nasze świadome oczekiwania, preferencje i decyzje dotyczące przebiegu porodu, połogu oraz opieki nad noworodkiem. Jest zgodny z aktualnym Standardem organizacyjnym opieki okołoporodowej (Dz.U. 2025 poz. 1525, obowiązującym od 7 maja 2026 r.). Zgodnie ze standardem 2026 plan porodu stanowi dokument medyczny dołączany do indywidualnej dokumentacji wewnętrznej pacjentki. Nasze prawa do informacji, wyrażania zgody, obecności osoby bliskiej oraz dostępu do dokumentacji medycznej wynikają z ustawy z dnia 6 listopada 2008 r. o prawach pacjenta i Rzeczniku Praw Pacjenta (m.in. art. 9, 15–18, 21, 23). Prosimy o zapoznanie się z planem przez cały personel i realizację w miarę możliwości medycznych. W razie konieczności odstąpienia od planu prosimy o niezwłoczne poinformowanie nas i podanie uzasadnienia.');
+    d.setFont('Lato','normal'); d.setFontSize(8.5);
+    var lines=d.splitTextToSize(txt, W-48), bh=lines.length*4.2+13;
+    need(c,bh+5);
+    d.setFillColor(255,255,255); d.setDrawColor(SD[0],SD[1],SD[2]); d.setLineWidth(0.5);
+    d.roundedRect(16,c.y,W-32,bh,3,3,'FD');
+    d.setFillColor(t.ac[0],t.ac[1],t.ac[2]); d.roundedRect(16,c.y,2.5,bh,1,1,'F');
+    d.setTextColor(DEEP[0],DEEP[1],DEEP[2]); d.setFont('Lato','bold'); d.setFontSize(10);
+    d.text(title,23,c.y+8);
+    d.setTextColor(INK[0],INK[1],INK[2]); d.setFont('Lato','normal'); d.setFontSize(8.5);
+    var yy=c.y+13.5;
+    lines.forEach(function(l){ d.text(l,23,yy); yy+=4.2; });
+    c.y+=bh+6;
+  }
+
   function priority(c){
     var d=c.d, t=c.t;
-    var txt=pdfLabel(c.lang,'priority','PRIORYTET NADRZĘDNY: zdrowie i życie dziecka oraz matki są bezwzględnym priorytetem, nadrzędnym wobec każdego punktu tego planu. W sytuacji zagrożenia akceptujemy wszystkie niezbędne interwencje medyczne. Prosimy jedynie o możliwie szybką informację o sytuacji.');
-    d.setFont('Lato','bold'); d.setFontSize(8.5);
-    var lines=d.splitTextToSize(txt, W-48), bh=lines.length*4.4+8;
+    var title=pdfLabel(c.lang,'priorityT','PRIORYTET NADRZĘDNY — ZDROWIE I ŻYCIE DZIECKA');
+    var paras=pdfLabel(c.lang,'priorityBody',[
+      'Zdrowie i życie dziecka oraz matki są dla nas bezwzględnym priorytetem, nadrzędnym wobec każdego punktu tego planu.',
+      'W sytuacji zagrożenia życia lub zdrowia akceptujemy wszystkie niezbędne interwencje medyczne wykonane zgodnie z aktualną wiedzą medyczną — także bez oczekiwania na nasz podpis, jeśli zwłoka mogłaby zagrozić dziecku. Prosimy jedynie o możliwie najszybsze poinformowanie nas o sytuacji i jej przyczynach.',
+      'Nasze preferencje dotyczą porodu o przebiegu fizjologicznym; przy jakichkolwiek wskazaniach medycznych pierwszeństwo ma bezpieczeństwo dziecka.'
+    ]);
+    // Pomiar wysokości: tytuł + akapity
+    d.setFont('Lato','normal'); d.setFontSize(8.7);
+    var blocks=paras.map(function(p){ return d.splitTextToSize(p, W-52); });
+    var totalLines=blocks.reduce(function(a,b){ return a+b.length; },0);
+    var bh = 11 + totalLines*4.5 + (blocks.length-1)*2.5 + 5;
     need(c,bh+5);
-    d.setFillColor(t.soft[0],t.soft[1],t.soft[2]); d.setDrawColor(t.ac[0],t.ac[1],t.ac[2]); d.setLineWidth(0.8);
+    // Tło zależne od płci: t.soft (dziewczynka = różowe, chłopiec = zielone)
+    d.setFillColor(t.soft[0],t.soft[1],t.soft[2]); d.setDrawColor(t.ac[0],t.ac[1],t.ac[2]); d.setLineWidth(0.9);
     d.roundedRect(16,c.y,W-32,bh,3,3,'FD');
-    d.setTextColor(DEEP[0],DEEP[1],DEEP[2]);
-    var yy=c.y+6.5;
-    lines.forEach(function(l){ d.text(l,22,yy); yy+=4.4; });
+    heart(d,23,c.y+6.5,2.4,t.ac);
+    d.setTextColor(t.ac[0],t.ac[1],t.ac[2]); d.setFont('Lato','bold'); d.setFontSize(9.5);
+    d.text(title,28,c.y+8);
+    d.setTextColor(DEEP[0],DEEP[1],DEEP[2]); d.setFont('Lato','normal'); d.setFontSize(8.7);
+    var yy=c.y+14.5;
+    blocks.forEach(function(bl){ bl.forEach(function(l){ d.text(l,22,yy); yy+=4.5; }); yy+=2.5; });
+    c.y+=bh+6;
+  }
+
+  // Segment warunkowy — dokumentacja narodzin (foto/wideo). Rysowany tylko, gdy zaznaczono w kreatorze.
+  function mediaSegment(c){
+    var d=c.d, t=c.t;
+    var title=pdfLabel(c.lang,'mediaT','Dokumentacja narodzin — ważna dla nas pamiątka');
+    var txt=pdfLabel(c.lang,'mediaBody','Zależy nam na wykonaniu zdjęć oraz nagrań wideo podczas porodu i pierwszych chwil życia dziecka — to dla nas bezcenna pamiątka na całe życie. Prosimy o umożliwienie tego osobie towarzyszącej (ojcu dziecka), w granicach bezpieczeństwa i za zgodą personelu.');
+    d.setFont('Lato','normal'); d.setFontSize(8.5);
+    var lines=d.splitTextToSize(txt, W-48), bh=lines.length*4.2+12;
+    need(c,bh+5);
+    d.setFillColor(255,255,255); d.setDrawColor(t.ac[0],t.ac[1],t.ac[2]); d.setLineWidth(0.5);
+    d.roundedRect(16,c.y,W-32,bh,3,3,'FD');
+    d.setTextColor(t.ac[0],t.ac[1],t.ac[2]); d.setFont('Lato','bold'); d.setFontSize(9);
+    d.text(title,22,c.y+7);
+    d.setTextColor(INK[0],INK[1],INK[2]); d.setFont('Lato','normal'); d.setFontSize(8.5);
+    var yy=c.y+12.5;
+    lines.forEach(function(l){ d.text(l,22,yy); yy+=4.2; });
+    c.y+=bh+6;
+  }
+
+  // Segment warunkowy — szczepienia we własnym zakresie po wypisie.
+  function vaccSegment(c){
+    var d=c.d, t=c.t;
+    var title=pdfLabel(c.lang,'vaccT','Szczepienia realizujemy we własnym zakresie, dbając o zdrowie naszego dziecka');
+    var txt=pdfLabel(c.lang,'vaccBody','Otrzymaliśmy Program Szczepień Ochronnych (schemat do 2. roku życia). Zapoznaliśmy się z nim i będziemy realizować szczepienia samodzielnie, w wybranym przez nas terminie i harmonogramie, w konsultacji z wybranym pediatrą, po wypisie ze szpitala. Na obecnym etapie nie wyrażamy zgody na podanie w szpitalu żadnej szczepionki — w tym przeciw WZW typu B oraz BCG (gruźlica). Wykonamy je poza szpitalem. Deklarujemy zgłoszenie się do pediatry POZ po wypisie w celu ustalenia dalszej opieki i kontynuacji kalendarza szczepień.');
+    d.setFont('Lato','normal'); d.setFontSize(8.5);
+    var lines=d.splitTextToSize(txt, W-48), bh=lines.length*4.2+12;
+    need(c,bh+5);
+    d.setFillColor(255,255,255); d.setDrawColor(t.ac[0],t.ac[1],t.ac[2]); d.setLineWidth(0.5);
+    d.roundedRect(16,c.y,W-32,bh,3,3,'FD');
+    d.setTextColor(t.ac[0],t.ac[1],t.ac[2]); d.setFont('Lato','bold'); d.setFontSize(9);
+    var tl=d.splitTextToSize(title, W-48);
+    var ty=c.y+7; tl.forEach(function(l){ d.text(l,22,ty); ty+=4.4; });
+    d.setTextColor(INK[0],INK[1],INK[2]); d.setFont('Lato','normal'); d.setFontSize(8.5);
+    var yy=ty+1.5;
+    lines.forEach(function(l){ d.text(l,22,yy); yy+=4.2; });
+    c.y+= (ty-c.y) + lines.length*4.2 + 8;
+  }
+
+  // Kontakty po wypisie + box dokumentów.
+  function contactsSegment(c, contacts){
+    var d=c.d, t=c.t;
+    var hasC = contacts && contacts.length;
+    var title=pdfLabel(c.lang,'contactsT','Dokumenty, kontakty i opieka po wypisie');
+    // wysokość: nagłówek + kontakty + box dokumentów
+    var docsH=pdfLabel(c.lang,'docsT','Dokumenty i rzeczy, które przywozimy do szpitala');
+    var docs=pdfLabel(c.lang,'docsItems',[
+      'Dokumentacja: dowody osobiste, karta przebiegu ciąży, komplet wyników badań (grupa krwi z przeciwciałami, HBsAg, GBS, morfologia, badania w kierunku zakażeń).',
+      'Plan porodu: dwa egzemplarze — jeden do dołączenia do dokumentacji medycznej, drugi dla nas.'
+    ]);
+    d.setFont('Lato','normal'); d.setFontSize(8.5);
+    var docLines=docs.map(function(x){ return d.splitTextToSize('•  '+x, W-52); });
+    var docLinesN=docLines.reduce(function(a,b){ return a+b.length; },0);
+    var cH = hasC ? (contacts.length*6+3) : 0;
+    var bh = 9 + cH + 6 + docLinesN*4.3 + 8;
+    need(c,bh+5);
+    // Nagłówek segmentu
+    d.setFillColor(255,255,255); d.setDrawColor(SD[0],SD[1],SD[2]); d.setLineWidth(0.5);
+    d.roundedRect(16,c.y,W-32,bh,3,3,'FD');
+    d.setFillColor(t.ac[0],t.ac[1],t.ac[2]); d.roundedRect(16,c.y,2.5,bh,1,1,'F');
+    d.setTextColor(DEEP[0],DEEP[1],DEEP[2]); d.setFont('Lato','bold'); d.setFontSize(9.5);
+    d.text(title,23,c.y+7);
+    var yy=c.y+13;
+    if(hasC){
+      contacts.forEach(function(r){
+        d.setTextColor(GREY[0],GREY[1],GREY[2]); d.setFont('Lato','normal'); d.setFontSize(8);
+        d.text(String(r[0])+':', 23, yy);
+        d.setTextColor(INK[0],INK[1],INK[2]); d.setFont('Lato','bold'); d.setFontSize(9);
+        d.text(String(r[1]), 78, yy);
+        yy+=6;
+      });
+      yy+=2;
+    }
+    // Box dokumentów (wyróżniony)
+    d.setTextColor(t.ac[0],t.ac[1],t.ac[2]); d.setFont('Lato','bold'); d.setFontSize(8.7);
+    d.text(docsH, 23, yy); yy+=5;
+    d.setTextColor(INK[0],INK[1],INK[2]); d.setFont('Lato','normal'); d.setFontSize(8.5);
+    docLines.forEach(function(bl){ bl.forEach(function(l,i){ d.text(l, i===0?23:26, yy); yy+=4.3; }); });
     c.y+=bh+6;
   }
 
@@ -332,6 +441,7 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
       var label = (lang!=='pl' && window.PNM_I18N && window.PNM_I18N.rowLabels[lang] && window.PNM_I18N.rowLabels[lang][r[0]]) ? window.PNM_I18N.rowLabels[lang][r[0]] : r[0];
       return [label, r[1]];
     }));
+    legalStatement(c);
     priority(c);
     var n=1;
     (data.sections||[]).forEach(function(s){
@@ -341,6 +451,9 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
         if(s.info) infoBox(c, s.info[0], s.info[1], s.info[2], lang);
       }
     });
+    if(data.wantsMedia) mediaSegment(c);
+    if(data.selfVacc) vaccSegment(c);
+    contactsSegment(c, data.contacts||[]);
     notesBox(c, data.notes, data.notesCaption);
     signatures(c);
     return c.d;
