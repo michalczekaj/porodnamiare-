@@ -1823,22 +1823,11 @@ tailwind.config = {
     function pnmTierFromKey(key){
       return ({ jUaCl:'podstawowy', PAcED:'premium', JjgRA:'premiumplus' })[key] || null;
     }
-    // Przed przejsciem do PayHip: zapisz postep, wygeneruj sid (do JWT po powrocie) i znacznik
-    // checkout (tier + czas) — na jego podstawie /dziekujemy przyzna trwaly dostep offline.
-    document.querySelectorAll('.pay-link, #cta-podstawowy, #cta-premium, #cta-premiumplus').forEach(function(a){
-      a.addEventListener('click', function(){
-        saveProgress();
-        var key = pnmProductKeyFromHref(a.getAttribute('href'));
-        if(!key) return;
-        var sid = pnmUuid();
-        var tier = pnmTierFromKey(key);
-        try{
-          localStorage.setItem(SID_KEY, sid); localStorage.setItem(SID_TS_KEY, String(Date.now()));
-          localStorage.setItem(CO_KEY, JSON.stringify({tier:tier, key:key, ts:Date.now()}));
-        }catch(e){}
-        a.href = 'https://payhip.com/buy?link=' + encodeURIComponent(key) + '&metadata[sid]=' + encodeURIComponent(sid);
-      });
-    });
+    // Inicjacja checkoutu (sid + znacznik pnm_checkout + przepisanie URL na format z metadanymi)
+    // jest teraz w JEDNYM wspólnym module /js/pnm-checkout.js, dołączonym także na stronie głównej
+    // — dzięki temu zakup z DOWOLNEJ strony ustawia mechanizm odblokowania tak samo. Tutaj
+    // rejestrujemy tylko hook, który zapisze bieżące odpowiedzi kreatora zanim opuścimy stronę.
+    window.PNM_beforeCheckout = function(){ try{ saveProgress(); }catch(e){} };
     // Baner po zakupie — dwa warianty zależnie od tego, czy w tej przeglądarce są już
     // odpowiedzi z kreatora: (A) klient wypełnił kreator, potem kupił -> zachęcamy do pobrania;
     // (B) klient kupił od razu (impulsywnie lub świadomie), kreator jest pusty -> jasne wezwanie
@@ -1953,6 +1942,25 @@ tailwind.config = {
       // 2) W tle: zweryfikuj/odswiez JWT; jesli brak — sprobuj odebrac claim po sid (kilka prob).
       pnmVerifyStoredJwt().then(function(ok){ if(!ok) pnmTryClaim(0); });
     })();
+
+    // Odswiezenie NIEZALEZNE od przekierowania PayHip. Klient moze wrocic z platnosci na wiele
+    // sposobow: do tej samej karty (przycisk wstecz / bfcache), przez inna karte (checkout w
+    // target="_blank" -> dostep przyznany w karcie /dziekujemy, wspoldzielony localStorage), albo
+    // gdy webhook zapisze claim dopiero po chwili. Za kazdym razem gdy karta znow staje sie
+    // widoczna / odzyskuje fokus, ponawiamy: odczyt pnm_paid + weryfikacje JWT + odbior claimu po sid.
+    var __pnmRecheckAt = 0;
+    function pnmRecheckAccess(){
+      var now = Date.now();
+      if(now - __pnmRecheckAt < 1500) return;   // lekki debounce — chroni limity /api
+      __pnmRecheckAt = now;
+      if(pnmReadPaid()) pnmApplyUnlocked();
+      pnmVerifyStoredJwt().then(function(ok){ if(!ok) pnmTryClaim(0); });
+    }
+    document.addEventListener('visibilitychange', function(){ if(!document.hidden) pnmRecheckAccess(); });
+    window.addEventListener('pageshow', function(e){ if(e && e.persisted) pnmRecheckAccess(); });
+    window.addEventListener('focus', pnmRecheckAccess);
+    // Natychmiastowa reakcja, gdy inna karta tego samego origin przyzna dostep.
+    try{ window.addEventListener('storage', function(e){ if(e.key==='pnm_paid' || e.key==='pnm_jwt'){ if(pnmReadPaid()) pnmApplyUnlocked(); } }); }catch(e){}
 
     var INFO={
       labor:['Gwizdek porodowy — czym jest','Niewielki ustnik oddechowy wspierający kontrolowany wydech w II okresie porodu. Pomaga utrzymać rytm oddechu i efektywne parcie bez wstrzymywania powietrza.'],
@@ -2580,6 +2588,7 @@ document.querySelectorAll('.consent-gate').forEach(function(cb){
   });
 });
 </script>
+<script src="/js/pnm-checkout.js?v=1" defer></script>
 <script src="js/email-protect.js" defer></script>
 </body>
 </html>

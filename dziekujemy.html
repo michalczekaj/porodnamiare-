@@ -247,6 +247,18 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
   // Od razu pokaż potwierdzenie, jeśli mamy lokalny dostęp; JWT dociągnie się w tle.
   if(paidGranted) setStatus('confirmed');
   tryClaim(0);
+
+  // Ponów odbiór claimu, gdy karta znów staje się widoczna / wraca z bfcache (webhook mógł
+  // dotrzeć dopiero po chwili). Lekki debounce chroni limity /api/unlock.
+  var dzLast = 0;
+  function dzRecheck(){
+    var now = Date.now();
+    if(now - dzLast < 1500) return; dzLast = now;
+    try{ if(localStorage.getItem('pnm_paid')) setStatus('confirmed'); }catch(e){}
+    tryClaim(0);
+  }
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden) dzRecheck(); });
+  window.addEventListener('pageshow', function(e){ if(e && e.persisted) dzRecheck(); });
 })();
 </script>
 <script>
