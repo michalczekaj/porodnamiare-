@@ -1971,6 +1971,8 @@ tailwind.config = {
       feeding:['Karmienie — nasza prośba','Prosimy o uszanowanie naszej decyzji dotyczącej sposobu karmienia dziecka, bez oceniania i bez nacisku w żadną stronę. Wsparcie merytoryczne zawsze mile widziane.'],
       needs:['Świadoma zgoda — nasze prawo','Przed każdą procedurą prosimy o wyjaśnienie jej celu, przebiegu, korzyści i ryzyka. Możemy wycofać zgodę w dowolnym momencie, z wyjątkiem sytuacji bezpośredniego zagrożenia życia.']
     };
+    // Druga ramka pod segmentem porodu — pojawia się TYLKO przy zaznaczonym gwizdku porodowym.
+    var WHISTLE_REQ=['Gwizdek porodowy — wsparcie oddechu (metoda nowa dla nas)','Prosimy o krótki instruktaż położnej dotyczący techniki oddychania z gwizdkiem podczas I i II okresu porodu.'];
     function planData(){
       var mama=field('mama'), tata=field('tata'), dziecko=field('dziecko'), termin=field('termin');
       var rodzice=[mama,tata].filter(Boolean).join(' i ');
@@ -1983,8 +1985,16 @@ tailwind.config = {
       if(field('krew')) rows.push(['Grupa krwi i Rh',field('krew')]);
       var hb=collect('hbsag')[0]; if(hb) rows.push(['HBsAg matki', hb.replace(/^HBsAg matki:\s*/,'')]);
       var gb=collect('gbs')[0];   if(gb) rows.push(['GBS', gb.replace(/^GBS:\s*/,'')]);
+      // Pełna treść segmentu szczepień tylko przy potwierdzonym ujemnym HBsAg; inaczej wersja łagodniejsza (do ustalenia z neonatologiem).
+      var hbsagNeg = /ujemny/i.test(hb||'');
+      // Gwizdek porodowy zaznaczony? Steruje ramkami info w sekcji „poród".
+      var hasWhistle = collect('labor').some(function(v){ return /gwizdk/i.test(v); });
       var sections=SECTIONS.filter(function(x){ return x[0]!=='hbsag+gbs'; }).map(function(x){
-        return {title:x[1], items:collect(x[0]), info:INFO[x[0]] ? [INFO[x[0]][0], INFO[x[0]][1], x[0]] : null};
+        // Ramka „czym jest gwizdek" tylko gdy realnie zaznaczono gwizdek (dotyczy sekcji porodu).
+        var showInfo = INFO[x[0]] && (x[0]!=='labor' || hasWhistle);
+        var sec = {title:x[1], items:collect(x[0]), info: showInfo ? [INFO[x[0]][0], INFO[x[0]][1], x[0]] : null};
+        if(x[0]==='labor' && hasWhistle) sec.info2 = [WHISTLE_REQ[0], WHISTLE_REQ[1], 'laborReq'];
+        return sec;
       });
       var uwagi = field('uwagi').slice(0, NOTES_MAX);
       // Kontakty (opcjonalne) — do sekcji po wypisie w PDF
@@ -1997,7 +2007,7 @@ tailwind.config = {
       var wantsMedia = /zdj\u0119\u0107|nagrywania wideo/i.test(settingVals);
       var vaccVal = (form.querySelector('input[name="vacc"]:checked')||{}).value||'';
       var selfVacc = /w\u0142asnym zakresie/i.test(vaccVal);
-      return {gender:g, dziecko:dziecko||'Nasze dziecko', rodzice:rodzice, termin:termin, rows:rows, sections:sections, notes:uwagi, contacts:contacts, wantsMedia:wantsMedia, selfVacc:selfVacc};
+      return {gender:g, dziecko:dziecko||'Nasze dziecko', rodzice:rodzice, termin:termin, rows:rows, sections:sections, notes:uwagi, contacts:contacts, wantsMedia:wantsMedia, selfVacc:selfVacc, hbsagNeg:hbsagNeg};
     }
     function loadScript(src){
       return new Promise(function(res,rej){
@@ -2014,8 +2024,8 @@ tailwind.config = {
     var i18nChain = null;
     function loadKreatorI18n(){
       if (i18nChain) return i18nChain;
-      i18nChain = (window.PNM_I18N ? Promise.resolve() : loadScript('/js/i18n-kreator.js?v=25'))
-        .then(function(){ return (window.PNM_I18N && window.PNM_I18N.txt) ? null : loadScript('/js/i18n-kreator-ui.js?v=25'); })
+      i18nChain = (window.PNM_I18N ? Promise.resolve() : loadScript('/js/i18n-kreator.js?v=52'))
+        .then(function(){ return (window.PNM_I18N && window.PNM_I18N.txt) ? null : loadScript('/js/i18n-kreator-ui.js?v=52'); })
         .then(function(){
           // i18n-kreator-ui.js dopina się asynchronicznie — poczekaj aż wystawi słownik
           return new Promise(function(res){
@@ -2231,8 +2241,8 @@ tailwind.config = {
         window.__freshUnlock=true;
         dlBtn.disabled=true; dlStatus.textContent='Przygotowuję dokument…';
         var chain = window.jspdf ? Promise.resolve() : loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
-        chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js?v=25'); })
-          .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js?v=25'); })
+        chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js?v=52'); })
+          .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js?v=52'); })
           .then(function(){
             var data=planData();
             return pnmWithTimeout(pnmPrepareNotes(data.notes,'pl'), 12000, {text:data.notes, caption:''})
@@ -2262,8 +2272,8 @@ tailwind.config = {
         var lang = dlLangSel.value;
         dlBtnLang.disabled=true; dlStatusLang.textContent='Przygotowuję dokument…';
         var chain = window.jspdf ? Promise.resolve() : loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
-        chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js?v=25'); })
-          .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js?v=25'); })
+        chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js?v=52'); })
+          .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js?v=52'); })
           .then(function(){
             var data=planData();
             return pnmWithTimeout(pnmPrepareNotes(data.notes, lang), 12000, {text:data.notes, caption:''})

@@ -178,8 +178,16 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
   // Segment warunkowy — szczepienia we własnym zakresie po wypisie.
   function vaccSegment(c){
     var d=c.d, t=c.t;
-    var title=pdfLabel(c.lang,'vaccT','Szczepienia realizujemy we własnym zakresie, dbając o zdrowie naszego dziecka');
-    var txt=pdfLabel(c.lang,'vaccBody','Otrzymaliśmy Program Szczepień Ochronnych (schemat do 2. roku życia). Zapoznaliśmy się z nim i będziemy realizować szczepienia samodzielnie, w wybranym przez nas terminie i harmonogramie, w konsultacji z wybranym pediatrą, po wypisie ze szpitala. Na obecnym etapie nie wyrażamy zgody na podanie w szpitalu żadnej szczepionki — w tym przeciw WZW typu B oraz BCG (gruźlica). Wykonamy je poza szpitalem. Deklarujemy zgłoszenie się do pediatry POZ po wypisie w celu ustalenia dalszej opieki i kontynuacji kalendarza szczepień.');
+    var title, txt;
+    if(c.hbsagNeg){
+      // HBsAg matki potwierdzony ujemny — pełna treść (odroczenie WZW B / BCG bezpieczne).
+      title=pdfLabel(c.lang,'vaccT','Szczepienia realizujemy we własnym zakresie, dbając o zdrowie naszego dziecka');
+      txt=pdfLabel(c.lang,'vaccBody','Otrzymaliśmy Program Szczepień Ochronnych (schemat do 2. roku życia). Zapoznaliśmy się z nim i będziemy realizować szczepienia samodzielnie, w wybranym przez nas terminie i harmonogramie, w konsultacji z wybranym pediatrą, po wypisie ze szpitala. Na obecnym etapie nie wyrażamy zgody na podanie w szpitalu żadnej szczepionki — w tym przeciw WZW typu B oraz BCG (gruźlica). Wykonamy je poza szpitalem. Deklarujemy zgłoszenie się do pediatry POZ po wypisie w celu ustalenia dalszej opieki i kontynuacji kalendarza szczepień.');
+    } else {
+      // HBsAg dodatni lub nieznany — wersja łagodniejsza; postępowanie z WZW B do ustalenia z neonatologiem.
+      title=pdfLabel(c.lang,'vaccSoftT','Szczepienia — postępowanie do ustalenia z neonatologiem');
+      txt=pdfLabel(c.lang,'vaccSoftBody','Preferujemy realizację szczepień we własnym zakresie po wypisie, u wybranego pediatry. Ponieważ wynik HBsAg u matki jest dodatni lub nieznany, ostateczne postępowanie dotyczące szczepienia przeciw WZW typu B (oraz ewentualnego podania immunoglobuliny) ustalimy wspólnie z neonatologiem, kierując się przede wszystkim bezpieczeństwem dziecka. Pozostałe szczepienia planujemy zrealizować po wypisie.');
+    }
     d.setFont('Lato','normal'); d.setFontSize(8.5);
     var lines=d.splitTextToSize(txt, W-48), bh=lines.length*4.2+12;
     need(c,bh+5);
@@ -272,6 +280,12 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
       de:['Geburtspfeife — was das ist','Ein kleines Atem-Mundstück, das die kontrollierte Ausatmung in der Austreibungsphase unterstützt. Es hilft, den Atemrhythmus zu halten und effektiv zu pressen, ohne die Luft anzuhalten.'],
       uk:['Пологовий свисток — що це','Невеликий дихальний мундштук, що підтримує контрольований видих у II періоді пологів. Допомагає тримати ритм дихання та ефективні потуги без затримки повітря.'],
       ru:['Родовой свисток — что это','Небольшой дыхательный мундштук, поддерживающий контролируемый выдох во II периоде родов. Помогает сохранять ритм дыхания и эффективные потуги без задержки воздуха.']
+    },
+    laborReq:{
+      en:['Birth whistle — breathing support (a method new to us)','We would appreciate a short briefing from the midwife on the whistle breathing technique during the first and second stages of labour.'],
+      de:['Geburtspfeife — Atemunterstützung (für uns eine neue Methode)','Wir bitten um eine kurze Einweisung durch die Hebamme zur Atemtechnik mit der Pfeife während der Eröffnungs- und Austreibungsphase.'],
+      uk:['Пологовий свисток — підтримка дихання (новий для нас метод)','Просимо про короткий інструктаж акушерки щодо техніки дихання зі свистком під час I та II періодів пологів.'],
+      ru:['Родовой свисток — поддержка дыхания (новый для нас метод)','Просим о кратком инструктаже акушерки по технике дыхания со свистком во время I и II периодов родов.']
     },
     pain:{
       en:['Remifentanil PCA — information','A short-acting opioid delivered by a patient-controlled pump — the mother triggers each dose during a contraction. Rapid onset and offset; requires oxygen-saturation monitoring.'],
@@ -400,6 +414,35 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
     c.y += bh + 6;
   }
 
+  // Stały blok prawny na końcu planu: dokumentowanie odstąpień, transparentność danych, świadomość decyzji.
+  function importantNotes(c){
+    var d=c.d, t=c.t, lang=c.lang;
+    var title=pdfLabel(lang,'addNotesT','Ważne uwagi dodatkowe');
+    var items=pdfLabel(lang,'addNotesItems',[
+      'W przypadku odstąpienia od wybranej procedury prosimy o odnotowanie tego w dokumentacji medycznej wraz z informacją, że zostaliśmy poinformowani o korzyściach i ryzyku.',
+      'Prosimy o informację o zakresie danych przekazywanych podmiotom zewnętrznym w związku z opieką nad dzieckiem, w granicach obowiązujących przepisów.',
+      'Nasze decyzje podjęliśmy po zapoznaniu się z aktualną wiedzą medyczną oraz bilansem korzyści i ryzyka, w trosce o bezpieczeństwo i dobro dziecka.'
+    ]);
+    d.setFont('Lato','normal'); d.setFontSize(8.5);
+    var wrapped=items.map(function(x){ return d.splitTextToSize(x, W-56); });
+    var linesN=wrapped.reduce(function(a,b){ return a+b.length; },0);
+    var bh = 13 + linesN*4.3 + items.length*1.8 + 3;
+    need(c, bh+6);
+    d.setFillColor(255,255,255); d.setDrawColor(SD[0],SD[1],SD[2]); d.setLineWidth(0.5);
+    d.roundedRect(16,c.y,W-32,bh,3,3,'FD');
+    d.setFillColor(t.ac[0],t.ac[1],t.ac[2]); d.roundedRect(16,c.y,2.5,bh,1,1,'F');
+    d.setTextColor(DEEP[0],DEEP[1],DEEP[2]); d.setFont('Lato','bold'); d.setFontSize(9.5);
+    d.text(title,23,c.y+7.5);
+    var yy=c.y+13.5;
+    d.setFont('Lato','normal'); d.setFontSize(8.5); d.setTextColor(INK[0],INK[1],INK[2]);
+    wrapped.forEach(function(bl){
+      d.setFillColor(t.ac[0],t.ac[1],t.ac[2]); d.circle(24,yy-1.2,0.7,'F');
+      bl.forEach(function(l){ d.text(l, 27, yy); yy+=4.3; });
+      yy+=1.8;
+    });
+    c.y+=bh+6;
+  }
+
   function signatures(c){
     var d=c.d, lang=c.lang;
     need(c,52);
@@ -432,6 +475,7 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
     lang = lang || 'pl';
     var c=Doc(data.gender);
     c.lang = lang;
+    c.hbsagNeg = (data.hbsagNeg === true);
     var tr = function(s){
       try{ return (lang!=='pl' && window.PNM_I18N) ? window.PNM_I18N.t(s, lang) : s; }catch(e){ return s; }
     };
@@ -449,12 +493,14 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
         var title = lang!=='pl' ? translateStepTitle(s.title, lang) : s.title;
         section(c, n++, title, s.items.map(tr));
         if(s.info) infoBox(c, s.info[0], s.info[1], s.info[2], lang);
+        if(s.info2) infoBox(c, s.info2[0], s.info2[1], s.info2[2], lang);
       }
     });
     if(data.wantsMedia) mediaSegment(c);
     if(data.selfVacc) vaccSegment(c);
     contactsSegment(c, data.contacts||[]);
     notesBox(c, data.notes, data.notesCaption);
+    importantNotes(c);
     signatures(c);
     return c.d;
   };
