@@ -24,10 +24,6 @@
 <meta name="twitter:image" content="https://porodnamiare.pl/img/og.jpg">
 <link rel="canonical" href="https://porodnamiare.pl/kreator">
 <link rel="alternate" hreflang="pl" href="https://porodnamiare.pl/kreator">
-<link rel="alternate" hreflang="en" href="https://porodnamiare.pl/en">
-<link rel="alternate" hreflang="de" href="https://porodnamiare.pl/de">
-<link rel="alternate" hreflang="uk" href="https://porodnamiare.pl/ua">
-<link rel="alternate" hreflang="ru" href="https://porodnamiare.pl/ru">
 <link rel="alternate" hreflang="x-default" href="https://porodnamiare.pl/kreator">
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" type="image/png" href="/favicon.png">
@@ -36,11 +32,11 @@
 <!-- Bing Webmaster: wklej swój kod z bing.com/webmasters -->
 <link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Kreator planu porodu PoródNaMiarę.pl","url":"https://porodnamiare.pl/kreator","applicationCategory":"HealthApplication","operatingSystem":"Web, iOS, Android","inLanguage":["pl","en","de","uk","ru"],"offers":{"@type":"Offer","price":"0","priceCurrency":"PLN","description":"Kreator darmowy — płatność dopiero przy pobraniu PDF."},"featureList":["16 kroków obejmujących poród, cesarskie cięcie, noworodka, karmienie, potrzeby szczególne, połóg i dodatkowe uwagi","Generowanie PDF w przeglądarce","Wersje językowe: polska, angielska, niemiecka, ukraińska, rosyjska","Zgodność ze Standardem Opieki Okołoporodowej 2026 (Dz.U. 2025 poz. 1525)"]},{"@type":"HowTo","name":"Jak stworzyć plan porodu w kreatorze","totalTime":"PT10M","inLanguage":"pl","step":[{"@type":"HowToStep","position":1,"name":"Wypełnij kreator","text":"Przejdź przez 16 kroków: warunki porodu, łagodzenie bólu, opieka nad noworodkiem, karmienie, szczepienia, potrzeby szczególne i połóg.","url":"https://porodnamiare.pl/kreator"},{"@type":"HowToStep","position":2,"name":"Zobacz podgląd na żywo","text":"Podgląd planu tworzy się na bieżąco w miarę zaznaczania preferencji."},{"@type":"HowToStep","position":3,"name":"Pobierz PDF","text":"Po zakupie pobierz gotowy plan porodu w PDF — także w wersji angielskiej, niemieckiej, ukraińskiej lub rosyjskiej dla rodzica oraz polskiej dla personelu."}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Strona główna","item":"https://porodnamiare.pl/"},{"@type":"ListItem","position":2,"name":"Kreator planu porodu","item":"https://porodnamiare.pl/kreator"}]}]}</script>
-<link rel="preload" as="style" href="/css/tailwind.min.css"><link rel="stylesheet" href="/css/tailwind.min.css">
+<link rel="preload" as="style" href="/css/tailwind.min.css?v=25"><link rel="stylesheet" href="/css/tailwind.min.css?v=25">
 <link rel="stylesheet" href="/css/whatsapp.css?v=25">
 <link rel="preload" href="/css/fonts/figtree-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/css/fonts/fraunces-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/fonts.css?v=25">
 <script>
 tailwind.config = {
   theme: {
@@ -687,27 +683,32 @@ tailwind.config = {
         <!-- ===== STREFA ZAKUPU / POBRANIA ===== -->
         <div id="buyZone" class="mt-6 bg-deep text-sand rounded-2xl p-6">
           <p class="font-display text-xl font-semibold text-white mb-2">Wasz plan jest gotowy</p>
-          <p class="text-[15px] text-sand/85 leading-relaxed mb-5">Wybierzcie pakiet, a zaraz po płatności wrócicie tutaj i pobierzecie gotowy dokument PDF. Wasze odpowiedzi są zapisane w tej przeglądarce.</p>
+          <p class="text-[15px] text-sand/85 leading-relaxed mb-4">Wybierzcie pakiet, a zaraz po płatności wrócicie tutaj i pobierzecie gotowy dokument PDF. Wasze odpowiedzi są zapisane w tej przeglądarce.</p>
+          <!-- Bramka zgody art. 38 ust. 1 pkt 13 u.p.k. — ta sama, którą ma sekcja #cennik; bez zaznaczenia linki zakupu są nieaktywne -->
+          <label class="flex items-start gap-2 text-[12px] text-sand/80 leading-snug mb-4 cursor-pointer" for="buyZoneConsent">
+            <input type="checkbox" id="buyZoneConsent" class="mt-0.5 flex-shrink-0">
+            <span>Zgadzam się na natychmiastowe dostarczenie treści cyfrowej i przyjmuję do wiadomości utratę prawa odstąpienia od umowy (art. 38 ust. 1 pkt 13 ustawy o prawach konsumenta). Zachowuję <a href="/formularz-odstapienia" class="underline">30-dniową gwarancję zwrotu</a>.</span>
+          </label>
           <div class="grid sm:grid-cols-3 gap-3 mb-4 items-stretch">
-            <a href="https://payhip.com/b/jUaCl" class="pay-link flex flex-col bg-white/10 border border-white/15 rounded-xl p-4 hover:bg-white/20 transition-colors">
+            <a href="https://payhip.com/b/jUaCl" aria-disabled="true" class="pay-link flex flex-col bg-white/10 border border-white/15 rounded-xl p-4 hover:bg-white/20 transition-colors pointer-events-none opacity-50">
               <p class="font-semibold text-white text-sm">Podstawowy</p>
               <p class="font-display text-3xl font-semibold text-white my-1">49 zł</p>
               <p class="text-xs text-sand/75 flex-1">Plan porodu PDF — dokument gotowy do wydruku</p>
               <p class="mt-3 text-[11px] font-semibold text-sand/60 border-t border-white/10 pt-2">Sam plan, bez dodatków</p>
             </a>
-            <a href="https://payhip.com/b/PAcED" class="pay-link flex flex-col bg-teal border-2 border-white/70 rounded-xl p-4 hover:brightness-110 transition-all relative shadow-lg sm:scale-[1.04]">
+            <a href="https://payhip.com/b/PAcED" aria-disabled="true" class="pay-link flex flex-col bg-teal border-2 border-white/70 rounded-xl p-4 hover:brightness-110 transition-all relative shadow-lg sm:scale-[1.04] pointer-events-none opacity-50">
               <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-white text-teal text-[10px] font-black px-3 py-0.5 rounded-full whitespace-nowrap">⭐ NAJCZĘŚCIEJ WYBIERANY</span>
               <p class="font-semibold text-white text-sm mt-1.5">Premium</p>
               <p class="font-display text-3xl font-semibold text-white my-1">99 zł</p>
               <p class="text-xs text-white/90 flex-1">Plan + wersja „na drzwi sali” + checklist dla taty + „Pierwsze 24 godziny”</p>
               <p class="mt-3 text-[11px] font-semibold text-white/90 border-t border-white/25 pt-2">✓ Aktualizacja planu aż do dnia porodu</p>
             </a>
-            <a href="https://payhip.com/b/JjgRA" class="pay-link flex flex-col bg-white/10 border border-white/15 rounded-xl p-4 hover:bg-white/20 transition-colors relative">
+            <a href="https://payhip.com/b/JjgRA" aria-disabled="true" class="pay-link flex flex-col bg-white/10 border border-white/15 rounded-xl p-4 hover:bg-white/20 transition-colors relative pointer-events-none opacity-50">
               <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-300 text-deep text-[10px] font-black px-3 py-0.5 rounded-full whitespace-nowrap">NAJWIĘKSZA OSZCZĘDNOŚĆ</span>
               <p class="font-semibold text-white text-sm mt-1.5">Premium+</p>
               <p class="font-display text-3xl font-semibold text-white my-1">219 zł</p>
               <p class="text-xs text-sand/75 flex-1">Plan + 7 poradników PDF + przegląd przed porodem</p>
-              <p class="mt-3 text-[11px] font-bold text-amber-300 border-t border-white/10 pt-2">Osobno: <s class="text-sand/50">353 zł</s> · oszczędzasz 134 zł (−38%)</p>
+              <p class="mt-3 text-[11px] font-bold text-amber-300 border-t border-white/10 pt-2">Osobno: <s class="text-sand/50">334 zł</s> · oszczędzasz 115 zł (−34%)</p>
             </a>
           </div>
           <p id="payNote" class="text-xs text-sand/70">💳 BLIK, karta, Apple&nbsp;Pay, Google&nbsp;Pay, PayPal przez PayHip · dostawa natychmiast</p>
@@ -886,10 +887,10 @@ tailwind.config = {
         </div>
         <div class="mt-3 rounded-2xl bg-teal/10 border border-teal/40 px-4 py-3">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-sm text-ink/50" data-i18n="valueSep">Osobno: <s class="text-ink/40 font-semibold">353 zł</s></span>
-            <span class="bg-teal text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">-38%</span>
+            <span class="text-sm text-ink/50" data-i18n="valueSep">Osobno: <s class="text-ink/40 font-semibold">334 zł</s></span>
+            <span class="bg-teal text-white text-xs font-black px-3 py-1 rounded-full tracking-wide">-34%</span>
           </div>
-          <p class="mt-1.5 font-display text-2xl font-bold text-teal" data-i18n="saveBadge">Oszczędzasz 134 zł</p>
+          <p class="mt-1.5 font-display text-2xl font-bold text-teal" data-i18n="saveBadge">Oszczędzasz 115 zł</p>
         </div>
       </div>
       <ul class="space-y-3 text-[14px] flex-1 mb-6">
@@ -1762,14 +1763,14 @@ tailwind.config = {
       }
     }
 
-    // ===== ODBLOKOWANIE PO ZAKUPIE — odporne na awarie backendu =====
-    // Zasada nadrzedna: PLACACY KLIENT NIGDY NIE ZOSTAJE ZABLOKOWANY.
-    // Dostep = (wazny JWT z webhooka PayHip)  LUB  (trwaly lokalny znacznik zakupu pnm_paid).
-    //  - JWT (webhook -> Redis -> RS256) to warstwa MOCNIEJSZA: serwerowe potwierdzenie platnosci
+    // ===== ODBLOKOWANIE PO ZAKUPIE — wylacznie po potwierdzeniu serwerowym =====
+    // Dostep = (wazny JWT z webhooka PayHip)  LUB  (trwaly lokalny znacznik pnm_paid).
+    //  - JWT (webhook -> Redis -> RS256) to zrodlo prawdy: serwerowe potwierdzenie platnosci
     //    + automatyczne cofniecie dostepu przy zwrocie (refunded). Wymaga skonfigurowanego backendu.
-    //  - pnm_paid to warstwa ODPORNOSCIOWA: ustawiana po realnym powrocie z checkoutu PayHip
-    //    (klik pay-linku w tej przegladarce + przekierowanie na /dziekujemy). Dziala BEZ backendu,
-    //    wiec nawet gdy Redis/klucze/webhook nie sa jeszcze wpiete, klient pobierze plan.
+    //  - pnm_paid to wylacznie CACHE odebranego JWT (zapisywany tu i w /dziekujemy dopiero po
+    //    sukcesie /api/unlock, via:'jwt'). NIGDY nie wolno go nadawac na podstawie samego
+    //    pnm_checkout / wejscia na /dziekujemy — ten znacznik powstaje juz przy KLIKNIECIU
+    //    pay-linku, wiec taka sciezka odblokowywala generator bez platnosci (usuniete 2026-08).
     // Blad sieci NIGDY nie odbiera juz przyznanego dostepu — odbiera go wylacznie jawny "revoked".
     var PAID_KEY='pnm_paid', CO_KEY='pnm_checkout', JWT_KEY='pnm_jwt', SID_KEY='pnm_sid', SID_TS_KEY='pnm_sid_ts';
     var PAID_TTL = 90*24*60*60*1000; // znacznik zakupu wazny 90 dni w tej przegladarce
@@ -2240,7 +2241,8 @@ tailwind.config = {
         if(!pnmIsUnlocked()){ dlStatus.textContent='Dokończ zakup, aby pobrać plan.'; return; }
         window.__freshUnlock=true;
         dlBtn.disabled=true; dlStatus.textContent='Przygotowuję dokument…';
-        var chain = window.jspdf ? Promise.resolve() : loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+        // jsPDF self-hosted (bez zewnętrznego CDN i bez SRI — kompromitacja cdnjs = obcy kod na stronie z danymi o zdrowiu)
+        var chain = window.jspdf ? Promise.resolve() : loadScript('/js/jspdf.umd.min.js?v=1');
         chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js?v=52'); })
           .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js?v=52'); })
           .then(function(){
@@ -2271,7 +2273,8 @@ tailwind.config = {
         window.__freshUnlock=true;
         var lang = dlLangSel.value;
         dlBtnLang.disabled=true; dlStatusLang.textContent='Przygotowuję dokument…';
-        var chain = window.jspdf ? Promise.resolve() : loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+        // jsPDF self-hosted (bez zewnętrznego CDN i bez SRI — kompromitacja cdnjs = obcy kod na stronie z danymi o zdrowiu)
+        var chain = window.jspdf ? Promise.resolve() : loadScript('/js/jspdf.umd.min.js?v=1');
         chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js?v=52'); })
           .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js?v=52'); })
           .then(function(){
@@ -2597,8 +2600,27 @@ document.querySelectorAll('.consent-gate').forEach(function(cb){
     else { t.classList.add('pointer-events-none','opacity-50'); t.setAttribute('aria-disabled','true'); }
   });
 });
+// Bramka zgody dla trzech linków zakupu w #buyZone (podsumowanie kreatora) — jeden checkbox
+// steruje wszystkimi trzema. Listener w fazie capture + stopImmediatePropagation, żeby bez zgody
+// nie odpalił się też handler z pnm-checkout.js (sid / pnm_checkout / przepisanie href).
+(function(){
+  var cb = document.getElementById('buyZoneConsent'); if(!cb) return;
+  var links = Array.prototype.slice.call(document.querySelectorAll('#buyZone a.pay-link'));
+  function sync(){
+    links.forEach(function(a){
+      if(cb.checked){ a.classList.remove('pointer-events-none','opacity-50'); a.removeAttribute('aria-disabled'); }
+      else { a.classList.add('pointer-events-none','opacity-50'); a.setAttribute('aria-disabled','true'); }
+    });
+  }
+  cb.addEventListener('change', sync); sync();
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      if(!cb.checked){ e.preventDefault(); e.stopImmediatePropagation(); cb.focus(); }
+    }, true);
+  });
+})();
 </script>
 <script src="/js/pnm-checkout.js?v=1" defer></script>
-<script src="js/email-protect.js" defer></script>
+<script src="/js/email-protect.js?v=25" defer></script>
 </body>
 </html>

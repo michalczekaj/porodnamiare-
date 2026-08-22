@@ -7,10 +7,10 @@
 <meta name="description" content="Polityka prywatności PoródNaMiarę.pl — jakie dane zbieramy, jak je przetwarzamy, prawa użytkownika oraz informacja o lokalnym przechowywaniu danych z…">
 <link rel="canonical" href="https://porodnamiare.pl/polityka-prywatnosci">
 <meta name="robots" content="noindex,follow">
-<link rel="stylesheet" href="/css/tailwind.min.css">
+<link rel="stylesheet" href="/css/tailwind.min.css?v=25">
 <link rel="preload" href="/css/fonts/figtree-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/css/fonts/fraunces-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/fonts.css?v=25">
 <style>
   /* iOS: bez auto-zoomu przy focusie (wymaga >=16px) */
   @media (max-width: 1024px){
@@ -90,7 +90,17 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2{font-
   <p class="text-[15px] leading-relaxed text-ink/85">Kreator umożliwia wpisanie informacji o zdrowiu (m.in. grupa krwi i Rh, wynik HBsAg, nosicielstwo GBS). Dane te są przechowywane <strong>wyłącznie lokalnie w przeglądarce użytkownika</strong> (mechanizm localStorage) i <strong>nie są przesyłane do Administratora ani do żadnego podmiotu trzeciego</strong> — Serwis nie posiada infrastruktury serwerowej przetwarzającej te dane. Użytkownik może je usunąć w dowolnym momencie, korzystając z przycisku „Zacznij od nowa" w kreatorze albo czyszcząc dane witryny w przeglądarce. Zapis wygasa automatycznie po 30 dniach.</p>
 </div>
 
-<p>Dane mogą być powierzane wyłącznie podmiotom niezbędnym do działania Serwisu: PayHip (płatności), Vercel Inc. (hosting), dostawca poczty e-mail oraz — po uruchomieniu — dostawca systemu newslettera. Część tych podmiotów może przetwarzać dane poza EOG na podstawie standardowych klauzul umownych.</p>
+<p>Dane mogą być powierzane wyłącznie podmiotom niezbędnym do działania Serwisu:</p>
+<ul class="list-disc pl-6 space-y-1.5 mt-2">
+  <li><strong>PayHip</strong> — obsługa płatności i dostarczanie zakupionych plików cyfrowych (dane zamówienia, adres e-mail).</li>
+  <li><strong>Vercel Inc.</strong> — hosting Serwisu oraz Vercel Analytics i Speed Insights (zagregowane, anonimowe statystyki odwiedzin i wydajności, bez cookies i bez identyfikatorów urządzenia).</li>
+  <li><strong>Brevo SAS</strong> (dawniej Sendinblue) — obsługa formularzy zapisu na checklistę i newsletter oraz wysyłka e-maili; serwery w Unii Europejskiej.</li>
+  <li><strong>Plausible Insights OÜ</strong> — analityka odwiedzin bez cookies i bez identyfikatorów użytkownika; serwery w Unii Europejskiej.</li>
+  <li><strong>Upstash, Inc.</strong> — baza danych potwierdzająca zaksięgowanie płatności; przechowuje wyłącznie jednokierunkowy skrót (SHA-256) adresu e-mail kupującego i identyfikator transakcji, przez maksymalnie 3 dni.</li>
+  <li><strong>Google Ireland Ltd.</strong> — Google Analytics 4 (wyłącznie po Twojej zgodzie, patrz pkt 5) oraz miniatura i odtwarzacz YouTube na stronie „O Michale" (odtwarzacz w trybie youtube-nocookie ładuje się dopiero po kliknięciu).</li>
+  <li>dostawca poczty e-mail Administratora — korespondencja z Tobą.</li>
+</ul>
+<p class="mt-3">Część tych podmiotów (Vercel, Upstash, Google, PayHip) może przetwarzać dane poza Europejskim Obszarem Gospodarczym — na podstawie standardowych klauzul umownych zatwierdzonych przez Komisję Europejską lub decyzji o adekwatności (EU-US Data Privacy Framework). Fonty Serwisu są hostowane lokalnie — Twój adres IP nie jest przekazywany do Google Fonts.</p>
 
 <h2 class="text-xl font-semibold mt-8 mb-3">4. Twoje prawa</h2>
 <p>Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia, sprzeciwu oraz cofnięcia zgody w dowolnym momencie, a także wniesienia skargi do Prezesa UODO (uodo.gov.pl).</p>
@@ -110,6 +120,6 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}h1,h2{font-
 
 <p class="mt-8 text-sm text-[#3A3341]/60">Wersja z 01.08.2026.</p>
 </main>
-<script src="js/email-protect.js" defer></script>
+<script src="/js/email-protect.js?v=25" defer></script>
 </body>
 </html>

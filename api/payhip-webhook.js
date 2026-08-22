@@ -85,12 +85,14 @@ module.exports = async (req, res) => {
   }
 
   // Kontrola ceny/waluty - obrona w glab (podpis PayHip nie chroni tresci payloadu, patrz komentarz wyzej).
-  // Rozbieznosc = NIE wystawiamy claimu (potencjalnie sfabrykowany payload); 200 zeby PayHip nie ponawial,
-  // a legalna transakcja (np. po zmianie ceny w panelu bez aktualizacji PRODUCTS) trafi do logow do recznej obslugi.
-  if (typeof body.price === 'number' && body.currency &&
-      (body.price !== product.priceMinor || body.currency !== product.currency)) {
-    console.error('[payhip-webhook] ODRZUCONO claim - rozbieznosc ceny/waluty', { tx: txId, productKey, got: { price: body.price, currency: body.currency }, expected: { price: product.priceMinor, currency: product.currency } });
-    res.status(200).json({ ok: true, warning: 'price_mismatch_claim_withheld' });
+  // FAIL-CLOSED: brak pola price/currency, niezrozumialy format ALBO rozbieznosc = NIE wystawiamy claimu
+  // (potencjalnie sfabrykowany payload). 200 zeby PayHip nie ponawial, a legalna transakcja (np. po zmianie
+  // ceny w panelu bez aktualizacji PRODUCTS) trafi do logow do recznej obslugi przez claim-email.
+  // Akceptujemy kwote w groszach (4900) lub w jednostce glownej (49 / "49.00") - PayHip nie gwarantuje formatu.
+  const priceCheck = checkPrice(body.price, body.currency, product);
+  if (!priceCheck.ok) {
+    console.error('[payhip-webhook] ODRZUCONO claim - ' + priceCheck.reason, { tx: txId, productKey, got: { price: body.price, currency: body.currency }, expected: { price: product.priceMinor, currency: product.currency } });
+    res.status(200).json({ ok: true, warning: 'price_' + priceCheck.reason + '_claim_withheld' });
     return;
   }
 
@@ -114,6 +116,21 @@ module.exports = async (req, res) => {
 
   res.status(200).json({ ok: true });
 };
+
+// Normalizuje kwote z payloadu PayHip i porownuje z cennikiem (PRODUCTS). Fail-closed:
+// brak pola, nieczytelny format, inna waluta lub inna kwota -> {ok:false, reason}.
+// Tolerujemy dwa formaty kwoty: grosze (4900) oraz jednostka glowna (49, "49.00", "49,00").
+function checkPrice(rawPrice, rawCurrency, product) {
+  if (rawPrice === undefined || rawPrice === null || rawPrice === '') return { ok: false, reason: 'missing' };
+  const n = typeof rawPrice === 'number' ? rawPrice : Number(String(rawPrice).replace(',', '.').trim());
+  if (!isFinite(n)) return { ok: false, reason: 'unparseable' };
+  const cur = String(rawCurrency || '').trim().toUpperCase();
+  if (!cur) return { ok: false, reason: 'missing' };
+  if (cur !== product.currency) return { ok: false, reason: 'mismatch' };
+  const asMinor = n === product.priceMinor;                      // 4900
+  const asMajor = Math.round(n * 100) === product.priceMinor;    // 49 / 49.00
+  return (asMinor || asMajor) ? { ok: true } : { ok: false, reason: 'mismatch' };
+}
 
 function extractSid(body) {
   if (body.metadata && typeof body.metadata === 'object' && body.metadata.sid) return String(body.metadata.sid).slice(0, 64);

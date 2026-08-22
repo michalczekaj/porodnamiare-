@@ -19,10 +19,10 @@
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"План родов в Польше — персональный PDF на русском | PoródNaMiarę.pl","description":"Персональный план родов для родов в Польше. Сайт на русском, документ на польском для персонала больницы. Соответствует Стандарту 2026. Мгновенное скачивание PDF.","url":"https://porodnamiare.pl/ru","inLanguage":"ru"},{"@type":"Product","name":"Персональный план родов (PDF)","description":"Персональный план родов для родов в Польше. Сайт на русском, документ на польском для персонала больницы. Соответствует Стандарту 2026. Мгновенное скачивание PDF.","brand":{"@type":"Brand","name":"PoródNaMiarę.pl"},"offers":{"@type":"Offer","price":"49","priceCurrency":"PLN","availability":"https://schema.org/InStock","url":"https://porodnamiare.pl/ru","shippingDetails":{"@type":"OfferShippingDetails","shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"PLN"},"shippingDestination":{"@type":"DefinedRegion","addressCountry":"PL"},"deliveryTime":{"@type":"ShippingDeliveryTime","handlingTime":{"@type":"QuantitativeValue","minValue":0,"maxValue":0,"unitCode":"DAY"},"transitTime":{"@type":"QuantitativeValue","minValue":0,"maxValue":0,"unitCode":"DAY"}}},"hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","applicableCountry":"PL","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":30}},"image":"https://porodnamiare.pl/img/produkty/plan-porodu-podstawowy.webp"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Можно ли использовать этот план родов в польском роддоме?","acceptedAnswer":{"@type":"Answer","text":"Да. Сайт ведёт вас на русском, а документ формируется на польском — чтобы акушерки и врачи в Польше сразу могли его прочитать и использовать. Это самое практичное решение для семей, которые рожают в Польше."}},{"@type":"Question","name":"Соответствует ли план действующим стандартам?","acceptedAnswer":{"@type":"Answer","text":"Да. Он основан на польском Стандарте перинатальной помощи (Dz.U. 2025 поз. 1525, действующем с мая 2026), который гарантирует не менее 2 часов контакта кожа к коже — также после кесарева сечения."}},{"@type":"Question","name":"Как я получу файл после оплаты?","acceptedAnswer":{"@type":"Answer","text":"Сразу после оплаты через PayHip вы получите ссылку для скачивания на электронную почту. Файл — готовый к печати PDF формата A4."}}]}]}</script>
-<link rel="stylesheet" href="/css/tailwind.min.css">
+<link rel="stylesheet" href="/css/tailwind.min.css?v=25">
 <link rel="preload" href="/css/fonts/figtree-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/css/fonts/fraunces-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/fonts.css?v=25">
 <style>
   /* iOS: bez auto-zoomu przy focusie (wymaga >=16px) */
   @media (max-width: 1024px){
@@ -85,6 +85,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}input,butto
   }
 })();
 </script>
+<script>/* lander: zapamietaj jezyk, zeby /kreator i reszta serwisu otworzyly sie w tym samym jezyku */try{localStorage.setItem('lang','ru');}catch(e){}</script>
 </head>
 <body class="font-body bg-sand text-ink antialiased">
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Перейти к содержимому</a>
@@ -109,8 +110,8 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}input,butto
     <p class="text-lg leading-relaxed mb-4">Создано папой, который сам через это проходит. Вы отвечаете на простые вопросы на русском — и получаете профессиональный PDF на польском, готовый для акушерки и родильного зала.</p>
     <p class="text-[15px] leading-relaxed text-ink/80 mb-6">Рожать в стране, язык которой вы знаете не в совершенстве, — это дополнительный стресс. Письменный план снимает этот барьер: персонал читает ваши пожелания на своём языке, а вы сохраняете контроль над тем, что происходит с вами и ребёнком.</p>
     <div class="flex flex-wrap gap-3">
-      <a href="/" target="_blank" rel="noopener" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">Получить план родов</a>
-      <a href="/" class="inline-block border border-deep/30 font-semibold px-6 py-3.5 rounded-full hover:bg-sanddark transition-colors">Открыть конструктор плана</a>
+      <a href="/kreator" class="inline-block bg-teal text-white font-semibold px-7 py-3.5 rounded-full hover:bg-deep transition-colors">Получить план родов</a>
+      <a href="/kreator" class="inline-block border border-deep/30 font-semibold px-6 py-3.5 rounded-full hover:bg-sanddark transition-colors">Открыть конструктор плана</a>
     </div>
     <p class="mt-5 inline-flex items-start gap-2 text-xs text-ink/70 bg-white/70 border border-sanddark rounded-xl px-3 py-2">
       <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -141,7 +142,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}input,butto
     <h2 class="font-display text-2xl md:text-3xl font-semibold text-deep mb-3">Простая цена</h2>
     <p class="text-ink/80 mb-2">Одна оплата, мгновенное скачивание, без подписки.</p>
     <p class="font-display text-5xl font-semibold text-deep my-5">49 PLN</p>
-    <a href="/" target="_blank" rel="noopener" class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-deep transition-colors text-lg">Получить план родов</a>
+    <a href="/kreator" class="inline-block bg-teal text-white font-semibold px-10 py-4 rounded-full hover:bg-deep transition-colors text-lg">Получить план родов</a>
     <p class="text-xs text-ink/70 mt-4">Безопасная оплата через PayHip — карта, Apple Pay, Google Pay, BLIK и PayPal. Мгновенная доставка после покупки.</p>
   </div>
 </section>
@@ -166,6 +167,6 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}input,butto
   <p>© 2026 PoródNaMiarę.pl · <a href="/regulamin" class="underline">Правила</a> · <a href="/polityka-prywatnosci" class="underline">Политика конфиденциальности</a> · <span class="pnm-email" data-u="kontakt" data-d="porodnamiare.pl"></span></p>
   <p class="mt-2 text-xs text-sand/60 max-w-2xl mx-auto px-4">Документ носит организационный и образовательный характер. Он не является медицинской консультацией и не заменяет разговор с врачом или акушеркой.</p>
 </footer>
-<script src="../js/email-protect.js" defer></script>
+<script src="/js/email-protect.js?v=25" defer></script>
 </body>
 </html>

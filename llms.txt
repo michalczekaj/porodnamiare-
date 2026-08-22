@@ -18,6 +18,8 @@ Autor: Michał Czekaj — tata córki Wiktorii (ur. wrzesień 2026), nie lekarz 
 
 ## Produkty
 
+- [Kreator planu porodu — darmowy](https://porodnamiare.pl/kreator): 16 kroków z wyjaśnieniami, podgląd na żywo, zapis odpowiedzi w przeglądarce; płatność dopiero przy pobraniu PDF (po polsku dla personelu + kopia EN/DE/UA/RU dla rodzica)
+- [Darmowy wzór planu porodu PDF](https://porodnamiare.pl/plan-porodu-wzor): szablon do druku, 8 sekcji zgodnych ze Standardem 2026, bez rejestracji
 - [Plan porodu Podstawowy — 49 zł](https://porodnamiare.pl/#cennik): spersonalizowany plan porodu w PDF, 8 sekcji, klauzula bezpieczeństwa
 - [Plan porodu Premium — 99 zł](https://porodnamiare.pl/#cennik): plan porodu, wersja skrócona „na drzwi", checklist taty, przewodnik pierwszych 24 godzin, techniki oddechowe, karta pytań do ginekologa
 - [Pakiet Premium+ — 219 zł](https://porodnamiare.pl/#cennik): komplet — plan porodu, plan połogu, fizjoterapia uroginekologiczna, sen niemowlęcia, dieta i suplementacja, wyprawka gratis
@@ -36,7 +38,6 @@ Autor: Michał Czekaj — tata córki Wiktorii (ur. wrzesień 2026), nie lekarz 
 
 ## Poród
 
-- [Co się zmienia w Twoich prawach od maja 2026](%s): kompletny przewodnik po nowelizacji Standardu Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, bez okresu przejściowego od 7 maja 2026) — prawo do znieczulenia, mechanizm finansowy NFZ (mnożnik 0,95 / premie +12/19/21%%), 2h kontaktu skóra do skóry, ograniczenie rutynowych interwencji, ochrona przy stracie ciąży
 - [Jak napisać plan porodu](https://porodnamiare.pl/blog/jak-napisac-plan-porodu): wzór, 8 sekcji, najczęstsze błędy
 - [Imię dla dziecka — jak wybrać i co znaczą imiona](https://porodnamiare.pl/blog/imie-dla-dziecka-znaczenie-wybor): siedem kryteriów wyboru imienia, przepisy USC (max 2 imiona, 21 dni na zgłoszenie, 6 miesięcy na łatwą zmianę), krytyczne omówienie badań nad wpływem imienia oraz etymologia imienia Wiktoria (łac. victoria — zwycięstwo)
 - [Objawy porodu — kiedy jechać do szpitala](https://porodnamiare.pl/blog/objawy-porodu-kiedy-jechac-do-szpitala): skurcze przepowiadające vs porodowe, zasada 5-1-1, odejście wód, objawy alarmowe
@@ -59,6 +60,8 @@ Autor: Michał Czekaj — tata córki Wiktorii (ur. wrzesień 2026), nie lekarz 
 - [Kolka niemowlęca](https://porodnamiare.pl/blog/kolka-niemowleca): co pomaga, a co nie, kiedy do lekarza
 - [Sen niemowlęcia](https://porodnamiare.pl/blog/sen-niemowlecia): rytm dnia, rytuał wieczorny, łagodna nauka zasypiania
 - [Wcześniak — inkubator i oddział neonatologiczny](https://porodnamiare.pl/blog/wczesniak-inkubator-oddzial-neonatologiczny): OITN, kangurowanie, wiek skorygowany, urlop uzupełniający
+- [Kangurowanie noworodka](https://porodnamiare.pl/blog/kangurowanie-kontakt-skora-do-skory): jak ułożyć dziecko, ile powinno trwać, udowodnione korzyści, kangurowanie wcześniaka
+- [Co jest w mleku matki](https://porodnamiare.pl/blog/mleko-matki-sklad-wlasciwosci): skład mleka kobiecego — laktoza, LC-PUFA, probiotyki; od siary do mleka dojrzałego
 
 ## Decyzje okołoporodowe
 - [Co się zmienia w Twoich prawach od maja 2026](https://porodnamiare.pl/blog/nowe-prawa-standard-opieki-okoloporodowej-2026): kompletny przewodnik po nowelizacji Standardu Opieki Okołoporodowej (Dz.U. 2025 poz. 1525, bez okresu przejściowego od 7 maja 2026) — prawo do znieczulenia, mechanizm finansowy NFZ (mnożnik 0,95 / premie +12/19/21%), 2h kontaktu skóra do skóry, ograniczenie rutynowych interwencji, ochrona przy stracie ciąży
@@ -95,6 +98,24 @@ Autor: Michał Czekaj — tata córki Wiktorii (ur. wrzesień 2026), nie lekarz 
 - [Szumiś — miś do spania](https://porodnamiare.pl/blog/szumis-mis-do-spania): czy biały szum realnie pomaga
 - [Poduszka rogal ciążowa](https://porodnamiare.pl/blog/poduszka-rogal-ciazowa): jak wybrać i jak na niej spać
 - [Pies i dziecko](https://porodnamiare.pl/blog/pies-i-dziecko-rozwoj): wpływ psa na rozwój emocjonalny i społeczny
+
+## Wersje językowe (EN / DE / UA / RU)
+
+Strony startowe dla rodziców rodzących w Polsce, którzy nie mówią po polsku. Kreator prowadzi w wybranym języku; dokument dla personelu szpitala powstaje po polsku, rodzic dostaje kopię w swoim języku.
+
+- [Birth Plan in Poland — for expats (EN)](https://porodnamiare.pl/en): personalised birth plan, guided in English, PDF in Polish for hospital staff
+- [Giving Birth in Poland as a Foreigner — Complete Guide 2026 (EN)](https://porodnamiare.pl/en/blog/giving-birth-in-poland-foreigner): rights under the 2026 Perinatal Care Standard, NFZ insurance, choosing a hospital
+- [Geburtsplan für eine Geburt in Polen (DE)](https://porodnamiare.pl/de): persönlicher Geburtsplan, auf Deutsch geführt, Dokument auf Polnisch
+- [Geburtsplan in Polen erstellen — Standard 2026 (DE)](https://porodnamiare.pl/de/blog/geburtsplan-polen): Geburtsplan nach dem polnischen Perinatalstandard 2026
+- [Geburtsplan Vorlage — die 8 Abschnitte (DE)](https://porodnamiare.pl/de/blog/geburtsplan-vorlage): was in einen Geburtsplan gehört
+- [План пологів у Польщі (UA)](https://porodnamiare.pl/ua): персональний план пологів українською, документ польською для персоналу
+- [План пологів у Польщі — як підготуватися (UA)](https://porodnamiare.pl/ua/blog/plan-pologiv-u-polshchi): Стандарт перинатальної опіки 2026, права породіллі
+- [Пологи в Польщі: документи, NFZ і вибір лікарні (UA)](https://porodnamiare.pl/ua/blog/pologi-v-polshchi-dokumenty-nfz): документи, страхування NFZ, вибір пологового будинку
+- [Права породіллі в польській лікарні (UA)](https://porodnamiare.pl/ua/blog/prava-porodilli-polshcha): супровід, знеболення, інформована згода, контакт «шкіра до шкіри»
+- [План родов в Польше (RU)](https://porodnamiare.pl/ru): персональный план родов на русском, документ на польском для персонала
+- [План родов в Польше — как подготовиться (RU)](https://porodnamiare.pl/ru/blog/plan-rodov-v-polshe): Стандарт перинатальной помощи 2026, права роженицы
+- [Права роженицы в польской больнице (RU)](https://porodnamiare.pl/ru/blog/prava-rozhenicy-polsha): сопровождение, обезболивание, информированное согласие
+- [Роды в Польше: документы, NFZ и выбор больницы (RU)](https://porodnamiare.pl/ru/blog/rody-v-polshe-dokumenty-nfz): документы, страхование NFZ, выбор роддома
 
 ## Optional
 

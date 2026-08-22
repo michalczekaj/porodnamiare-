@@ -9,11 +9,11 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#FAF5EF">
-<link rel="stylesheet" href="/css/tailwind.min.css">
+<link rel="stylesheet" href="/css/tailwind.min.css?v=25">
 <link rel="stylesheet" href="/css/whatsapp.css?v=25">
 <link rel="preload" href="/css/fonts/figtree-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/css/fonts/fraunces-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css">
+<link rel="stylesheet" href="/css/fonts.css?v=25">
 <style>
   /* iOS: bez auto-zoomu przy focusie (wymaga >=16px) */
   @media (max-width: 1024px){
@@ -177,23 +177,30 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
   }catch(e){ has=false; }
   (has?ready:missing).classList.remove('hidden');
 
-  // ODBLOKOWANIE ODPORNE NA AWARIE BACKENDU.
-  // PayHip przekierowuje tu wyłącznie PO zakończonym checkoucie. Jeśli ta przeglądarka niedawno
-  // rozpoczęła zakup (klik pay-linku ustawił znacznik pnm_checkout z tierem), przyznajemy TRWAŁY
-  // lokalny dostęp (pnm_paid) — niezależnie od tego, czy webhook/Redis/klucze są już wpięte.
-  // Warstwa mocniejsza (JWT z /api/unlock) dociąga się w tle i, gdy backend działa, zastępuje to
-  // serwerowym potwierdzeniem + umożliwia cofnięcie dostępu przy zwrocie płatności.
+  // ODBLOKOWANIE WYŁĄCZNIE PO POTWIERDZENIU SERWEROWYM.
+  // Dawniej samo wejście na /dziekujemy ze świeżym znacznikiem pnm_checkout (ustawianym już przy
+  // KLIKNIĘCIU pay-linku, przed jakąkolwiek płatnością) nadawało trwały dostęp pnm_paid. To
+  // pozwalało odblokować generator bez płacenia: klik „Kup teraz" → zamknięcie karty PayHip →
+  // ręczne wejście na /dziekujemy. Teraz pnm_paid zapisujemy TYLKO po odbiorze JWT z /api/unlock
+  // (webhook PayHip → Redis → RS256), czyli po realnie zaksięgowanej płatności.
+  // pnm_checkout pozostaje wyłącznie sygnałem pomocniczym i jest sprzątany po 12h / po odbiorze JWT.
   var PAID_KEY='pnm_paid', CO_KEY='pnm_checkout';
   var paidGranted=false;
   try{
+    // Dostęp przyznany wcześniej (JWT odebrany w tej przeglądarce) — honorujemy, spójnie z PAID_TTL kreatora.
+    var paidRaw=localStorage.getItem(PAID_KEY);
+    if(paidRaw){
+      var pd=JSON.parse(paidRaw);
+      if(pd && pd.ts && (Date.now()-pd.ts) < 90*24*60*60*1000) paidGranted=true;
+      else localStorage.removeItem(PAID_KEY);
+    }
+  }catch(e){}
+  try{
+    // Porządki: przeterminowany znacznik checkoutu (>12h) nie jest już do niczego potrzebny.
     var coRaw=localStorage.getItem(CO_KEY);
     if(coRaw){
       var co=JSON.parse(coRaw);
-      if(co && co.ts && (Date.now()-co.ts) < 12*60*60*1000){
-        localStorage.setItem(PAID_KEY, JSON.stringify({tier:(co.tier||null), ts:Date.now(), via:'dziekujemy'}));
-        localStorage.removeItem(CO_KEY); // zużyty
-        paidGranted=true;
-      }
+      if(!(co && co.ts) || (Date.now()-co.ts) > 12*60*60*1000) localStorage.removeItem(CO_KEY);
     }
   }catch(e){}
 
@@ -229,6 +236,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
           // utrwal tez pnm_paid z tierem z serwera (spojne zrodlo dla index.html)
           localStorage.setItem(PAID_KEY, JSON.stringify({tier:(res.d.tier||null), ts:Date.now(), via:'jwt'}));
           localStorage.removeItem('pnm_sid'); localStorage.removeItem('pnm_sid_ts');
+          localStorage.removeItem(CO_KEY); // zużyty — płatność potwierdzona serwerowo
         }catch(e){}
         setStatus('confirmed');
         return;
@@ -339,6 +347,6 @@ window.PAGE_I18N = {
 };
 </script>
 <script src="js/i18n-page.js" defer></script>
-<script src="js/email-protect.js" defer></script>
+<script src="/js/email-protect.js?v=25" defer></script>
 </body>
 </html>
