@@ -1,0 +1,63 @@
+/* ==========================================================================
+   PoródNaMiarę.pl — poprawki z audytu 2026-09-25 (mobile, kontrast, LCP).
+   Osobny plik, żeby nie trzeba było przebudowywać tailwind.min.css.
+   Dołączyć na KAŻDEJ stronie zaraz po tailwind.min.css:
+     <link rel="stylesheet" href="/css/fixes-2026-09.css?v=1">
+   Każda sekcja przetestowana na żywej stronie (Chromium, 375 px i 1366 px).
+   ========================================================================== */
+
+/* 1. Poziome przewijanie na telefonach (index, kreator: strona miała 397 px przy
+      ekranie 375 px — ucięty przycisk menu, „pływająca" strona na iPhonie).
+      Źródło: obrócone tło .-inset-3.-rotate-2 w sekcji „Zanim sprzedaliśmy…"
+      + za szeroki nagłówek. `clip` nie psuje sticky nagłówka (w odróżnieniu od hidden). */
+@media (max-width: 767px) {
+  html { overflow-x: clip; }
+}
+@supports not (overflow: clip) {           /* Safari < 16 */
+  @media (max-width: 767px) { html, body { overflow-x: hidden; } }
+}
+
+/* 2. Nagłówek mieści się na 360–399 px (iPhone SE/mini/13/14, większość Androidów). */
+@media (max-width: 399px) {
+  header nav[aria-label] { gap: .5rem; padding-left: .75rem; padding-right: .75rem; }
+  header nav[aria-label] > a:first-child { font-size: 1rem; gap: .375rem; }
+  header nav[aria-label] > a:first-child img { width: 1.75rem; }
+  header #langSwitch { padding-left: .375rem; padding-right: .25rem; }
+  header #searchBtn { width: 2rem; height: 2rem; }
+}
+
+/* 3. Dolny pasek nawigacji: etykiety 9,5 px → 11 px (czytelność, WCAG 1.4.4). */
+@media (max-width: 1023px) {
+  .bn-item { min-width: 0; }
+  .bn-item span { font-size: 11px !important; line-height: 1.15; }
+}
+
+/* 4. Pływające przyciski nie zasłaniają treści kreatora i cennika.
+      WhatsApp: mniejszy na telefonie; muzyka: w obrębie ekranu. */
+@media (max-width: 767px) {
+  .wa-fab { width: 48px; height: 48px; bottom: 80px; left: 12px; }
+  .wa-fab svg { width: 24px; height: 24px; }
+  #musicBtn { right: 12px !important; }
+}
+
+/* 5. Kontrast (WCAG 1.4.3 AA ≥ 4.5:1). Zmierzone wartości w raporcie. */
+.text-ink\/40, .text-ink\/50, .text-ink\/55, .text-ink\/60 { color: rgba(58, 51, 65, .72) !important; } /* 2,2–3,5:1 → 4,9:1 */
+.bg-deep .text-teal,
+.bg-deep.text-teal { color: #E9A5AF !important; }                    /* 2,0:1 → 5,5:1 na #3E3852 */
+#cookieConsent a { color: #F2B8C0 !important; }                     /* link w banerze: 2,0:1 → 6,6:1 */
+#popup .text-tealsoft,
+#emailGate .text-tealsoft { color: #A0525E !important; }             /* „Zanim wyjdziesz…": 1,2:1 → 5,4:1 */
+
+/* 6. Tekst prawny (zgody przy zakupie) — min. 12,5 px zamiast 11 px. */
+label.text-\[11px\], label .text-\[11px\], .text-\[11px\] { font-size: 12.5px !important; line-height: 1.45; }
+
+/* 7. LCP na telefonie: nagłówek i obraz w hero nie czekają na animację wejścia
+      (Lighthouse mobile: LCP 4,8 s na /, 5,4 s na /kreator — „render delay" 4,1 s). */
+@media (max-width: 767px) {
+  main > section:first-of-type .au,
+  main > section:first-of-type .au-1,
+  main > section:first-of-type .au-2,
+  main > section:first-of-type .au-3,
+  main > section:first-of-type .au-4,
+  main > section:first-of-type .au-5 { animation: none !important; opacity: 1 !important; transform: none !important; }
+}

@@ -36,6 +36,7 @@
 <link rel="stylesheet" href="/css/whatsapp.css?v=25">
 <link rel="preload" href="/css/fonts/figtree-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/css/fonts/fraunces-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/css/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/fonts.css?v=25">
 <script>
 tailwind.config = {
@@ -171,8 +172,9 @@ tailwind.config = {
   }
 })();
 </script>
-  <link rel="preload" href="/js/i18n-marketing.js?v=26" as="script">
-  <script src="/js/i18n-marketing.js?v=26" defer></script>
+  <link rel="preload" href="/js/i18n-marketing.js?v=27" as="script">
+  <script src="/js/i18n-marketing.js?v=27" defer></script>
+<link rel="stylesheet" href="/css/fixes-2026-09.css?v=1">
 </head>
 <body class="font-body bg-sand text-ink antialiased">
 <a data-i18n="skipLink" href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Przejdź do treści</a>
@@ -1124,19 +1126,19 @@ tailwind.config = {
     <div class="flex items-start justify-between gap-3 mb-3">
       <div>
         <p data-i18n="egKicker" class="text-tealsoft font-semibold text-xs uppercase tracking-[0.2em] mb-1.5">Jesteście w połowie</p>
-        <h3 data-i18n="egH" id="egTitle" class="font-display text-xl font-semibold text-deep">Zapisać Wasz postęp?</h3>
+        <h3 data-i18n="egH" id="egTitle" class="font-display text-xl font-semibold text-deep">Chcecie praktyczne wskazówki przed porodem?</h3>
       </div>
       <button type="button" id="egClose" aria-label="Zamknij" class="flex-shrink-0 w-9 h-9 rounded-full hover:bg-sanddark flex items-center justify-center text-ink/60 text-xl leading-none">&times;</button>
     </div>
-    <p data-i18n="egP" class="text-[15px] text-ink/80 leading-relaxed mb-4">Wyślemy link, dzięki któremu wrócicie do planu na dowolnym urządzeniu. Bez spamu — tylko ten link i kilka praktycznych wskazówek przed porodem.</p>
+    <p data-i18n="egP" class="text-[15px] text-ink/80 leading-relaxed mb-4">Zapiszcie się, a wyślemy Wam praktyczne wskazówki przed porodem. Wasze odpowiedzi zostają zapisane w tej przeglądarce — wróćcie do kreatora na tym samym urządzeniu.</p>
     <form id="egForm" class="flex flex-col gap-3" action="https://db2b4ec1.sibforms.com/serve/MUIFANfnleGibrfjnDwpUW_V5m46u3Aouh4DXKEmRLhrMxgEZLH7_3xjnQO1hdmpfmxxLWYy7KfG5HKQ7Qcv8XmnDP6_5R0GHQZjd6lcKwsaD2mArSK3jPYhFnpwydsQXvqljTzG0qGFcEJ026n5C8xi6diuvi_4l8B_lteWoz73ihBQDfoH1SbAlT-Jj0BFtTZp2U8lbQ5dpf5WGA==" method="post" target="_blank" rel="noopener">
       <label for="eg-email" class="sr-only">Adres e-mail</label>
       <input id="eg-email" name="EMAIL" type="email" required autocomplete="email" placeholder="Twój e-mail" class="border border-sanddark rounded-full px-5 py-3 bg-white text-[15px]">
       <label class="flex gap-2.5 items-start text-xs text-ink/70 leading-relaxed">
         <input type="checkbox" name="rodo" required class="mt-0.5 flex-shrink-0">
-        <span data-i18n="egConsent">Zgadzam się na otrzymanie linku i wiadomości e-mail. Dane przetwarza PoródNaMiarę.pl zgodnie z <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">polityką prywatności</a>. Mogę wypisać się w każdej chwili.</span>
+        <span data-i18n="egConsent">Zgadzam się na otrzymywanie wiadomości e-mail z praktycznymi wskazówkami przed porodem. Dane przetwarza PoródNaMiarę.pl zgodnie z <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">polityką prywatności</a>. Mogę wypisać się w każdej chwili.</span>
       </label>
-      <button type="submit" data-i18n="popupSubmit" class="bg-teal text-white font-semibold px-6 py-3.5 rounded-full hover:bg-deep transition-colors">Wyślij mi link do planu</button>
+      <button type="submit" data-i18n="popupSubmit" class="bg-teal text-white font-semibold px-6 py-3.5 rounded-full hover:bg-deep transition-colors">Zapisz mnie</button>
     </form>
     <button type="button" id="egSkip" data-i18n="popupSkip" class="w-full text-center text-sm text-ink/60 hover:text-teal mt-3 py-2">Nie teraz, kontynuuję →</button>
     <p data-i18n="popupNote" class="text-xs text-ink/55 text-center mt-2">Postęp i tak zapisuje się w tej przeglądarce.</p>
@@ -2134,10 +2136,10 @@ tailwind.config = {
     // PL_DEFAULTS nigdy nie poznaje oryginałów tego popupu i powrót do PL by nie działał.
     var EMAIL_GATE_PL = {
       egKicker: 'Jesteście w połowie',
-      egH: 'Zapisać Wasz postęp?',
-      egP: 'Wyślemy link, dzięki któremu wrócicie do planu na dowolnym urządzeniu. Bez spamu — tylko ten link i kilka praktycznych wskazówek przed porodem.',
-      egConsent: 'Zgadzam się na otrzymanie linku i wiadomości e-mail. Dane przetwarza PoródNaMiarę.pl zgodnie z <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">polityką prywatności</a>. Mogę wypisać się w każdej chwili.',
-      popupSubmit: 'Wyślij mi link do planu',
+      egH: 'Chcecie praktyczne wskazówki przed porodem?',
+      egP: 'Zapiszcie się, a wyślemy Wam praktyczne wskazówki przed porodem. Wasze odpowiedzi zostają zapisane w tej przeglądarce — wróćcie do kreatora na tym samym urządzeniu.',
+      egConsent: 'Zgadzam się na otrzymywanie wiadomości e-mail z praktycznymi wskazówkami przed porodem. Dane przetwarza PoródNaMiarę.pl zgodnie z <a href="/polityka-prywatnosci" class="underline text-teal" target="_blank" rel="noopener">polityką prywatności</a>. Mogę wypisać się w każdej chwili.',
+      popupSubmit: 'Zapisz mnie',
       popupSkip: 'Nie teraz, kontynuuję →',
       popupNote: 'Postęp i tak zapisuje się w tej przeglądarce.'
     };
@@ -2254,6 +2256,7 @@ tailwind.config = {
             var doc=window.PNM_buildPlanPDF(data);
             var nm=(data.dziecko||'plan').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
             doc.save('Plan-porodu-'+nm+'.pdf');
+            if (window.pnmTrack) pnmTrack('PDF pobrany', { jezyk: 'pl' });
             dlStatus.textContent=ui2('done');
             dlBtn.disabled=false;
           })
@@ -2286,6 +2289,7 @@ tailwind.config = {
             var doc=window.PNM_buildPlanPDF(data, lang);
             var nm=(data.dziecko||'plan').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
             doc.save('Birth-plan-'+nm+'-'+lang+'.pdf');
+            if (window.pnmTrack) pnmTrack('PDF pobrany', { jezyk: lang });
             dlStatusLang.textContent='Gotowe! Kopia w języku: '+LANG_NAMES[lang]+'.';
             dlBtnLang.disabled=false;
           })
@@ -2322,6 +2326,7 @@ tailwind.config = {
       const v = validateStep(cur);
       if(!v.ok){ showError('Uzupełnij wymagane pola oznaczone gwiazdką (*).'); flashError(v.el); return; }
       showStep(TOTAL-1,'next');
+      if (window.pnmTrack) pnmTrack('Kreator ukonczony');
       renderPreview();
     });
     form.addEventListener('change', ()=>{ applyTheme(); renderPreview(); });
@@ -2622,5 +2627,8 @@ document.querySelectorAll('.consent-gate').forEach(function(cb){
 </script>
 <script src="/js/pnm-checkout.js?v=1" defer></script>
 <script src="/js/email-protect.js?v=25" defer></script>
+<script src="/js/pnm-analytics.js?v=1" defer></script>
+<script src="/js/cookie-settings.js?v=1" defer></script>
+<script src="/js/inapp-browser.js?v=1" defer></script>
 </body>
 </html>

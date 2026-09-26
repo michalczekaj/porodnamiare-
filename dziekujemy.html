@@ -75,6 +75,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
   }
 })();
 </script>
+<link rel="stylesheet" href="/css/fixes-2026-09.css?v=1">
 </head>
 <body class="font-body bg-sand text-ink antialiased">
 <main id="main" class="max-w-2xl mx-auto px-4 py-14">
@@ -239,6 +240,7 @@ img,svg,video{max-width:100%;height:auto}html,body{overflow-x:hidden}
           localStorage.removeItem(CO_KEY); // zużyty — płatność potwierdzona serwerowo
         }catch(e){}
         setStatus('confirmed');
+        if (window.pnmTrack) pnmTrack('Zakup potwierdzony', { pakiet: res.d.tier || '' });
         return;
       }
       if(res.pending && attempt < 8){
@@ -348,5 +350,8 @@ window.PAGE_I18N = {
 </script>
 <script src="js/i18n-page.js" defer></script>
 <script src="/js/email-protect.js?v=25" defer></script>
+<script src="/js/pnm-analytics.js?v=1" defer></script>
+<script src="/js/cookie-settings.js?v=1" defer></script>
+<script src="/js/inapp-browser.js?v=1" defer></script>
 </body>
 </html>

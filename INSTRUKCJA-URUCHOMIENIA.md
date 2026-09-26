@@ -221,11 +221,10 @@ JAK TERAZ DZIAŁA ODBLOKOWANIE (przeprojektowane — odporne na awarie):
 Płacący klient NIGDY nie zostaje zablokowany. Dostęp jest przyznawany, gdy
 zachodzi CHOĆ JEDNO z dwóch:
 
-  (1) WARSTWA ODPORNOŚCIOWA (działa BEZ backendu) — po kliknięciu pakietu
-      przeglądarka zapisuje znacznik zakupu (pakiet + czas). Gdy PayHip po
-      płatności przekieruje klienta na /dziekujemy, ten znacznik zamienia się
-      w trwały lokalny dostęp (pnm_paid, ważny 90 dni). Klient pobierze plan
-      nawet zanim skonfigurujesz Redis/klucze/webhook.
+  (1) WARSTWA ODPORNOŚCIOWA — WYŁĄCZONA OD SIERPNIA 2026 (audyt, poprawka K1).
+      Nadawała dostęp po samym wejściu na /dziekujemy, co pozwalało pobrać plan
+      BEZ płacenia. Dziś pnm_paid zapisuje się wyłącznie po odbiorze JWT z
+      /api/unlock, czyli dopiero gdy działa warstwa (2).
 
   (2) WARSTWA MOCNIEJSZA (gdy backend działa) — webhook PayHip zapisuje w Redis
       jednorazowy claim, przeglądarka odbiera podpisany JWT (RS256), który daje
@@ -237,21 +236,19 @@ jawny zwrot płatności. To usuwa poprzedni błąd, w którym każda niedokończ
 konfiguracja backendu (albo jeden nieudany fetch) blokowała pobranie PŁACĄCEMU
 klientowi.
 
->>> NAJWAŻNIEJSZE, ABY DZIAŁAŁO OD RAZU (nawet bez reszty backendu): <<<
->>> ustaw w PayHip przekierowanie po zakupie na https://porodnamiare.pl/dziekujemy
->>> (krok 6 poniżej). To ono uruchamia warstwę (1). Konfigurację Redis/JWT
->>> (kroki 1–5) możesz dokończyć później — podniesie bezpieczeństwo i doda
->>> obsługę zwrotów, ale nie jest warunkiem pobrania planu przez klienta.
+>>> NAJWAŻNIEJSZE (od sierpnia 2026): kroki 1–6 są WARUNKIEM KONIECZNYM pobrania <<<
+>>> planu. Bez bazy Redis, kluczy RSA i PAYHIP_API_KEY klient ZAPŁACI i NIE POBIERZE
+>>> planu. Po każdym wdrożeniu sprawdź https://porodnamiare.pl/api/health — ma zwrócić
+>>> {"ok":true,...} — i zrób zakup testowy kuponem 100% w PayHip.
+>>> Podepnij /api/health pod darmowy monitoring (UptimeRobot, co 5 min, alarm e-mail).
 
 Nowe/zmienione pliki: `api/payhip-webhook.js`, `api/unlock.js`, `api/verify.js`,
 `api/_lib/common.js`, `package.json` oraz logika w `index.html`,
 `dziekujemy.html`, `js/plan-pdf.js`.
 
-Kompromis (świadomy): warstwa (1) opiera się na lokalnym znaczniku, który
-technicznie zaawansowany użytkownik mógłby podrobić (tak jak i tak może wywołać
-generator PDF z konsoli — PDF powstaje w przeglądarce). Na tym etapie koszt
-pojedynczego „gapowicza” jest pomijalny wobec kosztu zablokowania realnego
-klienta. Twardsze zamknięcie = generowanie PDF na serwerze (osobny projekt).
+Pozostałe ograniczenie: PDF powstaje w przeglądarce, więc technicznie zaawansowany
+użytkownik mógłby wywołać generator z konsoli. Twardsze zamknięcie = generowanie
+PDF na serwerze (osobny projekt).
 
 ### 1. Baza Redis (Upstash) — 3 minuty
 Uwaga: dawne „Vercel KV” zostało wycofane. Teraz robi się to przez Marketplace:
