@@ -39,6 +39,7 @@
 <link rel="preload" href="/css/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/fonts.css?v=25">
 <script>
+window.tailwind = window.tailwind || {}; // Tailwind jest skompilowany lokalnie (css/tailwind.min.css); ten blok to martwa konfiguracja CDN — bez tej linii rzucał błąd w konsoli
 tailwind.config = {
   theme: {
     extend: {

@@ -43,6 +43,7 @@
 <link rel="preload" href="/css/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/fonts.css?v=25">
 <script>
+window.tailwind = window.tailwind || {}; // Tailwind jest skompilowany lokalnie (css/tailwind.min.css); ten blok to martwa konfiguracja CDN — bez tej linii rzucał błąd w konsoli
 tailwind.config = {
   theme: {
     extend: {
@@ -179,6 +180,7 @@ tailwind.config = {
   <link rel="preload" href="/js/i18n-marketing.js?v=27" as="script">
   <script src="/js/i18n-marketing.js?v=27" defer></script>
 <link rel="stylesheet" href="/css/fixes-2026-09.css?v=1">
+<link rel="stylesheet" href="/css/pnm-film.css?v=1">
 </head>
 <body class="font-body bg-sand text-ink antialiased">
 <a data-i18n="skipLink" href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-3 focus:left-3 focus:bg-deep focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:font-semibold">Przejdź do treści</a>
@@ -272,6 +274,18 @@ tailwind.config = {
     <img src="img/hero.webp" alt="Michał i Anna w ciąży, dłonie na brzuchu, przed nimi na stole plan porodu córki Wiktorii — twórcy PoródNaMiarę.pl" width="900" height="1378" fetchpriority="high" decoding="async" class="w-full h-auto object-cover">
     <figcaption data-i18n="heroFigcap" class="sr-only">Michał i Anna przygotowujący plan porodu córki Wiktorii</figcaption>
   </figure>
+</section>
+
+<!-- ===== FILM „DZIEŃ PORODU Z PLANEM" (css/pnm-film.css + js/pnm-film.js) ===== -->
+<section id="film" class="pf-section" aria-labelledby="pfH">
+  <div class="pf-wrap">
+    <div class="pf-head">
+      <p class="pf-kick" data-pft="kick">Film · 45 sekund</p>
+      <h2 id="pfH" class="pf-h" data-pft="h">Jeden dzień. Jeden dokument. Spokój na cały poród.</h2>
+      <p class="pf-sub" data-pft="sub">Zobaczcie, co zmienia dobrze przygotowany plan porodu — dla mamy, dla taty i dla dziecka.</p>
+    </div>
+    <div id="pnmFilm" class="pf is-idle"></div>
+  </div>
 </section>
 
 <!-- ===== WYRÓŻNIK: WSZYSTKIE 8 OBSZARÓW STANDARDU 2026 ===== -->
@@ -1678,6 +1692,7 @@ document.querySelectorAll('.consent-gate').forEach(function(cb){
 <script src="/js/pnm-checkout.js?v=1" defer></script>
 <script src="/js/email-protect.js?v=25" defer></script>
 <script src="/js/pnm-analytics.js?v=1" defer></script>
+<script src="/js/pnm-film.js?v=1" defer></script>
 <script src="/js/cookie-settings.js?v=1" defer></script>
 </body>
 </html>
