@@ -186,7 +186,7 @@ window.PNM_FONT_BOLD="AAEAAAAQAQAABAAAR1BPU6E0go8AAcAAAADwxEdTVUJaO97kAAKwxAAADA
     } else {
       // HBsAg dodatni lub nieznany — wersja łagodniejsza; postępowanie z WZW B do ustalenia z neonatologiem.
       title=pdfLabel(c.lang,'vaccSoftT','Szczepienia — postępowanie do ustalenia z neonatologiem');
-      txt=pdfLabel(c.lang,'vaccSoftBody','Preferujemy realizację szczepień we własnym zakresie po wypisie, u wybranego pediatry. Ponieważ wynik HBsAg u matki jest dodatni lub nieznany, ostateczne postępowanie dotyczące szczepienia przeciw WZW typu B (oraz ewentualnego podania immunoglobuliny) ustalimy wspólnie z neonatologiem, kierując się przede wszystkim bezpieczeństwem dziecka. Pozostałe szczepienia planujemy zrealizować po wypisie.');
+      txt=pdfLabel(c.lang,'vaccSoftBody','Preferujemy realizację szczepień we własnym zakresie po wypisie, u wybranego pediatry. Ponieważ wynik HBsAg u matki jest dodatni lub nieznany, ostateczne postępowanie dotyczące szczepienia przeciw WZW typu B (a przy dodatnim wyniku — także immunoglobuliny w ciągu 12 godzin od porodu) ustalimy wspólnie z neonatologiem, kierując się przede wszystkim bezpieczeństwem dziecka. Pozostałe szczepienia planujemy zrealizować po wypisie.');
     }
     d.setFont('Lato','normal'); d.setFontSize(8.5);
     var lines=d.splitTextToSize(txt, W-48), bh=lines.length*4.2+12;

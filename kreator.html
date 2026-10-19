@@ -121,7 +121,7 @@ tailwind.config = {
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments)};</script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-<!-- Google Analytics 4 — ładowany WYŁĄCZNIE po zgodzie użytkownika (art. 173 Prawa telekomunikacyjnego) -->
+<!-- Google Analytics 4 — ładowany WYŁĄCZNIE po zgodzie użytkownika (art. 399 Prawa komunikacji elektronicznej) -->
 <script>
 (function(){
   var GA_ID = 'G-9E89VNE6FV';
@@ -173,8 +173,8 @@ tailwind.config = {
   }
 })();
 </script>
-  <link rel="preload" href="/js/i18n-marketing.js?v=27" as="script">
-  <script src="/js/i18n-marketing.js?v=27" defer></script>
+  <link rel="preload" href="/js/i18n-marketing.js?v=28" as="script">
+  <script src="/js/i18n-marketing.js?v=28" defer></script>
 <link rel="stylesheet" href="/css/fixes-2026-09.css?v=1">
 </head>
 <body class="font-body bg-sand text-ink antialiased">
@@ -260,7 +260,7 @@ tailwind.config = {
       <p id="krStepKicker" class="text-teal font-semibold text-xs uppercase tracking-widest mb-3">Kreator krok po kroku</p>
       <h2 data-i18n="creatorH" class="font-display text-3xl md:text-4xl font-semibold text-deep mb-3">Stwórz swój plan porodu</h2>
       <p class="text-ink/70 max-w-2xl mx-auto">Przejdź przez 16 kroków — zaznacz to, co dla Was ważne. Podgląd tworzy się na bieżąco. Pełny, profesjonalny dokument PDF (z brandem i formatowaniem) otrzymasz po zakupie.</p>
-      <p data-i18n="creatorNote" class="text-sm text-ink/60 mt-2 max-w-2xl mx-auto">Interfejs w 4 językach; dokument planu generujemy po polsku — tak, aby personel szpitala w Polsce mógł go w pełni wykorzystać.</p>
+      <p data-i18n="creatorNote" class="text-sm text-ink/60 mt-2 max-w-2xl mx-auto">Interfejs w 5 językach (PL, EN, DE, UK, RU); dokument planu generujemy po polsku — tak, aby personel szpitala w Polsce mógł go w pełni wykorzystać.</p>
     </div>
 
     <div class="grid lg:grid-cols-[1fr_400px] gap-6 items-start">
@@ -325,13 +325,13 @@ tailwind.config = {
             <div><label for="f-lekarz" class="block text-sm font-semibold text-deep mb-1.5">Lekarz prowadzący / położna (opcjonalnie)</label><input id="f-lekarz" type="text" name="lekarz" maxlength="120" autocomplete="off" placeholder="np. dr / położna prowadząca" class="w-full border border-sanddark rounded-xl px-4 py-2.5 bg-sand/40 text-[15px]"></div>
             <div class="mt-4 bg-tealsoft/60 rounded-2xl p-4">
               <p class="font-semibold text-deep text-sm mb-1">Dane istotne dla bezpieczeństwa noworodka <span class="font-normal text-ink/60">(opcjonalnie — z dokumentacji ciąży)</span></p>
-              <p class="text-xs text-ink/70 mb-3">Wynik HBsAg decyduje o bezpieczeństwie odroczenia szczepienia WZW B. GBS wpływa na postępowanie przy porodzie.</p>
+              <p class="text-xs text-ink/70 mb-3">Przy dodatnim HBsAg noworodek otrzymuje szczepionkę i immunoglobulinę w ciągu 12 godzin od porodu. GBS wpływa na postępowanie przy porodzie.</p>
               <div class="grid sm:grid-cols-2 gap-3 mb-3">
                 <div><label for="f-krew" class="block text-xs font-semibold text-deep mb-1">Grupa krwi i Rh matki</label><input id="f-krew" type="text" name="krew" maxlength="20" autocomplete="off" placeholder="np. A Rh+" class="w-full border border-sanddark rounded-xl px-3 py-2 bg-white text-[15px]"></div>
               </div>
               <p class="text-xs font-semibold text-deep mb-1.5">HBsAg matki (WZW B):</p>
               <div class="flex flex-wrap gap-2 mb-3 text-sm">
-                <label class="flex items-center gap-1.5 bg-white border border-sanddark rounded-full px-3 py-1.5 cursor-pointer"><input type="radio" name="hbsag" value="HBsAg matki: ujemny (odroczenie WZW B bezpieczne)"><span>ujemny</span></label>
+                <label class="flex items-center gap-1.5 bg-white border border-sanddark rounded-full px-3 py-1.5 cursor-pointer"><input type="radio" name="hbsag" value="HBsAg matki: ujemny"><span>ujemny</span></label>
                 <label class="flex items-center gap-1.5 bg-white border border-sanddark rounded-full px-3 py-1.5 cursor-pointer"><input type="radio" name="hbsag" value="HBsAg matki: dodatni — postępowanie szczepienne do omówienia z neonatologiem"><span>dodatni</span></label>
                 <label class="flex items-center gap-1.5 bg-white border border-sanddark rounded-full px-3 py-1.5 cursor-pointer"><input type="radio" name="hbsag" value="HBsAg matki: wynik nieznany — do omówienia z neonatologiem"><span>nieznany</span></label>
               </div>
@@ -542,11 +542,11 @@ tailwind.config = {
           <span class="text-3xl flex-shrink-0" aria-hidden="true">🛡️</span>
           <div>
             <h3 class="font-display text-xl md:text-2xl font-semibold text-deep">Szczepienia noworodka</h3>
-            <p class="text-sm text-ink/70 mt-1">Wasze stanowisko wobec szczepień w szpitalu. Przy odroczeniu WZW B ważny jest ujemny wynik HBsAg u matki.</p>
+            <p class="text-sm text-ink/70 mt-1">Wasze stanowisko wobec szczepień w szpitalu. WZW B i BCG są w Polsce obowiązkowe; przesunięcie WZW B Program Szczepień Ochronnych dopuszcza tylko w określonych sytuacjach — omówcie je z lekarzem.</p>
           </div>
         </div>
         <div class="space-y-1 text-[15px]">
-            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="radio" name="vacc" value="Szczepienia realizujemy we własnym zakresie — na obecnym etapie nie wyrażamy zgody na szczepienia w szpitalu (WZW B, BCG); wykonamy je po wypisie u wybranego pediatry. Odroczenie WZW B przy potwierdzonym ujemnym wyniku HBsAg u matki jest bezpieczne." checked class="mt-0.5 flex-shrink-0"><span>Szczepienia we własnym zakresie po wypisie (WZW B, BCG odroczone)</span></label>
+            <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="radio" name="vacc" value="Szczepienia realizujemy we własnym zakresie — na obecnym etapie nie wyrażamy zgody na szczepienia w szpitalu (WZW B, BCG); wykonamy je po wypisie u wybranego pediatry." checked class="mt-0.5 flex-shrink-0"><span>Szczepienia we własnym zakresie po wypisie (WZW B, BCG odroczone)</span></label>
             <label class="flex gap-3 items-start p-3 rounded-xl hover:bg-tealsoft/40 cursor-pointer transition-colors"><input type="radio" name="vacc" value="Wyrażamy zgodę na szczepienia w szpitalu (WZW B, BCG) zgodnie ze standardem, w obecności rodzica" class="mt-0.5 flex-shrink-0"><span>Szczepienia w szpitalu zgodnie ze standardem</span></label>
         </div>
       </div>
@@ -2028,8 +2028,8 @@ tailwind.config = {
     var i18nChain = null;
     function loadKreatorI18n(){
       if (i18nChain) return i18nChain;
-      i18nChain = (window.PNM_I18N ? Promise.resolve() : loadScript('/js/i18n-kreator.js?v=52'))
-        .then(function(){ return (window.PNM_I18N && window.PNM_I18N.txt) ? null : loadScript('/js/i18n-kreator-ui.js?v=52'); })
+      i18nChain = (window.PNM_I18N ? Promise.resolve() : loadScript('/js/i18n-kreator.js?v=53'))
+        .then(function(){ return (window.PNM_I18N && window.PNM_I18N.txt) ? null : loadScript('/js/i18n-kreator-ui.js?v=53'); })
         .then(function(){
           // i18n-kreator-ui.js dopina się asynchronicznie — poczekaj aż wystawi słownik
           return new Promise(function(res){
@@ -2246,8 +2246,8 @@ tailwind.config = {
         dlBtn.disabled=true; dlStatus.textContent='Przygotowuję dokument…';
         // jsPDF self-hosted (bez zewnętrznego CDN i bez SRI — kompromitacja cdnjs = obcy kod na stronie z danymi o zdrowiu)
         var chain = window.jspdf ? Promise.resolve() : loadScript('/js/jspdf.umd.min.js?v=1');
-        chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js?v=52'); })
-          .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js?v=52'); })
+        chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js?v=53'); })
+          .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js?v=53'); })
           .then(function(){
             var data=planData();
             return pnmWithTimeout(pnmPrepareNotes(data.notes,'pl'), 12000, {text:data.notes, caption:''})
@@ -2279,8 +2279,8 @@ tailwind.config = {
         dlBtnLang.disabled=true; dlStatusLang.textContent='Przygotowuję dokument…';
         // jsPDF self-hosted (bez zewnętrznego CDN i bez SRI — kompromitacja cdnjs = obcy kod na stronie z danymi o zdrowiu)
         var chain = window.jspdf ? Promise.resolve() : loadScript('/js/jspdf.umd.min.js?v=1');
-        chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js?v=52'); })
-          .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js?v=52'); })
+        chain.then(function(){ return window.PNM_buildPlanPDF ? null : loadScript('/js/plan-pdf.js?v=53'); })
+          .then(function(){ return window.PNM_I18N ? null : loadScript('/js/i18n-kreator.js?v=53'); })
           .then(function(){
             var data=planData();
             return pnmWithTimeout(pnmPrepareNotes(data.notes, lang), 12000, {text:data.notes, caption:''})
